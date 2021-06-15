@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.3.0+</version>
+		<version>7.3.0+</version>
+	</compatibility>
+	<theme id="atmc" name="atmc">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="bullet-style" options="dots,arrows" type="select" value="dots" />
+			<setting configurable="true" key="show-header-search" type="checkbox" value="true" />
+			<setting configurable="true" key="show-maximize-minimize-application-links" type="checkbox" value="false" />
+			<setting configurable="false" key="show-site-name-default" value="false" />
+			<setting configurable="false" key="show-site-name-supported" value="false" />
+		</settings>
+		<layout-templates>
+			<custom>
+				<layout-template id="side_menu_layout" name="SideMenu Layout">
+					<template-path>/layouttpl/custom/side_menu_layout.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/side_menu_layout.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="side_menu_1_2" name="SideMenu 1_2">
+					<template-path>/layouttpl/custom/side_menu_1_2.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/side_menu_1_2.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="side_menu_1_2_1" name="SideMenu 1_2_1">
+					<template-path>/layouttpl/custom/side_menu_1_2_1.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/side_menu_1_2_1.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="dashboard" name="Dashboard Layout">
+					<template-path>/layouttpl/custom/dashboard.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/dashboard.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="home" name="Home Layout">
+					<template-path>/layouttpl/custom/home.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/home.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

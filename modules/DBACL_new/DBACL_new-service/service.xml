@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.ejada.atmc.acl.db">
+	<namespace>DBACL_NEW</namespace>
+	<entity name="LNP2_PolicyMastr" local-service="true" remote-service="true" data-source="extDS"
+			table="LNP2_POLICYMASTR" cache-enabled="false" >
+
+		<!-- PK fields -->
+		<column name="np1_proposal" primary="true" type="String" db-name="NP1_PROPOSAL"/>
+		<column name="np2_setno"  type="String" db-name="NP2_SETNO"/>
+
+		<!-- Other fields -->
+		<column name="cfr_forfeitucd" type="String"  db-name="CFR_FORFEITUCD"/>
+		<column name="cmo_mode" type="String"  db-name="CMO_MODE"/>
+		<column name="pcu_currcode" type="String"  db-name="PCU_CURRCODE"/>
+		<column name="aag_agcode" type="long"  db-name="AAG_AGCODE"/>
+		<column name="ccl_categorycd" type="String"  db-name="CCL_CATEGORYCD"/>
+		<column name="use_userid" type="String"  db-name="USE_USERID"/>
+		<column name="use_datetime" type="Date"  db-name="USE_DATETIME"/>
+		<column name="np2_grosprm" type="long"  db-name="NP2_GROSPRM"/>
+		<column name="np2_ageprem" type="long"  db-name="NP2_AGEPREM"/>
+		<column name="np2_commendate" type="Date"  db-name="NP2_COMMENDATE"/>
+		<column name="np2_sumatrisk" type="long"  db-name="NP2_SUMATRISK"/>
+		<column name="np2_substandar" type="String"  db-name="NP2_SUBSTANDAR"/>
+		<column name="np2_effectdate" type="Date"  db-name="NP2_EFFECTDATE"/>
+		<column name="np2_expirydate" type="Date"  db-name="NP2_EXPIRYDATE"/>
+		<column name="np2_endofprmdt" type="Date"  db-name="NP2_ENDOFPRMDT"/>
+		<column name="np2_paidupamt" type="long"  db-name="NP2_PAIDUPAMT"/>
+		<column name="np2_diffinprem" type="long"  db-name="NP2_DIFFINPREM"/>
+		<column name="np2_diffinfyco" type="long"  db-name="NP2_DIFFINFYCO"/>
+		<column name="np2_charges" type="long"  db-name="NP2_CHARGES"/>
+		<column name="np2_totload" type="long"  db-name="NP2_TOTLOAD"/>
+		<column name="np2_nextduedat" type="Date"  db-name="NP2_NEXTDUEDAT"/>
+		<column name="np2_ageadmitt" type="long"  db-name="NP2_AGEADMITT"/>
+		<column name="np2_optimaindex" type="long"  db-name="NP2_OPTIMAINDEX"/>
+		<column name="np2_ageprem2nd" type="long"  db-name="NP2_AGEPREM2ND"/>
+		<column name="np2_policyfees" type="long"  db-name="NP2_POLICYFEES"/>
+		<column name="np2_sar" type="long"  db-name="NP2_SAR"/>
+		<column name="np2_totpremium" type="long"  db-name="NP2_TOTPREMIUM"/>
+		<column name="np2_approved" type="long"  db-name="NP2_APPROVED"/>
+		<column name="np2_endorsementno" type="String"  db-name="NP2_ENDORSEMENTNO"/>
+		<column name="pfs_acntyear" type="String"  db-name="PFS_ACNTYEAR"/>
+		<column name="arq_requestype" type="String"  db-name="ARQ_REQUESTYPE"/>
+		<column name="arq_requestno" type="long"  db-name="ARQ_REQUESTNO"/>
+		<column name="np2_forfeitdat" type="Date"  db-name="NP2_FORFEITDAT"/>
+		<column name="convert" type="long"  db-name="CONVERT"/>
+		<column name="np2_notionalage" type="long"  db-name="NP2_NOTIONALAGE"/>
+		<column name="cop_occupaticd" type="String"  db-name="COP_OCCUPATICD"/>
+		<column name="np2_dob" type="Date"  db-name="NP2_DOB"/>
+		<column name="np2_accr_proc" type="String"  db-name="NP2_ACCR_PROC"/>
+		<column name="np2_effectiveage" type="long"  db-name="NP2_EFFECTIVEAGE"/>
+		<column name="np2_nom2ndlife" type="String"  db-name="NP2_NOM2NDLIFE"/>
+		<column name="np2_dob_2nd" type="Date"  db-name="NP2_DOB_2ND"/>
+		<column name="np2_lastrevbonus" type="long"  db-name="NP2_LASTREVBONUS"/>
+		<column name="np2_reversionary" type="long"  db-name="NP2_REVERSIONARY"/>
+		<column name="np2_rider_bonus" type="long"  db-name="NP2_RIDER_BONUS"/>
+		<column name="np2_last_rider_bonus" type="long"  db-name="NP2_LAST_RIDER_BONUS"/>
+		<column name="np2_ageprem_actual" type="long"  db-name="NP2_AGEPREM_ACTUAL"/>
+		<column name="np2_ageprem2nd_actual" type="long"  db-name="NP2_AGEPREM2ND_ACTUAL"/>
+
+		<finder name="np1_proposal" return-type="lnp2_policymastr">
+			<finder-column name="np1_proposal"/>
+		</finder>
+	</entity>
+</service-builder>

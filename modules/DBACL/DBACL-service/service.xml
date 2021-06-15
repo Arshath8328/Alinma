@@ -1,0 +1,1515 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.ejada.atmc.acl.db">
+	<namespace>DBACL</namespace>
+
+	<entity name="SMS" local-service="true" remote-service="true" human-name="Sms Table" data-source="extDS" table="sms" cache-enabled="false">
+
+		<column name="ID" type="long" primary="true"></column>
+		<column name="message" type="String"></column>
+		<column name="mobile" type="String"></column>
+		<column name="smsType" type="String"></column>
+
+	</entity>
+
+	<entity name="Customer" local-service="true" remote-service="true" data-source="extDS" table="MDM_CUSTOMER" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="String" db-name="MDM_CUST_CIVIL_ID" />
+
+		<!-- Other fields -->
+		<column name="nameEn" type="String" db-name="MDM_CUST_NAME" />
+		<column name="nameAr" type="String" db-name="MDM_CUST_NAME_AR" />
+		<column name="phone" type="String" db-name="MDM_PHONE" />
+		<column name="email" type="String" db-name="MDM_EMAIL" />
+		<column name="nationality" type="String" db-name="MDM_NATIONALITY" />
+		<column name="customerBirthDay" type="Date" db-name="MDM_CUST_DOB" />
+
+		<column name="gender" type="String" db-name="MDM_GENDER" />
+		<column name="buildingNo" type="String" db-name="MDM_BLDG_NO" />
+		<column name="unitNo" type="String" db-name="MDM_UNIT_NO" />
+		<column name="street" type="String" db-name="MDM_STREET" />
+		<column name="district" type="String" db-name="MDM_DISTRICT" />
+		<column name="zipCode" type="String" db-name="MDM_ZIPCODE" />
+		<column name="additNo" type="String" db-name="MDM_ADDTIONAL_NO" />
+		<column name="city" type="String" db-name="MDM_CITY" />
+
+		<finder name="customerId" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+	<entity name="CustomerIban" local-service="true" remote-service="true" data-source="extDS" table="MDM_CUSTOMER_IBAN" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="String" db-name="MDM_CUST_CIVIL_ID" />
+
+		<column name="refCode" type="String" db-name="MDM_CUST_REF_CODE" />
+		<column name="premiaCCode" type="String" db-name="MDM_PREMIA_CODE" />
+		<column name="iban" type="String" db-name="MDM_IBAN" />
+
+		<finder name="CustomerIbanById" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+
+	<entity name="CLMNajm" local-service="true" remote-service="true" data-source="extDS" table="MDM_CLM_NAJM" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="caseNo" primary="true" type="String" db-name="CIAI_CASE_NO" />
+		<column name="cipiId" primary="true" type="String" db-name="CIPI_ID" />
+		<!-- Other fields -->
+		<column name="callDt" type="String" db-name="CIAI_CALL_DT" />
+		<column name="city" type="String" db-name="CIAI_CITY" />
+		<column name="name" type="String" db-name="CIPI_NAME" />
+		<column name="phoneNo" type="String" db-name="CIPI_PHONE_NO" />
+		<column name="age" type="String" db-name="CIPI_AGE" />
+		<column name="nationality" type="String" db-name="CIPI_NATIONALITY" />
+		<column name="plateNo" type="String" db-name="CIPI_PLATE_NO" />
+		<column name="liabiltiyPerc" type="String" db-name="CIPI_LIABILITY_PERC" />
+		<column name="liabiltiyAmt" type="String" db-name="CIPI_LIABILITY_AMT" />
+		<column name="customId" type="String" db-name="CIPI_CUSTOM_ID" />
+		<column name="seqNo" type="String" db-name="CIPI_SEQ_NO" />
+		<column name="englishName" type="String" db-name="CIII_ENGLISH_NAME" />
+		<column name="polNo" type="String" db-name="CIII_POL_NO" />
+		<column name="najmPlateNo" type="String" db-name="CIII_NAJM_PLATE_NO" />
+		<column name="najmChassisNo" type="String" db-name="CIII_NAJM_CHASSIS_NO" />
+		<column name="najmVEHNo" type="String" db-name="CIII_NAJM_VEH_ID" />
+		<column name="causeAr" type="String" db-name="CIAAI_CAUSE_ARB" />
+		<column name="causeEn" type="String" db-name="CIAAI_CAUSE_ENG" />
+
+		<finder name="CASE_PLATE" return-type="CLMNajm">
+			<finder-column name="caseNo" />
+			<finder-column name="najmPlateNo" />
+		</finder>
+		<finder name="CASE_CUSTOM" return-type="CLMNajm">
+			<finder-column name="caseNo" />
+			<finder-column name="customId" />
+		</finder>
+
+		<finder name="NajmPlateNo" return-type="Collection">
+			<finder-column name="najmPlateNo" />
+		</finder>
+
+		<finder name="CustomId" return-type="Collection">
+			<finder-column name="customId" />
+		</finder>
+
+		<finder name="CASE_NAMEEN" return-type="CLMNajm">
+			<finder-column name="caseNo" />
+			<finder-column name="englishName" />
+		</finder>
+
+		<finder name="caseNo" return-type="Collection">
+			<finder-column name="caseNo" />
+		</finder>
+
+	</entity>
+
+	<entity name="ProductCovers" local-service="true" remote-service="true" data-source="extDS" table="MDM_PRODUCT_COVERS" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="productCode" primary="true" type="long" db-name="MDM_PROD_CODE" />
+		<column name="sectionCode" primary="true" type="long" db-name="MDM_SEC_CODE" />
+		<column name="coverCode" primary="true" type="String" db-name="MDM_CVR_CODE" />
+		<!-- Other fields -->
+		<column name="coverName" type="String" db-name="MDM_CVR_NAME" />
+		<column name="coverNameAr" type="String" db-name="MDM_CVR_NAME_AR" />
+		<column name="coverDesc" type="String" db-name="MDM_CVR_DESC" />
+		<column name="coverDescAr" type="String" db-name="MDM_CVR_DESC_AR" />
+		<column name="coverPremium" type="String" db-name="MDM_PREMIUM" />
+		<column name="coverFld1" type="String" db-name="MDM_FIELD_1" />
+		<column name="coverFld2" type="String" db-name="MDM_FIELD_2" />
+		<column name="coverFld3" type="String" db-name="MDM_FIELD_3" />
+		<column name="coverFld4" type="String" db-name="MDM_FIELD_4" />
+
+		<finder name="CoverCode" return-type="Collection">
+			<finder-column name="coverCode" />
+		</finder>
+		<finder name="ProductCode" return-type="Collection">
+			<finder-column name="productCode" />
+		</finder>
+		<finder name="CoverCodeProductCode" return-type="Collection">
+			<finder-column name="coverCode" />
+			<finder-column name="productCode" />
+		</finder>
+	</entity>
+
+	<entity name="ClaimODSearch" local-service="true" remote-service="true" data-source="extDS" table="ODS_CLAIM_OD_SEARCH" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="reportNo" primary="true" type="String" db-name="ODS_REPORT_NO" />
+		<column name="vehicleSEQCustom" primary="true" type="String" db-name="ODS_VEHICLE_SEQ_CUSTOM" />
+		<!-- Other fields -->
+		<column name="vehicleDevType" type="String" db-name="ODS_VEHICLE_DEF_TYPE" />
+		<column name="natureofLoss" type="String" db-name="ODS_NATUREOF_LOSS" />
+		<column name="causeCode" type="String" db-name="ODS_CAUSE_CODE" />
+		<column name="typeOfClaim" type="String" db-name="ODS_TYPEOF_CLAIM" />
+		<column name="claimLossDate" type="Date" db-name="ODS_CLAIM_LOSS_DT" />
+		<column name="lossRemarks" type="String" db-name="ODS_LOSS_REMARKS" />
+		<column name="faultPercent" type="String" db-name="ODS_FAULT_PERCENT" />
+
+	</entity>
+
+	<entity name="ClaimTPSearch" local-service="true" remote-service="true" data-source="extDS" table="ODS_CLAIM_TP_SEARCH" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="reportNo" primary="true" type="String" db-name="ODS_REPORT_NO" />
+		<column name="tpId" primary="true" type="String" db-name="ODS_TP_ID" />
+		<!-- Other fields -->
+		<column name="tpDriverName" type="String" db-name="ODS_TP_DRIVER_NAME" />
+		<column name="tpAge" type="String" db-name="ODS_TP_AGE" />
+		<column name="vehicleSEQCustom" type="String" db-name="ODS_VEHICLE_SEQ_CUSTOM" />
+		<column name="tpMobileNo" type="String" db-name="ODS_TP_MOBILE_NO" />
+		<column name="tpNationality" type="String" db-name="ODS_TP_NATIONALITY" />
+
+	</entity>
+
+	<entity name="PolVEHSearch" local-service="true" remote-service="true" data-source="extDS" table="ODS_POL_VEH_SEARCH" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="vehicleSEQCustom" primary="true" type="String" db-name="ODS_VEHICLE_SEQ_CUSTOM" />
+		<column name="chassisNo" type="String" db-name="ODS_CHASSIS_NO" />
+		<!-- Other fields -->
+		<column name="vehicleDevType" type="String" db-name="ODS_VEHICLE_DEF_TYPE" />
+		<column name="inceptionDate" type="Date" db-name="ODS_INCEPTION_DT" />
+		<column name="expiryDate" type="Date" db-name="ODS_EXPIRY_DT" />
+		<column name="engPlateNo" type="long" db-name="ODS_ENG_PLATE_NO" />
+		<column name="engPlateL1" type="String" db-name="ODS_ENG_PLATE_L1" />
+		<column name="engPlateL2" type="String" db-name="ODS_ENG_PLATE_L2" />
+		<column name="engPlateL3" type="String" db-name="ODS_ENG_PLATE_L3" />
+		<column name="arbPlateNo" type="String" db-name="ODS_ARB_PLATE_NO" />
+		<column name="arbPlateL1" type="String" db-name="ODS_ARB_PLATE_L1" />
+		<column name="arbPlateL2" type="String" db-name="ODS_ARB_PLATE_L2" />
+		<column name="arbPlateL3" type="String" db-name="ODS_ARB_PLATE_L3" />
+
+	</entity>
+
+	<entity name="PolicyHDR" local-service="true" remote-service="true" data-source="extDS" table="ODS_POLICY_HDR" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<!-- Other fields -->
+		<column name="iqamaId" type="String" db-name="ODS_IQAMA_ID" />
+		<column name="policyStatus" type="String" db-name="ODS_POLICY_STATUS" />
+		<column name="product" type="String" db-name="ODS_PRODUCT" />
+		<column name="inceptionDate" type="Date" db-name="ODS_INCEPTION_DT" />
+		<column name="expiryDate" type="Date" db-name="ODS_EXPIRY_DT" />
+		<column name="sumInsured" type="long" db-name="ODS_SUM_INSURED" />
+		<column name="totalPremium" type="long" db-name="ODS_TOTAL_PREMIUM" />
+		<column name="policyFees" type="long" db-name="ODS_POLICY_FEES" />
+		<column name="policyTaxes" type="String" db-name="ODS_POLICY_TAXES" />
+		<column name="policyTerm" type="long" db-name="ODS_POLICY_TERM" />
+		<column name="premium" type="String" db-name="ODS_OS_PREMIUM" />
+		<column name="nextDueDate" type="Date" db-name="ODS_NEXT_DUE_DT" />
+		<column name="countPremMissed" type="long" db-name="ODS_COUNT_PREM_MISSED" />
+		<column name="modeOfPayment" type="String" db-name="ODS_MODEOF_PAYMENT" />
+		<column name="nextRenwalDate" type="Date" db-name="ODS_NEXT_RENEWAL_DT" />
+		<column name="custName" type="String" db-name="ODS_CUST_NAME" />
+		<column name="custBirthDate" type="Date" db-name="ODS_CUST_DOB" />
+		<column name="insuredName" type="String" db-name="ODS_INSURED_NAME" />
+		<column name="insuredBirthDate" type="Date" db-name="ODS_INSURED_DOB" />
+		<column name="insuredId" type="String" db-name="ODS_INSURED_ID" />
+		<column name="insuredMobile" type="String" db-name="ODS_INSURED_MOBILE" />
+		<column name="insuredEmail" type="String" db-name="ODS_INSURED_EMAIL" />
+		<column name="insuredAddr" type="String" db-name="ODS_INSURED_ADDR" />
+		<column name="insuredGender" type="String" db-name="ODS_INSURED_GENDER" />
+		<column name="occuptation" type="String" db-name="ODS_OCCUPTATION" />
+		<column name="estExpiryDate" type="Date" db-name="ODS_EST_EXPIRY_DT" />
+		<column name="najmStatus" type="String" db-name="ODS_NAJM_STATUS" />
+		<column name="surrenderValue" type="long" db-name="ODS_SURRENDER_VALUE" />
+		<column name="noOfRisk" type="long" db-name="ODS_NOOF_RISK" />
+		<column name="memberScheme" type="String" db-name="ODS_MEMBER_SCHEME" />
+		<column name="memberBenefits" type="String" db-name="ODS_MEMBER_BENEFITS" />
+
+
+		<order by="desc">
+			<order-column name="expiryDate" />
+		</order>
+
+		<finder name="PolicyNo" return-type="policyHDR">
+			<finder-column name="policyNo" />
+		</finder>
+		<finder name="MULTI_POLICY" return-type="Collection">
+			<finder-column arrayable-operator="OR" name="policyNo" />
+		</finder>
+
+		<finder name="insuredMobileNo" return-type="Collection">
+			<finder-column name="insuredMobile" />
+		</finder>
+		<finder name="iqamaIdAndStatus" return-type="Collection">
+			<finder-column name="iqamaId" />
+			<finder-column name="policyStatus" />
+		</finder>
+
+	</entity>
+
+	<entity name="PolicyPayment" local-service="true" remote-service="true" data-source="extDS" table="ODS_POLICY_PAYMENT" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="voucherNo" primary="true" type="String" db-name="ODS_VOUCHER_NO" />
+		<!-- Other fields -->
+		<column name="endtNo" type="String" db-name="ODS_ENDT_NO" />
+		<column name="claimNo" type="String" db-name="ODS_CLAIM_NO" />
+		<column name="dueDate" type="Date" db-name="ODS_DUE_DT" />
+		<column name="docDate" type="Date" db-name="ODS_DOC_DT" />
+		<column name="amount" type="double" db-name="ODS_AMOUNT" />
+		<column name="reference" type="String" db-name="ODS_REFERENCE" />
+
+	</entity>
+
+	<entity name="PolicyVEH" local-service="true" remote-service="true" data-source="extDS" table="ODS_POLICY_VEH" cache-enabled="false">
+
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="vehId" primary="true" type="String" db-name="ODS_VEH_ID" />
+		<column name="vehicleDefType" type="String" db-name="ODS_VEHICLE_DEF_TYPE" />
+		<column name="vehicleSeqCustom" type="String" db-name="ODS_VEHICLE_SEQ_CUSTOM" />
+		<column name="chassisNo" type="String" db-name="ODS_CHASSIS_NO" />
+		<column name="bodyType" type="String" db-name="ODS_BODY_TYPE" />
+		<column name="make" type="String" db-name="ODS_MAKE" />
+		<column name="vehModel" type="String" db-name="ODS_MODEL" />
+		<column name="mfgYear" type="long" db-name="ODS_MFG_YEAR" />
+		<column name="color" type="String" db-name="ODS_COLOR" />
+		<column name="agencyRepair" type="String" db-name="ODS_AGENCY_REPAIR" />
+		<column name="noofPassengers" type="long" db-name="ODS_NOOF_PASSENGERS" />
+		<column name="enPlateNo" type="long" db-name="ODS_ENG_PLATE_NO" />
+		<column name="enPlateL1" type="String" db-name="ODS_ENG_PLATE_L1" />
+		<column name="enPlateL2" type="String" db-name="ODS_ENG_PLATE_L2" />
+		<column name="enPlateL3" type="String" db-name="ODS_ENG_PLATE_L3" />
+		<column name="arPlateNo" type="String" db-name="ODS_ARB_PLATE_NO" />
+		<column name="arPlateL1" type="String" db-name="ODS_ARB_PLATE_L1" />
+		<column name="arPlateL2" type="String" db-name="ODS_ARB_PLATE_L2" />
+		<column name="arPlateL3" type="String" db-name="ODS_ARB_PLATE_L3" />
+		<column name="deductible" type="long" db-name="ODS_DEDUCTIBLE" />
+		<column name="vehicleValue" type="long" db-name="ODS_VEHICLE_VALUE" />
+		<column name="premium" type="long" db-name="ODS_PREMIUM" />
+		<column name="discounts" type="long" db-name="ODS_DISCOUNTS" />
+		<column name="loading" type="long" db-name="ODS_LOADING" />
+		<column name="totalPremium" type="long" db-name="ODS_TOTAL_PREMIUM" />
+		<column name="noofClaimFreeYears" type="long" db-name="ODS_NOOF_CLAIM_FREE_YEARS" />
+		<column name="useOfCehicle" type="String" db-name="ODS_USEOF_VEHICLE" />
+		<column name="najmPlateType" type="String" db-name="ODS_NAJM_PLATE_TYPE" />
+		<column name="najmStatus" type="String" db-name="ODS_NAJM_STATUS" />
+		<column name="estemaraExpiryDate" type="String" db-name="ODS_ESTEMARA_EXP_DT" />
+		<column name="geoLocation" type="String" db-name="ODS_GEOLOCATION" />
+
+		<finder name="PolicyNoVehicleSeqCustom" return-type="Collection">
+			<finder-column name="policyNo" />
+			<finder-column name="vehicleSeqCustom" />
+		</finder>
+
+		<finder name="VehicleSeqCustom" return-type="Collection">
+			<finder-column name="vehicleSeqCustom" />
+		</finder>
+
+		<finder name="EnPlateNo" return-type="Collection">
+			<finder-column name="enPlateNo" />
+			<finder-column name="enPlateL1" />
+			<finder-column name="enPlateL2" />
+			<finder-column name="enPlateL3" />
+		</finder>
+
+		<finder name="policyNumber" return-type="policyVEH">
+			<finder-column name="policyNo" />
+		</finder>
+
+		<finder name="ArPlateNo" return-type="Collection">
+			<finder-column name="arPlateNo" />
+			<finder-column name="arPlateL1" />
+			<finder-column name="arPlateL2" />
+			<finder-column name="arPlateL3" />
+		</finder>
+
+
+	</entity>
+
+	<entity name="PolicyVehCvr" local-service="true" remote-service="true" data-source="extDS" table="ODS_POLICY_VEH_CVR" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="vehId" primary="true" type="String" db-name="ODS_VEH_ID" />
+		<column name="cvrCode" type="String" db-name="ODS_CVR_CODE" />
+		<column name="description" primary="true" type="String" db-name="ODS_DESCRIPTION" />
+		<!-- Other fields -->
+		<column name="cvrType" type="String" db-name="ODS_CVR_TYPE" />
+		<column name="benefitTerm" type="String" db-name="ODS_BENEFIT_TERM" />
+		<column name="premiumTerm" type="String" db-name="ODS_PREMIUM_TERM" />
+		<column name="premium" type="long" db-name="ODS_PREMIUM" />
+		<column name="sumCovered" type="long" db-name="ODS_SUM_COVERED" />
+
+		<finder name="PolicyNo" return-type="Collection">
+			<finder-column name="policyNo" />
+		</finder>
+		<finder name="PolicyNoVehId" return-type="Collection">
+			<finder-column name="policyNo" />
+			<finder-column name="vehId" />
+		</finder>
+
+	</entity>
+
+	<entity name="CompDiscount" local-service="true" remote-service="true" data-source="extDS" table="COMP_DISCOUNT" cache-enabled="false">
+		<!-- PK fields -->
+		<column name="iqamaId" primary="true" type="String" db-name="IQAMA_ID" />
+		<column name="schemeCode" type="String" db-name="SCHEME_CODE" />
+		<column name="companyCode" type="String" db-name="COMPANY_NAME" />
+		<column name="startDate" type="Date" db-name="START_DATE" />
+		<column name="endDate" type="Date" db-name="END_DATE" />
+	</entity>
+
+	<entity name="PolicyVehDrv" local-service="true" remote-service="true" data-source="extDS" table="ODS_POLICY_VEH_DRV" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="vehId" primary="true" type="long" db-name="ODS_VEH_ID" />
+		<column name="driverLicenseNo" primary="true" type="String" db-name="ODS_DRIVER_LICENSE_NO" />
+		<!-- Other fields -->
+		<column name="driverName" type="String" db-name="ODS_DRIVER_NAME" />
+		<column name="driverBirthDate" type="Date" db-name="ODS_DRIVER_DOB" />
+		<column name="driverNationality" type="String" db-name="ODS_DRIVER_NATIONALITY" />
+		<column name="driverGender" type="String" db-name="ODS_DRIVER_GENDER" />
+
+		<finder name="polNumber" return-type="Collection">
+			<finder-column name="policyNo" />
+		</finder>
+
+	</entity>
+
+	<entity name="ClaimHDR" local-service="true" remote-service="true" data-source="extDS" table="ODS_CLAIM_HDR" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="policyNo" primary="true" type="String" db-name="ODS_POLICY_NO" />
+		<column name="claimNo" primary="true" type="String" db-name="ODS_CLAIM_NO" />
+		<!-- Other fields -->
+		<column name="claimStatus" type="String" db-name="ODS_CLAIM_STATUS" />
+		<column name="iqamaId" type="String" db-name="ODS_IQAMA_ID" />
+		<column name="reportType" type="String" db-name="ODS_REPORT_TYPE" />
+		<column name="reportNo" type="String" db-name="ODS_REPORT_NO" />
+		<column name="enPlateNo" type="String" db-name="ODS_ENG_PLATE_NO" />
+		<column name="enPlateL1" type="String" db-name="ODS_ENG_PLATE_L1" />
+		<column name="enPlateL2" type="String" db-name="ODS_ENG_PLATE_L2" />
+		<column name="enPlateL3" type="String" db-name="ODS_ENG_PLATE_L3" />
+		<column name="arPlateNo" type="String" db-name="ODS_ARB_PLATE_NO" />
+		<column name="arPlateL1" type="String" db-name="ODS_ARB_PLATE_L1" />
+		<column name="arPlateL2" type="String" db-name="ODS_ARB_PLATE_L2" />
+		<column name="arPlateL3" type="String" db-name="ODS_ARB_PLATE_L3" />
+		<column name="natureOfLoss" type="String" db-name="ODS_NATUREOF_LOSS" />
+		<column name="causeCode" type="String" db-name="ODS_CAUSE_CODE" />
+		<column name="typeOfClaim" type="String" db-name="ODS_TYPEOF_CLAIM" />
+		<column name="claimLossDate" type="Date" db-name="ODS_CLAIM_LOSS_DT" />
+		<column name="lossRemarks" type="String" db-name="ODS_LOSS_REMARKS" />
+		<column name="faultPercent" type="String" db-name="ODS_FAULT_PERCENT" />
+		<column name="lossLocation" type="String" db-name="ODS_LOSS_LOCATION" />
+		<column name="claimAmount" type="String" db-name="ODS_CLAIM_AMOUNT" />
+		<column name="claimIntmDate" type="Date" db-name="ODS_CLAIM_INTM_DT" />
+		<column name="claimSetlDate" type="Date" db-name="ODS_CLAIM_SETL_DT" />
+		<column name="claimantName" type="String" db-name="ODS_CLAIMANT_NAME" />
+		<column name="driverName" type="String" db-name="ODS_DRIVER_NAME" />
+		<column name="claimantPhone" type="String" db-name="ODS_CLAIMANT_PHONE" />
+		<column name="iban" type="String" db-name="ODS_IBAN" />
+		<column name="tpDriverName" type="String" db-name="ODS_TP_DRIVER_NAME" />
+		<column name="tpAge" type="String" db-name="ODS_TP_AGE" />
+		<column name="tpID" type="String" db-name="ODS_TP_ID" />
+		<column name="tpPlateNo" type="String" db-name="ODS_TP_PLATE_NO" />
+		<column name="tpPlateL1" type="String" db-name="ODS_TP_PLATE_L1" />
+		<column name="tpPlateL2" type="String" db-name="ODS_TP_PLATE_L2" />
+		<column name="tpPlateL3" type="String" db-name="ODS_TP_PLATE_L3" />
+		<column name="tpInsuranceCo" type="String" db-name="ODS_TP_INSURANCE_CO" />
+		<column name="tpMobileNo" type="String" db-name="ODS_TP_MOBILE_NO" />
+		<column name="tpNationality" type="String" db-name="ODS_TP_NATIONALITY" />
+		<column name="tpIban" type="String" db-name="ODS_TP_IBAN" />
+		<column name="prodCode" type="String" db-name="ODS_PROD_CODE" />
+
+		<finder name="IqamaId" return-type="Collection">
+			<finder-column name="iqamaId" />
+		</finder>
+		<finder name="claimNo" return-type="Collection">
+			<finder-column name="claimNo" />
+		</finder>
+
+	</entity>
+	<entity name="Quotations" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS" cache-enabled="false">
+		<column name="addressAddNo" type="long" db-name="ADDRESS_ADD_NUMBER" />
+		<column name="addressBuildingNo" type="long" db-name="ADDRESS_BLDG_NO" />
+		<column name="addressDistrict" type="String" db-name="ADDRESS_DISTRICT" />
+		<column name="addressStreet" type="String" db-name="ADDRESS_STREET" />
+		<column name="addressUnitNo" type="long" db-name="ADDRESS_UNIT_NO" />
+		<column name="addressZipCode" type="long" db-name="ADDRESS_ZIPCODE" />
+		<column name="addCover" type="String" db-name="ADD_COVER" />
+		<column name="addDriver" type="String" db-name="ADD_DRIVER" />
+		<column name="agencyRepair" type="String" db-name="AGENCY_REPAIR" />
+		<column name="city" type="String" db-name="CITY" />
+		<column name="deductibleValue" type="String" db-name="DEDUCTIBLE_VALUE" />
+		<column name="insuredDob" type="Date" db-name="INSURED_DOB" />
+		<column name="insuredEmail" type="String" db-name="INSURED_EMAIL" />
+		<column name="insuredGender" type="String" db-name="INSURED_GENDER" />
+		<column name="insuredId" type="long" db-name="INSURED_ID" />
+		<column name="insuredIdType" type="long" db-name="INSURED_ID_TYPE" />
+		<column name="insuredMobile" type="long" db-name="INSURED_MOBILE" />
+		<column name="insuredName" type="String" db-name="INSURED_NAME" />
+		<column name="insuredNationality" type="String" db-name="INSURED_NATIONALITY" />
+		<column name="insuredEducation" type="String" db-name="INSURED_EDUCATION" />
+		<column name="insuredMaritalStatus" type="String" db-name="INSURED_MARITAL_STATUS" />
+		<column name="insuredNoChildUnder16" type="long" db-name="INSURED_NO_CHILD_UNDER_16" />
+
+		<column name="loyaltyDiscount" type="String" db-name="LOYALTY_DISCOUNT" />
+		<column name="ncdYears" type="long" db-name="NCD_YEARS" />
+		<column name="paymemtAmount" type="long" db-name="PAYMENT_AMOUNT" />
+		<column name="paymentMethod" type="String" db-name="PAYMENT_METHOD" />
+		<column name="paymentRefNo" type="String" db-name="PAYMENT_REF_NO" />
+		<column name="policyEffFromNo" type="Date" db-name="POLICY_EFFECTIVE_FROM_NO" />
+		<column name="policyEffTo" type="Date" db-name="POLICY_EFFECTIVE_TO" />
+		<column name="policyEffDate" type="Date" db-name="POLICY_EFF_DATE" />
+		<column name="policyIssueDate" type="Date" db-name="POLICY_ISSUE_DATE" />
+		<column name="policyNo" type="String" db-name="POLICY_NO" />
+		<column name="policyRefNo" type="String" db-name="POLICY_REFERENCE_NO" />
+		<column name="policyStatusCode" type="String" db-name="POLICY_STATUS_CODE" />
+		<column name="productCode" type="String" db-name="PRODUCT_CODE" />
+		<column name="purposeOfVehicle" type="String" db-name="PURPOSE_OF_VEHICLE" />
+
+
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" primary="true" />
+		<column name="referenceNo" type="String" db-name="REFERENCE_NO" />
+		<column name="source" type="String" db-name="SOURCE" />
+		<column name="transaction" type="String" db-name="TRANSACTION" />
+		<column name="vehicleBodyType" type="String" db-name="VEHICLE_BODY_TYPE" />
+		<column name="vehicleCapacity" type="long" db-name="VEHICLE_CAPACITY" />
+		<column name="vehicleChassisNo" type="String" db-name="VEHICLE_CHASSIS_NO" />
+		<column name="vehicleColor" type="String" db-name="VEHICLE_COLOR" />
+		<column name="vehicleCylinder" type="long" db-name="VEHICLE_CYLINDER" />
+		<column name="vehicleEstExpiryDate" type="Date" db-name="VEHICLE_EST_EXP_DATE" />
+		<column name="vehicleId" type="long" db-name="VEHICLE_ID" />
+		<column name="vehicleIdType" type="long" db-name="VEHICLE_ID_TYPE" />
+		<column name="vehicleMake" type="String" db-name="VEHICLE_MAKE" />
+		<column name="vehicleMfgYear" type="long" db-name="VEHICLE_MFG_YEAR" />
+		<column name="vehicleModel" type="String" db-name="VEHICLE_MODEL" />
+		<column name="vehiclePlateL1" type="String" db-name="VEHICLE_PLATE_L1" />
+		<column name="vehiclePlateL2" type="String" db-name="VEHICLE_PLATE_L2" />
+		<column name="vehiclePlateL3" type="String" db-name="VEHICLE_PLATE_L3" />
+		<column name="vehiclePlateNo" type="long" db-name="VEHICLE_PLATE_NO" />
+		<column name="vehiclePlateType" type="String" db-name="VEHICLE_PLATE_TYPE" />
+		<column name="vehicleValue" type="long" db-name="VEHICLE_VALUE" />
+		<column name="vehicleWeight" type="long" db-name="VEHICLE_WEIGHT" />
+		<column name="vehicleCity" type="String" db-name="VEHICLE_CITY" />
+		<column name="vehicleCurrentMileage" type="long" db-name="VEHICLE_CURRENT_MILE" />
+		<column name="vehicleLowerExpectedMileagePerYear" type="long" db-name="VEHICLE_LOWER_MILE" />
+		<column name="vehicleUpperExpectedMileagePerYear" type="long" db-name="VEHICLE_UPPER_MILE" />
+		<column name="vehicleNightLocation" type="String" db-name="VEHICLE_NIGHT_LOC" />
+		<column name="vehicleEngineSize" type="String" db-name="VEHICLE_ENGINE_SIZE" />
+		<column name="vehicleTransType" type="String" db-name="VEHICLE_TRANS_TYPE" />
+		<column name="vehAxleWeight" type="long" db-name="VEHICLE_AXLE_WEIGHT" />
+		<column name="vehCarMods" type="String" db-name="VEHICLE_CAR_MODS" />
+		<column name="vehSpecs" type="String" db-name="VEHICLE_SPECS" />
+
+		<column name="occCode" type="String" db-name="OCCUPATION_CODE" />
+		<column name="insuredIBAN" type="String" db-name="INSURED_IBAN" />
+		<column name="insuredDobH" type="String" db-name="INSURE_DOB_H" />
+		<column name="netPrem" type="double" db-name="NET_PREMIUM" />
+		<column name="discountAmount" type="double" db-name="NCD_DISCOUNT_AMOUNT" />
+		<column name="loyaltyDiscountAmount" type="double" db-name="LOYALTY_DISCOUNT_AMOUNT" />
+		<column name="discountPrem" type="double" db-name="NCD_DISCOUNT_PER" />
+		<column name="loyaltyDiscountPer" type="double" db-name="LOYALTY_DISCOUNT_PER" />
+		<column name="loadingAmount" type="double" db-name="LOADING_AMOUNT" />
+		<column name="policyTaxes" type="double" db-name="POLICY_TAXES" />
+		<column name="policyFees" type="double" db-name="POLICY_FEES" />
+		<column name="totalCoverPrem" type="double" db-name="TOTAL_COVER_PREMIUM" />
+		<column name="grossPrem" type="double" db-name="GROSS_PREMIUM" />
+		<column name="existingPolicyNo" type="String" db-name="EXIST_POL_NO" />
+		<column name="existingCompanyName" type="String" db-name="EXIST_COMP_NAME" />
+		<column name="existingExpDate" type="String" db-name="EXIST_EXP_DATE" />
+		<column name="policyStatusMsg" type="String" db-name="POLICY_STATUS_MESSAGE" />
+		<column name="yakeenRefNo" type="long" db-name="YAKEEN_REFERENCE_NO" />
+		<column name="quoteSubmissionDate" type="Date" db-name="QUOTE_SUBMISSION_DATE" />
+		<column name="quoteStatus" type="String" db-name="QUOTE_STATUS" />
+		<column name="saeedService" type="String" db-name="SAEED_SERVICE" />
+		<column name="driverAccidents" type="double" db-name="DRIVER_ACCIDENTS" />
+		<column name="driverAgeLess21" type="double" db-name="DRIVER_AGE_LESS_21" />
+		<column name="agencyRepairOut" type="double" db-name="AGENCY_REPAIR_OUT" />
+		<column name="totalAfterDiscount" type="double" db-name="TOTAL_AFTER_DISCOUNT" />
+		<column name="totalBeforeDisc" type="double" db-name="TOTAL_BEFORE_DISC" />
+		<column name="smsFlag" type="boolean" db-name="SMS_FLAG" />
+
+		<order>
+			<order-column name="vehicleEstExpiryDate" order-by="desc" />
+		</order>
+		<finder name="InsuredId" return-type="Collection">
+			<finder-column name="insuredId" />
+		</finder>
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+		<finder return-type="Collection" name="InsuredIdAndStatus">
+			<finder-column name="insuredId" />
+			<finder-column name="quoteStatus" arrayable-operator="OR" />
+		</finder>
+
+		<finder return-type="Collection" name="DateExpiredQuots">
+			<finder-column name="vehicleEstExpiryDate" comparator="&lt;" />
+			<finder-column name="quoteStatus" arrayable-operator="OR" />
+		</finder>
+
+		<finder return-type="Collection" name="PendingQuots">
+			<finder-column name="vehicleEstExpiryDate" comparator="&gt;" />
+			<finder-column name="quoteStatus" />
+			<finder-column name="smsFlag" />
+		</finder>
+
+		<finder return-type="Collection" name="QuotsStatus">
+			<finder-column name="quoteStatus" arrayable-operator="OR" />
+		</finder>
+
+		<finder return-type="Collection" name="ReferenceNo">
+			<finder-column name="referenceNo" arrayable-operator="OR" />
+		</finder>
+
+		<finder return-type="Quotations" name="PolicyNo">
+			<finder-column name="policyNo" />
+		</finder>
+
+		<finder return-type="Collection" name="insuredMobile">
+			<finder-column name="insuredMobile" />
+		</finder>
+	</entity>
+
+
+
+	<entity name="QuotationDrivers" local-service="true" remote-service="true" data-source="extDS" table="EJD_ADD_DRIVERS" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="addDriverId" type="long" db-name="ADD_DRIVER_ID" primary="true" />
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" />
+
+		<column name="driverDob" type="Date" db-name="DRIVER_DOB" />
+		<column name="driverDobH" type="String" db-name="DRIVER_DOB_H" />
+		<column name="driverGender" type="String" db-name="DRIVER_GENDER" />
+		<column name="driverId" type="long" db-name="DRIVER_ID" />
+		<column name="driverIdType" type="long" db-name="DRIVER_ID_TYPE" />
+		<column name="driverName" type="String" db-name="DRIVER_NAME" />
+		<column name="driverNationality" type="String" db-name="DRIVER_NATIONALITY" />
+		<column name="driverOccup" type="String" db-name="DRIVER_OCCUP" />
+		<column name="isDriverUnder21" type="boolean" db-name="IS_DRIVER_UNDER_21" />
+		<column name="driverEdu" type="String" db-name="DRIVER_EDU" />
+		<column name="driverNoChild" type="String" db-name="DRIVER_NO_CHILD" />
+		<column name="driverMaritalStatus" type="String" db-name="DRIVER_MARITAL_STATUS" />
+		<column name="driverNOFault" type="long" db-name="DRIVER_NO_FAULT" />
+		<column name="driverNOClaim" type="long" db-name="DRIVER_NO_CLAIM" />
+		<column name="driverConvictions" type="String" db-name="DRIVER_CONVICS" />
+		<column name="driverMedConds" type="String" db-name="DRIVER_MED_CONDS" />
+		<column name="ncdYears" type="int" db-name="DRIVER_NCD_YEARS" />
+		<column name="insuredRelation" type="String" db-name="INSURED_RELATION" />
+		<column name="insuredRelationProof" type="Blob" db-name="INSURED_RELATION_PROOF" />
+		<column name="insuredRelationProofFileName" type="String" db-name="RELATION_PROOF_FILE_NAME" />
+
+		<finder name="AddDriverIdQuotationId" return-type="QuotationDrivers" unique="true">
+			<finder-column name="addDriverId" />
+			<finder-column name="quotationId" />
+		</finder>
+
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+
+		<finder name="QuotationIdIsDriverUnder21" return-type="Collection">
+			<finder-column name="isDriverUnder21" />
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+	<entity name="QuotationsUserAddress" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_USER_ADDRESS"
+		cache-enabled="false">
+		<column name="userAddressId" type="long" db-name="USER_ADDRESS_ID" primary="true" />
+
+		<column name="driverId" type="long" db-name="DRIVER_ID" />
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" />
+
+		<column name="buildNo" type="String" db-name="BUILD_NO" />
+		<column name="zipCode" type="String" db-name="ZIP_CODE" />
+		<column name="addNo" type="String" db-name="ADD_NO" />
+
+		<column name="stNameEn" type="String" db-name="ST_NAME_EN" />
+		<column name="stNameAr" type="String" db-name="ST_NAME_AR" />
+		<column name="districtEn" type="String" db-name="DISTRICT_EN" />
+		<column name="districtAr" type="String" db-name="DISTRICT_AR" />
+		<column name="cityEn" type="String" db-name="CITY_EN" />
+		<column name="cityAr" type="String" db-name="CITY_AR" />
+		<column name="isNatAddress" type="boolean" db-name="IS_NAT_ADDRESS" />
+
+		<finder name="QuotationIdDriverId" return-type="QuotationsUserAddress">
+			<finder-column name="quotationId" />
+			<finder-column name="driverId" />
+			<finder-column name="isNatAddress" />
+		</finder>
+	</entity>
+	<entity name="QuotationsDriverLicense" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_DRIVER_LICENSE"
+		cache-enabled="false">
+		<column name="licenseId" type="long" db-name="LICENSE_ID" primary="true" />
+
+		<column name="driverId" type="long" db-name="DRIVER_ID" />
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" />
+
+		<column name="LicCountry" type="String" db-name="LICENSE_COUNTRY" />
+		<column name="LicType" type="String" db-name="LICENSE_TYPE" />
+		<column name="LicYrs" type="int" db-name="LICENSE_YEARS" />
+
+		<finder name="QuotationIdDriverId" return-type="Collection">
+			<finder-column name="quotationId" />
+			<finder-column name="driverId" />
+		</finder>
+	</entity>
+	<entity name="QuotationCovers" local-service="true" remote-service="true" data-source="extDS" table="EJD_ADD_COVERS" cache-enabled="false">
+		<column name="addCoverId" type="long" db-name="ADD_COVER_ID" primary="true" />
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" primary="true" />
+
+		<column name="coverCode" type="String" db-name="COVER_CODE" />
+		<column name="sectionCode" type="long" db-name="SECTION_CODE" />
+		<column name="coverEffFromDate" type="Date" db-name="COVER_EFF_FRM_DATE" />
+		<column name="coverEffToDate" type="Date" db-name="COVER_EFF_TO_DATE" />
+		<column name="coverPrem" type="long" db-name="COVER_PREM" />
+		<column name="coverRate" type="long" db-name="COVER_RATE" />
+		<column name="coverSi" type="long" db-name="COVER_SI" />
+
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationExtraTameeniInfo" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_TAMEENI_EXTRAS"
+		cache-enabled="false">
+		<column name="quotationId" type="long" db-name="QUOTATION_ID" primary="true" />
+
+		<column name="insuredFirstName" type="String" db-name="INSURED_FIRST_NAME" />
+		<column name="insuredMiddleName" type="String" db-name="INSURED_MIDDLE_NAME" />
+		<column name="insuredLastName" type="String" db-name="INSURED_LAST_NAME" />
+		<column name="isDriverDisabled" type="boolean" db-name="IS_DRIVER_DISABLED" />
+		<column name="vehicleMakeCodeTameeni" type="long" db-name="VEHICLE_MAKE_CODE_TAMEENI" />
+		<column name="coverAgeLimit" type="long" db-name="COVER_AGE_LIMIT" />
+		<column name="insuredNameLang" type="String" db-name="INSURED_NAME_LANG" />
+		<column name="policyTitleId" type="String" db-name="POLICY_TITLE_ID" />
+		<column name="isRenewal" type="boolean" db-name="IS_RENEWAL" />
+
+		<finder name="QuotationId" return-type="QuotationExtraTameeniInfo">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationsNajmDetails" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_NAJM_DETAILS"
+		cache-enabled="false">
+		<column name="caseNumber" type="String" db-name="CASE_NUMBER" primary="true" />
+		<column name="quotationId" type="long" db-name="QUOTATION_ID" primary="true" />
+
+		<column name="accidentDate" type="String" db-name="ACCIDENT_DATE" />
+		<column name="liability" type="String" db-name="LIABILITY" />
+		<column name="driverAge" type="String" db-name="DRIVER_AGE" />
+		<column name="carModel" type="String" db-name="CAR_MODEL" />
+		<column name="carType" type="String" db-name="CAR_TYPE" />
+		<column name="driverID" type="String" db-name="DRIVER_ID" />
+		<column name="sequenceNumber" type="String" db-name="SEQUENCE_NUMBER" />
+		<column name="ownerID" type="String" db-name="OWNER_ID" />
+		<column name="estimatedAmount" type="String" db-name="ESTIMATED_AMOUNT" />
+		<column name="damageParts" type="String" db-name="DAMAGE_PARTS" />
+		<column name="causeOfAccident" type="String" db-name="CAUSE_OF_ACCIDENT" />
+
+		<finder name="CaseNumberQuotationId" return-type="QuotationsNajmDetails" unique="true">
+			<finder-column name="caseNumber" />
+			<finder-column name="quotationId" />
+		</finder>
+
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+
+	<entity name="CodeMaster" local-service="true" remote-service="true" data-source="extDS" table="PM_CODE_MASTER" cache-enabled="true">
+		<column name="systemId" type="long" db-name="MDM_CODE_SYS_ID" primary="true" />
+		<column name="effFromDate" type="Date" db-name="MDM_CODE_EFF_FM_DT" />
+
+		<column name="effToDate" type="Date" db-name="MDM_CODE_EFF_TO_DT" />
+		<column name="creationDate" type="Date" db-name="MDM_CODE_CR_DT" />
+		<column name="crUid" type="String" db-name="MDM_CODE_CR_UID" />
+		<column name="updateDate" type="String" db-name="MDM_CODE_UPD_DT" />
+		<column name="updateUid" type="long" db-name="MDM_CODE_UPD_UID" />
+
+		<column name="code" type="String" db-name="MDM_CODE" />
+		<column name="codeSub" type="String" db-name="MDM_CODE_SUB" />
+		<column name="codeDesc" type="String" db-name="MDM_CODE_DESC" />
+		<column name="codeDescAr" type="String" db-name="MDM_CODE_DESC_AR" />
+		<column name="codeValue0" type="String" db-name="MDM_CODE_VALUE_0" />
+		<column name="codeValue1" type="String" db-name="MDM_CODE_VALUE_1" />
+		<column name="codeValue2" type="String" db-name="MDM_CODE_VALUE_2" />
+		<column name="codeRef" type="String" db-name="MDM_CODE_REF" />
+		<column name="codeSubRef" type="String" db-name="MDM_CODE_SUB_REF" />
+		<column name="codeFreezYN" type="String" db-name="MDM_CODE_FREEZ_YN" />
+
+		<finder name="CodeCodeSub" return-type="CodeMaster">
+			<finder-column name="code" />
+			<finder-column name="codeSub" />
+		</finder>
+
+		<finder name="CodeCodeSubCodeSubRef" return-type="CodeMaster">
+			<finder-column name="code" />
+			<finder-column name="codeSub" />
+			<finder-column name="codeSubRef" />
+			<finder-column name="codeFreezYN" />
+		</finder>
+
+		<finder name="Code" return-type="Collection">
+			<finder-column name="code" />
+		</finder>
+
+		<finder name="CodeCodeFreez" return-type="Collection">
+			<finder-column name="code" />
+			<finder-column name="codeFreezYN" />
+		</finder>
+
+	</entity>
+	<entity name="PolicyMemberDetails" local-service="true" remote-service="true" data-source="extDS" table="ODS_MEMBER_DETAILS"
+		cache-enabled="false">
+		<column name="policyNo" type="String" db-name="ODS_POLICY_NO" />
+		<column name="memberName" type="String" db-name="ODS_MEMBER_NAME" />
+		<column name="memberSi" type="long" db-name="ODS_MEMBER_SI" />
+		<column name="memberId" type="long" db-name="ODS_MEMBER_ID" primary="true" />
+		<column name="memberGender" type="String" db-name="ODS_MEMBER_GENDER" />
+		<column name="memberDob" type="Date" db-name="ODS_MEMBER_DOB" />
+		<column name="memberLimit" type="long" db-name="ODS_MEMBER_LIMIT" />
+
+		<finder name="PolicyNo" return-type="Collection">
+			<finder-column name="policyNo" />
+		</finder>
+	</entity>
+	<entity name="FundDetails" local-service="true" remote-service="true" data-source="extDS" table="ODS_FUND_DTL" cache-enabled="false">
+		<column name="policyNo" type="String" db-name="ODS_POLICY_NO" />
+		<column name="fundName" type="String" db-name="ODS_FUND_NAME" primary="true" />
+		<column name="fundDesc" type="String" db-name="ODS_FUND_DESC" />
+		<column name="fundPctg" type="String" db-name="ODS_FUND_PCTG" />
+		<column name="unitsSum" type="double" db-name="ODS_UNITS_SUM" />
+		<column name="unitPrice" type="double" db-name="ODS_UNIT_PRICE" />
+		<column name="fundsValue" type="double" db-name="ODS_FUNDS_VALUE" />
+		<column name="riskChg" type="double" db-name="ODS_RISK_CHG" />
+		<column name="partFees" type="double" db-name="ODS_PART_FEES" />
+
+		<finder name="PolicyNo" return-type="Collection">
+			<finder-column name="policyNo" />
+		</finder>
+	</entity>
+	<entity name="BeneficiaryDetails" local-service="true" remote-service="true" data-source="extDS" table="ODS_BENF_DETAILS"
+		cache-enabled="false">
+		<column name="policyNo" type="String" db-name="ODS_POLICY_NO" />
+		<column name="benfName" type="String" db-name="ODS_BENF_NAME" />
+		<column name="benfPct" type="String" db-name="ODS_BENF_PCT" />
+		<column name="benfRel" type="String" db-name="ODS_BENF_REL" />
+		<column name="benfId" type="long" db-name="ODS_BENF_ID" primary="true" />
+		<column name="benfAge" type="String" db-name="ODS_BENF_AGE" />
+		<column name="benfType" type="String" db-name="ODS_BENF_TYPE" />
+
+		<finder name="PolicyNo" return-type="Collection">
+			<finder-column name="policyNo" />
+		</finder>
+	</entity>
+	<entity name="ProductDetails" local-service="true" remote-service="true" data-source="extDS" table="PM_PRODUCT" cache-enabled="true">
+		<column name="sysId" type="long" db-name="MDM_PROD_SYS_ID" primary="true" />
+		<column name="lobSysId" type="double" db-name="MDM_PROD_LOB_SYS_ID" />
+		<column name="effFmDate" type="Date" db-name="MDM_PROD_EFF_FM_DT" />
+		<column name="effToDate" type="Date" db-name="MDM_PROD_EFF_TO_DT" />
+		<column name="crDate" type="Date" db-name="MDM_PROD_CR_DT" />
+		<column name="crUid" type="String" db-name="MDM_PROD_CR_UID" />
+		<column name="updDate" type="String" db-name="MDM_PROD_UPD_DT" />
+		<column name="updUid" type="String" db-name="MDM_PROD_UPD_UID" />
+		<column name="productCode" type="String" db-name="MDM_PROD_CODE" />
+		<column name="productName" type="String" db-name="MDM_PROD_NAME" />
+		<column name="productNameAr" type="String" db-name="MDM_PROD_NAME_AR" />
+		<finder name="ProductCode" return-type="PoductDetails">
+			<finder-column name="productCode" />
+		</finder>
+	</entity>
+	<entity name="Tariff" local-service="true" remote-service="true" data-source="extDS"></entity>
+	<entity name="CodeMasterMap" local-service="true" remote-service="true" data-source="extDS" table="PM_CODE_MASTER_MAP" cache-enabled="true">
+		<column name="source" type="String" db-name="MDM_SOURCE" primary="true" />
+		<column name="type" type="String" db-name="MDM_TYPE" />
+
+		<column name="sourceType" type="String" db-name="MDM_SRC_TYPE" />
+		<column name="sourceSystemId" type="String" db-name="MDM_SRC_SYS_ID" />
+		<column name="sourceCode" type="String" db-name="MDM_SRC_CODE" />
+		<column name="sourceDesc" type="String" db-name="MDM_SRC_DESC" />
+		<column name="coreType" type="String" db-name="MDM_CORE_TYPE" />
+		<column name="coreSystemId" type="String" db-name="MDM_CORE_SYS_ID" />
+		<column name="coreCode" type="String" db-name="MDM_CORE_CODE" />
+		<column name="coreDesc" type="String" db-name="MDM_CORE_DESC" />
+		<column name="effFromDate" type="Date" db-name="MDM_EFF_FM_DT" />
+		<column name="effToDate" type="Date" db-name="MDM_EFF_TO_DT" />
+		<column name="freezeFlag" type="String" db-name="MDM_FREEZE_FLAG" />
+		<column name="lvl1Type" type="String" db-name="MDM_LVL1_TYPE" />
+		<column name="lvl1SysId" type="String" db-name="MDM_LVL1_SYS_ID" />
+		<column name="lvl1Code" type="String" db-name="MDM_LVL1_CODE" />
+		<column name="lvl1Desc" type="String" db-name="MDM_LVL1_DESC" />
+		<column name="lvl2Type" type="String" db-name="MDM_LVL2_TYPE" />
+		<column name="lvl2SysId" type="String" db-name="MDM_LVL2_SYS_ID" />
+		<column name="lvl2Code" type="String" db-name="MDM_LVL2_CODE" />
+		<column name="lvl2Desc" type="String" db-name="MDM_LVL2_DESC" />
+
+		<finder name="SourceTypeSourceCode" return-type="CodeMasterMap">
+			<finder-column name="sourceType" />
+			<finder-column name="sourceCode" />
+		</finder>
+		<finder name="SourceTypeCoreCode" return-type="CodeMasterMap">
+			<finder-column name="sourceType" />
+			<finder-column name="coreCode" />
+		</finder>
+
+		<finder name="SourceTypeSourceCodeLvl1Code" return-type="CodeMasterMap">
+			<finder-column name="sourceType" />
+			<finder-column name="sourceCode" />
+			<finder-column name="lvl1Code" />
+		</finder>
+	</entity>
+
+	<entity name="CustomerMap" local-service="true" remote-service="true" data-source="extDS" table="PM_CUSTOMER" cache-enabled="true">
+		<column name="civilId" type="String" db-name="MDM_CUST_CIVIL_ID" />
+		<column name="effFromDate" type="Date" db-name="MDM_CUST_EFF_FM_DT" />
+
+		<column name="crDare" type="Date" db-name="MDM_CUST_CR_DT" />
+		<column name="crUid" type="String" db-name="MDM_CUST_CR_UID" />
+		<column name="updateDt" type="String" db-name="MDM_CUST_UPD_DT" />
+		<column name="updUid" type="String" db-name="MDM_CUST_UPD_UID" />
+		<column name="name" type="String" db-name="MDM_CUST_NAME" />
+		<column name="nameAr" type="String" db-name="MDM_CUST_NAME_AR" />
+		<column name="custType" type="String" db-name="MDM_CUST_TYPE" />
+		<column name="custCatg" type="String" db-name="MDM_CUST_CATG" />
+		<column name="custCatgDesc" type="String" db-name="MDM_CUST_CATG_DESC" />
+		<column name="dob" type="Date" db-name="MDM_CUST_DOB" />
+		<column name="mobileNo" type="String" db-name="MDM_MOBILE_NO" />
+		<column name="premiaCode" type="String" db-name="MDM_PREMIA_CODE" />
+		<column name="medCode" type="String" db-name="MDM_MED_CODE" />
+		<column name="ilasCode" type="String" db-name="MDM_ILAS_CODE" />
+		<column name="glasCode" type="String" db-name="MDM_GLAS_CODE" />
+		<column name="nationality" type="String" db-name="MDM_NATIONALITY" />
+		<column name="nameShort" type="String" db-name="MDM_CUST_NAME_SHORT" />
+		<column name="version" type="String" db-name="MDM_CUST_VERSION" />
+		<column name="vip" type="String" db-name="MDM_CUST_VIP" />
+		<column name="phoneNo" type="String" db-name="MDM_PHONE_NO" />
+		<column name="address" type="String" db-name="MDM_ADDRESS" />
+		<column name="email" type="String" db-name="MDM_EMAIL" />
+		<column name="refCode" type="String" db-name="MDM_CUST_REF_CODE" primary="true" />
+
+		<finder name="CatgAndType" return-type="Collection">
+			<finder-column name="custCatg" />
+			<finder-column name="custType" />
+		</finder>
+		<finder name="CatgTypeCode" return-type="Collection">
+			<finder-column name="custCatg" />
+			<finder-column name="custType" />
+			<finder-column name="premiaCode" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationsSeq" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_SEQ" cache-enabled="false">
+		<column name="key" type="String" db-name="KEY" primary="true" />
+		<column name="value" type="String" db-name="VALUE" />
+
+		<finder name="Key" return-type="QuotationsSeq">
+			<finder-column name="key" />
+		</finder>
+	</entity>
+	<entity name="CustUploads" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_CUST_UPLOADS"
+		cache-enabled="false">
+		<column name="id" type="long" db-name="ID" primary="true" />
+		<column name="quotId" type="String" db-name="QUOTATION_ID" />
+		<column name="idFile" type="Blob" db-name="ID_FILE" />
+		<column name="licenseFile" type="Blob" db-name="LICENSE_FILE" />
+		<column name="istCardFile" type="Blob" db-name="IST_CARD_FILE" />
+		<column name="carFrontFile" type="Blob" db-name="CAR_FRONT_FILE" />
+		<column name="carBackFile" type="Blob" db-name="CAR_BACK_FILE" />
+		<column name="carLeftFile" type="Blob" db-name="CAR_LEFT_FILE" />
+		<column name="carRightFile" type="Blob" db-name="CAR_RIGHT_FILE" />
+		<column name="engChassisNoFile" type="Blob" db-name="ENG_CHASSIS_NO_FILE" />
+		<column name="leaseFile" type="Blob" db-name="LEASE_FILE" />
+		<column name="idFileName" type="String" db-name="ID_FILE_NAME" />
+		<column name="licenseFileName" type="String" db-name="LICENSE_FILE_NANE" />
+		<column name="istCardFileName" type="String" db-name="IST_CARD_FILE_NAME" />
+		<column name="carFrontFileName" type="String" db-name="CAR_FRONT_FILE_NAME" />
+		<column name="carBackFileName" type="String" db-name="CAR_BACK_FILE_NAME" />
+		<column name="carLeftFileName" type="String" db-name="CAR_LEFT_FILE_NAME" />
+		<column name="carRightFileName" type="String" db-name="CAR_RIGHT_FILE_NAME" />
+		<column name="engChassisNoFileName" type="String" db-name="ENG_CHASSIS_NO_FILE_NAME" />
+		<column name="leaseFileName" type="String" db-name="LEASE_FILE_NAME" />
+
+		<finder name="quotId" return-type="CustUploads">
+			<finder-column name="quotId" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationAdminUploads" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATIONS_ADMIN_UPLOADS"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="ID" />
+
+		<!-- Other fields -->
+		<column name="quotationId" type="long" db-name="QUOTATION_ID" />
+		<column name="fileName" type="String" db-name="FILE_NAME" />
+		<column name="adminFile" type="Blob" db-name="ADMIN_FILE" />
+
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+	<entity name="QuotationStatusHistory" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATION_STATUS_HISTORY"
+		cache-enabled="false">
+		<column name="historyId" type="long" db-name="HISTORY_ID" primary="true" />
+		<column name="quotationId" type="long" db-name="QUOTATION_ID" />
+		<column name="dateTime" type="Date" db-name="DATE_TIME" />
+		<column name="userName" type="String" db-name="USER_NAME" />
+		<column name="status" type="String" db-name="STATUS" />
+		<column name="reason" type="String" db-name="REASON" />
+
+		<order>
+			<order-column name="dateTime" order-by="desc" />
+		</order>
+
+		<finder name="QuotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+	<entity name="ServiceRequestMaster" local-service="true" remote-service="true" table="SERVICE_REQUEST_MASTER" data-source="extDS"
+		cache-enabled="false">
+		<column name="REFERENCE_NO" type="String" primary="true"></column>
+		<column name="SOURCE" type="String"></column>
+		<column name="REQUEST_CATEGORY" type="String"></column>
+		<column name="REQUEST_TYPE" type="String"></column>
+		<column name="PRODUCT_TYPE" type="String"></column>
+		<column name="REQUEST_MESSAGE" type="String"></column>
+		<column name="IQAMA_ID" type="String"></column>
+		<column name="EMAIL" type="String"></column>
+		<column name="MOBILE" type="String"></column>
+		<column name="REQUEST_STATUS" type="String"></column>
+		<column name="EMAIL_FLAG" type="boolean"></column>
+		<column name="CREATOR_USER_ID" type="String"></column>
+		<column name="CREATION_DATE" type="Date"></column>
+		<column name="CREATOR_USER_TYPE" type="String"></column>
+		<column name="ASSIGNED_TO" type="String"></column>
+		<column name="USER_NAME" type="String"></column>
+		<column name="IBAN_NUMBER" type="String"></column>
+		<column name="ESCALATION_FLAG" type="boolean"></column>
+
+		<finder name="iqamaId" return-type="Collection">
+			<finder-column name="IQAMA_ID" />
+		</finder>
+		<finder name="escalationFlag" return-type="Collection">
+			<finder-column name="ESCALATION_FLAG" />
+		</finder>
+
+		<finder name="reqStatus" return-type="Collection">
+			<finder-column name="REQUEST_STATUS" />
+		</finder>
+	</entity>
+	<entity name="ServiceRequestMessages" local-service="true" table="SERVICE_REQUEST_MESSAGES" data-source="extDS" cache-enabled="false">
+		<column name="MESSAGE_ID" type="long" primary="true"></column>
+		<column name="REFERENCE_NO" type="String"></column>
+		<column name="USER_ID" type="String"></column>
+		<column name="USER_NAME" type="String"></column>
+		<column name="USER_TYPE" type="String"></column>
+		<column name="USER_MESSAGE" type="String"></column>
+		<column name="TIME_STAMP" type="Date"></column>
+
+		<order>
+			<order-column name="TIME_STAMP" order-by="asc" />
+		</order>
+
+		<finder name="refNo" return-type="Collection">
+			<finder-column name="REFERENCE_NO" />
+		</finder>
+	</entity>
+
+	<entity name="ServiceRequestHistory" local-service="true" table="SERVICE_REQUEST_ACTION_HISTORY" data-source="extDS" cache-enabled="false">
+		<column name="ACTION_ID" type="long" primary="true"></column>
+		<column name="REFERENCE_NO" type="String"></column>
+		<column name="ACTION_TYPE" type="String"></column>
+		<column name="ACTION_DETAILS" type="String"></column>
+		<column name="ACTION_REMARKS" type="String"></column>
+		<column name="ACTION_DATE" type="Date"></column>
+
+		<finder name="refNo" return-type="Collection">
+			<finder-column name="REFERENCE_NO" />
+		</finder>
+	</entity>
+
+	<entity name="ServiceRequestAttachments" local-service="true" table="SERVICE_REQUEST_ATTACHMENTS" data-source="extDS" cache-enabled="false">
+		<column name="FILE_ID" type="long" primary="true"></column>
+		<column name="REFERENCE_NO" type="String"></column>
+		<column name="ACTION_ID" type="String"></column>
+		<column name="FILE_CONTENT" type="Blob"></column>
+		<column name="FILE_NAME" type="String"></column>
+
+		<finder name="refNo" return-type="Collection">
+			<finder-column name="REFERENCE_NO" />
+		</finder>
+		<finder name="actionId" return-type="Collection">
+			<finder-column name="ACTION_ID" />
+		</finder>
+	</entity>
+
+	<entity name="CLMNajmUploads" local-service="true" remote-service="true" data-source="extDS" table="CLM_NAJM_UPLOADS" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="FILE_ID" />
+
+		<!-- Other fields -->
+		<column name="caseNo" type="String" db-name="CASE_NO" />
+		<column name="cipiId" type="String" db-name="CIPI_ID" />
+		<column name="najmSlip" type="Blob" db-name="NAJM_SLIP" />
+		<column name="najmSlipName" type="String" db-name="NAJM_SLIP_NAME" />
+		<column name="damageEstQuot" type="Blob" db-name="DAMAGE_EST_QUOT" />
+		<column name="damageEstQuotName" type="String" db-name="DAMAGE_EST_QUOT_NAME" />
+		<column name="bankIban" type="Blob" db-name="BANK_IBAN" />
+		<column name="bankIbanName" type="String" db-name="BANK_IBAN_NAME" />
+		<column name="ownerId" type="Blob" db-name="OWNER_ID" />
+		<column name="ownerIdName" type="String" db-name="OWNER_ID_NAME" />
+		<column name="claimRefNo" type="String" db-name="CLAIM_REF_NO" />
+
+		<finder name="ClaimRefNo" return-type="CLMNajmUploads">
+			<finder-column name="claimRefNo" />
+		</finder>
+	</entity>
+
+	<entity name="ODMuroorUploads" local-service="true" remote-service="true" data-source="extDS" table="CLM_MUROOR_OD_UPLOADS"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="FILE_ID" />
+
+		<!-- Other fields -->
+		<column name="claimIntimationNo" type="String" db-name="CLM_INTM_NO" />
+		<column name="iqamaId" type="String" db-name="IQAMA_ID" />
+		<column name="driverLicense" type="Blob" db-name="DRIVER_LICENSE" />
+		<column name="driverLicenseName" type="String" db-name="DRIVER_LICENSE_NAME" />
+		<column name="vehRegist" type="Blob" db-name="VEH_REGISTRATION" />
+		<column name="vehRegistName" type="String" db-name="VEH_REGISTRATION_NAME" />
+		<column name="policyCopy" type="Blob" db-name="POLICY_COPY" />
+		<column name="policyCopyName" type="String" db-name="POLICY_COPY_NAME" />
+
+		<finder name="claimIntimationNo" return-type="ODMuroorUploads">
+			<finder-column name="claimIntimationNo" />
+		</finder>
+
+	</entity>
+
+	<entity name="MuroorTPUploads" local-service="true" remote-service="true" data-source="extDS" table="CLM_MUROOR_TP_UPLOADS"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="FILE_ID" />
+
+		<!-- Other fields -->
+		<column name="claimIntimationNo" type="String" db-name="CLM_INTM_NO" />
+		<column name="iqamaId" type="String" db-name="IQAMA_ID" />
+		<column name="driverLicense" type="Blob" db-name="DRIVER_LICENSE" />
+		<column name="driverLicenseName" type="String" db-name="DRIVER_LICENSE_NAME" />
+		<column name="vehRegist" type="Blob" db-name="VEH_REGISTRATION" />
+		<column name="vehRegistName" type="String" db-name="VEH_REGISTRATION_NAME" />
+		<column name="frontPhoto" type="Blob" db-name="FRONT_PHOTO" />
+		<column name="frontPhotoName" type="String" db-name="FRONT_PHOTO_NAME" />
+		<column name="rearPhoto" type="Blob" db-name="RARE_PHOTO" />
+		<column name="rearPhotoName" type="String" db-name="RARE_PHOTO_NAME" />
+		<column name="rightSidePhoto" type="Blob" db-name="RIGHT_SIDE_PHOTO" />
+		<column name="rightSidePhotoName" type="String" db-name="RIGHT_SIDE_PHOTO_NAME" />
+		<column name="leftSidePhoto" type="Blob" db-name="LEFT_SIDE_PHOTO" />
+		<column name="leftSidePhotoName" type="String" db-name="LEFT_SIDE_PHOTO_NAME" />
+		<column name="bankIban" type="Blob" db-name="BANK_IBAN_COPY" />
+		<column name="bankIbanName" type="String" db-name="BANK_IBAN_COPY_NAME" />
+		<column name="ownerId" type="Blob" db-name="OWNER_ID" />
+		<column name="ownerIdName" type="String" db-name="OWNER_ID_NAME" />
+
+		<finder name="claimIntimationNo" return-type="MuroorTPUploads">
+			<finder-column name="claimIntimationNo" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="false" name="SendEmail" remote-service="true"></entity>
+
+	<entity local-service="true" name="Validation" remote-service="true" data-source="extDS"></entity>
+
+	<entity name="CLMSTATUS" local-service="true" remote-service="true" data-source="extDS" table="EJD_CLAIMS_STATUS" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="RefNo" type="String" db-name="REFERENCE_NO" primary="true" />
+
+		<!-- Other fields -->
+		<column name="claimStatus" type="String" db-name="STATUS" />
+	</entity>
+
+	<entity name="CLMSTATUSHISTORY" local-service="true" remote-service="true" data-source="extDS" table="EJD_CLAIMS_STATUS_HISTORY"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" type="int" db-name="HISTORY_ID" primary="true" />
+
+		<!-- Other fields -->
+		<column name="RefNo" type="String" db-name="REFERENCE_NO" />
+		<column name="date" type="Date" db-name="HISTORY_DATE" />
+		<column name="userName" type="String" db-name="USER_NAME" />
+		<column name="claimStatus" type="String" db-name="STATUS" />
+		<column name="reason" type="String" db-name="REASON" />
+
+		<order>
+			<order-column name="date" order-by="desc" />
+		</order>
+
+		<finder name="RefNo" return-type="Collection">
+			<finder-column name="RefNo" />
+		</finder>
+	</entity>
+
+	<entity name="CLMWORKFLOW" local-service="true" remote-service="true" data-source="extDS" table="EJD_CLAIMS_WORKFLOW" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" type="int" db-name="ID" primary="true" />
+
+		<!-- Other fields -->
+		<column name="role" type="String" db-name="ROLE" />
+		<column name="initialStatus" type="String" db-name="INITIAL_STATUS" />
+		<column name="action" type="String" db-name="ACTION" />
+		<column name="newStatus" type="String" db-name="NEW_STATUS" />
+
+		<finder name="role" return-type="Collection">
+			<finder-column name="role" />
+		</finder>
+		<finder name="roleStatus" return-type="Collection">
+			<finder-column name="role" />
+			<finder-column name="initialStatus" />
+
+		</finder>
+	</entity>
+	<entity name="ClaimAdminUploads" local-service="true" remote-service="true" data-source="extDS" table="EJD_CLM_ADMIN_UPLOADS"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="CLM_FILE_ID" />
+
+		<!-- Other fields -->
+		<column name="refNo" type="String" db-name="CLM_REFERENCE_NO" />
+		<column name="fileName" type="String" db-name="CLM_FILE_NAME" />
+		<column name="adminFile" type="Blob" db-name="CLM_FILE" />
+
+		<finder name="refNo" return-type="Collection">
+			<finder-column name="refNo" />
+		</finder>
+	</entity>
+
+	<entity name="AtmcYakeenMakeModel" local-service="true" remote-service="true" data-source="extDS" table="ATMC_YAKEEN_MAKEMODEL"
+		cache-enabled="false">
+		<column name="yakeenMakeId" primary="true" type="long" db-name="YAKEENMAKEID" />
+		<column name="yakeenMakeValue" type="String" db-name="YAKEENELMMAKEVALUE" />
+		<column name="yakeenMakeDesc" type="String" db-name="YAKEENMAKEDESC" />
+		<column name="yakeenMakeMap" type="String" db-name="YAKEENMAKEMAP" />
+		<column name="yakeenModelId" type="long" db-name="YAKEENMODELID" />
+		<column name="yakeenModelArabic" type="String" db-name="YAKEENMODELARABIC" />
+		<column name="yakeenModelEnglish" type="String" db-name="YAKEENMODELENGLISH" />
+		<column name="yakeenNodelMap" type="String" db-name="YAKEENMODELMAP" />
+		<column name="yakeenModelValue" type="String" db-name="YAKEENELMMODELVALUE" />
+		<column name="atmcVehicleNationality" type="String" db-name="ATMCVEHICLENATIONALITY" />
+		<column name="atmcBodyType" type="String" db-name="ATMCBODYTYPE" />
+		<column name="atmcSeatingCapacity" type="String" db-name="ATMCSEATINGCAPACITY" />
+		<column name="mapMakeModelName" type="String" db-name="MAPMAKEMODELNAME" />
+		<column name="eskaMakeId" type="String" db-name="ESKAMAKEID" />
+		<column name="eskaModelId" type="String" db-name="ESKAMODELID" />
+		<column name="mapMakeModelId" type="String" db-name="MAPMAKEMODELID" />
+		<column name="eskaBodyTypeId" type="String" db-name="ESKABODYTYPEID" />
+		<column name="eskaVehNationalityId" type="String" db-name="ESKAVEHNALTIONALITYID" />
+
+
+		<finder name="YakeenMakeModelDetails" return-type="AtmcYakeenMakeModel">
+			<finder-column name="yakeenMakeValue" />
+			<finder-column name="yakeenModelValue" />
+		</finder>
+
+		<finder name="EskaMakeModelDetails" return-type="AtmcYakeenMakeModel">
+			<finder-column name="eskaMakeId" />
+			<finder-column name="eskaModelId" />
+		</finder>
+	</entity>
+
+	<entity name="WorkshopVehicle" local-service="true" remote-service="true" data-source="extDS" table="EJD_WORKSHOP_VEHICLE"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="ID" />
+
+		<!-- Other fields -->
+		<column name="customerName" type="String" db-name="CUSTOMER_NAME" />
+		<column name="manufacture" type="String" db-name="MANUFACTURE" />
+		<column name="plateNo" type="String" db-name="PLATE_NO" />
+		<column name="workshopId" type="int" db-name="WORKSHOP_ID" />
+		<column name="claimRefNo" type="String" db-name="CLAIM_REFERENCE_NO" />
+		<column name="status" type="String" db-name="STATUS" />
+		<column name="date" type="Date" db-name="CLAIM_DATE" />
+		<column name="serviceType" type="String" db-name="SERVICE_TYPE" />
+		<column name="description" type="String" db-name="DESCRIPTION" />
+		<column name="customerMobile" type="String" db-name="CUSTOMER_MOBILE" />
+		<column name="vehMakeEn" type="String" db-name="VEHICLE_MAKE_EN" />
+		<column name="vehMakeAr" type="String" db-name="VEHICLE_MAKE_AR" />
+		<column name="vehModelEn" type="String" db-name="VEHICLE_MODEL_EN" />
+		<column name="vehModelAr" type="String" db-name="VEHICLE_MODEL_AR" />
+		<column name="customerIqamaId" type="String" db-name="CUSTOMER_IQAMA_ID" />
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="customerIqamaId" return-type="Collection">
+			<finder-column name="customerIqamaId" />
+		</finder>
+		<finder name="StatusWorkshopId" return-type="Collection">
+			<finder-column name="status" />
+			<finder-column name="workshopId" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationSurvey" local-service="true" remote-service="true" data-source="extDS" table="EJD_QUOTATION_SURVEY"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="surveyId" primary="true" type="long" db-name="QUOTATION_SURVEY_ID" />
+
+		<column name="quotationId" type="String" db-name="QUOTATION_ID" />
+		<!-- Other fields -->
+		<column name="surveyVideoFile" type="Blob" db-name="SURVEY_VIDEO_FILE" />
+		<column name="surveyVideoFileName" type="String" db-name="SURVEY_VIDEO_FILE_NAME" />
+		<column name="surveyDate" type="Date" db-name="SURVEY_DATE" />
+
+		<order by="desc">
+			<order-column name="surveyDate" />
+		</order>
+
+		<finder name="quotationId" return-type="Collection">
+			<finder-column name="quotationId" />
+		</finder>
+	</entity>
+
+
+	<entity name="PayFortRef" local-service="true" remote-service="true" data-source="extDS" table="PAYFORT_REF" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="id" primary="true" type="int" db-name="Id" />
+
+		<column name="iqama_id" type="String" db-name="IQAMA_ID" />
+		<!-- Other fields -->
+		<column name="payFortRefNo" type="String" db-name="PAYFORT_REF_NO" />
+		<column name="status" type="String" db-name="STATUS" />
+
+		<finder name="refNoStatus" return-type="payfortRef">
+			<finder-column name="payFortRefNo" />
+			<finder-column name="status" />
+		</finder>
+	</entity>
+
+	<entity name="YakeenDataSave" local-service="true" remote-service="true" data-source="extDS" table="EJD_YAKEEN_DATA" cache-enabled="false">
+		<!-- PK fields -->
+		<column name="Id" primary="true" type="String" db-name="ID" />
+		<column name="OldId" type="String" db-name="OLD_ID" />
+		<column name="sequenceNumber" type="String" db-name="SEQUENCE_NUMBER" />
+		<!-- Other fields -->
+		<column name="dob" type="Date" db-name="DOB" />
+		<column name="serviceName" type="String" db-name="SERVICE_NAME" />
+		<column name="callingDate" type="Date" db-name="CALLING_DATE" />
+		<column name="status" type="String" db-name="STATUS" />
+		<column name="serviceOutput" type="String" db-name="SERVICE_OUTPUT" />
+		<column name="serviceCalledDate" type="Date" db-name="SERVICE_CALLING_DATE" />
+		<column name="serviceErrorMessage" type="String" db-name="SERVICE_MESSAGE" />
+
+		<finder name="iqamaDobStatusServiceName" return-type="YakeenDataSave">
+			<finder-column name="Id" />
+			<finder-column name="dob" />
+			<finder-column name="status" />
+			<finder-column name="serviceName" />
+		</finder>
+
+
+		<finder name="iqamaStatusServiceName" return-type="YakeenDataSave">
+			<finder-column name="serviceName" />
+			<finder-column name="status" />
+			<finder-column name="Id" />
+		</finder>
+
+		<finder name="citIzenCarInfoIdSeq" return-type="YakeenDataSave">
+			<finder-column name="Id" />
+			<finder-column name="sequenceNumber" />
+			<finder-column name="serviceName" />
+			<finder-column name="status" />
+		</finder>
+
+		<finder name="VehicleSequence" return-type="YakeenDataSave">
+			<finder-column name="sequenceNumber" />
+		</finder>
+
+	</entity>
+	<entity name="PolicyCancelation" local-service="true" remote-service="true" data-source="extDS" table="EJD_POLICY_CANCELLATION "
+		cache-enabled="false">
+		<column name="Id" primary="true" type="String" db-name="ID" />
+		<column name="policyNumber" type="String" db-name="POLICYNUMBER" />
+		<column name="policyExpiryDate" type="Date" db-name="POLICYEXPIRYDATE" />
+		<column name="insuredId" type="String" db-name="INSUREDID" />
+		<column name="insuredName" type="String" db-name="INSUREDNAME" />
+		<column name="vehicleSequence" type="String" db-name="VEHICLESEQ" />
+		<column name="vehicleChessisNo" type="String" db-name="CHESSISNUMBER" />
+		<column name="status" type="String" db-name="status" />
+		<column name="cancllationReqDate" type="Date" db-name="CANCELLATIONREQDATE" />
+		<column name="reason" type="String" db-name="CANCELLATIONREASON" />
+		<column name="servicemessage" type="String" db-name="SERVICE_MESSAGE" />
+		<column name="cancellationEffdate" type="Date" db-name="CANCELLATIONEFFDATE" />
+		<column name="ibanImage" type="Blob" db-name="IBANFILE" />
+		<column name="validFile" type="Blob" db-name="VALIDFILE" />
+		<column name="otherFile" type="Blob" db-name="OTHERFILE" />
+		<column name="vehMake" type="String" db-name="VEHMAKE" />
+		<column name="vehModel" type="String" db-name="VEHMODEL" />
+		<column name="plateNumber" type="String" db-name="PLATE_NUMBER" />
+		<column name="anyAccident" type="String" db-name="ANY_ACCIDENT" />
+		<column name="lodgeClaim" type="String" db-name="LODGE_CLAIM" />
+		<column name="ibanFileName" type="String" db-name="IBAN_FILE_NAME" />
+		<column name="validFileName" type="String" db-name="VALID_FILE_NAME" />
+		<column name="policyInceptionDate" type="Date" db-name="POLICY_INCEPTION_DATE" />
+		<column name="insuredEmail" type="String" db-name="INSURED_EMAIL" />
+		<column name="insuredMobile" type="String" db-name="INSURED_MOBILE" />
+		<column name="rejReason" type="String" db-name="REJ_REASON" />
+
+
+		<finder name="policyNum" return-type="PolicyCancelation">
+			<finder-column name="policyNumber" />
+		</finder>
+
+		<finder name="insuredId" return-type="Collection">
+			<finder-column name="insuredId" />
+		</finder>
+
+		<finder name="statusAll" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+
+		<finder name="status" return-type="PolicyCancelation">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+
+	<entity name="QuotationDriverseEndors" local-service="true" remote-service="true" data-source="extDS" table="EJD_ADD_DRIVERS_ENDORS"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<!-- PK fields -->
+		<column name="addDriverId" type="long" db-name="ADD_DRIVER_ID" primary="true" />
+		<column name="quotationId" type="long" db-name="QUOTATIONS_ID" />
+		<column name="policyNumber" type="String" db-name="POLICY_NUMBER" />
+		<column name="driverDob" type="Date" db-name="DRIVER_DOB" />
+		<column name="driverDobH" type="String" db-name="DRIVER_DOB_H" />
+		<column name="driverGender" type="String" db-name="DRIVER_GENDER" />
+		<column name="driverId" type="String" db-name="DRIVER_ID" />
+		<column name="driverIdType" type="long" db-name="DRIVER_ID_TYPE" />
+		<column name="driverName" type="String" db-name="DRIVER_NAME" />
+		<column name="driverNationality" type="String" db-name="DRIVER_NATIONALITY" />
+		<column name="driverOccup" type="String" db-name="DRIVER_OCCUP" />
+		<column name="isDriverUnder21" type="boolean" db-name="IS_DRIVER_UNDER_21" />
+		<column name="driverEdu" type="String" db-name="DRIVER_EDU" />
+		<column name="driverNoChild" type="String" db-name="DRIVER_NO_CHILD" />
+		<column name="driverMaritalStatus" type="String" db-name="DRIVER_MARITAL_STATUS" />
+		<column name="driverNOFault" type="long" db-name="DRIVER_NO_FAULT" />
+		<column name="driverNOClaim" type="long" db-name="DRIVER_NO_CLAIM" />
+		<column name="driverConvictions" type="String" db-name="DRIVER_CONVICS" />
+		<column name="driverMedConds" type="String" db-name="DRIVER_MED_CONDS" />
+		<column name="ncdYears" type="int" db-name="DRIVER_NCD_YEARS" />
+		<column name="insuredRelation" type="String" db-name="INSURED_RELATION" />
+		<column name="insuredRelationProof" type="Blob" db-name="INSURED_RELATION_PROOF" />
+		<column name="insuredRelationProofFileName" type="String" db-name="RELATION_PROOF_FILE_NAME" />
+		<column name="status" type="String" db-name="STATUS" />
+		<column name="requestedDate" type="Date" db-name="REQUESTED_DATE" />
+
+		<column name="buildNo" type="String" db-name="BUILD_NO" />
+		<column name="zipCode" type="String" db-name="ZIP_CODE" />
+		<column name="addNo" type="String" db-name="ADD_NO" />
+
+		<column name="stNameEn" type="String" db-name="ST_NAME_EN" />
+		<column name="stNameAr" type="String" db-name="ST_NAME_AR" />
+		<column name="districtEn" type="String" db-name="DISTRICT_EN" />
+		<column name="districtAr" type="String" db-name="DISTRICT_AR" />
+		<column name="cityEn" type="String" db-name="CITY_EN" />
+		<column name="cityAr" type="String" db-name="CITY_AR" />
+		<column name="isNatAddress" type="boolean" db-name="IS_NAT_ADDRESS" />
+
+		<finder name="Status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="eachStatus" return-type="QuotationDriverseEndors">
+			<finder-column name="status" />
+		</finder>
+		<finder name="DriverId" return-type="QuotationDriverseEndors">
+			<finder-column name="driverId" />
+		</finder>
+		<finder name="policyNumber" return-type="QuotationDriverseEndors">
+			<finder-column name="policyNumber" />
+		</finder>
+	</entity>
+
+	<entity name="LNP2_PolicyMastr" local-service="true" remote-service="true" data-source="extDS" table="LNP2_POLICYMASTR" cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="np1_proposal" primary="true" type="String" db-name="NP1_PROPOSAL" />
+		<column name="np2_setno" type="String" db-name="NP2_SETNO" />
+
+		<!-- Other fields -->
+		<column name="cfr_forfeitucd" type="String" db-name="CFR_FORFEITUCD" />
+		<column name="cmo_mode" type="String" db-name="CMO_MODE" />
+		<column name="pcu_currcode" type="String" db-name="PCU_CURRCODE" />
+		<column name="aag_agcode" type="long" db-name="AAG_AGCODE" />
+		<column name="ccl_categorycd" type="String" db-name="CCL_CATEGORYCD" />
+		<column name="use_userid" type="String" db-name="USE_USERID" />
+		<column name="use_datetime" type="Date" db-name="USE_DATETIME" />
+		<column name="np2_grosprm" type="long" db-name="NP2_GROSPRM" />
+		<column name="np2_ageprem" type="long" db-name="NP2_AGEPREM" />
+		<column name="np2_commendate" type="Date" db-name="NP2_COMMENDATE" />
+		<column name="np2_sumatrisk" type="long" db-name="NP2_SUMATRISK" />
+		<column name="np2_substandar" type="String" db-name="NP2_SUBSTANDAR" />
+		<column name="np2_effectdate" type="Date" db-name="NP2_EFFECTDATE" />
+		<column name="np2_expirydate" type="Date" db-name="NP2_EXPIRYDATE" />
+		<column name="np2_endofprmdt" type="Date" db-name="NP2_ENDOFPRMDT" />
+		<column name="np2_paidupamt" type="long" db-name="NP2_PAIDUPAMT" />
+		<column name="np2_diffinprem" type="long" db-name="NP2_DIFFINPREM" />
+		<column name="np2_diffinfyco" type="long" db-name="NP2_DIFFINFYCO" />
+		<column name="np2_charges" type="long" db-name="NP2_CHARGES" />
+		<column name="np2_totload" type="long" db-name="NP2_TOTLOAD" />
+		<column name="np2_nextduedat" type="Date" db-name="NP2_NEXTDUEDAT" />
+		<column name="np2_ageadmitt" type="long" db-name="NP2_AGEADMITT" />
+		<column name="np2_optimaindex" type="long" db-name="NP2_OPTIMAINDEX" />
+		<column name="np2_ageprem2nd" type="long" db-name="NP2_AGEPREM2ND" />
+		<column name="np2_policyfees" type="long" db-name="NP2_POLICYFEES" />
+		<column name="np2_sar" type="long" db-name="NP2_SAR" />
+		<column name="np2_totpremium" type="long" db-name="NP2_TOTPREMIUM" />
+		<column name="np2_approved" type="long" db-name="NP2_APPROVED" />
+		<column name="np2_endorsementno" type="String" db-name="NP2_ENDORSEMENTNO" />
+		<column name="pfs_acntyear" type="String" db-name="PFS_ACNTYEAR" />
+		<column name="arq_requestype" type="String" db-name="ARQ_REQUESTYPE" />
+		<column name="arq_requestno" type="long" db-name="ARQ_REQUESTNO" />
+		<column name="np2_forfeitdat" type="Date" db-name="NP2_FORFEITDAT" />
+		<column name="convert" type="long" db-name="CONVERT" />
+		<column name="np2_notionalage" type="long" db-name="NP2_NOTIONALAGE" />
+		<column name="cop_occupaticd" type="String" db-name="COP_OCCUPATICD" />
+		<column name="np2_dob" type="Date" db-name="NP2_DOB" />
+		<column name="np2_accr_proc" type="String" db-name="NP2_ACCR_PROC" />
+		<column name="np2_effectiveage" type="long" db-name="NP2_EFFECTIVEAGE" />
+		<column name="np2_nom2ndlife" type="String" db-name="NP2_NOM2NDLIFE" />
+		<column name="np2_dob_2nd" type="Date" db-name="NP2_DOB_2ND" />
+		<column name="np2_lastrevbonus" type="long" db-name="NP2_LASTREVBONUS" />
+		<column name="np2_reversionary" type="long" db-name="NP2_REVERSIONARY" />
+		<column name="np2_rider_bonus" type="long" db-name="NP2_RIDER_BONUS" />
+		<column name="np2_last_rider_bonus" type="long" db-name="NP2_LAST_RIDER_BONUS" />
+		<column name="np2_ageprem_actual" type="long" db-name="NP2_AGEPREM_ACTUAL" />
+		<column name="np2_ageprem2nd_actual" type="long" db-name="NP2_AGEPREM2ND_ACTUAL" />
+
+		<finder name="np1_proposal" return-type="lnp2_policymastr">
+			<finder-column name="np1_proposal" />
+		</finder>
+	</entity>
+
+	<exceptions>
+		<exception>NoSuchNajmCaseNo</exception>
+		<exception>NoSuchNajmVehicleNo</exception>
+		<exception>NoSuchNajmOtherParty</exception>
+	</exceptions>
+</service-builder>

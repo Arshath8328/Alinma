@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ejada.atmc.acl.db.model.LNP2_PolicyMastr">
+		<field name="np1_proposal" type="String" />
+		<field name="np2_setno" type="String" />
+		<field name="cfr_forfeitucd" type="String" />
+		<field name="cmo_mode" type="String" />
+		<field name="pcu_currcode" type="String" />
+		<field name="aag_agcode" type="long" />
+		<field name="ccl_categorycd" type="String" />
+		<field name="use_userid" type="String" />
+		<field name="use_datetime" type="Date" />
+		<field name="np2_grosprm" type="long" />
+		<field name="np2_ageprem" type="long" />
+		<field name="np2_commendate" type="Date" />
+		<field name="np2_sumatrisk" type="long" />
+		<field name="np2_substandar" type="String" />
+		<field name="np2_effectdate" type="Date" />
+		<field name="np2_expirydate" type="Date" />
+		<field name="np2_endofprmdt" type="Date" />
+		<field name="np2_paidupamt" type="long" />
+		<field name="np2_diffinprem" type="long" />
+		<field name="np2_diffinfyco" type="long" />
+		<field name="np2_charges" type="long" />
+		<field name="np2_totload" type="long" />
+		<field name="np2_nextduedat" type="Date" />
+		<field name="np2_ageadmitt" type="long" />
+		<field name="np2_optimaindex" type="long" />
+		<field name="np2_ageprem2nd" type="long" />
+		<field name="np2_policyfees" type="long" />
+		<field name="np2_sar" type="long" />
+		<field name="np2_totpremium" type="long" />
+		<field name="np2_approved" type="long" />
+		<field name="np2_endorsementno" type="String" />
+		<field name="pfs_acntyear" type="String" />
+		<field name="arq_requestype" type="String" />
+		<field name="arq_requestno" type="long" />
+		<field name="np2_forfeitdat" type="Date" />
+		<field name="convert" type="long" />
+		<field name="np2_notionalage" type="long" />
+		<field name="cop_occupaticd" type="String" />
+		<field name="np2_dob" type="Date" />
+		<field name="np2_accr_proc" type="String" />
+		<field name="np2_effectiveage" type="long" />
+		<field name="np2_nom2ndlife" type="String" />
+		<field name="np2_dob_2nd" type="Date" />
+		<field name="np2_lastrevbonus" type="long" />
+		<field name="np2_reversionary" type="long" />
+		<field name="np2_rider_bonus" type="long" />
+		<field name="np2_last_rider_bonus" type="long" />
+		<field name="np2_ageprem_actual" type="long" />
+		<field name="np2_ageprem2nd_actual" type="long" />
+	</model>
+</model-hints>

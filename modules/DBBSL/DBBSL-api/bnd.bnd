@@ -1,0 +1,10 @@
+Bundle-Name: DBBSL-api
+Bundle-SymbolicName: DBBSL.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	DBBSL.exception,\
+	DBBSL.model,\
+	DBBSL.service,\
+	DBBSL.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../DBBSL-service/service.xml

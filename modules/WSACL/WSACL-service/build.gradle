@@ -1,0 +1,40 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:WSACL:WSACL-api")
+	compileOnly project(":modules:DBACL:DBACL-api")
+	
+	compileInclude group: 'org.apache.wss4j', name: 'wss4j-ws-security-dom', version: '2.2.0'
+	
+	compile group: 'org.springframework', name: 'spring-beans', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-expression', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-web', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-webmvc-portlet', version: '4.1.9.RELEASE'
+	
+	compileInclude group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.11'
+	compileInclude group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.11'
+	compileInclude group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.10'
+	//compileInclude group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version: '2.8.11'
+	
+	compileInclude group: 'com.beust', name: 'jcommander', version: '1.78'
+	compileInclude group: 'com.ibm.icu', name: 'icu4j', version: '51.3'
+}
+
+buildService {
+	apiDir = "../WSACL-api/src/main/java"
+}
+
+bundle {
+	instruction 'Import-Package', '*;version="0";resolution:=optional' // Specify an individual instruction
+}
+group = "com.ejada.atmc.acl.ws"
+
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}

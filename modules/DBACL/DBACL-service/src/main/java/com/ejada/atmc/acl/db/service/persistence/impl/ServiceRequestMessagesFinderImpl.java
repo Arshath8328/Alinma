@@ -1,0 +1,49 @@
+package com.ejada.atmc.acl.db.service.persistence.impl;
+
+import com.ejada.atmc.acl.db.model.ServiceRequestMessages;
+import com.ejada.atmc.acl.db.service.ServiceRequestMessagesLocalServiceUtil;
+import com.ejada.atmc.acl.db.service.persistence.ServiceRequestMessagesFinder;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.OrderFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Session;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.util.List;
+
+import org.osgi.service.component.annotations.Component;
+
+@Component(
+		service = ServiceRequestMessagesFinder.class
+)
+public class ServiceRequestMessagesFinderImpl extends ServiceRequestMessagesFinderBaseImpl implements ServiceRequestMessagesFinder {
+	private static final Log _log = LogFactoryUtil.getLog(ServiceRequestMessagesFinderImpl.class);
+
+	public List<ServiceRequestMessages> findServiceRequestMessagesByRefNo(String referenceNo) {
+		Session session = null;
+		try {
+			session = openSession();
+
+			DynamicQuery entryQuery = DynamicQueryFactoryUtil
+					.forClass(ServiceRequestMessages.class, ServiceRequestMessagesFinderImpl.class.getClassLoader())
+					.add(RestrictionsFactoryUtil.eq("REFERENCE_NO", referenceNo)).addOrder(OrderFactoryUtil.asc("TIME_STAMP"));
+
+			List<ServiceRequestMessages> entries = ServiceRequestMessagesLocalServiceUtil.dynamicQuery(entryQuery);
+
+			return entries;
+		} catch (Exception e) {
+			try {
+				throw new SystemException(e);
+			} catch (SystemException se) {
+				_log.error(e.getMessage(), e);
+			}
+		} finally {
+			closeSession(session);
+		}
+		return null;
+	}
+
+}

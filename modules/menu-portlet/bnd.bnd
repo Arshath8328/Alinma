@@ -1,0 +1,4 @@
+Bundle-Name: menu-portlet
+Bundle-SymbolicName: com.atmc.menu
+Bundle-Version: 1.0.0
+Export-Package: com.atmc.menu.constants

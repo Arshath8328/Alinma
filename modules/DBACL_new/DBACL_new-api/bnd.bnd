@@ -1,0 +1,11 @@
+Bundle-Name: DBACL_new-api
+Bundle-SymbolicName: com.ejada.atmc.acl.db.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.ejada.atmc.acl.db.exception,\
+	com.ejada.atmc.acl.db.model,\
+	com.ejada.atmc.acl.db.custom.model,\
+	com.ejada.atmc.acl.db.service,\
+	com.ejada.atmc.acl.db.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../DBACL_new-service/service.xml

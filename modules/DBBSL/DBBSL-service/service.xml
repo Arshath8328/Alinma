@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder package-path="com.atmc.bsl.db">
+	<namespace>DBBSL</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="Policy" remote-service="true"></entity>
+	<entity local-service="true" name="Claim" remote-service="true"></entity>
+	<entity local-service="true" name="Quotation" remote-service="true"></entity>
+	<entity local-service="true" name="GsonUtils" remote-service="true"></entity>
+	<entity local-service="true" name="Settings" remote-service="true"></entity>
+	<entity local-service="true" name="CodeMasterDetails" remote-service="true"></entity>
+	<entity local-service="true" name="OTP" remote-service="true"></entity>
+	<entity local-service="true" name="UserMgmt" remote-service="true"></entity>
+	<entity local-service="true" name="CustomerVehicleDetails" remote-service="true"></entity>
+	<entity local-service="true" name="NCDDetails" remote-service="true"></entity>
+	<entity local-service="true" name="ContentEngine" remote-service="true"></entity>
+	<entity local-service="true" name="Notifications" remote-service="true"></entity>
+	<entity local-service="true" name="SrvReq" remote-service="true"></entity>
+	<entity local-service="true" name="SrvReqMsgs" remote-service="true"></entity>
+	<entity local-service="true" name="SrvReqAction" remote-service="true"></entity>
+	<entity local-service="true" name="SrvReqAttachment" remote-service="true"></entity>
+	<entity local-service="true" name="Login" remote-service="true"></entity>
+	<entity local-service="true" name="Workshop" remote-service="true"></entity>
+	<entity local-service="true" name="ForgotPassword" remote-service="true"></entity>
+	<entity local-service="true" name="MuroorTPUploads" remote-service="true"></entity>
+	<entity local-service="true" name="MuroorODUploads" remote-service="true"></entity>
+</service-builder>

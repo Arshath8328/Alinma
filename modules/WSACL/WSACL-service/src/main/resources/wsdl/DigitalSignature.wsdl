@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3.org/2000/09/xmldsig#">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.w3.org/2000/09/xmldsig#">
+			<xsd:include schemaLocation="DigitalSignature.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="DigitalSignatureHeader">
+		<wsdl:part element="ds:Signature" name="digitalHeader" />
+	</wsdl:message>
+</wsdl:definitions>

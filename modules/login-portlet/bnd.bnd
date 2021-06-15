@@ -1,0 +1,6 @@
+Bundle-Name: login-portlet
+Bundle-SymbolicName: com.ejada.login
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.atmc.login.constants,\
+	com.atmc.login.portlet

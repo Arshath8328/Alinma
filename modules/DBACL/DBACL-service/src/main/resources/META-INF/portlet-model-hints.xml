@@ -1,0 +1,880 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ejada.atmc.acl.db.model.AtmcYakeenMakeModel">
+		<field name="yakeenMakeId" type="long" />
+		<field name="yakeenMakeValue" type="String" />
+		<field name="yakeenMakeDesc" type="String" />
+		<field name="yakeenMakeMap" type="String" />
+		<field name="yakeenModelId" type="long" />
+		<field name="yakeenModelArabic" type="String" />
+		<field name="yakeenModelEnglish" type="String" />
+		<field name="yakeenNodelMap" type="String" />
+		<field name="yakeenModelValue" type="String" />
+		<field name="atmcVehicleNationality" type="String" />
+		<field name="atmcBodyType" type="String" />
+		<field name="atmcSeatingCapacity" type="String" />
+		<field name="mapMakeModelName" type="String" />
+		<field name="eskaMakeId" type="String" />
+		<field name="eskaModelId" type="String" />
+		<field name="mapMakeModelId" type="String" />
+		<field name="eskaBodyTypeId" type="String" />
+		<field name="eskaVehNationalityId" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.BeneficiaryDetails">
+		<field name="policyNo" type="String" />
+		<field name="benfName" type="String" />
+		<field name="benfPct" type="String" />
+		<field name="benfRel" type="String" />
+		<field name="benfId" type="long" />
+		<field name="benfAge" type="String" />
+		<field name="benfType" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ClaimAdminUploads">
+		<field name="id" type="int" />
+		<field name="refNo" type="String" />
+		<field name="fileName" type="String" />
+		<field name="adminFile" type="Blob" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ClaimHDR">
+		<field name="policyNo" type="String" />
+		<field name="claimNo" type="String" />
+		<field name="claimStatus" type="String" />
+		<field name="iqamaId" type="String" />
+		<field name="reportType" type="String" />
+		<field name="reportNo" type="String" />
+		<field name="enPlateNo" type="String" />
+		<field name="enPlateL1" type="String" />
+		<field name="enPlateL2" type="String" />
+		<field name="enPlateL3" type="String" />
+		<field name="arPlateNo" type="String" />
+		<field name="arPlateL1" type="String" />
+		<field name="arPlateL2" type="String" />
+		<field name="arPlateL3" type="String" />
+		<field name="natureOfLoss" type="String" />
+		<field name="causeCode" type="String" />
+		<field name="typeOfClaim" type="String" />
+		<field name="claimLossDate" type="Date" />
+		<field name="lossRemarks" type="String" />
+		<field name="faultPercent" type="String" />
+		<field name="lossLocation" type="String" />
+		<field name="claimAmount" type="String" />
+		<field name="claimIntmDate" type="Date" />
+		<field name="claimSetlDate" type="Date" />
+		<field name="claimantName" type="String" />
+		<field name="driverName" type="String" />
+		<field name="claimantPhone" type="String" />
+		<field name="iban" type="String" />
+		<field name="tpDriverName" type="String" />
+		<field name="tpAge" type="String" />
+		<field name="tpID" type="String" />
+		<field name="tpPlateNo" type="String" />
+		<field name="tpPlateL1" type="String" />
+		<field name="tpPlateL2" type="String" />
+		<field name="tpPlateL3" type="String" />
+		<field name="tpInsuranceCo" type="String" />
+		<field name="tpMobileNo" type="String" />
+		<field name="tpNationality" type="String" />
+		<field name="tpIban" type="String" />
+		<field name="prodCode" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ClaimODSearch">
+		<field name="policyNo" type="String" />
+		<field name="reportNo" type="String" />
+		<field name="vehicleSEQCustom" type="String" />
+		<field name="vehicleDevType" type="String" />
+		<field name="natureofLoss" type="String" />
+		<field name="causeCode" type="String" />
+		<field name="typeOfClaim" type="String" />
+		<field name="claimLossDate" type="Date" />
+		<field name="lossRemarks" type="String" />
+		<field name="faultPercent" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ClaimTPSearch">
+		<field name="reportNo" type="String" />
+		<field name="tpId" type="String" />
+		<field name="tpDriverName" type="String" />
+		<field name="tpAge" type="String" />
+		<field name="vehicleSEQCustom" type="String" />
+		<field name="tpMobileNo" type="String" />
+		<field name="tpNationality" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CLMNajm">
+		<field name="caseNo" type="String" />
+		<field name="cipiId" type="String" />
+		<field name="callDt" type="String" />
+		<field name="city" type="String" />
+		<field name="name" type="String" />
+		<field name="phoneNo" type="String" />
+		<field name="age" type="String" />
+		<field name="nationality" type="String" />
+		<field name="plateNo" type="String" />
+		<field name="liabiltiyPerc" type="String" />
+		<field name="liabiltiyAmt" type="String" />
+		<field name="customId" type="String" />
+		<field name="seqNo" type="String" />
+		<field name="englishName" type="String" />
+		<field name="polNo" type="String" />
+		<field name="najmPlateNo" type="String" />
+		<field name="najmChassisNo" type="String" />
+		<field name="najmVEHNo" type="String" />
+		<field name="causeAr" type="String" />
+		<field name="causeEn" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CLMNajmUploads">
+		<field name="id" type="int" />
+		<field name="caseNo" type="String" />
+		<field name="cipiId" type="String" />
+		<field name="najmSlip" type="Blob" />
+		<field name="najmSlipName" type="String" />
+		<field name="damageEstQuot" type="Blob" />
+		<field name="damageEstQuotName" type="String" />
+		<field name="bankIban" type="Blob" />
+		<field name="bankIbanName" type="String" />
+		<field name="ownerId" type="Blob" />
+		<field name="ownerIdName" type="String" />
+		<field name="claimRefNo" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CLMSTATUS">
+		<field name="RefNo" type="String" />
+		<field name="claimStatus" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CLMSTATUSHISTORY">
+		<field name="id" type="int" />
+		<field name="RefNo" type="String" />
+		<field name="date" type="Date" />
+		<field name="userName" type="String" />
+		<field name="claimStatus" type="String" />
+		<field name="reason" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CLMWORKFLOW">
+		<field name="id" type="int" />
+		<field name="role" type="String" />
+		<field name="initialStatus" type="String" />
+		<field name="action" type="String" />
+		<field name="newStatus" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CodeMaster">
+		<field name="systemId" type="long" />
+		<field name="effFromDate" type="Date" />
+		<field name="effToDate" type="Date" />
+		<field name="creationDate" type="Date" />
+		<field name="crUid" type="String" />
+		<field name="updateDate" type="String" />
+		<field name="updateUid" type="long" />
+		<field name="code" type="String" />
+		<field name="codeSub" type="String" />
+		<field name="codeDesc" type="String" />
+		<field name="codeDescAr" type="String" />
+		<field name="codeValue0" type="String" />
+		<field name="codeValue1" type="String" />
+		<field name="codeValue2" type="String" />
+		<field name="codeRef" type="String" />
+		<field name="codeSubRef" type="String" />
+		<field name="codeFreezYN" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CodeMasterMap">
+		<field name="source" type="String" />
+		<field name="type" type="String" />
+		<field name="sourceType" type="String" />
+		<field name="sourceSystemId" type="String" />
+		<field name="sourceCode" type="String" />
+		<field name="sourceDesc" type="String" />
+		<field name="coreType" type="String" />
+		<field name="coreSystemId" type="String" />
+		<field name="coreCode" type="String" />
+		<field name="coreDesc" type="String" />
+		<field name="effFromDate" type="Date" />
+		<field name="effToDate" type="Date" />
+		<field name="freezeFlag" type="String" />
+		<field name="lvl1Type" type="String" />
+		<field name="lvl1SysId" type="String" />
+		<field name="lvl1Code" type="String" />
+		<field name="lvl1Desc" type="String" />
+		<field name="lvl2Type" type="String" />
+		<field name="lvl2SysId" type="String" />
+		<field name="lvl2Code" type="String" />
+		<field name="lvl2Desc" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CompDiscount">
+		<field name="iqamaId" type="String" />
+		<field name="schemeCode" type="String" />
+		<field name="companyCode" type="String" />
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.Customer">
+		<field name="id" type="String" />
+		<field name="nameEn" type="String" />
+		<field name="nameAr" type="String" />
+		<field name="phone" type="String" />
+		<field name="email" type="String" />
+		<field name="nationality" type="String" />
+		<field name="customerBirthDay" type="Date" />
+		<field name="gender" type="String" />
+		<field name="buildingNo" type="String" />
+		<field name="unitNo" type="String" />
+		<field name="street" type="String" />
+		<field name="district" type="String" />
+		<field name="zipCode" type="String" />
+		<field name="additNo" type="String" />
+		<field name="city" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CustomerIban">
+		<field name="id" type="String" />
+		<field name="refCode" type="String" />
+		<field name="premiaCCode" type="String" />
+		<field name="iban" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CustomerMap">
+		<field name="civilId" type="String" />
+		<field name="effFromDate" type="Date" />
+		<field name="crDare" type="Date" />
+		<field name="crUid" type="String" />
+		<field name="updateDt" type="String" />
+		<field name="updUid" type="String" />
+		<field name="name" type="String" />
+		<field name="nameAr" type="String" />
+		<field name="custType" type="String" />
+		<field name="custCatg" type="String" />
+		<field name="custCatgDesc" type="String" />
+		<field name="dob" type="Date" />
+		<field name="mobileNo" type="String" />
+		<field name="premiaCode" type="String" />
+		<field name="medCode" type="String" />
+		<field name="ilasCode" type="String" />
+		<field name="glasCode" type="String" />
+		<field name="nationality" type="String" />
+		<field name="nameShort" type="String" />
+		<field name="version" type="String" />
+		<field name="vip" type="String" />
+		<field name="phoneNo" type="String" />
+		<field name="address" type="String" />
+		<field name="email" type="String" />
+		<field name="refCode" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.CustUploads">
+		<field name="id" type="long" />
+		<field name="quotId" type="String" />
+		<field name="idFile" type="Blob" />
+		<field name="licenseFile" type="Blob" />
+		<field name="istCardFile" type="Blob" />
+		<field name="carFrontFile" type="Blob" />
+		<field name="carBackFile" type="Blob" />
+		<field name="carLeftFile" type="Blob" />
+		<field name="carRightFile" type="Blob" />
+		<field name="engChassisNoFile" type="Blob" />
+		<field name="leaseFile" type="Blob" />
+		<field name="idFileName" type="String" />
+		<field name="licenseFileName" type="String" />
+		<field name="istCardFileName" type="String" />
+		<field name="carFrontFileName" type="String" />
+		<field name="carBackFileName" type="String" />
+		<field name="carLeftFileName" type="String" />
+		<field name="carRightFileName" type="String" />
+		<field name="engChassisNoFileName" type="String" />
+		<field name="leaseFileName" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.FundDetails">
+		<field name="policyNo" type="String" />
+		<field name="fundName" type="String" />
+		<field name="fundDesc" type="String" />
+		<field name="fundPctg" type="String" />
+		<field name="unitsSum" type="double" />
+		<field name="unitPrice" type="double" />
+		<field name="fundsValue" type="double" />
+		<field name="riskChg" type="double" />
+		<field name="partFees" type="double" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.LNP2_PolicyMastr">
+		<field name="np1_proposal" type="String" />
+		<field name="np2_setno" type="String" />
+		<field name="cfr_forfeitucd" type="String" />
+		<field name="cmo_mode" type="String" />
+		<field name="pcu_currcode" type="String" />
+		<field name="aag_agcode" type="long" />
+		<field name="ccl_categorycd" type="String" />
+		<field name="use_userid" type="String" />
+		<field name="use_datetime" type="Date" />
+		<field name="np2_grosprm" type="long" />
+		<field name="np2_ageprem" type="long" />
+		<field name="np2_commendate" type="Date" />
+		<field name="np2_sumatrisk" type="long" />
+		<field name="np2_substandar" type="String" />
+		<field name="np2_effectdate" type="Date" />
+		<field name="np2_expirydate" type="Date" />
+		<field name="np2_endofprmdt" type="Date" />
+		<field name="np2_paidupamt" type="long" />
+		<field name="np2_diffinprem" type="long" />
+		<field name="np2_diffinfyco" type="long" />
+		<field name="np2_charges" type="long" />
+		<field name="np2_totload" type="long" />
+		<field name="np2_nextduedat" type="Date" />
+		<field name="np2_ageadmitt" type="long" />
+		<field name="np2_optimaindex" type="long" />
+		<field name="np2_ageprem2nd" type="long" />
+		<field name="np2_policyfees" type="long" />
+		<field name="np2_sar" type="long" />
+		<field name="np2_totpremium" type="long" />
+		<field name="np2_approved" type="long" />
+		<field name="np2_endorsementno" type="String" />
+		<field name="pfs_acntyear" type="String" />
+		<field name="arq_requestype" type="String" />
+		<field name="arq_requestno" type="long" />
+		<field name="np2_forfeitdat" type="Date" />
+		<field name="convert" type="long" />
+		<field name="np2_notionalage" type="long" />
+		<field name="cop_occupaticd" type="String" />
+		<field name="np2_dob" type="Date" />
+		<field name="np2_accr_proc" type="String" />
+		<field name="np2_effectiveage" type="long" />
+		<field name="np2_nom2ndlife" type="String" />
+		<field name="np2_dob_2nd" type="Date" />
+		<field name="np2_lastrevbonus" type="long" />
+		<field name="np2_reversionary" type="long" />
+		<field name="np2_rider_bonus" type="long" />
+		<field name="np2_last_rider_bonus" type="long" />
+		<field name="np2_ageprem_actual" type="long" />
+		<field name="np2_ageprem2nd_actual" type="long" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.MuroorTPUploads">
+		<field name="id" type="int" />
+		<field name="claimIntimationNo" type="String" />
+		<field name="iqamaId" type="String" />
+		<field name="driverLicense" type="Blob" />
+		<field name="driverLicenseName" type="String" />
+		<field name="vehRegist" type="Blob" />
+		<field name="vehRegistName" type="String" />
+		<field name="frontPhoto" type="Blob" />
+		<field name="frontPhotoName" type="String" />
+		<field name="rearPhoto" type="Blob" />
+		<field name="rearPhotoName" type="String" />
+		<field name="rightSidePhoto" type="Blob" />
+		<field name="rightSidePhotoName" type="String" />
+		<field name="leftSidePhoto" type="Blob" />
+		<field name="leftSidePhotoName" type="String" />
+		<field name="bankIban" type="Blob" />
+		<field name="bankIbanName" type="String" />
+		<field name="ownerId" type="Blob" />
+		<field name="ownerIdName" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ODMuroorUploads">
+		<field name="id" type="int" />
+		<field name="claimIntimationNo" type="String" />
+		<field name="iqamaId" type="String" />
+		<field name="driverLicense" type="Blob" />
+		<field name="driverLicenseName" type="String" />
+		<field name="vehRegist" type="Blob" />
+		<field name="vehRegistName" type="String" />
+		<field name="policyCopy" type="Blob" />
+		<field name="policyCopyName" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PayFortRef">
+		<field name="id" type="int" />
+		<field name="iqama_id" type="String" />
+		<field name="payFortRefNo" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyCancelation">
+		<field name="Id" type="String" />
+		<field name="policyNumber" type="String" />
+		<field name="policyExpiryDate" type="Date" />
+		<field name="insuredId" type="String" />
+		<field name="insuredName" type="String" />
+		<field name="vehicleSequence" type="String" />
+		<field name="vehicleChessisNo" type="String" />
+		<field name="status" type="String" />
+		<field name="cancllationReqDate" type="Date" />
+		<field name="reason" type="String" />
+		<field name="servicemessage" type="String" />
+		<field name="cancellationEffdate" type="Date" />
+		<field name="ibanImage" type="Blob" />
+		<field name="validFile" type="Blob" />
+		<field name="otherFile" type="Blob" />
+		<field name="vehMake" type="String" />
+		<field name="vehModel" type="String" />
+		<field name="plateNumber" type="String" />
+		<field name="anyAccident" type="String" />
+		<field name="lodgeClaim" type="String" />
+		<field name="ibanFileName" type="String" />
+		<field name="validFileName" type="String" />
+		<field name="policyInceptionDate" type="Date" />
+		<field name="insuredEmail" type="String" />
+		<field name="insuredMobile" type="String" />
+		<field name="rejReason" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyHDR">
+		<field name="policyNo" type="String" />
+		<field name="iqamaId" type="String" />
+		<field name="policyStatus" type="String" />
+		<field name="product" type="String" />
+		<field name="inceptionDate" type="Date" />
+		<field name="expiryDate" type="Date" />
+		<field name="sumInsured" type="long" />
+		<field name="totalPremium" type="long" />
+		<field name="policyFees" type="long" />
+		<field name="policyTaxes" type="String" />
+		<field name="policyTerm" type="long" />
+		<field name="premium" type="String" />
+		<field name="nextDueDate" type="Date" />
+		<field name="countPremMissed" type="long" />
+		<field name="modeOfPayment" type="String" />
+		<field name="nextRenwalDate" type="Date" />
+		<field name="custName" type="String" />
+		<field name="custBirthDate" type="Date" />
+		<field name="insuredName" type="String" />
+		<field name="insuredBirthDate" type="Date" />
+		<field name="insuredId" type="String" />
+		<field name="insuredMobile" type="String" />
+		<field name="insuredEmail" type="String" />
+		<field name="insuredAddr" type="String" />
+		<field name="insuredGender" type="String" />
+		<field name="occuptation" type="String" />
+		<field name="estExpiryDate" type="Date" />
+		<field name="najmStatus" type="String" />
+		<field name="surrenderValue" type="long" />
+		<field name="noOfRisk" type="long" />
+		<field name="memberScheme" type="String" />
+		<field name="memberBenefits" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyMemberDetails">
+		<field name="policyNo" type="String" />
+		<field name="memberName" type="String" />
+		<field name="memberSi" type="long" />
+		<field name="memberId" type="long" />
+		<field name="memberGender" type="String" />
+		<field name="memberDob" type="Date" />
+		<field name="memberLimit" type="long" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyPayment">
+		<field name="policyNo" type="String" />
+		<field name="voucherNo" type="String" />
+		<field name="endtNo" type="String" />
+		<field name="claimNo" type="String" />
+		<field name="dueDate" type="Date" />
+		<field name="docDate" type="Date" />
+		<field name="amount" type="double" />
+		<field name="reference" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyVEH">
+		<field name="policyNo" type="String" />
+		<field name="vehId" type="String" />
+		<field name="vehicleDefType" type="String" />
+		<field name="vehicleSeqCustom" type="String" />
+		<field name="chassisNo" type="String" />
+		<field name="bodyType" type="String" />
+		<field name="make" type="String" />
+		<field name="vehModel" type="String" />
+		<field name="mfgYear" type="long" />
+		<field name="color" type="String" />
+		<field name="agencyRepair" type="String" />
+		<field name="noofPassengers" type="long" />
+		<field name="enPlateNo" type="long" />
+		<field name="enPlateL1" type="String" />
+		<field name="enPlateL2" type="String" />
+		<field name="enPlateL3" type="String" />
+		<field name="arPlateNo" type="String" />
+		<field name="arPlateL1" type="String" />
+		<field name="arPlateL2" type="String" />
+		<field name="arPlateL3" type="String" />
+		<field name="deductible" type="long" />
+		<field name="vehicleValue" type="long" />
+		<field name="premium" type="long" />
+		<field name="discounts" type="long" />
+		<field name="loading" type="long" />
+		<field name="totalPremium" type="long" />
+		<field name="noofClaimFreeYears" type="long" />
+		<field name="useOfCehicle" type="String" />
+		<field name="najmPlateType" type="String" />
+		<field name="najmStatus" type="String" />
+		<field name="estemaraExpiryDate" type="String" />
+		<field name="geoLocation" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyVehCvr">
+		<field name="policyNo" type="String" />
+		<field name="vehId" type="String" />
+		<field name="cvrCode" type="String" />
+		<field name="description" type="String" />
+		<field name="cvrType" type="String" />
+		<field name="benefitTerm" type="String" />
+		<field name="premiumTerm" type="String" />
+		<field name="premium" type="long" />
+		<field name="sumCovered" type="long" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolicyVehDrv">
+		<field name="policyNo" type="String" />
+		<field name="vehId" type="long" />
+		<field name="driverLicenseNo" type="String" />
+		<field name="driverName" type="String" />
+		<field name="driverBirthDate" type="Date" />
+		<field name="driverNationality" type="String" />
+		<field name="driverGender" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.PolVEHSearch">
+		<field name="policyNo" type="String" />
+		<field name="vehicleSEQCustom" type="String" />
+		<field name="chassisNo" type="String" />
+		<field name="vehicleDevType" type="String" />
+		<field name="inceptionDate" type="Date" />
+		<field name="expiryDate" type="Date" />
+		<field name="engPlateNo" type="long" />
+		<field name="engPlateL1" type="String" />
+		<field name="engPlateL2" type="String" />
+		<field name="engPlateL3" type="String" />
+		<field name="arbPlateNo" type="String" />
+		<field name="arbPlateL1" type="String" />
+		<field name="arbPlateL2" type="String" />
+		<field name="arbPlateL3" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ProductCovers">
+		<field name="productCode" type="long" />
+		<field name="sectionCode" type="long" />
+		<field name="coverCode" type="String" />
+		<field name="coverName" type="String" />
+		<field name="coverNameAr" type="String" />
+		<field name="coverDesc" type="String" />
+		<field name="coverDescAr" type="String" />
+		<field name="coverPremium" type="String" />
+		<field name="coverFld1" type="String" />
+		<field name="coverFld2" type="String" />
+		<field name="coverFld3" type="String" />
+		<field name="coverFld4" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ProductDetails">
+		<field name="sysId" type="long" />
+		<field name="lobSysId" type="double" />
+		<field name="effFmDate" type="Date" />
+		<field name="effToDate" type="Date" />
+		<field name="crDate" type="Date" />
+		<field name="crUid" type="String" />
+		<field name="updDate" type="String" />
+		<field name="updUid" type="String" />
+		<field name="productCode" type="String" />
+		<field name="productName" type="String" />
+		<field name="productNameAr" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationAdminUploads">
+		<field name="id" type="int" />
+		<field name="quotationId" type="long" />
+		<field name="fileName" type="String" />
+		<field name="adminFile" type="Blob" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationCovers">
+		<field name="addCoverId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="coverCode" type="String" />
+		<field name="sectionCode" type="long" />
+		<field name="coverEffFromDate" type="Date" />
+		<field name="coverEffToDate" type="Date" />
+		<field name="coverPrem" type="long" />
+		<field name="coverRate" type="long" />
+		<field name="coverSi" type="long" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationDrivers">
+		<field name="addDriverId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="driverDob" type="Date" />
+		<field name="driverDobH" type="String" />
+		<field name="driverGender" type="String" />
+		<field name="driverId" type="long" />
+		<field name="driverIdType" type="long" />
+		<field name="driverName" type="String" />
+		<field name="driverNationality" type="String" />
+		<field name="driverOccup" type="String" />
+		<field name="isDriverUnder21" type="boolean" />
+		<field name="driverEdu" type="String" />
+		<field name="driverNoChild" type="String" />
+		<field name="driverMaritalStatus" type="String" />
+		<field name="driverNOFault" type="long" />
+		<field name="driverNOClaim" type="long" />
+		<field name="driverConvictions" type="String" />
+		<field name="driverMedConds" type="String" />
+		<field name="ncdYears" type="int" />
+		<field name="insuredRelation" type="String" />
+		<field name="insuredRelationProof" type="Blob" />
+		<field name="insuredRelationProofFileName" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationDriverseEndors">
+		<field name="addDriverId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="policyNumber" type="String" />
+		<field name="driverDob" type="Date" />
+		<field name="driverDobH" type="String" />
+		<field name="driverGender" type="String" />
+		<field name="driverId" type="String" />
+		<field name="driverIdType" type="long" />
+		<field name="driverName" type="String" />
+		<field name="driverNationality" type="String" />
+		<field name="driverOccup" type="String" />
+		<field name="isDriverUnder21" type="boolean" />
+		<field name="driverEdu" type="String" />
+		<field name="driverNoChild" type="String" />
+		<field name="driverMaritalStatus" type="String" />
+		<field name="driverNOFault" type="long" />
+		<field name="driverNOClaim" type="long" />
+		<field name="driverConvictions" type="String" />
+		<field name="driverMedConds" type="String" />
+		<field name="ncdYears" type="int" />
+		<field name="insuredRelation" type="String" />
+		<field name="insuredRelationProof" type="Blob" />
+		<field name="insuredRelationProofFileName" type="String" />
+		<field name="status" type="String" />
+		<field name="requestedDate" type="Date" />
+		<field name="buildNo" type="String" />
+		<field name="zipCode" type="String" />
+		<field name="addNo" type="String" />
+		<field name="stNameEn" type="String" />
+		<field name="stNameAr" type="String" />
+		<field name="districtEn" type="String" />
+		<field name="districtAr" type="String" />
+		<field name="cityEn" type="String" />
+		<field name="cityAr" type="String" />
+		<field name="isNatAddress" type="boolean" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationExtraTameeniInfo">
+		<field name="quotationId" type="long" />
+		<field name="insuredFirstName" type="String" />
+		<field name="insuredMiddleName" type="String" />
+		<field name="insuredLastName" type="String" />
+		<field name="isDriverDisabled" type="boolean" />
+		<field name="vehicleMakeCodeTameeni" type="long" />
+		<field name="coverAgeLimit" type="long" />
+		<field name="insuredNameLang" type="String" />
+		<field name="policyTitleId" type="String" />
+		<field name="isRenewal" type="boolean" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.Quotations">
+		<field name="addressAddNo" type="long" />
+		<field name="addressBuildingNo" type="long" />
+		<field name="addressDistrict" type="String" />
+		<field name="addressStreet" type="String" />
+		<field name="addressUnitNo" type="long" />
+		<field name="addressZipCode" type="long" />
+		<field name="addCover" type="String" />
+		<field name="addDriver" type="String" />
+		<field name="agencyRepair" type="String" />
+		<field name="city" type="String" />
+		<field name="deductibleValue" type="String" />
+		<field name="insuredDob" type="Date" />
+		<field name="insuredEmail" type="String" />
+		<field name="insuredGender" type="String" />
+		<field name="insuredId" type="long" />
+		<field name="insuredIdType" type="long" />
+		<field name="insuredMobile" type="long" />
+		<field name="insuredName" type="String" />
+		<field name="insuredNationality" type="String" />
+		<field name="insuredEducation" type="String" />
+		<field name="insuredMaritalStatus" type="String" />
+		<field name="insuredNoChildUnder16" type="long" />
+		<field name="loyaltyDiscount" type="String" />
+		<field name="ncdYears" type="long" />
+		<field name="paymemtAmount" type="long" />
+		<field name="paymentMethod" type="String" />
+		<field name="paymentRefNo" type="String" />
+		<field name="policyEffFromNo" type="Date" />
+		<field name="policyEffTo" type="Date" />
+		<field name="policyEffDate" type="Date" />
+		<field name="policyIssueDate" type="Date" />
+		<field name="policyNo" type="String" />
+		<field name="policyRefNo" type="String" />
+		<field name="policyStatusCode" type="String" />
+		<field name="productCode" type="String" />
+		<field name="purposeOfVehicle" type="String" />
+		<field name="quotationId" type="long" />
+		<field name="referenceNo" type="String" />
+		<field name="source" type="String" />
+		<field name="transaction" type="String" />
+		<field name="vehicleBodyType" type="String" />
+		<field name="vehicleCapacity" type="long" />
+		<field name="vehicleChassisNo" type="String" />
+		<field name="vehicleColor" type="String" />
+		<field name="vehicleCylinder" type="long" />
+		<field name="vehicleEstExpiryDate" type="Date" />
+		<field name="vehicleId" type="long" />
+		<field name="vehicleIdType" type="long" />
+		<field name="vehicleMake" type="String" />
+		<field name="vehicleMfgYear" type="long" />
+		<field name="vehicleModel" type="String" />
+		<field name="vehiclePlateL1" type="String" />
+		<field name="vehiclePlateL2" type="String" />
+		<field name="vehiclePlateL3" type="String" />
+		<field name="vehiclePlateNo" type="long" />
+		<field name="vehiclePlateType" type="String" />
+		<field name="vehicleValue" type="long" />
+		<field name="vehicleWeight" type="long" />
+		<field name="vehicleCity" type="String" />
+		<field name="vehicleCurrentMileage" type="long" />
+		<field name="vehicleLowerExpectedMileagePerYear" type="long" />
+		<field name="vehicleUpperExpectedMileagePerYear" type="long" />
+		<field name="vehicleNightLocation" type="String" />
+		<field name="vehicleEngineSize" type="String" />
+		<field name="vehicleTransType" type="String" />
+		<field name="vehAxleWeight" type="long" />
+		<field name="vehCarMods" type="String" />
+		<field name="vehSpecs" type="String" />
+		<field name="occCode" type="String" />
+		<field name="insuredIBAN" type="String" />
+		<field name="insuredDobH" type="String" />
+		<field name="netPrem" type="double" />
+		<field name="discountAmount" type="double" />
+		<field name="loyaltyDiscountAmount" type="double" />
+		<field name="discountPrem" type="double" />
+		<field name="loyaltyDiscountPer" type="double" />
+		<field name="loadingAmount" type="double" />
+		<field name="policyTaxes" type="double" />
+		<field name="policyFees" type="double" />
+		<field name="totalCoverPrem" type="double" />
+		<field name="grossPrem" type="double" />
+		<field name="existingPolicyNo" type="String" />
+		<field name="existingCompanyName" type="String" />
+		<field name="existingExpDate" type="String" />
+		<field name="policyStatusMsg" type="String" />
+		<field name="yakeenRefNo" type="long" />
+		<field name="quoteSubmissionDate" type="Date" />
+		<field name="quoteStatus" type="String" />
+		<field name="saeedService" type="String" />
+		<field name="driverAccidents" type="double" />
+		<field name="driverAgeLess21" type="double" />
+		<field name="agencyRepairOut" type="double" />
+		<field name="totalAfterDiscount" type="double" />
+		<field name="totalBeforeDisc" type="double" />
+		<field name="smsFlag" type="boolean" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationsDriverLicense">
+		<field name="licenseId" type="long" />
+		<field name="driverId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="LicCountry" type="String" />
+		<field name="LicType" type="String" />
+		<field name="LicYrs" type="int" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationsNajmDetails">
+		<field name="caseNumber" type="String" />
+		<field name="quotationId" type="long" />
+		<field name="accidentDate" type="String" />
+		<field name="liability" type="String" />
+		<field name="driverAge" type="String" />
+		<field name="carModel" type="String" />
+		<field name="carType" type="String" />
+		<field name="driverID" type="String" />
+		<field name="sequenceNumber" type="String" />
+		<field name="ownerID" type="String" />
+		<field name="estimatedAmount" type="String" />
+		<field name="damageParts" type="String" />
+		<field name="causeOfAccident" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationsSeq">
+		<field name="key" type="String" />
+		<field name="value" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationStatusHistory">
+		<field name="historyId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="dateTime" type="Date" />
+		<field name="userName" type="String" />
+		<field name="status" type="String" />
+		<field name="reason" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationSurvey">
+		<field name="surveyId" type="long" />
+		<field name="quotationId" type="String" />
+		<field name="surveyVideoFile" type="Blob" />
+		<field name="surveyVideoFileName" type="String" />
+		<field name="surveyDate" type="Date" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.QuotationsUserAddress">
+		<field name="userAddressId" type="long" />
+		<field name="driverId" type="long" />
+		<field name="quotationId" type="long" />
+		<field name="buildNo" type="String" />
+		<field name="zipCode" type="String" />
+		<field name="addNo" type="String" />
+		<field name="stNameEn" type="String" />
+		<field name="stNameAr" type="String" />
+		<field name="districtEn" type="String" />
+		<field name="districtAr" type="String" />
+		<field name="cityEn" type="String" />
+		<field name="cityAr" type="String" />
+		<field name="isNatAddress" type="boolean" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ServiceRequestAttachments">
+		<field name="FILE_ID" type="long" />
+		<field name="REFERENCE_NO" type="String" />
+		<field name="ACTION_ID" type="String" />
+		<field name="FILE_CONTENT" type="Blob" />
+		<field name="FILE_NAME" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ServiceRequestHistory">
+		<field name="ACTION_ID" type="long" />
+		<field name="REFERENCE_NO" type="String" />
+		<field name="ACTION_TYPE" type="String" />
+		<field name="ACTION_DETAILS" type="String" />
+		<field name="ACTION_REMARKS" type="String" />
+		<field name="ACTION_DATE" type="Date" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ServiceRequestMaster">
+		<field name="REFERENCE_NO" type="String" />
+		<field name="SOURCE" type="String" />
+		<field name="REQUEST_CATEGORY" type="String" />
+		<field name="REQUEST_TYPE" type="String" />
+		<field name="PRODUCT_TYPE" type="String" />
+		<field name="REQUEST_MESSAGE" type="String" />
+		<field name="IQAMA_ID" type="String" />
+		<field name="EMAIL" type="String" />
+		<field name="MOBILE" type="String" />
+		<field name="REQUEST_STATUS" type="String" />
+		<field name="EMAIL_FLAG" type="boolean" />
+		<field name="CREATOR_USER_ID" type="String" />
+		<field name="CREATION_DATE" type="Date" />
+		<field name="CREATOR_USER_TYPE" type="String" />
+		<field name="ASSIGNED_TO" type="String" />
+		<field name="USER_NAME" type="String" />
+		<field name="IBAN_NUMBER" type="String" />
+		<field name="ESCALATION_FLAG" type="boolean" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.ServiceRequestMessages">
+		<field name="MESSAGE_ID" type="long" />
+		<field name="REFERENCE_NO" type="String" />
+		<field name="USER_ID" type="String" />
+		<field name="USER_NAME" type="String" />
+		<field name="USER_TYPE" type="String" />
+		<field name="USER_MESSAGE" type="String" />
+		<field name="TIME_STAMP" type="Date" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.SMS">
+		<field name="ID" type="long" />
+		<field name="message" type="String" />
+		<field name="mobile" type="String" />
+		<field name="smsType" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.WorkshopVehicle">
+		<field name="id" type="int" />
+		<field name="customerName" type="String" />
+		<field name="manufacture" type="String" />
+		<field name="plateNo" type="String" />
+		<field name="workshopId" type="int" />
+		<field name="claimRefNo" type="String" />
+		<field name="status" type="String" />
+		<field name="date" type="Date" />
+		<field name="serviceType" type="String" />
+		<field name="description" type="String" />
+		<field name="customerMobile" type="String" />
+		<field name="vehMakeEn" type="String" />
+		<field name="vehMakeAr" type="String" />
+		<field name="vehModelEn" type="String" />
+		<field name="vehModelAr" type="String" />
+		<field name="customerIqamaId" type="String" />
+	</model>
+	<model name="com.ejada.atmc.acl.db.model.YakeenDataSave">
+		<field name="Id" type="String" />
+		<field name="OldId" type="String" />
+		<field name="sequenceNumber" type="String" />
+		<field name="dob" type="Date" />
+		<field name="serviceName" type="String" />
+		<field name="callingDate" type="Date" />
+		<field name="status" type="String" />
+		<field name="serviceOutput" type="String" />
+		<field name="serviceCalledDate" type="Date" />
+		<field name="serviceErrorMessage" type="String" />
+	</model>
+</model-hints>

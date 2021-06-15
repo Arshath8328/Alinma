@@ -1,0 +1,13 @@
+dependencies {
+	compile project(":modules:DBACL:DBACL-api")
+	compile group: 'com.oracle', name: 'ojdbc6', version: '12.1.0.1-atlassian-hosted'
+	compileOnly group: "com.sun.mail", name: "javax.mail", version: "1.6.0"
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../DBACL-api/src/main/java"
+}
+
+group = "com.ejada.atmc.acl.db"

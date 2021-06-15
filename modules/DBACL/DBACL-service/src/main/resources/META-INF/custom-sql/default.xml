@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+
+	<sql id=" com.ejada.atmc.acl.db.service.persistence.impl.LNP2_PolicyMastrFinderImpl.findPSPolicyByIqamaId">
+	<![CDATA[
+		select * from th_schedule where doctor_id = [$DOCTOR_ID$] and time_from like '%[$TIME_FORM$]%' and time_to like '%[$TIME_TO$]%'
+	]]>
+	</sql>
+
+</custom-sql>

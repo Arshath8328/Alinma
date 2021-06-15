@@ -1,0 +1,11 @@
+Bundle-Name: WSACL-api
+Bundle-SymbolicName: com.ejada.atmc.acl.ws.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.ejada.atmc.acl.ws.domain,\
+	com.ejada.atmc.acl.ws.domain.ods,\
+	com.ejada.atmc.acl.ws.domain.payFort,\
+	com.ejada.atmc.acl.ws.domain.yakeen,\
+	com.ejada.atmc.acl.ws.service
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../WSACL-service/service.xml
