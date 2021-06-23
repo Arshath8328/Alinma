@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="policy_Schedule" pageWidth="595" pageHeight="2524" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="04669cc2-54fe-4737-84c4-edc50cb78a92">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<template><![CDATA["styles/styles_en.jrtx"]]></template>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="policyData" uuid="74d69d96-c718-4db3-a98a-d6bcb033f8b7">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="driverName" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="policyNo" class="java.lang.String"/>
+	<field name="inceptionDate" class="java.util.Date"/>
+	<field name="policyStatusEn" class="java.lang.String"/>
+	<field name="insuredName" class="java.lang.String"/>
+	<field name="insuredId" class="java.lang.String"/>
+	<field name="insuredAddr" class="java.lang.String"/>
+	<field name="insuredMobile" class="java.lang.String"/>
+	<field name="totalPremium" class="java.lang.Long"/>
+	<field name="policyFees" class="java.lang.Long"/>
+	<field name="policyTaxes" class="java.lang.String"/>
+	<field name="expiryDate" class="java.util.Date"/>
+	<field name="policyVehs" class="java.util.List"/>
+	<field name="premium" class="java.lang.String"/>
+	<field name="insuredBirthDate" class="java.util.Date"/>
+	<field name="insuredEmail" class="java.lang.String"/>
+	<variable name="dateFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<variable name="numberFormat" class="java.lang.String">
+		<variableExpression><![CDATA[NumberFormat.getInstance()]]></variableExpression>
+	</variable>
+	<variable name="pVeh" class="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle">
+		<variableExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("pVeh")]]></variableExpression>
+		<initialValueExpression><![CDATA[($F{policyVehs}!=null)?$F{policyVehs}.get(0):null]]></initialValueExpression>
+	</variable>
+	<variable name="driverone" class="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicleDriver">
+		<variableExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("pvehdrv1")]]></variableExpression>
+	</variable>
+	<variable name="drivertwo" class="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicleDriver">
+		<variableExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("pvehdrv2")]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="110" y="37" width="342" height="20" uuid="70cdc43b-67ee-43c8-956e-b9bb9e19f614"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOTOR THIRD PARTY LIABILITY POLICY SCHEDULE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="58" width="120" height="20" uuid="6023bd32-b60d-4277-91e2-1e3f67db64f6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALINMA TOKIO MARINE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="79" width="128" height="20" uuid="38fd3845-8621-43b1-ac9f-865ed2e6a5c2"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الإنماء طوكيو مارين]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="20" width="428" height="17" uuid="5ef29f16-1025-40c6-8e38-485c7fbc43fc"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["جدول وثيقة المسؤولية تجاه الغير للمركبات "]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="1725" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="2" width="69" height="20" uuid="cf99fa7f-e844-4719-9d79-31fa51723cc5"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رقم الوثيقة"+"\n"+"Policy No  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="2" width="130" height="20" uuid="ac766166-9116-4b22-ac43-65e77e38afb7"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="2" width="70" height="20" uuid="33f34439-20e9-41cf-ae2f-528063bae541"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{inceptionDate}!=null)?$V{dateFormatter}.format($F{inceptionDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="2" width="69" height="20" uuid="fd4a370b-4773-4ecb-8b26-7805ec2ae175"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["تاريخ الاصدار"+"\n"+"Issue Date  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="2" width="75" height="20" uuid="7c060b1c-236d-4485-8f1a-96e86f9cb84d"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الحالة"+"\n"+"Status  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="2" width="70" height="20" uuid="313a43c5-842e-46d1-a257-c472e82cb8e7"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyStatusEn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="41" width="69" height="20" uuid="87a15d43-a839-4ade-9a45-548a553e1acf"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["المؤمن له"+"\n"+"Insured  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="41" width="180" height="20" uuid="1124cceb-59be-469d-afc0-8417a1dd2cba"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="41" width="75" height="20" uuid="4b15d130-e824-4279-b1b9-c7053f013cb0"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رمز المؤمن له"+"\n"+"Insured Code  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="41" width="76" height="20" uuid="4d16fcc6-b299-4f67-99d0-2dd83fa94dee"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="81" width="69" height="20" uuid="7bef18a0-2f84-4880-99bc-a2428badaf1f"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["العنوان"+"\n"+"Address  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="81" width="130" height="20" uuid="d6f67077-6146-438d-bac6-2174ee7d5606"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredAddr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="81" width="69" height="20" uuid="6e1d59d4-cd21-42ec-9dd1-34f5fcce60fa"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رقم الجوال"+"\n"+"Mobile No  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="81" width="70" height="20" uuid="f0d551f0-f12e-41a7-b7bf-473aeb44d74b"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredMobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="122" width="33" height="20" uuid="74e034a6-bb09-4b94-b3e4-a185e07d8a09"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["من"+"\n"+"From :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="122" width="50" height="20" uuid="b1e66590-1192-4993-866b-551450561ec8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{inceptionDate}!=null)?$V{dateFormatter}.format($F{inceptionDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="122" width="70" height="20" uuid="e791dc40-83d8-4ef0-a810-8ded4cf67938"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredMobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="122" width="69" height="20" uuid="1c04dd56-da4f-4c34-9e0a-88fea993d406"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رقم الهاتف"+"\n"+"Phone No  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="122" width="76" height="30" uuid="e86ecec9-accf-40c5-9de7-062dae982398"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["فترة التأمين"+"\n"+"Period of Insurance  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="122" width="50" height="20" uuid="864db143-d8b3-4ab2-b44b-8a5dd9a3c0fd"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{expiryDate}!=null)?$V{dateFormatter}.format($F{expiryDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="122" width="33" height="20" uuid="5f1c9236-9c04-4f8d-86ea-313632cb3921"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["إلى"+"\n"+"To :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="164" width="76" height="40" uuid="c6d34c32-9138-4b76-859f-2fa431a80526"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["النطاق الجغرافي"+"\n"+"Geographical Area  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="164" width="130" height="20" uuid="5657564f-b4af-451f-847a-6980bae7621c"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="164" width="93" height="20" uuid="a0070437-46b0-4c80-a8e4-a79a05841172"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الإختصاص القضائي"+"\n"+"Jurisdiction  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="164" width="231" height="20" uuid="1c373823-f00a-4308-90a3-2c4c4c4df05c"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Subject to Saudi Arabian Legislation / Ruling and Verdict"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="210" width="100" height="30" uuid="4ce1d9d2-770e-44f1-8d52-8eed74238a21"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["مجموع القسط النأميني"+"\n"+"Total Premium :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="210" width="290" height="15" uuid="7adcc499-cd0a-4f81-9fa7-f4bf9df6f4d6"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SAR "+$F{totalPremium}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="225" width="290" height="15" uuid="14f3df9b-a727-4a0f-9c87-e50b6b266af6"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["( SAR "+$P{REPORT_PARAMETERS_MAP}.get( "totalPremium" )+($P{REPORT_PARAMETERS_MAP}.get( "totalPremiumDecim" )!=null? $P{REPORT_PARAMETERS_MAP}.get( "totalPremiumDecim" )+" And Halala Only )" :" Only )")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="243" width="77" height="15" uuid="a2badad6-7bf8-44f6-99b2-67facab3add5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Description"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="243" width="77" height="15" uuid="4d43634b-9909-4ed0-95b8-59f9bbec636c"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Premium"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="243" width="77" height="15" uuid="d818b0ad-1f7d-4403-b149-fed9d28e7cd5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Percentage"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="259" width="77" height="15" uuid="f8896de1-f12e-4555-9861-7a22d6bbf7ec"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["T.P.L Cover  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="259" width="77" height="15" uuid="43d1061b-a56f-4d45-861d-8f815b1c88df"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="259" width="77" height="15" uuid="6acf3bb1-5caa-4d77-8750-3f8cfe14bb41"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "premium" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="275" width="101" height="15" uuid="5da244d7-c161-4b5b-831d-d4c9f1b39842"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No Claim Discount :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="275" width="77" height="15" uuid="767c06ad-c3a0-45db-b048-8fd7ed953b3f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="275" width="77" height="15" uuid="eecb5e9e-1fd2-4dd6-8f7a-f711e00d5b63"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "discounts" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="307" width="77" height="15" uuid="2f25f54c-06d2-44d3-a8ce-bcca13088c72"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Policy Fee  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="307" width="77" height="15" uuid="e3c3bce5-84e3-4f29-ae54-657335087e4f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="307" width="77" height="15" uuid="908b0206-dbc8-49f4-aa76-6c0424aa6789"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyFees}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="291" width="77" height="15" uuid="8c23198b-9a75-4118-8f5d-550366be325f"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="291" width="77" height="15" uuid="19e124de-bfe6-44ce-ba44-38aa413cccb8"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="291" width="187" height="15" uuid="99bb2327-1d8c-4a0d-9e81-7285ca2e8cda"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Loyalty And Other Special Discount :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="323" width="77" height="15" uuid="d1427238-e70c-4f19-bb74-57d734701d54"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VAT Tax  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="323" width="77" height="15" uuid="b34e5aca-89a8-4034-8284-4346e89f0d3d"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="323" width="77" height="15" uuid="f6c2c73a-4f3b-4312-ad77-6367b9e192b1"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyTaxes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="340" width="77" height="15" uuid="ad460690-4e0f-4877-8fc4-663dc8985141"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="356" width="77" height="15" uuid="e29710fb-9e4b-4a23-972b-b9b9cf48c20e"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Premium  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="372" width="168" height="89" uuid="4ad48e9a-cef9-4233-ba47-51f3730b2382"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["بيانات المركبة"+"\n"+"Vehicle Details"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="372" width="386" height="89" uuid="9d5460a0-281d-4799-b952-56c023a5ec3b"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style isBold='true' >Vehicle brand </style>:"+$V{pVeh}.getMakeEn()+"\n"+
+"<style isBold='true' >Type of vehicle </style>:"+$V{pVeh}.getBodyTypeEn()+"\n"+
+"<style isBold='true' >Year of Manufacturing </style>:"+$V{pVeh}.getMfgYear()+"\n"+
+"<style isBold='true' >Vehicle Plate Number</style> :"+$V{pVeh}.getEnPlateL1()+" "+$V{pVeh}.getEnPlateL2()+" " +$V{pVeh}.getEnPlateL3()+" "+$V{pVeh}.getEnPlateNo()+"\n"+
+"<style isBold='true' >Vehicle Chassis Number </style>:"+$V{pVeh}.getChassisNo()+"\n"+
+"<style isBold='true' >Customs Card No</style> :"+$V{pVeh}.getVehicleSeqCustom()+"\n"+
+"<style isBold='true' >Vehicle Color </style>:"+$V{pVeh}.getColorEn()+"\n"+"<style isBold='true' >Vehicle Sequence </style>:"+$V{pVeh}.getVehId()+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="569" width="168" height="40" uuid="25e63b97-552d-454b-869f-674fc1ad3385"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["التغطية"+"\n"+"Coverage"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="569" width="386" height="40" uuid="4ef27dcc-aca8-4bfb-b8ad-2d789f001dd4"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["i) Third Party liability"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="609" width="168" height="48" uuid="a73b1681-1119-4507-8829-cae85f1be38a"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["مسؤولية الطرف الثالث"+"\n"+"Third Party Liability"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="609" width="386" height="48" uuid="a606b295-2b09-42e5-bc35-996bcdea770b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Material Damage"+"\t"+"الأضرار المادية"+"\n"+
+"Bodily Injury"+"\t"+"الاصابات الجسدية"+"\n"+
+"SAR 10,000,000/- IN THE AGGRETGATE"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="657" width="168" height="72" uuid="d3f24fd5-c416-4b7a-8e5f-038036b3ae3b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["التغطية"+"\n"+"Cover"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="657" width="386" height="72" uuid="edc155f6-b192-4634-849d-bc218a889c19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Motor Third Party Liability Insurance:"+"\n"+
+"i.Third party Liability :"+"\n\n"+
+"Legal liability of Insured towards third party arising out of the use of motor vehicles insured against (i) Bodily Injury / Death and (ii) Property Damage as per Standard Motor (unified) Policy wording approved by SAMA."+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="729" width="168" height="95" uuid="1e3294ec-2c2b-434e-a06e-bf84ee29d127"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الحد الأقصى للمسؤوليات"+"\n"+"Maximum Limit of Liability"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="729" width="386" height="94" uuid="c8fa5f60-ac7e-4c3d-ad48-8a701bafd92c"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Third Party Liability"+"\n"+
+"(Bodily Injury & Property Damage):"+"\n\n"+
+"The maximum limit of liability any one accident and in the aggregate during the policy period in respect of bodily injury (including blood money and estimated amounts for injuries and medical expenses) and property damage together shall not exceed a total amount of SR. 10,000,000 (Saudi Riyals Ten Million only).-"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="824" width="168" height="320" uuid="47e9bcb4-b095-4a22-b48e-52b93265614b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الشروط"+"\n"+"Conditions"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" stretchType="RelativeToBandHeight" x="168" y="823" width="386" height="321" uuid="d2e1321a-45a3-4e37-91da-d0e721e5615d"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style isBold='true' >* Subject to ATMC Motor Third Party Insurance Policy Wordings:</style>"+"\n"+
+"<style isBold='true' >-PPW: Subject to 100% Premium Payment at inception.</style>"+"\n"+
+"* -In case of accident, Najm/Police report and/or Report from Competent Authority is required."+"\n"+
+"* The driver must possess valid Saudi driving license according to the type of vehicle he is driving/operating"+"\n"+
+"* Age limitations:"+"\n"+
+"* A) Private Cars: 18-year-old and above unless specifically agreed."+"\n"+
+"* Under Age Driver: Agreed subject to following conditions:"+"\n"+
+" - Age should be under 18-year-old"+"\n"+
+" - Holding Saudi Permanent and valid driving license."+"\n"+
+" - Can use Private car only"+"\n"+
+" B) Commercial Vehicles: 25-year-old and above"+"\n\n"+
+"<style isBold='true' >* VALUE ADDED TAX (VAT) CLAUSE</style>"+"\n"+
+"It is hereby declared and agreed that if VAT (Value Added Tax) is applicable on the insurance premium and other charges are payable or paid in relation to this insurance contract retrospectively from inception or prospectively from the date of implementation of VAT, ATMC reserves the right to collect the same from the insured immediately and without prior notice in line with the Kingdom of Saudi Arabia impending VAT laws and regulations."+"\n"+
+"In case the insured fails to pay applicable taxes, ATMC shall be entitled to cancel the insurance policy, as and when allowed by law, by serving a thirty day notice of cancellation, and collect the due amount of taxes from the refundable premium to the insured"+"\n\n"+
+"<style isBold='true' >* Cancellation Notice</style>: Subject to 30 days’ notice served by either party. If notice served by the Insured, then refund premium will be on Pro-Rata basis against those vehicles which did not reported claim. If the Company serve Cancellation Notice in this case Refund Premium will be on Pro-Rata basis against those vehicles which did not reported claim.\nIn case of cancellation, the company will deduct SAR 25 as an administrative fees"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="1144" width="168" height="289" uuid="3d984f87-5351-4e53-8983-c17bb6585d3b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الإستثناءات"+"\n"+"Exclusions"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="1144" width="386" height="289" uuid="76979f10-4213-45e0-ab5e-e9f9d1a7e3eb"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* Excluding Rent a Car, Limousine, Motor Bike, Hire in or Hired Out or other renting type business."+"\n"+
+"* Sabotage and Terrorism;"+"\n"+
+"* Political Risks Exclusion Clause."+"\n"+
+"* Strikes, Riot and Civil Commotion."+"\n"+
+"* Vehicles not bearing plate numbers."+"\n"+
+"* Races and speed trials."+"\n"+
+"* Vehicles on rails."+"\n"+
+"* Vehicles not on terra firma."+"\n"+
+"* Refuelling of Aircraft vehicles"+"\n"+
+"* Self-drive hire vehicles"+"\n"+
+"* Fire brigade vehicles, military vehicles & public emergency services."+"\n"+
+"* Vehicles for transport of high explosives, transportation of dangerous materials like any kind of explosives e.g.ammunition, fireworks, fuses, cartridges powder, dynamite, nitroglycerine or any substance intended for use as an explosive, and gases, liquefied petroleum products unless incidental to a fleet placing, chemical products and flammable liquids."+"\n"+
+"* Any test or trials runs with motor vehicles."+"\n"+
+"* Liability Loss or damage from/to goods transported."+"\n"+
+"* Sports meeting, races and rallies including any form of competition in motor propelled vehicles."+"\n"+
+"* Hire cars"+"\n"+
+"* Motor Cycles"+"\n"+
+"* Nuclear Exclusion Clause"+"\n"+
+"* Excluding war and terrorism"+"\n"+
+"* Liability and jurisdiction in USA/CANADA"+"\n"+
+"* Professional Liabilities of whatsoever."+"\n"+
+"* Electro Magnetic Fields (EMF)."+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsRHTPadd" x="168" y="1433" width="386" height="80" uuid="a8955ae8-5811-49e5-aa2e-dbacc60702d1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["In the event of an unfortunate accident, submitting Motor Claims can be through ATMC Claim Centers and/or Najm Claims Centers. For more information please visit ATMC Website: http://www.atmc.com.sa/web/customer/claim. Incase of any complaint or query please contact ATMC Customer Care at: 920008424 and/or care@atmc.com.sa."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="1433" width="168" height="80" uuid="4d91a728-78c3-47df-9298-aeaf8cec8be0"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["المطالبات والشكاوى"+"\n"+"Claim & Compliant"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="1595" width="554" height="80" uuid="70f6fa0b-e1a2-403d-b655-a433a9a3f3d8"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date & User of Issuance:"+(($F{inceptionDate}!=null)?$V{dateFormatter}.format($F{inceptionDate}):"")+" by "+"\n\n"+"\t\t\t"+"Authorized Signatory"+"\n"+"\t\t\t"+"المخول بالتوقيع"+"\n"+"\t\t\t"+"Alinma Tokio Marine"+"\n"+"\t\t\t"+"الإنماء طوكيو مارين"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsRHTPadd" x="0" y="1675" width="554" height="50" uuid="c64fa4fd-83c6-4875-9238-39da063360b5"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["شكرا لاختيارك الإنماء طوكبو مارين، شريكك التأميني الموثوق"+" "+"\n"+
+"920008424"+"\n"+
+"care@atmc.com.sa"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsRHTPadd" x="168" y="1513" width="386" height="82" uuid="bcd81126-66b1-4e1d-a6a2-044a97d645dd"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["شهد على هذا العقد الموقع ادناه كونه مخولا من شركة التأمين بإبرام هذا العقد بين المؤمن له والشركة"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="1513" width="168" height="82" uuid="ad8b799f-d5af-491b-96cc-831f6db8ca5b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["In witness whereof the undersigned being duly authorized by the company and on behalf of the company has/have here unto set his/their hand(s)"+"\n"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="354" width="77" height="15" uuid="ce72257b-b069-4053-80a4-b29cb600f7eb"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="338" width="80" height="16" uuid="7ef6d10a-7aba-4fd8-b04e-2494ee576ace"/>
+				<textFieldExpression><![CDATA[$V{pVeh}.getLoading()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="355" width="80" height="16" uuid="184b9f17-ddb9-40ff-a596-05a1385c92a7"/>
+				<textFieldExpression><![CDATA[$F{totalPremium}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="339" width="150" height="16" uuid="75d9c8fb-e7f0-4774-aa24-aa7195c462b3"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Additional Loading (Due To Accident) :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="82" width="72" height="28" uuid="901bc07e-340d-417e-94db-74752816da23"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["البريد الإلكتروني"+"\n"+"Email:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="83" width="76" height="20" uuid="b57cbe87-3fe7-4952-af31-35ea4589aded"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{insuredEmail}!=null) ? $F{insuredEmail} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="119" width="73" height="32" uuid="8043341f-2a3c-42fc-b4ea-4a411dbd887f"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["البريد الإلكتروني"+"\n"+"DOB  :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="120" width="76" height="20" uuid="44295a9a-f352-4bb6-8c49-d938a4fed8fe"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{insuredBirthDate}!=null)?$V{dateFormatter}.format($F{insuredBirthDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="168" y="461" width="386" height="108" uuid="69331abe-63d3-42e1-a11f-851974c9cf94"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style isBold='true' >Driver Name </style>:"+($V{driverone}.getDriverName()!=null?$V{driverone}.getDriverName():" ")+"<style isBold='true' >Driver Id </style>:"+($V{driverone}.getDriverLicenseNo()!=null ?$V{driverone}.getDriverLicenseNo() : " ")+"\n"+"\n"+"<style isBold='true' >Driver Name </style>:"+($V{drivertwo}.getDriverName()!=null ? $V{drivertwo}.getDriverName() : " ")+"<style isBold='true' >Driver Id </style>:"+($V{drivertwo}.getDriverLicenseNo()!=null?$V{drivertwo}.getDriverLicenseNo() : " " )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPadd" x="0" y="461" width="168" height="108" uuid="8245a750-fb31-42a7-8fdd-3643eb5676cd"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["السائق الإضافي "+"\n"+"Additional Driver"+"\n"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

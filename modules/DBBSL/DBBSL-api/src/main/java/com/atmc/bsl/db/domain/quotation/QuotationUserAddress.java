@@ -16,133 +16,117 @@ package com.atmc.bsl.db.domain.quotation;
  * @author Ghada Shawkat
  *
  */
-public class QuotationUserAddress
-{
+public class QuotationUserAddress {
 	private String buildNo;
-	
+
 	private String stName;
-	
+
 	private String district;
-	
+
 	private String city;
-	
+
 	private String zipCode;
-	
+
 	private String addNo;
-	
+
 	private long userAddressId;
 
 	/**
 	 * @return the buildNo
 	 */
-	public String getBuildNo()
-	{
+	public String getBuildNo() {
 		return buildNo;
 	}
 
 	/**
 	 * @param buildNo the buildNo to set
 	 */
-	public void setBuildNo(String buildNo)
-	{
+	public void setBuildNo(String buildNo) {
 		this.buildNo = buildNo;
 	}
 
 	/**
 	 * @return the stName
 	 */
-	public String getStName()
-	{
+	public String getStName() {
 		return stName;
 	}
 
 	/**
 	 * @param stName the stName to set
 	 */
-	public void setStName(String stName)
-	{
+	public void setStName(String stName) {
 		this.stName = stName;
 	}
 
 	/**
 	 * @return the district
 	 */
-	public String getDistrict()
-	{
+	public String getDistrict() {
 		return district;
 	}
 
 	/**
 	 * @param district the district to set
 	 */
-	public void setDistrict(String district)
-	{
+	public void setDistrict(String district) {
 		this.district = district;
 	}
 
 	/**
 	 * @return the city
 	 */
-	public String getCity()
-	{
+	public String getCity() {
 		return city;
 	}
 
 	/**
 	 * @param city the city to set
 	 */
-	public void setCity(String city)
-	{
+	public void setCity(String city) {
 		this.city = city;
 	}
 
 	/**
 	 * @return the zipCode
 	 */
-	public String getZipCode()
-	{
+	public String getZipCode() {
 		return zipCode;
 	}
 
 	/**
 	 * @param zipCode the zipCode to set
 	 */
-	public void setZipCode(String zipCode)
-	{
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 
 	/**
 	 * @return the addNo
 	 */
-	public String getAddNo()
-	{
+	public String getAddNo() {
 		return addNo;
 	}
 
 	/**
 	 * @param addNo the addNo to set
 	 */
-	public void setAddNo(String addNo)
-	{
+	public void setAddNo(String addNo) {
 		this.addNo = addNo;
 	}
 
 	/**
 	 * @return the userAddressId
 	 */
-	public long getUserAddressId()
-	{
+	public long getUserAddressId() {
 		return userAddressId;
 	}
 
 	/**
 	 * @param userAddressId the userAddressId to set
 	 */
-	public void setUserAddressId(long userAddressId)
-	{
+	public void setUserAddressId(long userAddressId) {
 		this.userAddressId = userAddressId;
 	}
-
 
 }

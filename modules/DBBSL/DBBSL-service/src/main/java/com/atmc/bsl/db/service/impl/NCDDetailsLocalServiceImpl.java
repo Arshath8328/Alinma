@@ -24,24 +24,28 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the ncd details local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.NCDDetailsLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.NCDDetailsLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see NCDDetailsLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.NCDDetails",
-	service = AopService.class
-)
+@Component(property = "model.class.name=com.atmc.bsl.db.model.NCDDetails", service = AopService.class)
 public class NCDDetailsLocalServiceImpl extends NCDDetailsLocalServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Use <code>com.atmc.bsl.db.service.NCDDetailsLocalService</code> via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.atmc.bsl.db.service.NCDDetailsLocalServiceUtil</code>.
+	 * Never reference this class directly. Use
+	 * <code>com.atmc.bsl.db.service.NCDDetailsLocalService</code> via injection or
+	 * a <code>org.osgi.util.tracker.ServiceTracker</code> or use
+	 * <code>com.atmc.bsl.db.service.NCDDetailsLocalServiceUtil</code>.
 	 */
 }

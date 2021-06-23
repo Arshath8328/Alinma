@@ -16,82 +16,72 @@ package com.atmc.bsl.db.service.impl;
 
 import com.atmc.bsl.db.domain.ReturnCodes;
 import com.atmc.bsl.db.domain.ServiceOutput;
+import com.atmc.bsl.db.service.ForgotPasswordLocalServiceUtil;
 import com.atmc.bsl.db.service.base.ForgotPasswordServiceBaseImpl;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
+
 import org.osgi.service.component.annotations.Component;
 
 /**
  * The implementation of the forgot password remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.ForgotPasswordService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.ForgotPasswordService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see ForgotPasswordServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=ForgotPassword"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=dbbsl",
+		"json.web.service.context.path=ForgotPassword" }, service = AopService.class)
 public class ForgotPasswordServiceImpl extends ForgotPasswordServiceBaseImpl {
-
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.ForgotPasswordServiceUtil} to access the forgot password remote service.
+	 * Never reference this class directly. Always use {@link
+	 * com.ejada.atmc.bsl.db.service.ForgotPasswordServiceUtil} to access the forgot
+	 * password remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(ForgotPasswordServiceImpl.class);
 
-	public ServiceOutput<User> validateUser(String emailAddress,String captchaText)
-	{
-
+	public ServiceOutput<User> validateUser(String emailAddress, String captchaText) {
 
 		ServiceOutput<User> svcOutput = new ServiceOutput<User>();
-		try
-		{
-			User user = forgotPasswordLocalService.validateUser(emailAddress,captchaText);
+		try {
+			User user = ForgotPasswordLocalServiceUtil.validateUser(emailAddress, captchaText);
 			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
 			svcOutput.setOutputObject(user);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			_log.error(e);
 			svcOutput.setOutputCode(ReturnCodes.getErrorCode(e.getClass()));
 		}
 
 		return svcOutput;
-
 
 	}
 
-	public ServiceOutput<String> checkReminderQueries(String emailAddress, String answer, String captchaText)
-	{
-
+	public ServiceOutput<String> checkReminderQueries(String emailAddress, String answer, String captchaText) {
 
 		ServiceOutput<String> svcOutput = new ServiceOutput<String>();
-		try
-		{
-			forgotPasswordLocalService.checkReminderQueries(emailAddress,answer,captchaText);
+		try {
+			ForgotPasswordLocalServiceUtil.checkReminderQueries(emailAddress, answer, captchaText);
 			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			_log.error(e);
 			svcOutput.setOutputCode(ReturnCodes.getErrorCode(e.getClass()));
 		}
 
 		return svcOutput;
-
 
 	}
 

@@ -23,8 +23,7 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see PolicyService
  * @generated
  */
-public class PolicyServiceWrapper
-	implements PolicyService, ServiceWrapper<PolicyService> {
+public class PolicyServiceWrapper implements PolicyService, ServiceWrapper<PolicyService> {
 
 	public PolicyServiceWrapper(PolicyService policyService) {
 		_policyService = policyService;
@@ -38,6 +37,41 @@ public class PolicyServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _policyService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getPoliciesByIqamaId(
+			String iqamaId, int startRow, int endRow) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _policyService.getPoliciesByIqamaId(iqamaId, startRow, endRow);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<Long> getPoliciesCountByIqamaId(String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _policyService.getPoliciesCountByIqamaId(iqamaId);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+			String policyNo) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _policyService.getPolicyByPolicyNo(policyNo);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
+			String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _policyService.getPolicySummary(iqamaId);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getUpcomingPolicyRenewals(
+			String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _policyService.getUpcomingPolicyRenewals(iqamaId);
 	}
 
 	@Override

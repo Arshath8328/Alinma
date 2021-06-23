@@ -3,26 +3,25 @@ package com.atmc.bsl.db.domain.quotation;
 /**
  * @author Kareem Kahil
  */
-public class QuotationTameeniExtraDetails 
-{
+public class QuotationTameeniExtraDetails {
 	private long quotationId;
 
 	private String insuredFirstName;
-	
+
 	private String insuredMiddleName;
-	
+
 	private String insuredLastName;
-	
+
 	private boolean isDriverDisabled;
-	
+
 	private long vehicleMakeCodeTameeni;
-	
+
 	private long coverAgeLimit;
-	
+
 	private String insuredNameLang;
-	
+
 	private int policyTitleID;
-	
+
 	private boolean isRenewal;
 
 	public long getQuotationId() {
@@ -104,6 +103,5 @@ public class QuotationTameeniExtraDetails
 	public void setRenewal(boolean isRenewal) {
 		this.isRenewal = isRenewal;
 	}
-	
-	
+
 }

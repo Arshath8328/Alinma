@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2018-10-23T10:10:28 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ClaimODReport" pageWidth="595" pageHeight="1000" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Error" uuid="9c0bd29a-d653-48a0-ac7f-e2ca7ffefff5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="insuredName" class="java.lang.String"/>
+	<field name="policyNo" class="java.lang.String"/>
+	<field name="transaction" class="java.lang.String"/>
+	<field name="plateNo" class="java.lang.String"/>
+	<field name="insuredEmail" class="java.lang.String"/>
+	<field name="insuredMobNo" class="java.lang.String"/>
+	<field name="expiryDate" class="java.lang.String"/>
+	<field name="mfgYr" class="java.lang.Long"/>
+	<field name="make" class="java.lang.String"/>
+	<field name="accidentCity" class="java.lang.String"/>
+	<field name="insuredCity" class="java.lang.String"/>
+	<field name="insuredZIPCode" class="java.lang.String"/>
+	<field name="accidentDate" class="java.lang.String"/>
+	<field name="accidentTime" class="java.lang.String"/>
+	<field name="timeGroup" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="17" width="170" height="40" uuid="589a6800-141f-4b11-835b-137393160fa8"/>
+				<imageExpression><![CDATA["img/OD Report imgs_2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="340" y="3" width="210" height="70" uuid="4acdce19-7827-4a18-a0c8-a74bccf369ad">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["img/OD Report imgs_1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="766" splitType="Stretch">
+			<frame>
+				<reportElement x="4" y="5" width="541" height="235" forecolor="#000000" uuid="aa0fc9a9-76a8-4537-9982-0655ff824a11"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="5" y="2" width="194" height="20" uuid="013340a8-85a9-488b-b9d2-3b10ef61076c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#522d24' dir='ltr' lang='en'>"+"1&#8206;.&#8206;"+"Insurance Details"+"\n"+"1&#8206;.&#8206;بيانات المؤمن"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="26" width="60" height="20" uuid="2ea0887b-f34d-4a64-ad3b-6956797635a4">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9' dir='ltr'>Insured Name:&#8206;</font>"+"\n"+"<font color='#3b73b9'>"+"إسم المؤمن له"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="26" width="162" height="20" uuid="48677043-1b0f-49a0-8a24-f94f782a13b9">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="245" y="26" width="55" height="20" uuid="4bc63b58-3b7d-4e29-b451-5e7b370f6140">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Policy No:&#8206;"+"\n"+"رقم الوثيقة"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="387" y="26" width="70" height="20" uuid="f2dfc895-ceb7-4934-a4d9-3ba75adde680"/>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Expiry Date"+"\n"+"تاريخ الانتهاء"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="462" y="26" width="70" height="20" uuid="29d8b09f-5181-40e7-a1d7-2c3166c548a4"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{expiryDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="303" y="26" width="80" height="20" uuid="a3641ecb-3814-4cc2-9896-2efb25d57f22">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{policyNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="76" width="81" height="25" uuid="678952e1-d237-4830-8b58-4f6d68fd3142">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Contact Details:&#8206;"+"\n"+"بيانات الإتصال"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="99" y="76" width="55" height="25" uuid="383f0a39-7bce-4d00-a69a-5e28bb633f93">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Mob No"+"\n"+"رقم الجوال"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="158" y="76" width="78" height="25" uuid="345abffd-a7a1-4720-bbed-a569c576ef3f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredMobNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="242" y="76" width="46" height="25" uuid="ab94387d-99ea-4525-bc72-410cea680790">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Tel No"+"\n"+"رقم الهاتف"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="292" y="76" width="90" height="25" uuid="c39ae604-f05a-4cb8-a151-01ddd0a4399c">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="50" width="65" height="20" uuid="e716f504-8cb7-4c8c-bc7a-9e98760621cb"/>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Address:&#8206;"+"\n"+"العنوان"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="99" y="50" width="55" height="20" uuid="c1c9fcaa-c6c6-4a37-bdab-d9427cc38c94">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>ZIP Code"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="158" y="50" width="78" height="20" uuid="1c22eae3-2217-481b-b442-be0118ddc61b"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredZIPCode}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="242" y="50" width="46" height="20" uuid="ce145b4d-c933-46d7-bf66-b56da2f42fc8"/>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>City"+"\n"+"المدينة"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="292" y="50" width="90" height="20" uuid="94ae9593-71eb-4fb1-80d7-3478b2cec20f">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredCity}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="388" y="76" width="55" height="25" uuid="e98aef72-cfd8-4bc3-9bd8-287c0984a6a8">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Email"+"\n"+"الإيميل"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="448" y="76" width="90" height="25" uuid="4f7f419c-261e-451d-a0b0-69cdf2fbbee2">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredEmail}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="5" y="106" width="101" height="20" uuid="d89a9926-0845-4a9d-a112-9abcce01a3ff"/>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#522d24'>2&#8206;.&#8206;Driver's Details"+"\n"+"2&#8206;.&#8206;بيانات السائق"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="154" width="81" height="25" uuid="55daf25b-a3ed-4843-9e8d-92870beb3e25">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Contact Details:&#8206; "+"\n"+"بيانات الإتصال"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="99" y="154" width="55" height="25" uuid="79438547-300b-4616-9c2a-23896ae61b1a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Mob No"+"\n"+"رقم الجوال"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="158" y="154" width="80" height="25" uuid="db5f627a-8494-4aed-9eb6-6ce236780ea3">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="243" y="155" width="46" height="25" uuid="349c3b37-7f93-4fcd-a126-76efd1a331bf">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Tel No"+"\n"+"رقم الهاتف"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="293" y="155" width="90" height="25" uuid="2ee0d23a-a0a3-4447-a474-171ecef5d701">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="388" y="154" width="55" height="25" uuid="21b9cb34-78b8-41e8-8e38-480da8c26da4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Email"+"\n"+"الإيميل"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="446" y="155" width="90" height="25" uuid="4e6b2a54-e098-4398-858b-c22c9235b7b5">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="129" width="90" height="20" uuid="dfccf9d6-1016-4b9d-b0a8-47b27554640e">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Driver's Name "+"\n"+"إسم السائق"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="110" y="129" width="98" height="20" uuid="e6162e90-5ff8-46f6-a9a0-8d71813f8c9f">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="217" y="129" width="61" height="20" uuid="d6256d97-b3a9-4258-bb75-cb24271029ea">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>ID/Iqama No "+"\n"+"رقم الهوية/الإقامة"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="283" y="129" width="62" height="20" uuid="67d65f46-e66f-455f-9316-1f272cd2b9b1">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="352" y="129" width="70" height="20" uuid="1406eef7-fa9d-4a30-a301-cdca92aaa08a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Driver's Age"+"\n"+"عمر السائق"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="427" y="129" width="70" height="20" uuid="142b2fc8-77c1-4db1-9c41-959638318b62">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="15" y="209" width="55" height="20" uuid="d6ab7219-9e0c-49af-83da-7e6f6e8b315c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Make "+"\n"+"المركبة"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="74" y="209" width="135" height="20" uuid="0b128d5c-f6f8-4c7b-93c1-c633348bf381">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{make}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="218" y="209" width="61" height="20" uuid="e4be1a05-6958-41af-8d15-64c6eac1474f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Mfg Yr"+"\n"+"سنة الصنع"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="286" y="209" width="62" height="20" uuid="00139104-5388-49d4-b38a-a463e6486106">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mfgYr}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="354" y="208" width="61" height="20" uuid="566fa8f6-1ae2-4de4-a15b-e2df1d50252b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7"/>
+						<paragraph lineSpacing="AtLeast"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#3b73b9'>Plate No"+"\n"+"رقم اللوحة"+"</font>"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="424" y="209" width="70" height="20" uuid="02c45ecf-58e6-4522-90b4-ed30cc930f65">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{plateNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="5" y="184" width="122" height="20" uuid="b1a211f7-37f1-44e0-bbc8-fcd5d52c2319">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement markup="styled">
+						<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["<font color='#522d24'>3&#8206;.&#8206;Vehicle's Details"+"\n"+"3&#8206;.&#8206;بيانات المركبة"+"</font>"]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="15" y="272" width="79" height="20" uuid="0a05240c-2e6d-47d6-97ec-d88a87831aba">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Date of Accident "+"\n"+"تاريخ الحادث"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="272" width="72" height="21" uuid="737416be-f3d8-4458-a389-5f24087789cd"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Time of Accident"+"\n"+"وقت الحادث"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="272" width="90" height="20" uuid="c8f58ca4-1643-4d20-9133-0e9e3fe169ce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accidentDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="272" width="46" height="19" uuid="ed690fa8-202b-4532-82c3-2d6dce285e8b"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{timeGroup}.equals("AM"))?"<font color='#3b73b9'>AM"+"\n"+"صباحا"+"</font>":"<font color='#3b73b9'>PM"+"\n"+"مساء"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="272" width="90" height="19" uuid="d0199ad4-106e-405c-b79b-b33c63d210ed">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accidentTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="296" width="50" height="21" uuid="809946d4-634f-4497-8559-6183af834209"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Address:&#8206;"+"\n"+"العنوان"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="296" width="54" height="20" uuid="987f22b8-4b07-4272-afc3-843eec25cb4f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>City"+"\n"+"المدينة"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="296" width="90" height="20" uuid="59f101b3-e092-48e8-a139-4c7e285d1369">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accidentCity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="297" width="46" height="19" uuid="b2d3b676-0b4a-4487-87fb-6a81c2d39d73"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Location"+"\n"+"الموقع"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="298" width="90" height="19" uuid="4ea2dbe1-914e-411e-9551-ecda9f0ce01d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="322" width="191" height="30" uuid="9031d5df-70fb-4d68-b5c0-cfb1788e3715">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Who was at fault as per Police Report (tick)&#8206;"+"\n"+"من كان المخطئ وفقا لتقرير الحادث(ضع علامة صح)"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="362" width="151" height="31" uuid="2e823a6c-30f3-4add-9ca7-d4834ce542ee"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>How did the accident happen?&#8206;"+"\n"+"يرجى وصف كيفية وقوع الحادث"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="322" width="59" height="30" uuid="0ef29e0a-7064-4f6d-8f2b-4ccf247010c7"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>( )&#8206;Myself"+"\n"+"( )&#8206;أنا"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="323" width="73" height="30" uuid="581ce0d7-2315-4abe-835f-d595031431f9"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>( )&#8206;Third Party"+"\n"+"( )&#8206;الطرف الثالث"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="323" width="95" height="30" uuid="1921bbc1-a1de-4eec-9762-dfc83da3b388"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>( )&#8206;Other,specify"+"\n"+"( )&#8206;أخرى، يرجى التحديد"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="323" width="90" height="30" uuid="e6d8a4ce-ecdb-4666-b5a6-9064629abe8f"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="360" width="351" height="33" uuid="cbb26c54-4796-406d-9118-84fb7a0cb8e1"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="437" width="211" height="40" uuid="688ac709-26a5-4907-b48d-5527492cca6f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'><b>Damage Sketch</b>:Please mark the damaged parts"+"\n"+"<b>"+"رسم توضيحي للأضرار"+"</b>"+":يرجى تحديد الأجزاء المتضررة"+"</font>"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="220" y="400" width="330" height="138" uuid="fb6bd02b-c6f3-41be-a8dc-caa997ff9f57"/>
+				<imageExpression><![CDATA["img/OD Report imgs_4.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="543" width="128" height="44" uuid="9ee28442-e81b-403f-ab7c-c2a0cb464e20"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#522d24'>5&#8206;.&#8206;Third Party Liability"+"\n"+"5&#8206;.&#8206;المسؤولية تجاه الغير"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="546" width="402" height="41" uuid="ce9ec11e-58e7-4a0a-a5eb-eb9e68aa51f2"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>"+"&#8206;(&#8206;Please fill this section in case you wish to provide details of Third Party/ies involved in the accident)&#8206;"+"\n"+"(يرجى إكمال هذا الجزء فى حال رغبتكم ذكر تفاصيل الطرف/الأطراف الأخرى فى الحادث)"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="594" width="240" height="36" uuid="7105eae1-5805-413f-9310-3296afcb1ed3"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>What damage was caused to the Third Party vehicle or property?&#8206;"+"\n"+"ما هي الأضرار التى لحقت بمركبة أو ممتلكات الطرف الأخر؟"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="594" width="303" height="36" uuid="8bd8c23c-d65b-4e0b-908a-83291368db1a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="637" width="302" height="39" uuid="af59f787-1d65-4017-b26a-26ecf5a29acb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Give details of Third Party personal injuries, if any (use separate sheet if necessary)&#8206;"+"\n"+" أذكر تفاصيل الإصابات الشخصية للأطراف الأخرى، إن وجدت (استخدم ورقة منفصلة إذا لزم الأمر)"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="647" width="50" height="20" uuid="cde7ecd9-f308-45a6-a092-147d2ee3b248">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Name"+"\n"+"الإسم"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="647" width="62" height="20" uuid="bf606a77-c6e6-4b8b-b4e6-29965d966707">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="433" y="647" width="54" height="20" uuid="90211cb6-3c19-4c64-8e79-b6b208eb7fec">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Contact"+"\n"+"رقم الإتصال"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="647" width="60" height="20" uuid="ebf28f48-f1d5-4b72-b02d-8eac4d718bf5">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="684" width="441" height="30" uuid="b84acf56-1d0e-408e-80a9-3012d0dc8e39"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#522d24'>I/We declare that the particulars mentioned in this Form are true and complete"+"\n"+"أقر أنا الموقع/نقر نحن الموقعين أدناه بأن جميع المعلومات الواردةفى هذا البلاغ صحيحة و تامة"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="724" width="84" height="30" uuid="4af6cd30-47c1-432d-aadb-d2ed714185ce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Name of Insured"+"\n"+"إسم المؤمن"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="724" width="131" height="30" uuid="2cdc9469-bd22-465a-b36a-b6405691153f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="725" width="75" height="30" uuid="a9ef0a43-0e5b-4cbf-800c-23caf814cb32">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Signature"+"\n"+"التوقيع"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="724" width="109" height="30" uuid="42192ff3-a646-4e55-9274-90e16f76ce79">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="724" width="50" height="30" uuid="30cc87e0-257e-4eab-b5f9-c86a54a282cf">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#3b73b9'>Date"+"\n"+"التاريخ"+"</font>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="725" width="75" height="30" uuid="5f53751e-3cf1-45db-97bd-85ef789920d8"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" x="5" y="245" width="101" height="21" uuid="a734a570-eb45-4ff6-a7ac-8f46c32177e6"/>
+				<textElement markup="styled">
+					<font fontName="DejaVu Sans Mono" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<font color='#522d24'>4&#8206;.&#8206;Accident Particulars"+"\n"+"4&#8206;.&#8206;تفاصيل الحادث"+"</font>"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="101" splitType="Stretch">
+			<image>
+				<reportElement x="2" y="10" width="548" height="80" uuid="f788b635-0bd3-4cb3-8f82-535503864306"/>
+				<imageExpression><![CDATA["img/OD Report imgs_3.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="quote_dets" pageWidth="595" pageHeight="1020" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="84188204-44c4-4f8d-92cd-ca5a7a654b4b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["styles/styles_en.jrtx"]]></template>
+	<subDataset name="coversDS" uuid="c0041316-5f71-424c-9c05-866b32c24fe8">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="_THIS" class="com.ejada.atmc.bsl.db.domain.quotation.QuotationCover"/>
+		<variable name="numberFormat" class="java.text.NumberFormat">
+			<variableExpression><![CDATA[NumberFormat.getInstance()]]></variableExpression>
+		</variable>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="insuredId" class="java.lang.Long"/>
+	<field name="insuredDob" class="java.util.Date"/>
+	<field name="insuredEmail" class="java.lang.String"/>
+	<field name="insuredMobile" class="java.lang.String"/>
+	<field name="vehicleMakeEn" class="java.lang.String"/>
+	<field name="vehicleModelEn" class="java.lang.String"/>
+	<field name="vehicleBodyTypeEn" class="java.lang.String"/>
+	<field name="vehicleMfgYear" class="java.lang.Long"/>
+	<field name="vehiclePlateNo" class="java.lang.Long"/>
+	<field name="vehiclePlateL1" class="java.lang.String"/>
+	<field name="vehiclePlateL2" class="java.lang.String"/>
+	<field name="vehiclePlateL3" class="java.lang.String"/>
+	<field name="purposeOfVehicleDesc" class="java.lang.String"/>
+	<field name="vehicleChassisNo" class="java.lang.String"/>
+	<field name="vehicleId" class="java.lang.Long"/>
+	<field name="netPrem" class="java.lang.Double"/>
+	<field name="vehicleValue" class="java.lang.Long"/>
+	<field name="discountAmount" class="java.lang.Double"/>
+	<field name="discountPrem" class="java.lang.Double"/>
+	<field name="policyTaxes" class="java.lang.Double"/>
+	<field name="quotationDrivers" class="java.util.List"/>
+	<field name="coversList" class="java.util.List"/>
+	<field name="policyIssueDate" class="java.util.Date"/>
+	<field name="insuredName" class="java.lang.String"/>
+	<field name="insuredGender" class="java.lang.String"/>
+	<field name="insuredOccupationCode" class="java.lang.String"/>
+	<field name="addressAddNo" class="java.lang.Long"/>
+	<field name="addressBuildingNo" class="java.lang.Long"/>
+	<field name="addressDistrict" class="java.lang.String"/>
+	<field name="addressStreet" class="java.lang.String"/>
+	<field name="addressZipCode" class="java.lang.Long"/>
+	<field name="addressUnitNo" class="java.lang.Long"/>
+	<field name="vehicleOwnerIban" class="java.lang.String"/>
+	<field name="vehicleColor" class="java.lang.String"/>
+	<field name="vehiclePlateTypeDesc" class="java.lang.String"/>
+	<field name="existingCompanyName" class="java.lang.String"/>
+	<field name="existingExpDate" class="java.lang.String"/>
+	<field name="existingPolicyNo" class="java.lang.String"/>
+	<field name="referenceNo" class="java.lang.String"/>
+	<field name="deductibleValue" class="java.lang.String"/>
+	<field name="policyFees" class="java.lang.Double"/>
+	<field name="loyaltyDiscountPer" class="java.lang.Double"/>
+	<field name="loyaltyDiscount" class="java.lang.String"/>
+	<field name="productCode" class="java.lang.String"/>
+	<field name="vehicleColorEn" class="java.lang.String"/>
+	<field name="driverAccidents" class="java.lang.Double"/>
+	<field name="agencyRepair" class="java.lang.String"/>
+	<field name="agencyRepairOut" class="java.lang.Double"/>
+	<field name="driverAgeLess21" class="java.lang.Double"/>
+	<field name="loadingAmount" class="java.lang.Double"/>
+	<field name="cityDesc" class="java.lang.String"/>
+	<field name="quoteSubmissionDate" class="java.util.Date"/>
+	<variable name="dateFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<variable name="numberFormat" class="java.text.NumberFormat">
+		<variableExpression><![CDATA[NumberFormat.getInstance().getCurrencyInstance(Locale.US)]]></variableExpression>
+	</variable>
+	<variable name="loyaltyDiscountAmount" class="java.lang.Double">
+		<variableExpression><![CDATA[($F{loyaltyDiscount}!=null && !$F{loyaltyDiscount}.equals(""))?Double.valueOf($F{loyaltyDiscount}):0.0]]></variableExpression>
+	</variable>
+	<variable name="finalNetPrem" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{netPrem}+$F{agencyRepairOut}+$F{driverAgeLess21}-$F{discountAmount}-$V{loyaltyDiscountAmount}+$F{loadingAmount}+$F{policyFees}+$V{totalCovers}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<variable name="dateTimeFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy HH:mm:SS")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy HH:mm:SS")]]></initialValueExpression>
+	</variable>
+	<variable name="totalCovers" class="java.lang.Double">
+		<variableExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "totalCovers" )]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "totalCovers" )]]></initialValueExpression>
+	</variable>
+	<variable name="vatAmountBfDsc" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{policyTaxes} * ($F{netPrem}+$F{agencyRepairOut}+$F{driverAgeLess21}+$F{loadingAmount}+$F{policyFees}+$V{totalCovers})]]></variableExpression>
+	</variable>
+	<variable name="vatAmountAftDsc" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{policyTaxes} * ($F{netPrem}+$F{agencyRepairOut}+$F{driverAgeLess21}-$F{discountAmount}-$V{loyaltyDiscountAmount}+$F{loadingAmount}+$F{policyFees}+$V{totalCovers})]]></variableExpression>
+	</variable>
+	<variable name="quotDrv" class="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver">
+		<variableExpression><![CDATA[($F{quotationDrivers} !=null &&!$F{quotationDrivers}.isEmpty())?$F{quotationDrivers}.get( 0 ):null]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="251" height="60" uuid="205381f2-d99c-411c-b214-9f8fec8faf1e"/>
+				<imageExpression><![CDATA["/images/atmc_header_sub.JPG"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement style="TblHdrCTRNoBox" x="289" y="40" width="267" height="30" uuid="a0878292-c48a-4667-b628-c92f616e9b87"/>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "quot_valid_until" )+"\n"+(($P{REPORT_PARAMETERS_MAP}.get( "to_val" )!=null)?$P{REPORT_PARAMETERS_MAP}.get( "to_val" ):"")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="32" y="74" width="490" height="20" uuid="f92f151f-cab5-49de-8121-9242919789ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("quot_ind_veh_ins_pol")]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="289" y="10" width="267" height="30" uuid="84cb0158-a4c5-4634-a33d-e26f71e05f87"/>
+				<imageExpression><![CDATA["/images/bc.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="851" splitType="Immediate">
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="57" width="276" height="12" uuid="dd06b80b-1fcb-45d0-9b79-c280775e772b"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("veh_owner_det")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="3" width="90" height="20" uuid="64a37b96-023b-4615-a58b-0566478bfedf"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "quot_issue_name" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="3" width="70" height="20" uuid="bbb74dff-cc59-44e2-9584-c76ce389dc24"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("quot_no")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="3" width="110" height="20" uuid="1618ab2d-4f4c-4b3b-bd39-7c835604b7c2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{referenceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="3" width="90" height="20" uuid="fabcc0f0-c349-4140-bc4d-98727477bb5a"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "company_name" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="3" width="132" height="20" uuid="4973b872-1396-4473-a095-e9d53d684f39"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alinma Tokio Marine Company"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="28" width="70" height="20" uuid="dc3a38f6-b62d-49bf-b179-0ead2c0bfb34"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("issue_date")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="28" width="110" height="20" uuid="f42bc7eb-41e3-4bac-81fa-fba6e635eb55"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{quoteSubmissionDate}!=null)?$V{dateFormatter}.format($F{quoteSubmissionDate} ):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="28" width="90" height="20" uuid="77c8fad8-9981-40d2-9583-78e209988f19"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "city" )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="278" y="28" width="132" height="20" uuid="2c8b009f-84f3-405a-9dcc-69fc36f40802"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "cityVal" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="27" width="90" height="20" uuid="31fa2a66-6daa-4b80-9866-958bf7e96e98"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "job_no" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="27" width="43" height="20" uuid="5a2c2ea6-2bfb-4483-9a42-e0c1d9a73885"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N/A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="5" width="43" height="20" uuid="6f0ae180-a185-45dd-85f7-b9868ddd3bc0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "online" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="279" y="57" width="276" height="12" uuid="8cd32985-caaa-47a1-a737-ba17664e672a"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("veh_data")]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="69" width="276" height="171" uuid="078cc663-25ef-41c2-bc6b-1868c11ac41a"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="120" height="20" uuid="7d738b52-8383-4c6f-a3b0-3378bb234850"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("client_name")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="1" width="150" height="20" uuid="3dca0b54-8f6b-418a-8375-48d223397bd1"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="21" width="120" height="20" uuid="23e84e5d-8792-4fa4-9407-7e260a42d35a"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("id_number")+"/"+$P{REPORT_PARAMETERS_MAP}.get("resid_id")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="21" width="150" height="20" uuid="e9dbc142-745e-49d6-b5d1-dc4c94e312fe"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredId}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="41" width="120" height="20" uuid="d87e8acc-f935-4498-b6c2-6ef6641ef0a7"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("birth_date")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="61" width="120" height="20" uuid="01523529-ae8f-46b6-898b-7f982c055355"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("gender")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="61" width="150" height="20" uuid="373755f0-1692-4174-a720-696db311610d"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredGender}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="41" width="150" height="20" uuid="65694d4d-688e-4124-b2e6-36871cd69c07"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{insuredDob}!=null)?$V{dateFormatter}.format( $F{insuredDob} ):""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="81" width="120" height="20" uuid="43e3c897-8727-4905-b210-390e62650d0f"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("prof")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="81" width="150" height="20" uuid="99aa4754-c616-4fac-87ed-226d8d663101"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredOccupationCode}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="101" width="150" height="20" uuid="3d4fbe8e-4f5f-4f1c-98dd-1657a6f99013"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{insuredMobile}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="101" width="120" height="20" uuid="383b7a94-5bb5-4923-aa96-3520a91ca883"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("mob_no")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="3" y="121" width="120" height="30" uuid="13f4251f-1767-4cee-9feb-a11638aa896f"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("nat_addr")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="123" y="121" width="150" height="30" uuid="4593977a-9489-4dff-bae6-b91abd7f95da"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{addressBuildingNo}+" "+$F{addressStreet}+" "+$F{addressDistrict}+" "+$F{cityDesc}+" "+$F{addressZipCode}+" "+$F{addressUnitNo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="151" width="150" height="20" uuid="a56048a8-454b-4d2d-8581-fccbe679b9be"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleOwnerIban}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="151" width="120" height="20" uuid="8d2824f9-8d8e-4126-858e-7069dce1c9c9"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("iban")]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="279" y="69" width="276" height="171" uuid="0b63e299-1567-49d9-a2b5-93891668d134"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="120" height="20" uuid="faceaf9c-5399-4b87-9a12-3028ec4cb980"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("veh_type_model")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="1" width="150" height="20" uuid="e3ece3bd-1ae3-480a-8976-3a19126c393e"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "veh_make_val" )+"/"+$P{REPORT_PARAMETERS_MAP}.get( "veh_model_val" )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="23" width="120" height="20" uuid="87519499-042b-437e-b865-bdbe49b9c561"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("mnf_year")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="21" width="150" height="20" uuid="f5d5f272-e115-45a1-a2d6-07b3f348c195"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleMfgYear}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="43" width="120" height="20" uuid="dcc40a4d-1f36-4683-addf-7af0e1d07f79"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("veh_color")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="63" width="120" height="20" uuid="1816771c-7060-4982-ba5a-992b03628a14"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("chassis_no")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="61" width="150" height="20" uuid="3743ec57-da47-48e2-aba9-fb53f94b990a"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleChassisNo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="41" width="150" height="20" uuid="378fe30c-130d-4b98-a1a0-c62da2e7d3a4"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleColorEn}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="83" width="120" height="20" uuid="a468f66d-64ca-4f55-a5e8-c764e3cf37fc"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("ser_cust_no")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="81" width="150" height="20" uuid="523d879c-cd1e-4d06-94a7-19f5bd6cefd5"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleId}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="101" width="150" height="20" uuid="799ef006-7116-4b5f-a4c7-12df7ac24159"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{vehiclePlateNo} != 0)?($F{vehiclePlateNo}+" "+$F{vehiclePlateL1}+" "+$F{vehiclePlateL2}+" "+$F{vehiclePlateL3}):""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="103" width="120" height="20" uuid="5fb82edc-20f8-445a-8f04-8e07e5fa91ec"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("plate_no")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="123" width="120" height="20" uuid="668064d1-ee96-4da4-8b9f-ddb643c9f836"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("reg_type")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="121" width="150" height="20" uuid="c32ed630-214a-4449-939f-ddf63304dcbe"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehiclePlateTypeDesc}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="141" width="150" height="30" uuid="5ef525ed-160b-4a04-9225-fe461602d4bc"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{purposeOfVehicleDesc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="143" width="120" height="20" uuid="ec7b3751-b68d-4bb2-91ce-1a7dc7651bca"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("use_type")]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="245" width="276" height="12" isRemoveLineWhenBlank="true" uuid="a93c176c-9fdc-4697-aa24-64e5b2c705fb"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("curr_ins")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="279" y="245" width="276" height="12" isRemoveLineWhenBlank="true" uuid="090bd057-0ed6-42a6-a2ed-50cced00c6f4"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("drv_data")]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="257" width="276" height="84" isRemoveLineWhenBlank="true" uuid="a8738b3d-d3f1-47d4-96ab-5b51ae373739"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="120" height="20" isRemoveLineWhenBlank="true" uuid="3120a94d-9c50-4430-bd74-b4046a82fab8"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("company_name")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="1" width="150" height="20" isRemoveLineWhenBlank="true" uuid="6eae1179-da80-4f15-b4c1-7c6646c62d50"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get( "existCoNameVal" )!=null)?$P{REPORT_PARAMETERS_MAP}.get( "existCoNameVal" ):""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="21" width="120" height="20" isRemoveLineWhenBlank="true" uuid="8857a37f-9b95-4970-aa0a-ee3a5896b4dd"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("policy_no")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="21" width="150" height="20" isRemoveLineWhenBlank="true" uuid="3edf76f8-6bef-45d6-87fb-7302d756bfd4"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{existingPolicyNo}!=null)?$F{existingPolicyNo}:""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="41" width="120" height="20" isRemoveLineWhenBlank="true" uuid="6d81be75-7123-4ece-88b3-363e622ea5a9"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("exp_date")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="41" width="150" height="20" isRemoveLineWhenBlank="true" uuid="027d3b72-ef63-4ff4-9ece-2cd01b48c303"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{existingExpDate}!=null)?$F{existingExpDate}:""]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement positionType="Float" x="279" y="257" width="276" height="84" isRemoveLineWhenBlank="true" uuid="f90b14b9-f839-4e76-a4d8-241d3a7f909a"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="120" height="20" isRemoveLineWhenBlank="true" uuid="ec71c528-1649-45ac-a832-383b3618b82d"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("driver_name")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="1" width="150" height="20" isRemoveLineWhenBlank="true" uuid="7a184e61-8606-406e-9522-6cec3417beaa"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{quotDrv}!=null)?$V{quotDrv}.getDriverName():$F{insuredName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="21" width="120" height="20" isRemoveLineWhenBlank="true" uuid="a72cacaf-a084-4b1a-8372-95ac9b90dadd"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("id_number")+"/"+$P{REPORT_PARAMETERS_MAP}.get("resid_id")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="21" width="150" height="20" isRemoveLineWhenBlank="true" uuid="6f4f5bd8-c22f-45df-be91-56fa318bba6a"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{quotDrv}!=null)?$V{quotDrv}.getDriverId():$F{insuredId}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="41" width="120" height="20" isRemoveLineWhenBlank="true" uuid="f1178682-6951-4fb9-b0d6-2a2e0cc788c9"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("birth_date")]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="61" width="120" height="20" isRemoveLineWhenBlank="true" uuid="4c611a52-4972-4d74-ae73-a26556e46a9e"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("gender")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="61" width="150" height="20" isRemoveLineWhenBlank="true" uuid="94e536e1-8d72-4a96-91e7-5414edae60fb"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{quotDrv}!=null && $V{quotDrv}.getDriverGender().equals("001"))?"M":($V{quotDrv}!=null && $V{quotDrv}.getDriverGender().equals("002"))?"F":(($V{quotDrv}!=null && $V{quotDrv}.getDriverGender()== null) || ($V{quotDrv}!=null && $V{quotDrv}.getDriverGender().equals("")))?"":$F{insuredGender}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="123" y="41" width="150" height="20" isRemoveLineWhenBlank="true" uuid="415be572-8a32-41df-b98a-d39e513f59ef"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{quotDrv}!=null && $V{quotDrv}.getDriverDob()!=null)?$V{dateFormatter}.format( $V{quotDrv}.getDriverDob() ):($F{insuredDob}!=null)?$V{dateFormatter}.format($F{insuredDob}):""]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="346" width="555" height="12" uuid="ecdf3d0a-2fc7-4d58-8483-b4111d345243"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("quot")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="360" width="555" height="12" uuid="5334d562-cb39-4ce9-8cdd-f12babd98ce2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ins_agnst_othrs" )+"\t\t\t\t\t\t\t\t\t\t"+$P{REPORT_PARAMETERS_MAP}.get( "price" )]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="372" width="555" height="43" isRemoveLineWhenBlank="true" uuid="697f0384-787d-4b22-b8d9-4b8f48a4efba"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="276" height="20" isRemoveLineWhenBlank="true" uuid="321886a7-984a-431a-9a40-297dd43fe07f"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("tpl_civ_ins")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="1" width="71" height="20" isRemoveLineWhenBlank="true" uuid="c2100eae-ee53-4919-b895-2f79f91c4a6b"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{productCode}.equals("MCC"))?"":String.format("%,.2f", $F{netPrem} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="24" width="276" height="20" isRemoveLineWhenBlank="true" uuid="02d6e7e2-0e74-42cf-bbf4-5b4582cfe701"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("cov_driver_under_age")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="24" width="71" height="20" isRemoveLineWhenBlank="true" uuid="d625a25f-63eb-4871-b2c1-1271445c7dcf"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f", $F{driverAgeLess21} )]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="15" y="22" width="537" height="1" uuid="52e03ed8-8857-4243-9ad4-0e41ed72b5ff"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</frame>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="419" width="555" height="12" uuid="69299931-bb2f-4905-9686-056306ae4141">
+					<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ins_ins_veh" )+"("+$P{REPORT_PARAMETERS_MAP}.get( "comp" )+")"+"\t\t\t\t\t\t\t\t"+$P{REPORT_PARAMETERS_MAP}.get( "price" )]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="431" width="555" height="43" isRemoveLineWhenBlank="true" uuid="517f7555-926d-4805-bdb2-0b57f6f5ad46">
+					<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="3" width="117" height="20" isRemoveLineWhenBlank="true" uuid="a0779223-4049-477b-9079-2b705759fc38">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("ins_val")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="120" y="3" width="78" height="20" isRemoveLineWhenBlank="true" uuid="8e8537ef-13a5-436d-9dd0-e0aa126be578">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vehicleValue}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="202" y="3" width="117" height="20" isRemoveLineWhenBlank="true" uuid="1310f382-23f7-4722-9ebc-fbe4cea2b357">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("ded_amnt")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="319" y="3" width="78" height="20" isRemoveLineWhenBlank="true" uuid="303138c3-4b73-4424-aea9-490d41f8d294">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{deductibleValue}!=null&& !$F{deductibleValue}.equals(""))?String.format("%,.2f",Double.valueOf($F{deductibleValue})):"0"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="483" y="1" width="71" height="20" isRemoveLineWhenBlank="true" uuid="4bfd1933-16ab-490d-bc38-0826cf0c79b3">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f", $F{netPrem} )]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="4" y="28" width="185" height="12" isRemoveLineWhenBlank="true" uuid="7f21792b-249a-463c-ac84-d0d9e0603ef9">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "max_comp_tot_loss" )]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="204" y="29" width="240" height="12" isRemoveLineWhenBlank="true" uuid="5c7e492c-ea80-4516-bd01-9ccfba4356e2">
+						<printWhenExpression><![CDATA[$F{productCode}.equals("MCC")]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ded_amount_inc" )]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="693" width="555" height="12" uuid="4276afd7-3952-4e34-887f-0ce15d7270c9"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "avail_choices" )+"\t\t\t\t\t\t\t\t\t\t\t"+$P{REPORT_PARAMETERS_MAP}.get( "price" )]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="705" width="555" height="49" isRemoveLineWhenBlank="true" uuid="96aa6931-49a7-45dd-a300-878d6d25a788"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="1" y="1" width="355" height="20" isRemoveLineWhenBlank="true" uuid="86d8bede-ef8c-49eb-b122-225c8f227271"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("exp_geoc_scope")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="482" y="1" width="71" height="20" isRemoveLineWhenBlank="true" uuid="c6b8817a-67e3-4a75-a114-46d30a7b4743"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get("geoCover")!=null)?$P{REPORT_PARAMETERS_MAP}.get("geoCover"):""]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="1" y="25" width="474" height="14" isRemoveLineWhenBlank="true" uuid="6a8410c6-e284-412b-a357-e5999ff6af75"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("non_app_dep_cond")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="482" y="25" width="71" height="20" isRemoveLineWhenBlank="true" uuid="f703cced-3698-4f11-854b-c15757fa3cdc"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[""]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="15" y="23" width="537" height="1" uuid="6245d012-8979-455d-bfb7-8b8f99f7d0b3"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement positionType="Float" x="356" y="1" width="119" height="20" isRemoveLineWhenBlank="true" uuid="9e1b0ee1-a0e3-48ac-8102-763f252017a7"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("count_counts")]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement positionType="Float" x="3" y="599" width="85" height="20" isRemoveLineWhenBlank="true" uuid="05be9211-ab90-4b90-a609-e8fbf3d57911"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("admin_fees")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" positionType="Float" x="91" y="599" width="90" height="20" isRemoveLineWhenBlank="true" uuid="c090d548-5c97-4b4f-8769-f7fde808344c"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f", $F{policyFees} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" positionType="Float" x="300" y="599" width="80" height="20" isRemoveLineWhenBlank="true" uuid="c8674ae5-19dc-432f-a956-5370a7b23a4b"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f",$F{loadingAmount} )]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##;(#,##0.##)">
+				<reportElement style="TblDtlsCTR" positionType="Float" x="472" y="599" width="81" height="20" isRemoveLineWhenBlank="true" uuid="165d8b79-0078-449c-b12b-7706d097bffb"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f",$F{policyTaxes}*$V{finalNetPrem})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="384" y="599" width="85" height="20" isRemoveLineWhenBlank="true" uuid="eed760ff-7460-4193-9389-3078eddaf097"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("vat")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="625" width="555" height="12" uuid="76196b47-a6a6-4b77-8529-373bd59d10c1"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "disc_due" )]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="637" width="555" height="26" isRemoveLineWhenBlank="true" uuid="18efb374-6559-4f28-ab05-97586ffe751b"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="1" y="2" width="117" height="20" isRemoveLineWhenBlank="true" uuid="0e727a7f-789a-4f03-992d-7b069c4fccbc"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("absc_claims")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="122" y="2" width="58" height="20" isRemoveLineWhenBlank="true" uuid="6cb23d3b-2fb0-4245-9675-9dc31fda8402"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{discountPrem}+"%"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="190" y="2" width="74" height="20" isRemoveLineWhenBlank="true" uuid="beeb7eb5-6f17-4c40-a358-43e1a63ef87c"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("loyalty")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="268" y="2" width="44" height="20" isRemoveLineWhenBlank="true" uuid="57c8abf3-8c06-482b-9677-a3bee5f79ae0"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{loyaltyDiscountPer}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="2" width="68" height="20" isRemoveLineWhenBlank="true" uuid="8903ce8f-c74c-4cc3-a37e-915ad8525b90"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["0%"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="322" y="2" width="158" height="20" isRemoveLineWhenBlank="true" uuid="55a5655a-e2b3-486f-b7d0-92879e9c8ec7"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("exp_add_ded")]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement positionType="Float" x="74" y="667" width="85" height="20" isRemoveLineWhenBlank="true" uuid="3a141465-7ae3-44d0-ab36-c25ba4622fb4"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("tot_bf_disc")]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##;(#,##0.##)">
+				<reportElement style="TblDtlsCTR" positionType="Float" x="162" y="667" width="90" height="20" isRemoveLineWhenBlank="true" uuid="7dc33fcd-194d-401f-8e58-200f20aca95e"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f",$F{netPrem}+$F{agencyRepairOut}+$F{driverAgeLess21}+$F{loadingAmount}+$F{policyFees}+$V{totalCovers}+($F{policyTaxes}*$V{finalNetPrem}) )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="298" y="667" width="85" height="20" isRemoveLineWhenBlank="true" uuid="b6bfd7d4-492d-4a81-994b-7c95f2c8f393"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("tot_after_ded")]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.##;(#,##0.##)">
+				<reportElement style="TblDtlsCTR" positionType="Float" x="387" y="667" width="94" height="20" isRemoveLineWhenBlank="true" uuid="9e92cf8b-4adf-41f6-9e18-b541f1eb5ea8"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f",$F{netPrem}+$F{agencyRepairOut}+$F{driverAgeLess21}+$F{loadingAmount}+$F{policyFees}+$V{totalCovers}+($F{policyTaxes}*$V{finalNetPrem})-$F{discountAmount}-$V{loyaltyDiscountAmount})]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement positionType="Float" x="0" y="496" width="555" height="94" isRemoveLineWhenBlank="true" uuid="968d5ec0-b8ec-4b04-a7b1-2e8eb03ded1a"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+					<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" x="3" y="1" width="276" height="20" isRemoveLineWhenBlank="true" uuid="37e5ee79-c91d-4afc-b451-a26e3a2f04a0"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("agency_repair")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="1" width="71" height="20" isRemoveLineWhenBlank="true" uuid="84242004-00ec-4309-8147-9a9b808f6439"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f", $F{agencyRepairOut} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="24" width="276" height="20" isRemoveLineWhenBlank="true" uuid="7c066c5f-d3e5-4ef0-8b0b-f6760ffa1eef"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("prov_repl_veh")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="24" width="71" height="20" isRemoveLineWhenBlank="true" uuid="5602c08a-b5a1-437a-8fad-ae4be1529294"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f",$P{REPORT_PARAMETERS_MAP}.get( "rentCar" ) )]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="15" y="21" width="537" height="1" uuid="4eedb1be-6be2-494c-bf7c-ddfe36f7ba9b"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="70" width="71" height="20" isRemoveLineWhenBlank="true" uuid="08042282-e3a2-49e9-8b9c-feef7e21ce19"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f", $P{REPORT_PARAMETERS_MAP}.get( "passAccids" ) )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="70" width="276" height="20" isRemoveLineWhenBlank="true" uuid="dca172b1-3ebb-48a0-ab3f-c12b600bca1e"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("pass_pers_accid")]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="15" y="44" width="537" height="1" uuid="7e566216-3665-4c8f-a353-461f013b8120"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="13" y="90" width="537" height="1" uuid="cc321298-8970-4eb1-816d-c90b6c3cc07e"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="484" y="46" width="71" height="20" isRemoveLineWhenBlank="true" uuid="bdc35c3b-ad44-4932-9cd1-a7fda14ef270"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[String.format("%,.2f", $P{REPORT_PARAMETERS_MAP}.get( "driverAccids" ) )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="3" y="46" width="276" height="20" isRemoveLineWhenBlank="true" uuid="2e877cdf-8e35-4047-a80e-bde39df71857"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("drv_pers_accid")]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="13" y="66" width="537" height="1" uuid="280c45d4-2ebe-49d4-85f7-642a070a00bf"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+			</frame>
+			<textField>
+				<reportElement style="TblHdrCTR" positionType="Float" x="0" y="484" width="555" height="12" uuid="d3e01766-379b-4f42-8551-56a322584b33"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "add_opts" )+"\t\t\t\t\t\t\t\t\t\t\t"+$P{REPORT_PARAMETERS_MAP}.get( "price" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="17" y="763" width="525" height="14" isRemoveLineWhenBlank="true" uuid="0002e232-8bbd-4816-808b-c07930ce3ecf"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("not_wish_insure")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="17" y="807" width="449" height="16" isRemoveLineWhenBlank="true" uuid="62bfd841-958c-4f51-96a2-f8e1ea063377"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("ack_read_quot")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="825" width="55" height="20" isRemoveLineWhenBlank="true" uuid="b1eead35-6e06-46c1-8b0d-8538685c27e2"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("client_name")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="55" y="825" width="136" height="20" isRemoveLineWhenBlank="true" uuid="9ce58c93-242c-4549-a193-5f0ba575f02d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="200" y="825" width="55" height="20" isRemoveLineWhenBlank="true" uuid="a2503ceb-fc36-4814-8b07-e7cc50072870"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("date_time")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="258" y="825" width="85" height="20" isRemoveLineWhenBlank="true" uuid="128ba0b3-eda8-4726-8803-e27751de4d56"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{dateTimeFormatter}.format( new Date() )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="348" y="825" width="39" height="20" isRemoveLineWhenBlank="true" uuid="36085a44-aff9-4724-a8ad-0aa90b1a1e80"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("city")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="387" y="825" width="76" height="20" isRemoveLineWhenBlank="true" uuid="28fbdbcb-adfa-4a7f-be67-2225c0724de1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "cityVal" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="471" y="825" width="82" height="20" isRemoveLineWhenBlank="true" uuid="df06c9d9-11db-4b4a-9a94-41bf75a70dfb"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("signature")]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="468" y="807" width="80" height="1" uuid="acee4602-0bdd-4801-aeda-d250a42b9b8e"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<break>
+				<reportElement x="0" y="850" width="555" height="1" uuid="9530707d-9b8a-45d7-9d75-7e5c3df6bd2d"/>
+			</break>
+			<textField>
+				<reportElement positionType="Float" x="189" y="599" width="109" height="20" isRemoveLineWhenBlank="true" uuid="4191913e-57c7-4e81-b3b5-ccba02fc5418"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("loading_amt")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="17" y="785" width="525" height="14" isRemoveLineWhenBlank="true" uuid="64eb55c1-5c49-442e-ad8b-f249f2bae610"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("cncl_fees")]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="765" width="9" height="10" uuid="de7cd356-db2f-48d7-acce-560ecb9e3676"/>
+				<imageExpression><![CDATA["/img/unchecked.gif"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="4" y="786" width="9" height="14" uuid="c1e0b5a1-eb96-4688-9d80-13cb76256864"/>
+				<imageExpression><![CDATA["/images/checked.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="5" y="807" width="9" height="14" uuid="89d1f135-336d-4e4c-8dd8-09fadb08c78c"/>
+				<imageExpression><![CDATA["/images/checked.png"]]></imageExpression>
+			</image>
+		</band>
+		<band height="778">
+			<image>
+				<reportElement x="0" y="19" width="555" height="720" uuid="4be2115b-569b-4613-8482-ca907cd0c141"/>
+				<imageExpression><![CDATA["images/Quot_od1.jpg"]]></imageExpression>
+			</image>
+			<break>
+				<reportElement x="0" y="770" width="556" height="1" uuid="f4e1648a-5085-4cc4-8ef6-365b7207eb8c"/>
+			</break>
+		</band>
+		<band height="759">
+			<image>
+				<reportElement x="0" y="0" width="555" height="720" uuid="97fb0568-d0b2-434d-8f68-a494d340a531"/>
+				<imageExpression><![CDATA["images/Quot_od2.jpg"]]></imageExpression>
+			</image>
+		</band>
+		<band height="980">
+			<image>
+				<reportElement x="0" y="0" width="555" height="750" uuid="bf3ba125-c4d1-481e-be9c-cb54130a3fcd"/>
+				<imageExpression><![CDATA["images/Quot_od3.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

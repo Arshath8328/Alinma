@@ -22,7 +22,9 @@ import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -37,16 +39,19 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface ContentEngineLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ContentEngineLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the content engine local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link ContentEngineLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.ContentEngineLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the content engine local service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * ContentEngineLocalServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
 
 	/**
@@ -56,7 +61,7 @@ public interface ContentEngineLocalService extends BaseLocalService {
 	 * @return
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<String> getHomeNews(ThemeDisplay themeDisplay);
+	public List<String> getHomeNews(ThemeDisplay themeDisplay);
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -73,9 +78,7 @@ public interface ContentEngineLocalService extends BaseLocalService {
 	 * @return
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.Vector<java.util.Set<String>> getVacancies(
-		ThemeDisplay themeDisplay, String locationSearch,
-		String departmentSearch);
+	public Vector<Set<String>> getVacancies(ThemeDisplay themeDisplay, String locationSearch, String departmentSearch);
 
 	/**
 	 * Gets the vacancy title by articleID
@@ -83,7 +86,6 @@ public interface ContentEngineLocalService extends BaseLocalService {
 	 * @return the vacancy title
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public String getVacanyTitleByArticleId(
-		ThemeDisplay themeDisplay, String articleId);
+	public String getVacanyTitleByArticleId(ThemeDisplay themeDisplay, String articleId);
 
 }

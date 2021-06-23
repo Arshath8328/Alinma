@@ -36,16 +36,19 @@ import org.osgi.annotation.versioning.ProviderType;
 @AccessControlled
 @JSONWebService
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface MuroorODUploadsService extends BaseService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.MuroorODUploadsServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the muroor od uploads remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link MuroorODUploadsServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.MuroorODUploadsServiceImpl</code> and
+	 * rerun ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the muroor od uploads remote service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * MuroorODUploadsServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
 
 	/**

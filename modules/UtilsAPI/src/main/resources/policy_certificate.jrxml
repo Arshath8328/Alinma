@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="policy_certificate" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e54439e-2545-416f-a5fb-bf368f459542">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle"/>
+	<template><![CDATA["styles/styles_en.jrtx"]]></template>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="policyNo" class="java.lang.String"/>
+	<field name="inceptionDate" class="java.util.Date"/>
+	<field name="policyStatusEn" class="java.lang.String"/>
+	<field name="insuredName" class="java.lang.String"/>
+	<field name="insuredId" class="java.lang.String"/>
+	<field name="insuredAddr" class="java.lang.String"/>
+	<field name="insuredMobile" class="java.lang.String"/>
+	<field name="totalPremium" class="java.lang.Long"/>
+	<field name="policyFees" class="java.lang.Long"/>
+	<field name="policyTaxes" class="java.lang.String"/>
+	<field name="policyVehs" class="java.util.List"/>
+	<field name="expiryDate" class="java.util.Date"/>
+	<field name="product" class="java.lang.String"/>
+	<variable name="dateFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<variable name="pVeh" class="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle">
+		<variableExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get("pVeh")!=null)?$P{REPORT_PARAMETERS_MAP}.get("pVeh"):(new com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle())]]></variableExpression>
+	</variable>
+	<variable name="pType" class="java.lang.String">
+		<variableExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "pType" )]]></variableExpression>
+	</variable>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="99" width="595" height="671" uuid="33a5a3cf-ba14-497b-b53b-0460ea6978ae"/>
+				<imageExpression><![CDATA["/images/body.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="381" y="591" width="141" height="97" uuid="b15aebd4-2e2c-41d5-8aca-a2dc67f400d0"/>
+				<imageExpression><![CDATA["/images/motorStamp.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<textField>
+				<reportElement x="227" y="113" width="100" height="17" uuid="7349f832-e631-4e3f-ad98-43544accafca"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["شهادت تأمين"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="133" width="260" height="20" uuid="65256f24-a4ac-4f93-8076-2128fab4a1ee">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get( "pType" ) !=null && $P{REPORT_PARAMETERS_MAP}.get( "pType" ).equals("MCC"))?"الوثيقة الموحدة للتأمين الشامل - مركبات":"الوثيقة الموحدة لتأمين مسؤولية الطرف الثالث"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-20" y="0" width="595" height="110" uuid="56640c38-18e1-4ec6-b2c2-ff662d19bd92"/>
+				<imageExpression><![CDATA["/images/Header.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="388" splitType="Prevent">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField>
+				<reportElement x="80" y="0" width="406" height="20" uuid="cec7a417-2437-404d-85f3-587063d733a0">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="0" width="69" height="20" uuid="35ab6551-2cc9-437b-9f4d-6e7e341990c4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["اسم المالك"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="22" width="406" height="20" uuid="772f0b23-83d2-4797-81a0-b3e7c312ee7f">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="22" width="69" height="20" uuid="75956a44-56f2-4857-b7cc-c880b513ef46">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رقم الهويه"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="44" width="505" height="28" uuid="ce9b4ad4-bad2-4120-961c-6890fff83622">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["تشهد شركة الانماء طوكيو مارين بان المركبه المبينه ادناه مؤمن عليها بموجب الوثيقة الموحدة للتأمين الالزامي على المركبات وذلك حسب شروط وثيقة التأمين"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="75" width="69" height="20" uuid="404653f1-83b5-4273-a42a-ff3881188d51">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["رقم الوثيقة"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="75" width="406" height="20" uuid="6278fba8-7b57-4755-81f5-97658c046772">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="96" width="69" height="20" uuid="0cdce859-d9ca-4ab4-9d03-b9e5f52e5ffe">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["مدة التأمين"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="97" width="113" height="20" uuid="6bcfdc3a-2d21-4400-ac96-00dbb3534854">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{inceptionDate}!=null)?$V{dateFormatter}.format($F{inceptionDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="97" width="69" height="20" uuid="f0eb79d9-e665-462e-8426-b6b278be33b6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["من"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="97" width="69" height="20" uuid="9b132d45-b166-4f25-8097-123173ca5e3b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الى"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="97" width="113" height="20" uuid="7f05538a-6b31-4a8e-8b05-1f5445e7b30e">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{expiryDate}!=null)?$V{dateFormatter}.format($F{expiryDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="119" width="69" height="20" uuid="2739ca5a-2f19-4e31-b0c5-f897b392d8e8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ملحق رقم"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="119" width="406" height="20" uuid="071eab9c-0b62-4b5b-8ef6-0190bae90135">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="141" width="69" height="20" uuid="d58ee4e8-cf82-4a0d-96ae-383b73457464">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["مدة الملحق"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="142" width="69" height="20" uuid="c64d6ef6-01cb-4136-ab0c-3a99d8ed60ae">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["من"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="142" width="69" height="20" uuid="811aac60-b179-46f3-8710-d8573091d59f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الى"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="142" width="113" height="20" uuid="7532875f-2f6e-4d35-994d-d3ec9b1171c9">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inceptionDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="142" width="113" height="20" uuid="ee8252af-eb28-42ea-b051-7fb50fde3b53">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expiryDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="407" y="165" width="148" height="30" uuid="8e500495-683a-4ea6-80ea-e9d72883d240"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["نوع المركبه"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="259" y="165" width="148" height="30" uuid="7b362898-e92b-428e-a7c4-ffc44d827705"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" الرقم التسلسلي / رقم اللوحة"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="200" y="165" width="59" height="30" uuid="63564235-754e-4e7d-bb1b-46b487d73f90"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["سنة الصنع"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="52" y="165" width="148" height="30" uuid="565c1f43-88bd-4571-84b1-8263338b0668"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" رقم الهيكل / رقم البطاقة الجمركية"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="407" y="195" width="148" height="30" uuid="66ca26a3-623d-42bd-8c6d-b390d3f3e738"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pVeh}.getMakeEn()+"/"+$V{pVeh}.getModelEn()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="259" y="195" width="148" height="30" uuid="3b1fad54-4b81-4637-81a7-de501f6522cc"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pVeh}.getArPlateNo()+" "+$V{pVeh}.getArPlateL1()+" "+$V{pVeh}.getArPlateL2()+" "+$V{pVeh}.getArPlateL3()+"/"+$V{pVeh}.getVehId()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="200" y="195" width="59" height="30" uuid="f141e7f0-fc9a-4a15-afc0-dbacb25b3b6b"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pVeh}.getMfgYear()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="52" y="195" width="148" height="30" uuid="555075cc-f11a-4014-9d21-6964600284a1"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pVeh}.getChassisNo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="227" width="113" height="20" uuid="c8e19804-d196-43bd-8eaf-4c49ea8096a6">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["حدود المسؤولية"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="443" y="327" width="113" height="20" uuid="a4ab9d5a-875c-4e69-afcb-bfc061df03ef">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ملاحظات هامه"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="349" width="555" height="38" uuid="93e2d0f8-681b-46e1-86f6-e52fb4437f81">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["تقبل الشهادة الاصليه فقط"+"\n"+"تعتبر هذه الشهادة ملغاه في حال الغاء وثيقة التأمين تخضع هذه الوثيقة لشروط وأحكام الوثيقة بما في ذلك إستثناءات الوثيقة الموحده لتأمين مسئولية الطرف الثالث."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="250" width="555" height="50" isRemoveLineWhenBlank="true" uuid="509e6d45-570f-471f-9f2e-e0e37335ab30">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الحد الاقصى لمسئوليه الشركة في الواقعه الواحده وخلال فترة سريان وثيقة التأمين بالنسبة للأضرار الجسدية بما في( ذلك الديات  والمبالغ المقدرة عن الاصابات والمصاريف الطبية) والأضرار المادية معا لن تتجاوز مبلغا اجماليا قدره 10,000,000.00 ريال ( عشرة ملايين ريال سعودي ) حد   اقصى لمسئولية الشركة قيمة القسط التأمين للمركبه مذكور في جدول الوثيقه"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="167">
+			<image>
+				<reportElement x="-20" y="54" width="595" height="110" uuid="d83cf654-b990-43b0-bebf-9f3058db5bf2"/>
+				<imageExpression><![CDATA["/images/footer.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

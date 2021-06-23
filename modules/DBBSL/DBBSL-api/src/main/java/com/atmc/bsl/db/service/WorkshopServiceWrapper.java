@@ -23,11 +23,42 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see WorkshopService
  * @generated
  */
-public class WorkshopServiceWrapper
-	implements ServiceWrapper<WorkshopService>, WorkshopService {
+public class WorkshopServiceWrapper implements ServiceWrapper<WorkshopService>, WorkshopService {
 
 	public WorkshopServiceWrapper(WorkshopService workshopService) {
 		_workshopService = workshopService;
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(String customerName, String customerMobile,
+			String manufacture, String plateNo, int workshopId, String claimRefNo, String status, String date,
+			String serviceType, String desc, String vehMakeEn, String vehMakeAr, String vehModelEn, String vehModelAr,
+			String customerIqamaId) {
+
+		return _workshopService.checkInVehicle(customerName, customerMobile, manufacture, plateNo, workshopId,
+				claimRefNo, status, date, serviceType, desc, vehMakeEn, vehMakeAr, vehModelEn, vehModelAr,
+				customerIqamaId);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleById(
+			int id) {
+
+		return _workshopService.getcheckedInVehicleById(id);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByIqmaId(
+			String iqamaId) {
+
+		return _workshopService.getcheckedInVehicleByIqmaId(iqamaId);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByStatus(
+			String status, int workShopId) {
+
+		return _workshopService.getcheckedInVehicleByStatus(status, workShopId);
 	}
 
 	/**
@@ -38,6 +69,18 @@ public class WorkshopServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _workshopService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>> getWorkShopList() {
+
+		return _workshopService.getWorkShopList();
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(int id, String status) {
+
+		return _workshopService.updateVehicleStatus(id, status);
 	}
 
 	@Override

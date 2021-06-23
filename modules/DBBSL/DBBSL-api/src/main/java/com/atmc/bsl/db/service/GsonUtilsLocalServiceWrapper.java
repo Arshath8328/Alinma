@@ -23,11 +23,9 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see GsonUtilsLocalService
  * @generated
  */
-public class GsonUtilsLocalServiceWrapper
-	implements GsonUtilsLocalService, ServiceWrapper<GsonUtilsLocalService> {
+public class GsonUtilsLocalServiceWrapper implements GsonUtilsLocalService, ServiceWrapper<GsonUtilsLocalService> {
 
-	public GsonUtilsLocalServiceWrapper(
-		GsonUtilsLocalService gsonUtilsLocalService) {
+	public GsonUtilsLocalServiceWrapper(GsonUtilsLocalService gsonUtilsLocalService) {
 
 		_gsonUtilsLocalService = gsonUtilsLocalService;
 	}

@@ -56,4 +56,60 @@ public interface Quotations extends PersistedModel, QuotationsModel {
 
 		};
 
+	public java.util.List<QuotationCovers> getQuotationCovers();
+
+	public QuotationDrivers getQuotationDriver();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getMakeDescEn();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getMakeDescAr();
+
+	public String getModelEn();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getModelAr();
+
+	public String getBodyTypeEn();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getBodyTypeAr();
+
+	public String getPurposeVehicleDesc();
+
+	public String getPurposeVehicleDescAr();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getColorDescEn();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getColorDescAr();
+
+	public String getVehiclePlateTypeDescEn();
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	public String getVehiclePlateTypeDescAr();
+
 }

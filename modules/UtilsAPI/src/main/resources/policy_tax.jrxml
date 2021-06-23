@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="policy_tax" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="319f02f9-cffe-4d75-b172-78c19d2133ef">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="com.ejada.atmc.acl.db.domain.*"/>
+	<template><![CDATA["styles/styles_en.jrtx"]]></template>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="policyNo" class="java.lang.String"/>
+	<field name="inceptionDate" class="java.util.Date"/>
+	<field name="insuredName" class="java.lang.String"/>
+	<field name="insuredMobile" class="java.lang.String"/>
+	<field name="totalPremium" class="java.lang.Long"/>
+	<field name="policyFees" class="java.lang.Long"/>
+	<field name="policyTaxes" class="java.lang.String"/>
+	<field name="insuredEmail" class="java.lang.String"/>
+	<field name="expiryDate" class="java.sql.Date"/>
+	<variable name="dateFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd-MMM-yyyy hh:mm")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<variable name="numberFormat" class="java.text.NumberFormat">
+		<variableExpression><![CDATA[NumberFormat.getInstance()]]></variableExpression>
+	</variable>
+	<variable name="pType" class="java.lang.String">
+		<variableExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get("pType")!=null && $P{REPORT_PARAMETERS_MAP}.get("pType").equals("TP"))?"Third Party Liability":"Comprehensive"]]></variableExpression>
+	</variable>
+	<variable name="dateformatterNew" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd-MMM-yyyy hh:mm")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="14" y="103" width="555" height="620" uuid="53de4d13-2462-4966-87f1-315469eee49c"/>
+				<imageExpression><![CDATA["/images/body.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="432" y="565" width="100" height="79" uuid="6d0cac9d-e77d-4d45-8f03-f8827409b726"/>
+				<imageExpression><![CDATA["/images/stamp_retail.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="17" y="659" width="367" height="28" uuid="803cac46-2884-4f10-896e-5243afeb4c21"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(This is System Generated  No Signiture Required)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="589" width="144" height="30" uuid="39d4c821-9ad4-4afc-bfb9-45c48c0bf4dd"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E.O&.E]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="149" splitType="Stretch">
+			<textField>
+				<reportElement x="233" y="104" width="100" height="36" uuid="f6b21caf-f5d0-4a96-948f-483201dfd61c"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TAX INVOICE"+"\n"+"فاتورة ضريبية"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="14" y="2" width="555" height="107" uuid="843d3e4b-7829-4d3c-8257-579258a6216e"/>
+				<imageExpression><![CDATA["/images/Header.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="429" splitType="Stretch">
+			<textField>
+				<reportElement x="329" y="1" width="100" height="20" uuid="af094fe1-b394-4756-8b21-72bbd2f4befb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "date" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="130" height="20" uuid="5341d678-2218-43ce-9ef8-2b8e727e7cbf">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{inceptionDate}!=null)?$V{dateFormatter}.format($F{inceptionDate}):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="73" width="100" height="20" uuid="e6a3702d-737b-4da6-a03e-7c232307ed2f"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "policy_no" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="71" width="129" height="20" uuid="ed18a8eb-4540-4cc3-8d36-7ff947bbcb4a"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{policyNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="63" width="100" height="20" uuid="9d2056e9-d6b5-4ff9-a804-3a3e5238574d"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "vat_no" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="65" width="127" height="20" uuid="3ff6f804-9292-44b3-93b7-1078d9ec2c63"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["300696186800003"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="112" width="124" height="20" uuid="18a51ecf-0fd8-4630-91b8-24c5e410e627"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["+966112129333"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="109" width="100" height="20" uuid="b71aa7da-bef8-4e53-9a96-fffefa608995"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "tel_no" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="154" width="100" height="20" uuid="3f73134d-d8b7-4d91-bedb-28df4674bf0f"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "email" )+"            :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="157" width="125" height="20" uuid="e1eebc07-0903-4713-91a5-e061838b8af1"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["vat@atmc.com.sa"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="198" width="100" height="20" uuid="64bd4b76-5a7c-4a1d-9e28-b2c56d22185b"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "insured" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="196" width="124" height="20" uuid="f6d90ffc-c218-442b-a3ab-9ad7cd054f3d"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{insuredName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="238" width="546" height="35" uuid="67ee6d93-20d6-49b6-9dff-d1401a90e058"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Please note that we have DEBITED your Account with the following :(Details Below)"+"\n"+"الرجاء ملاحظة بأنه تم إضافة البيانات التالية  على حسابكم"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPaddSml" x="14" y="282" width="382" height="30" uuid="32bb593e-b3d4-4567-b43e-b3c8a6a482ac"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Information"+"\n"+"معلومات"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPaddSml" x="14" y="312" width="382" height="78" uuid="1a32e02d-1815-46da-98d8-0033733a77af"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["أقساط التأمين"+"\n\n\n"+"رسوم الإصدار"+"\n\n"+"5% ضريبة القيمة المضافة"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="396" y="282" width="173" height="30" uuid="618e2206-c76c-4912-b9ea-b10028259d49"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SAR"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="396" y="312" width="173" height="78" uuid="1d8a1be1-7d8f-44ab-88bb-115fa32b0d55"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numberFormat}.format($F{totalPremium})+"\n\n"+"\n\n"+"\n\n"+(($F{policyTaxes}!=null)?$V{numberFormat}.format(Double.valueOf($F{policyTaxes})):0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsLFTPaddSml" x="14" y="390" width="382" height="38" uuid="585bac89-ed05-418f-a890-1d60341217c4"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["TOTAL"+"\n"+"مجموع"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="396" y="390" width="173" height="38" uuid="d89c1b80-8142-4349-a39a-316c4fafbbff"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{numberFormat}.format($F{totalPremium}+(($F{policyTaxes}!=null)?Double.valueOf($F{policyTaxes}):0))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="1" width="100" height="20" uuid="d3b50af4-f5a2-469b-8432-f8686103012e"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="0" width="100" height="18" uuid="7f720871-fd3b-4828-9988-fed4ed78eb35"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alinma Tokio Marine"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="21" width="100" height="21" uuid="04e58a44-5c5b-4219-bdff-70b26ab5a9e9"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[من]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="19" width="100" height="18" uuid="5e6c2e02-7bb0-4bdb-91ca-daaedad77506"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["الإنماء طوكيو مارين"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="131" width="100" height="21" uuid="97186274-9319-4e67-9591-db09f9eefed3"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[رقم الهاتف]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="84" width="100" height="23" uuid="c875cd86-af6b-476e-b219-b94b20a2d896"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الرقم الضريبي للعميل]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="22" width="100" height="22" uuid="6ec0a0d3-9e2b-48b0-b273-2e25676e3f5e"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="93" width="100" height="17" uuid="b3fd65dc-ed15-4da8-81d5-acd593329c8e"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[رقم الوثيقة]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="15" y="175" width="98" height="22" uuid="c823e06d-f75f-4ebc-86ea-1387a9adc5e4"/>
+				<textFieldExpression><![CDATA["البريد الإلكتروني"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="222" width="100" height="16" uuid="8863aa03-fbe6-4768-966c-cc01664b3a47"/>
+				<textFieldExpression><![CDATA["مؤمن عليه"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="14" y="20" width="555" height="110" uuid="53b12175-7e79-4c06-bf5c-118037d55f8e"/>
+				<imageExpression><![CDATA["/images/footer.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

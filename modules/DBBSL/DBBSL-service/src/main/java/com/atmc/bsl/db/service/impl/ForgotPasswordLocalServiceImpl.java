@@ -26,70 +26,72 @@ import com.liferay.portal.kernel.security.access.control.AccessControlUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
-import com.liferay.portal.kernel.util.*;
-import org.osgi.service.component.annotations.Component;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.osgi.service.component.annotations.Component;
 
 /**
  * The implementation of the forgot password local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.ForgotPasswordLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.ForgotPasswordLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see ForgotPasswordLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.ForgotPassword",
-	service = AopService.class
-)
-public class ForgotPasswordLocalServiceImpl
-	extends ForgotPasswordLocalServiceBaseImpl {
-
+@Component(property = "model.class.name=com.atmc.bsl.db.model.ForgotPassword", service = AopService.class)
+public class ForgotPasswordLocalServiceImpl extends ForgotPasswordLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.ForgotPasswordLocalServiceUtil} to access the forgot password local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.ejada.atmc.bsl.db.service.ForgotPasswordLocalServiceUtil} to access the
+	 * forgot password local service.
 	 */
 
-
-
-	public User validateUser(String emailAddress,String captchaText) throws Exception
-	{
-		HttpServletRequest request = PortalUtil.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
+	public User validateUser(String emailAddress, String captchaText) throws Exception {
+		HttpServletRequest request = PortalUtil
+				.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
 		HttpSession session = request.getSession();
 		Company company = PortalUtil.getCompany(request);
 		session.setAttribute(WebKeys.CAPTCHA_COUNT, new Integer(0));
 		CaptchaUtil.check(request);
 		session.removeAttribute(WebKeys.FORGOT_PASSWORD_REMINDER_ATTEMPTS);
-		User user = getUser(company.getCompanyId(),emailAddress);
+		User user = getUser(company.getCompanyId(), emailAddress);
 		return user;
 	}
 
+	public void checkReminderQueries(String emailAddress, String answer, String captchaText) throws Exception {
 
-	public void checkReminderQueries(String emailAddress,String answer, String captchaText) throws Exception
-	{
-
-		HttpServletRequest request = PortalUtil.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
+		HttpServletRequest request = PortalUtil
+				.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
 		HttpSession session = request.getSession();
 
 		Company company = PortalUtil.getCompany(request);
 
-		User user = getUser(company.getCompanyId(),emailAddress);
+		User user = getUser(company.getCompanyId(), emailAddress);
 
-
-		Integer reminderAttempts = (Integer)session.getAttribute(WebKeys.FORGOT_PASSWORD_REMINDER_ATTEMPTS);
+		Integer reminderAttempts = (Integer) session.getAttribute(WebKeys.FORGOT_PASSWORD_REMINDER_ATTEMPTS);
 
 		if (reminderAttempts == null) {
 			reminderAttempts = 0;
-		}
-		else if (reminderAttempts > 2) {
+		} else if (reminderAttempts > 2) {
 			session.setAttribute(WebKeys.CAPTCHA_COUNT, new Integer(0));
 			CaptchaUtil.check(request);
 		}
@@ -99,27 +101,21 @@ public class ForgotPasswordLocalServiceImpl
 		session.setAttribute(WebKeys.FORGOT_PASSWORD_REMINDER_ATTEMPTS, reminderAttempts);
 
 		if (GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USERS_REMINDER_QUERIES_ENABLED))) {
-			if (GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USERS_REMINDER_QUERIES_REQUIRED)) &&
-					!user.hasReminderQuery()) {
+			if (GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USERS_REMINDER_QUERIES_REQUIRED))
+					&& !user.hasReminderQuery()) {
 
 				throw new RequiredReminderQueryException(
-						"No reminder query or answer is defined for user " +
-								user.getUserId());
+						"No reminder query or answer is defined for user " + user.getUserId());
 			}
 
-
 			if (!user.getReminderQueryAnswer().equals(answer)) {
-				throw new UserReminderQueryException(
-						"Reminder query answer does not match answer");
+				throw new UserReminderQueryException("Reminder query answer does not match answer");
 			}
 		}
 
-
-		sendPassword(emailAddress,request);
+		sendPassword(emailAddress, request);
 
 	}
-
-
 
 	protected User getUser(long companyId, String emailAddress) throws Exception {
 
@@ -148,7 +144,8 @@ public class ForgotPasswordLocalServiceImpl
 		Company company = PortalUtil.getCompany(request);
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(User.class.getName(), request);
 
-		UserLocalServiceUtil.sendPassword(company.getCompanyId(), emailToAddress, emailFromName, emailFromAddress, subject, body, serviceContext);
+		UserLocalServiceUtil.sendPassword(company.getCompanyId(), emailToAddress, emailFromName, emailFromAddress,
+				subject, body, serviceContext);
 
 	}
 

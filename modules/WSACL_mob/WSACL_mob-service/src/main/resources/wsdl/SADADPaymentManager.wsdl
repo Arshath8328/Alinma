@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Copyright All Rights Reserved. This software is the
+	proprietary information of SADAD. Use is subject to license terms.
+-->
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" name="SADADPaymentManager" 
+targetNamespace="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1" 
+xmlns:ent2="http://enterprise.olp.sadad.com/Infrastructure/EnterpriseContext"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/"
+xmlns:tns="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1" 
+xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" 
+xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+ 
+ <documentation>
+		SADAD Payment manager service definition is used to perform the functionalities related with 
+		Payment Initiation and Confirmation. This includes
+		1. Initiation of the Payment Process
+		2. Payment confirmation to the merchant
+	</documentation>
+ <wsdl:import location="EnterpriseContext.wsdl" namespace="http://enterprise.olp.sadad.com/Infrastructure/EnterpriseContext" />
+<wsp:Policy wsu:Id="SignEncr">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:AsymmetricBinding
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <wsp:Policy>
+            <sp:InitiatorToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:InitiatorToken>
+            <sp:RecipientToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:RecipientToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesSha256/>
+ 
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:OnlySignEntireHeadersAndBody/>
+          </wsp:Policy>
+        </sp:AsymmetricBinding>
+        <sp:SignedParts
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <sp:Body/>
+ 
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>  
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1" schemaLocation="SADADPaymentManager.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="InitiatePaymentDetails">
+    <part element="tns:InitiatePaymentDetails" name="parameters"/>
+  </message>
+  <message name="InitiatePaymentDetailsResponse">
+    <part element="tns:InitiatePaymentDetailsResponse" name="parameters"/>
+  </message>
+  <message name="Fault">
+    <part element="tns:Fault" name="fault"/>
+  </message>
+  <message name="ConfirmPaymentDetails">
+    <part element="tns:ConfirmPaymentDetails" name="parameters"/>
+  </message>
+  <message name="ConfirmPaymentDetailsResponse">
+    <part element="tns:ConfirmPaymentDetailsResponse" name="parameters"/>
+  </message>
+  <portType name="SADADPaymentManager">
+    <operation name="InitiatePaymentDetails">
+    
+     <documentation>
+		Initiate Payment Details - Operation name, input wrapper, output wrapper and fault wrapper.
+		</documentation>
+		
+      <input message="tns:InitiatePaymentDetails" wsam:Action="InitiatePaymentDetails"/>
+      <output message="tns:InitiatePaymentDetailsResponse" wsam:Action="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1/SADADPaymentManager/InitiatePaymentDetailsResponse"/>
+      <fault message="tns:Fault" name="Fault" wsam:Action="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1/SADADPaymentManager/InitiatePaymentDetails/Fault/Fault"/>
+    </operation>
+    <operation name="ConfirmPaymentDetails">
+     <documentation>
+		Confirm Payment Details - Operation name, input wrapper, output wrapper and fault wrapper.
+		</documentation>
+      <input message="tns:ConfirmPaymentDetails" wsam:Action="ConfirmPaymentDetails"/>
+      <output message="tns:ConfirmPaymentDetailsResponse" wsam:Action="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1/SADADPaymentManager/ConfirmPaymentDetailsResponse"/>
+      <fault message="tns:Fault" name="Fault" wsam:Action="http://olp.sadad.com/sadadpaymentmanagement/service/sadadpaymentmanager/intf/1/SADADPaymentManager/ConfirmPaymentDetails/Fault/Fault"/>
+    </operation>
+  </portType>
+  <binding name="SADADPaymentManagerBinding" type="tns:SADADPaymentManager">
+    <wsp:PolicyReference URI="#SignEncr"/>
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="InitiatePaymentDetails">
+      <soap:operation soapAction="InitiatePaymentDetails"/>
+      <input>
+        <soap:body use="literal"/>
+        <soap:header message="ent2:EnterpriseContextHeader" part="enterpriseHeader" use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Fault">
+        <soap:fault name="Fault" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="ConfirmPaymentDetails">
+      <soap:operation soapAction="ConfirmPaymentDetails"/>
+      <input>
+        <soap:body use="literal"/>
+        <soap:header message="ent2:EnterpriseContextHeader" part="enterpriseHeader" use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Fault">
+        <soap:fault name="Fault" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="SADADPaymentManager">
+  <documentation>
+		URL where the service is hosted. (To be updated with production server URL)
+	</documentation>
+    <port binding="tns:SADADPaymentManagerBinding" name="SADADPaymentManager">
+      <soap:address location="https://localhost/SADADPaymentManagement/01_00/SADADPaymentManager"/>
+    </port>
+  </service>
+</definitions>

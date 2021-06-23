@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+        targetNamespace="http://www.w3.org/2000/09/xmldsig#"
+        version="0.1" elementFormDefault="qualified"> 
+
+<!-- Basic Types Defined for Signatures -->
+
+<simpleType name="CryptoBinary">
+  <restriction base="base64Binary">
+  </restriction>
+</simpleType>
+
+<!-- Start Signature -->
+
+<element name="Signature" type="ds:SignatureType"/>
+<complexType name="SignatureType">
+  <sequence> 
+    <element ref="ds:SignedInfo"/> 
+    <element ref="ds:SignatureValue"/> 
+   </sequence>  
+ </complexType>
+
+  <element name="SignatureValue" type="ds:SignatureValueType"/> 
+  <complexType name="SignatureValueType">
+    <simpleContent>
+      <extension base="base64Binary"/>
+    </simpleContent>
+  </complexType>
+
+<!-- Start SignedInfo -->
+
+<element name="SignedInfo" type="ds:SignedInfoType"/>
+<complexType name="SignedInfoType">
+  <sequence> 
+    <element ref="ds:CanonicalizationMethod"/> 
+    <element ref="ds:SignatureMethod"/> 
+    <element ref="ds:Reference" maxOccurs="unbounded"/> 
+  </sequence>  
+  </complexType>
+
+  <element name="CanonicalizationMethod" type="ds:CanonicalizationMethodType"/> 
+  <complexType name="CanonicalizationMethodType" mixed="true">
+    <sequence>
+      <any namespace="##any" minOccurs="0" maxOccurs="unbounded"/>
+      <!-- (0,unbounded) elements from (1,1) namespace -->
+    </sequence>
+    <attribute name="Algorithm" type="anyURI" use="required"/> 
+  </complexType>
+
+  <element name="SignatureMethod" type="ds:SignatureMethodType"/>
+  <complexType name="SignatureMethodType" mixed="true">    
+    <attribute name="Algorithm" type="anyURI" use="required"/> 
+  </complexType>
+
+<!-- Start Reference -->
+
+<element name="Reference" type="ds:ReferenceType"/>
+<complexType name="ReferenceType">
+  <sequence> 
+    <element ref="ds:Transforms" minOccurs="0"/> 
+    <element ref="ds:DigestMethod"/> 
+    <element ref="ds:DigestValue"/> 
+  </sequence> 
+  <attribute name="URI" type="anyURI" use="optional"/>  
+</complexType>
+
+  <element name="Transforms" type="ds:TransformsType"/>
+  <complexType name="TransformsType">
+    <sequence>
+      <element ref="ds:Transform" maxOccurs="unbounded"/>  
+    </sequence>
+  </complexType>
+
+  <element name="Transform" type="ds:TransformType"/>
+  <complexType name="TransformType" mixed="true">
+    <attribute name="Algorithm" type="anyURI" use="required"/> 
+  </complexType>
+
+<!-- End Reference -->
+
+<element name="DigestMethod" type="ds:DigestMethodType"/>
+<complexType name="DigestMethodType" mixed="true"> 
+  <sequence>
+    <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+  </sequence>    
+  <attribute name="Algorithm" type="anyURI" use="required"/> 
+</complexType>
+
+<element name="DigestValue" type="ds:DigestValueType"/>
+<simpleType name="DigestValueType">
+  <restriction base="base64Binary"/>
+</simpleType>
+
+<!-- End SignedInfo -->
+
+
+<!-- End Signature -->
+
+</schema>

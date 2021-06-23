@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for CodeMasterDetails. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code> and
- * is an access point for service operations in application layer code running
- * on the local server. Methods of this service will not have security checks
- * based on the propagated JAAS credentials because this service can only be
- * accessed from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code>
+ * and is an access point for service operations in application layer code
+ * running on the local server. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see CodeMasterDetailsLocalService
@@ -35,34 +35,29 @@ public class CodeMasterDetailsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code>
+	 * and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
-				findByCodeCodeFreez(String code, String codeFreezYN)
-			throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
+	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> findByCodeCodeFreez(String code,
+			String codeFreezYN) throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
 		return getService().findByCodeCodeFreez(code, codeFreezYN);
 	}
 
-	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
-				findCodeMasterDesc(String code, String locale)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> findCodeMasterDesc(String code,
+			String locale) throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().findCodeMasterDesc(code, locale);
 	}
 
-	public static String getCodeMasterDesc(
-			String code, String codeSub, String locale)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static String getCodeMasterDesc(String code, String codeSub, String locale)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getCodeMasterDesc(code, codeSub, locale);
 	}
 
-	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCustomCodes(
-				String code)
+	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCustomCodes(String code)
 			throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
 		return getService().getCustomCodes(code);
@@ -81,22 +76,13 @@ public class CodeMasterDetailsLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<CodeMasterDetailsLocalService, CodeMasterDetailsLocalService>
-			_serviceTracker;
+	private static ServiceTracker<CodeMasterDetailsLocalService, CodeMasterDetailsLocalService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(
-			CodeMasterDetailsLocalService.class);
+		Bundle bundle = FrameworkUtil.getBundle(CodeMasterDetailsLocalService.class);
 
-		ServiceTracker
-			<CodeMasterDetailsLocalService, CodeMasterDetailsLocalService>
-				serviceTracker =
-					new ServiceTracker
-						<CodeMasterDetailsLocalService,
-						 CodeMasterDetailsLocalService>(
-							 bundle.getBundleContext(),
-							 CodeMasterDetailsLocalService.class, null);
+		ServiceTracker<CodeMasterDetailsLocalService, CodeMasterDetailsLocalService> serviceTracker = new ServiceTracker<CodeMasterDetailsLocalService, CodeMasterDetailsLocalService>(
+				bundle.getBundleContext(), CodeMasterDetailsLocalService.class, null);
 
 		serviceTracker.open();
 

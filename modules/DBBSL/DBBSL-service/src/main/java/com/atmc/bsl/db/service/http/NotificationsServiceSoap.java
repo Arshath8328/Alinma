@@ -22,10 +22,9 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the
- * <code>NotificationsServiceUtil</code> service
- * utility. The static methods of this class call the same methods of the
- * service utility. However, the signatures are different because it is
+ * Provides the SOAP utility for the <code>NotificationsServiceUtil</code>
+ * service utility. The static methods of this class call the same methods of
+ * the service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
  *
  * <p>
@@ -53,62 +52,50 @@ import java.rmi.RemoteException;
 @Deprecated
 public class NotificationsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
-				getNotifications(long userId)
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>> getNotifications(
+			long userId) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>> returnValue = NotificationsServiceUtil
+					.getNotifications(userId);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(long userId) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<Long> returnValue = NotificationsServiceUtil
+					.getNotificationsCount(userId);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> markAllNotificationsAsRead(long userId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List
-					<com.liferay.portal.kernel.model.UserNotificationEvent>>
-						returnValue = NotificationsServiceUtil.getNotifications(
-							userId);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = NotificationsServiceUtil
+					.markAllNotificationsAsRead(userId);
 
 			return returnValue;
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
-			getNotificationsCount(long userId)
-		throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Long> returnValue =
-				NotificationsServiceUtil.getNotificationsCount(userId);
-
-			return returnValue;
-		}
-		catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
-		}
-	}
-
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
-			markAllNotificationsAsRead(long userId)
-		throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
-				NotificationsServiceUtil.markAllNotificationsAsRead(userId);
-
-			return returnValue;
-		}
-		catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
-		}
-	}
-
-	private static Log _log = LogFactoryUtil.getLog(
-		NotificationsServiceSoap.class);
+	private static Log _log = LogFactoryUtil.getLog(NotificationsServiceSoap.class);
 
 }

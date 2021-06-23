@@ -17,8 +17,7 @@ import java.util.Date;
 /**
  * @author Ghada Shawkat
  */
-public class PolicyPayment
-{
+public class PolicyPayment {
 	private String policyNo;
 
 	private String voucherNo;
@@ -38,136 +37,112 @@ public class PolicyPayment
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the voucherNo
 	 */
-	public String getVoucherNo()
-	{
+	public String getVoucherNo() {
 		return voucherNo;
 	}
 
 	/**
-	 * @param voucherNo
-	 *            the voucherNo to set
+	 * @param voucherNo the voucherNo to set
 	 */
-	public void setVoucherNo(String voucherNo)
-	{
+	public void setVoucherNo(String voucherNo) {
 		this.voucherNo = voucherNo;
 	}
 
 	/**
 	 * @return the endtNo
 	 */
-	public String getEndtNo()
-	{
+	public String getEndtNo() {
 		return endtNo;
 	}
 
 	/**
-	 * @param endtNo
-	 *            the endtNo to set
+	 * @param endtNo the endtNo to set
 	 */
-	public void setEndtNo(String endtNo)
-	{
+	public void setEndtNo(String endtNo) {
 		this.endtNo = endtNo;
 	}
 
 	/**
 	 * @return the claimNo
 	 */
-	public String getClaimNo()
-	{
+	public String getClaimNo() {
 		return claimNo;
 	}
 
 	/**
-	 * @param claimNo
-	 *            the claimNo to set
+	 * @param claimNo the claimNo to set
 	 */
-	public void setClaimNo(String claimNo)
-	{
+	public void setClaimNo(String claimNo) {
 		this.claimNo = claimNo;
 	}
 
 	/**
 	 * @return the dueDate
 	 */
-	public Date getDueDate()
-	{
+	public Date getDueDate() {
 		return dueDate;
 	}
 
 	/**
-	 * @param dueDate
-	 *            the dueDate to set
+	 * @param dueDate the dueDate to set
 	 */
-	public void setDueDate(Date dueDate)
-	{
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
 	/**
 	 * @return the docDate
 	 */
-	public Date getDocDate()
-	{
+	public Date getDocDate() {
 		return docDate;
 	}
 
 	/**
-	 * @param docDate
-	 *            the docDate to set
+	 * @param docDate the docDate to set
 	 */
-	public void setDocDate(Date docDate)
-	{
+	public void setDocDate(Date docDate) {
 		this.docDate = docDate;
 	}
 
 	/**
 	 * @return the amount
 	 */
-	public double getAmount()
-	{
+	public double getAmount() {
 		return amount;
 	}
 
 	/**
-	 * @param amount
-	 *            the amount to set
+	 * @param amount the amount to set
 	 */
-	public void setAmount(double amount)
-	{
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
 	/**
 	 * @return the reference
 	 */
-	public String getReference()
-	{
+	public String getReference() {
 		return reference;
 	}
 
 	/**
-	 * @param reference
-	 *            the reference to set
+	 * @param reference the reference to set
 	 */
-	public void setReference(String reference)
-	{
+	public void setReference(String reference) {
 		this.reference = reference;
 	}
 

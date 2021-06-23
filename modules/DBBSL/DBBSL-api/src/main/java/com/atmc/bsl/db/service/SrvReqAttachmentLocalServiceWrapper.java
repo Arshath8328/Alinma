@@ -24,13 +24,29 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class SrvReqAttachmentLocalServiceWrapper
-	implements ServiceWrapper<SrvReqAttachmentLocalService>,
-			   SrvReqAttachmentLocalService {
+		implements ServiceWrapper<SrvReqAttachmentLocalService>, SrvReqAttachmentLocalService {
 
-	public SrvReqAttachmentLocalServiceWrapper(
-		SrvReqAttachmentLocalService srvReqAttachmentLocalService) {
+	public SrvReqAttachmentLocalServiceWrapper(SrvReqAttachmentLocalService srvReqAttachmentLocalService) {
 
 		_srvReqAttachmentLocalService = srvReqAttachmentLocalService;
+	}
+
+	@Override
+	public String addNewServiceRequestAttachment(
+			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment attachment) {
+
+		return _srvReqAttachmentLocalService.addNewServiceRequestAttachment(attachment);
+	}
+
+	@Override
+	public int deleteAttachmentFile(String fileID) {
+		return _srvReqAttachmentLocalService.deleteAttachmentFile(fileID);
+	}
+
+	@Override
+	public com.ejada.atmc.acl.db.model.ServiceRequestAttachments downloadAttachmentFile(String fileID) {
+
+		return _srvReqAttachmentLocalService.downloadAttachmentFile(fileID);
 	}
 
 	/**
@@ -44,13 +60,32 @@ public class SrvReqAttachmentLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment> getServiceRequestAttachmentListbyActionId(
+			String actionId) {
+
+		return _srvReqAttachmentLocalService.getServiceRequestAttachmentListbyActionId(actionId);
+	}
+
+	@Override
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment> getServiceRequestAttachmentListbyRefNo(
+			String refNo) {
+
+		return _srvReqAttachmentLocalService.getServiceRequestAttachmentListbyRefNo(refNo);
+	}
+
+	@Override
+	public String saveServiceRequestFiles(String refNo, java.io.File file, String fileName, String actionId) {
+
+		return _srvReqAttachmentLocalService.saveServiceRequestFiles(refNo, file, fileName, actionId);
+	}
+
+	@Override
 	public SrvReqAttachmentLocalService getWrappedService() {
 		return _srvReqAttachmentLocalService;
 	}
 
 	@Override
-	public void setWrappedService(
-		SrvReqAttachmentLocalService srvReqAttachmentLocalService) {
+	public void setWrappedService(SrvReqAttachmentLocalService srvReqAttachmentLocalService) {
 
 		_srvReqAttachmentLocalService = srvReqAttachmentLocalService;
 	}

@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for Policy. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.PolicyLocalServiceImpl</code> and
- * is an access point for service operations in application layer code running
- * on the local server. Methods of this service will not have security checks
- * based on the propagated JAAS credentials because this service can only be
- * accessed from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.PolicyLocalServiceImpl</code> and is an
+ * access point for service operations in application layer code running on the
+ * local server. Methods of this service will not have security checks based on
+ * the propagated JAAS credentials because this service can only be accessed
+ * from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see PolicyLocalService
@@ -35,16 +35,18 @@ public class PolicyLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.PolicyLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.PolicyLocalServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
-	public static Policy findPolicyByPolicyNo(String policyNo)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(String policyNo)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().findPolicyByPolicyNo(policyNo);
 	}
 
-	public static PolicyVehicle getCustomVeh(String policyNo, String vehId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(String policyNo, String vehId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getCustomVeh(policyNo, vehId);
 	}
@@ -58,71 +60,64 @@ public class PolicyLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<Policy> getPoliciesByIqamaId(
-			String iqamaId, int start, int end)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy> getPoliciesByIqamaId(String iqamaId, int start,
+			int end) throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesByIqamaId(iqamaId, start, end);
 	}
 
 	public static long getPoliciesCountByIqamaId(String iqamaId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesCountByIqamaId(iqamaId);
 	}
 
-	public static Policy getPolicyByPolicyNo(String policyNo)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(String policyNo)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPolicyByPolicyNo(policyNo);
 	}
 
-	public static java.util.List<java.util.HashMap<String, Object>>
-			getPolicySummary(String iqamaId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<java.util.HashMap<String, Object>> getPolicySummary(String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPolicySummary(iqamaId);
 	}
 
-	public static java.util.List<Policy> getTopPolicies(String iqamaId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy> getTopPolicies(String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getTopPolicies(iqamaId);
 	}
 
-	public static java.util.List<Policy> getUpcomingPolicyRenewals(
-			String iqamaId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy> getUpcomingPolicyRenewals(String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getUpcomingPolicyRenewals(iqamaId);
 	}
 
 	public static Long getUpcomingRenewalsCount(String iqamaId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getUpcomingRenewalsCount(iqamaId);
 	}
 
-	public static Policy getVehiclePolicyData(
-		String plateNo, String plateL1, String plateL2, String plateL3,
-		String language) {
+	public static com.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(String plateNo, String plateL1,
+			String plateL2, String plateL3, String language) {
 
-		return getService().getVehiclePolicyData(
-			plateNo, plateL1, plateL2, plateL3, language);
+		return getService().getVehiclePolicyData(plateNo, plateL1, plateL2, plateL3, language);
 	}
 
 	public static PolicyLocalService getService() {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<PolicyLocalService, PolicyLocalService>
-		_serviceTracker;
+	private static ServiceTracker<PolicyLocalService, PolicyLocalService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(PolicyLocalService.class);
 
-		ServiceTracker<PolicyLocalService, PolicyLocalService> serviceTracker =
-			new ServiceTracker<PolicyLocalService, PolicyLocalService>(
+		ServiceTracker<PolicyLocalService, PolicyLocalService> serviceTracker = new ServiceTracker<PolicyLocalService, PolicyLocalService>(
 				bundle.getBundleContext(), PolicyLocalService.class, null);
 
 		serviceTracker.open();

@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.NotificationsServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * based on the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see NotificationsService
@@ -35,17 +35,17 @@ public class NotificationsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.NotificationsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.NotificationsServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
-			getNotifications(long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>> getNotifications(
+			long userId) {
 
 		return getService().getNotifications(userId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
-		getNotificationsCount(long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(long userId) {
 
 		return getService().getNotificationsCount(userId);
 	}
@@ -59,8 +59,7 @@ public class NotificationsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
-		markAllNotificationsAsRead(long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> markAllNotificationsAsRead(long userId) {
 
 		return getService().markAllNotificationsAsRead(userId);
 	}
@@ -69,17 +68,13 @@ public class NotificationsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<NotificationsService, NotificationsService>
-		_serviceTracker;
+	private static ServiceTracker<NotificationsService, NotificationsService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(NotificationsService.class);
 
-		ServiceTracker<NotificationsService, NotificationsService>
-			serviceTracker =
-				new ServiceTracker<NotificationsService, NotificationsService>(
-					bundle.getBundleContext(), NotificationsService.class,
-					null);
+		ServiceTracker<NotificationsService, NotificationsService> serviceTracker = new ServiceTracker<NotificationsService, NotificationsService>(
+				bundle.getBundleContext(), NotificationsService.class, null);
 
 		serviceTracker.open();
 

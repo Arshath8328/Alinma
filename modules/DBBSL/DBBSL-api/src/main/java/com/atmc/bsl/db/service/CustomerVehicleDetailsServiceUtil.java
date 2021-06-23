@@ -19,12 +19,13 @@ import org.osgi.framework.FrameworkUtil;
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
- * Provides the remote service utility for CustomerVehicleDetails. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.CustomerVehicleDetailsServiceImpl</code> and is an
- * access point for service operations in application layer code running on a
- * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * Provides the remote service utility for CustomerVehicleDetails. This utility
+ * wraps
+ * <code>com.atmc.bsl.db.service.impl.CustomerVehicleDetailsServiceImpl</code>
+ * and is an access point for service operations in application layer code
+ * running on a remote server. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see CustomerVehicleDetailsService
@@ -35,7 +36,9 @@ public class CustomerVehicleDetailsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CustomerVehicleDetailsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.CustomerVehicleDetailsServiceImpl</code>
+	 * and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -51,22 +54,13 @@ public class CustomerVehicleDetailsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<CustomerVehicleDetailsService, CustomerVehicleDetailsService>
-			_serviceTracker;
+	private static ServiceTracker<CustomerVehicleDetailsService, CustomerVehicleDetailsService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(
-			CustomerVehicleDetailsService.class);
+		Bundle bundle = FrameworkUtil.getBundle(CustomerVehicleDetailsService.class);
 
-		ServiceTracker
-			<CustomerVehicleDetailsService, CustomerVehicleDetailsService>
-				serviceTracker =
-					new ServiceTracker
-						<CustomerVehicleDetailsService,
-						 CustomerVehicleDetailsService>(
-							 bundle.getBundleContext(),
-							 CustomerVehicleDetailsService.class, null);
+		ServiceTracker<CustomerVehicleDetailsService, CustomerVehicleDetailsService> serviceTracker = new ServiceTracker<CustomerVehicleDetailsService, CustomerVehicleDetailsService>(
+				bundle.getBundleContext(), CustomerVehicleDetailsService.class, null);
 
 		serviceTracker.open();
 

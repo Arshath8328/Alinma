@@ -35,11 +35,11 @@ public class ForgotPasswordLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ForgotPasswordLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.ForgotPasswordLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to regenerate this class.
 	 */
-	public static void checkReminderQueries(
-			String emailAddress, String answer, String captchaText)
-		throws Exception {
+	public static void checkReminderQueries(String emailAddress, String answer, String captchaText) throws Exception {
 
 		getService().checkReminderQueries(emailAddress, answer, captchaText);
 	}
@@ -53,9 +53,8 @@ public class ForgotPasswordLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.liferay.portal.kernel.model.User validateUser(
-			String emailAddress, String captchaText)
-		throws Exception {
+	public static com.liferay.portal.kernel.model.User validateUser(String emailAddress, String captchaText)
+			throws Exception {
 
 		return getService().validateUser(emailAddress, captchaText);
 	}
@@ -64,20 +63,13 @@ public class ForgotPasswordLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<ForgotPasswordLocalService, ForgotPasswordLocalService>
-			_serviceTracker;
+	private static ServiceTracker<ForgotPasswordLocalService, ForgotPasswordLocalService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(
-			ForgotPasswordLocalService.class);
+		Bundle bundle = FrameworkUtil.getBundle(ForgotPasswordLocalService.class);
 
-		ServiceTracker<ForgotPasswordLocalService, ForgotPasswordLocalService>
-			serviceTracker =
-				new ServiceTracker
-					<ForgotPasswordLocalService, ForgotPasswordLocalService>(
-						bundle.getBundleContext(),
-						ForgotPasswordLocalService.class, null);
+		ServiceTracker<ForgotPasswordLocalService, ForgotPasswordLocalService> serviceTracker = new ServiceTracker<ForgotPasswordLocalService, ForgotPasswordLocalService>(
+				bundle.getBundleContext(), ForgotPasswordLocalService.class, null);
 
 		serviceTracker.open();
 

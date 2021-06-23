@@ -18,27 +18,32 @@ import java.sql.Blob;
  * @author Hadeer
  */
 public class QuotationAdminUpload {
-	
+
 	private int id;
 	private long quotationId;
 	private String fileName;
-	//private byte[] adminFile;
-	
+	// private byte[] adminFile;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public long getQuotationId() {
 		return quotationId;
 	}
+
 	public void setQuotationId(long quotationId) {
 		this.quotationId = quotationId;
 	}
+
 	public String getFileName() {
 		return fileName;
 	}
+
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
@@ -48,7 +53,5 @@ public class QuotationAdminUpload {
 //	public void setAdminFile(byte[] adminFile) {
 //		this.adminFile = adminFile;
 //	}
-
-
 
 }

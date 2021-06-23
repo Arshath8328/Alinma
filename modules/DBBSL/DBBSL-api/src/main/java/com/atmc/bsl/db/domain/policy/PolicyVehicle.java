@@ -19,8 +19,7 @@ import java.util.List;
  * @author Ghada Shawkat
  *
  */
-public class PolicyVehicle
-{
+public class PolicyVehicle {
 	String policyNo;
 	String vehId;
 	String vehicleDefType;
@@ -69,684 +68,685 @@ public class PolicyVehicle
 	List<PolicyVehicleCover> vehicleCovers;
 	String estemaraExpiryDate;
 	String geoLocation;
+
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
+
 	/**
 	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
+
 	/**
 	 * @return the vehId
 	 */
-	public String getVehId()
-	{
+	public String getVehId() {
 		return vehId;
 	}
+
 	/**
 	 * @param vehId the vehId to set
 	 */
-	public void setVehId(String vehId)
-	{
+	public void setVehId(String vehId) {
 		this.vehId = vehId;
 	}
+
 	/**
 	 * @return the vehicleDefType
 	 */
-	public String getVehicleDefType()
-	{
+	public String getVehicleDefType() {
 		return vehicleDefType;
 	}
+
 	/**
 	 * @param vehicleDefType the vehicleDefType to set
 	 */
-	public void setVehicleDefType(String vehicleDefType)
-	{
+	public void setVehicleDefType(String vehicleDefType) {
 		this.vehicleDefType = vehicleDefType;
 	}
+
 	/**
 	 * @return the vehicleSeqCustom
 	 */
-	public String getVehicleSeqCustom()
-	{
+	public String getVehicleSeqCustom() {
 		return vehicleSeqCustom;
 	}
+
 	/**
 	 * @param vehicleSeqCustom the vehicleSeqCustom to set
 	 */
-	public void setVehicleSeqCustom(String vehicleSeqCustom)
-	{
+	public void setVehicleSeqCustom(String vehicleSeqCustom) {
 		this.vehicleSeqCustom = vehicleSeqCustom;
 	}
+
 	/**
 	 * @return the chassisNo
 	 */
-	public String getChassisNo()
-	{
+	public String getChassisNo() {
 		return chassisNo;
 	}
+
 	/**
 	 * @param chassisNo the chassisNo to set
 	 */
-	public void setChassisNo(String chassisNo)
-	{
+	public void setChassisNo(String chassisNo) {
 		this.chassisNo = chassisNo;
 	}
+
 	/**
 	 * @return the bodyType
 	 */
-	public String getBodyType()
-	{
+	public String getBodyType() {
 		return bodyType;
 	}
+
 	/**
 	 * @param bodyType the bodyType to set
 	 */
-	public void setBodyType(String bodyType)
-	{
+	public void setBodyType(String bodyType) {
 		this.bodyType = bodyType;
 	}
+
 	/**
 	 * @return the make
 	 */
-	public String getMake()
-	{
+	public String getMake() {
 		return make;
 	}
+
 	/**
 	 * @param make the make to set
 	 */
-	public void setMake(String make)
-	{
+	public void setMake(String make) {
 		this.make = make;
 	}
+
 	/**
 	 * @return the model
 	 */
-	public String getModel()
-	{
+	public String getModel() {
 		return model;
 	}
+
 	/**
 	 * @param model the model to set
 	 */
-	public void setModel(String model)
-	{
+	public void setModel(String model) {
 		this.model = model;
 	}
+
 	/**
 	 * @return the mfgYear
 	 */
-	public long getMfgYear()
-	{
+	public long getMfgYear() {
 		return mfgYear;
 	}
+
 	/**
 	 * @param mfgYear the mfgYear to set
 	 */
-	public void setMfgYear(long mfgYear)
-	{
+	public void setMfgYear(long mfgYear) {
 		this.mfgYear = mfgYear;
 	}
+
 	/**
 	 * @return the color
 	 */
-	public String getColor()
-	{
+	public String getColor() {
 		return color;
 	}
+
 	/**
 	 * @param color the color to set
 	 */
-	public void setColor(String color)
-	{
+	public void setColor(String color) {
 		this.color = color;
 	}
+
 	/**
 	 * @return the agencyRepair
 	 */
-	public String getAgencyRepair()
-	{
+	public String getAgencyRepair() {
 		return agencyRepair;
 	}
+
 	/**
 	 * @param agencyRepair the agencyRepair to set
 	 */
-	public void setAgencyRepair(String agencyRepair)
-	{
+	public void setAgencyRepair(String agencyRepair) {
 		this.agencyRepair = agencyRepair;
 	}
+
 	/**
 	 * @return the noofPassengers
 	 */
-	public long getNoofPassengers()
-	{
+	public long getNoofPassengers() {
 		return noofPassengers;
 	}
+
 	/**
 	 * @param noofPassengers the noofPassengers to set
 	 */
-	public void setNoofPassengers(long noofPassengers)
-	{
+	public void setNoofPassengers(long noofPassengers) {
 		this.noofPassengers = noofPassengers;
 	}
+
 	/**
 	 * @return the enPlateNo
 	 */
-	public long getEnPlateNo()
-	{
+	public long getEnPlateNo() {
 		return enPlateNo;
 	}
+
 	/**
 	 * @param enPlateNo the enPlateNo to set
 	 */
-	public void setEnPlateNo(long enPlateNo)
-	{
+	public void setEnPlateNo(long enPlateNo) {
 		this.enPlateNo = enPlateNo;
 	}
+
 	/**
 	 * @return the enPlateL1
 	 */
-	public String getEnPlateL1()
-	{
+	public String getEnPlateL1() {
 		return enPlateL1;
 	}
+
 	/**
 	 * @param enPlateL1 the enPlateL1 to set
 	 */
-	public void setEnPlateL1(String enPlateL1)
-	{
+	public void setEnPlateL1(String enPlateL1) {
 		this.enPlateL1 = enPlateL1;
 	}
+
 	/**
 	 * @return the enPlateL2
 	 */
-	public String getEnPlateL2()
-	{
+	public String getEnPlateL2() {
 		return enPlateL2;
 	}
+
 	/**
 	 * @param enPlateL2 the enPlateL2 to set
 	 */
-	public void setEnPlateL2(String enPlateL2)
-	{
+	public void setEnPlateL2(String enPlateL2) {
 		this.enPlateL2 = enPlateL2;
 	}
+
 	/**
 	 * @return the enPlateL3
 	 */
-	public String getEnPlateL3()
-	{
+	public String getEnPlateL3() {
 		return enPlateL3;
 	}
+
 	/**
 	 * @param enPlateL3 the enPlateL3 to set
 	 */
-	public void setEnPlateL3(String enPlateL3)
-	{
+	public void setEnPlateL3(String enPlateL3) {
 		this.enPlateL3 = enPlateL3;
 	}
+
 	/**
 	 * @return the arPlateNo
 	 */
-	public String getArPlateNo()
-	{
+	public String getArPlateNo() {
 		return arPlateNo;
 	}
+
 	/**
 	 * @param arPlateNo the arPlateNo to set
 	 */
-	public void setArPlateNo(String arPlateNo)
-	{
+	public void setArPlateNo(String arPlateNo) {
 		this.arPlateNo = arPlateNo;
 	}
+
 	/**
 	 * @return the arPlateL1
 	 */
-	public String getArPlateL1()
-	{
+	public String getArPlateL1() {
 		return arPlateL1;
 	}
+
 	/**
 	 * @param arPlateL1 the arPlateL1 to set
 	 */
-	public void setArPlateL1(String arPlateL1)
-	{
+	public void setArPlateL1(String arPlateL1) {
 		this.arPlateL1 = arPlateL1;
 	}
+
 	/**
 	 * @return the arPlateL2
 	 */
-	public String getArPlateL2()
-	{
+	public String getArPlateL2() {
 		return arPlateL2;
 	}
+
 	/**
 	 * @param arPlateL2 the arPlateL2 to set
 	 */
-	public void setArPlateL2(String arPlateL2)
-	{
+	public void setArPlateL2(String arPlateL2) {
 		this.arPlateL2 = arPlateL2;
 	}
+
 	/**
 	 * @return the arPlateL3
 	 */
-	public String getArPlateL3()
-	{
+	public String getArPlateL3() {
 		return arPlateL3;
 	}
+
 	/**
 	 * @param arPlateL3 the arPlateL3 to set
 	 */
-	public void setArPlateL3(String arPlateL3)
-	{
+	public void setArPlateL3(String arPlateL3) {
 		this.arPlateL3 = arPlateL3;
 	}
+
 	/**
 	 * @return the deductible
 	 */
-	public long getDeductible()
-	{
+	public long getDeductible() {
 		return deductible;
 	}
+
 	/**
 	 * @param deductible the deductible to set
 	 */
-	public void setDeductible(long deductible)
-	{
+	public void setDeductible(long deductible) {
 		this.deductible = deductible;
 	}
+
 	/**
 	 * @return the vehicleValue
 	 */
-	public long getVehicleValue()
-	{
+	public long getVehicleValue() {
 		return vehicleValue;
 	}
+
 	/**
 	 * @param vehicleValue the vehicleValue to set
 	 */
-	public void setVehicleValue(long vehicleValue)
-	{
+	public void setVehicleValue(long vehicleValue) {
 		this.vehicleValue = vehicleValue;
 	}
+
 	/**
 	 * @return the premium
 	 */
-	public long getPremium()
-	{
+	public long getPremium() {
 		return premium;
 	}
+
 	/**
 	 * @param premium the premium to set
 	 */
-	public void setPremium(long premium)
-	{
+	public void setPremium(long premium) {
 		this.premium = premium;
 	}
+
 	/**
 	 * @return the discounts
 	 */
-	public long getDiscounts()
-	{
+	public long getDiscounts() {
 		return discounts;
 	}
+
 	/**
 	 * @param discounts the discounts to set
 	 */
-	public void setDiscounts(long discounts)
-	{
+	public void setDiscounts(long discounts) {
 		this.discounts = discounts;
 	}
+
 	/**
 	 * @return the loading
 	 */
-	public long getLoading()
-	{
+	public long getLoading() {
 		return loading;
 	}
+
 	/**
 	 * @param loading the loading to set
 	 */
-	public void setLoading(long loading)
-	{
+	public void setLoading(long loading) {
 		this.loading = loading;
 	}
+
 	/**
 	 * @return the totalPremium
 	 */
-	public long getTotalPremium()
-	{
+	public long getTotalPremium() {
 		return totalPremium;
 	}
+
 	/**
 	 * @param totalPremium the totalPremium to set
 	 */
-	public void setTotalPremium(long totalPremium)
-	{
+	public void setTotalPremium(long totalPremium) {
 		this.totalPremium = totalPremium;
 	}
+
 	/**
 	 * @return the noofClaimFreeYears
 	 */
-	public long getNoofClaimFreeYears()
-	{
+	public long getNoofClaimFreeYears() {
 		return noofClaimFreeYears;
 	}
+
 	/**
 	 * @param noofClaimFreeYears the noofClaimFreeYears to set
 	 */
-	public void setNoofClaimFreeYears(long noofClaimFreeYears)
-	{
+	public void setNoofClaimFreeYears(long noofClaimFreeYears) {
 		this.noofClaimFreeYears = noofClaimFreeYears;
 	}
+
 	/**
 	 * @return the useOfCehicle
 	 */
-	public String getUseOfCehicle()
-	{
+	public String getUseOfCehicle() {
 		return useOfCehicle;
 	}
+
 	/**
 	 * @param useOfCehicle the useOfCehicle to set
 	 */
-	public void setUseOfCehicle(String useOfCehicle)
-	{
+	public void setUseOfCehicle(String useOfCehicle) {
 		this.useOfCehicle = useOfCehicle;
 	}
+
 	/**
 	 * @return the najmPlateType
 	 */
-	public String getNajmPlateType()
-	{
+	public String getNajmPlateType() {
 		return najmPlateType;
 	}
+
 	/**
 	 * @param najmPlateType the najmPlateType to set
 	 */
-	public void setNajmPlateType(String najmPlateType)
-	{
+	public void setNajmPlateType(String najmPlateType) {
 		this.najmPlateType = najmPlateType;
 	}
+
 	/**
 	 * @return the najmStatus
 	 */
-	public String getNajmStatus()
-	{
+	public String getNajmStatus() {
 		return najmStatus;
 	}
+
 	/**
 	 * @param najmStatus the najmStatus to set
 	 */
-	public void setNajmStatus(String najmStatus)
-	{
+	public void setNajmStatus(String najmStatus) {
 		this.najmStatus = najmStatus;
 	}
+
 	/**
 	 * @return the vehicleDrivers
 	 */
-	public List<PolicyVehicleDriver> getVehicleDrivers()
-	{
-		if(vehicleDrivers == null)
+	public List<PolicyVehicleDriver> getVehicleDrivers() {
+		if (vehicleDrivers == null)
 			vehicleDrivers = new ArrayList<>();
 
 		return vehicleDrivers;
 	}
+
 	/**
 	 * @param vehicleDrivers the vehicleDrivers to set
 	 */
-	public void setVehicleDrivers(List<PolicyVehicleDriver> vehicleDrivers)
-	{
+	public void setVehicleDrivers(List<PolicyVehicleDriver> vehicleDrivers) {
 		this.vehicleDrivers = vehicleDrivers;
 	}
+
 	/**
 	 * @return the vehicleCovers
 	 */
-	public List<PolicyVehicleCover> getVehicleCovers()
-	{
-		if(vehicleCovers == null)
+	public List<PolicyVehicleCover> getVehicleCovers() {
+		if (vehicleCovers == null)
 			vehicleCovers = new ArrayList<>();
 
 		return vehicleCovers;
 	}
+
 	/**
 	 * @param vehicleCovers the vehicleCovers to set
 	 */
-	public void setVehicleCovers(List<PolicyVehicleCover> vehicleCovers)
-	{
+	public void setVehicleCovers(List<PolicyVehicleCover> vehicleCovers) {
 		this.vehicleCovers = vehicleCovers;
 	}
+
 	/**
 	 * @return the makeEn
 	 */
-	public String getMakeEn()
-	{
+	public String getMakeEn() {
 		return makeEn;
 	}
+
 	/**
 	 * @param makeEn the makeEn to set
 	 */
-	public void setMakeEn(String makeEn)
-	{
+	public void setMakeEn(String makeEn) {
 		this.makeEn = makeEn;
 	}
+
 	/**
 	 * @return the makeAr
 	 */
-	public String getMakeAr()
-	{
+	public String getMakeAr() {
 		return makeAr;
 	}
+
 	/**
 	 * @param makeAr the makeAr to set
 	 */
-	public void setMakeAr(String makeAr)
-	{
+	public void setMakeAr(String makeAr) {
 		this.makeAr = makeAr;
 	}
+
 	/**
 	 * @return the bodyTypeEn
 	 */
-	public String getBodyTypeEn()
-	{
+	public String getBodyTypeEn() {
 		return bodyTypeEn;
 	}
+
 	/**
 	 * @param bodyTypeEn the bodyTypeEn to set
 	 */
-	public void setBodyTypeEn(String bodyTypeEn)
-	{
+	public void setBodyTypeEn(String bodyTypeEn) {
 		this.bodyTypeEn = bodyTypeEn;
 	}
+
 	/**
 	 * @return the bodyTypeAr
 	 */
-	public String getBodyTypeAr()
-	{
+	public String getBodyTypeAr() {
 		return bodyTypeAr;
 	}
+
 	/**
 	 * @param bodyTypeAr the bodyTypeAr to set
 	 */
-	public void setBodyTypeAr(String bodyTypeAr)
-	{
+	public void setBodyTypeAr(String bodyTypeAr) {
 		this.bodyTypeAr = bodyTypeAr;
 	}
+
 	/**
 	 * @return the modelEn
 	 */
-	public String getModelEn()
-	{
+	public String getModelEn() {
 		return modelEn;
 	}
+
 	/**
 	 * @param modelEn the modelEn to set
 	 */
-	public void setModelEn(String modelEn)
-	{
+	public void setModelEn(String modelEn) {
 		this.modelEn = modelEn;
 	}
+
 	/**
 	 * @return the modelAr
 	 */
-	public String getModelAr()
-	{
+	public String getModelAr() {
 		return modelAr;
 	}
+
 	/**
 	 * @param modelAr the modelAr to set
 	 */
-	public void setModelAr(String modelAr)
-	{
+	public void setModelAr(String modelAr) {
 		this.modelAr = modelAr;
 	}
+
 	/**
 	 * @return the colorEn
 	 */
-	public String getColorEn()
-	{
+	public String getColorEn() {
 		return colorEn;
 	}
+
 	/**
 	 * @param colorEn the colorEn to set
 	 */
-	public void setColorEn(String colorEn)
-	{
+	public void setColorEn(String colorEn) {
 		this.colorEn = colorEn;
 	}
+
 	/**
 	 * @return the colorAr
 	 */
-	public String getColorAr()
-	{
+	public String getColorAr() {
 		return colorAr;
 	}
+
 	/**
 	 * @param colorAr the colorAr to set
 	 */
-	public void setColorAr(String colorAr)
-	{
+	public void setColorAr(String colorAr) {
 		this.colorAr = colorAr;
 	}
+
 	/**
 	 * @return the useOfCehicleEn
 	 */
-	public String getUseOfCehicleEn()
-	{
+	public String getUseOfCehicleEn() {
 		return useOfCehicleEn;
 	}
+
 	/**
 	 * @param useOfCehicleEn the useOfCehicleEn to set
 	 */
-	public void setUseOfCehicleEn(String useOfCehicleEn)
-	{
+	public void setUseOfCehicleEn(String useOfCehicleEn) {
 		this.useOfCehicleEn = useOfCehicleEn;
 	}
+
 	/**
 	 * @return the useOfCehicleAr
 	 */
-	public String getUseOfCehicleAr()
-	{
+	public String getUseOfCehicleAr() {
 		return useOfCehicleAr;
 	}
+
 	/**
 	 * @param useOfCehicleAr the useOfCehicleAr to set
 	 */
-	public void setUseOfCehicleAr(String useOfCehicleAr)
-	{
+	public void setUseOfCehicleAr(String useOfCehicleAr) {
 		this.useOfCehicleAr = useOfCehicleAr;
 	}
+
 	/**
 	 * @return the najmPlateTypeEn
 	 */
-	public String getNajmPlateTypeEn()
-	{
+	public String getNajmPlateTypeEn() {
 		return najmPlateTypeEn;
 	}
+
 	/**
 	 * @param najmPlateTypeEn the najmPlateTypeEn to set
 	 */
-	public void setNajmPlateTypeEn(String najmPlateTypeEn)
-	{
+	public void setNajmPlateTypeEn(String najmPlateTypeEn) {
 		this.najmPlateTypeEn = najmPlateTypeEn;
 	}
+
 	/**
 	 * @return the najmPlateTypeAr
 	 */
-	public String getNajmPlateTypeAr()
-	{
+	public String getNajmPlateTypeAr() {
 		return najmPlateTypeAr;
 	}
+
 	/**
 	 * @param najmPlateTypeAr the najmPlateTypeAr to set
 	 */
-	public void setNajmPlateTypeAr(String najmPlateTypeAr)
-	{
+	public void setNajmPlateTypeAr(String najmPlateTypeAr) {
 		this.najmPlateTypeAr = najmPlateTypeAr;
 	}
+
 	/**
 	 * @return the vehicleDefTypeDesc
 	 */
-	public String getVehicleDefTypeDesc()
-	{
+	public String getVehicleDefTypeDesc() {
 		return vehicleDefTypeDesc;
 	}
+
 	/**
 	 * @param vehicleDefTypeDesc the vehicleDefTypeDesc to set
 	 */
-	public void setVehicleDefTypeDesc(String vehicleDefTypeDesc)
-	{
+	public void setVehicleDefTypeDesc(String vehicleDefTypeDesc) {
 		this.vehicleDefTypeDesc = vehicleDefTypeDesc;
 	}
+
 	/**
 	 * @return the vehicleDefTypeDescAr
 	 */
-	public String getVehicleDefTypeDescAr()
-	{
+	public String getVehicleDefTypeDescAr() {
 		return vehicleDefTypeDescAr;
 	}
+
 	/**
 	 * @param vehicleDefTypeDescAr the vehicleDefTypeDescAr to set
 	 */
-	public void setVehicleDefTypeDescAr(String vehicleDefTypeDescAr)
-	{
+	public void setVehicleDefTypeDescAr(String vehicleDefTypeDescAr) {
 		this.vehicleDefTypeDescAr = vehicleDefTypeDescAr;
 	}
+
 	/**
 	 * @return the estemaraExpiryDate
 	 */
-	public String getEstemaraExpiryDate()
-	{
+	public String getEstemaraExpiryDate() {
 		return estemaraExpiryDate;
 	}
+
 	/**
 	 * @param estemaraExpiryDate the estemaraExpiryDate to set
 	 */
-	public void setEstemaraExpiryDate(String estemaraExpiryDate)
-	{
+	public void setEstemaraExpiryDate(String estemaraExpiryDate) {
 		this.estemaraExpiryDate = estemaraExpiryDate;
 	}
+
 	/**
 	 * @return the geoLocation
 	 */
-	public String getGeoLocation()
-	{
+	public String getGeoLocation() {
 		return geoLocation;
 	}
+
 	/**
 	 * @param geoLocation the geoLocation to set
 	 */
-	public void setGeoLocation(String geoLocation)
-	{
+	public void setGeoLocation(String geoLocation) {
 		this.geoLocation = geoLocation;
 	}
+
 	@Override
 	public String toString() {
 		return "PolicyVehicle [policyNo=" + policyNo + ", vehId=" + vehId + ", vehicleDefType=" + vehicleDefType

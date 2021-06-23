@@ -24,27 +24,28 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the srv req action remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.SrvReqActionService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.SrvReqActionService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqActionServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=SrvReqAction"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=dbbsl",
+		"json.web.service.context.path=SrvReqAction" }, service = AopService.class)
 public class SrvReqActionServiceImpl extends SrvReqActionServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use <code>com.atmc.bsl.db.service.SrvReqActionServiceUtil</code> to access the srv req action remote service.
+	 * Never reference this class directly. Always use
+	 * <code>com.atmc.bsl.db.service.SrvReqActionServiceUtil</code> to access the
+	 * srv req action remote service.
 	 */
 }

@@ -24,27 +24,28 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the content engine remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.ContentEngineService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.ContentEngineService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see ContentEngineServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=ContentEngine"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=dbbsl",
+		"json.web.service.context.path=ContentEngine" }, service = AopService.class)
 public class ContentEngineServiceImpl extends ContentEngineServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use <code>com.atmc.bsl.db.service.ContentEngineServiceUtil</code> to access the content engine remote service.
+	 * Never reference this class directly. Always use
+	 * <code>com.atmc.bsl.db.service.ContentEngineServiceUtil</code> to access the
+	 * content engine remote service.
 	 */
 }

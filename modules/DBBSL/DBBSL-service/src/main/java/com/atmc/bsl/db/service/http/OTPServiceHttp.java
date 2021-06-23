@@ -24,12 +24,10 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the
- * <code>OTPServiceUtil</code> service
- * utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it requires an additional
- * <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the <code>OTPServiceUtil</code> service
+ * utility. The static methods of this class calls the same methods of the
+ * service utility. However, the signatures are different because it requires an
+ * additional <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -52,31 +50,24 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class OTPServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
-		HttpPrincipal httpPrincipal, String language, String otpSecret,
-		String mobileNumber, String chkVal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(HttpPrincipal httpPrincipal, String language,
+			String otpSecret, String mobileNumber, String chkVal) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				OTPServiceUtil.class, "sendOTP", _sendOTPParameterTypes0);
+			MethodKey methodKey = new MethodKey(OTPServiceUtil.class, "sendOTP", _sendOTPParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, language, otpSecret, mobileNumber, chkVal);
+			MethodHandler methodHandler = new MethodHandler(methodKey, language, otpSecret, mobileNumber, chkVal);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -84,31 +75,24 @@ public class OTPServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
-		HttpPrincipal httpPrincipal, String language, String mobileNumber,
-		String chkVal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(HttpPrincipal httpPrincipal, String language,
+			String mobileNumber, String chkVal) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				OTPServiceUtil.class, "resendOTP", _resendOTPParameterTypes1);
+			MethodKey methodKey = new MethodKey(OTPServiceUtil.class, "resendOTP", _resendOTPParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, language, mobileNumber, chkVal);
+			MethodHandler methodHandler = new MethodHandler(methodKey, language, mobileNumber, chkVal);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -116,31 +100,24 @@ public class OTPServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
-		HttpPrincipal httpPrincipal, String otpSecret, String otp) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(HttpPrincipal httpPrincipal,
+			String otpSecret, String otp) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				OTPServiceUtil.class, "validateOTP",
-				_validateOTPParameterTypes2);
+			MethodKey methodKey = new MethodKey(OTPServiceUtil.class, "validateOTP", _validateOTPParameterTypes2);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, otpSecret, otp);
+			MethodHandler methodHandler = new MethodHandler(methodKey, otpSecret, otp);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -150,14 +127,10 @@ public class OTPServiceHttp {
 
 	private static Log _log = LogFactoryUtil.getLog(OTPServiceHttp.class);
 
-	private static final Class<?>[] _sendOTPParameterTypes0 = new Class[] {
-		String.class, String.class, String.class, String.class
-	};
-	private static final Class<?>[] _resendOTPParameterTypes1 = new Class[] {
-		String.class, String.class, String.class
-	};
-	private static final Class<?>[] _validateOTPParameterTypes2 = new Class[] {
-		String.class, String.class
-	};
+	private static final Class<?>[] _sendOTPParameterTypes0 = new Class[] { String.class, String.class, String.class,
+			String.class };
+	private static final Class<?>[] _resendOTPParameterTypes1 = new Class[] { String.class, String.class,
+			String.class };
+	private static final Class<?>[] _validateOTPParameterTypes2 = new Class[] { String.class, String.class };
 
 }

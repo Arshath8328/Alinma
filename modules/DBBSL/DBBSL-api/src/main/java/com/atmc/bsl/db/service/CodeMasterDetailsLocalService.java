@@ -15,9 +15,7 @@
 package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
-
 import com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;
@@ -40,32 +38,30 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface CodeMasterDetailsLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the code master details local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link CodeMasterDetailsLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code>
+	 * and rerun ServiceBuilder to automatically copy the method declarations to
+	 * this interface. Consume the code master details local service via injection
+	 * or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * CodeMasterDetailsLocalServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
-	public List<CodeMasterDetails> findByCodeCodeFreez(
-			String code, String codeFreezYN)
-		throws NoSuchCodeMasterException;
+	public List<CodeMasterDetails> findByCodeCodeFreez(String code, String codeFreezYN)
+			throws NoSuchCodeMasterException;
 
-	public List<CodeMasterDetails> findCodeMasterDesc(
-			String code, String locale)
-		throws PortalException;
+	public List<CodeMasterDetails> findCodeMasterDesc(String code, String locale) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public String getCodeMasterDesc(String code, String codeSub, String locale)
-		throws PortalException;
+	public String getCodeMasterDesc(String code, String codeSub, String locale) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<CodeMasterDetails> getCustomCodes(String code)
-		throws NoSuchCodeMasterException;
+	public List<CodeMasterDetails> getCustomCodes(String code) throws NoSuchCodeMasterException;
 
 	/**
 	 * Returns the OSGi service identifier.

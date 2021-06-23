@@ -24,11 +24,9 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class CustomerVehicleDetailsServiceWrapper
-	implements CustomerVehicleDetailsService,
-			   ServiceWrapper<CustomerVehicleDetailsService> {
+		implements CustomerVehicleDetailsService, ServiceWrapper<CustomerVehicleDetailsService> {
 
-	public CustomerVehicleDetailsServiceWrapper(
-		CustomerVehicleDetailsService customerVehicleDetailsService) {
+	public CustomerVehicleDetailsServiceWrapper(CustomerVehicleDetailsService customerVehicleDetailsService) {
 
 		_customerVehicleDetailsService = customerVehicleDetailsService;
 	}
@@ -49,8 +47,7 @@ public class CustomerVehicleDetailsServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		CustomerVehicleDetailsService customerVehicleDetailsService) {
+	public void setWrappedService(CustomerVehicleDetailsService customerVehicleDetailsService) {
 
 		_customerVehicleDetailsService = customerVehicleDetailsService;
 	}

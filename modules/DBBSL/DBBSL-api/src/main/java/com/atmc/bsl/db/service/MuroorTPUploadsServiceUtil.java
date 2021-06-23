@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for MuroorTPUploads. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsServiceImpl</code> and is an
- * access point for service operations in application layer code running on a
+ * <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsServiceImpl</code> and is
+ * an access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * based on the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see MuroorTPUploadsService
@@ -35,7 +35,9 @@ public class MuroorTPUploadsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsServiceImpl</code> and
+	 * rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -51,18 +53,13 @@ public class MuroorTPUploadsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<MuroorTPUploadsService, MuroorTPUploadsService> _serviceTracker;
+	private static ServiceTracker<MuroorTPUploadsService, MuroorTPUploadsService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(MuroorTPUploadsService.class);
 
-		ServiceTracker<MuroorTPUploadsService, MuroorTPUploadsService>
-			serviceTracker =
-				new ServiceTracker
-					<MuroorTPUploadsService, MuroorTPUploadsService>(
-						bundle.getBundleContext(), MuroorTPUploadsService.class,
-						null);
+		ServiceTracker<MuroorTPUploadsService, MuroorTPUploadsService> serviceTracker = new ServiceTracker<MuroorTPUploadsService, MuroorTPUploadsService>(
+				bundle.getBundleContext(), MuroorTPUploadsService.class, null);
 
 		serviceTracker.open();
 

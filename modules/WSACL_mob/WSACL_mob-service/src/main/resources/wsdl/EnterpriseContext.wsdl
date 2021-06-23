@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	xmlns:s2="http://enterprise.olp.sadad.com/Infrastructure/EnterpriseContext"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://enterprise.olp.sadad.com/Infrastructure/EnterpriseContext">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://enterprise.olp.sadad.com/Infrastructure/EnterpriseContext">
+			<xsd:include schemaLocation="EnterpriseContext.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="EnterpriseContextHeader">
+		<wsdl:part element="s2:enterpriseContext" name="enterpriseHeader" />
+	</wsdl:message>
+</wsdl:definitions>

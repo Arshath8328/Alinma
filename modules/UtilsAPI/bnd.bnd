@@ -1,0 +1,4 @@
+Bundle-Name: UtilsAPI
+Bundle-SymbolicName: UtilsAPI
+Bundle-Version: 1.0.0
+Export-Package: com.ejada.atmc.utils.api

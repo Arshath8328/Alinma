@@ -19,8 +19,7 @@ import java.util.List;
 /**
  * @author Ghada Shawkat
  */
-public class Quotation
-{
+public class Quotation {
 	private boolean accDeath;
 
 	private boolean vehMotorAcc;
@@ -46,9 +45,9 @@ public class Quotation
 	private String agencyRepair;
 
 	private double agencyRepairOut;
-	
+
 	private double driverAgeLess21;
-	
+
 	private String city;
 
 	private String cityDesc;
@@ -124,9 +123,9 @@ public class Quotation
 	private String vehicleChassisNo;
 
 	private String vehicleColor;
-	
+
 	private String vehicleColorEn;
-	
+
 	private String vehicleColorAr;
 
 	private long vehicleCylinder;
@@ -166,13 +165,13 @@ public class Quotation
 	private long vehicleValue;
 
 	private long vehicleWeight;
-	
+
 	private String vehicleCity;
 
 	private List<QuotationCover> coversList;
 
 	private List<QuotationDriver> quotationDrivers;
-	
+
 	private List<QuotationDriver> under21Drivers;
 
 	private String licenseFileName;
@@ -182,7 +181,7 @@ public class Quotation
 	private String carRightFileName;
 
 	private String istCardFileName;
-	
+
 	private String custCardFileName;
 
 	private String carFrontFileName;
@@ -190,7 +189,7 @@ public class Quotation
 	private String carBackFileName;
 
 	private String carLeftFileName;
-	
+
 	private String engChassisNoFileName;
 
 	private String leaseFileName;
@@ -215,7 +214,7 @@ public class Quotation
 	private String existingExpDate;
 
 	private double netPrem;
-	
+
 	private double claimLoading;
 
 	private double discountAmount;
@@ -223,7 +222,7 @@ public class Quotation
 	private double discountPrem;
 
 	private double loyaltyDiscountPer;
-	
+
 	private int loyaltyDiscountFlag;
 
 	private double loadingAmount;
@@ -251,55 +250,55 @@ public class Quotation
 	private String oldIqamaId;
 
 	private String vehicleOwnerIban;
-	
+
 	private String vehicleNationality;
 
 	private String driverAdditionReason;
 
 	private boolean underAgeDriver;
-	
+
 	private String saeedService;
-	
+
 	private double driverAccidents;
-	
+
 	private double totalAfterDiscount;
-	
+
 	private double totalBeforeDiscount;
-	
+
 	private boolean smsFlag;
-	
+
 	private boolean renew;
-	
+
 	private String insuredEducation;
-	
+
 	private String insuredMaritalStatus;
-	
+
 	private int insuredNoChildUnder16;
-	
+
 	private long vehicleCurrentMileage;
-	
+
 	private long vehicleLowerExpectedMileagePerYear;
-	
+
 	private long vehicleUpperExpectedMileagePerYear;
-	
+
 	private String vehicleNightLocation;
-	
+
 	private String vehicleEngineSize;
-	
+
 	private String vehicleTransType;
-	
+
 	private String vehicleSpecs;
-	
+
 	private long vehAxleWeight;
 
 	private String vehCarMods;
-	
+
 	private QuotationUserAddress natAddress;
-	
+
 	private QuotationUserAddress offAddress;
-	
+
 	private boolean productChanged;
-	
+
 	private String schemeCode;
 
 	/**
@@ -312,981 +311,810 @@ public class Quotation
 	public void setClaimLoading(double claimLoading) {
 		this.claimLoading = claimLoading;
 	}
-	
-	public long getAddressAddNo()
-	{
+
+	public long getAddressAddNo() {
 		return addressAddNo;
 	}
 
 	/**
-	 * @param addressAddNo
-	 *            the addressAddNo to set
+	 * @param addressAddNo the addressAddNo to set
 	 */
-	public void setAddressAddNo(long addressAddNo)
-	{
+	public void setAddressAddNo(long addressAddNo) {
 		this.addressAddNo = addressAddNo;
 	}
 
 	/**
 	 * @return the addressBuildingNo
 	 */
-	public long getAddressBuildingNo()
-	{
+	public long getAddressBuildingNo() {
 		return addressBuildingNo;
 	}
 
 	/**
-	 * @param addressBuildingNo
-	 *            the addressBuildingNo to set
+	 * @param addressBuildingNo the addressBuildingNo to set
 	 */
-	public void setAddressBuildingNo(long addressBuildingNo)
-	{
+	public void setAddressBuildingNo(long addressBuildingNo) {
 		this.addressBuildingNo = addressBuildingNo;
 	}
 
 	/**
 	 * @return the addressDistrict
 	 */
-	public String getAddressDistrict()
-	{
+	public String getAddressDistrict() {
 		return addressDistrict;
 	}
 
 	/**
-	 * @param addressDistrict
-	 *            the addressDistrict to set
+	 * @param addressDistrict the addressDistrict to set
 	 */
-	public void setAddressDistrict(String addressDistrict)
-	{
+	public void setAddressDistrict(String addressDistrict) {
 		this.addressDistrict = addressDistrict;
 	}
 
 	/**
 	 * @return the addressStreet
 	 */
-	public String getAddressStreet()
-	{
+	public String getAddressStreet() {
 		return addressStreet;
 	}
 
 	/**
-	 * @param addressStreet
-	 *            the addressStreet to set
+	 * @param addressStreet the addressStreet to set
 	 */
-	public void setAddressStreet(String addressStreet)
-	{
+	public void setAddressStreet(String addressStreet) {
 		this.addressStreet = addressStreet;
 	}
 
 	/**
 	 * @return the addressUnitNo
 	 */
-	public long getAddressUnitNo()
-	{
+	public long getAddressUnitNo() {
 		return addressUnitNo;
 	}
 
 	/**
-	 * @param addressUnitNo
-	 *            the addressUnitNo to set
+	 * @param addressUnitNo the addressUnitNo to set
 	 */
-	public void setAddressUnitNo(long addressUnitNo)
-	{
+	public void setAddressUnitNo(long addressUnitNo) {
 		this.addressUnitNo = addressUnitNo;
 	}
 
 	/**
 	 * @return the addressZipCode
 	 */
-	public long getAddressZipCode()
-	{
+	public long getAddressZipCode() {
 		return addressZipCode;
 	}
 
 	/**
-	 * @param addressZipCode
-	 *            the addressZipCode to set
+	 * @param addressZipCode the addressZipCode to set
 	 */
-	public void setAddressZipCode(long addressZipCode)
-	{
+	public void setAddressZipCode(long addressZipCode) {
 		this.addressZipCode = addressZipCode;
 	}
 
 	/**
 	 * @return the addCover
 	 */
-	public String getAddCover()
-	{
+	public String getAddCover() {
 		return addCover;
 	}
 
 	/**
-	 * @param addCover
-	 *            the addCover to set
+	 * @param addCover the addCover to set
 	 */
-	public void setAddCover(String addCover)
-	{
+	public void setAddCover(String addCover) {
 		this.addCover = addCover;
 	}
 
 	/**
 	 * @return the addDriver
 	 */
-	public String getAddDriver()
-	{
+	public String getAddDriver() {
 		return addDriver;
 	}
 
 	/**
-	 * @param addDriver
-	 *            the addDriver to set
+	 * @param addDriver the addDriver to set
 	 */
-	public void setAddDriver(String addDriver)
-	{
+	public void setAddDriver(String addDriver) {
 		this.addDriver = addDriver;
 	}
 
 	/**
 	 * @return the agencyRepair
 	 */
-	public String getAgencyRepair()
-	{
+	public String getAgencyRepair() {
 		return agencyRepair;
 	}
 
 	/**
-	 * @param agencyRepair
-	 *            the agencyRepair to set
+	 * @param agencyRepair the agencyRepair to set
 	 */
-	public void setAgencyRepair(String agencyRepair)
-	{
+	public void setAgencyRepair(String agencyRepair) {
 		this.agencyRepair = agencyRepair;
 	}
 
 	/**
 	 * @return the city
 	 */
-	public String getCity()
-	{
+	public String getCity() {
 		return city;
 	}
 
 	/**
-	 * @param city
-	 *            the city to set
+	 * @param city the city to set
 	 */
-	public void setCity(String city)
-	{
+	public void setCity(String city) {
 		this.city = city;
 	}
 
 	/**
 	 * @return the deductibleValue
 	 */
-	public String getDeductibleValue()
-	{
+	public String getDeductibleValue() {
 		return deductibleValue;
 	}
 
 	/**
-	 * @param deductibleValue
-	 *            the deductibleValue to set
+	 * @param deductibleValue the deductibleValue to set
 	 */
-	public void setDeductibleValue(String deductibleValue)
-	{
+	public void setDeductibleValue(String deductibleValue) {
 		this.deductibleValue = deductibleValue;
 	}
 
 	/**
 	 * @return the insuredDob
 	 */
-	public Date getInsuredDob()
-	{
+	public Date getInsuredDob() {
 		return insuredDob;
 	}
 
 	/**
-	 * @param insuredDob
-	 *            the insuredDob to set
+	 * @param insuredDob the insuredDob to set
 	 */
-	public void setInsuredDob(Date insuredDob)
-	{
+	public void setInsuredDob(Date insuredDob) {
 		this.insuredDob = insuredDob;
 	}
 
 	/**
 	 * @return the insuredEmail
 	 */
-	public String getInsuredEmail()
-	{
+	public String getInsuredEmail() {
 		return insuredEmail;
 	}
 
 	/**
-	 * @param insuredEmail
-	 *            the insuredEmail to set
+	 * @param insuredEmail the insuredEmail to set
 	 */
-	public void setInsuredEmail(String insuredEmail)
-	{
+	public void setInsuredEmail(String insuredEmail) {
 		this.insuredEmail = insuredEmail;
 	}
 
 	/**
 	 * @return the insuredGender
 	 */
-	public String getInsuredGender()
-	{
+	public String getInsuredGender() {
 		return insuredGender;
 	}
 
 	/**
-	 * @param insuredGender
-	 *            the insuredGender to set
+	 * @param insuredGender the insuredGender to set
 	 */
-	public void setInsuredGender(String insuredGender)
-	{
+	public void setInsuredGender(String insuredGender) {
 		this.insuredGender = insuredGender;
 	}
 
 	/**
 	 * @return the insuredId
 	 */
-	public long getInsuredId()
-	{
+	public long getInsuredId() {
 		return insuredId;
 	}
 
 	/**
-	 * @param insuredId
-	 *            the insuredId to set
+	 * @param insuredId the insuredId to set
 	 */
-	public void setInsuredId(long insuredId)
-	{
+	public void setInsuredId(long insuredId) {
 		this.insuredId = insuredId;
 	}
 
 	/**
 	 * @return the insuredIdType
 	 */
-	public long getInsuredIdType()
-	{
+	public long getInsuredIdType() {
 		return insuredIdType;
 	}
 
 	/**
-	 * @param insuredIdType
-	 *            the insuredIdType to set
+	 * @param insuredIdType the insuredIdType to set
 	 */
-	public void setInsuredIdType(long insuredIdType)
-	{
+	public void setInsuredIdType(long insuredIdType) {
 		this.insuredIdType = insuredIdType;
 	}
 
 	/**
 	 * @return the insuredMobile
 	 */
-	public String getInsuredMobile()
-	{
+	public String getInsuredMobile() {
 		return insuredMobile;
 	}
 
 	/**
-	 * @param insuredMobile
-	 *            the insuredMobile to set
+	 * @param insuredMobile the insuredMobile to set
 	 */
-	public void setInsuredMobile(String insuredMobile)
-	{
+	public void setInsuredMobile(String insuredMobile) {
 		this.insuredMobile = insuredMobile;
 	}
 
 	/**
 	 * @return the insuredName
 	 */
-	public String getInsuredName()
-	{
+	public String getInsuredName() {
 		return insuredName;
 	}
 
 	/**
-	 * @param insuredName
-	 *            the insuredName to set
+	 * @param insuredName the insuredName to set
 	 */
-	public void setInsuredName(String insuredName)
-	{
+	public void setInsuredName(String insuredName) {
 		this.insuredName = insuredName;
 	}
 
 	/**
 	 * @return the insuredNationality
 	 */
-	public String getInsuredNationality()
-	{
+	public String getInsuredNationality() {
 		return insuredNationality;
 	}
 
 	/**
-	 * @param insuredNationality
-	 *            the insuredNationality to set
+	 * @param insuredNationality the insuredNationality to set
 	 */
-	public void setInsuredNationality(String insuredNationality)
-	{
+	public void setInsuredNationality(String insuredNationality) {
 		this.insuredNationality = insuredNationality;
 	}
 
 	/**
 	 * @return the loyaltyDiscount
 	 */
-	public String getLoyaltyDiscount()
-	{
+	public String getLoyaltyDiscount() {
 		return loyaltyDiscount;
 	}
 
 	/**
-	 * @param loyaltyDiscount
-	 *            the loyaltyDiscount to set
+	 * @param loyaltyDiscount the loyaltyDiscount to set
 	 */
-	public void setLoyaltyDiscount(String loyaltyDiscount)
-	{
+	public void setLoyaltyDiscount(String loyaltyDiscount) {
 		this.loyaltyDiscount = loyaltyDiscount;
 	}
 
 	/**
 	 * @return the ncdYears
 	 */
-	public long getNcdYears()
-	{
+	public long getNcdYears() {
 		return ncdYears;
 	}
 
 	/**
-	 * @param ncdYears
-	 *            the ncdYears to set
+	 * @param ncdYears the ncdYears to set
 	 */
-	public void setNcdYears(long ncdYears)
-	{
+	public void setNcdYears(long ncdYears) {
 		this.ncdYears = ncdYears;
 	}
 
 	/**
 	 * @return the paymemtAmount
 	 */
-	public long getPaymemtAmount()
-	{
+	public long getPaymemtAmount() {
 		return paymemtAmount;
 	}
 
 	/**
-	 * @param paymemtAmount
-	 *            the paymemtAmount to set
+	 * @param paymemtAmount the paymemtAmount to set
 	 */
-	public void setPaymemtAmount(long paymemtAmount)
-	{
+	public void setPaymemtAmount(long paymemtAmount) {
 		this.paymemtAmount = paymemtAmount;
 	}
 
 	/**
 	 * @return the paymentMethod
 	 */
-	public String getPaymentMethod()
-	{
+	public String getPaymentMethod() {
 		return paymentMethod;
 	}
 
 	/**
-	 * @param paymentMethod
-	 *            the paymentMethod to set
+	 * @param paymentMethod the paymentMethod to set
 	 */
-	public void setPaymentMethod(String paymentMethod)
-	{
+	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
 
 	/**
 	 * @return the paymentRefNo
 	 */
-	public String getPaymentRefNo()
-	{
+	public String getPaymentRefNo() {
 		return paymentRefNo;
 	}
 
 	/**
-	 * @param paymentRefNo
-	 *            the paymentRefNo to set
+	 * @param paymentRefNo the paymentRefNo to set
 	 */
-	public void setPaymentRefNo(String paymentRefNo)
-	{
+	public void setPaymentRefNo(String paymentRefNo) {
 		this.paymentRefNo = paymentRefNo;
 	}
 
 	/**
 	 * @return the policyEffFromNo
 	 */
-	public Date getPolicyEffFromNo()
-	{
+	public Date getPolicyEffFromNo() {
 		return policyEffFromNo;
 	}
 
 	/**
-	 * @param policyEffFromNo
-	 *            the policyEffFromNo to set
+	 * @param policyEffFromNo the policyEffFromNo to set
 	 */
-	public void setPolicyEffFromNo(Date policyEffFromNo)
-	{
+	public void setPolicyEffFromNo(Date policyEffFromNo) {
 		this.policyEffFromNo = policyEffFromNo;
 	}
 
 	/**
 	 * @return the policyEffTo
 	 */
-	public Date getPolicyEffTo()
-	{
+	public Date getPolicyEffTo() {
 		return policyEffTo;
 	}
 
 	/**
-	 * @param policyEffTo
-	 *            the policyEffTo to set
+	 * @param policyEffTo the policyEffTo to set
 	 */
-	public void setPolicyEffTo(Date policyEffTo)
-	{
+	public void setPolicyEffTo(Date policyEffTo) {
 		this.policyEffTo = policyEffTo;
 	}
 
 	/**
 	 * @return the policyEffDate
 	 */
-	public Date getPolicyEffDate()
-	{
+	public Date getPolicyEffDate() {
 		return policyEffDate;
 	}
 
 	/**
-	 * @param policyEffDate
-	 *            the policyEffDate to set
+	 * @param policyEffDate the policyEffDate to set
 	 */
-	public void setPolicyEffDate(Date policyEffDate)
-	{
+	public void setPolicyEffDate(Date policyEffDate) {
 		this.policyEffDate = policyEffDate;
 	}
 
 	/**
 	 * @return the policyIssueDate
 	 */
-	public Date getPolicyIssueDate()
-	{
+	public Date getPolicyIssueDate() {
 		return policyIssueDate;
 	}
 
 	/**
-	 * @param policyIssueDate
-	 *            the policyIssueDate to set
+	 * @param policyIssueDate the policyIssueDate to set
 	 */
-	public void setPolicyIssueDate(Date policyIssueDate)
-	{
+	public void setPolicyIssueDate(Date policyIssueDate) {
 		this.policyIssueDate = policyIssueDate;
 	}
 
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the policyRefNo
 	 */
-	public String getPolicyRefNo()
-	{
+	public String getPolicyRefNo() {
 		return policyRefNo;
 	}
 
 	/**
-	 * @param policyRefNo
-	 *            the policyRefNo to set
+	 * @param policyRefNo the policyRefNo to set
 	 */
-	public void setPolicyRefNo(String policyRefNo)
-	{
+	public void setPolicyRefNo(String policyRefNo) {
 		this.policyRefNo = policyRefNo;
 	}
 
 	/**
 	 * @return the policyStatusCode
 	 */
-	public String getPolicyStatusCode()
-	{
+	public String getPolicyStatusCode() {
 		return policyStatusCode;
 	}
 
 	/**
-	 * @param policyStatusCode
-	 *            the policyStatusCode to set
+	 * @param policyStatusCode the policyStatusCode to set
 	 */
-	public void setPolicyStatusCode(String policyStatusCode)
-	{
+	public void setPolicyStatusCode(String policyStatusCode) {
 		this.policyStatusCode = policyStatusCode;
 	}
 
 	/**
 	 * @return the productCode
 	 */
-	public String getProductCode()
-	{
+	public String getProductCode() {
 		return productCode;
 	}
 
 	/**
-	 * @param productCode
-	 *            the productCode to set
+	 * @param productCode the productCode to set
 	 */
-	public void setProductCode(String productCode)
-	{
+	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
 
 	/**
 	 * @return the purposeOfVehicle
 	 */
-	public String getPurposeOfVehicle()
-	{
+	public String getPurposeOfVehicle() {
 		return purposeOfVehicle;
 	}
 
 	/**
-	 * @param purposeOfVehicle
-	 *            the purposeOfVehicle to set
+	 * @param purposeOfVehicle the purposeOfVehicle to set
 	 */
-	public void setPurposeOfVehicle(String purposeOfVehicle)
-	{
+	public void setPurposeOfVehicle(String purposeOfVehicle) {
 		this.purposeOfVehicle = purposeOfVehicle;
 	}
 
 	/**
 	 * @return the quotationId
 	 */
-	public long getQuotationId()
-	{
+	public long getQuotationId() {
 		return quotationId;
 	}
 
 	/**
-	 * @param quotationId
-	 *            the quotationId to set
+	 * @param quotationId the quotationId to set
 	 */
-	public void setQuotationId(long quotationId)
-	{
+	public void setQuotationId(long quotationId) {
 		this.quotationId = quotationId;
 	}
 
 	/**
 	 * @return the referenceNo
 	 */
-	public String getReferenceNo()
-	{
+	public String getReferenceNo() {
 		return referenceNo;
 	}
 
 	/**
-	 * @param referenceNo
-	 *            the referenceNo to set
+	 * @param referenceNo the referenceNo to set
 	 */
-	public void setReferenceNo(String referenceNo)
-	{
+	public void setReferenceNo(String referenceNo) {
 		this.referenceNo = referenceNo;
 	}
 
 	/**
 	 * @return the source
 	 */
-	public String getSource()
-	{
+	public String getSource() {
 		return source;
 	}
 
 	/**
-	 * @param source
-	 *            the source to set
+	 * @param source the source to set
 	 */
-	public void setSource(String source)
-	{
+	public void setSource(String source) {
 		this.source = source;
 	}
 
 	/**
 	 * @return the transaction
 	 */
-	public String getTransaction()
-	{
+	public String getTransaction() {
 		return transaction;
 	}
 
 	/**
-	 * @param transaction
-	 *            the transaction to set
+	 * @param transaction the transaction to set
 	 */
-	public void setTransaction(String transaction)
-	{
+	public void setTransaction(String transaction) {
 		this.transaction = transaction;
 	}
 
 	/**
 	 * @return the vehicleBodyType
 	 */
-	public String getVehicleBodyType()
-	{
+	public String getVehicleBodyType() {
 		return vehicleBodyType;
 	}
 
 	/**
-	 * @param vehicleBodyType
-	 *            the vehicleBodyType to set
+	 * @param vehicleBodyType the vehicleBodyType to set
 	 */
-	public void setVehicleBodyType(String vehicleBodyType)
-	{
+	public void setVehicleBodyType(String vehicleBodyType) {
 		this.vehicleBodyType = vehicleBodyType;
 	}
 
 	/**
 	 * @return the vehicleCapacity
 	 */
-	public long getVehicleCapacity()
-	{
+	public long getVehicleCapacity() {
 		return vehicleCapacity;
 	}
 
 	/**
-	 * @param vehicleCapacity
-	 *            the vehicleCapacity to set
+	 * @param vehicleCapacity the vehicleCapacity to set
 	 */
-	public void setVehicleCapacity(long vehicleCapacity)
-	{
+	public void setVehicleCapacity(long vehicleCapacity) {
 		this.vehicleCapacity = vehicleCapacity;
 	}
 
 	/**
 	 * @return the vehicleChassisNo
 	 */
-	public String getVehicleChassisNo()
-	{
+	public String getVehicleChassisNo() {
 		return vehicleChassisNo;
 	}
 
 	/**
-	 * @param vehicleChassisNo
-	 *            the vehicleChassisNo to set
+	 * @param vehicleChassisNo the vehicleChassisNo to set
 	 */
-	public void setVehicleChassisNo(String vehicleChassisNo)
-	{
+	public void setVehicleChassisNo(String vehicleChassisNo) {
 		this.vehicleChassisNo = vehicleChassisNo;
 	}
 
 	/**
 	 * @return the veicleColor
 	 */
-	public String getVehicleColor()
-	{
+	public String getVehicleColor() {
 		return vehicleColor;
 	}
 
 	/**
-	 * @param veicleColor
-	 *            the veicleColor to set
+	 * @param veicleColor the veicleColor to set
 	 */
-	public void setVehicleColor(String vehicleColor)
-	{
+	public void setVehicleColor(String vehicleColor) {
 		this.vehicleColor = vehicleColor;
 	}
 
 	/**
 	 * @return the vehicleCylinder
 	 */
-	public long getVehicleCylinder()
-	{
+	public long getVehicleCylinder() {
 		return vehicleCylinder;
 	}
 
 	/**
-	 * @param vehicleCylinder
-	 *            the vehicleCylinder to set
+	 * @param vehicleCylinder the vehicleCylinder to set
 	 */
-	public void setVehicleCylinder(long vehicleCylinder)
-	{
+	public void setVehicleCylinder(long vehicleCylinder) {
 		this.vehicleCylinder = vehicleCylinder;
 	}
 
 	/**
 	 * @return the vehicleEstExpiryDate
 	 */
-	public Date getVehicleEstExpiryDate()
-	{
+	public Date getVehicleEstExpiryDate() {
 		return vehicleEstExpiryDate;
 	}
 
 	/**
-	 * @param vehicleEstExpiryDate
-	 *            the vehicleEstExpiryDate to set
+	 * @param vehicleEstExpiryDate the vehicleEstExpiryDate to set
 	 */
-	public void setVehicleEstExpiryDate(Date vehicleEstExpiryDate)
-	{
+	public void setVehicleEstExpiryDate(Date vehicleEstExpiryDate) {
 		this.vehicleEstExpiryDate = vehicleEstExpiryDate;
 	}
 
 	/**
 	 * @return the vehicleId
 	 */
-	public long getVehicleId()
-	{
+	public long getVehicleId() {
 		return vehicleId;
 	}
 
 	/**
-	 * @param vehicleId
-	 *            the vehicleId to set
+	 * @param vehicleId the vehicleId to set
 	 */
-	public void setVehicleId(long vehicleId)
-	{
+	public void setVehicleId(long vehicleId) {
 		this.vehicleId = vehicleId;
 	}
 
 	/**
 	 * @return the vehicleIdType
 	 */
-	public long getVehicleIdType()
-	{
+	public long getVehicleIdType() {
 		return vehicleIdType;
 	}
 
 	/**
-	 * @param vehicleIdType
-	 *            the vehicleIdType to set
+	 * @param vehicleIdType the vehicleIdType to set
 	 */
-	public void setVehicleIdType(long vehicleIdType)
-	{
+	public void setVehicleIdType(long vehicleIdType) {
 		this.vehicleIdType = vehicleIdType;
 	}
 
 	/**
 	 * @return the vehicleMake
 	 */
-	public String getVehicleMake()
-	{
+	public String getVehicleMake() {
 		return vehicleMake;
 	}
 
 	/**
-	 * @param vehicleMake
-	 *            the vehicleMake to set
+	 * @param vehicleMake the vehicleMake to set
 	 */
-	public void setVehicleMake(String vehicleMake)
-	{
+	public void setVehicleMake(String vehicleMake) {
 		this.vehicleMake = vehicleMake;
 	}
 
 	/**
 	 * @return the vehicleMfgYear
 	 */
-	public long getVehicleMfgYear()
-	{
+	public long getVehicleMfgYear() {
 		return vehicleMfgYear;
 	}
 
 	/**
-	 * @param vehicleMfgYear
-	 *            the vehicleMfgYear to set
+	 * @param vehicleMfgYear the vehicleMfgYear to set
 	 */
-	public void setVehicleMfgYear(long vehicleMfgYear)
-	{
+	public void setVehicleMfgYear(long vehicleMfgYear) {
 		this.vehicleMfgYear = vehicleMfgYear;
 	}
 
 	/**
 	 * @return the vehicleModel
 	 */
-	public String getVehicleModel()
-	{
+	public String getVehicleModel() {
 		return vehicleModel;
 	}
 
 	/**
-	 * @param vehicleModel
-	 *            the vehicleModel to set
+	 * @param vehicleModel the vehicleModel to set
 	 */
-	public void setVehicleModel(String vehicleModel)
-	{
+	public void setVehicleModel(String vehicleModel) {
 		this.vehicleModel = vehicleModel;
 	}
 
 	/**
 	 * @return the vehiclePlateL1
 	 */
-	public String getVehiclePlateL1()
-	{
+	public String getVehiclePlateL1() {
 		return vehiclePlateL1;
 	}
 
 	/**
-	 * @param vehiclePlateL1
-	 *            the vehiclePlateL1 to set
+	 * @param vehiclePlateL1 the vehiclePlateL1 to set
 	 */
-	public void setVehiclePlateL1(String vehiclePlateL1)
-	{
+	public void setVehiclePlateL1(String vehiclePlateL1) {
 		this.vehiclePlateL1 = vehiclePlateL1;
 	}
 
 	/**
 	 * @return the vehiclePlateL2
 	 */
-	public String getVehiclePlateL2()
-	{
+	public String getVehiclePlateL2() {
 		return vehiclePlateL2;
 	}
 
 	/**
-	 * @param vehiclePlateL2
-	 *            the vehiclePlateL2 to set
+	 * @param vehiclePlateL2 the vehiclePlateL2 to set
 	 */
-	public void setVehiclePlateL2(String vehiclePlateL2)
-	{
+	public void setVehiclePlateL2(String vehiclePlateL2) {
 		this.vehiclePlateL2 = vehiclePlateL2;
 	}
 
 	/**
 	 * @return the vehiclePlateL3
 	 */
-	public String getVehiclePlateL3()
-	{
+	public String getVehiclePlateL3() {
 		return vehiclePlateL3;
 	}
 
 	/**
-	 * @param vehiclePlateL3
-	 *            the vehiclePlateL3 to set
+	 * @param vehiclePlateL3 the vehiclePlateL3 to set
 	 */
-	public void setVehiclePlateL3(String vehiclePlateL3)
-	{
+	public void setVehiclePlateL3(String vehiclePlateL3) {
 		this.vehiclePlateL3 = vehiclePlateL3;
 	}
 
 	/**
 	 * @return the vehiclePlateNo
 	 */
-	public long getVehiclePlateNo()
-	{
+	public long getVehiclePlateNo() {
 		return vehiclePlateNo;
 	}
 
 	/**
-	 * @param vehiclePlateNo
-	 *            the vehiclePlateNo to set
+	 * @param vehiclePlateNo the vehiclePlateNo to set
 	 */
-	public void setVehiclePlateNo(long vehiclePlateNo)
-	{
+	public void setVehiclePlateNo(long vehiclePlateNo) {
 		this.vehiclePlateNo = vehiclePlateNo;
 	}
 
 	/**
 	 * @return the vehiclePlateType
 	 */
-	public String getVehiclePlateType()
-	{
+	public String getVehiclePlateType() {
 		return vehiclePlateType;
 	}
 
 	/**
-	 * @param vehiclePlateType
-	 *            the vehiclePlateType to set
+	 * @param vehiclePlateType the vehiclePlateType to set
 	 */
-	public void setVehiclePlateType(String vehiclePlateType)
-	{
+	public void setVehiclePlateType(String vehiclePlateType) {
 		this.vehiclePlateType = vehiclePlateType;
 	}
 
 	/**
 	 * @return the vehicleValue
 	 */
-	public long getVehicleValue()
-	{
+	public long getVehicleValue() {
 		return vehicleValue;
 	}
 
 	/**
-	 * @param vehicleValue
-	 *            the vehicleValue to set
+	 * @param vehicleValue the vehicleValue to set
 	 */
-	public void setVehicleValue(long vehicleValue)
-	{
+	public void setVehicleValue(long vehicleValue) {
 		this.vehicleValue = vehicleValue;
 	}
 
 	/**
 	 * @return the vehicleWeight
 	 */
-	public long getVehicleWeight()
-	{
+	public long getVehicleWeight() {
 		return vehicleWeight;
 	}
 
 	/**
-	 * @param vehicleWeight
-	 *            the vehicleWeight to set
+	 * @param vehicleWeight the vehicleWeight to set
 	 */
-	public void setVehicleWeight(long vehicleWeight)
-	{
+	public void setVehicleWeight(long vehicleWeight) {
 		this.vehicleWeight = vehicleWeight;
 	}
 
 	/**
 	 * @return the vehicleCity
 	 */
-	public String getVehicleCity()
-	{
+	public String getVehicleCity() {
 		return vehicleCity;
 	}
 
 	/**
 	 * @param vehicleCity the vehicleCity to set
 	 */
-	public void setVehicleCity(String vehicleCity)
-	{
+	public void setVehicleCity(String vehicleCity) {
 		this.vehicleCity = vehicleCity;
 	}
 
 	/**
 	 * @return the coversList
 	 */
-	public List<QuotationCover> getCoversList()
-	{
-		if(coversList == null)
+	public List<QuotationCover> getCoversList() {
+		if (coversList == null)
 			coversList = new ArrayList<>();
 
 		return coversList;
 	}
 
 	/**
-	 * @param coversList
-	 *            the coversList to set
+	 * @param coversList the coversList to set
 	 */
-	public void setCoversList(List<QuotationCover> coversList)
-	{
+	public void setCoversList(List<QuotationCover> coversList) {
 		this.coversList = coversList;
 	}
 
 	/**
 	 * @return the quotationDrivers
 	 */
-	public List<QuotationDriver> getQuotationDrivers()
-	{
-		if(this.quotationDrivers == null)
+	public List<QuotationDriver> getQuotationDrivers() {
+		if (this.quotationDrivers == null)
 			this.quotationDrivers = new ArrayList<>();
 		return quotationDrivers;
 	}
@@ -1294,8 +1122,7 @@ public class Quotation
 	/**
 	 * @param quotationDrivers the quotationDrivers to set
 	 */
-	public void setQuotationDrivers(List<QuotationDriver> quotationDrivers)
-	{
+	public void setQuotationDrivers(List<QuotationDriver> quotationDrivers) {
 		this.quotationDrivers = quotationDrivers;
 	}
 
@@ -1310,822 +1137,678 @@ public class Quotation
 	/**
 	 * @return the vehicleMakeEn
 	 */
-	public String getVehicleMakeEn()
-	{
+	public String getVehicleMakeEn() {
 		return vehicleMakeEn;
 	}
 
 	/**
-	 * @param vehicleMakeEn
-	 *            the vehicleMakeEn to set
+	 * @param vehicleMakeEn the vehicleMakeEn to set
 	 */
-	public void setVehicleMakeEn(String vehicleMakeEn)
-	{
+	public void setVehicleMakeEn(String vehicleMakeEn) {
 		this.vehicleMakeEn = vehicleMakeEn;
 	}
 
 	/**
 	 * @return the vehicleMakeAr
 	 */
-	public String getVehicleMakeAr()
-	{
+	public String getVehicleMakeAr() {
 		return vehicleMakeAr;
 	}
 
 	/**
-	 * @param vehicleMakeAr
-	 *            the vehicleMakeAr to set
+	 * @param vehicleMakeAr the vehicleMakeAr to set
 	 */
-	public void setVehicleMakeAr(String vehicleMakeAr)
-	{
+	public void setVehicleMakeAr(String vehicleMakeAr) {
 		this.vehicleMakeAr = vehicleMakeAr;
 	}
 
-	public String getProductDescEn()
-	{
+	public String getProductDescEn() {
 		return productDescEn;
 	}
 
-	public void setProductDescEn(String productDescEn)
-	{
+	public void setProductDescEn(String productDescEn) {
 		this.productDescEn = productDescEn;
 	}
 
-	public String getProductDescAr()
-	{
+	public String getProductDescAr() {
 		return productDescAr;
 	}
 
-	public void setProductDescAr(String productDescAr)
-	{
+	public void setProductDescAr(String productDescAr) {
 		this.productDescAr = productDescAr;
 	}
 
-	public List<QuotationAdminUpload> getAdminFilesUplods()
-	{
+	public List<QuotationAdminUpload> getAdminFilesUplods() {
 		return adminFilesUplods;
 	}
 
-	public void setAdminFilesUplods(List<QuotationAdminUpload> adminFilesUplods)
-	{
+	public void setAdminFilesUplods(List<QuotationAdminUpload> adminFilesUplods) {
 		this.adminFilesUplods = adminFilesUplods;
 	}
 
-	public List<QuotationHistory> getQuotationHistory()
-	{
+	public List<QuotationHistory> getQuotationHistory() {
 		return quotationHistory;
 	}
 
 	/**
 	 * @return the licenseFileName
 	 */
-	public String getLicenseFileName()
-	{
+	public String getLicenseFileName() {
 		return licenseFileName;
 	}
 
 	/**
-	 * @param licenseFileName
-	 *            the licenseFileName to set
+	 * @param licenseFileName the licenseFileName to set
 	 */
-	public void setLicenseFileName(String licenseFileName)
-	{
+	public void setLicenseFileName(String licenseFileName) {
 		this.licenseFileName = licenseFileName;
 	}
 
 	/**
 	 * @return the idFileName
 	 */
-	public String getIdFileName()
-	{
+	public String getIdFileName() {
 		return idFileName;
 	}
 
 	/**
-	 * @param idFileName
-	 *            the idFileName to set
+	 * @param idFileName the idFileName to set
 	 */
-	public void setIdFileName(String idFileName)
-	{
+	public void setIdFileName(String idFileName) {
 		this.idFileName = idFileName;
 	}
 
 	/**
 	 * @return the cityDesc
 	 */
-	public String getCityDesc()
-	{
+	public String getCityDesc() {
 		return cityDesc;
 	}
 
 	/**
-	 * @param cityDesc
-	 *            the cityDesc to set
+	 * @param cityDesc the cityDesc to set
 	 */
-	public void setCityDesc(String cityDesc)
-	{
+	public void setCityDesc(String cityDesc) {
 		this.cityDesc = cityDesc;
 	}
 
 	/**
 	 * @return the vehiclePlateTypeDesc
 	 */
-	public String getVehiclePlateTypeDesc()
-	{
+	public String getVehiclePlateTypeDesc() {
 		return vehiclePlateTypeDesc;
 	}
 
 	/**
-	 * @param vehiclePlateTypeDesc
-	 *            the vehiclePlateTypeDesc to set
+	 * @param vehiclePlateTypeDesc the vehiclePlateTypeDesc to set
 	 */
-	public void setVehiclePlateTypeDesc(String vehiclePlateTypeDesc)
-	{
+	public void setVehiclePlateTypeDesc(String vehiclePlateTypeDesc) {
 		this.vehiclePlateTypeDesc = vehiclePlateTypeDesc;
 	}
 
 	/**
 	 * @return the carRightFileName
 	 */
-	public String getCarRightFileName()
-	{
+	public String getCarRightFileName() {
 		return carRightFileName;
 	}
 
 	/**
-	 * @param carRightFileName
-	 *            the carRightFileName to set
+	 * @param carRightFileName the carRightFileName to set
 	 */
-	public void setCarRightFileName(String carRightFileName)
-	{
+	public void setCarRightFileName(String carRightFileName) {
 		this.carRightFileName = carRightFileName;
 	}
 
 	/**
 	 * @return the istCardFileName
 	 */
-	public String getIstCardFileName()
-	{
+	public String getIstCardFileName() {
 		return istCardFileName;
 	}
 
 	/**
-	 * @param istCardFileName
-	 *            the istCardFileName to set
+	 * @param istCardFileName the istCardFileName to set
 	 */
-	public void setIstCardFileName(String istCardFileName)
-	{
+	public void setIstCardFileName(String istCardFileName) {
 		this.istCardFileName = istCardFileName;
 	}
 
 	/**
 	 * @return the custCardFileName
 	 */
-	public String getCustCardFileName()
-	{
+	public String getCustCardFileName() {
 		return custCardFileName;
 	}
 
 	/**
 	 * @param custCardFileName the custCardFileName to set
 	 */
-	public void setCustCardFileName(String custCardFileName)
-	{
+	public void setCustCardFileName(String custCardFileName) {
 		this.custCardFileName = custCardFileName;
 	}
 
 	/**
 	 * @return the carFronFileName
 	 */
-	public String getCarFrontFileName()
-	{
+	public String getCarFrontFileName() {
 		return carFrontFileName;
 	}
 
 	/**
-	 * @param carFronFileName
-	 *            the carFronFileName to set
+	 * @param carFronFileName the carFronFileName to set
 	 */
-	public void setCarFrontFileName(String carFrontFileName)
-	{
+	public void setCarFrontFileName(String carFrontFileName) {
 		this.carFrontFileName = carFrontFileName;
 	}
 
 	/**
 	 * @return the carBackFileName
 	 */
-	public String getCarBackFileName()
-	{
+	public String getCarBackFileName() {
 		return carBackFileName;
 	}
 
 	/**
-	 * @param carBackFileName
-	 *            the carBackFileName to set
+	 * @param carBackFileName the carBackFileName to set
 	 */
-	public void setCarBackFileName(String carBackFileName)
-	{
+	public void setCarBackFileName(String carBackFileName) {
 		this.carBackFileName = carBackFileName;
 	}
 
 	/**
 	 * @return the carLeftFileName
 	 */
-	public String getCarLeftFileName()
-	{
+	public String getCarLeftFileName() {
 		return carLeftFileName;
 	}
 
 	/**
-	 * @param carLeftFileName
-	 *            the carLeftFileName to set
+	 * @param carLeftFileName the carLeftFileName to set
 	 */
-	public void setCarLeftFileName(String carLeftFileName)
-	{
+	public void setCarLeftFileName(String carLeftFileName) {
 		this.carLeftFileName = carLeftFileName;
 	}
 
 	/**
 	 * @return the vehicleModelEn
 	 */
-	public String getVehicleModelEn()
-	{
+	public String getVehicleModelEn() {
 		return vehicleModelEn;
 	}
 
 	/**
-	 * @param vehicleModelEn
-	 *            the vehicleModelEn to set
+	 * @param vehicleModelEn the vehicleModelEn to set
 	 */
-	public void setVehicleModelEn(String vehicleModelEn)
-	{
+	public void setVehicleModelEn(String vehicleModelEn) {
 		this.vehicleModelEn = vehicleModelEn;
 	}
 
 	/**
 	 * @return the vehicleModelAr
 	 */
-	public String getVehicleModelAr()
-	{
+	public String getVehicleModelAr() {
 		return vehicleModelAr;
 	}
 
 	/**
-	 * @param vehicleModelAr
-	 *            the vehicleModelAr to set
+	 * @param vehicleModelAr the vehicleModelAr to set
 	 */
-	public void setVehicleModelAr(String vehicleModelAr)
-	{
+	public void setVehicleModelAr(String vehicleModelAr) {
 		this.vehicleModelAr = vehicleModelAr;
 	}
 
-	public void setQuotationHistory(List<QuotationHistory> quotationHistory)
-	{
+	public void setQuotationHistory(List<QuotationHistory> quotationHistory) {
 		this.quotationHistory = quotationHistory;
 	}
 
 	/**
 	 * @return the insuredOccupationCode
 	 */
-	public String getInsuredOccupationCode()
-	{
+	public String getInsuredOccupationCode() {
 		return insuredOccupationCode;
 	}
 
 	/**
-	 * @param insuredOccupationCode
-	 *            the insuredOccupationCode to set
+	 * @param insuredOccupationCode the insuredOccupationCode to set
 	 */
-	public void setInsuredOccupationCode(String insuredOccupationCode)
-	{
+	public void setInsuredOccupationCode(String insuredOccupationCode) {
 		this.insuredOccupationCode = insuredOccupationCode;
 	}
 
 	/**
 	 * @return the insuredDobH
 	 */
-	public String getInsuredDobH()
-	{
+	public String getInsuredDobH() {
 		return insuredDobH;
 	}
 
 	/**
-	 * @param insuredDobH
-	 *            the insuredDobH to set
+	 * @param insuredDobH the insuredDobH to set
 	 */
-	public void setInsuredDobH(String insuredDobH)
-	{
+	public void setInsuredDobH(String insuredDobH) {
 		this.insuredDobH = insuredDobH;
 	}
 
 	/**
 	 * @return the existingPolicyNo
 	 */
-	public String getExistingPolicyNo()
-	{
+	public String getExistingPolicyNo() {
 		return existingPolicyNo;
 	}
 
 	/**
-	 * @param existingPolicyNo
-	 *            the existingPolicyNo to set
+	 * @param existingPolicyNo the existingPolicyNo to set
 	 */
-	public void setExistingPolicyNo(String existingPolicyNo)
-	{
+	public void setExistingPolicyNo(String existingPolicyNo) {
 		this.existingPolicyNo = existingPolicyNo;
 	}
 
 	/**
 	 * @return the existingCompanyName
 	 */
-	public String getExistingCompanyName()
-	{
+	public String getExistingCompanyName() {
 		return existingCompanyName;
 	}
 
 	/**
-	 * @param existingCompanyName
-	 *            the existingCompanyName to set
+	 * @param existingCompanyName the existingCompanyName to set
 	 */
-	public void setExistingCompanyName(String existingCompanyName)
-	{
+	public void setExistingCompanyName(String existingCompanyName) {
 		this.existingCompanyName = existingCompanyName;
 	}
 
 	/**
 	 * @return the existingExpDate
 	 */
-	public String getExistingExpDate()
-	{
+	public String getExistingExpDate() {
 		return existingExpDate;
 	}
 
 	/**
-	 * @param existingExpDate
-	 *            the existingExpDate to set
+	 * @param existingExpDate the existingExpDate to set
 	 */
-	public void setExistingExpDate(String existingExpDate)
-	{
+	public void setExistingExpDate(String existingExpDate) {
 		this.existingExpDate = existingExpDate;
 	}
 
-	public String getVehicleIdDescEn()
-	{
+	public String getVehicleIdDescEn() {
 		return vehicleIdDescEn;
 	}
 
-	public void setVehicleIdDescEn(String vehicleIdDescEn)
-	{
+	public void setVehicleIdDescEn(String vehicleIdDescEn) {
 		this.vehicleIdDescEn = vehicleIdDescEn;
 	}
 
-	public String getVehicleIdDescAr()
-	{
+	public String getVehicleIdDescAr() {
 		return vehicleIdDescAr;
 	}
 
-	public void setVehicleIdDescAr(String vehicleIdDescAr)
-	{
+	public void setVehicleIdDescAr(String vehicleIdDescAr) {
 		this.vehicleIdDescAr = vehicleIdDescAr;
 	}
 
 	/**
 	 * @return the netPrem
 	 */
-	public double getNetPrem()
-	{
+	public double getNetPrem() {
 		return netPrem;
 	}
 
 	/**
-	 * @param netPrem
-	 *            the netPrem to set
+	 * @param netPrem the netPrem to set
 	 */
-	public void setNetPrem(double netPrem)
-	{
+	public void setNetPrem(double netPrem) {
 		this.netPrem = netPrem;
 	}
 
 	/**
 	 * @return the discountAmount
 	 */
-	public double getDiscountAmount()
-	{
+	public double getDiscountAmount() {
 		return discountAmount;
 	}
 
 	/**
-	 * @param discountAmount
-	 *            the discountAmount to set
+	 * @param discountAmount the discountAmount to set
 	 */
-	public void setDiscountAmount(double discountAmount)
-	{
+	public void setDiscountAmount(double discountAmount) {
 		this.discountAmount = discountAmount;
 	}
 
 	/**
 	 * @return the discountPrem
 	 */
-	public double getDiscountPrem()
-	{
+	public double getDiscountPrem() {
 		return discountPrem;
 	}
 
 	/**
-	 * @param discountPrem
-	 *            the discountPrem to set
+	 * @param discountPrem the discountPrem to set
 	 */
-	public void setDiscountPrem(double discountPrem)
-	{
+	public void setDiscountPrem(double discountPrem) {
 		this.discountPrem = discountPrem;
 	}
 
 	/**
 	 * @return the loyaltyDiscountPer
 	 */
-	public double getLoyaltyDiscountPer()
-	{
+	public double getLoyaltyDiscountPer() {
 		return loyaltyDiscountPer;
 	}
 
 	/**
-	 * @param loyaltyDiscountPer
-	 *            the loyaltyDiscountPer to set
+	 * @param loyaltyDiscountPer the loyaltyDiscountPer to set
 	 */
-	public void setLoyaltyDiscountPer(double loyaltyDiscountPer)
-	{
+	public void setLoyaltyDiscountPer(double loyaltyDiscountPer) {
 		this.loyaltyDiscountPer = loyaltyDiscountPer;
 	}
 
 	/**
 	 * @return the loadingAmount
 	 */
-	public double getLoadingAmount()
-	{
+	public double getLoadingAmount() {
 		return loadingAmount;
 	}
 
 	/**
-	 * @param loadingAmount
-	 *            the loadingAmount to set
+	 * @param loadingAmount the loadingAmount to set
 	 */
-	public void setLoadingAmount(double loadingAmount)
-	{
+	public void setLoadingAmount(double loadingAmount) {
 		this.loadingAmount = loadingAmount;
 	}
 
 	/**
 	 * @return the policyTaxes
 	 */
-	public double getPolicyTaxes()
-	{
+	public double getPolicyTaxes() {
 		return policyTaxes;
 	}
 
 	/**
-	 * @param policyTaxes
-	 *            the policyTaxes to set
+	 * @param policyTaxes the policyTaxes to set
 	 */
-	public void setPolicyTaxes(double policyTaxes)
-	{
+	public void setPolicyTaxes(double policyTaxes) {
 		this.policyTaxes = policyTaxes;
 	}
 
 	/**
 	 * @return the policyFees
 	 */
-	public double getPolicyFees()
-	{
+	public double getPolicyFees() {
 		return policyFees;
 	}
 
 	/**
-	 * @param policyFees
-	 *            the policyFees to set
+	 * @param policyFees the policyFees to set
 	 */
-	public void setPolicyFees(double policyFees)
-	{
+	public void setPolicyFees(double policyFees) {
 		this.policyFees = policyFees;
 	}
 
 	/**
 	 * @return the totalCoverPrem
 	 */
-	public double getTotalCoverPrem()
-	{
+	public double getTotalCoverPrem() {
 		return totalCoverPrem;
 	}
 
 	/**
-	 * @param totalCoverPrem
-	 *            the totalCoverPrem to set
+	 * @param totalCoverPrem the totalCoverPrem to set
 	 */
-	public void setTotalCoverPrem(double totalCoverPrem)
-	{
+	public void setTotalCoverPrem(double totalCoverPrem) {
 		this.totalCoverPrem = totalCoverPrem;
 	}
 
 	/**
 	 * @return the grossPrem
 	 */
-	public double getGrossPrem()
-	{
+	public double getGrossPrem() {
 		return grossPrem;
 	}
 
 	/**
-	 * @param grossPrem
-	 *            the grossPrem to set
+	 * @param grossPrem the grossPrem to set
 	 */
-	public void setGrossPrem(double grossPrem)
-	{
+	public void setGrossPrem(double grossPrem) {
 		this.grossPrem = grossPrem;
 	}
 
 	/**
 	 * @return the policyStatusMsg
 	 */
-	public String getPolicyStatusMsg()
-	{
+	public String getPolicyStatusMsg() {
 		return policyStatusMsg;
 	}
 
 	/**
-	 * @param policyStatusMsg
-	 *            the policyStatusMsg to set
+	 * @param policyStatusMsg the policyStatusMsg to set
 	 */
-	public void setPolicyStatusMsg(String policyStatusMsg)
-	{
+	public void setPolicyStatusMsg(String policyStatusMsg) {
 		this.policyStatusMsg = policyStatusMsg;
 	}
 
 	/**
 	 * @return the yakeenRefNo
 	 */
-	public long getYakeenRefNo()
-	{
+	public long getYakeenRefNo() {
 		return yakeenRefNo;
 	}
 
 	/**
-	 * @param yakeenRefNo
-	 *            the yakeenRefNo to set
+	 * @param yakeenRefNo the yakeenRefNo to set
 	 */
-	public void setYakeenRefNo(long yakeenRefNo)
-	{
+	public void setYakeenRefNo(long yakeenRefNo) {
 		this.yakeenRefNo = yakeenRefNo;
 	}
 
 	/**
 	 * @return the quoteSubmissionDate
 	 */
-	public Date getQuoteSubmissionDate()
-	{
+	public Date getQuoteSubmissionDate() {
 		return quoteSubmissionDate;
 	}
 
 	/**
-	 * @param quoteSubmissionDate
-	 *            the quoteSubmissionDate to set
+	 * @param quoteSubmissionDate the quoteSubmissionDate to set
 	 */
-	public void setQuoteSubmissionDate(Date quoteSubmissionDate)
-	{
+	public void setQuoteSubmissionDate(Date quoteSubmissionDate) {
 		this.quoteSubmissionDate = quoteSubmissionDate;
 	}
 
 	/**
 	 * @return the quoteStatus
 	 */
-	public String getQuoteStatus()
-	{
+	public String getQuoteStatus() {
 		return quoteStatus;
 	}
 
 	/**
-	 * @param quoteStatus
-	 *            the quoteStatus to set
+	 * @param quoteStatus the quoteStatus to set
 	 */
-	public void setQuoteStatus(String quoteStatus)
-	{
+	public void setQuoteStatus(String quoteStatus) {
 		this.quoteStatus = quoteStatus;
 	}
 
 	/**
 	 * @return the purposeOfVehicleDesc
 	 */
-	public String getPurposeOfVehicleDesc()
-	{
+	public String getPurposeOfVehicleDesc() {
 		return purposeOfVehicleDesc;
 	}
 
 	/**
-	 * @param purposeOfVehicleDesc
-	 *            the purposeOfVehicleDesc to set
+	 * @param purposeOfVehicleDesc the purposeOfVehicleDesc to set
 	 */
-	public void setPurposeOfVehicleDesc(String purposeOfVehicleDesc)
-	{
+	public void setPurposeOfVehicleDesc(String purposeOfVehicleDesc) {
 		this.purposeOfVehicleDesc = purposeOfVehicleDesc;
 	}
 
 	/**
 	 * @return the olpEstn
 	 */
-	public String getOlpEstn()
-	{
+	public String getOlpEstn() {
 		return olpEstn;
 	}
 
 	/**
-	 * @param olpEstn
-	 *            the olpEstn to set
+	 * @param olpEstn the olpEstn to set
 	 */
-	public void setOlpEstn(String olpEstn)
-	{
+	public void setOlpEstn(String olpEstn) {
 		this.olpEstn = olpEstn;
 	}
 
 	/**
 	 * @return the isMainDriver
 	 */
-	public boolean isMainDriver()
-	{
+	public boolean isMainDriver() {
 		return isMainDriver;
 	}
 
 	/**
-	 * @param isMainDriver
-	 *            the isMainDriver to set
+	 * @param isMainDriver the isMainDriver to set
 	 */
-	public void setMainDriver(boolean isMainDriver)
-	{
+	public void setMainDriver(boolean isMainDriver) {
 		this.isMainDriver = isMainDriver;
 	}
 
 	/**
 	 * @return the oldIqamaId
 	 */
-	public String getOldIqamaId()
-	{
+	public String getOldIqamaId() {
 		return oldIqamaId;
 	}
 
 	/**
-	 * @param oldIqamaId
-	 *            the oldIqamaId to set
+	 * @param oldIqamaId the oldIqamaId to set
 	 */
-	public void setOldIqamaId(String oldIqamaId)
-	{
+	public void setOldIqamaId(String oldIqamaId) {
 		this.oldIqamaId = oldIqamaId;
 	}
 
 	/**
 	 * @return the vehicleOwnerIban
 	 */
-	public String getVehicleOwnerIban()
-	{
+	public String getVehicleOwnerIban() {
 		return vehicleOwnerIban;
 	}
 
 	/**
-	 * @param vehicleOwnerIban
-	 *            the vehicleOwnerIban to set
+	 * @param vehicleOwnerIban the vehicleOwnerIban to set
 	 */
-	public void setVehicleOwnerIban(String vehicleOwnerIban)
-	{
+	public void setVehicleOwnerIban(String vehicleOwnerIban) {
 		this.vehicleOwnerIban = vehicleOwnerIban;
 	}
 
 	/**
 	 * @return the driverAdditionReason
 	 */
-	public String getDriverAdditionReason()
-	{
+	public String getDriverAdditionReason() {
 		return driverAdditionReason;
 	}
 
 	/**
-	 * @param driverAdditionReason
-	 *            the driverAdditionReason to set
+	 * @param driverAdditionReason the driverAdditionReason to set
 	 */
-	public void setDriverAdditionReason(String driverAdditionReason)
-	{
+	public void setDriverAdditionReason(String driverAdditionReason) {
 		this.driverAdditionReason = driverAdditionReason;
 	}
 
 	/**
 	 * @return the underAgeDriver
 	 */
-	public boolean isUnderAgeDriver()
-	{
+	public boolean isUnderAgeDriver() {
 		return underAgeDriver;
 	}
 
 	/**
-	 * @param underAgeDriver
-	 *            the underAgeDriver to set
+	 * @param underAgeDriver the underAgeDriver to set
 	 */
-	public void setUnderAgeDriver(boolean underAgeDriver)
-	{
+	public void setUnderAgeDriver(boolean underAgeDriver) {
 		this.underAgeDriver = underAgeDriver;
 	}
 
 	/**
 	 * @return the accDeath
 	 */
-	public boolean isAccDeath()
-	{
+	public boolean isAccDeath() {
 		return accDeath;
 	}
 
 	/**
-	 * @param accDeath
-	 *            the accDeath to set
+	 * @param accDeath the accDeath to set
 	 */
-	public void setAccDeath(boolean accDeath)
-	{
+	public void setAccDeath(boolean accDeath) {
 		this.accDeath = accDeath;
 	}
 
 	/**
 	 * @return the vehMotorAcc
 	 */
-	public boolean isVehMotorAcc()
-	{
+	public boolean isVehMotorAcc() {
 		return vehMotorAcc;
 	}
 
 	/**
-	 * @param vehMotorAcc
-	 *            the vehMotorAcc to set
+	 * @param vehMotorAcc the vehMotorAcc to set
 	 */
-	public void setVehMotorAcc(boolean vehMotorAcc)
-	{
+	public void setVehMotorAcc(boolean vehMotorAcc) {
 		this.vehMotorAcc = vehMotorAcc;
 	}
 
 	/**
 	 * @return the convTraffViols
 	 */
-	public boolean isConvTraffViols()
-	{
+	public boolean isConvTraffViols() {
 		return convTraffViols;
 	}
 
 	/**
-	 * @param convTraffViols
-	 *            the convTraffViols to set
+	 * @param convTraffViols the convTraffViols to set
 	 */
-	public void setConvTraffViols(boolean convTraffViols)
-	{
+	public void setConvTraffViols(boolean convTraffViols) {
 		this.convTraffViols = convTraffViols;
 	}
 
 	/**
 	 * @return the leaseFileName
 	 */
-	public String getLeaseFileName()
-	{
+	public String getLeaseFileName() {
 		return leaseFileName;
 	}
 
 	/**
-	 * @param leaseFileName
-	 *            the leaseFileName to set
+	 * @param leaseFileName the leaseFileName to set
 	 */
-	public void setLeaseFileName(String leaseFileName)
-	{
+	public void setLeaseFileName(String leaseFileName) {
 		this.leaseFileName = leaseFileName;
 	}
 
 	/**
 	 * @return the vehicleBodyTypeEn
 	 */
-	public String getVehicleBodyTypeEn()
-	{
+	public String getVehicleBodyTypeEn() {
 		return vehicleBodyTypeEn;
 	}
 
 	/**
 	 * @param vehicleBodyTypeEn the vehicleBodyTypeEn to set
 	 */
-	public void setVehicleBodyTypeEn(String vehicleBodyTypeEn)
-	{
+	public void setVehicleBodyTypeEn(String vehicleBodyTypeEn) {
 		this.vehicleBodyTypeEn = vehicleBodyTypeEn;
 	}
 
 	/**
 	 * @return the vehicleBodyTypeAr
 	 */
-	public String getVehicleBodyTypeAr()
-	{
+	public String getVehicleBodyTypeAr() {
 		return vehicleBodyTypeAr;
 	}
 
 	/**
 	 * @param vehicleBodyTypeAr the vehicleBodyTypeAr to set
 	 */
-	public void setVehicleBodyTypeAr(String vehicleBodyTypeAr)
-	{
+	public void setVehicleBodyTypeAr(String vehicleBodyTypeAr) {
 		this.vehicleBodyTypeAr = vehicleBodyTypeAr;
 	}
 
@@ -2202,64 +1885,56 @@ public class Quotation
 	/**
 	 * @return the loyaltyDiscountFlag
 	 */
-	public int getLoyaltyDiscountFlag()
-	{
+	public int getLoyaltyDiscountFlag() {
 		return loyaltyDiscountFlag;
 	}
 
 	/**
 	 * @param loyaltyDiscountFlag the loyaltyDiscountFlag to set
 	 */
-	public void setLoyaltyDiscountFlag(int loyaltyDiscountFlag)
-	{
+	public void setLoyaltyDiscountFlag(int loyaltyDiscountFlag) {
 		this.loyaltyDiscountFlag = loyaltyDiscountFlag;
 	}
 
 	/**
 	 * @return the vehicleNationality
 	 */
-	public String getVehicleNationality()
-	{
+	public String getVehicleNationality() {
 		return vehicleNationality;
 	}
 
 	/**
 	 * @param vehicleNationality the vehicleNationality to set
 	 */
-	public void setVehicleNationality(String vehicleNationality)
-	{
+	public void setVehicleNationality(String vehicleNationality) {
 		this.vehicleNationality = vehicleNationality;
 	}
 
 	/**
 	 * @return the agencyRepairOut
 	 */
-	public double getAgencyRepairOut()
-	{
+	public double getAgencyRepairOut() {
 		return agencyRepairOut;
 	}
 
 	/**
 	 * @param agencyRepairOut the agencyRepairOut to set
 	 */
-	public void setAgencyRepairOut(double agencyRepairOut)
-	{
+	public void setAgencyRepairOut(double agencyRepairOut) {
 		this.agencyRepairOut = agencyRepairOut;
 	}
 
 	/**
 	 * @return the driverAgeLess21
 	 */
-	public double getDriverAgeLess21()
-	{
+	public double getDriverAgeLess21() {
 		return driverAgeLess21;
 	}
 
 	/**
 	 * @param driverAgeLess21 the driverAgeLess21 to set
 	 */
-	public void setDriverAgeLess21(double driverAgeLess21)
-	{
+	public void setDriverAgeLess21(double driverAgeLess21) {
 		this.driverAgeLess21 = driverAgeLess21;
 	}
 
@@ -2282,275 +1957,245 @@ public class Quotation
 	/**
 	 * @return the renew
 	 */
-	public boolean isRenew()
-	{
+	public boolean isRenew() {
 		return renew;
 	}
 
 	/**
 	 * @param renew the renew to set
 	 */
-	public void setRenew(boolean renew)
-	{
+	public void setRenew(boolean renew) {
 		this.renew = renew;
 	}
 
 	/**
 	 * @return the insuredEducation
 	 */
-	public String getInsuredEducation()
-	{
+	public String getInsuredEducation() {
 		return insuredEducation;
 	}
 
 	/**
 	 * @param insuredEducation the insuredEducation to set
 	 */
-	public void setInsuredEducation(String insuredEducation)
-	{
+	public void setInsuredEducation(String insuredEducation) {
 		this.insuredEducation = insuredEducation;
 	}
 
 	/**
 	 * @return the insuredMaritalStatus
 	 */
-	public String getInsuredMaritalStatus()
-	{
+	public String getInsuredMaritalStatus() {
 		return insuredMaritalStatus;
 	}
 
 	/**
 	 * @param insuredMaritalStatus the insuredMaritalStatus to set
 	 */
-	public void setInsuredMaritalStatus(String insuredMaritalStatus)
-	{
+	public void setInsuredMaritalStatus(String insuredMaritalStatus) {
 		this.insuredMaritalStatus = insuredMaritalStatus;
 	}
 
 	/**
 	 * @return the insuredNoChildUnder16
 	 */
-	public int getInsuredNoChildUnder16()
-	{
+	public int getInsuredNoChildUnder16() {
 		return insuredNoChildUnder16;
 	}
 
 	/**
 	 * @param insuredNoChildUnder16 the insuredNoChildUnder16 to set
 	 */
-	public void setInsuredNoChildUnder16(int insuredNoChildUnder16)
-	{
+	public void setInsuredNoChildUnder16(int insuredNoChildUnder16) {
 		this.insuredNoChildUnder16 = insuredNoChildUnder16;
 	}
 
 	/**
 	 * @return the vehicleCurrentMileage
 	 */
-	public long getVehicleCurrentMileage()
-	{
+	public long getVehicleCurrentMileage() {
 		return vehicleCurrentMileage;
 	}
 
 	/**
 	 * @param vehicleCurrentMileage the vehicleCurrentMileage to set
 	 */
-	public void setVehicleCurrentMileage(long vehicleCurrentMileage)
-	{
+	public void setVehicleCurrentMileage(long vehicleCurrentMileage) {
 		this.vehicleCurrentMileage = vehicleCurrentMileage;
 	}
 
 	/**
 	 * @return the vehicleLowerExpectedMileagePerYear
 	 */
-	public long getVehicleLowerExpectedMileagePerYear()
-	{
+	public long getVehicleLowerExpectedMileagePerYear() {
 		return vehicleLowerExpectedMileagePerYear;
 	}
 
 	/**
-	 * @param vehicleLowerExpectedMileagePerYear the vehicleLowerExpectedMileagePerYear to set
+	 * @param vehicleLowerExpectedMileagePerYear the
+	 *                                           vehicleLowerExpectedMileagePerYear
+	 *                                           to set
 	 */
-	public void setVehicleLowerExpectedMileagePerYear(long vehicleLowerExpectedMileagePerYear)
-	{
+	public void setVehicleLowerExpectedMileagePerYear(long vehicleLowerExpectedMileagePerYear) {
 		this.vehicleLowerExpectedMileagePerYear = vehicleLowerExpectedMileagePerYear;
 	}
 
 	/**
 	 * @return the vehicleUpperExpectedMileagePerYear
 	 */
-	public long getVehicleUpperExpectedMileagePerYear()
-	{
+	public long getVehicleUpperExpectedMileagePerYear() {
 		return vehicleUpperExpectedMileagePerYear;
 	}
 
 	/**
-	 * @param vehicleUpperExpectedMileagePerYear the vehicleUpperExpectedMileagePerYear to set
+	 * @param vehicleUpperExpectedMileagePerYear the
+	 *                                           vehicleUpperExpectedMileagePerYear
+	 *                                           to set
 	 */
-	public void setVehicleUpperExpectedMileagePerYear(long vehicleUpperExpectedMileagePerYear)
-	{
+	public void setVehicleUpperExpectedMileagePerYear(long vehicleUpperExpectedMileagePerYear) {
 		this.vehicleUpperExpectedMileagePerYear = vehicleUpperExpectedMileagePerYear;
 	}
 
 	/**
 	 * @return the vehicleNightLocation
 	 */
-	public String getVehicleNightLocation()
-	{
+	public String getVehicleNightLocation() {
 		return vehicleNightLocation;
 	}
 
 	/**
 	 * @param vehicleNightLocation the vehicleNightLocation to set
 	 */
-	public void setVehicleNightLocation(String vehicleNightLocation)
-	{
+	public void setVehicleNightLocation(String vehicleNightLocation) {
 		this.vehicleNightLocation = vehicleNightLocation;
 	}
 
 	/**
 	 * @return the vehicleEngineSize
 	 */
-	public String getVehicleEngineSize()
-	{
+	public String getVehicleEngineSize() {
 		return vehicleEngineSize;
 	}
 
 	/**
 	 * @param vehicleEngineSize the vehicleEngineSize to set
 	 */
-	public void setVehicleEngineSize(String vehicleEngineSize)
-	{
+	public void setVehicleEngineSize(String vehicleEngineSize) {
 		this.vehicleEngineSize = vehicleEngineSize;
 	}
 
 	/**
 	 * @return the vehicleTransType
 	 */
-	public String getVehicleTransType()
-	{
+	public String getVehicleTransType() {
 		return vehicleTransType;
 	}
 
 	/**
 	 * @param vehicleTransType the vehicleTransType to set
 	 */
-	public void setVehicleTransType(String vehicleTransType)
-	{
+	public void setVehicleTransType(String vehicleTransType) {
 		this.vehicleTransType = vehicleTransType;
 	}
 
 	/**
 	 * @return the vehAxleWeight
 	 */
-	public long getVehAxleWeight()
-	{
+	public long getVehAxleWeight() {
 		return vehAxleWeight;
 	}
 
 	/**
 	 * @param vehAxleWeight the vehAxleWeight to set
 	 */
-	public void setVehAxleWeight(long vehAxleWeight)
-	{
+	public void setVehAxleWeight(long vehAxleWeight) {
 		this.vehAxleWeight = vehAxleWeight;
 	}
 
 	/**
 	 * @return the vehCarMods
 	 */
-	public String getVehCarMods()
-	{
+	public String getVehCarMods() {
 		return vehCarMods;
 	}
 
 	/**
 	 * @param vehCarMods the vehCarMods to set
 	 */
-	public void setVehCarMods(String vehCarMods)
-	{
+	public void setVehCarMods(String vehCarMods) {
 		this.vehCarMods = vehCarMods;
 	}
 
 	/**
 	 * @return the vehicleSpecs
 	 */
-	public String getVehicleSpecs()
-	{
+	public String getVehicleSpecs() {
 		return vehicleSpecs;
 	}
 
 	/**
 	 * @param vehicleSpecs the vehicleSpecs to set
 	 */
-	public void setVehicleSpecs(String vehicleSpecs)
-	{
+	public void setVehicleSpecs(String vehicleSpecs) {
 		this.vehicleSpecs = vehicleSpecs;
 	}
 
 	/**
 	 * @return the natAddress
 	 */
-	public QuotationUserAddress getNatAddress()
-	{
+	public QuotationUserAddress getNatAddress() {
 		return natAddress;
 	}
 
 	/**
 	 * @param natAddress the natAddress to set
 	 */
-	public void setNatAddress(QuotationUserAddress natAddress)
-	{
+	public void setNatAddress(QuotationUserAddress natAddress) {
 		this.natAddress = natAddress;
 	}
 
 	/**
 	 * @return the offAddress
 	 */
-	public QuotationUserAddress getOffAddress()
-	{
+	public QuotationUserAddress getOffAddress() {
 		return offAddress;
 	}
 
 	/**
 	 * @param offAddress the offAddress to set
 	 */
-	public void setOffAddress(QuotationUserAddress offAddress)
-	{
+	public void setOffAddress(QuotationUserAddress offAddress) {
 		this.offAddress = offAddress;
 	}
 
 	/**
 	 * @return the productChanged
 	 */
-	public boolean isProductChanged()
-	{
+	public boolean isProductChanged() {
 		return productChanged;
 	}
 
 	/**
 	 * @param productChanged the productChanged to set
 	 */
-	public void setProductChanged(boolean productChanged)
-	{
+	public void setProductChanged(boolean productChanged) {
 		this.productChanged = productChanged;
 	}
 
 	/**
 	 * @return the engChassisNoFileName
 	 */
-	public String getEngChassisNoFileName()
-	{
+	public String getEngChassisNoFileName() {
 		return engChassisNoFileName;
 	}
 
 	/**
 	 * @param engChassisNoFileName the engChassisNoFileName to set
 	 */
-	public void setEngChassisNoFileName(String engChassisNoFileName)
-	{
+	public void setEngChassisNoFileName(String engChassisNoFileName) {
 		this.engChassisNoFileName = engChassisNoFileName;
 	}
-	
+
 	public String getSchemeCode() {
 		return schemeCode;
 	}
@@ -2559,18 +2204,17 @@ public class Quotation
 		this.schemeCode = schemeCode;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		String objectStr = "";
 		objectStr += "\n\n accDeath : " + accDeath;
-		objectStr += "\n\n vehMotorAcc : " +  vehMotorAcc;
+		objectStr += "\n\n vehMotorAcc : " + vehMotorAcc;
 		objectStr += "\n\n convTraffViols : " + convTraffViols;
-		objectStr += "\n\n addressAddNo : " +  addressAddNo;
-		objectStr += "\n\n addressBuildingNo : " +  addressBuildingNo;
-		objectStr += "\n\n addressDistrict : " +  addressDistrict;
-		objectStr += "\n\n addressStreet : " +  addressStreet;
-		objectStr += "\n\n addressUnitNo : " +  addressUnitNo;
-		objectStr += "\n\n addressZipCode : " +  addressZipCode;
+		objectStr += "\n\n addressAddNo : " + addressAddNo;
+		objectStr += "\n\n addressBuildingNo : " + addressBuildingNo;
+		objectStr += "\n\n addressDistrict : " + addressDistrict;
+		objectStr += "\n\n addressStreet : " + addressStreet;
+		objectStr += "\n\n addressUnitNo : " + addressUnitNo;
+		objectStr += "\n\n addressZipCode : " + addressZipCode;
 		objectStr += "\n\n agencyRepair : " + agencyRepair;
 		objectStr += "\n\n agencyRepairOut : " + agencyRepairOut;
 		objectStr += "\n\n vehicleValue : " + vehicleValue;
@@ -2584,12 +2228,12 @@ public class Quotation
 		objectStr += "\n\n insuredGender : " + insuredGender;
 		objectStr += "\n\n insuredId : " + insuredId;
 		objectStr += "\n\n insuredIdType : " + insuredIdType;
-		objectStr += "\n\n insuredMobile : " +  insuredMobile;
-		objectStr += "\n\n insuredName : " +  insuredName;
-		objectStr += "\n\n insuredNationality : " +  insuredNationality;
-		objectStr += "\n\n insuredOccupationCode : " +  insuredOccupationCode;
-		objectStr += "\n\n loyaltyDiscount : " +  loyaltyDiscount;
-		objectStr += "\n\n ncdYears : " +  ncdYears;
+		objectStr += "\n\n insuredMobile : " + insuredMobile;
+		objectStr += "\n\n insuredName : " + insuredName;
+		objectStr += "\n\n insuredNationality : " + insuredNationality;
+		objectStr += "\n\n insuredOccupationCode : " + insuredOccupationCode;
+		objectStr += "\n\n loyaltyDiscount : " + loyaltyDiscount;
+		objectStr += "\n\n ncdYears : " + ncdYears;
 		objectStr += "\n\n paymemtAmount : " + paymemtAmount;
 		objectStr += "\n\n paymentMethod : " + paymentMethod;
 		objectStr += "\n\n paymentRefNo : " + paymentRefNo;
@@ -2597,12 +2241,12 @@ public class Quotation
 		objectStr += "\n\n policyEffTo : " + policyEffTo;
 		objectStr += "\n\n policyEffDate : " + policyEffDate;
 		objectStr += "\n\n policyIssueDate : " + policyIssueDate;
-		objectStr += "\n\n policyNo : " +  policyNo;
-		objectStr += "\n\n policyRefNo : " +  policyRefNo;
-		objectStr += "\n\n policyStatusCode : " +  policyStatusCode;
-		objectStr += "\n\n productCode : " +  productCode;
-		objectStr += "\n\n purposeOfVehicle : " +  purposeOfVehicle;
-		objectStr += "\n\n purposeOfVehicleDesc : " +  purposeOfVehicleDesc;
+		objectStr += "\n\n policyNo : " + policyNo;
+		objectStr += "\n\n policyRefNo : " + policyRefNo;
+		objectStr += "\n\n policyStatusCode : " + policyStatusCode;
+		objectStr += "\n\n productCode : " + productCode;
+		objectStr += "\n\n purposeOfVehicle : " + purposeOfVehicle;
+		objectStr += "\n\n purposeOfVehicleDesc : " + purposeOfVehicleDesc;
 		objectStr += "\n\n referenceNo : " + referenceNo;
 		objectStr += "\n\n source : " + source;
 		objectStr += "\n\n transaction : " + transaction;
@@ -2610,9 +2254,9 @@ public class Quotation
 		objectStr += "\n\n vehicleBodyTypeEn : " + vehicleBodyTypeEn;
 		objectStr += "\n\n vehicleBodyTypeAr : " + vehicleBodyTypeAr;
 		objectStr += "\n\n vehicleCapacity : " + vehicleCapacity;
-		objectStr += "\n\n vehicleChassisNo : " +  vehicleChassisNo;
-		objectStr += "\n\n quotationId : " +  quotationId;
-		objectStr += "\n\n schemeCode : " +  schemeCode;
+		objectStr += "\n\n vehicleChassisNo : " + vehicleChassisNo;
+		objectStr += "\n\n quotationId : " + quotationId;
+		objectStr += "\n\n schemeCode : " + schemeCode;
 
 		return objectStr;
 	}

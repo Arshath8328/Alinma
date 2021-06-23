@@ -23,8 +23,7 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see GsonUtilsService
  * @generated
  */
-public class GsonUtilsServiceWrapper
-	implements GsonUtilsService, ServiceWrapper<GsonUtilsService> {
+public class GsonUtilsServiceWrapper implements GsonUtilsService, ServiceWrapper<GsonUtilsService> {
 
 	public GsonUtilsServiceWrapper(GsonUtilsService gsonUtilsService) {
 		_gsonUtilsService = gsonUtilsService;

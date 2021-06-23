@@ -16,35 +16,30 @@ package com.atmc.bsl.db.exception;
  * @author Ghada Shawkat
  *
  */
-public class NajmException extends Exception
-{
+public class NajmException extends Exception {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -954739090433741456L;
-	
+
 	private int errorCode;
-	
-	public NajmException(int errorCode)
-	{
+
+	public NajmException(int errorCode) {
 		super();
 		this.errorCode = errorCode;
 	}
 
-	public NajmException(int errorCode, String message, Throwable cause)
-	{
+	public NajmException(int errorCode, String message, Throwable cause) {
 		super(message, cause);
 		this.errorCode = errorCode;
 	}
 
-	public NajmException(int errorCode, String message)
-	{
+	public NajmException(int errorCode, String message) {
 		super(message);
 		this.errorCode = errorCode;
 	}
 
-	public NajmException(int errorCode, Throwable cause)
-	{
+	public NajmException(int errorCode, Throwable cause) {
 		super(cause);
 		this.errorCode = errorCode;
 	}
@@ -52,16 +47,14 @@ public class NajmException extends Exception
 	/**
 	 * @return the errorCode
 	 */
-	public int getErrorCode()
-	{
+	public int getErrorCode() {
 		return errorCode;
 	}
 
 	/**
 	 * @param errorCode the errorCode to set
 	 */
-	public void setErrorCode(int errorCode)
-	{
+	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
 	}
 

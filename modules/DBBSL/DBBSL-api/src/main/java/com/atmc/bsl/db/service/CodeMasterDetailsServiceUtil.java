@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for CodeMasterDetails. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and is an
- * access point for service operations in application layer code running on a
+ * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and is
+ * an access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * based on the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see CodeMasterDetailsService
@@ -35,26 +35,24 @@ public class CodeMasterDetailsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and
+	 * rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-				getByCodeCodeFreez(String code, String codeFreezYN)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getByCodeCodeFreez(
+			String code, String codeFreezYN) throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getByCodeCodeFreez(code, codeFreezYN);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCodeMasterList(String code, String locale) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCodeMasterList(
+			String code, String locale) {
 
 		return getService().getCodeMasterList(code, locale);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCustomCodes(String code) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCustomCodes(
+			String code) {
 
 		return getService().getCustomCodes(code);
 	}
@@ -68,8 +66,7 @@ public class CodeMasterDetailsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
-		getQuickQuoteData(String locale) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>> getQuickQuoteData(String locale) {
 
 		return getService().getQuickQuoteData(locale);
 	}
@@ -78,18 +75,13 @@ public class CodeMasterDetailsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<CodeMasterDetailsService, CodeMasterDetailsService> _serviceTracker;
+	private static ServiceTracker<CodeMasterDetailsService, CodeMasterDetailsService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(CodeMasterDetailsService.class);
 
-		ServiceTracker<CodeMasterDetailsService, CodeMasterDetailsService>
-			serviceTracker =
-				new ServiceTracker
-					<CodeMasterDetailsService, CodeMasterDetailsService>(
-						bundle.getBundleContext(),
-						CodeMasterDetailsService.class, null);
+		ServiceTracker<CodeMasterDetailsService, CodeMasterDetailsService> serviceTracker = new ServiceTracker<CodeMasterDetailsService, CodeMasterDetailsService>(
+				bundle.getBundleContext(), CodeMasterDetailsService.class, null);
 
 		serviceTracker.open();
 

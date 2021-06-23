@@ -1,15 +1,13 @@
 package com.atmc.bsl.db.domain.quotation;
 
-
 /**
  * @author Kareem Kahil
  *
  */
 
-public class QuotationVehicleImage
-{
+public class QuotationVehicleImage {
 	private long imageID;
-	
+
 	private int imageTitle;
 
 	private String imageMedia;
@@ -17,7 +15,7 @@ public class QuotationVehicleImage
 	private String imageDateTime;
 
 	private double imageLong;
-	
+
 	private double imageLat;
 
 	public long getImageID() {
@@ -69,4 +67,3 @@ public class QuotationVehicleImage
 	}
 
 }
-

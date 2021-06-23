@@ -14,9 +14,15 @@
 
 package com.atmc.bsl.db.service.http;
 
+import com.atmc.bsl.db.service.UserMgmtServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
- * Provides the SOAP utility for the
- * <code>com.atmc.bsl.db.service.UserMgmtServiceUtil</code> service
+ * Provides the SOAP utility for the <code>UserMgmtServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -45,4 +51,40 @@ package com.atmc.bsl.db.service.http;
  */
 @Deprecated
 public class UserMgmtServiceSoap {
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> createUser(long companyId,
+			String login, String password, String englishName, String arabicName, String language, String mobile,
+			String email, String reminderQueryQuestion, String reminderQueryAnswer) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> returnValue = UserMgmtServiceUtil
+					.createUser(companyId, login, password, englishName, arabicName, language, mobile, email,
+							reminderQueryQuestion, reminderQueryAnswer);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
+			long userId, String password, String reminderQueryQuestion, String reminderQueryAnswer)
+			throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> returnValue = UserMgmtServiceUtil
+					.changeFirstTimeLoginPassword(userId, password, reminderQueryQuestion, reminderQueryAnswer);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(UserMgmtServiceSoap.class);
+
 }

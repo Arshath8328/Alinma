@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2018-08-10T12:38:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="policy_vehicle_fleet_listing_tp" pageWidth="1060" pageHeight="595" orientation="Landscape" columnWidth="1020" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="784a39a8-7abe-46d1-8a93-abe972213d52">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["styles/styles_en.jrtx"]]></template>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="makeEn" class="java.lang.String"/>
+	<field name="modelEn" class="java.lang.String"/>
+	<field name="mfgYear" class="java.lang.Long"/>
+	<field name="enPlateL1" class="java.lang.String"/>
+	<field name="enPlateL2" class="java.lang.String"/>
+	<field name="enPlateL3" class="java.lang.String"/>
+	<field name="enPlateNo" class="java.lang.Long"/>
+	<field name="chassisNo" class="java.lang.String"/>
+	<field name="vehId" class="java.lang.String"/>
+	<field name="vehicleSeqCustom" class="java.lang.String"/>
+	<field name="vehicleValue" class="java.lang.Long"/>
+	<field name="totalPremium" class="java.lang.Long"/>
+	<field name="deductible" class="java.lang.Long"/>
+	<field name="agencyRepair" class="java.lang.String"/>
+	<field name="noofPassengers" class="java.lang.Long"/>
+	<field name="premium" class="java.lang.Long"/>
+	<field name="vehicleDefType" class="java.lang.String"/>
+	<variable name="dateFormatter" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></variableExpression>
+		<initialValueExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy")]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="252" splitType="Stretch">
+			<staticText>
+				<reportElement x="450" y="10" width="120" height="20" uuid="5b8948f6-1c86-413b-ba1e-387ec44e8fc0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALINMA TOKIO MARINE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="30" width="134" height="20" uuid="462467f4-09cc-488d-8fb0-ace801327cf8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Fleet Listing Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="63" width="100" height="30" uuid="9cea7384-47a2-47e0-80e9-33a1b99019f4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "user_id" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="93" width="100" height="30" uuid="5ff4798a-3b03-425e-974b-b67c90859915"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "run_date" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="123" width="210" height="30" uuid="07cdb2d3-364e-40a5-9d8a-b7f0eef9f396"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "attach_to_from_pol" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="153" width="100" height="30" uuid="d0a15e6c-01df-4314-8ffd-97bf9c1b4535"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "insured_name" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="63" width="180" height="30" uuid="7150c818-3fd5-4ecf-aeaa-23530de4b6ec"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("userId")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="93" width="180" height="30" uuid="f20c2bd7-cad2-490b-aa67-f524ee6430bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{dateFormatter}.format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="123" width="370" height="30" uuid="f6f186ed-a147-4fb4-a149-fbac057cc9be"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("policyNo")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="153" width="480" height="30" uuid="9cf10577-cbb7-4ff7-b52f-8ffc877c934a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("insuredName")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="727" y="63" width="100" height="30" uuid="4223f610-b159-406f-adc2-ce9c29194916"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "rep_id" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="827" y="63" width="140" height="30" uuid="25dfb551-f3d2-4bdc-9e6a-8aea8144acd1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["P10ATMC011"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="727" y="93" width="100" height="30" uuid="35f0f08c-5d70-4d24-9f19-83d3df7b4b5d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "page_no" )+" :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="827" y="93" width="20" height="30" uuid="b2d2592b-dcea-47db-bedd-f2856eb2f130"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" of "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="1" y="201" width="40" height="50" uuid="d2201e5c-9e5f-484e-8965-f959f1a64e01"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("sr_no")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="41" y="201" width="60" height="50" uuid="81e2400f-2314-4bec-8f33-beb2d1bc0bf1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("veh_make_model")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="101" y="201" width="30" height="50" uuid="d9f715cf-db6c-4c5b-890e-e2ab1728c233"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("year")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="131" y="201" width="40" height="50" uuid="316946cf-74b8-4574-bfa0-1e0e95b12478"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get("eng_no")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="171" y="201" width="40" height="50" uuid="35a68521-fe2c-4b88-956c-e4be445c9063"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "plate_no" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="211" y="201" width="40" height="50" uuid="a46567e0-74d4-4320-b25d-c8ee3982b04a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "chassis_no" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="251" y="201" width="49" height="50" uuid="2349530b-af72-48f8-8135-119cdf8fe4f8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "seq_num" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="300" y="201" width="49" height="50" uuid="ae4b305b-a43b-4541-b1a4-f1b84dc36eb0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "cust_id" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="349" y="201" width="49" height="50" uuid="76e943c2-3a99-479d-a02c-fc6966b9fe2a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "date_add_del" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="398" y="201" width="49" height="50" uuid="05a021da-a358-44f4-a288-9d620e3f503a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "veh_val_si" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="447" y="201" width="49" height="50" uuid="d2398201-ac29-4085-bfd2-851446dcb142"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "seat_cap" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="496" y="201" width="49" height="50" uuid="b6ee8d37-d92b-478e-8ce4-afcebd44fd0e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "pab_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="545" y="201" width="49" height="50" uuid="5a549d3d-c632-4799-ac76-5fe227487c56"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "driver_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="594" y="201" width="49" height="50" uuid="cb24f63e-cddf-4e8c-9ae6-bbdb91e4d0cf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "pass_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="643" y="201" width="49" height="50" uuid="0a2bbd16-2ecd-47ae-b797-373fc53e0fd9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "geo_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="692" y="201" width="49" height="50" uuid="615a594a-1fd8-4288-8eaf-6ca19deb832d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "own_dam_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="741" y="201" width="59" height="50" uuid="5fe05c6b-cd71-482e-ad8a-b362804aed7c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "pab_driv_pass" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="800" y="201" width="59" height="50" uuid="b2a0ded2-f6ab-4044-9a2e-061d94319b67"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "tot_prem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="859" y="201" width="59" height="50" uuid="ebd8b8bb-4fe0-4ed4-97c9-818155f34ec9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "deductible" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="918" y="201" width="49" height="50" uuid="ed1f7e28-24d2-433e-9c1f-f5b0141ddb2d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "agency_repair" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="967" y="201" width="49" height="50" uuid="5bbf88dc-2123-4634-be92-f4035b5afda2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "pab_dri" )]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="847" y="93" width="63" height="30" uuid="6ed920bb-ebd4-4dc5-bc22-80dc09ddc2ae"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="251" splitType="Stretch">
+			<textField>
+				<reportElement style="TblDtlsCTR" x="1" y="-1" width="40" height="50" uuid="f2b87e11-251c-40f7-bea1-b46bc9a628dc"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="41" y="-1" width="60" height="50" uuid="7b634e99-afd8-4c35-87e2-a0b15b95159d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{makeEn}+" "+$F{modelEn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="101" y="-1" width="30" height="50" uuid="c1fdaa21-da2d-4228-b23a-8aed7490227c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mfgYear}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="131" y="-1" width="40" height="50" uuid="8ed7918b-c173-401a-aacc-ada45de60d06"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="171" y="-1" width="40" height="50" uuid="fe940b87-2043-4ecc-9780-a01a84ae6bd2"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enPlateNo}+" "+ $F{enPlateL1}+$F{enPlateL2}+$F{enPlateL3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="211" y="-1" width="40" height="50" uuid="52af2789-9206-471e-9c42-81a64dfa0c85"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chassisNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="251" y="-1" width="49" height="50" uuid="a51c84bf-de43-45b4-ac6c-2fab50879e6c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicleSeqCustom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="300" y="-1" width="49" height="50" uuid="eb3cae34-7486-48fc-a1ab-82c37c481932"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{vehicleDefType}!=null &&$F{vehicleDefType}.equals("2"))?$F{vehicleSeqCustom}:""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="349" y="-1" width="49" height="50" uuid="ed5b4e7e-6751-46bf-b657-ad46712fac6e"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{REPORT_PARAMETERS_MAP}.get("inceptionDate")!=null)?$V{dateFormatter}.format( $P{REPORT_PARAMETERS_MAP}.get( "inceptionDate" ) ):""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="398" y="-1" width="49" height="50" uuid="9f052b49-3d5c-4389-977c-e9760df29a8a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicleValue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="447" y="-1" width="49" height="50" uuid="418cc277-66b9-4f83-a2b7-f096db1eec8d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noofPassengers}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="496" y="-1" width="49" height="50" uuid="13d1f6b4-10c5-48e2-b2e0-eae04926769a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="545" y="-1" width="49" height="50" uuid="4c01e544-b3dd-4231-918b-ca773cb7a613"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="594" y="-1" width="49" height="50" uuid="491c8ce9-5bf5-42ee-ab41-769157e212bd"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="643" y="-1" width="49" height="50" uuid="71652606-bcf3-4fc0-85ae-7e6f8ebd6ce9"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="692" y="-1" width="49" height="50" uuid="60c9d846-ba0c-4cf5-ace5-07c4fb0aad1d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{premium}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="741" y="-1" width="59" height="50" uuid="6d9e21cc-60db-4e59-8399-e2e328e1a559"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="800" y="-1" width="59" height="50" uuid="03005dcb-fc54-45a1-8585-c77e6130fe65"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "totalPrem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="859" y="-1" width="59" height="50" uuid="dd0f7d06-d0f3-4b1b-92ec-ab2c0fdf5947"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deductible}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="918" y="-1" width="49" height="50" uuid="06ae367b-de9a-4c35-a9fb-3167dd23a7ef"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{agencyRepair}.equals("1"))?"Yes":"No"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="967" y="-1" width="49" height="50" uuid="a0bc7b5a-7415-4dec-9261-103112584aba"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="1" y="51" width="348" height="40" uuid="80a79de4-8073-4213-af3f-23689e0e506c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "total" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="349" y="51" width="49" height="40" uuid="1db2aa3e-01ab-4ccd-b1b9-ff7cda52dce8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="398" y="51" width="49" height="40" uuid="3f571d50-8977-4499-8268-1df27dc55102"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="447" y="51" width="49" height="40" uuid="ae1c1db3-a5ef-4474-aedf-629f97dbe2b5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="496" y="51" width="49" height="40" uuid="2ff97926-0ec2-4768-9818-83571a13aa4b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="545" y="51" width="49" height="40" uuid="c6813b0f-c472-4e4e-a46b-76c09728f452"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="594" y="51" width="49" height="40" uuid="2024e8ef-8de1-496d-abe6-98948ed396b7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="643" y="51" width="49" height="40" uuid="756c5920-964f-425d-897e-1a136904a395"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="692" y="51" width="49" height="40" uuid="f654b950-a5f0-4f18-8042-15633284264d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{premium}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="741" y="51" width="59" height="40" uuid="88fc93f3-4916-4376-8ed0-4add578de074"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="800" y="51" width="59" height="40" uuid="2347b57f-8799-45f1-8891-fc4eefc5e042"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "totalPrem" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="859" y="51" width="59" height="40" uuid="8cd59ce6-c3dc-4223-8552-42596cf9f669"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="918" y="51" width="49" height="40" uuid="b01c11eb-d54b-4a19-99aa-834202b65668"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TblDtlsCTR" x="967" y="51" width="49" height="40" uuid="4e414160-98d7-4aed-9f5f-63c8dd0b6edf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -19,7 +19,6 @@ import com.atmc.bsl.db.service.OTPLocalServiceUtil;
 import com.atmc.bsl.db.service.base.LoginLocalServiceBaseImpl;
 import com.ejada.atmc.acl.db.model.Customer;
 import com.ejada.atmc.acl.db.service.CustomerLocalServiceUtil;
-import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.aop.AopService;
@@ -48,47 +47,65 @@ import com.liferay.portal.kernel.security.auth.session.AuthenticatedSessionManag
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
-import com.liferay.portal.kernel.util.*;
+import com.liferay.portal.kernel.util.CookieKeys;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.Http;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.liveusers.LiveUsers;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
+import com.liferay.util.Encryptor;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.*;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * The implementation of the login local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.LoginLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.LoginLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see LoginLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.Login",
-	service = AopService.class
-)
+@Component(property = "model.class.name=com.atmc.bsl.db.model.Login", service = AopService.class)
 public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
-
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.LoginLocalServiceUtil} to access the login local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.ejada.atmc.bsl.db.service.LoginLocalServiceUtil} to access the login
+	 * local service.
 	 */
 
-
-
-	public void logout() throws Exception
-	{
-		HttpServletRequest request = PortalUtil.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
+	public void logout() throws Exception {
+		HttpServletRequest request = PortalUtil
+				.getOriginalServletRequest(AccessControlUtil.getAccessControlContext().getRequest());
 
 		HttpServletResponse response = AccessControlUtil.getAccessControlContext().getResponse();
 
@@ -96,56 +113,44 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 	}
 
-	public Set<String> getReminderQueryQuestions() throws PortalException
-	{
+	public Set<String> getReminderQueryQuestions() throws PortalException {
 		HttpServletRequest request = AccessControlUtil.getAccessControlContext().getRequest();
 		User user = PortalUtil.getUser(request);
 		return user.getReminderQueryQuestions();
 	}
 
-
-	public AuthUser validateUser(String idIqama, String email) throws PortalException
-	{
+	public AuthUser validateUser(String idIqama, String email) throws PortalException {
 		HttpServletRequest request = AccessControlUtil.getAccessControlContext().getRequest();
 
 		Customer customer = CustomerLocalServiceUtil.fetchCustomer(idIqama);
 		Company company = PortalUtil.getCompany(request);
 
-		if (customer != null)
-		{
+		if (customer != null) {
 
 			User user = UserLocalServiceUtil.fetchUserByScreenName(company.getCompanyId(), idIqama);
-			if (user == null)
-			{
+			if (user == null) {
 
 				user = UserLocalServiceUtil.fetchUserByEmailAddress(company.getCompanyId(), email);
 
-				if (user == null)
-				{
+				if (user == null) {
 
-					return getAuthUser(customer, company.getCompanyId(), AuthTokenUtil.getToken(request), email, idIqama);
-				}
-				else
-				{
+					return getAuthUser(customer, company.getCompanyId(), AuthTokenUtil.getToken(request), email,
+							idIqama);
+				} else {
 					throw new UserEmailAddressException.MustNotBeDuplicate(user.getUserId(), user.getEmailAddress());
 				}
 
-			}
-			else
-			{
+			} else {
 				throw new UserScreenNameException.MustNotBeDuplicate(user.getUserId(), user.getScreenName());
 			}
 
-		}
-		else
-		{
+		} else {
 			throw new UserScreenNameException.MustNotBeNull();
 		}
 
 	}
 
-	public AuthUser authenticateUser(String login, String password) throws PortalException
-	{
+	public AuthUser authenticateUser(String login, String password) throws PortalException {
 		HttpServletRequest request = AccessControlUtil.getAccessControlContext().getRequest();
 
 		Company company = PortalUtil.getCompany(request);
@@ -167,20 +172,18 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 				headers.add(value);
 			}
 
-			headerMap.put(
-					name, headers.toArray(new String[headers.size()]));
+			headerMap.put(name, headers.toArray(new String[headers.size()]));
 		}
-
 
 		Map<String, String[]> parameterMap = request.getParameterMap();
 		Map<String, Object> resultsMap = new HashMap<>();
 
-
 		// authenticate user
 		int authResult = Authenticator.FAILURE;
-		authResult = UserLocalServiceUtil.authenticateByScreenName(company.getCompanyId(), login, password, headerMap, parameterMap, resultsMap);
+		authResult = UserLocalServiceUtil.authenticateByScreenName(company.getCompanyId(), login, password, headerMap,
+				parameterMap, resultsMap);
 
-		User user = (User)resultsMap.get("user");
+		User user = (User) resultsMap.get("user");
 
 		if (authResult != Authenticator.SUCCESS) {
 			if (user != null) {
@@ -194,20 +197,15 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 			throw new AuthException();
 		}
 
-
-
-		return  getAuthUser(user,company.getCompanyId(),AuthTokenUtil.getToken(request));
+		return getAuthUser(user, company.getCompanyId(), AuthTokenUtil.getToken(request));
 
 	}
 
-
-	private AuthUser getAuthUser(User user,long companyId,String authToken)
-	{
-
+	private AuthUser getAuthUser(User user, long companyId, String authToken) {
 
 		AuthUser authUser = new AuthUser();
 		authUser.setEnglishName(user.getFullName());
-		authUser.setArabicName((String)user.getExpandoBridge().getAttribute("arabicName",false));
+		authUser.setArabicName((String) user.getExpandoBridge().getAttribute("arabicName", false));
 		authUser.setEmail(user.getEmailAddress());
 		authUser.setIqamaId(user.getScreenName());
 		authUser.setMobile(user.getPhones().iterator().next().getNumber());
@@ -217,9 +215,8 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		authUser.setOtpSecret(OTPLocalServiceUtil.generateSecret());
 		authUser.setLastLoginDate(user.getLastLoginDate());
 
-
-		if (user.getExpandoBridge().getAttribute("workshopId",false) != null)
-			authUser.setWorkshopId((String)user.getExpandoBridge().getAttribute("workshopId",false));
+		if (user.getExpandoBridge().getAttribute("workshopId", false) != null)
+			authUser.setWorkshopId((String) user.getExpandoBridge().getAttribute("workshopId", false));
 
 		// first time login case, redirect to change password
 		if (user.getPasswordReset() && user.getLastLoginDate() == null)
@@ -231,8 +228,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 	}
 
-	private AuthUser getAuthUser(Customer customer,long companyId,String authToken,String email,String iqamaId)
-	{
+	private AuthUser getAuthUser(Customer customer, long companyId, String authToken, String email, String iqamaId) {
 		AuthUser authUser = new AuthUser();
 		authUser.setEnglishName(customer.getNameEn());
 		authUser.setArabicName(customer.getNameAr());
@@ -246,7 +242,6 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 	}
 
-
 	public AuthUser login(String login, String password, String rememberMe) throws Exception {
 
 		HttpServletRequest request = AccessControlUtil.getAccessControlContext().getRequest();
@@ -254,42 +249,35 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		String authType = CompanyConstants.AUTH_TYPE_SN;
 		Company company = PortalUtil.getCompany(request);
-		//_authenticatedSessionManager.login( request, response, login, password, Boolean.valueOf(rememberMe), authType);
-		User user = login( request, response, login, password, Boolean.valueOf(rememberMe), authType);
+		// _authenticatedSessionManager.login( request, response, login, password,
+		// Boolean.valueOf(rememberMe), authType);
+		User user = login(request, response, login, password, Boolean.valueOf(rememberMe), authType);
 		user.setLastLoginDate(new Date());
 		UserLocalServiceUtil.updateUser(user);
 
-		return  getAuthUser(user,company.getCompanyId(),AuthTokenUtil.getToken(request));
+		return getAuthUser(user, company.getCompanyId(), AuthTokenUtil.getToken(request));
 	}
 
-
-	private User login(
-			HttpServletRequest request, HttpServletResponse response,
-			String login, String password, boolean rememberMe, String authType)
-			throws Exception {
+	private User login(HttpServletRequest request, HttpServletResponse response, String login, String password,
+			boolean rememberMe, String authType) throws Exception {
 
 		request = PortalUtil.getOriginalServletRequest(request);
 
 		String queryString = request.getQueryString();
 
-		if (Validator.isNotNull(queryString) &&
-				queryString.contains("password=")) {
+		if (Validator.isNotNull(queryString) && queryString.contains("password=")) {
 
 			String passwordParameterName = "password=";
 
 			String portletId = PortalUtil.getPortletId(request);
 
 			if (portletId != null) {
-				passwordParameterName =
-						PortalUtil.getPortletNamespace(portletId) +
-								passwordParameterName;
+				passwordParameterName = PortalUtil.getPortletNamespace(portletId) + passwordParameterName;
 			}
 
 			int index = queryString.indexOf(passwordParameterName);
 
-			if ((index == 0) ||
-					((index > 0) &&
-							(queryString.charAt(index - 1) == CharPool.AMPERSAND))) {
+			if ((index == 0) || ((index > 0) && (queryString.charAt(index - 1) == CharPool.AMPERSAND))) {
 
 				if (_log.isWarnEnabled()) {
 					String referer = request.getHeader(HttpHeaders.REFERER);
@@ -308,8 +296,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 			}
 		}
 
-
-		//CookieKeys.validateSupportCookie(request);
+		// CookieKeys.validateSupportCookie(request);
 
 		HttpSession session = request.getSession();
 
@@ -339,8 +326,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		if (GetterUtil.getBoolean(PropsUtil.get(PropsKeys.PORTAL_JAAS_PLAIN_PASSWORD))) {
 			session.setAttribute("j_password", password);
-		}
-		else {
+		} else {
 			session.setAttribute("j_password", user.getPassword());
 		}
 
@@ -350,8 +336,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 			session.setAttribute(WebKeys.USER_PASSWORD, password);
 		}
 
-		Cookie companyIdCookie = new Cookie(
-				CookieKeys.COMPANY_ID, String.valueOf(company.getCompanyId()));
+		Cookie companyIdCookie = new Cookie(CookieKeys.COMPANY_ID, String.valueOf(company.getCompanyId()));
 
 		if (domain != null) {
 			companyIdCookie.setDomain(domain);
@@ -359,9 +344,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		companyIdCookie.setPath(StringPool.SLASH);
 
-		Cookie idCookie = new Cookie(
-				CookieKeys.ID,
-				Encryptor.encrypt(company.getKeyObj(), userIdString));
+		Cookie idCookie = new Cookie(CookieKeys.ID, Encryptor.encrypt(company.getKeyObj(), userIdString));
 
 		if (domain != null) {
 			idCookie.setDomain(domain);
@@ -369,7 +352,8 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		idCookie.setPath(StringPool.SLASH);
 
-		int loginMaxAge = GetterUtil.getInteger(PropsUtil.get(PropsKeys.COMPANY_SECURITY_AUTO_LOGIN_MAX_AGE), CookieKeys.MAX_AGE);
+		int loginMaxAge = GetterUtil.getInteger(PropsUtil.get(PropsKeys.COMPANY_SECURITY_AUTO_LOGIN_MAX_AGE),
+				CookieKeys.MAX_AGE);
 
 		if (GetterUtil.getBoolean(PropsUtil.get(PropsKeys.SESSION_DISABLED))) {
 			rememberMe = true;
@@ -378,8 +362,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		if (rememberMe) {
 			companyIdCookie.setMaxAge(loginMaxAge);
 			idCookie.setMaxAge(loginMaxAge);
-		}
-		else {
+		} else {
 
 			// This was explicitly changed from 0 to -1 so that the cookie lasts
 			// as long as the browser. This allows an external servlet wrapped
@@ -393,12 +376,10 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		boolean secure = request.isSecure();
 
-		if (secure && !GetterUtil.getBoolean(PropsUtil.get(PropsKeys.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS)) &&
-				!StringUtil.equalsIgnoreCase(
-						Http.HTTPS, PropsUtil.get(PropsKeys.WEB_SERVER_PROTOCOL))) {
+		if (secure && !GetterUtil.getBoolean(PropsUtil.get(PropsKeys.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS))
+				&& !StringUtil.equalsIgnoreCase(Http.HTTPS, PropsUtil.get(PropsKeys.WEB_SERVER_PROTOCOL))) {
 
-			Boolean httpsInitial = (Boolean)session.getAttribute(
-					WebKeys.HTTPS_INITIAL);
+			Boolean httpsInitial = (Boolean) session.getAttribute(WebKeys.HTTPS_INITIAL);
 
 			if ((httpsInitial == null) || !httpsInitial.booleanValue()) {
 				secure = false;
@@ -420,9 +401,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 			CookieKeys.addCookie(request, response, loginCookie, secure);
 
-			Cookie passwordCookie = new Cookie(
-					CookieKeys.PASSWORD,
-					Encryptor.encrypt(company.getKeyObj(), password));
+			Cookie passwordCookie = new Cookie(CookieKeys.PASSWORD, Encryptor.encrypt(company.getKeyObj(), password));
 
 			if (domain != null) {
 				passwordCookie.setDomain(domain);
@@ -433,8 +412,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 			CookieKeys.addCookie(request, response, passwordCookie, secure);
 
-			Cookie rememberMeCookie = new Cookie(
-					CookieKeys.REMEMBER_ME, Boolean.TRUE.toString());
+			Cookie rememberMeCookie = new Cookie(CookieKeys.REMEMBER_ME, Boolean.TRUE.toString());
 
 			if (domain != null) {
 				rememberMeCookie.setDomain(domain);
@@ -445,8 +423,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 			CookieKeys.addCookie(request, response, rememberMeCookie, secure);
 
-			Cookie screenNameCookie = new Cookie(
-					CookieKeys.SCREEN_NAME,
+			Cookie screenNameCookie = new Cookie(CookieKeys.SCREEN_NAME,
 					Encryptor.encrypt(company.getKeyObj(), user.getScreenName()));
 
 			if (domain != null) {
@@ -460,12 +437,9 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		}
 
 		if (GetterUtil.getBoolean(PropsUtil.get("auth.user.uuid.store.enabled"))) {
-			String userUUID = userIdString.concat(StringPool.PERIOD).concat(
-					String.valueOf(System.nanoTime()));
+			String userUUID = userIdString.concat(StringPool.PERIOD).concat(String.valueOf(System.nanoTime()));
 
-			Cookie userUUIDCookie = new Cookie(
-					CookieKeys.USER_UUID,
-					Encryptor.encrypt(company.getKeyObj(), userUUID));
+			Cookie userUUIDCookie = new Cookie(CookieKeys.USER_UUID, Encryptor.encrypt(company.getKeyObj(), userUUID));
 
 			userUUIDCookie.setPath(StringPool.SLASH);
 
@@ -473,8 +447,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 			if (rememberMe) {
 				userUUIDCookie.setMaxAge(loginMaxAge);
-			}
-			else {
+			} else {
 				userUUIDCookie.setMaxAge(-1);
 			}
 
@@ -486,10 +459,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		return user;
 	}
 
-
-	private User _getAuthenticatedUser(
-			HttpServletRequest request, String login, String password,
-			String authType)
+	private User _getAuthenticatedUser(HttpServletRequest request, String login, String password, String authType)
 			throws PortalException {
 
 		long userId = GetterUtil.getLong(login);
@@ -502,8 +472,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 
 		if (requestURI.startsWith(contextPath.concat("/api/liferay"))) {
 			throw new AuthException();
-		}
-		else {
+		} else {
 			Map<String, String[]> headerMap = new HashMap<>();
 
 			Enumeration<String> enu1 = request.getHeaderNames();
@@ -521,8 +490,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 					headers.add(value);
 				}
 
-				headerMap.put(
-						name, headers.toArray(new String[headers.size()]));
+				headerMap.put(name, headers.toArray(new String[headers.size()]));
 			}
 
 			Map<String, String[]> parameterMap = request.getParameterMap();
@@ -535,22 +503,17 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 			int authResult = Authenticator.FAILURE;
 
 			if (authType.equals(CompanyConstants.AUTH_TYPE_EA)) {
-				authResult = UserLocalServiceUtil.authenticateByEmailAddress(
-						company.getCompanyId(), login, password, headerMap,
-						parameterMap, resultsMap);
-			}
-			else if (authType.equals(CompanyConstants.AUTH_TYPE_SN)) {
-				authResult = UserLocalServiceUtil.authenticateByScreenName(
-						company.getCompanyId(), login, password, headerMap,
-						parameterMap, resultsMap);
-			}
-			else if (authType.equals(CompanyConstants.AUTH_TYPE_ID)) {
-				authResult = UserLocalServiceUtil.authenticateByUserId(
-						company.getCompanyId(), userId, password, headerMap,
-						parameterMap, resultsMap);
+				authResult = UserLocalServiceUtil.authenticateByEmailAddress(company.getCompanyId(), login, password,
+						headerMap, parameterMap, resultsMap);
+			} else if (authType.equals(CompanyConstants.AUTH_TYPE_SN)) {
+				authResult = UserLocalServiceUtil.authenticateByScreenName(company.getCompanyId(), login, password,
+						headerMap, parameterMap, resultsMap);
+			} else if (authType.equals(CompanyConstants.AUTH_TYPE_ID)) {
+				authResult = UserLocalServiceUtil.authenticateByUserId(company.getCompanyId(), userId, password,
+						headerMap, parameterMap, resultsMap);
 			}
 
-			User user = (User)resultsMap.get("user");
+			User user = (User) resultsMap.get("user");
 
 			if (authResult != Authenticator.SUCCESS) {
 				if (user != null) {
@@ -568,27 +531,22 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		}
 	}
 
-	private HttpSession renewSession(
-			HttpServletRequest request, HttpSession session)
-			throws Exception {
+	private HttpSession renewSession(HttpServletRequest request, HttpSession session) throws Exception {
 
 		// Invalidate the previous session to prevent session fixation attacks
 
-		String[] protectedAttributeNames =
-				PropsUtil.getArray(PropsKeys.SESSION_PHISHING_PROTECTED_ATTRIBUTES);
+		String[] protectedAttributeNames = PropsUtil.getArray(PropsKeys.SESSION_PHISHING_PROTECTED_ATTRIBUTES);
 
 		Map<String, Object> protectedAttributes = new HashMap<>();
 
 		for (String protectedAttributeName : protectedAttributeNames) {
-			Object protectedAttributeValue = session.getAttribute(
-					protectedAttributeName);
+			Object protectedAttributeValue = session.getAttribute(protectedAttributeName);
 
 			if (protectedAttributeValue == null) {
 				continue;
 			}
 
-			protectedAttributes.put(
-					protectedAttributeName, protectedAttributeValue);
+			protectedAttributes.put(protectedAttributeName, protectedAttributeValue);
 		}
 
 		session.invalidate();
@@ -596,15 +554,13 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 		session = request.getSession(true);
 
 		for (String protectedAttributeName : protectedAttributeNames) {
-			Object protectedAttributeValue = protectedAttributes.get(
-					protectedAttributeName);
+			Object protectedAttributeValue = protectedAttributes.get(protectedAttributeName);
 
 			if (protectedAttributeValue == null) {
 				continue;
 			}
 
-			session.setAttribute(
-					protectedAttributeName, protectedAttributeValue);
+			session.setAttribute(protectedAttributeName, protectedAttributeValue);
 		}
 
 		return session;
@@ -613,8 +569,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 	private void signOutSimultaneousLogins(long userId) throws Exception {
 		long companyId = CompanyLocalServiceUtil.getCompanyIdByUserId(userId);
 
-		Map<String, UserTracker> sessionUsers = LiveUsers.getSessionUsers(
-				companyId);
+		Map<String, UserTracker> sessionUsers = LiveUsers.getSessionUsers(companyId);
 
 		List<UserTracker> userTrackers = new ArrayList<>(sessionUsers.values());
 
@@ -636,10 +591,10 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 			jsonObject.put("sessionId", userTracker.getSessionId());
 			jsonObject.put("userId", userId);
 
-			MessageBusUtil.sendMessage(
-					DestinationNames.LIVE_USERS, jsonObject.toString());
+			MessageBusUtil.sendMessage(DestinationNames.LIVE_USERS, jsonObject.toString());
 		}
 	}
+
 	private static final Log _log = LogFactoryUtil.getLog(LoginLocalServiceImpl.class);
 
 	@Reference

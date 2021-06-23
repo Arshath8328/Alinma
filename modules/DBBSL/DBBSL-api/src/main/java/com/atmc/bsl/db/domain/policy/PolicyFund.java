@@ -15,8 +15,7 @@ package com.atmc.bsl.db.domain.policy;
 /**
  * @author Ghada Shawkat
  */
-public class PolicyFund
-{
+public class PolicyFund {
 	private String policyNo;
 
 	private String fundName;
@@ -38,153 +37,126 @@ public class PolicyFund
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the fundName
 	 */
-	public String getFundName()
-	{
+	public String getFundName() {
 		return fundName;
 	}
 
 	/**
-	 * @param fundName
-	 *            the fundName to set
+	 * @param fundName the fundName to set
 	 */
-	public void setFundName(String fundName)
-	{
+	public void setFundName(String fundName) {
 		this.fundName = fundName;
 	}
 
 	/**
 	 * @return the fundDesc
 	 */
-	public String getFundDesc()
-	{
+	public String getFundDesc() {
 		return fundDesc;
 	}
 
 	/**
-	 * @param fundDesc
-	 *            the fundDesc to set
+	 * @param fundDesc the fundDesc to set
 	 */
-	public void setFundDesc(String fundDesc)
-	{
+	public void setFundDesc(String fundDesc) {
 		this.fundDesc = fundDesc;
 	}
 
 	/**
 	 * @return the fundPctg
 	 */
-	public String getFundPctg()
-	{
+	public String getFundPctg() {
 		return fundPctg;
 	}
 
 	/**
-	 * @param fundPctg
-	 *            the fundPctg to set
+	 * @param fundPctg the fundPctg to set
 	 */
-	public void setFundPctg(String fundPctg)
-	{
+	public void setFundPctg(String fundPctg) {
 		this.fundPctg = fundPctg;
 	}
 
 	/**
 	 * @return the unitsSum
 	 */
-	public double getUnitsSum()
-	{
+	public double getUnitsSum() {
 		return unitsSum;
 	}
 
 	/**
-	 * @param unitsSum
-	 *            the unitsSum to set
+	 * @param unitsSum the unitsSum to set
 	 */
-	public void setUnitsSum(double unitsSum)
-	{
+	public void setUnitsSum(double unitsSum) {
 		this.unitsSum = unitsSum;
 	}
 
 	/**
 	 * @return the unitPrice
 	 */
-	public double getUnitPrice()
-	{
+	public double getUnitPrice() {
 		return unitPrice;
 	}
 
 	/**
-	 * @param unitPrice
-	 *            the unitPrice to set
+	 * @param unitPrice the unitPrice to set
 	 */
-	public void setUnitPrice(double unitPrice)
-	{
+	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
 	/**
 	 * @return the fundsValue
 	 */
-	public double getFundsValue()
-	{
+	public double getFundsValue() {
 		return fundsValue;
 	}
 
 	/**
-	 * @param fundsValue
-	 *            the fundsValue to set
+	 * @param fundsValue the fundsValue to set
 	 */
-	public void setFundsValue(double fundsValue)
-	{
+	public void setFundsValue(double fundsValue) {
 		this.fundsValue = fundsValue;
 	}
 
 	/**
 	 * @return the riskChg
 	 */
-	public double getRiskChg()
-	{
+	public double getRiskChg() {
 		return riskChg;
 	}
 
 	/**
-	 * @param riskChg
-	 *            the riskChg to set
+	 * @param riskChg the riskChg to set
 	 */
-	public void setRiskChg(double riskChg)
-	{
+	public void setRiskChg(double riskChg) {
 		this.riskChg = riskChg;
 	}
 
 	/**
 	 * @return the partFees
 	 */
-	public double getPartFees()
-	{
+	public double getPartFees() {
 		return partFees;
 	}
 
 	/**
-	 * @param partFees
-	 *            the partFees to set
+	 * @param partFees the partFees to set
 	 */
-	public void setPartFees(double partFees)
-	{
+	public void setPartFees(double partFees) {
 		this.partFees = partFees;
 	}
 

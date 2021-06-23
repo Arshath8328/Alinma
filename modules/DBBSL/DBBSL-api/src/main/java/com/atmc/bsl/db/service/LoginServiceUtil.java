@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for Login. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.LoginServiceImpl</code> and is an
- * access point for service operations in application layer code running on a
- * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * <code>com.atmc.bsl.db.service.impl.LoginServiceImpl</code> and is an access
+ * point for service operations in application layer code running on a remote
+ * server. Methods of this service are expected to have security checks based on
+ * the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see LoginService
@@ -35,11 +35,12 @@ public class LoginServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.LoginServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.LoginServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
-			String login, String password) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> authenticateUser(String login,
+			String password) {
 
 		return getService().authenticateUser(login, password);
 	}
@@ -53,15 +54,13 @@ public class LoginServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
-		getReminderQueryQuestions() {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>> getReminderQueryQuestions() {
 
 		return getService().getReminderQueryQuestions();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> login(
-			String login, String password, String rememberMe) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> login(String login,
+			String password, String rememberMe) {
 
 		return getService().login(login, password, rememberMe);
 	}
@@ -70,9 +69,8 @@ public class LoginServiceUtil {
 		return getService().logout();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> validateUser(
-			String idIqama, String email) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> validateUser(String idIqama,
+			String email) {
 
 		return getService().validateUser(idIqama, email);
 	}
@@ -86,8 +84,7 @@ public class LoginServiceUtil {
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(LoginService.class);
 
-		ServiceTracker<LoginService, LoginService> serviceTracker =
-			new ServiceTracker<LoginService, LoginService>(
+		ServiceTracker<LoginService, LoginService> serviceTracker = new ServiceTracker<LoginService, LoginService>(
 				bundle.getBundleContext(), LoginService.class, null);
 
 		serviceTracker.open();

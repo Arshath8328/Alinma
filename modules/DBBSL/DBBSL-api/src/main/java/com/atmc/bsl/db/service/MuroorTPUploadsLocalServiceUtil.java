@@ -35,7 +35,9 @@ public class MuroorTPUploadsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.MuroorTPUploadsLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -51,20 +53,13 @@ public class MuroorTPUploadsLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService>
-			_serviceTracker;
+	private static ServiceTracker<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(
-			MuroorTPUploadsLocalService.class);
+		Bundle bundle = FrameworkUtil.getBundle(MuroorTPUploadsLocalService.class);
 
-		ServiceTracker<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService>
-			serviceTracker =
-				new ServiceTracker
-					<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService>(
-						bundle.getBundleContext(),
-						MuroorTPUploadsLocalService.class, null);
+		ServiceTracker<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService> serviceTracker = new ServiceTracker<MuroorTPUploadsLocalService, MuroorTPUploadsLocalService>(
+				bundle.getBundleContext(), MuroorTPUploadsLocalService.class, null);
 
 		serviceTracker.open();
 

@@ -24,11 +24,9 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class MuroorODUploadsLocalServiceWrapper
-	implements MuroorODUploadsLocalService,
-			   ServiceWrapper<MuroorODUploadsLocalService> {
+		implements MuroorODUploadsLocalService, ServiceWrapper<MuroorODUploadsLocalService> {
 
-	public MuroorODUploadsLocalServiceWrapper(
-		MuroorODUploadsLocalService muroorODUploadsLocalService) {
+	public MuroorODUploadsLocalServiceWrapper(MuroorODUploadsLocalService muroorODUploadsLocalService) {
 
 		_muroorODUploadsLocalService = muroorODUploadsLocalService;
 	}
@@ -49,8 +47,7 @@ public class MuroorODUploadsLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		MuroorODUploadsLocalService muroorODUploadsLocalService) {
+	public void setWrappedService(MuroorODUploadsLocalService muroorODUploadsLocalService) {
 
 		_muroorODUploadsLocalService = muroorODUploadsLocalService;
 	}

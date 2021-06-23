@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for Login. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.LoginLocalServiceImpl</code> and
- * is an access point for service operations in application layer code running
- * on the local server. Methods of this service will not have security checks
- * based on the propagated JAAS credentials because this service can only be
- * accessed from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.LoginLocalServiceImpl</code> and is an
+ * access point for service operations in application layer code running on the
+ * local server. Methods of this service will not have security checks based on
+ * the propagated JAAS credentials because this service can only be accessed
+ * from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see LoginLocalService
@@ -35,11 +35,12 @@ public class LoginLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.LoginLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.LoginLocalServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.AuthUser authenticateUser(
-			String login, String password)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.AuthUser authenticateUser(String login, String password)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().authenticateUser(login, password);
 	}
@@ -54,14 +55,13 @@ public class LoginLocalServiceUtil {
 	}
 
 	public static java.util.Set<String> getReminderQueryQuestions()
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getReminderQueryQuestions();
 	}
 
-	public static com.atmc.bsl.db.domain.AuthUser login(
-			String login, String password, String rememberMe)
-		throws Exception {
+	public static com.atmc.bsl.db.domain.AuthUser login(String login, String password, String rememberMe)
+			throws Exception {
 
 		return getService().login(login, password, rememberMe);
 	}
@@ -70,9 +70,8 @@ public class LoginLocalServiceUtil {
 		getService().logout();
 	}
 
-	public static com.atmc.bsl.db.domain.AuthUser validateUser(
-			String idIqama, String email)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.AuthUser validateUser(String idIqama, String email)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().validateUser(idIqama, email);
 	}
@@ -81,14 +80,12 @@ public class LoginLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<LoginLocalService, LoginLocalService>
-		_serviceTracker;
+	private static ServiceTracker<LoginLocalService, LoginLocalService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(LoginLocalService.class);
 
-		ServiceTracker<LoginLocalService, LoginLocalService> serviceTracker =
-			new ServiceTracker<LoginLocalService, LoginLocalService>(
+		ServiceTracker<LoginLocalService, LoginLocalService> serviceTracker = new ServiceTracker<LoginLocalService, LoginLocalService>(
 				bundle.getBundleContext(), LoginLocalService.class, null);
 
 		serviceTracker.open();

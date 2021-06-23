@@ -17,8 +17,7 @@ import java.util.Date;
 /**
  * @author Ghada Shawkat
  */
-public class QuotationCover
-{
+public class QuotationCover {
 	private long addCoverId;
 
 	private long quotationId;
@@ -50,303 +49,252 @@ public class QuotationCover
 	private long coverRate;
 
 	private long coverSi;
-	
+
 	private long sectionCode;
-	
+
 	private String benfTerm;
-	
+
 	private String months;
 
 	/**
 	 * @return the addCoverId
 	 */
-	public long getAddCoverId()
-	{
+	public long getAddCoverId() {
 		return addCoverId;
 	}
 
 	/**
-	 * @param addCoverId
-	 *            the addCoverId to set
+	 * @param addCoverId the addCoverId to set
 	 */
-	public void setAddCoverId(long addCoverId)
-	{
+	public void setAddCoverId(long addCoverId) {
 		this.addCoverId = addCoverId;
 	}
 
 	/**
 	 * @return the quotationId
 	 */
-	public long getQuotationId()
-	{
+	public long getQuotationId() {
 		return quotationId;
 	}
 
 	/**
-	 * @param quotationId
-	 *            the quotationId to set
+	 * @param quotationId the quotationId to set
 	 */
-	public void setQuotationId(long quotationId)
-	{
+	public void setQuotationId(long quotationId) {
 		this.quotationId = quotationId;
 	}
 
 	/**
 	 * @return the coverCode
 	 */
-	public String getCoverCode()
-	{
+	public String getCoverCode() {
 		return coverCode;
 	}
 
 	/**
-	 * @param coverCode
-	 *            the coverCode to set
+	 * @param coverCode the coverCode to set
 	 */
-	public void setCoverCode(String coverCode)
-	{
+	public void setCoverCode(String coverCode) {
 		this.coverCode = coverCode;
 	}
 
 	/**
 	 * @return the coverEffFromDate
 	 */
-	public Date getCoverEffFromDate()
-	{
+	public Date getCoverEffFromDate() {
 		return coverEffFromDate;
 	}
 
 	/**
-	 * @param coverEffFromDate
-	 *            the coverEffFromDate to set
+	 * @param coverEffFromDate the coverEffFromDate to set
 	 */
-	public void setCoverEffFromDate(Date coverEffFromDate)
-	{
+	public void setCoverEffFromDate(Date coverEffFromDate) {
 		this.coverEffFromDate = coverEffFromDate;
 	}
 
 	/**
 	 * @return the coverEffToDate
 	 */
-	public Date getCoverEffToDate()
-	{
+	public Date getCoverEffToDate() {
 		return coverEffToDate;
 	}
 
 	/**
-	 * @param coverEffToDate
-	 *            the coverEffToDate to set
+	 * @param coverEffToDate the coverEffToDate to set
 	 */
-	public void setCoverEffToDate(Date coverEffToDate)
-	{
+	public void setCoverEffToDate(Date coverEffToDate) {
 		this.coverEffToDate = coverEffToDate;
 	}
 
 	/**
 	 * @return the coverPrem
 	 */
-	public long getCoverPrem()
-	{
+	public long getCoverPrem() {
 		return coverPrem;
 	}
 
 	/**
-	 * @param coverPrem
-	 *            the coverPrem to set
+	 * @param coverPrem the coverPrem to set
 	 */
-	public void setCoverPrem(long coverPrem)
-	{
+	public void setCoverPrem(long coverPrem) {
 		this.coverPrem = coverPrem;
 	}
 
 	/**
 	 * @return the coverRate
 	 */
-	public long getCoverRate()
-	{
+	public long getCoverRate() {
 		return coverRate;
 	}
 
 	/**
-	 * @param coverRate
-	 *            the coverRate to set
+	 * @param coverRate the coverRate to set
 	 */
-	public void setCoverRate(long coverRate)
-	{
+	public void setCoverRate(long coverRate) {
 		this.coverRate = coverRate;
 	}
 
 	/**
 	 * @return the coverSi
 	 */
-	public long getCoverSi()
-	{
+	public long getCoverSi() {
 		return coverSi;
 	}
 
 	/**
-	 * @param coverSi
-	 *            the coverSi to set
+	 * @param coverSi the coverSi to set
 	 */
-	public void setCoverSi(long coverSi)
-	{
+	public void setCoverSi(long coverSi) {
 		this.coverSi = coverSi;
 	}
 
 	/**
 	 * @return the coverName
 	 */
-	public String getCoverName()
-	{
+	public String getCoverName() {
 		return coverName;
 	}
 
 	/**
-	 * @param coverName
-	 *            the coverName to set
+	 * @param coverName the coverName to set
 	 */
-	public void setCoverName(String coverName)
-	{
+	public void setCoverName(String coverName) {
 		this.coverName = coverName;
 	}
 
 	/**
 	 * @return the coverNameAr
 	 */
-	public String getCoverNameAr()
-	{
+	public String getCoverNameAr() {
 		return coverNameAr;
 	}
 
 	/**
-	 * @param coverNameAr
-	 *            the coverNameAr to set
+	 * @param coverNameAr the coverNameAr to set
 	 */
-	public void setCoverNameAr(String coverNameAr)
-	{
+	public void setCoverNameAr(String coverNameAr) {
 		this.coverNameAr = coverNameAr;
 	}
 
 	/**
 	 * @return the coverDesc
 	 */
-	public String getCoverDesc()
-	{
+	public String getCoverDesc() {
 		return coverDesc;
 	}
 
 	/**
-	 * @param coverDesc
-	 *            the coverDesc to set
+	 * @param coverDesc the coverDesc to set
 	 */
-	public void setCoverDesc(String coverDesc)
-	{
+	public void setCoverDesc(String coverDesc) {
 		this.coverDesc = coverDesc;
 	}
 
 	/**
 	 * @return the coverDescAr
 	 */
-	public String getCoverDescAr()
-	{
+	public String getCoverDescAr() {
 		return coverDescAr;
 	}
 
 	/**
-	 * @param coverDescAr
-	 *            the coverDescAr to set
+	 * @param coverDescAr the coverDescAr to set
 	 */
-	public void setCoverDescAr(String coverDescAr)
-	{
+	public void setCoverDescAr(String coverDescAr) {
 		this.coverDescAr = coverDescAr;
 	}
 
 	/**
 	 * @return the field1
 	 */
-	public String getField1()
-	{
+	public String getField1() {
 		return field1;
 	}
 
 	/**
-	 * @param field1
-	 *            the field1 to set
+	 * @param field1 the field1 to set
 	 */
-	public void setField1(String field1)
-	{
+	public void setField1(String field1) {
 		this.field1 = field1;
 	}
 
 	/**
 	 * @return the field2
 	 */
-	public String getField2()
-	{
+	public String getField2() {
 		return field2;
 	}
 
 	/**
-	 * @param field2
-	 *            the field2 to set
+	 * @param field2 the field2 to set
 	 */
-	public void setField2(String field2)
-	{
+	public void setField2(String field2) {
 		this.field2 = field2;
 	}
 
 	/**
 	 * @return the field3
 	 */
-	public String getField3()
-	{
+	public String getField3() {
 		return field3;
 	}
 
 	/**
-	 * @param field3
-	 *            the field3 to set
+	 * @param field3 the field3 to set
 	 */
-	public void setField3(String field3)
-	{
+	public void setField3(String field3) {
 		this.field3 = field3;
 	}
 
 	/**
 	 * @return the field4
 	 */
-	public String getField4()
-	{
+	public String getField4() {
 		return field4;
 	}
 
 	/**
-	 * @param field4
-	 *            the field4 to set
+	 * @param field4 the field4 to set
 	 */
-	public void setField4(String field4)
-	{
+	public void setField4(String field4) {
 		this.field4 = field4;
 	}
 
 	/**
 	 * @return the sectionCode
 	 */
-	public long getSectionCode()
-	{
+	public long getSectionCode() {
 		return sectionCode;
 	}
 
 	/**
 	 * @param sectionCode the sectionCode to set
 	 */
-	public void setSectionCode(long sectionCode)
-	{
+	public void setSectionCode(long sectionCode) {
 		this.sectionCode = sectionCode;
 	}
-	
-	public String toString()
-	{
+
+	public String toString() {
 		String result = "";
 		result += "\n\n" + this.addCoverId;
 		result += "\n\n" + this.quotationId;

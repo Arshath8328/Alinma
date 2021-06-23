@@ -24,12 +24,10 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the
- * <code>CodeMasterDetailsServiceUtil</code> service
- * utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it requires an additional
- * <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the <code>CodeMasterDetailsServiceUtil</code>
+ * service utility. The static methods of this class calls the same methods of
+ * the service utility. However, the signatures are different because it
+ * requires an additional <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -52,14 +50,12 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class CodeMasterDetailsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCustomCodes(HttpPrincipal httpPrincipal, String code) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCustomCodes(
+			HttpPrincipal httpPrincipal, String code) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				CodeMasterDetailsServiceUtil.class, "getCustomCodes",
-				_getCustomCodesParameterTypes0);
+			MethodKey methodKey = new MethodKey(CodeMasterDetailsServiceUtil.class, "getCustomCodes",
+					_getCustomCodesParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, code);
 
@@ -67,19 +63,12 @@ public class CodeMasterDetailsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
-						returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -87,36 +76,25 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCodeMasterList(
-				HttpPrincipal httpPrincipal, String code, String locale) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCodeMasterList(
+			HttpPrincipal httpPrincipal, String code, String locale) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				CodeMasterDetailsServiceUtil.class, "getCodeMasterList",
-				_getCodeMasterListParameterTypes1);
+			MethodKey methodKey = new MethodKey(CodeMasterDetailsServiceUtil.class, "getCodeMasterList",
+					_getCodeMasterListParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, code, locale);
+			MethodHandler methodHandler = new MethodHandler(methodKey, code, locale);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
-						returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -124,45 +102,31 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-				getByCodeCodeFreez(
-					HttpPrincipal httpPrincipal, String code,
-					String codeFreezYN)
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getByCodeCodeFreez(
+			HttpPrincipal httpPrincipal, String code, String codeFreezYN)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				CodeMasterDetailsServiceUtil.class, "getByCodeCodeFreez",
-				_getByCodeCodeFreezParameterTypes2);
+			MethodKey methodKey = new MethodKey(CodeMasterDetailsServiceUtil.class, "getByCodeCodeFreez",
+					_getByCodeCodeFreezParameterTypes2);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, code, codeFreezYN);
+			MethodHandler methodHandler = new MethodHandler(methodKey, code, codeFreezYN);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				if (exception instanceof
-						com.liferay.portal.kernel.exception.PortalException) {
+			} catch (Exception exception) {
+				if (exception instanceof com.liferay.portal.kernel.exception.PortalException) {
 
-					throw (com.liferay.portal.kernel.exception.PortalException)
-						exception;
+					throw (com.liferay.portal.kernel.exception.PortalException) exception;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
-						returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -170,13 +134,12 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
-		getQuickQuoteData(HttpPrincipal httpPrincipal, String locale) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>> getQuickQuoteData(
+			HttpPrincipal httpPrincipal, String locale) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				CodeMasterDetailsServiceUtil.class, "getQuickQuoteData",
-				_getQuickQuoteDataParameterTypes3);
+			MethodKey methodKey = new MethodKey(CodeMasterDetailsServiceUtil.class, "getQuickQuoteData",
+					_getQuickQuoteDataParameterTypes3);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, locale);
 
@@ -184,17 +147,12 @@ public class CodeMasterDetailsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<String>>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -202,16 +160,11 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
-		CodeMasterDetailsServiceHttp.class);
+	private static Log _log = LogFactoryUtil.getLog(CodeMasterDetailsServiceHttp.class);
 
-	private static final Class<?>[] _getCustomCodesParameterTypes0 =
-		new Class[] {String.class};
-	private static final Class<?>[] _getCodeMasterListParameterTypes1 =
-		new Class[] {String.class, String.class};
-	private static final Class<?>[] _getByCodeCodeFreezParameterTypes2 =
-		new Class[] {String.class, String.class};
-	private static final Class<?>[] _getQuickQuoteDataParameterTypes3 =
-		new Class[] {String.class};
+	private static final Class<?>[] _getCustomCodesParameterTypes0 = new Class[] { String.class };
+	private static final Class<?>[] _getCodeMasterListParameterTypes1 = new Class[] { String.class, String.class };
+	private static final Class<?>[] _getByCodeCodeFreezParameterTypes2 = new Class[] { String.class, String.class };
+	private static final Class<?>[] _getQuickQuoteDataParameterTypes3 = new Class[] { String.class };
 
 }

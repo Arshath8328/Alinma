@@ -17,8 +17,7 @@ import java.util.Date;
 /**
  * @author Ghada Shawkat
  */
-public class PolicyVehicleDriver
-{
+public class PolicyVehicleDriver {
 	private String policyNo;
 
 	private long vehId;
@@ -44,183 +43,154 @@ public class PolicyVehicleDriver
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the vehId
 	 */
-	public long getVehId()
-	{
+	public long getVehId() {
 		return vehId;
 	}
 
 	/**
-	 * @param vehId
-	 *            the vehId to set
+	 * @param vehId the vehId to set
 	 */
-	public void setVehId(long vehId)
-	{
+	public void setVehId(long vehId) {
 		this.vehId = vehId;
 	}
 
 	/**
 	 * @return the driverName
 	 */
-	public String getDriverName()
-	{
+	public String getDriverName() {
 		return driverName;
 	}
 
 	/**
-	 * @param driverName
-	 *            the driverName to set
+	 * @param driverName the driverName to set
 	 */
-	public void setDriverName(String driverName)
-	{
+	public void setDriverName(String driverName) {
 		this.driverName = driverName;
 	}
 
 	/**
 	 * @return the driverLicenseNo
 	 */
-	public String getDriverLicenseNo()
-	{
+	public String getDriverLicenseNo() {
 		return driverLicenseNo;
 	}
 
 	/**
-	 * @param driverLicenseNo
-	 *            the driverLicenseNo to set
+	 * @param driverLicenseNo the driverLicenseNo to set
 	 */
-	public void setDriverLicenseNo(String driverLicenseNo)
-	{
+	public void setDriverLicenseNo(String driverLicenseNo) {
 		this.driverLicenseNo = driverLicenseNo;
 	}
 
 	/**
 	 * @return the driverBirthDate
 	 */
-	public Date getDriverBirthDate()
-	{
+	public Date getDriverBirthDate() {
 		return driverBirthDate;
 	}
 
 	/**
-	 * @param driverBirthDate
-	 *            the driverBirthDate to set
+	 * @param driverBirthDate the driverBirthDate to set
 	 */
-	public void setDriverBirthDate(Date driverBirthDate)
-	{
+	public void setDriverBirthDate(Date driverBirthDate) {
 		this.driverBirthDate = driverBirthDate;
 	}
 
 	/**
 	 * @return the driverNationality
 	 */
-	public String getDriverNationality()
-	{
+	public String getDriverNationality() {
 		return driverNationality;
 	}
 
 	/**
-	 * @param driverNationality
-	 *            the driverNationality to set
+	 * @param driverNationality the driverNationality to set
 	 */
-	public void setDriverNationality(String driverNationality)
-	{
+	public void setDriverNationality(String driverNationality) {
 		this.driverNationality = driverNationality;
 	}
 
 	/**
 	 * @return the driverGender
 	 */
-	public String getDriverGender()
-	{
+	public String getDriverGender() {
 		return driverGender;
 	}
 
 	/**
-	 * @param driverGender
-	 *            the driverGender to set
+	 * @param driverGender the driverGender to set
 	 */
-	public void setDriverGender(String driverGender)
-	{
+	public void setDriverGender(String driverGender) {
 		this.driverGender = driverGender;
 	}
 
 	/**
 	 * @return the driverNationalityEn
 	 */
-	public String getDriverNationalityEn()
-	{
+	public String getDriverNationalityEn() {
 		return driverNationalityEn;
 	}
 
 	/**
 	 * @param driverNationalityEn the driverNationalityEn to set
 	 */
-	public void setDriverNationalityEn(String driverNationalityEn)
-	{
+	public void setDriverNationalityEn(String driverNationalityEn) {
 		this.driverNationalityEn = driverNationalityEn;
 	}
 
 	/**
 	 * @return the driverNationalityAr
 	 */
-	public String getDriverNationalityAr()
-	{
+	public String getDriverNationalityAr() {
 		return driverNationalityAr;
 	}
 
 	/**
 	 * @param driverNationalityAr the driverNationalityAr to set
 	 */
-	public void setDriverNationalityAr(String driverNationalityAr)
-	{
+	public void setDriverNationalityAr(String driverNationalityAr) {
 		this.driverNationalityAr = driverNationalityAr;
 	}
 
 	/**
 	 * @return the driverGenderEn
 	 */
-	public String getDriverGenderEn()
-	{
+	public String getDriverGenderEn() {
 		return driverGenderEn;
 	}
 
 	/**
 	 * @param driverGenderEn the driverGenderEn to set
 	 */
-	public void setDriverGenderEn(String driverGenderEn)
-	{
+	public void setDriverGenderEn(String driverGenderEn) {
 		this.driverGenderEn = driverGenderEn;
 	}
 
 	/**
 	 * @return the driverGenderAr
 	 */
-	public String getDriverGenderAr()
-	{
+	public String getDriverGenderAr() {
 		return driverGenderAr;
 	}
 
 	/**
 	 * @param driverGenderAr the driverGenderAr to set
 	 */
-	public void setDriverGenderAr(String driverGenderAr)
-	{
+	public void setDriverGenderAr(String driverGenderAr) {
 		this.driverGenderAr = driverGenderAr;
 	}
 

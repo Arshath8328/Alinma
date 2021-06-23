@@ -24,27 +24,28 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the muroor od uploads remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.MuroorODUploadsService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.MuroorODUploadsService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see MuroorODUploadsServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=MuroorODUploads"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=dbbsl",
+		"json.web.service.context.path=MuroorODUploads" }, service = AopService.class)
 public class MuroorODUploadsServiceImpl extends MuroorODUploadsServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use <code>com.atmc.bsl.db.service.MuroorODUploadsServiceUtil</code> to access the muroor od uploads remote service.
+	 * Never reference this class directly. Always use
+	 * <code>com.atmc.bsl.db.service.MuroorODUploadsServiceUtil</code> to access the
+	 * muroor od uploads remote service.
 	 */
 }

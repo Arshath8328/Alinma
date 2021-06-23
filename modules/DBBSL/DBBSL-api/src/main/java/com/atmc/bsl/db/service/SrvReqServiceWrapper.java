@@ -23,11 +23,17 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqService
  * @generated
  */
-public class SrvReqServiceWrapper
-	implements ServiceWrapper<SrvReqService>, SrvReqService {
+public class SrvReqServiceWrapper implements ServiceWrapper<SrvReqService>, SrvReqService {
 
 	public SrvReqServiceWrapper(SrvReqService srvReqService) {
 		_srvReqService = srvReqService;
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
+			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest, String lang) {
+
+		return _srvReqService.addNewServiceRequest(srvRequest, lang);
 	}
 
 	/**
@@ -38,6 +44,24 @@ public class SrvReqServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _srvReqService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>> getServiceRequestsListByIdStatus(
+			String iqamaId, String[] status) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _srvReqService.getServiceRequestsListByIdStatus(iqamaId, status);
+	}
+
+	@Override
+	public boolean sendEmail(String mailTo, String emailMsg, String msgTitle) {
+		return _srvReqService.sendEmail(mailTo, emailMsg, msgTitle);
+	}
+
+	@Override
+	public void sendSMS(java.util.Locale locale, String mobileNumber, String refNo, String msgKey) {
+
+		_srvReqService.sendSMS(locale, mobileNumber, refNo, msgKey);
 	}
 
 	@Override

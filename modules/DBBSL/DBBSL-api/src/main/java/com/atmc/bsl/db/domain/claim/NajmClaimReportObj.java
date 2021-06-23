@@ -21,7 +21,7 @@ public class NajmClaimReportObj {
 	private String claimDate;
 	private String plateNoEn;
 	private String plateNoAr;
-	
+
 	public String getClaimantName() {
 		return claimantName;
 	}
@@ -77,8 +77,6 @@ public class NajmClaimReportObj {
 	public void setClaimantIqamaId(String claimantIqamaId) {
 		this.claimantIqamaId = claimantIqamaId;
 	}
-
-
 
 	public String getInsuredDOb() {
 		return insuredDOb;
@@ -175,8 +173,5 @@ public class NajmClaimReportObj {
 	public void setPlateNoAr(String plateNoAr) {
 		this.plateNoAr = plateNoAr;
 	}
-
-
-	
 
 }

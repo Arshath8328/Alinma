@@ -15,14 +15,13 @@ package com.atmc.bsl.db.domain.policy;
 /**
  * @author Ghada Shawkat
  */
-public class PolicyVehicleCover
-{
+public class PolicyVehicleCover {
 	private String policyNo;
 
 	private String vehId;
 
 	private String cvrType;
-	
+
 	private String cvrCode;
 
 	private String description;
@@ -38,152 +37,126 @@ public class PolicyVehicleCover
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the vehId
 	 */
-	public String getVehId()
-	{
+	public String getVehId() {
 		return vehId;
 	}
 
 	/**
-	 * @param vehId
-	 *            the vehId to set
+	 * @param vehId the vehId to set
 	 */
-	public void setVehId(String vehId)
-	{
+	public void setVehId(String vehId) {
 		this.vehId = vehId;
 	}
 
 	/**
 	 * @return the cvrType
 	 */
-	public String getCvrType()
-	{
+	public String getCvrType() {
 		return cvrType;
 	}
 
 	/**
-	 * @param cvrType
-	 *            the cvrType to set
+	 * @param cvrType the cvrType to set
 	 */
-	public void setCvrType(String cvrType)
-	{
+	public void setCvrType(String cvrType) {
 		this.cvrType = cvrType;
 	}
 
 	/**
 	 * @return the description
 	 */
-	public String getDescription()
-	{
+	public String getDescription() {
 		return description;
 	}
 
 	/**
-	 * @param description
-	 *            the description to set
+	 * @param description the description to set
 	 */
-	public void setDescription(String description)
-	{
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
 	/**
 	 * @return the benefitTerm
 	 */
-	public String getBenefitTerm()
-	{
+	public String getBenefitTerm() {
 		return benefitTerm;
 	}
 
 	/**
-	 * @param benefitTerm
-	 *            the benefitTerm to set
+	 * @param benefitTerm the benefitTerm to set
 	 */
-	public void setBenefitTerm(String benefitTerm)
-	{
+	public void setBenefitTerm(String benefitTerm) {
 		this.benefitTerm = benefitTerm;
 	}
 
 	/**
 	 * @return the premiumTerm
 	 */
-	public String getPremiumTerm()
-	{
+	public String getPremiumTerm() {
 		return premiumTerm;
 	}
 
 	/**
-	 * @param premiumTerm
-	 *            the premiumTerm to set
+	 * @param premiumTerm the premiumTerm to set
 	 */
-	public void setPremiumTerm(String premiumTerm)
-	{
+	public void setPremiumTerm(String premiumTerm) {
 		this.premiumTerm = premiumTerm;
 	}
 
 	/**
 	 * @return the premium
 	 */
-	public long getPremium()
-	{
+	public long getPremium() {
 		return premium;
 	}
 
 	/**
-	 * @param premium
-	 *            the premium to set
+	 * @param premium the premium to set
 	 */
-	public void setPremium(long premium)
-	{
+	public void setPremium(long premium) {
 		this.premium = premium;
 	}
 
 	/**
 	 * @return the sumCovered
 	 */
-	public long getSumCovered()
-	{
+	public long getSumCovered() {
 		return sumCovered;
 	}
 
 	/**
-	 * @param sumCovered
-	 *            the sumCovered to set
+	 * @param sumCovered the sumCovered to set
 	 */
-	public void setSumCovered(long sumCovered)
-	{
+	public void setSumCovered(long sumCovered) {
 		this.sumCovered = sumCovered;
 	}
 
 	/**
 	 * @return the cvrCode
 	 */
-	public String getCvrCode()
-	{
+	public String getCvrCode() {
 		return cvrCode;
 	}
 
 	/**
 	 * @param cvrCode the cvrCode to set
 	 */
-	public void setCvrCode(String cvrCode)
-	{
+	public void setCvrCode(String cvrCode) {
 		this.cvrCode = cvrCode;
 	}
 

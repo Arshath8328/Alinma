@@ -1,0 +1,2615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PS_Policy_" pageWidth="595" pageHeight="1120" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="35de0746-bfda-45ec-87fb-64f23c180e32">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="alinmaFontStyle" fontName="AlinmaFontFamily"/>
+	<subDataset name="FundDataSet" uuid="5754d1f5-0965-468f-a50e-669239c1841f">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="proposal_no" class="java.lang.Long"/>
+		<field name="statement_date" class="java.lang.String"/>
+		<field name="benefit_name" class="java.lang.String"/>
+		<field name="benefit_type" class="java.lang.String"/>
+		<field name="benefit_term" class="java.lang.Double"/>
+		<field name="sum_assured" class="java.lang.Double"/>
+		<field name="benefit_term_string" class="java.lang.String"/>
+		<field name="sum_assured_string" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="BeneficiaryDataSet" uuid="b72631b6-0cd8-4be5-9f40-f04fe7ac2098">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="proposal_no" class="java.lang.Long"/>
+		<field name="statement_date" class="java.lang.String"/>
+		<field name="beneficiary_name" class="java.lang.String"/>
+		<field name="share" class="java.lang.Double"/>
+		<field name="share_string" class="java.lang.String"/>
+		<field name="relationship" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SOADataset" uuid="21cc6194-e06a-4171-834d-e851b45d89eb">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="proposal_no" class="java.lang.Long"/>
+		<field name="frequency" class="java.lang.String"/>
+		<field name="policy_year" class="java.lang.Double"/>
+		<field name="policy_year_string" class="java.lang.String"/>
+		<field name="installment_no" class="java.lang.Double"/>
+		<field name="installment_no_string" class="java.lang.String"/>
+		<field name="document_no" class="java.lang.String"/>
+		<field name="premium_entry_date" class="java.lang.String"/>
+		<field name="premium_due_date" class="java.lang.String"/>
+		<field name="installment_amount" class="java.lang.Double"/>
+		<field name="installment_amount_string" class="java.lang.String"/>
+		<field name="current_status" class="java.lang.String"/>
+		<field name="payment_status" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="ItemDataSourcePSC" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="ItemDataSourcePSB" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="ItemDataSourcePSS" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="proposal_no" class="java.lang.Long"/>
+	<field name="statement_date" class="java.lang.String"/>
+	<field name="email_address" class="java.lang.String"/>
+	<field name="contact_no" class="java.lang.String"/>
+	<field name="nad_address1" class="java.lang.String"/>
+	<field name="nad_address2" class="java.lang.String"/>
+	<field name="nad_address3" class="java.lang.String"/>
+	<field name="status_descr" class="java.lang.String"/>
+	<field name="inception_date" class="java.lang.String"/>
+	<field name="general_installment_amount" class="java.lang.String"/>
+	<field name="plan_duration" class="java.lang.String"/>
+	<field name="total_amount_received" class="java.lang.String"/>
+	<field name="total_premium_due" class="java.lang.String"/>
+	<field name="premium" class="java.lang.String"/>
+	<field name="topup_premium" class="java.lang.String"/>
+	<field name="withdraw" class="java.lang.String"/>
+	<field name="investment_strategy" class="java.lang.String"/>
+	<field name="currency" class="java.lang.String"/>
+	<field name="no_units" class="java.lang.Double"/>
+	<field name="current_unit_value" class="java.lang.Double"/>
+	<field name="total_saving_value" class="java.lang.Double"/>
+	<field name="peremium_invested" class="java.lang.String"/>
+	<field name="credit_balance" class="java.lang.String"/>
+	<field name="frequency" class="java.lang.String"/>
+	<field name="policy_holder" class="java.lang.String"/>
+	<field name="product_desc" class="java.lang.String"/>
+	<field name="premium_invested" class="java.lang.String"/>
+	<field name="premium_paid" class="java.lang.String"/>
+	<field name="premium_not_paid" class="java.lang.String"/>
+	<field name="installment_paid" class="java.lang.String"/>
+	<field name="installment_remaining" class="java.lang.String"/>
+	<field name="premium_to_be_invested" class="java.lang.String"/>
+	<field name="fromDate" class="java.lang.String"/>
+	<field name="toDate" class="java.lang.String"/>
+	<field name="investementDate" class="java.lang.String"/>
+	<field name="mailingAddress1" class="java.lang.String"/>
+	<field name="mailingAddress2" class="java.lang.String"/>
+	<field name="mailingAddress3" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="1060" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="20" width="554" height="980" uuid="2717bd05-c4db-4873-98ff-ec9f24c4e6ad">
+					<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+					<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+					<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+				</reportElement>
+				<frame>
+					<reportElement x="0" y="75" width="554" height="30" uuid="7747032a-16a6-4c8d-ac5f-2e7b8990c122"/>
+					<textField>
+						<reportElement x="0" y="0" width="142" height="30" uuid="526ddb48-3753-474e-8bf8-f66eb546d0a5">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{proposal_no}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="0" width="142" height="30" uuid="8330ca30-358b-45ab-9b2f-385cc316b4b6">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{statement_date}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="93f61af4-7e0c-4f63-bbf3-08b17c267f20">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[رقم الوثيقة
+Policy Number]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="389928cc-4dc2-46c4-867f-66c4a7ac31b2">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[تاريخ كشف الحساب
+Statement Date]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="117" width="554" height="30" backcolor="#B4C6E7" uuid="854e4726-aa11-4a5b-a98a-3399c8068905"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="264" height="30" uuid="6b86c765-5a9a-484f-aa2c-c08cbd72e04a">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph leftIndent="60"/>
+						</textElement>
+						<text><![CDATA[Policy Details ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="290" y="0" width="264" height="30" uuid="b5ed0799-0e2d-433e-80c3-fd01486ede75">
+							<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph rightIndent="60"/>
+						</textElement>
+						<text><![CDATA[تفاصيل الوثيقة]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="155" width="554" height="90" uuid="c468adeb-6172-4cef-b60b-65acd1744812">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement x="0" y="0" width="142" height="30" uuid="edab1b6e-38b3-4aba-8eca-630307626f82">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{email_address}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="0" width="142" height="30" uuid="59101806-9f8b-4cb4-bdce-52c696ddae77">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{policy_holder}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="c0601e67-0903-46db-b598-ce9a3169af14"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="AlinmaTheSansFonts" size="8"/>
+						</textElement>
+						<text><![CDATA[البريد الإلكتروني
+Email Address]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="4098247c-7fa5-4c13-99c1-55977aba07c2">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[إسم حامل الوثيقة
+Policy Holder Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="30" width="142" height="30" uuid="c14af3f6-8386-46b5-a26e-a1ad6a0c8fd6">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{contact_no}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="30" width="142" height="30" uuid="033e2d20-fc9a-4339-8491-44063622756b">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{product_desc}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="30" width="135" height="30" backcolor="#B4C6E7" uuid="9a28f37a-983e-4b81-8127-6ea4c5b107fc">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[رقم الجوال
+Contact Number]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="30" width="135" height="30" backcolor="#B4C6E7" uuid="a3f19bc8-929c-4799-a191-49c42c5d57f0">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[نوع المنتج
+Plan Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="60" width="142" height="30" uuid="44da21db-45d6-4e6f-87ef-1aff209b5c05">
+							<property name="net.sf.jasperreports.style.pdfFontName" value=""/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mailingAddress1}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="60" width="142" height="30" uuid="1e4a6482-47c5-46b0-a151-4bb0f70d6b63">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nad_address1} + $F{nad_address2} + $F{nad_address3}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="60" width="135" height="30" backcolor="#B4C6E7" uuid="81737733-c8e8-4dc1-a57b-ad20b6a00340">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[العنوان البريدي
+Mailing Address]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="60" width="135" height="30" backcolor="#B4C6E7" uuid="9c59d02f-fe3d-44e6-b05f-a752ccd6b762">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[العنوان مكان الإقامة
+Home Address]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="610" width="554" height="60" uuid="39956ed9-c41a-4cad-a626-3c059832a458"/>
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="160" height="30" backcolor="#B4C6E7" uuid="4f0d42e7-e6aa-405b-b90d-2ddfb05d73a4">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[Investment Strategy - إختيار إستراتيجية الإستثمار]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="30" width="160" height="29" uuid="04507cd1-b3f0-4833-adb9-3790e010a2e1">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{investment_strategy}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="160" y="0" width="48" height="30" backcolor="#B4C6E7" uuid="f2ec72b8-8caa-4397-96b9-950c35fe68ff">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[العملة
+Currency]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="160" y="30" width="48" height="30" uuid="9c16d121-b3f2-4f4a-81d0-8ee5f11b1cb7">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{currency}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="208" y="0" width="53" height="30" backcolor="#B4C6E7" uuid="7da33aef-3451-479e-909d-616993b7c814">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[إجمالي الوحدات
+No of Units]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="208" y="30" width="53" height="30" uuid="0859b4e1-9984-4fb1-a63a-5419d5965aff">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{no_units}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="261" y="0" width="95" height="30" backcolor="#B4C6E7" uuid="cadfe025-6233-4eef-a859-522da36d6385">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[قيمة الوحدة الحالية
+Current Unit Value]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="261" y="30" width="95" height="30" uuid="3b595a01-4edf-4616-b6a5-cea3d0a6c76b">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{current_unit_value}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="356" y="0" width="94" height="30" backcolor="#B4C6E7" uuid="dc81a746-5855-4639-9d36-03a7e09d3eeb">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[إجمالي قيم الادخار
+Total Savings Values]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="356" y="30" width="94" height="30" uuid="296962b3-4d40-4dc4-a4fc-8d945939eca7">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{total_saving_value}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="450" y="0" width="104" height="30" backcolor="#B4C6E7" uuid="4b63c70d-a9ed-4e5e-abc3-fa5754f6b32b">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[أقساط غير مستثمرة 
+ Premium to be Invested]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="450" y="30" width="104" height="30" uuid="5b421462-28a5-464a-8183-16bf41fe549d">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_to_be_invested}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="0" y="252" width="554" height="90" uuid="e7de5025-a581-463a-ad49-5aca39a83d12">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement x="0" y="0" width="142" height="30" uuid="a64a8d2c-96b8-4f45-9515-414ec1c88ce4">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{inception_date}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="0" width="142" height="30" uuid="1f8ff387-c341-4825-b146-b01253ce4ebf">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{status_descr}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="becae7d6-b1e7-4ada-b56f-2130ad96af73">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[تاريخ البدء
+Policy Inception Date]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="7e758bf9-6df7-4bc0-a4ee-ab9b87341630">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[حالة الوثيقة
+Plan Status]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="30" width="142" height="30" uuid="92f954f2-7133-4a6c-b63e-8ba04d637342">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{plan_duration}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="30" width="142" height="30" uuid="f75bbc47-a4fa-4610-9322-e86e98cec9bd">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{general_installment_amount}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="30" width="135" height="30" backcolor="#B4C6E7" uuid="f078f5e2-4621-4808-a036-164b639997a2">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[مدة الوثيقة سنوات
+Plan Duration]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="30" width="135" height="30" backcolor="#B4C6E7" uuid="510c3f81-334e-4261-abb5-f0cd8d984da0">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[قيمة القسط الدوري
+Installment Amount]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="60" width="142" height="30" uuid="b0e4c5f4-0f5b-48c2-83f2-53d1cc4b40ff">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{frequency}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="277" y="60" width="142" height="30" uuid="9f2a641f-b88f-4524-a6d3-fdbf3dfc2add">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{total_amount_received}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="142" y="60" width="135" height="30" backcolor="#B4C6E7" uuid="7dece3e0-fcfb-4c25-af22-509e360e26c9">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[طريقة دفع القسط
+Payment frequency]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="419" y="60" width="135" height="30" backcolor="#B4C6E7" uuid="9584e976-9938-4026-b0d3-f532b5effe38">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[المبلغ الإجمالي المستلم
+Total Amount Received]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="355" width="554" height="30" backcolor="#B4C6E7" uuid="6852ef78-813f-4ea3-87e8-310e756d98a1"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="264" height="30" uuid="9d35cee7-2544-4a2e-b592-15a36764c1ed">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph leftIndent="60"/>
+						</textElement>
+						<text><![CDATA[Premium Details]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="290" y="0" width="264" height="30" uuid="252fa77c-878c-44a1-a644-570ff89581c2">
+							<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph rightIndent="60"/>
+						</textElement>
+						<text><![CDATA[تفاصيل المدفوعة]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="393" width="554" height="60" uuid="a96b7591-a5b2-4fdc-944f-7c5f4101b48c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="88" height="30" backcolor="#B4C6E7" uuid="998afec3-fc35-4c7e-9e71-8807c70668f0">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[مجموع قسط المستحق
+Total Premium Due]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="88" y="0" width="88" height="30" backcolor="#B4C6E7" uuid="e2ad99c3-4634-48a6-b6ac-2f28aeb7fb3c">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[قسط مدفوع
+Premium Paid]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="176" y="0" width="88" height="30" backcolor="#B4C6E7" uuid="c8cc4a7c-d542-462e-b229-4191887eb4a7">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[قسط غير مدفوع
+Premium Not Paid]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="30" width="88" height="30" uuid="c0a19bd7-05fc-4a9c-a2be-7277c11f634e">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{total_premium_due}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="88" y="30" width="88" height="30" uuid="76d7ff40-5776-448e-a348-4cb4a03632fa">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_paid}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="176" y="30" width="88" height="30" uuid="70c24d57-36d4-4b2f-914c-1b36661c714e">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_not_paid}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="329" y="0" width="75" height="30" backcolor="#B4C6E7" uuid="a2a8afbb-a73f-4bff-a1c1-7524416bcda6">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[دفعه إضافية 
+Top-Up]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="329" y="30" width="75" height="30" uuid="4fa8c8a8-0a8b-445d-8bcf-8623da0b839c">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{topup_premium}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="404" y="30" width="75" height="30" uuid="c20170bf-0b84-4f6e-90ab-6d27227e14a0">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{withdraw}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="404" y="0" width="75" height="30" backcolor="#B4C6E7" uuid="87065773-9537-4180-87d9-367317435928">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[انسحاب
+Withdrawal]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="479" y="0" width="75" height="30" backcolor="#B4C6E7" uuid="c0fbea0c-160d-4462-954c-8597ea950c71">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[الرصيد معلق
+Credit Balance]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="479" y="30" width="75" height="30" uuid="99640620-cec2-4093-a307-11538c489729">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{credit_balance}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="279" y="0" width="50" height="30" backcolor="#B4C6E7" uuid="8fbdc45e-58ea-496c-b15d-ad598fe3226a">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="6"/>
+						</textElement>
+						<text><![CDATA[قساط التأمين
+Total Premium]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="279" y="30" width="50" height="30" uuid="17d3eaa0-88f3-4dfa-b42d-8bea7394446c">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{total_amount_received}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="463" width="554" height="30" backcolor="#B4C6E7" uuid="d46d6112-4e76-458e-94c2-689cb716d225">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="264" height="30" uuid="75664f6f-c9a1-4a79-af93-952601587ac3">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="16"/>
+							<paragraph leftIndent="60"/>
+						</textElement>
+						<text><![CDATA[Coverage Details]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="290" y="0" width="264" height="30" uuid="fc71e5fb-5b08-4dcc-8306-6e3fc3c772db">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph rightIndent="60"/>
+						</textElement>
+						<text><![CDATA[تفاصيل التغطية]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="500" width="554" height="60" uuid="db1c232e-3535-4a8e-84ff-a6d883ec5cb6">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<componentElement>
+						<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="554" height="60" isPrintWhenDetailOverflows="true" uuid="7a9bbd78-c6a0-4a16-be4e-db391faa58b1">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+							<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+							<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+							<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="FundDataSet" uuid="c6b448c5-290e-4a6b-8818-faa5316ced04">
+								<dataSourceExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ItemDataSourcePSC" )]]></dataSourceExpression>
+							</datasetRun>
+							<jr:column width="260" uuid="c2ce8ee6-bc23-4580-8961-abc17c7b1f91">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="260" height="30" backcolor="#B4C6E7" uuid="38a1f318-c724-4c04-a97f-cfda8f80aa67">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif"/>
+										</textElement>
+										<text><![CDATA[مبلغ التغطية   -   Benefit Name]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="260" height="30" uuid="6cc215a2-0d7e-441e-9889-3b0ea75ceac3">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{benefit_name}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="91" uuid="9f4f9b4c-b0f0-4fa1-b02e-2d612bdee4e5">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="91" height="30" backcolor="#B4C6E7" uuid="d4d56c38-4bf5-464b-aeb9-228f6188e39a">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif" size="8"/>
+										</textElement>
+										<text><![CDATA[نوع المنفعة
+Benefit Type]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="91" height="30" uuid="ce249c1b-f4b0-4bcf-8102-b03d5fdade74">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{benefit_type}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="102" uuid="798e2aaa-ebe7-4567-ab16-f3f07eb38c87">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="102" height="30" backcolor="#B4C6E7" uuid="5686f34f-d9b4-4779-b2b7-d565e7b55edd">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif" size="8"/>
+										</textElement>
+										<text><![CDATA[مدة الوثيقة (سنوات)
+Benefit Term (Years)]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="102" height="30" uuid="14bbcd23-66c9-4707-8f9b-797e2ec464d0">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif" isBold="false"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{benefit_term_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="101" uuid="7fbab0b3-0087-4e49-856a-b240e670a0d8">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="101" height="30" backcolor="#B4C6E7" uuid="4565f89d-8b8b-4d65-aa46-afe7a6235f40">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif" size="8"/>
+										</textElement>
+										<text><![CDATA[مبلغ التغطية - رس
+Sum Covered - SAR]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="101" height="30" uuid="e4ac8306-4f72-4438-88d4-683293d590c4">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="SansSerif" isBold="false"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{sum_assured_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="570" width="554" height="30" backcolor="#B4C6E7" uuid="fbc87f9c-797a-4c86-952d-b3d0b49e3a45">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="264" height="30" uuid="5920a8cc-0d28-42aa-af7a-de5aaee6b79b">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="16"/>
+							<paragraph leftIndent="60"/>
+						</textElement>
+						<text><![CDATA[Funds Detail]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="290" y="0" width="264" height="30" uuid="254ceb81-016f-4d3e-a69e-864fdbebabe1">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph rightIndent="60"/>
+						</textElement>
+						<text><![CDATA[ تفاصيل الصندوق]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="710" width="554" height="30" backcolor="#B4C6E7" uuid="7519fd5e-72f7-4d97-8da3-d5a7b3c4e009">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="264" height="30" uuid="f8f91388-b801-4ba1-a5a7-2cd3d90ef1a2">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="16"/>
+							<paragraph leftIndent="60"/>
+						</textElement>
+						<text><![CDATA[Beneficiary Detail]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="290" y="0" width="264" height="30" uuid="d52646cf-0ab8-45a9-b6e7-e3c4f1b156e2">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="16"/>
+							<paragraph rightIndent="60"/>
+						</textElement>
+						<text><![CDATA[تفاصيل المستفيد]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="750" width="554" height="60" uuid="5ec105a1-f858-4f00-9974-813cbd61a560">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<componentElement>
+						<reportElement positionType="Float" x="0" y="0" width="554" height="60" uuid="bfabfd8f-ba23-4bcb-bd24-79b19efcaffe">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+							<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+							<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+							<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="BeneficiaryDataSet" uuid="1a13c02e-6bc8-4272-bbff-7f1596197791">
+								<dataSourceExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ItemDataSourcePSB" )]]></dataSourceExpression>
+							</datasetRun>
+							<jr:column width="340" uuid="bb6fc39e-39d9-42a7-8cf6-21dfaadaa5ae">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="340" height="30" backcolor="#B4C6E7" uuid="791b3dd9-3bd5-4a07-bd10-0805f4e6e87d">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8"/>
+										</textElement>
+										<text><![CDATA[أسم المستفيد   -    Beneficiary Name]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="340" height="30" uuid="828099c9-80d6-43f4-9aa8-6043e490938c">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{beneficiary_name}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="107" uuid="7d504ff6-582b-4e8c-a8ec-6b9ebb180888">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="107" height="30" backcolor="#B4C6E7" uuid="ff3bad9c-e50a-4bed-a099-9b141bb81a51">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8"/>
+										</textElement>
+										<text><![CDATA[النسبة المئوية
+ Share]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="107" height="30" uuid="31d76e95-c665-484d-857c-f60d9a1e7cb0">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{share_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="107" uuid="c98c0ccd-e692-432a-9d41-1e0b2e6235cb">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+								<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="107" height="30" backcolor="#B4C6E7" uuid="c9e37db6-8dc6-4377-aae3-fc118907af4d">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8"/>
+										</textElement>
+										<text><![CDATA[العلاقة 
+Relationship]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="107" height="30" uuid="31d62172-eec3-48af-a6b3-7dda20c43579">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<box>
+											<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="8" isBold="false"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{relationship}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="680" width="554" height="20" uuid="90f0cd73-4ed6-46e5-9468-5d8da36bdb20">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<staticText>
+						<reportElement x="262" y="0" width="118" height="20" uuid="076dacf7-a7d0-4403-8f6b-52a4a9292300">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[Investment value as of]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="440" y="0" width="114" height="20" uuid="a19d2f24-2c79-4eb2-8517-4cfb9e88bc91">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[ قيمة الاستثمار اعتبارا من]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="380" y="0" width="60" height="20" uuid="40747e43-2cfc-44e5-ad14-8ffe23b9a598">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{investementDate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="910" width="554" height="60" uuid="92cf4e45-ae55-4d27-8572-541dc8e7123b"/>
+					<staticText>
+						<reportElement x="0" y="0" width="80" height="20" uuid="1be1ad8a-f277-4576-aa22-d714c5296771">
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[Note:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="474" y="0" width="80" height="20" uuid="e64d2c34-2e73-44eb-bfd3-f4dbd0055d5e">
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[ملا حظة:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="20" width="210" height="40" uuid="2e09d3e4-5382-4822-91ed-40320a615dcf">
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Top">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[Any contribution /Premium or Top up amount paid by the Policy Holder within the 30 days prior to the issuance date of this statement might not appear in this statement due to the process time of the transaction.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="344" y="20" width="210" height="40" uuid="7ab87561-45c1-4485-a3c4-6237bcb1c887">
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Top">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<text><![CDATA[قد لا تظهر أي مساهمة أو مبلغ اضافي  يدفعه صاحب الوثيقة خلال 30 يوما قبل تاريخ إصدار هذا الكشف.  بسبب وقت اجراء التحويل. ]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="0" y="0" width="554" height="70" uuid="4846f7d9-f889-4639-9388-6f57ee8acb10"/>
+					<staticText>
+						<reportElement x="0" y="0" width="280" height="40" uuid="49d06732-eaa3-4391-a662-3562f7b6d567">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="18" isBold="false"/>
+						</textElement>
+						<text><![CDATA[Fund Statement  -   كشف الصندوق]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="40" width="102" height="20" uuid="b74bdff6-e374-4f5b-942c-ea59f9a73268">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10" isBold="false"/>
+						</textElement>
+						<text><![CDATA[Statement Period:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="102" y="40" width="60" height="20" uuid="70f97d1d-7e1a-40e6-b0fd-26698a9d6c84">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{fromDate}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="167" y="40" width="60" height="20" uuid="2c9d4787-4b32-45cb-a2d3-4d4a08404661">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{toDate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="162" y="40" width="5" height="20" uuid="6a11729a-3d0e-475e-8bfd-c617fce00163">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[-]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="227" y="40" width="52" height="20" uuid="b7dd758a-5d11-4730-8e6c-1a58c3c7e1a7">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="10"/>
+						</textElement>
+						<text><![CDATA[فترة البيان :]]></text>
+					</staticText>
+					<image hAlign="Center" vAlign="Middle">
+						<reportElement x="290" y="0" width="264" height="60" uuid="bc251225-0a19-472b-a8b0-3c6df4de6b60"/>
+						<imageExpression><![CDATA["/images/atmc_header_sub.JPG"]]></imageExpression>
+					</image>
+				</frame>
+			</frame>
+		</band>
+		<band height="281" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement positionType="Float" x="0" y="-20" width="554" height="281" uuid="568fab07-1e83-4cfc-9d23-bcbf11ee8c7f"/>
+				<frame>
+					<reportElement positionType="Float" x="0" y="-1" width="554" height="80" uuid="0d3e05f7-ed9d-43ec-82f7-d25ab1f01783"/>
+					<staticText>
+						<reportElement x="0" y="0" width="280" height="40" uuid="3fa6f6f9-2df2-4bf7-8c9d-5399cdc97462">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="15" isBold="false"/>
+						</textElement>
+						<text><![CDATA[Statement of Account  - كشف حساب]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="40" width="102" height="20" uuid="b74bdff6-e374-4f5b-942c-ea59f9a73268">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10" isBold="false"/>
+						</textElement>
+						<text><![CDATA[Statement Period:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="102" y="40" width="60" height="20" uuid="70f97d1d-7e1a-40e6-b0fd-26698a9d6c84">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{fromDate}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="167" y="40" width="60" height="20" uuid="2c9d4787-4b32-45cb-a2d3-4d4a08404661">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{toDate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="162" y="40" width="5" height="20" uuid="6a11729a-3d0e-475e-8bfd-c617fce00163">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<text><![CDATA[-]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="227" y="40" width="52" height="20" uuid="b7dd758a-5d11-4730-8e6c-1a58c3c7e1a7">
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="10"/>
+						</textElement>
+						<text><![CDATA[فترة البيان :]]></text>
+					</staticText>
+					<image hAlign="Center" vAlign="Middle">
+						<reportElement x="290" y="0" width="264" height="60" uuid="aa124aa1-9878-4527-b092-15449dc8f4a7"/>
+						<imageExpression><![CDATA["/images/atmc_header_sub.JPG"]]></imageExpression>
+					</image>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="80" width="554" height="30" uuid="a646f69c-f80d-47f9-a13b-72eb066caea2">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement x="0" y="0" width="154" height="30" uuid="a73d99c1-662b-4f53-91ac-1a38c569cb38">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{proposal_no}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="154" y="0" width="80" height="29" backcolor="#B4C6E7" uuid="34c8d042-8019-477c-9b9f-e28a8aaeb3fb">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[رقم الوثيقة
+Policy Number]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="234" y="0" width="80" height="30" uuid="b5fa6ce4-dbac-4b66-bfb9-03936d5867bb">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Alinma TheSans" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{frequency}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="314" y="0" width="80" height="30" backcolor="#B4C6E7" uuid="43ab564f-9b8f-476c-bc8c-451cfe9f3dd1">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[طريقة دفع القسط
+Payment frequency]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="474" y="0" width="80" height="30" backcolor="#B4C6E7" uuid="8e634627-400a-44e6-8a8e-d77d0f4093fe">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[تاريخ كشف الحساب
+Statement Date]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="394" y="0" width="80" height="30" uuid="b81e9ca4-416c-467e-baf1-8f3b1c834dcd">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{statement_date}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="122" width="554" height="90" uuid="a71b67d2-e0ee-4219-a3ff-c7c740c28643"/>
+					<textField>
+						<reportElement x="0" y="0" width="154" height="30" uuid="93b458a6-d6fd-4406-88da-08899c616a04">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{policy_holder}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="154" y="0" width="80" height="30" backcolor="#B4C6E7" uuid="3fd04371-7238-4073-9811-4d74aff224de">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[إسم حامل الوثيقة
+Policy Holder Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="234" y="0" width="240" height="30" uuid="7667859c-2637-47b5-abcc-034225e9ebdd">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{product_desc}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="474" y="0" width="80" height="30" backcolor="#B4C6E7" uuid="5299b7e2-8d64-4091-9549-b275ace28369">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<text><![CDATA[نوع المنتج
+Plan Name]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="60" width="154" height="30" uuid="618dc933-7fce-4305-b6ef-b130a66c9b06">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_to_be_invested}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="154" y="60" width="80" height="30" backcolor="#B4C6E7" uuid="94380573-2105-4739-b6d9-5ceaa9e84032">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[أقساط غير مستثمرة 
+ Premium to be Invested]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="234" y="60" width="80" height="30" uuid="82f81264-b680-45ae-ae4f-6e334cc3f86d">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_not_paid}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="314" y="60" width="80" height="30" backcolor="#B4C6E7" uuid="66802cd5-0e08-48d1-8323-e216fa0da8f5">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[قسط التأمين الغير مدفوع
+Premium Not Paid]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="474" y="60" width="80" height="30" backcolor="#B4C6E7" uuid="23ea9a7e-c38b-4266-8cb7-d432603954ac">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[القسط المتبقي
+Installment Remaining]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="394" y="60" width="80" height="30" uuid="8db4a138-0ad4-4685-9377-7eddf5a79efc">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{installment_remaining}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="30" width="154" height="30" uuid="e76ddde9-5564-47c8-aaba-e0398d68e9a3">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{peremium_invested}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="154" y="30" width="80" height="30" backcolor="#B4C6E7" uuid="56fd613a-bddb-428e-bc8f-60bf6b305ff6">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[أقساط استثمر
+ Premium Invested]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="234" y="30" width="80" height="30" uuid="a8288fa5-2ad3-47d0-bfd6-0f24febde6ca">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{premium_paid}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement mode="Opaque" x="314" y="30" width="80" height="30" backcolor="#B4C6E7" uuid="a748e111-7669-4f46-9ba9-c04c931896ab">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[قسط التأمين المدفوع
+Premium Paid]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="474" y="30" width="80" height="30" backcolor="#B4C6E7" uuid="39ce9320-d065-48d7-92bd-093a5aa2bfd4">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="7"/>
+						</textElement>
+						<text><![CDATA[عدد الأقساط المدفوعة
+Installment Paid]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="394" y="30" width="80" height="30" uuid="a7f51a9c-a4fc-44b9-a195-5d2aaf9e76f7">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+							<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+							<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="SansSerif"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{installment_paid}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" x="0" y="221" width="554" height="60" uuid="b58f01f2-3f18-428c-b8ab-d3ce8318059d">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<componentElement>
+						<reportElement x="0" y="0" width="554" height="60" uuid="e3fd0580-a893-4fd5-b5dd-5b9eb176022c">
+							<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+							<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+							<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+							<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="SOADataset" uuid="56c19d9d-4e28-409a-b806-3b3e1a4b5240">
+								<dataSourceExpression><![CDATA[$P{REPORT_PARAMETERS_MAP}.get( "ItemDataSourcePSS" )]]></dataSourceExpression>
+							</datasetRun>
+							<jr:column width="50" uuid="eb54c9b6-e3a2-40e6-8eee-b2620a8984bf">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="50" height="30" backcolor="#B4C6E7" uuid="c5183dba-0705-42a7-ace5-18c56014f012">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[سنة الوثيقة
+Policy Year]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="50" height="30" uuid="423d5833-8f92-455d-9e88-e9dfb10f5cf7">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$F{policy_year_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="60" uuid="8d069cb9-1c2c-495f-abc3-990961ddeb88">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="60" height="30" backcolor="#B4C6E7" uuid="15ac4f79-92da-44dd-8093-5f0d07108766">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[رقم القسط
+Installment No]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="60" height="30" uuid="e4a76f87-5263-4702-a543-73065b1632b2">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$F{installment_no_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="90" uuid="51530e4d-2fec-47e1-a77b-82e2e255b775">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="90" height="30" backcolor="#B4C6E7" uuid="67b53dbe-319d-46ae-bd2a-6c2cdf3e8ebc">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[تاريخ الاستحقاق قسط التأمين  
+Premium Due Date]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="90" height="30" uuid="c535b19a-e7c6-4f01-87d7-70e26e646e19">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$F{premium_due_date}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="78" uuid="8f561da5-ed99-4968-92a8-a03f563f1182">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="78" height="30" backcolor="#B4C6E7" uuid="b68a51f1-bdfa-4a0a-81b3-8af6a626df90">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[قيمة القسط الدوري
+Installment Amount]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="78" height="30" uuid="2274e940-b313-4259-aab3-d8230e48a062">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$F{installment_amount_string}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="60" uuid="7d8323bb-5fa3-4345-b37b-ed8c07d02158">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="60" height="30" backcolor="#B4C6E7" uuid="c8ee5498-219e-4819-81cb-87f5b2052314">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[حالة السداد
+Payment Status]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="60" height="30" uuid="baea5c12-892c-4cac-9872-81550a76dcde">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="10"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{payment_status}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="81" uuid="7f5c6cb5-80c3-431b-bab8-56a691d7e187">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="81" height="30" backcolor="#B4C6E7" uuid="19f008e0-d47f-425a-af84-69f157966b46">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[تاريخ ادخال قسط التأمين 
+Premium Entry Date]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="81" height="30" uuid="c8713023-30e6-4e52-a84c-17393b0e35bd">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$F{premium_entry_date}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="135" uuid="8d1bf46b-b79b-4b89-84fb-1ad3873b921a">
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+								<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
+									<staticText>
+										<reportElement mode="Opaque" x="0" y="0" width="135" height="30" backcolor="#B4C6E7" uuid="8a6b3fb0-0acf-4d74-847b-96f6a270ec16">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="7"/>
+										</textElement>
+										<text><![CDATA[استثمر , غير مستثمر
+Invested/To be Invested]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="Table 2_TD" height="30">
+									<textField>
+										<reportElement x="0" y="0" width="135" height="30" uuid="e61d33a1-eaba-4882-bf30-73a990ab10b4">
+											<property name="net.sf.jasperreports.style.isPdfEmbedded" value="true"/>
+											<property name="net.sf.jasperreports.style.pdfEncoding" value="Identity-H"/>
+											<property name="net.sf.jasperreports.style.pdfFontName" value="fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf"/>
+										</reportElement>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font fontName="Alinma TheSans" size="10"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{current_status}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+				</frame>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

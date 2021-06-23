@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="AlinmaFontFamily">
+		<normal><![CDATA[fonts/AlinmaFontFamily/AlinmaTheSans-Plain.ttf]]></normal>
+		<pdfEncoding><![CDATA[Identity-V]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

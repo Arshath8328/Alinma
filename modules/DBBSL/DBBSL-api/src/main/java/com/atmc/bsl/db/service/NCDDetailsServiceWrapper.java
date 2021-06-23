@@ -23,8 +23,7 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see NCDDetailsService
  * @generated
  */
-public class NCDDetailsServiceWrapper
-	implements NCDDetailsService, ServiceWrapper<NCDDetailsService> {
+public class NCDDetailsServiceWrapper implements NCDDetailsService, ServiceWrapper<NCDDetailsService> {
 
 	public NCDDetailsServiceWrapper(NCDDetailsService ncdDetailsService) {
 		_ncdDetailsService = ncdDetailsService;

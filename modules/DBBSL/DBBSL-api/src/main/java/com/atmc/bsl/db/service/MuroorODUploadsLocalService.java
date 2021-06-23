@@ -33,16 +33,19 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface MuroorODUploadsLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.MuroorODUploadsLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the muroor od uploads local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link MuroorODUploadsLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.MuroorODUploadsLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the muroor od uploads local service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * MuroorODUploadsLocalServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
 
 	/**

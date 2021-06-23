@@ -23,11 +23,17 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SettingsService
  * @generated
  */
-public class SettingsServiceWrapper
-	implements ServiceWrapper<SettingsService>, SettingsService {
+public class SettingsServiceWrapper implements ServiceWrapper<SettingsService>, SettingsService {
 
 	public SettingsServiceWrapper(SettingsService settingsService) {
 		_settingsService = settingsService;
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(String companyId, String screenName,
+			String currentPassword, String password1, String password2) {
+
+		return _settingsService.changePassword(companyId, screenName, currentPassword, password1, password2);
 	}
 
 	/**
@@ -38,6 +44,20 @@ public class SettingsServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _settingsService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(String companyId, String screenName, String Email)
+			throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _settingsService.updateEmail(companyId, screenName, Email);
+	}
+
+	@Override
+	public com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(String companyId, String screenName,
+			String phoneNo) throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _settingsService.updateMobile(companyId, screenName, phoneNo);
 	}
 
 	@Override

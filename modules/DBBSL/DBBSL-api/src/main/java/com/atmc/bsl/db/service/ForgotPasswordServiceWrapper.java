@@ -23,21 +23,18 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see ForgotPasswordService
  * @generated
  */
-public class ForgotPasswordServiceWrapper
-	implements ForgotPasswordService, ServiceWrapper<ForgotPasswordService> {
+public class ForgotPasswordServiceWrapper implements ForgotPasswordService, ServiceWrapper<ForgotPasswordService> {
 
-	public ForgotPasswordServiceWrapper(
-		ForgotPasswordService forgotPasswordService) {
+	public ForgotPasswordServiceWrapper(ForgotPasswordService forgotPasswordService) {
 
 		_forgotPasswordService = forgotPasswordService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(
-		String emailAddress, String answer, String captchaText) {
+	public com.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(String emailAddress, String answer,
+			String captchaText) {
 
-		return _forgotPasswordService.checkReminderQueries(
-			emailAddress, answer, captchaText);
+		return _forgotPasswordService.checkReminderQueries(emailAddress, answer, captchaText);
 	}
 
 	/**
@@ -51,9 +48,8 @@ public class ForgotPasswordServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.liferay.portal.kernel.model.User> validateUser(
-			String emailAddress, String captchaText) {
+	public com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> validateUser(String emailAddress,
+			String captchaText) {
 
 		return _forgotPasswordService.validateUser(emailAddress, captchaText);
 	}

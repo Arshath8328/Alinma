@@ -1,0 +1,22 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:WSACL_mob:WSACL_mob-api")
+	compileOnly project(":modules:DBACL:DBACL-api")
+	
+	compileInclude group: 'org.apache.wss4j', name: 'wss4j-ws-security-dom', version: '2.2.0'
+	
+}
+
+buildService {
+	apiDir = "../WSACL_mob-api/src/main/java"
+}
+
+group = "WSACL_mob"
+
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="AlinmaTheSansFonts">
+		<normal>
+			<ttf><![CDATA[fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf]]></ttf>
+			<pdf><![CDATA[fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf]]></pdf>
+		</normal>
+		<bold><![CDATA[fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf]]></bold>
+		<italic><![CDATA[fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/AlinmaTheSansFonts/AlinmaTheSans-Plain.ttf]]></boldItalic>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>

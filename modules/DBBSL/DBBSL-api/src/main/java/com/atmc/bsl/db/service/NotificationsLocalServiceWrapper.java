@@ -24,66 +24,53 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class NotificationsLocalServiceWrapper
-	implements NotificationsLocalService,
-			   ServiceWrapper<NotificationsLocalService> {
+		implements NotificationsLocalService, ServiceWrapper<NotificationsLocalService> {
 
-	public NotificationsLocalServiceWrapper(
-		NotificationsLocalService notificationsLocalService) {
+	public NotificationsLocalServiceWrapper(NotificationsLocalService notificationsLocalService) {
 
 		_notificationsLocalService = notificationsLocalService;
 	}
 
 	@Override
-	public void addNotification(
-		long userId, String msgKey, String[] params, String notificationType,
-		long companyId) {
+	public void addNotification(long userId, String msgKey, String[] params, String notificationType, long companyId) {
 
-		_notificationsLocalService.addNotification(
-			userId, msgKey, params, notificationType, companyId);
+		_notificationsLocalService.addNotification(userId, msgKey, params, notificationType, companyId);
 	}
 
 	@Override
 	public void deleteAllNotifications(long[] userNotificationEventIds)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.deleteAllNotifications(
-			userNotificationEventIds);
+		_notificationsLocalService.deleteAllNotifications(userNotificationEventIds);
 	}
 
 	@Override
 	public void deleteUserNotificationEvent(long userNotificationEventId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.deleteUserNotificationEvent(
-			userNotificationEventId);
+		_notificationsLocalService.deleteUserNotificationEvent(userNotificationEventId);
 	}
 
 	@Override
-	public java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>
-			getAllNotifications(long userId, boolean actionRequired)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent> getAllNotifications(long userId,
+			boolean actionRequired) throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _notificationsLocalService.getAllNotifications(
-			userId, actionRequired);
+		return _notificationsLocalService.getAllNotifications(userId, actionRequired);
 	}
 
 	@Override
 	public long getAllNotificationsCount(long userId, boolean actionRequired)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _notificationsLocalService.getAllNotificationsCount(
-			userId, actionRequired);
+		return _notificationsLocalService.getAllNotificationsCount(userId, actionRequired);
 	}
 
 	@Override
-	public java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>
-			getNotifications(
-				long userId, boolean actionRequired, String mode, int start,
-				int end)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent> getNotifications(long userId,
+			boolean actionRequired, String mode, int start, int end)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _notificationsLocalService.getNotifications(
-			userId, actionRequired, mode, start, end);
+		return _notificationsLocalService.getNotifications(userId, actionRequired, mode, start, end);
 	}
 
 	/**
@@ -97,64 +84,53 @@ public class NotificationsLocalServiceWrapper
 	}
 
 	@Override
-	public long getUnreadNotificationsCount(long userId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public long getUnreadNotificationsCount(long userId) throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _notificationsLocalService.getUnreadNotificationsCount(userId);
 	}
 
 	@Override
-	public void markAllNotificationsAsRead(long userId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public void markAllNotificationsAsRead(long userId) throws com.liferay.portal.kernel.exception.PortalException {
 
 		_notificationsLocalService.markAllNotificationsAsRead(userId);
 	}
 
 	@Override
 	public void markNotificationAsRead(long userNotificationEventId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.markNotificationAsRead(
-			userNotificationEventId);
+		_notificationsLocalService.markNotificationAsRead(userNotificationEventId);
 	}
 
 	@Override
 	public void markNotificationAsUnread(long userNotificationEventId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.markNotificationAsUnread(
-			userNotificationEventId);
+		_notificationsLocalService.markNotificationAsUnread(userNotificationEventId);
 	}
 
 	@Override
 	public void markNotificationsAsRead(long[] userNotificationEventIds)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.markNotificationsAsRead(
-			userNotificationEventIds);
+		_notificationsLocalService.markNotificationsAsRead(userNotificationEventIds);
 	}
 
 	@Override
 	public void markNotificationsAsUnread(long[] userNotificationEventIds)
-		throws com.liferay.portal.kernel.exception.PortalException {
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.markNotificationsAsUnread(
-			userNotificationEventIds);
+		_notificationsLocalService.markNotificationsAsUnread(userNotificationEventIds);
 	}
 
 	@Override
-	public void notifyUser(
-			java.util.Locale locale, String notificationType, String mailTo,
-			String mobileNo, String[] mailParams, String[] smsParams,
-			java.util.List<java.io.File> attachedFiles,
-			java.util.List<String> filesName, String[] portalNotificationParams,
-			long userId, long companyId)
-		throws com.liferay.portal.kernel.exception.PortalException {
+	public void notifyUser(java.util.Locale locale, String notificationType, String mailTo, String mobileNo,
+			String[] mailParams, String[] smsParams, java.util.List<java.io.File> attachedFiles,
+			java.util.List<String> filesName, String[] portalNotificationParams, long userId, long companyId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
-		_notificationsLocalService.notifyUser(
-			locale, notificationType, mailTo, mobileNo, mailParams, smsParams,
-			attachedFiles, filesName, portalNotificationParams, userId,
-			companyId);
+		_notificationsLocalService.notifyUser(locale, notificationType, mailTo, mobileNo, mailParams, smsParams,
+				attachedFiles, filesName, portalNotificationParams, userId, companyId);
 	}
 
 	@Override
@@ -163,8 +139,7 @@ public class NotificationsLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		NotificationsLocalService notificationsLocalService) {
+	public void setWrappedService(NotificationsLocalService notificationsLocalService) {
 
 		_notificationsLocalService = notificationsLocalService;
 	}

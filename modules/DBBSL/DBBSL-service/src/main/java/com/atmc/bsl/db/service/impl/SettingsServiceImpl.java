@@ -14,9 +14,12 @@
 
 package com.atmc.bsl.db.service.impl;
 
+import com.atmc.bsl.db.domain.ReturnCodes;
+import com.atmc.bsl.db.domain.ServiceOutput;
+import com.atmc.bsl.db.service.SettingsLocalServiceUtil;
 import com.atmc.bsl.db.service.base.SettingsServiceBaseImpl;
-
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.exception.PortalException;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -24,27 +27,64 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the settings remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.SettingsService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.SettingsService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see SettingsServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=Settings"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=dbbsl",
+		"json.web.service.context.path=Settings" }, service = AopService.class)
 public class SettingsServiceImpl extends SettingsServiceBaseImpl {
-
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use <code>com.atmc.bsl.db.service.SettingsServiceUtil</code> to access the settings remote service.
+	 * Never reference this class directly. Always use {@link
+	 * com.ejada.atmc.bsl.db.service.SettingsServiceUtil} to access the settings
+	 * remote service.
 	 */
+	public ServiceOutput<String> updateEmail(String companyId, String screenName, String Email) throws PortalException {
+		ServiceOutput<String> svcOutput = new ServiceOutput<String>();
+		try {
+			SettingsLocalServiceUtil.updateEmailFn(Long.valueOf(companyId), screenName, Email);
+			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
+		} catch (Exception e) {
+			svcOutput.setOutputCode(ReturnCodes.FAIL);
+		}
+
+		return svcOutput;
+	}
+
+	public ServiceOutput<String> updateMobile(String companyId, String screenName, String phoneNo)
+			throws PortalException {
+		ServiceOutput<String> svcOutput = new ServiceOutput<String>();
+		try {
+			SettingsLocalServiceUtil.updateMobileFn(Long.valueOf(companyId), screenName, phoneNo);
+			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
+		} catch (Exception e) {
+			svcOutput.setOutputCode(ReturnCodes.FAIL);
+		}
+		return svcOutput;
+	}
+
+	public ServiceOutput<String> changePassword(String companyId, String screenName, String currentPassword,
+			String password1, String password2) {
+		ServiceOutput<String> svcOutput = new ServiceOutput<String>();
+		try {
+			SettingsLocalServiceUtil.changePasswordFn(Long.valueOf(companyId), screenName, currentPassword, password1,
+					password2);
+			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
+			// svcOutput.setOutputObject(settingOut);
+		} catch (Exception e) {
+			svcOutput.setOutputCode(ReturnCodes.FAIL);
+		}
+		return svcOutput;
+	}
 }

@@ -24,11 +24,9 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class SrvReqAttachmentServiceWrapper
-	implements ServiceWrapper<SrvReqAttachmentService>,
-			   SrvReqAttachmentService {
+		implements ServiceWrapper<SrvReqAttachmentService>, SrvReqAttachmentService {
 
-	public SrvReqAttachmentServiceWrapper(
-		SrvReqAttachmentService srvReqAttachmentService) {
+	public SrvReqAttachmentServiceWrapper(SrvReqAttachmentService srvReqAttachmentService) {
 
 		_srvReqAttachmentService = srvReqAttachmentService;
 	}
@@ -49,8 +47,7 @@ public class SrvReqAttachmentServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		SrvReqAttachmentService srvReqAttachmentService) {
+	public void setWrappedService(SrvReqAttachmentService srvReqAttachmentService) {
 
 		_srvReqAttachmentService = srvReqAttachmentService;
 	}

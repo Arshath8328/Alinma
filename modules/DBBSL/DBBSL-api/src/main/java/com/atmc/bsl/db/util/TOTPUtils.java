@@ -12,8 +12,7 @@ import org.apache.commons.codec.binary.Base32;
  * @author Basel A.Aziz
  * 
  */
-public class TOTPUtils
-{
+public class TOTPUtils {
 	private static final int SECRET_SIZE = 10;
 
 	private static final int PASS_CODE_LENGTH = 4;
@@ -26,8 +25,7 @@ public class TOTPUtils
 
 	private static final Random rand = new Random();
 
-	public static String generateSecret()
-	{
+	public static String generateSecret() {
 
 		// Allocating the buffer
 		byte[] buffer = new byte[SECRET_SIZE];
@@ -42,8 +40,7 @@ public class TOTPUtils
 		return new String(encodedKey);
 	}
 
-	public static boolean checkCode(String secret, long code)
-	{
+	public static boolean checkCode(String secret, long code) {
 		Base32 codec = new Base32();
 		byte[] decodedKey = codec.decode(secret);
 
@@ -52,29 +49,27 @@ public class TOTPUtils
 		int window = WINDOW;
 		long currentInterval = getCurrentInterval();
 
-		for (int i = -window; i <= window; ++i)
-		{
+		for (int i = -window; i <= window; ++i) {
 			long hash = TOTP.generateTOTP(decodedKey, currentInterval + i, PASS_CODE_LENGTH, CRYPTO);
 
-			if (hash == code) { return true; }
+			if (hash == code) {
+				return true;
+			}
 		}
 
 		// The validation code is invalid.
 		return false;
 	}
-	
-	public static long generateTOTP(String secret)
-	{
+
+	public static long generateTOTP(String secret) {
 		Base32 codec = new Base32();
 		byte[] decodedKey = codec.decode(secret);
 		long currentInterval = getCurrentInterval();
 
 		return TOTP.generateTOTP(decodedKey, currentInterval, PASS_CODE_LENGTH, CRYPTO);
 	}
-	
 
-	private static long getCurrentInterval()
-	{
+	private static long getCurrentInterval() {
 		long currentTimeSeconds = System.currentTimeMillis() / 1000;
 		return currentTimeSeconds / INTERVAL;
 	}

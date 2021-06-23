@@ -24,12 +24,10 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the
- * <code>NotificationsServiceUtil</code> service
- * utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it requires an additional
- * <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the <code>NotificationsServiceUtil</code>
+ * service utility. The static methods of this class calls the same methods of
+ * the service utility. However, the signatures are different because it
+ * requires an additional <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -52,14 +50,12 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class NotificationsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
-			getNotifications(HttpPrincipal httpPrincipal, long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>> getNotifications(
+			HttpPrincipal httpPrincipal, long userId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				NotificationsServiceUtil.class, "getNotifications",
-				_getNotificationsParameterTypes0);
+			MethodKey methodKey = new MethodKey(NotificationsServiceUtil.class, "getNotifications",
+					_getNotificationsParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, userId);
 
@@ -67,19 +63,12 @@ public class NotificationsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List
-					<com.liferay.portal.kernel.model.UserNotificationEvent>>)
-						returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -87,13 +76,12 @@ public class NotificationsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
-		getNotificationsCount(HttpPrincipal httpPrincipal, long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(HttpPrincipal httpPrincipal,
+			long userId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				NotificationsServiceUtil.class, "getNotificationsCount",
-				_getNotificationsCountParameterTypes1);
+			MethodKey methodKey = new MethodKey(NotificationsServiceUtil.class, "getNotificationsCount",
+					_getNotificationsCountParameterTypes1);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, userId);
 
@@ -101,16 +89,12 @@ public class NotificationsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Long>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<Long>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -118,13 +102,12 @@ public class NotificationsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
-		markAllNotificationsAsRead(HttpPrincipal httpPrincipal, long userId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> markAllNotificationsAsRead(HttpPrincipal httpPrincipal,
+			long userId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				NotificationsServiceUtil.class, "markAllNotificationsAsRead",
-				_markAllNotificationsAsReadParameterTypes2);
+			MethodKey methodKey = new MethodKey(NotificationsServiceUtil.class, "markAllNotificationsAsRead",
+					_markAllNotificationsAsReadParameterTypes2);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, userId);
 
@@ -132,16 +115,12 @@ public class NotificationsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -149,14 +128,10 @@ public class NotificationsServiceHttp {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
-		NotificationsServiceHttp.class);
+	private static Log _log = LogFactoryUtil.getLog(NotificationsServiceHttp.class);
 
-	private static final Class<?>[] _getNotificationsParameterTypes0 =
-		new Class[] {long.class};
-	private static final Class<?>[] _getNotificationsCountParameterTypes1 =
-		new Class[] {long.class};
-	private static final Class<?>[] _markAllNotificationsAsReadParameterTypes2 =
-		new Class[] {long.class};
+	private static final Class<?>[] _getNotificationsParameterTypes0 = new Class[] { long.class };
+	private static final Class<?>[] _getNotificationsCountParameterTypes1 = new Class[] { long.class };
+	private static final Class<?>[] _markAllNotificationsAsReadParameterTypes2 = new Class[] { long.class };
 
 }

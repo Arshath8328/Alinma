@@ -16,6 +16,7 @@ package com.atmc.bsl.db.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -23,27 +24,34 @@ import com.liferay.portal.kernel.transaction.Transactional;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the local service interface for Settings. Methods of this
- * service will not have security checks based on the propagated JAAS
- * credentials because this service can only be accessed from within the same
- * VM.
+ * Provides the local service interface for Settings. Methods of this service
+ * will not have security checks based on the propagated JAAS credentials
+ * because this service can only be accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see SettingsLocalServiceUtil
  * @generated
  */
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface SettingsLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the settings local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link SettingsLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and rerun
+	 * ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the settings local service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * SettingsLocalServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
+	public void changePassword(User user, String currentPassword, String password1, String password2)
+			throws PortalException;
+
+	public void changePasswordFn(long companyId, String screenName, String currentPassword, String password1,
+			String password2);
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -51,5 +59,13 @@ public interface SettingsLocalService extends BaseLocalService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	public boolean updateEmail(User user, String userEmail) throws PortalException;
+
+	public boolean updateEmailFn(long companyId, String screenName, String Email) throws PortalException;
+
+	public boolean updateMobile(User user, String phone) throws PortalException;
+
+	public boolean updateMobileFn(long companyId, String screenName, String phoneNo) throws PortalException;
 
 }

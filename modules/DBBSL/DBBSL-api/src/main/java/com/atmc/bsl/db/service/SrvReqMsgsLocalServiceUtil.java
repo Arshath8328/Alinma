@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for SrvReqMsgs. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsLocalServiceImpl</code> and
- * is an access point for service operations in application layer code running
- * on the local server. Methods of this service will not have security checks
- * based on the propagated JAAS credentials because this service can only be
- * accessed from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsLocalServiceImpl</code> and is
+ * an access point for service operations in application layer code running on
+ * the local server. Methods of this service will not have security checks based
+ * on the propagated JAAS credentials because this service can only be accessed
+ * from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqMsgsLocalService
@@ -35,8 +35,14 @@ public class SrvReqMsgsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqMsgsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to regenerate this class.
 	 */
+	public static int addReplyMessage(com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+
+		return getService().addReplyMessage(msg);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -47,22 +53,23 @@ public class SrvReqMsgsLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
+	public static java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage> getServiceRequestMessageListbyRefNo(
+			String referenceNo) {
+
+		return getService().getServiceRequestMessageListbyRefNo(referenceNo);
+	}
+
 	public static SrvReqMsgsLocalService getService() {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker
-		<SrvReqMsgsLocalService, SrvReqMsgsLocalService> _serviceTracker;
+	private static ServiceTracker<SrvReqMsgsLocalService, SrvReqMsgsLocalService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SrvReqMsgsLocalService.class);
 
-		ServiceTracker<SrvReqMsgsLocalService, SrvReqMsgsLocalService>
-			serviceTracker =
-				new ServiceTracker
-					<SrvReqMsgsLocalService, SrvReqMsgsLocalService>(
-						bundle.getBundleContext(), SrvReqMsgsLocalService.class,
-						null);
+		ServiceTracker<SrvReqMsgsLocalService, SrvReqMsgsLocalService> serviceTracker = new ServiceTracker<SrvReqMsgsLocalService, SrvReqMsgsLocalService>(
+				bundle.getBundleContext(), SrvReqMsgsLocalService.class, null);
 
 		serviceTracker.open();
 

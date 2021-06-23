@@ -23,13 +23,17 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqMsgsLocalService
  * @generated
  */
-public class SrvReqMsgsLocalServiceWrapper
-	implements ServiceWrapper<SrvReqMsgsLocalService>, SrvReqMsgsLocalService {
+public class SrvReqMsgsLocalServiceWrapper implements ServiceWrapper<SrvReqMsgsLocalService>, SrvReqMsgsLocalService {
 
-	public SrvReqMsgsLocalServiceWrapper(
-		SrvReqMsgsLocalService srvReqMsgsLocalService) {
+	public SrvReqMsgsLocalServiceWrapper(SrvReqMsgsLocalService srvReqMsgsLocalService) {
 
 		_srvReqMsgsLocalService = srvReqMsgsLocalService;
+	}
+
+	@Override
+	public int addReplyMessage(com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+
+		return _srvReqMsgsLocalService.addReplyMessage(msg);
 	}
 
 	/**
@@ -43,13 +47,19 @@ public class SrvReqMsgsLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage> getServiceRequestMessageListbyRefNo(
+			String referenceNo) {
+
+		return _srvReqMsgsLocalService.getServiceRequestMessageListbyRefNo(referenceNo);
+	}
+
+	@Override
 	public SrvReqMsgsLocalService getWrappedService() {
 		return _srvReqMsgsLocalService;
 	}
 
 	@Override
-	public void setWrappedService(
-		SrvReqMsgsLocalService srvReqMsgsLocalService) {
+	public void setWrappedService(SrvReqMsgsLocalService srvReqMsgsLocalService) {
 
 		_srvReqMsgsLocalService = srvReqMsgsLocalService;
 	}

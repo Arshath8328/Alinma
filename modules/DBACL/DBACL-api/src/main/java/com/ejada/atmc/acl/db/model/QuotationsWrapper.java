@@ -833,6 +833,20 @@ public class QuotationsWrapper
 	}
 
 	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getBodyTypeAr() {
+		return model.getBodyTypeAr();
+	}
+
+	@Override
+	public String getBodyTypeEn() {
+		return model.getBodyTypeEn();
+	}
+
+	/**
 	 * Returns the city of this quotations.
 	 *
 	 * @return the city of this quotations
@@ -840,6 +854,24 @@ public class QuotationsWrapper
 	@Override
 	public String getCity() {
 		return model.getCity();
+	}
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getColorDescAr() {
+		return model.getColorDescAr();
+	}
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getColorDescEn() {
+		return model.getColorDescEn();
 	}
 
 	/**
@@ -1103,6 +1135,38 @@ public class QuotationsWrapper
 	}
 
 	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getMakeDescAr() {
+		return model.getMakeDescAr();
+	}
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getMakeDescEn() {
+		return model.getMakeDescEn();
+	}
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getModelAr() {
+		return model.getModelAr();
+	}
+
+	@Override
+	public String getModelEn() {
+		return model.getModelEn();
+	}
+
+	/**
 	 * Returns the ncd years of this quotations.
 	 *
 	 * @return the ncd years of this quotations
@@ -1290,6 +1354,26 @@ public class QuotationsWrapper
 	@Override
 	public String getPurposeOfVehicle() {
 		return model.getPurposeOfVehicle();
+	}
+
+	@Override
+	public String getPurposeVehicleDesc() {
+		return model.getPurposeVehicleDesc();
+	}
+
+	@Override
+	public String getPurposeVehicleDescAr() {
+		return model.getPurposeVehicleDescAr();
+	}
+
+	@Override
+	public java.util.List<QuotationCovers> getQuotationCovers() {
+		return model.getQuotationCovers();
+	}
+
+	@Override
+	public QuotationDrivers getQuotationDriver() {
+		return model.getQuotationDriver();
 	}
 
 	/**
@@ -1630,6 +1714,20 @@ public class QuotationsWrapper
 	@Override
 	public String getVehiclePlateType() {
 		return model.getVehiclePlateType();
+	}
+
+	/**
+	 * @return String
+	 * @see
+	 */
+	@Override
+	public String getVehiclePlateTypeDescAr() {
+		return model.getVehiclePlateTypeDescAr();
+	}
+
+	@Override
+	public String getVehiclePlateTypeDescEn() {
+		return model.getVehiclePlateTypeDescEn();
 	}
 
 	/**

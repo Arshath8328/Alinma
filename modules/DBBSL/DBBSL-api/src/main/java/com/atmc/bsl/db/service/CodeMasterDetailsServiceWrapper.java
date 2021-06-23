@@ -24,36 +24,30 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class CodeMasterDetailsServiceWrapper
-	implements CodeMasterDetailsService,
-			   ServiceWrapper<CodeMasterDetailsService> {
+		implements CodeMasterDetailsService, ServiceWrapper<CodeMasterDetailsService> {
 
-	public CodeMasterDetailsServiceWrapper(
-		CodeMasterDetailsService codeMasterDetailsService) {
+	public CodeMasterDetailsServiceWrapper(CodeMasterDetailsService codeMasterDetailsService) {
 
 		_codeMasterDetailsService = codeMasterDetailsService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-				getByCodeCodeFreez(String code, String codeFreezYN)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getByCodeCodeFreez(
+			String code, String codeFreezYN) throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _codeMasterDetailsService.getByCodeCodeFreez(code, codeFreezYN);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCodeMasterList(String code, String locale) {
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCodeMasterList(
+			String code, String locale) {
 
 		return _codeMasterDetailsService.getCodeMasterList(code, locale);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
-			getCustomCodes(String code) {
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>> getCustomCodes(
+			String code) {
 
 		return _codeMasterDetailsService.getCustomCodes(code);
 	}
@@ -69,8 +63,7 @@ public class CodeMasterDetailsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
-		getQuickQuoteData(String locale) {
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>> getQuickQuoteData(String locale) {
 
 		return _codeMasterDetailsService.getQuickQuoteData(locale);
 	}
@@ -81,8 +74,7 @@ public class CodeMasterDetailsServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		CodeMasterDetailsService codeMasterDetailsService) {
+	public void setWrappedService(CodeMasterDetailsService codeMasterDetailsService) {
 
 		_codeMasterDetailsService = codeMasterDetailsService;
 	}

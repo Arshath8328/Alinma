@@ -132,6 +132,16 @@ public class QuotationCoversWrapper
 		return model.getCoverCode();
 	}
 
+	@Override
+	public String getCoverDescAr(long productCode) {
+		return model.getCoverDescAr(productCode);
+	}
+
+	@Override
+	public String getCoverDescEn(long productCode) {
+		return model.getCoverDescEn(productCode);
+	}
+
 	/**
 	 * Returns the cover eff from date of this quotation covers.
 	 *
@@ -150,6 +160,16 @@ public class QuotationCoversWrapper
 	@Override
 	public Date getCoverEffToDate() {
 		return model.getCoverEffToDate();
+	}
+
+	@Override
+	public String getCoverNameAr(long productCode) {
+		return model.getCoverNameAr(productCode);
+	}
+
+	@Override
+	public String getCoverNameEn(long productCode) {
+		return model.getCoverNameEn(productCode);
 	}
 
 	/**

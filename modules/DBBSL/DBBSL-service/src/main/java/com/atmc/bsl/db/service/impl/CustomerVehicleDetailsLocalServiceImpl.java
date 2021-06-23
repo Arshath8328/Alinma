@@ -19,26 +19,17 @@ import com.atmc.bsl.db.domain.quotation.QuotationDriver;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 import com.atmc.bsl.db.service.base.CustomerVehicleDetailsLocalServiceBaseImpl;
-import com.ejada.atmc.acl.db.exception.NoSuchAtmcYakeenMakeModelException;
-import com.ejada.atmc.acl.db.exception.NoSuchYakeenDataSaveException;
-import com.ejada.atmc.acl.db.model.AtmcYakeenMakeModel;
-import com.ejada.atmc.acl.db.model.CodeMasterMap;
-import com.ejada.atmc.acl.db.model.YakeenDataSave;
-import com.ejada.atmc.acl.db.service.AtmcYakeenMakeModelLocalServiceUtil;
-import com.ejada.atmc.acl.db.service.CodeMasterMapLocalServiceUtil;
-import com.ejada.atmc.acl.db.service.YakeenDataSaveLocalServiceUtil;
-import com.ejada.atmc.acl.ws.domain.NCDEligibility;
-import com.ejada.atmc.acl.ws.domain.yakeen.*;
-import com.ejada.atmc.acl.ws.service.NajmLocalServiceUtil;
-import com.ejada.atmc.acl.ws.service.YakeenLocalServiceUtil;
+
 import com.liferay.portal.aop.AopService;
-import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.util.PropsUtil;
+
 import org.osgi.service.component.annotations.Component;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+import java.io.StringReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBContext;
@@ -48,34 +39,53 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
-import java.io.StringReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import com.ejada.atmc.acl.db.exception.NoSuchAtmcYakeenMakeModelException;
+import com.ejada.atmc.acl.db.exception.NoSuchYakeenDataSaveException;
+import com.ejada.atmc.acl.db.model.AtmcYakeenMakeModel;
+import com.ejada.atmc.acl.db.model.CodeMasterMap;
+import com.ejada.atmc.acl.db.model.YakeenDataSave;
+import com.ejada.atmc.acl.db.service.AtmcYakeenMakeModelLocalServiceUtil;
+import com.ejada.atmc.acl.db.service.CodeMasterMapLocalServiceUtil;
+import com.ejada.atmc.acl.db.service.YakeenDataSaveLocalServiceUtil;
+import com.ejada.atmc.acl.ws.domain.NCDEligibility;
+import com.ejada.atmc.acl.ws.domain.yakeen.AddressInfo;
+import com.ejada.atmc.acl.ws.domain.yakeen.AlienInfo;
+import com.ejada.atmc.acl.ws.domain.yakeen.BasicCarInfo;
+import com.ejada.atmc.acl.ws.domain.yakeen.CarInfo;
+import com.ejada.atmc.acl.ws.domain.yakeen.CitizenInfo;
+import com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest;
+import com.ejada.atmc.acl.ws.service.NajmLocalServiceUtil;
+import com.ejada.atmc.acl.ws.service.YakeenLocalServiceUtil;
+import com.atmc.bsl.db.service.base.CustomerVehicleDetailsLocalServiceBaseImpl;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
 
 /**
  * The implementation of the customer vehicle details local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.CustomerVehicleDetailsLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.CustomerVehicleDetailsLocalService</code>
+ * interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see CustomerVehicleDetailsLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.CustomerVehicleDetails",
-	service = AopService.class
-)
-public class CustomerVehicleDetailsLocalServiceImpl
-	extends CustomerVehicleDetailsLocalServiceBaseImpl {
-
+@Component(property = "model.class.name=com.atmc.bsl.db.model.CustomerVehicleDetails", service = AopService.class)
+public class CustomerVehicleDetailsLocalServiceImpl extends CustomerVehicleDetailsLocalServiceBaseImpl {
 	public static final String VEHICLE_ISTIMARA_CARD = "1";
 	public static final String VEHICLE_CUSTOM_CARD = "2";
 	public static final String VEHICLE_TRANSFER_OWNERSHIP_CARD = "3";
@@ -111,48 +121,46 @@ public class CustomerVehicleDetailsLocalServiceImpl
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.CustomerVehicleDetailsLocalServiceUtil} to access the customer vehicle details local service.
+	 * Never reference this class directly. Always use {@link
+	 * com.ejada.atmc.bsl.db.service.CustomerVehicleDetailsLocalServiceUtil} to
+	 * access the customer vehicle details local service.
 	 */
-	public AlienInfo getAlienInfoByIqama(ServiceRequest svcRequest, String iqamaNumber, String sponsorId)
-	{
+	public AlienInfo getAlienInfoByIqama(ServiceRequest svcRequest, String iqamaNumber, String sponsorId) {
 		return YakeenLocalServiceUtil.getAlienInfoByIqama(svcRequest, iqamaNumber, sponsorId);
 	}
 
-	public CitizenInfo getCitizenInfo(ServiceRequest svcRequest, String dateOfBirthH, String nin)
-	{
+	public CitizenInfo getCitizenInfo(ServiceRequest svcRequest, String dateOfBirthH, String nin) {
 		return YakeenLocalServiceUtil.getCitizenInfo(svcRequest, dateOfBirthH, nin);
 	}
 
-	public BasicCarInfo getCarInfoByCustom(ServiceRequest svcRequest, String customCardNumber, short modelYear)
-	{
+	public BasicCarInfo getCarInfoByCustom(ServiceRequest svcRequest, String customCardNumber, short modelYear) {
 		return YakeenLocalServiceUtil.getCarInfoByCustom(svcRequest, customCardNumber, modelYear);
 	}
 
-	public CarInfo getCitizenCarInfoBySequence(ServiceRequest svcRequest, int sequenceNumber, long ownerNin)
-	{
+	public CarInfo getCitizenCarInfoBySequence(ServiceRequest svcRequest, int sequenceNumber, long ownerNin) {
 		return YakeenLocalServiceUtil.getCitizenCarInfoBySequence(svcRequest, sequenceNumber, ownerNin);
 	}
 
-	public CarInfo getAlienCarInfoBySequence(ServiceRequest svcRequest,int sequenceNumber, long ownerIqamaNumber)
-	{
+	public CarInfo getAlienCarInfoBySequence(ServiceRequest svcRequest, int sequenceNumber, long ownerIqamaNumber) {
 		return YakeenLocalServiceUtil.getAlienCarInfoBySequence(svcRequest, sequenceNumber, ownerIqamaNumber);
 	}
 
-	public Quotation getCustomerVehicleDetails(Quotation quot, String addLang, Locale locale) throws YaqeenException, NajmException
-	{
+	public Quotation getCustomerVehicleDetails(Quotation quot, String addLang, Locale locale)
+			throws YaqeenException, NajmException {
 		SimpleDateFormat yakeenCarDateFormat = new SimpleDateFormat("dd-MM-YYYY");
-		//SimpleDateFormat yakeenAddressHijriDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		// SimpleDateFormat yakeenAddressHijriDateFormat = new
+		// SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat yakeenAddressGregDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		String[] bodyTypes = {"011", "012", "013", "014","406","407","408","409"};
+		String[] bodyTypes = { "011", "012", "013", "014", "406", "407", "408", "409" };
 
 		List<String> bodyTypeList = Arrays.asList(bodyTypes);
-		String vehicleIdentifier = ""+quot.getVehicleIdType();
-		String iqamaId = ""+quot.getInsuredId();
+		String vehicleIdentifier = "" + quot.getVehicleIdType();
+		String iqamaId = "" + quot.getInsuredId();
 		String dobH = quot.getInsuredDobH();
-		String vehSeqNo = ""+quot.getVehicleId();
+		String vehSeqNo = "" + quot.getVehicleId();
 		String dobG = dateFormat.format(quot.getInsuredDob());
 		quot.setInsuredNationality("03");
-		String mfgYear = ""+quot.getVehicleMfgYear();
+		String mfgYear = "" + quot.getVehicleMfgYear();
 		String addressDobHFormatted = "";
 		String addressDobGFormatted = "";
 		String dobHFormatted = "";
@@ -162,46 +170,45 @@ public class CustomerVehicleDetailsLocalServiceImpl
 		JAXBContext jaxbContext;
 		CitizenInfo savedCitizenInfo = null;
 
-		//NCD always retrieved from Najm service
-		//Kareem Kahil 14/8/2018: As requested by Noman, in case of Transfer of Ownership, we should pass the value 1 to ncdElegibility service not 3. Confirmed by Arqum that
+		// NCD always retrieved from Najm service
+		// Kareem Kahil 14/8/2018: As requested by Noman, in case of Transfer of
+		// Ownership, we should pass the value 1 to ncdElegibility service not 3.
+		// Confirmed by Arqum that
 		// it should be that in design doc
 		String vehicleIdentifierNajm = vehicleIdentifier;
 
-		if(vehicleIdentifierNajm.equals("3"))   //BuyMotorPolicyPortletKeys.VEHICLE_TRANSFER_OWNERSHIP_CARD
+		if (vehicleIdentifierNajm.equals("3")) // BuyMotorPolicyPortletKeys.VEHICLE_TRANSFER_OWNERSHIP_CARD
 		{
 			vehicleIdentifierNajm = "1";
 		}
 
 		_log.info("Invoking NDCEligibility opt");
 		long s1Time = System.currentTimeMillis();
-		NCDEligibility ncdRes = NajmLocalServiceUtil.ncdEligibility(Long.valueOf(iqamaId), Integer.valueOf(vehicleIdentifierNajm), Long.valueOf(vehSeqNo));
+		NCDEligibility ncdRes = NajmLocalServiceUtil.ncdEligibility(Long.valueOf(iqamaId),
+				Integer.valueOf(vehicleIdentifierNajm), Long.valueOf(vehSeqNo));
 		_log.info("Back from NCDELigibility");
 		long period1 = System.currentTimeMillis() - s1Time;
 		_log.info("ncdEligibility took " + period1 + " ms");
 		_log.info(ncdRes);
-		if(ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS))
-		{
+		if (ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS)) {
 			_log.info("Najm status code:" + ncdRes.getStatusCode());
-			if(ncdRes.getNCDFreeYears()!=null)
-			{
+			if (ncdRes.getNCDFreeYears() != null) {
 				_log.info("Najm NCD Returned:" + ncdRes.getNCDFreeYears());
 				quot.setNcdYears(Long.valueOf(ncdRes.getNCDFreeYears()));
 			}
-		}
-		else
+		} else
 			throw new NajmException(Integer.valueOf(ncdRes.getStatusCode()), ncdRes.getErrorMsg());
 
-		try
-		{
-			//Date hijriDob = dateFormat.parse(dobH);
+		try {
+			// Date hijriDob = dateFormat.parse(dobH);
 			Date gregDob = dateFormat.parse(dobG);
-			dobHFormatted =  (dobH!=null && !dobH.equals(""))?(dobH.split("-")[1]+"-"+dobH.split("-")[0]):null;
-			addressDobHFormatted = (dobH!=null && !dobH.equals(""))?(dobH.split("-")[2]+"-"+dobH.split("-")[1]+"-"+dobH.split("-")[0]):null;
-			dobGFormatted =  yakeenHijriDateFormat.format(gregDob);
+			dobHFormatted = (dobH != null && !dobH.equals("")) ? (dobH.split("-")[1] + "-" + dobH.split("-")[0]) : null;
+			addressDobHFormatted = (dobH != null && !dobH.equals(""))
+					? (dobH.split("-")[2] + "-" + dobH.split("-")[1] + "-" + dobH.split("-")[0])
+					: null;
+			dobGFormatted = yakeenHijriDateFormat.format(gregDob);
 			addressDobGFormatted = yakeenAddressGregDateFormat.format(gregDob);
-		}
-		catch (ParseException e)
-		{
+		} catch (ParseException e) {
 			e.printStackTrace();
 			_log.error(e.getMessage());
 		}
@@ -211,8 +218,7 @@ public class CustomerVehicleDetailsLocalServiceImpl
 		req.setPassword(yaqeenPassword);
 		req.setReferenceNumber(yaqeenRefNo);
 		req.setChargeCode(yaqeenChargeCode);
-		if(iqamaId.startsWith("1"))
-		{
+		if (iqamaId.startsWith("1")) {
 			quot.setInsuredIdType(ID_TYPE_SAUDI);
 			_log.info("Yakeen ServiceRequest 1 >>>> " + req.toString());
 			_log.info("dobHFormatted >>>> " + dobHFormatted);
@@ -221,7 +227,8 @@ public class CustomerVehicleDetailsLocalServiceImpl
 			CitizenInfo citizenInfo;
 			_log.info("Invoking getCitizenInfo");
 			try {
-				yakeenDataSave = YakeenDataSaveLocalServiceUtil.findByiqamaStatusServiceName("CitizenInfo", "0",iqamaId);
+				yakeenDataSave = YakeenDataSaveLocalServiceUtil.findByiqamaStatusServiceName("CitizenInfo", "0",
+						iqamaId);
 			} catch (NoSuchYakeenDataSaveException e) {
 				_log.info("Citizen info not found for the iqama id in the database" + iqamaId);
 				e.getMessage();
@@ -232,11 +239,11 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 					spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 
-					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(), new InputSource(new StringReader(yakeenDataSave.getServiceOutput())));
+					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(),
+							new InputSource(new StringReader(yakeenDataSave.getServiceOutput())));
 					JAXBContext jc = JAXBContext.newInstance(CitizenInfo.class);
 					Unmarshaller um = jc.createUnmarshaller();
 					savedCitizenInfo = (CitizenInfo) um.unmarshal(xmlSource);
-
 
 //					jaxbContext = JAXBContext.newInstance(CitizenInfo.class);
 //					Unmarshaller jaxbMarshaller = jaxbContext.createUnmarshaller();
@@ -251,102 +258,107 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					throw new YaqeenException(savedCitizenInfo.getErrorCode(),
 							LanguageUtil.get(locale, "yaqeen_error_" + savedCitizenInfo.getErrorCode()));
 				}
-				quot.setInsuredName(savedCitizenInfo.getEnglishFirstName() + " " + savedCitizenInfo.getEnglishSecondName() + " "+ savedCitizenInfo.getEnglishThirdName() + " " + savedCitizenInfo.getEnglishLastName());
+				quot.setInsuredName(
+						savedCitizenInfo.getEnglishFirstName() + " " + savedCitizenInfo.getEnglishSecondName() + " "
+								+ savedCitizenInfo.getEnglishThirdName() + " " + savedCitizenInfo.getEnglishLastName());
 				quot.setInsuredGender(savedCitizenInfo.getGender());
 				quot.setInsuredOccupationCode(savedCitizenInfo.getOccupationCode());
-
 
 				/*---------------------------------------------------*/
 				_log.info("Invoking getCitizenAddress");
 				long sTime = System.currentTimeMillis();
-				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getCitizenAddressInfo(req, iqamaId, addressDobHFormatted, addLang);
+				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getCitizenAddressInfo(req, iqamaId,
+						addressDobHFormatted, addLang);
 				_log.info("Back from getCitizenAddress");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getCitizenAddressInfo took " + period + " ms");
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
 						AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							quot.setAddressBuildingNo((info.getBuildingNumber()!=null)?Long.valueOf(info.getBuildingNumber()):0L);
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							quot.setAddressZipCode((info.getPostCode()!=null)?Long.valueOf(info.getPostCode()):0L);
-							quot.setAddressAddNo((info.getAdditionalNumber()!=null)?Long.valueOf(info.getAdditionalNumber()):0L);
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+						else {
+							quot.setAddressBuildingNo(
+									(info.getBuildingNumber() != null) ? Long.valueOf(info.getBuildingNumber()) : 0L);
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							quot.setAddressZipCode(
+									(info.getPostCode() != null) ? Long.valueOf(info.getPostCode()) : 0L);
+							quot.setAddressAddNo(
+									(info.getAdditionalNumber() != null) ? Long.valueOf(info.getAdditionalNumber())
+											: 0L);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
-					{
+					} else {
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 
 					}
 				}
 				/*--------------------------------------------*/
 
-			}
-			else
-			{
+			} else {
 				citizenInfo = YakeenLocalServiceUtil.getCitizenInfo(req, dobHFormatted, iqamaId);
 				_log.info("Back from getCitizenInfo");
 				long period2 = System.currentTimeMillis() - s2Time;
 				_log.info("getCitizenInfo took " + period2 + " ms");
 
-				if(citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenInfo.getErrorCode()));
-				}
-				else
-				{
-					quot.setInsuredName(citizenInfo.getEnglishFirstName()+" "+citizenInfo.getEnglishSecondName()+" "+citizenInfo.getEnglishThirdName()+" "+citizenInfo.getEnglishLastName());
+				if (citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage() != null) {
+					throw new YaqeenException(citizenInfo.getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenInfo.getErrorCode()));
+				} else {
+					quot.setInsuredName(citizenInfo.getEnglishFirstName() + " " + citizenInfo.getEnglishSecondName()
+							+ " " + citizenInfo.getEnglishThirdName() + " " + citizenInfo.getEnglishLastName());
 					quot.setInsuredGender(citizenInfo.getGender());
 					quot.setInsuredOccupationCode(citizenInfo.getOccupationCode());
 
 				}
 				_log.info("Invoking getCitizenAddress");
 				long sTime = System.currentTimeMillis();
-				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getCitizenAddressInfo(req, iqamaId, addressDobHFormatted, addLang);
+				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getCitizenAddressInfo(req, iqamaId,
+						addressDobHFormatted, addLang);
 				_log.info("Back from getCitizenAddress");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getCitizenAddressInfo took " + period + " ms");
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
 						AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							quot.setAddressBuildingNo((info.getBuildingNumber()!=null)?Long.valueOf(info.getBuildingNumber()):0L);
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							quot.setAddressZipCode((info.getPostCode()!=null)?Long.valueOf(info.getPostCode()):0L);
-							quot.setAddressAddNo((info.getAdditionalNumber()!=null)?Long.valueOf(info.getAdditionalNumber()):0L);
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+						else {
+							quot.setAddressBuildingNo(
+									(info.getBuildingNumber() != null) ? Long.valueOf(info.getBuildingNumber()) : 0L);
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							quot.setAddressZipCode(
+									(info.getPostCode() != null) ? Long.valueOf(info.getPostCode()) : 0L);
+							quot.setAddressAddNo(
+									(info.getAdditionalNumber() != null) ? Long.valueOf(info.getAdditionalNumber())
+											: 0L);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
-					{
+					} else {
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 
 					}
 				}
-			}}
-		else
-		{
+			}
+		} else {
 			quot.setInsuredIdType(ID_TYPE_IQAMA);
 			_log.info("Invoking  getAlienInfoByIqamaDOB");
 			long sTime = System.currentTimeMillis();
@@ -362,11 +374,11 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 					spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 
-					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(), new InputSource(new StringReader(yakeenDataSave.getServiceOutput())));
+					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(),
+							new InputSource(new StringReader(yakeenDataSave.getServiceOutput())));
 					JAXBContext jc = JAXBContext.newInstance(AlienInfo.class);
 					Unmarshaller um = jc.createUnmarshaller();
 					savedCitizenInfo = (AlienInfo) um.unmarshal(xmlSource);
-
 
 //					jaxbContext = JAXBContext.newInstance(AlienInfo.class);
 //					Unmarshaller jaxbMarshaller = jaxbContext.createUnmarshaller();
@@ -390,133 +402,135 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				/*----------------------------------------*/
 				_log.info("Invoking getAlienAddress");
 				long s3Time = System.currentTimeMillis();
-				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getAlienAddressInfo(req, iqamaId, addressDobGFormatted, addLang);
+				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getAlienAddressInfo(req, iqamaId,
+						addressDobGFormatted, addLang);
 				_log.info("Back from getAlienAddress");
 				long period3 = System.currentTimeMillis() - s3Time;
 				_log.info("getAlienAddressInfo took " + period3 + " ms");
 
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
 						AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							if(info.getBuildingNumber() !=null)
+						else {
+							if (info.getBuildingNumber() != null)
 								quot.setAddressBuildingNo(Long.valueOf(info.getBuildingNumber()));
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							if(info.getPostCode()!=null )
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							if (info.getPostCode() != null)
 								quot.setAddressZipCode(Long.valueOf(info.getPostCode()));
-							if(info.getAdditionalNumber()!=null)
+							if (info.getAdditionalNumber() != null)
 								quot.setAddressAddNo(Long.valueOf(info.getAdditionalNumber()));
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
+					} else
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 				}
 				/*----------------------------------------*/
-			}
-			else{
+			} else {
 				AlienInfo custInfo = YakeenLocalServiceUtil.getAlienInfoByIqamaAndDOB(req, iqamaId, dobGFormatted);
 				_log.info("Back from getAlienInfoByIqamaDOB");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getAlienInfoByIqamaAndDOB took " + period + " ms");
-				if(custInfo.getErrorCode() != 0 && custInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(custInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+custInfo.getErrorCode()));
-				}
-				else
-				{
+				if (custInfo.getErrorCode() != 0 && custInfo.getErrorMessage() != null) {
+					throw new YaqeenException(custInfo.getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + custInfo.getErrorCode()));
+				} else {
 					long s2Time = System.currentTimeMillis();
-					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, ""+custInfo.getNationalityCode());
+					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil
+							.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, "" + custInfo.getNationalityCode());
 					long period2 = System.currentTimeMillis() - s2Time;
 					_log.info("Nationality Lookup took " + period2 + " ms");
-					String transformedNationality = (natMap!=null)?natMap.getCoreCode():"";
+					String transformedNationality = (natMap != null) ? natMap.getCoreCode() : "";
 					quot.setInsuredNationality(transformedNationality);
-					quot.setInsuredName(custInfo.getEnglishFirstName()+" "+custInfo.getEnglishSecondName()+" "+custInfo.getEnglishThirdName()+" "+custInfo.getEnglishLastName());
+					quot.setInsuredName(custInfo.getEnglishFirstName() + " " + custInfo.getEnglishSecondName() + " "
+							+ custInfo.getEnglishThirdName() + " " + custInfo.getEnglishLastName());
 					quot.setInsuredGender(custInfo.getGender());
 					quot.setInsuredOccupationCode(custInfo.getOccupationCode());
-					quot.setInsuredMaritalStatus(""+custInfo.getSocialStatusCode());
+					quot.setInsuredMaritalStatus("" + custInfo.getSocialStatusCode());
 				}
 				_log.info("Invoking getAlienAddress");
 				long s3Time = System.currentTimeMillis();
-				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getAlienAddressInfo(req, iqamaId, addressDobGFormatted, addLang);
+				List<AddressInfo> citizenAddrInfo = YakeenLocalServiceUtil.getAlienAddressInfo(req, iqamaId,
+						addressDobGFormatted, addLang);
 				_log.info("Back from getAlienAddress");
 				long period3 = System.currentTimeMillis() - s3Time;
 				_log.info("getAlienAddressInfo took " + period3 + " ms");
 
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
 						AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							if(info.getBuildingNumber() !=null)
+						else {
+							if (info.getBuildingNumber() != null)
 								quot.setAddressBuildingNo(Long.valueOf(info.getBuildingNumber()));
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							if(info.getPostCode()!=null )
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							if (info.getPostCode() != null)
 								quot.setAddressZipCode(Long.valueOf(info.getPostCode()));
-							if(info.getAdditionalNumber()!=null)
+							if (info.getAdditionalNumber() != null)
 								quot.setAddressAddNo(Long.valueOf(info.getAdditionalNumber()));
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
+					} else
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 				}
 			}
 		}
 
-		if(vehicleIdentifier.equals(VEHICLE_CUSTOM_CARD))
-		{
+		if (vehicleIdentifier.equals(VEHICLE_CUSTOM_CARD)) {
 
 			_log.info("Invoking getCarInfoByCustom");
 			long sTime = System.currentTimeMillis();
-			BasicCarInfo carInfo = YakeenLocalServiceUtil.getCarInfoByCustom(req, vehSeqNo, Short.valueOf(mfgYear)); //getCarInfoByCustom
+			BasicCarInfo carInfo = YakeenLocalServiceUtil.getCarInfoByCustom(req, vehSeqNo, Short.valueOf(mfgYear)); // getCarInfoByCustom
 			_log.info("Back from getCarInfoByCustom");
 			long period = System.currentTimeMillis() - sTime;
 			_log.info("getCarInfoByCustom took " + period + " ms");
-			if(carInfo.getErrorCode() != 0 && carInfo.getErrorMessage()!=null)
-			{
-				throw new YaqeenException(carInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+carInfo.getErrorCode()));
-			}
-			else
-			{
+			if (carInfo.getErrorCode() != 0 && carInfo.getErrorMessage() != null) {
+				throw new YaqeenException(carInfo.getErrorCode(),
+						LanguageUtil.get(locale, "yaqeen_error_" + carInfo.getErrorCode()));
+			} else {
 				long s2Time = System.currentTimeMillis();
-				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR, carInfo.getMajorColor());
-				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = "+carInfo.getVehicleMakerCode()+"and model Code =  "+carInfo.getVehicleModelCode());
+				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR,
+						carInfo.getMajorColor());
+				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = " + carInfo.getVehicleMakerCode()
+						+ "and model Code =  " + carInfo.getVehicleModelCode());
 				try {
-					atmcYakeenMakeModel = 	 AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())), String.valueOf(carInfo.getVehicleModelCode()));
+					atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(
+							String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())),
+							String.valueOf(carInfo.getVehicleModelCode()));
 				} catch (NoSuchAtmcYakeenMakeModelException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				_log.info("recieved card details "+atmcYakeenMakeModel);
-				String transformedVehicleColor = (vehColorMap!=null)?vehColorMap.getCoreCode():null;
+				_log.info("recieved card details " + atmcYakeenMakeModel);
+				String transformedVehicleColor = (vehColorMap != null) ? vehColorMap.getCoreCode() : null;
 
-				quot.setVehicleBodyType(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaBodyTypeId() : "" );
+				quot.setVehicleBodyType(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaBodyTypeId() : "");
 				quot.setVehicleBodyTypeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
 				quot.setVehicleBodyTypeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
-				quot.setVehicleMake( atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaMakeId() : ""  );
-				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc(): "");
+				quot.setVehicleMake(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaMakeId() : "");
+				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
 				quot.setVehicleMakeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
-				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "" );
+				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "");
 				quot.setVehicleModelEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelEnglish() : "");
 				quot.setVehicleModelAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelArabic() : "");
 				quot.setVehicleChassisNo(carInfo.getChassisNumber());
@@ -525,29 +539,28 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				quot.setVehicleWeight(carInfo.getVehicleWeight());
 				quot.setVehicleCapacity(carInfo.getVehicleLoad());
 
-
-				//quot.setVehicleCylinder(carInfo.getCylinders());
-				//quot.setVehicleEstExpiryDate(dateFormat.parse(carInfo.getRegExpiryDate()));
-				//quot.setCity(""+carInfo.getRegCityLocationCode());
+				// quot.setVehicleCylinder(carInfo.getCylinders());
+				// quot.setVehicleEstExpiryDate(dateFormat.parse(carInfo.getRegExpiryDate()));
+				// quot.setCity(""+carInfo.getRegCityLocationCode());
 			}
-		}
-		else if(vehicleIdentifier.equals(VEHICLE_ISTIMARA_CARD) || vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
-		{
+		} else if (vehicleIdentifier.equals(VEHICLE_ISTIMARA_CARD)
+				|| vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) {
 			CarInfo savedCarInfo = null;
 			YakeenDataSave citizenCarInfoLocalData = null;
 			com.ejada.atmc.acl.ws.domain.yakeen.CarInfo carInfo = null;
 			long vSeqVal = Long.valueOf(vehSeqNo);
 			if (vSeqVal < Integer.MIN_VALUE || vSeqVal > Integer.MAX_VALUE) {
-				System.err.println("vehSeqNo:"+vehSeqNo + " cannot be cast to int without changing its value.");
+				System.err.println("vehSeqNo:" + vehSeqNo + " cannot be cast to int without changing its value.");
 			}
-			if(iqamaId.startsWith("1"))
-			{
+			if (iqamaId.startsWith("1")) {
 				//// Ahmed AE Fattah : 14-04-2018
-				//// As per Khatib's Mail To send the OLD Iqama/ID in case of transfer ownership to get his info as he is the current owner of the CAR
+				//// As per Khatib's Mail To send the OLD Iqama/ID in case of transfer ownership
+				//// to get his info as he is the current owner of the CAR
 				String oldIqama = iqamaId;
 				_log.info("vehicleIdentifier >>>>> " + vehicleIdentifier);
 				_log.info("iqamaId Before >>>>> " + oldIqama);
-				if(vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) oldIqama = quot.getOldIqamaId();
+				if (vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
+					oldIqama = quot.getOldIqamaId();
 				_log.info("iqamaId After >>>>> " + oldIqama);
 
 				_log.info("Invoking getCitizenCarBySequence");
@@ -558,9 +571,11 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 					spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 
-					citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByIqamaSequence(oldIqama,String.valueOf(vSeqVal), "CitizenCarInfoBySequence", "0");
-					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(), new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
-					JAXBContext jc = JAXBContext.newInstance(BasicCarInfo.class,CarInfo.class);
+					citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByIqamaSequence(oldIqama,
+							String.valueOf(vSeqVal), "CitizenCarInfoBySequence", "0");
+					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(),
+							new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
+					JAXBContext jc = JAXBContext.newInstance(BasicCarInfo.class, CarInfo.class);
 					Unmarshaller um = jc.createUnmarshaller();
 					savedCarInfo = (CarInfo) um.unmarshal(xmlSource);
 
@@ -570,40 +585,40 @@ public class CustomerVehicleDetailsLocalServiceImpl
 //					StringReader st = new StringReader(citizenCarInfoLocalData.getServiceOutput());
 //					savedCarInfo = (CarInfo) jaxbMarshaller.unmarshal(st);
 					_log.info(" unmarshelling completed  >>>>>>>>>>>>");
-				}
-				catch ( NoSuchYakeenDataSaveException | JAXBException | ParserConfigurationException | SAXException  e) {
+				} catch (NoSuchYakeenDataSaveException | JAXBException | ParserConfigurationException
+						| SAXException e) {
 					e.printStackTrace();
 				}
 				if (citizenCarInfoLocalData == null) {
-					carInfo = YakeenLocalServiceUtil.getCitizenCarInfoBySequence(req, (int)(vSeqVal), Long.valueOf(oldIqama));//getCitizenCarInfoBySequence
+					carInfo = YakeenLocalServiceUtil.getCitizenCarInfoBySequence(req, (int) (vSeqVal),
+							Long.valueOf(oldIqama));// getCitizenCarInfoBySequence
 					_log.info("Back from getCitizenCarBySequence");
 					long period = System.currentTimeMillis() - sTime;
 					_log.info("getCitizenCarBySequence took " + period + " ms");
 				}
-			}
-			else
-			{
+			} else {
 				String oldIqama = iqamaId;
 				_log.info("vehicleIdentifier >>>>> " + vehicleIdentifier);
 				_log.info("iqamaId Before >>>>> " + oldIqama);
-				if(vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) oldIqama = quot.getOldIqamaId();
+				if (vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
+					oldIqama = quot.getOldIqamaId();
 				_log.info("iqamaId After >>>>> " + oldIqama);
 
 				_log.info("Invoking getAlienCarSequence");
 				long sTime = System.currentTimeMillis();
-
 
 				try {
 					SAXParserFactory spf = SAXParserFactory.newInstance();
 					spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 					spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 
-					citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByIqamaSequence(oldIqama,String.valueOf(vSeqVal), "AlienCarInfoBySequence", "0");
-					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(), new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
-					JAXBContext jc = JAXBContext.newInstance(BasicCarInfo.class,CarInfo.class);
+					citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByIqamaSequence(oldIqama,
+							String.valueOf(vSeqVal), "AlienCarInfoBySequence", "0");
+					Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(),
+							new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
+					JAXBContext jc = JAXBContext.newInstance(BasicCarInfo.class, CarInfo.class);
 					Unmarshaller um = jc.createUnmarshaller();
 					savedCarInfo = (CarInfo) um.unmarshal(xmlSource);
-
 
 //					citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByIqamaSequence(oldIqama,String.valueOf(vSeqVal), "AlienCarInfoBySequence", "0");
 //					jaxbContext = JAXBContext.newInstance(BasicCarInfo.class,CarInfo.class);
@@ -612,21 +627,25 @@ public class CustomerVehicleDetailsLocalServiceImpl
 //					savedCarInfo = (CarInfo) jaxbMarshaller.unmarshal(st);
 					_log.info(" unmarshelling completed  >>>>>>>>>>>>");
 
-				} catch (NoSuchYakeenDataSaveException | JAXBException | SAXException | ParserConfigurationException e) {
+				} catch (NoSuchYakeenDataSaveException | JAXBException | SAXException
+						| ParserConfigurationException e) {
 					e.printStackTrace();
 				}
 
-
 				if (citizenCarInfoLocalData == null) {
-					carInfo = YakeenLocalServiceUtil.getAlienCarInfoBySequence(req, Integer.valueOf(vehSeqNo), Long.valueOf(oldIqama)); //getAlienCarInfoBySequence
+					carInfo = YakeenLocalServiceUtil.getAlienCarInfoBySequence(req, Integer.valueOf(vehSeqNo),
+							Long.valueOf(oldIqama)); // getAlienCarInfoBySequence
 				}
 
 			}
 			if (savedCarInfo != null) {
 				long sTime = System.currentTimeMillis();
-				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("COLOR",savedCarInfo.getMajorColor());
-				CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("CITY","" + savedCarInfo.getRegCityLocationCode());
-				CodeMasterMap vehPlateTypeMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("PLATE_TYPE","" + savedCarInfo.getPlateTypeCode());
+				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("COLOR",
+						savedCarInfo.getMajorColor());
+				CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("CITY",
+						"" + savedCarInfo.getRegCityLocationCode());
+				CodeMasterMap vehPlateTypeMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("PLATE_TYPE",
+						"" + savedCarInfo.getPlateTypeCode());
 				String transformedVehicleColor = vehColorMap != null ? vehColorMap.getCoreCode() : null;
 				String transformedCityCode = cityMap != null ? cityMap.getCoreCode() : null;
 				String transformedPlateType = vehPlateTypeMap != null ? vehPlateTypeMap.getCoreCode() : null;
@@ -634,10 +653,11 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				try {
 					_log.info("VEHICLE CARD INFO CALLING for Vehicle make = " + savedCarInfo.getVehicleMakerCode()
 							+ "and model Code =  " + savedCarInfo.getVehicleModelCode());
-					atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(String.valueOf(savedCarInfo.getVehicleMakerCode()),String.valueOf(savedCarInfo.getVehicleModelCode()));
+					atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(
+							String.valueOf(savedCarInfo.getVehicleMakerCode()),
+							String.valueOf(savedCarInfo.getVehicleModelCode()));
 					_log.info("recieved card details " + atmcYakeenMakeModel);
-				}
-				catch (NoSuchAtmcYakeenMakeModelException e) {
+				} catch (NoSuchAtmcYakeenMakeModelException e) {
 					// TODO: handle exception
 				}
 				quot.setVehiclePlateNo(savedCarInfo.getPlateNumber());
@@ -673,30 +693,32 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				quot.setVehicleColor(transformedVehicleColor);
 				quot.setVehicleNationality(atmcYakeenMakeModel.getEskaVehNationalityId());
 				quot.setVehicleCity(transformedCityCode);
-			}
-			else
-			{
-				if(carInfo.getErrorCode() != 0 && carInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(carInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+carInfo.getErrorCode()));
-				}
-				else
-				{
+			} else {
+				if (carInfo.getErrorCode() != 0 && carInfo.getErrorMessage() != null) {
+					throw new YaqeenException(carInfo.getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + carInfo.getErrorCode()));
+				} else {
 					long sTime = System.currentTimeMillis();
-					CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR, carInfo.getMajorColor());
-					CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_CITY, ""+carInfo.getRegCityLocationCode());
-					CodeMasterMap vehPlateTypeMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_PLATE_TYPE, ""+carInfo.getPlateTypeCode());
-					String transformedCityCode = (cityMap!=null)?cityMap.getCoreCode():null;
-					String transformedPlateType = (vehPlateTypeMap!=null)?vehPlateTypeMap.getCoreCode():null;
-					String plateDesc = (vehPlateTypeMap!=null)?vehPlateTypeMap.getCoreDesc():"";
-					String transformedVehicleColor = (vehColorMap!=null)?vehColorMap.getCoreCode():null;
-					_log.info("VEHICLE CARD INFO CALLING for Vehicle make = "+carInfo.getVehicleMakerCode()+"and model Code =  "+carInfo.getVehicleModelCode());
+					CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil
+							.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR, carInfo.getMajorColor());
+					CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_CITY,
+							"" + carInfo.getRegCityLocationCode());
+					CodeMasterMap vehPlateTypeMap = CodeMasterMapLocalServiceUtil
+							.findBySourceTypeSourceCode(ODS_SRC_TYPE_PLATE_TYPE, "" + carInfo.getPlateTypeCode());
+					String transformedCityCode = (cityMap != null) ? cityMap.getCoreCode() : null;
+					String transformedPlateType = (vehPlateTypeMap != null) ? vehPlateTypeMap.getCoreCode() : null;
+					String plateDesc = (vehPlateTypeMap != null) ? vehPlateTypeMap.getCoreDesc() : "";
+					String transformedVehicleColor = (vehColorMap != null) ? vehColorMap.getCoreCode() : null;
+					_log.info("VEHICLE CARD INFO CALLING for Vehicle make = " + carInfo.getVehicleMakerCode()
+							+ "and model Code =  " + carInfo.getVehicleModelCode());
 					try {
-						atmcYakeenMakeModel = 	 AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())), String.valueOf(carInfo.getVehicleModelCode()));
+						atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(
+								String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())),
+								String.valueOf(carInfo.getVehicleModelCode()));
 					} catch (NoSuchAtmcYakeenMakeModelException e) {
 						e.printStackTrace();
 					}
-					_log.info("recieved card details "+atmcYakeenMakeModel);
+					_log.info("recieved card details " + atmcYakeenMakeModel);
 
 					quot.setVehiclePlateNo(carInfo.getPlateNumber());
 					quot.setVehiclePlateL1(carInfo.getPlateText1());
@@ -712,8 +734,10 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
 					quot.setVehicleMakeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
 					quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "");
-					quot.setVehicleModelEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelEnglish() : "");
-					quot.setVehicleModelAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelArabic() : "");
+					quot.setVehicleModelEn(
+							atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelEnglish() : "");
+					quot.setVehicleModelAr(
+							atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelArabic() : "");
 					quot.setVehicleChassisNo(carInfo.getChassisNumber());
 					quot.setVehicleColor(transformedVehicleColor);
 					quot.setVehicleNationality(atmcYakeenMakeModel.getEskaVehNationalityId());
@@ -721,20 +745,12 @@ public class CustomerVehicleDetailsLocalServiceImpl
 					quot.setVehicleCapacity(carInfo.getVehicleLoad());
 					quot.setVehicleCylinder(carInfo.getCylinders());
 					quot.setVehicleCity(transformedCityCode);
-				/*if(carInfo.getRegExpiryDate()!=null)
-				{
-					Date parsedDate = null;
-					try
-					{
-						parsedDate = yakeenCarDateFormat.parse(carInfo.getRegExpiryDate());
-					}
-					catch (ParseException e)
-					{
-						_log.error(e.getMessage());
-						e.printStackTrace();
-					}
-					quot.setVehicleEstExpiryDate(parsedDate);
-				}*/
+					/*
+					 * if(carInfo.getRegExpiryDate()!=null) { Date parsedDate = null; try {
+					 * parsedDate = yakeenCarDateFormat.parse(carInfo.getRegExpiryDate()); } catch
+					 * (ParseException e) { _log.error(e.getMessage()); e.printStackTrace(); }
+					 * quot.setVehicleEstExpiryDate(parsedDate); }
+					 */
 					Date date = null;
 					if (carInfo.getRegExpiryDate() != null) {
 						try {
@@ -753,80 +769,77 @@ public class CustomerVehicleDetailsLocalServiceImpl
 		return quot;
 	}
 
-	public Quotation getCustomerVehicleDetailsMob(Quotation quot, String addLang,Locale locale) throws YaqeenException, NajmException
-	{
+	public Quotation getCustomerVehicleDetailsMob(Quotation quot, String addLang, Locale locale)
+			throws YaqeenException, NajmException {
 		SimpleDateFormat yakeenCarDateFormat = new SimpleDateFormat("dd-MM-YYYY");
-		//SimpleDateFormat yakeenAddressHijriDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		// SimpleDateFormat yakeenAddressHijriDateFormat = new
+		// SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat yakeenAddressGregDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-		String vehicleIdentifier = ""+quot.getVehicleIdType();
-		String iqamaId = ""+quot.getInsuredId();
+		String vehicleIdentifier = "" + quot.getVehicleIdType();
+		String iqamaId = "" + quot.getInsuredId();
 		String dobH = quot.getInsuredDobH();
-		String vehSeqNo = ""+quot.getVehicleId();
+		String vehSeqNo = "" + quot.getVehicleId();
 		String dobG = dateFormat.format(quot.getInsuredDob());
 		quot.setInsuredNationality("03");
 
-		String mfgYear = ""+quot.getVehicleMfgYear();
+		String mfgYear = "" + quot.getVehicleMfgYear();
 		String addressDobHFormatted = "";
 		String addressDobGFormatted = "";
 		String dobHFormatted = "";
 		String dobGFormatted = "";
 		AtmcYakeenMakeModel atmcYakeenMakeModel = null;
 
-
-		//NCD always retrieved from Najm service
-		//Kareem Kahil 14/8/2018: As requested by Noman, in case of Transfer of Ownership, we should pass the value 1 to ncdElegibility service not 3. Confirmed by Arqum that
+		// NCD always retrieved from Najm service
+		// Kareem Kahil 14/8/2018: As requested by Noman, in case of Transfer of
+		// Ownership, we should pass the value 1 to ncdElegibility service not 3.
+		// Confirmed by Arqum that
 		// it should be that in design doc
 		String vehicleIdentifierNajm = vehicleIdentifier;
 
-		if(vehicleIdentifierNajm.equals("3"))   //BuyMotorPolicyPortletKeys.VEHICLE_TRANSFER_OWNERSHIP_CARD
+		if (vehicleIdentifierNajm.equals("3")) // BuyMotorPolicyPortletKeys.VEHICLE_TRANSFER_OWNERSHIP_CARD
 		{
 			vehicleIdentifierNajm = "1";
 		}
 
 		_log.info("Invoking NDCEligibility opt");
 		long s1Time = System.currentTimeMillis();
-		com.ejada.atmc.acl.mob.ws.domain.NCDEligibility ncdRes = com.ejada.atmc.acl.mob.ws.service.NajmLocalServiceUtil.ncdEligibility(Long.valueOf(iqamaId), Integer.valueOf(vehicleIdentifierNajm), Long.valueOf(vehSeqNo));
+		com.atmc.mob.acl.ws.domain.NCDEligibility ncdRes = com.atmc.mob.acl.ws.service.NajmLocalServiceUtil
+				.ncdEligibility(Long.valueOf(iqamaId), Integer.valueOf(vehicleIdentifierNajm), Long.valueOf(vehSeqNo));
 		_log.info("Back from NCDELigibility");
 		long period1 = System.currentTimeMillis() - s1Time;
 		_log.info("ncdEligibility took " + period1 + " ms");
 		_log.info(ncdRes);
-		if(ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS))
-		{
+		if (ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS)) {
 			_log.info("Najm status code:" + ncdRes.getStatusCode());
-			if(ncdRes.getNCDFreeYears()!=null)
-			{
+			if (ncdRes.getNCDFreeYears() != null) {
 				_log.info("Najm NCD Returned:" + ncdRes.getNCDFreeYears());
 				quot.setNcdYears(Long.valueOf(ncdRes.getNCDFreeYears()));
 			}
-		}
-		else
+		} else
 			throw new NajmException(Integer.valueOf(ncdRes.getStatusCode()), ncdRes.getErrorMsg());
 
-		try
-		{
-			//Date hijriDob = dateFormat.parse(dobH);
+		try {
+			// Date hijriDob = dateFormat.parse(dobH);
 			Date gregDob = dateFormat.parse(dobG);
-			dobHFormatted =  (dobH!=null && !dobH.equals(""))?(dobH.split("-")[1]+"-"+dobH.split("-")[0]):null;
-			addressDobHFormatted = (dobH!=null && !dobH.equals(""))?(dobH.split("-")[2]+"-"+dobH.split("-")[1]+"-"+dobH.split("-")[0]):null;
-			dobGFormatted =  yakeenHijriDateFormat.format(gregDob);
+			dobHFormatted = (dobH != null && !dobH.equals("")) ? (dobH.split("-")[1] + "-" + dobH.split("-")[0]) : null;
+			addressDobHFormatted = (dobH != null && !dobH.equals(""))
+					? (dobH.split("-")[2] + "-" + dobH.split("-")[1] + "-" + dobH.split("-")[0])
+					: null;
+			dobGFormatted = yakeenHijriDateFormat.format(gregDob);
 			addressDobGFormatted = yakeenAddressGregDateFormat.format(gregDob);
-		}
-		catch (ParseException e)
-		{
+		} catch (ParseException e) {
 			e.printStackTrace();
 			_log.error(e.getMessage());
 		}
 
-		com.ejada.atmc.acl.mob.ws.domain.yakeen.ServiceRequest req = new com.ejada.atmc.acl.mob.ws.domain.yakeen.ServiceRequest();
+		com.atmc.mob.acl.ws.domain.yakeen.ServiceRequest req = new com.atmc.mob.acl.ws.domain.yakeen.ServiceRequest();
 		req.setUsername(yaqeenUserName);
 		req.setPassword(yaqeenPassword);
 		req.setReferenceNumber(yaqeenRefNo);
 		req.setChargeCode(yaqeenChargeCode);
-		if(iqamaId.startsWith("1"))
-		{
+		if (iqamaId.startsWith("1")) {
 			quot.setInsuredIdType(ID_TYPE_SAUDI);
-
 
 			_log.info("Yakeen ServiceRequest 1 >>>> " + req.toString());
 			_log.info("dobHFormatted >>>> " + dobHFormatted);
@@ -834,154 +847,161 @@ public class CustomerVehicleDetailsLocalServiceImpl
 
 			_log.info("Invoking getCitizenInfo");
 			long s2Time = System.currentTimeMillis();
-			com.ejada.atmc.acl.mob.ws.domain.yakeen.CitizenInfo citizenInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getCitizenInfo(req, dobHFormatted, iqamaId);
+			com.atmc.mob.acl.ws.domain.yakeen.CitizenInfo citizenInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+					.getCitizenInfo(req, dobHFormatted, iqamaId);
 			_log.info("Back from getCitizenInfo");
 			long period2 = System.currentTimeMillis() - s2Time;
 			_log.info("getCitizenInfo took " + period2 + " ms");
 
-			if(citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage()!=null)
-			{
-				throw new YaqeenException(citizenInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenInfo.getErrorCode()));
-			}
-			else
-			{
+			if (citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage() != null) {
+				throw new YaqeenException(citizenInfo.getErrorCode(),
+						LanguageUtil.get(locale, "yaqeen_error_" + citizenInfo.getErrorCode()));
+			} else {
 
-				quot.setInsuredName(citizenInfo.getEnglishFirstName()+" "+citizenInfo.getEnglishSecondName()+" "+citizenInfo.getEnglishThirdName()+" "+citizenInfo.getEnglishLastName());
+				quot.setInsuredName(citizenInfo.getEnglishFirstName() + " " + citizenInfo.getEnglishSecondName() + " "
+						+ citizenInfo.getEnglishThirdName() + " " + citizenInfo.getEnglishLastName());
 				quot.setInsuredGender(citizenInfo.getGender());
 				quot.setInsuredOccupationCode(citizenInfo.getOccupationCode());
 
 				_log.info("Invoking getCitizenAddress");
 				long sTime = System.currentTimeMillis();
-				List<com.ejada.atmc.acl.mob.ws.domain.yakeen.AddressInfo> citizenAddrInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getCitizenAddressInfo(req, iqamaId, addressDobHFormatted, addLang);
+				List<com.atmc.mob.acl.ws.domain.yakeen.AddressInfo> citizenAddrInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+						.getCitizenAddressInfo(req, iqamaId, addressDobHFormatted, addLang);
 				_log.info("Back from getCitizenAddress");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getCitizenAddressInfo took " + period + " ms");
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
-						com.ejada.atmc.acl.mob.ws.domain.yakeen.AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
+						com.atmc.mob.acl.ws.domain.yakeen.AddressInfo info = citizenAddrInfo.get(0);
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							quot.setAddressBuildingNo((info.getBuildingNumber()!=null)?Long.valueOf(info.getBuildingNumber()):0L);
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							quot.setAddressZipCode((info.getPostCode()!=null)?Long.valueOf(info.getPostCode()):0L);
-							quot.setAddressAddNo((info.getAdditionalNumber()!=null)?Long.valueOf(info.getAdditionalNumber()):0L);
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+						else {
+							quot.setAddressBuildingNo(
+									(info.getBuildingNumber() != null) ? Long.valueOf(info.getBuildingNumber()) : 0L);
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							quot.setAddressZipCode(
+									(info.getPostCode() != null) ? Long.valueOf(info.getPostCode()) : 0L);
+							quot.setAddressAddNo(
+									(info.getAdditionalNumber() != null) ? Long.valueOf(info.getAdditionalNumber())
+											: 0L);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
+					} else
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 
 				}
 			}
-		}
-		else
-		{
+		} else {
 			quot.setInsuredIdType(ID_TYPE_IQAMA);
 			_log.info("Invoking  getAlienInfoByIqamaDOB");
 			long sTime = System.currentTimeMillis();
-			com.ejada.atmc.acl.mob.ws.domain.yakeen.AlienInfo custInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getAlienInfoByIqamaAndDOB(req, iqamaId, dobGFormatted);
+			com.atmc.mob.acl.ws.domain.yakeen.AlienInfo custInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+					.getAlienInfoByIqamaAndDOB(req, iqamaId, dobGFormatted);
 			_log.info("Back from getAlienInfoByIqamaDOB");
 			long period = System.currentTimeMillis() - sTime;
 			_log.info("getAlienInfoByIqamaAndDOB took " + period + " ms");
-			if(custInfo.getErrorCode() != 0 && custInfo.getErrorMessage()!=null)
-			{
-				throw new YaqeenException(custInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+custInfo.getErrorCode()));
-			}
-			else
-			{
+			if (custInfo.getErrorCode() != 0 && custInfo.getErrorMessage() != null) {
+				throw new YaqeenException(custInfo.getErrorCode(),
+						LanguageUtil.get(locale, "yaqeen_error_" + custInfo.getErrorCode()));
+			} else {
 				long s2Time = System.currentTimeMillis();
-				CodeMasterMap natMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, ""+custInfo.getNationalityCode());
+				CodeMasterMap natMap = CodeMasterMapLocalServiceUtil
+						.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, "" + custInfo.getNationalityCode());
 				long period2 = System.currentTimeMillis() - s2Time;
 				_log.info("Nationality Lookup took " + period2 + " ms");
-				String transformedNationality = (natMap!=null)?natMap.getCoreCode():"";
+				String transformedNationality = (natMap != null) ? natMap.getCoreCode() : "";
 				quot.setInsuredNationality(transformedNationality);
-				quot.setInsuredName(custInfo.getEnglishFirstName()+" "+custInfo.getEnglishSecondName()+" "+custInfo.getEnglishThirdName()+" "+custInfo.getEnglishLastName());
+				quot.setInsuredName(custInfo.getEnglishFirstName() + " " + custInfo.getEnglishSecondName() + " "
+						+ custInfo.getEnglishThirdName() + " " + custInfo.getEnglishLastName());
 				quot.setInsuredGender(custInfo.getGender());
 				quot.setInsuredOccupationCode(custInfo.getOccupationCode());
-				quot.setInsuredMaritalStatus(""+custInfo.getSocialStatusCode());
+				quot.setInsuredMaritalStatus("" + custInfo.getSocialStatusCode());
 
 				_log.info("Invoking getAlienAddress");
 				long s3Time = System.currentTimeMillis();
-				List<com.ejada.atmc.acl.mob.ws.domain.yakeen.AddressInfo> citizenAddrInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getAlienAddressInfo(req, iqamaId, addressDobGFormatted, addLang);
+				List<com.atmc.mob.acl.ws.domain.yakeen.AddressInfo> citizenAddrInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+						.getAlienAddressInfo(req, iqamaId, addressDobGFormatted, addLang);
 				_log.info("Back from getAlienAddress");
 				long period3 = System.currentTimeMillis() - s3Time;
 				_log.info("getAlienAddressInfo took " + period3 + " ms");
 
-				if(citizenAddrInfo !=null && citizenAddrInfo.size()==1 && citizenAddrInfo.get(0).getErrorCode() != 0 && citizenAddrInfo.get(0).getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+citizenAddrInfo.get(0).getErrorCode()));
-				}
-				else
-				{
-					if(citizenAddrInfo != null && ! citizenAddrInfo.isEmpty())
-					{
-						com.ejada.atmc.acl.mob.ws.domain.yakeen.AddressInfo info = citizenAddrInfo.get(0);
-						if(info.getBuildingNumber() ==null && info.getDistrict()==null && info.getStreetName()==null && info.getPostCode()==null && info.getAdditionalNumber()==null && info.getCity() == null)
+				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
+						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
+					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
+							LanguageUtil.get(locale, "yaqeen_error_" + citizenAddrInfo.get(0).getErrorCode()));
+				} else {
+					if (citizenAddrInfo != null && !citizenAddrInfo.isEmpty()) {
+						com.atmc.mob.acl.ws.domain.yakeen.AddressInfo info = citizenAddrInfo.get(0);
+						if (info.getBuildingNumber() == null && info.getDistrict() == null
+								&& info.getStreetName() == null && info.getPostCode() == null
+								&& info.getAdditionalNumber() == null && info.getCity() == null)
 							throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
-						else
-						{
-							if(info.getBuildingNumber() !=null)
+						else {
+							if (info.getBuildingNumber() != null)
 								quot.setAddressBuildingNo(Long.valueOf(info.getBuildingNumber()));
-							quot.setAddressDistrict((info.getDistrict()!=null)?info.getDistrict().replaceAll("'", ""):null);
-							quot.setAddressStreet((info.getStreetName()!=null)?info.getStreetName().replaceAll("'", ""):null);
-							if(info.getPostCode()!=null )
+							quot.setAddressDistrict(
+									(info.getDistrict() != null) ? info.getDistrict().replaceAll("'", "") : null);
+							quot.setAddressStreet(
+									(info.getStreetName() != null) ? info.getStreetName().replaceAll("'", "") : null);
+							if (info.getPostCode() != null)
 								quot.setAddressZipCode(Long.valueOf(info.getPostCode()));
-							if(info.getAdditionalNumber()!=null)
+							if (info.getAdditionalNumber() != null)
 								quot.setAddressAddNo(Long.valueOf(info.getAdditionalNumber()));
-							quot.setCityDesc((info.getCity()!=null)?info.getCity().replaceAll("'", ""):null);
+							quot.setCityDesc((info.getCity() != null) ? info.getCity().replaceAll("'", "") : null);
 						}
-					}
-					else
+					} else
 						throw new YaqeenException(YAKEEN_ERROR_CODE_NO_ADDRESS_RETURNDED, "Generic Error");
 				}
 			}
 		}
 
-		if(vehicleIdentifier.equals(VEHICLE_CUSTOM_CARD))
-		{
+		if (vehicleIdentifier.equals(VEHICLE_CUSTOM_CARD)) {
 
 			_log.info("Invoking getCarInfoByCustom");
 			long sTime = System.currentTimeMillis();
-			com.ejada.atmc.acl.mob.ws.domain.yakeen.BasicCarInfo carInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getCarInfoByCustom(req, vehSeqNo, Short.valueOf(mfgYear)); //getCarInfoByCustom
+			com.atmc.mob.acl.ws.domain.yakeen.BasicCarInfo carInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+					.getCarInfoByCustom(req, vehSeqNo, Short.valueOf(mfgYear)); // getCarInfoByCustom
 			_log.info("Back from getCarInfoByCustom");
 			long period = System.currentTimeMillis() - sTime;
 			_log.info("getCarInfoByCustom took " + period + " ms");
-			if(carInfo.getErrorCode() != 0 && carInfo.getErrorMessage()!=null)
-			{
-				throw new YaqeenException(carInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+carInfo.getErrorCode()));
-			}
-			else
-			{
+			if (carInfo.getErrorCode() != 0 && carInfo.getErrorMessage() != null) {
+				throw new YaqeenException(carInfo.getErrorCode(),
+						LanguageUtil.get(locale, "yaqeen_error_" + carInfo.getErrorCode()));
+			} else {
 				long s2Time = System.currentTimeMillis();
 
-				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR, carInfo.getMajorColor());
+				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR,
+						carInfo.getMajorColor());
 
-				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = "+carInfo.getVehicleMakerCode()+"and model Code =  "+carInfo.getVehicleModelCode());
+				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = " + carInfo.getVehicleMakerCode()
+						+ "and model Code =  " + carInfo.getVehicleModelCode());
 				try {
-					atmcYakeenMakeModel = 	 AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())), String.valueOf(carInfo.getVehicleModelCode()));
+					atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(
+							String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())),
+							String.valueOf(carInfo.getVehicleModelCode()));
 				} catch (NoSuchAtmcYakeenMakeModelException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				_log.info("recieved card details "+atmcYakeenMakeModel);
+				_log.info("recieved card details " + atmcYakeenMakeModel);
 
-				String transformedVehicleColor = (vehColorMap!=null)?vehColorMap.getCoreCode():null;
+				String transformedVehicleColor = (vehColorMap != null) ? vehColorMap.getCoreCode() : null;
 				quot.setVehicleBodyType(atmcYakeenMakeModel.getEskaBodyTypeId());
 				quot.setVehicleBodyTypeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
 				quot.setVehicleBodyTypeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
 				quot.setVehicleMake(atmcYakeenMakeModel.getEskaMakeId());
-				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc(): "");
+				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
 				quot.setVehicleMakeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
-				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "" );
+				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "");
 				quot.setVehicleModelEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelEnglish() : "");
 				quot.setVehicleModelAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelArabic() : "");
 				quot.setVehicleNationality(atmcYakeenMakeModel.getEskaVehNationalityId());
@@ -990,77 +1010,81 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				quot.setVehicleCapacity(carInfo.getVehicleLoad());
 				quot.setVehicleChassisNo(carInfo.getChassisNumber());
 			}
-		}
-		else if(vehicleIdentifier.equals(VEHICLE_ISTIMARA_CARD) || vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
-		{
-			com.ejada.atmc.acl.mob.ws.domain.yakeen.CarInfo carInfo = null;
+		} else if (vehicleIdentifier.equals(VEHICLE_ISTIMARA_CARD)
+				|| vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) {
+			com.atmc.mob.acl.ws.domain.yakeen.CarInfo carInfo = null;
 			long vSeqVal = Long.valueOf(vehSeqNo);
 			if (vSeqVal < Integer.MIN_VALUE || vSeqVal > Integer.MAX_VALUE) {
-				System.err.println("vehSeqNo:"+vehSeqNo + " cannot be cast to int without changing its value.");
+				System.err.println("vehSeqNo:" + vehSeqNo + " cannot be cast to int without changing its value.");
 			}
-			if(iqamaId.startsWith("1"))
-			{
+			if (iqamaId.startsWith("1")) {
 
 				//// Ahmed AE Fattah : 14-04-2018
-				//// As per Khatib's Mail To send the OLD Iqama/ID in case of transfer ownership to get his info as he is the current owner of the CAR
+				//// As per Khatib's Mail To send the OLD Iqama/ID in case of transfer ownership
+				//// to get his info as he is the current owner of the CAR
 				String oldIqama = iqamaId;
 				_log.info("vehicleIdentifier >>>>> " + vehicleIdentifier);
 				_log.info("iqamaId Before >>>>> " + oldIqama);
-				if(vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) oldIqama = quot.getOldIqamaId();
+				if (vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
+					oldIqama = quot.getOldIqamaId();
 				_log.info("iqamaId After >>>>> " + oldIqama);
 
 				_log.info("Invoking getCitizenCarBySequence");
 				long sTime = System.currentTimeMillis();
-				carInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getCitizenCarInfoBySequence(req, (int)(vSeqVal), Long.valueOf(oldIqama));//getCitizenCarInfoBySequence
+				carInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil.getCitizenCarInfoBySequence(req,
+						(int) (vSeqVal), Long.valueOf(oldIqama));// getCitizenCarInfoBySequence
 				_log.info("Back from getCitizenCarBySequence");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getCitizenCarBySequence took " + period + " ms");
-			}
-			else
-			{
+			} else {
 				String oldIqama = iqamaId;
 				_log.info("vehicleIdentifier >>>>> " + vehicleIdentifier);
 				_log.info("iqamaId Before >>>>> " + oldIqama);
-				if(vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD)) oldIqama = quot.getOldIqamaId();
+				if (vehicleIdentifier.equals(VEHICLE_TRANSFER_OWNERSHIP_CARD))
+					oldIqama = quot.getOldIqamaId();
 				_log.info("iqamaId After >>>>> " + oldIqama);
 
 				_log.info("Invoking getAlienCarSequence");
 				long sTime = System.currentTimeMillis();
-				carInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getAlienCarInfoBySequence(req, Integer.valueOf(vehSeqNo), Long.valueOf(oldIqama)); //getAlienCarInfoBySequence
+				carInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil.getAlienCarInfoBySequence(req,
+						Integer.valueOf(vehSeqNo), Long.valueOf(oldIqama)); // getAlienCarInfoBySequence
 				_log.info("Back from getAlienCarSequence");
 				long period = System.currentTimeMillis() - sTime;
 				_log.info("getAlienCarInfoBySequence took " + period + " ms");
 			}
 
-			if(carInfo.getErrorCode() != 0 && carInfo.getErrorMessage()!=null)
-			{
-				throw new YaqeenException(carInfo.getErrorCode(), LanguageUtil.get(locale, "yaqeen_error_"+carInfo.getErrorCode()));
-			}
-			else
-			{
+			if (carInfo.getErrorCode() != 0 && carInfo.getErrorMessage() != null) {
+				throw new YaqeenException(carInfo.getErrorCode(),
+						LanguageUtil.get(locale, "yaqeen_error_" + carInfo.getErrorCode()));
+			} else {
 
 				long sTime = System.currentTimeMillis();
-				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR, carInfo.getMajorColor());
-				CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_CITY, ""+carInfo.getRegCityLocationCode());
-				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = "+carInfo.getVehicleMakerCode()+"and model Code =  "+carInfo.getVehicleModelCode());
+				CodeMasterMap vehColorMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_COLOR,
+						carInfo.getMajorColor());
+				CodeMasterMap cityMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_CITY,
+						"" + carInfo.getRegCityLocationCode());
+				_log.info("VEHICLE CARD INFO CALLING for Vehicle make = " + carInfo.getVehicleMakerCode()
+						+ "and model Code =  " + carInfo.getVehicleModelCode());
 				try {
-					atmcYakeenMakeModel = 	 AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())), String.valueOf(carInfo.getVehicleModelCode()));
+					atmcYakeenMakeModel = AtmcYakeenMakeModelLocalServiceUtil.findByYakeenMakeModelDetails(
+							String.valueOf(String.valueOf(carInfo.getVehicleMakerCode())),
+							String.valueOf(carInfo.getVehicleModelCode()));
 				} catch (NoSuchAtmcYakeenMakeModelException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				_log.info("recieved card details "+atmcYakeenMakeModel);
+				_log.info("recieved card details " + atmcYakeenMakeModel);
 				quot.setVehicleBodyType(atmcYakeenMakeModel.getEskaBodyTypeId());
 				quot.setVehicleBodyTypeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
 				quot.setVehicleBodyTypeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getAtmcBodyType() : "");
 				quot.setVehicleMake(atmcYakeenMakeModel.getEskaMakeId());
-				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc(): "");
+				quot.setVehicleMakeEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
 				quot.setVehicleMakeAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenMakeDesc() : "");
-				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "" );
+				quot.setVehicleModel(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getEskaModelId() : "");
 				quot.setVehicleModelEn(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelEnglish() : "");
 				quot.setVehicleModelAr(atmcYakeenMakeModel != null ? atmcYakeenMakeModel.getYakeenModelArabic() : "");
 				quot.setVehicleNationality(atmcYakeenMakeModel.getEskaVehNationalityId());
-				String transformedCityCode = (cityMap!=null)?cityMap.getCoreCode():null;
+				String transformedCityCode = (cityMap != null) ? cityMap.getCoreCode() : null;
 				quot.setVehiclePlateNo(carInfo.getPlateNumber());
 				quot.setVehiclePlateL1(carInfo.getPlateText1());
 				quot.setVehiclePlateL2(carInfo.getPlateText2());
@@ -1069,25 +1093,17 @@ public class CustomerVehicleDetailsLocalServiceImpl
 				quot.setVehicleWeight(carInfo.getVehicleWeight());
 				quot.setVehicleCapacity(carInfo.getVehicleLoad());
 				quot.setVehicleCylinder(carInfo.getCylinders());
-				//Kareem Fix: This color mapping was missed
+				// Kareem Fix: This color mapping was missed
 				quot.setVehicleChassisNo(carInfo.getChassisNumber());
-				String transformedVehicleColor = (vehColorMap!=null)?vehColorMap.getCoreCode():null;
+				String transformedVehicleColor = (vehColorMap != null) ? vehColorMap.getCoreCode() : null;
 				quot.setVehicleColor(transformedVehicleColor);
-				//End Kareem Fix
-				/*if(carInfo.getRegExpiryDate()!=null)
-				{
-					Date parsedDate = null;
-					try
-					{
-						parsedDate = yakeenCarDateFormat.parse(carInfo.getRegExpiryDate());
-					}
-					catch (ParseException e)
-					{
-						_log.error(e.getMessage());
-						e.printStackTrace();
-					}
-					quot.setVehicleEstExpiryDate(parsedDate);
-				}*/
+				// End Kareem Fix
+				/*
+				 * if(carInfo.getRegExpiryDate()!=null) { Date parsedDate = null; try {
+				 * parsedDate = yakeenCarDateFormat.parse(carInfo.getRegExpiryDate()); } catch
+				 * (ParseException e) { _log.error(e.getMessage()); e.printStackTrace(); }
+				 * quot.setVehicleEstExpiryDate(parsedDate); }
+				 */
 				Date date = null;
 				if (carInfo.getRegExpiryDate() != null) {
 					try {
@@ -1105,14 +1121,13 @@ public class CustomerVehicleDetailsLocalServiceImpl
 		return quot;
 	}
 
-	public void getDriverVehicleDetails(QuotationDriver driver, HttpServletRequest request, boolean isRelative) throws YaqeenException
-	{
+	public void getDriverVehicleDetails(QuotationDriver driver, HttpServletRequest request, boolean isRelative)
+			throws YaqeenException {
 		NCDEligibility ncdRes = null;
-		if(isRelative)
+		if (isRelative)
 			ncdRes = NajmLocalServiceUtil.ncdEligibility(driver.getDriverId(), Integer.valueOf(3), Long.valueOf(0));
-		if((!isRelative) || (isRelative && ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS)))
-		{
-			if(isRelative && ncdRes.getNCDFreeYears()!=null)
+		if ((!isRelative) || (isRelative && ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS))) {
+			if (isRelative && ncdRes.getNCDFreeYears() != null)
 				driver.setNcdYears(Integer.valueOf(ncdRes.getNCDFreeYears()));
 
 			ServiceRequest req = new ServiceRequest();
@@ -1120,121 +1135,109 @@ public class CustomerVehicleDetailsLocalServiceImpl
 			req.setPassword(yaqeenPassword);
 			req.setReferenceNumber(yaqeenRefNo);
 			req.setChargeCode(yaqeenChargeCode);
-			if((""+driver.getDriverId()).startsWith("1"))
-			{
+			if (("" + driver.getDriverId()).startsWith("1")) {
 				Date hijriDob = null;
-				try
-				{
+				try {
 					hijriDob = driverDateFormat.parse(driver.getDriverDobH());
-				}
-				catch (ParseException e)
-				{
+				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				String dobHFormatted =  yakeenHijriDateFormat.format(hijriDob);
-				CitizenInfo citizenInfo = YakeenLocalServiceUtil.getCitizenInfo(req, dobHFormatted, ""+driver.getDriverId());
+				String dobHFormatted = yakeenHijriDateFormat.format(hijriDob);
+				CitizenInfo citizenInfo = YakeenLocalServiceUtil.getCitizenInfo(req, dobHFormatted,
+						"" + driver.getDriverId());
 
-				if(citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenInfo.getErrorCode(), citizenInfo.getErrorMessage() + " ." +LanguageUtil.get(request, "ncd_driver_error"));
-				}
-				else
-				{
-					driver.setDriverName(citizenInfo.getEnglishFirstName()+" "+citizenInfo.getEnglishSecondName()+" "+citizenInfo.getEnglishThirdName()+" "+citizenInfo.getEnglishLastName());
+				if (citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage() != null) {
+					throw new YaqeenException(citizenInfo.getErrorCode(),
+							citizenInfo.getErrorMessage() + " ." + LanguageUtil.get(request, "ncd_driver_error"));
+				} else {
+					driver.setDriverName(citizenInfo.getEnglishFirstName() + " " + citizenInfo.getEnglishSecondName()
+							+ " " + citizenInfo.getEnglishThirdName() + " " + citizenInfo.getEnglishLastName());
 					driver.setDriverGender(citizenInfo.getGender());
 					driver.setDriverNationality("03");
-					//driver.setInsuredOccupationCode(citizenInfo.getOccupationCode());
+					// driver.setInsuredOccupationCode(citizenInfo.getOccupationCode());
 				}
-			}
-			else
-			{
-				AlienInfo custInfo = YakeenLocalServiceUtil.getAlienInfoByIqamaAndDOB(req, ""+driver.getDriverId(), yakeenHijriDateFormat.format(driver.getDriverDob()));
-				if(custInfo.getErrorCode() != 0 && custInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(custInfo.getErrorCode(), custInfo.getErrorMessage() + " " +LanguageUtil.get(request, "ncd_driver_error"));
-				}
-				else
-				{
-					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, ""+custInfo.getNationalityCode());
-					String transformedNationality = (natMap!=null)?natMap.getCoreCode():"";
-					driver.setDriverName(custInfo.getEnglishFirstName()+" "+custInfo.getEnglishSecondName()+" ."+custInfo.getEnglishThirdName()+" "+custInfo.getEnglishLastName());
+			} else {
+				AlienInfo custInfo = YakeenLocalServiceUtil.getAlienInfoByIqamaAndDOB(req, "" + driver.getDriverId(),
+						yakeenHijriDateFormat.format(driver.getDriverDob()));
+				if (custInfo.getErrorCode() != 0 && custInfo.getErrorMessage() != null) {
+					throw new YaqeenException(custInfo.getErrorCode(),
+							custInfo.getErrorMessage() + " " + LanguageUtil.get(request, "ncd_driver_error"));
+				} else {
+					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil
+							.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, "" + custInfo.getNationalityCode());
+					String transformedNationality = (natMap != null) ? natMap.getCoreCode() : "";
+					driver.setDriverName(custInfo.getEnglishFirstName() + " " + custInfo.getEnglishSecondName() + " ."
+							+ custInfo.getEnglishThirdName() + " " + custInfo.getEnglishLastName());
 					driver.setDriverGender(custInfo.getGender());
 					driver.setDriverNationality(transformedNationality);
-					//driver.setDriverMaritalStatus(""+custInfo.getSocialStatusCode());
-					//driver.setInsuredOccupationCode(custInfo.getOccupationCode());
+					// driver.setDriverMaritalStatus(""+custInfo.getSocialStatusCode());
+					// driver.setInsuredOccupationCode(custInfo.getOccupationCode());
 				}
 			}
-		}
-		else
-		{
-			throw new YaqeenException(Integer.valueOf(ncdRes.getStatusCode()), LanguageUtil.get(request, "ncd_driver_error"));
+		} else {
+			throw new YaqeenException(Integer.valueOf(ncdRes.getStatusCode()),
+					LanguageUtil.get(request, "ncd_driver_error"));
 		}
 	}
 
-	public void getDriverVehicleDetailsMob(QuotationDriver driver, HttpServletRequest request, boolean isRelative) throws YaqeenException
-	{
-		com.ejada.atmc.acl.mob.ws.domain.NCDEligibility ncdRes = null;
-		if(isRelative)
-			ncdRes = com.ejada.atmc.acl.mob.ws.service.NajmLocalServiceUtil.ncdEligibility(driver.getDriverId(), Integer.valueOf(3), Long.valueOf(0));
-		if((!isRelative) || (isRelative && ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS)))
-		{
-			if(isRelative && ncdRes.getNCDFreeYears()!=null)
+	public void getDriverVehicleDetailsMob(QuotationDriver driver, HttpServletRequest request, boolean isRelative)
+			throws YaqeenException {
+		com.atmc.mob.acl.ws.domain.NCDEligibility ncdRes = null;
+		if (isRelative)
+			ncdRes = com.atmc.mob.acl.ws.service.NajmLocalServiceUtil.ncdEligibility(driver.getDriverId(),
+					Integer.valueOf(3), Long.valueOf(0));
+		if ((!isRelative) || (isRelative && ncdRes != null && ncdRes.getStatusCode().equals(NCD_STATUS_CODE_SUCCESS))) {
+			if (isRelative && ncdRes.getNCDFreeYears() != null)
 				driver.setNcdYears(Integer.valueOf(ncdRes.getNCDFreeYears()));
 
-			com.ejada.atmc.acl.mob.ws.domain.yakeen.ServiceRequest req = new com.ejada.atmc.acl.mob.ws.domain.yakeen.ServiceRequest();
+			com.atmc.mob.acl.ws.domain.yakeen.ServiceRequest req = new com.atmc.mob.acl.ws.domain.yakeen.ServiceRequest();
 			req.setUsername(yaqeenUserName);
 			req.setPassword(yaqeenPassword);
 			req.setReferenceNumber(yaqeenRefNo);
 			req.setChargeCode(yaqeenChargeCode);
-			if((""+driver.getDriverId()).startsWith("1"))
-			{
+			if (("" + driver.getDriverId()).startsWith("1")) {
 				Date hijriDob = null;
-				try
-				{
+				try {
 					hijriDob = driverDateFormat.parse(driver.getDriverDobH());
-				}
-				catch (ParseException e)
-				{
+				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				String dobHFormatted =  yakeenHijriDateFormat.format(hijriDob);
-				com.ejada.atmc.acl.mob.ws.domain.yakeen.CitizenInfo citizenInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getCitizenInfo(req, dobHFormatted, ""+driver.getDriverId());
+				String dobHFormatted = yakeenHijriDateFormat.format(hijriDob);
+				com.atmc.mob.acl.ws.domain.yakeen.CitizenInfo citizenInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+						.getCitizenInfo(req, dobHFormatted, "" + driver.getDriverId());
 
-				if(citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(citizenInfo.getErrorCode(), citizenInfo.getErrorMessage() + " ." +LanguageUtil.get(request, "ncd_driver_error"));
-				}
-				else
-				{
-					driver.setDriverName(citizenInfo.getEnglishFirstName()+" "+citizenInfo.getEnglishSecondName()+" "+citizenInfo.getEnglishThirdName()+" "+citizenInfo.getEnglishLastName());
+				if (citizenInfo.getErrorCode() != 0 && citizenInfo.getErrorMessage() != null) {
+					throw new YaqeenException(citizenInfo.getErrorCode(),
+							citizenInfo.getErrorMessage() + " ." + LanguageUtil.get(request, "ncd_driver_error"));
+				} else {
+					driver.setDriverName(citizenInfo.getEnglishFirstName() + " " + citizenInfo.getEnglishSecondName()
+							+ " " + citizenInfo.getEnglishThirdName() + " " + citizenInfo.getEnglishLastName());
 					driver.setDriverGender(citizenInfo.getGender());
 					driver.setDriverNationality("03");
-					//driver.setInsuredOccupationCode(citizenInfo.getOccupationCode());
+					// driver.setInsuredOccupationCode(citizenInfo.getOccupationCode());
 				}
-			}
-			else
-			{
-				com.ejada.atmc.acl.mob.ws.domain.yakeen.AlienInfo custInfo = com.ejada.atmc.acl.mob.ws.service.YakeenLocalServiceUtil.getAlienInfoByIqamaAndDOB(req, ""+driver.getDriverId(), yakeenHijriDateFormat.format(driver.getDriverDob()));
-				if(custInfo.getErrorCode() != 0 && custInfo.getErrorMessage()!=null)
-				{
-					throw new YaqeenException(custInfo.getErrorCode(), custInfo.getErrorMessage() + " " + LanguageUtil.get(request, "ncd_driver_error"));
-				}
-				else
-				{
-					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, ""+custInfo.getNationalityCode());
-					String transformedNationality = (natMap!=null)?natMap.getCoreCode():"";
-					driver.setDriverName(custInfo.getEnglishFirstName()+" "+custInfo.getEnglishSecondName()+" ."+custInfo.getEnglishThirdName()+" "+custInfo.getEnglishLastName());
+			} else {
+				com.atmc.mob.acl.ws.domain.yakeen.AlienInfo custInfo = com.atmc.mob.acl.ws.service.YakeenLocalServiceUtil
+						.getAlienInfoByIqamaAndDOB(req, "" + driver.getDriverId(),
+								yakeenHijriDateFormat.format(driver.getDriverDob()));
+				if (custInfo.getErrorCode() != 0 && custInfo.getErrorMessage() != null) {
+					throw new YaqeenException(custInfo.getErrorCode(),
+							custInfo.getErrorMessage() + " " + LanguageUtil.get(request, "ncd_driver_error"));
+				} else {
+					CodeMasterMap natMap = CodeMasterMapLocalServiceUtil
+							.findBySourceTypeSourceCode(ODS_SRC_TYPE_NATIONALITY, "" + custInfo.getNationalityCode());
+					String transformedNationality = (natMap != null) ? natMap.getCoreCode() : "";
+					driver.setDriverName(custInfo.getEnglishFirstName() + " " + custInfo.getEnglishSecondName() + " ."
+							+ custInfo.getEnglishThirdName() + " " + custInfo.getEnglishLastName());
 					driver.setDriverGender(custInfo.getGender());
 					driver.setDriverNationality(transformedNationality);
-					//driver.setDriverMaritalStatus(""+custInfo.getSocialStatusCode());
-					//driver.setInsuredOccupationCode(custInfo.getOccupationCode());
+					// driver.setDriverMaritalStatus(""+custInfo.getSocialStatusCode());
+					// driver.setInsuredOccupationCode(custInfo.getOccupationCode());
 				}
 			}
-		}
-		else
-		{
-			throw new YaqeenException(Integer.valueOf(ncdRes.getStatusCode()), LanguageUtil.get(request, "ncd_driver_error"));
+		} else {
+			throw new YaqeenException(Integer.valueOf(ncdRes.getStatusCode()),
+					LanguageUtil.get(request, "ncd_driver_error"));
 		}
 	}
-
 }

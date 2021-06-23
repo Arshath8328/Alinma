@@ -16,35 +16,30 @@ package com.atmc.bsl.db.exception;
  * @author Ghada Shawkat
  *
  */
-public class YaqeenException extends Exception
-{
+public class YaqeenException extends Exception {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -954739090433741456L;
-	
+
 	private int errorCode;
-	
-	public YaqeenException(int errorCode)
-	{
+
+	public YaqeenException(int errorCode) {
 		super();
 		this.errorCode = errorCode;
 	}
 
-	public YaqeenException(int errorCode, String message, Throwable cause)
-	{
+	public YaqeenException(int errorCode, String message, Throwable cause) {
 		super(message, cause);
 		this.errorCode = errorCode;
 	}
 
-	public YaqeenException(int errorCode, String message)
-	{
+	public YaqeenException(int errorCode, String message) {
 		super(message);
 		this.errorCode = errorCode;
 	}
 
-	public YaqeenException(int errorCode, Throwable cause)
-	{
+	public YaqeenException(int errorCode, Throwable cause) {
 		super(cause);
 		this.errorCode = errorCode;
 	}
@@ -52,16 +47,14 @@ public class YaqeenException extends Exception
 	/**
 	 * @return the errorCode
 	 */
-	public int getErrorCode()
-	{
+	public int getErrorCode() {
 		return errorCode;
 	}
 
 	/**
 	 * @param errorCode the errorCode to set
 	 */
-	public void setErrorCode(int errorCode)
-	{
+	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
 	}
 

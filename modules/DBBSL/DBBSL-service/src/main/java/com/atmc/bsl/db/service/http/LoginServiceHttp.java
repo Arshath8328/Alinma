@@ -24,12 +24,10 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the
- * <code>LoginServiceUtil</code> service
- * utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it requires an additional
- * <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the <code>LoginServiceUtil</code> service
+ * utility. The static methods of this class calls the same methods of the
+ * service utility. However, the signatures are different because it requires an
+ * additional <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -52,13 +50,12 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class LoginServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
-		getReminderQueryQuestions(HttpPrincipal httpPrincipal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>> getReminderQueryQuestions(
+			HttpPrincipal httpPrincipal) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				LoginServiceUtil.class, "getReminderQueryQuestions",
-				_getReminderQueryQuestionsParameterTypes0);
+			MethodKey methodKey = new MethodKey(LoginServiceUtil.class, "getReminderQueryQuestions",
+					_getReminderQueryQuestionsParameterTypes0);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey);
 
@@ -66,17 +63,12 @@ public class LoginServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>)
-				returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -84,33 +76,24 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> validateUser(
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> validateUser(
 			HttpPrincipal httpPrincipal, String idIqama, String email) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				LoginServiceUtil.class, "validateUser",
-				_validateUserParameterTypes1);
+			MethodKey methodKey = new MethodKey(LoginServiceUtil.class, "validateUser", _validateUserParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, idIqama, email);
+			MethodHandler methodHandler = new MethodHandler(methodKey, idIqama, email);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -118,33 +101,25 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
 			HttpPrincipal httpPrincipal, String login, String password) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				LoginServiceUtil.class, "authenticateUser",
-				_authenticateUserParameterTypes2);
+			MethodKey methodKey = new MethodKey(LoginServiceUtil.class, "authenticateUser",
+					_authenticateUserParameterTypes2);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, login, password);
+			MethodHandler methodHandler = new MethodHandler(methodKey, login, password);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -152,33 +127,24 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> login(
-			HttpPrincipal httpPrincipal, String login, String password,
-			String rememberMe) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> login(
+			HttpPrincipal httpPrincipal, String login, String password, String rememberMe) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				LoginServiceUtil.class, "login", _loginParameterTypes3);
+			MethodKey methodKey = new MethodKey(LoginServiceUtil.class, "login", _loginParameterTypes3);
 
-			MethodHandler methodHandler = new MethodHandler(
-				methodKey, login, password, rememberMe);
+			MethodHandler methodHandler = new MethodHandler(methodKey, login, password, rememberMe);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -186,12 +152,10 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout(
-		HttpPrincipal httpPrincipal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout(HttpPrincipal httpPrincipal) {
 
 		try {
-			MethodKey methodKey = new MethodKey(
-				LoginServiceUtil.class, "logout", _logoutParameterTypes4);
+			MethodKey methodKey = new MethodKey(LoginServiceUtil.class, "logout", _logoutParameterTypes4);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey);
 
@@ -199,16 +163,12 @@ public class LoginServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			}
-			catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(
-					exception);
+			} catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
-		}
-		catch (com.liferay.portal.kernel.exception.SystemException
-					systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
+		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -218,16 +178,10 @@ public class LoginServiceHttp {
 
 	private static Log _log = LogFactoryUtil.getLog(LoginServiceHttp.class);
 
-	private static final Class<?>[] _getReminderQueryQuestionsParameterTypes0 =
-		new Class[] {};
-	private static final Class<?>[] _validateUserParameterTypes1 = new Class[] {
-		String.class, String.class
-	};
-	private static final Class<?>[] _authenticateUserParameterTypes2 =
-		new Class[] {String.class, String.class};
-	private static final Class<?>[] _loginParameterTypes3 = new Class[] {
-		String.class, String.class, String.class
-	};
+	private static final Class<?>[] _getReminderQueryQuestionsParameterTypes0 = new Class[] {};
+	private static final Class<?>[] _validateUserParameterTypes1 = new Class[] { String.class, String.class };
+	private static final Class<?>[] _authenticateUserParameterTypes2 = new Class[] { String.class, String.class };
+	private static final Class<?>[] _loginParameterTypes3 = new Class[] { String.class, String.class, String.class };
 	private static final Class<?>[] _logoutParameterTypes4 = new Class[] {};
 
 }

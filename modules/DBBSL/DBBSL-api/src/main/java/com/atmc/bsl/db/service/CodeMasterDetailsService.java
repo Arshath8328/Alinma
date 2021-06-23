@@ -16,7 +16,6 @@ package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.ServiceOutput;
 import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
@@ -42,25 +41,26 @@ import org.osgi.annotation.versioning.ProviderType;
 @AccessControlled
 @JSONWebService
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface CodeMasterDetailsService extends BaseService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the code master details remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link CodeMasterDetailsServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and
+	 * rerun ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the code master details remote service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * CodeMasterDetailsServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<List<CodeMasterDetails>> getByCodeCodeFreez(
-			String code, String codeFreezYN)
-		throws PortalException;
+	public ServiceOutput<List<CodeMasterDetails>> getByCodeCodeFreez(String code, String codeFreezYN)
+			throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<List<CodeMasterDetails>> getCodeMasterList(
-		String code, String locale);
+	public ServiceOutput<List<CodeMasterDetails>> getCodeMasterList(String code, String locale);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ServiceOutput<List<CodeMasterDetails>> getCustomCodes(String code);

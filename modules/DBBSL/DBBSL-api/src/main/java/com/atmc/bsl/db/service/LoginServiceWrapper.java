@@ -23,16 +23,15 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see LoginService
  * @generated
  */
-public class LoginServiceWrapper
-	implements LoginService, ServiceWrapper<LoginService> {
+public class LoginServiceWrapper implements LoginService, ServiceWrapper<LoginService> {
 
 	public LoginServiceWrapper(LoginService loginService) {
 		_loginService = loginService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
-		authenticateUser(String login, String password) {
+	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> authenticateUser(String login,
+			String password) {
 
 		return _loginService.authenticateUser(login, password);
 	}
@@ -48,15 +47,14 @@ public class LoginServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
-		getReminderQueryQuestions() {
+	public com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>> getReminderQueryQuestions() {
 
 		return _loginService.getReminderQueryQuestions();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
-		login(String login, String password, String rememberMe) {
+	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> login(String login, String password,
+			String rememberMe) {
 
 		return _loginService.login(login, password, rememberMe);
 	}
@@ -67,8 +65,8 @@ public class LoginServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
-		validateUser(String idIqama, String email) {
+	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> validateUser(String idIqama,
+			String email) {
 
 		return _loginService.validateUser(idIqama, email);
 	}

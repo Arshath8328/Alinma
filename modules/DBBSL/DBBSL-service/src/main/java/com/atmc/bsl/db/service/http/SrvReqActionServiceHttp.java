@@ -16,11 +16,11 @@ package com.atmc.bsl.db.service.http;
 
 /**
  * Provides the HTTP utility for the
- * <code>com.atmc.bsl.db.service.SrvReqActionServiceUtil</code> service
- * utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>com.atmc.bsl.db.service.SrvReqActionServiceUtil</code> service utility.
+ * The static methods of this class calls the same methods of the service
+ * utility. However, the signatures are different because it requires an
+ * additional <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code>
+ * parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for

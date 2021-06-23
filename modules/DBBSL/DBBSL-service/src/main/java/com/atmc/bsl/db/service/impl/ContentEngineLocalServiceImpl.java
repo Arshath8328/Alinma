@@ -28,41 +28,46 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
-import org.osgi.service.component.annotations.Component;
 
 import java.io.StringReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
+
+import org.osgi.service.component.annotations.Component;
 
 /**
  * The implementation of the content engine local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.ContentEngineLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.ContentEngineLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see ContentEngineLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.ContentEngine",
-	service = AopService.class
-)
-public class ContentEngineLocalServiceImpl
-	extends ContentEngineLocalServiceBaseImpl {
-
+@Component(property = "model.class.name=com.atmc.bsl.db.model.ContentEngine", service = AopService.class)
+public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.ContentEngineLocalServiceUtil} to access
-	 * the content engine local service.
+	 * com.ejada.atmc.bsl.db.service.ContentEngineLocalServiceUtil} to access the
+	 * content engine local service.
 	 */
 
 	/**
 	 * Get the latest 3 news in the news folder
+	 * 
 	 * @param themeDisplay
 	 * @return
 	 */
@@ -92,7 +97,7 @@ public class ContentEngineLocalServiceImpl
 			ArrayList<JournalArticle> modArticles = new ArrayList<JournalArticle>(articles);
 			modArticles.sort(comparator);
 
-			int x=0;
+			int x = 0;
 			for (JournalArticle journalArticle : modArticles) {
 				String articleId = journalArticle.getArticleId();
 				// getting the templated (Display) Content
@@ -106,7 +111,8 @@ public class ContentEngineLocalServiceImpl
 						news.add(content);
 						x++;
 					}
-					if (x==3 ) break;
+					if (x == 3)
+						break;
 
 				} catch (Exception e) {
 					System.out.println("Skipping news " + articleId);
@@ -115,7 +121,7 @@ public class ContentEngineLocalServiceImpl
 
 		} catch (
 
-				ExceptionInInitializerError e) {
+		ExceptionInInitializerError e) {
 
 			e.printStackTrace();
 		}
@@ -126,7 +132,7 @@ public class ContentEngineLocalServiceImpl
 
 	/**
 	 * Gets the vacancy title by articleID
-	 *
+	 * 
 	 * @return the vacancy title
 	 */
 	public String getVacanyTitleByArticleId(ThemeDisplay themeDisplay, String articleId) {
@@ -146,7 +152,7 @@ public class ContentEngineLocalServiceImpl
 	/**
 	 * Gets the templated content strings for the vacancies, they must be in the
 	 * vacancies folder
-	 *
+	 * 
 	 * @param themeDisplay
 	 * @return
 	 */
@@ -217,7 +223,7 @@ public class ContentEngineLocalServiceImpl
 
 	/**
 	 * Get the jounal folder ID from its name
-	 *
+	 * 
 	 * @param folderName
 	 * @param groupId
 	 * @return the folder Id

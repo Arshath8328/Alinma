@@ -14,9 +14,15 @@
 
 package com.atmc.bsl.db.service.http;
 
+import com.atmc.bsl.db.service.PolicyServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
- * Provides the SOAP utility for the
- * <code>com.atmc.bsl.db.service.PolicyServiceUtil</code> service
+ * Provides the SOAP utility for the <code>PolicyServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -45,4 +51,82 @@ package com.atmc.bsl.db.service.http;
  */
 @Deprecated
 public class PolicyServiceSoap {
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getPoliciesByIqamaId(
+			String iqamaId, int startRow, int endRow) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> returnValue = PolicyServiceUtil
+					.getPoliciesByIqamaId(iqamaId, startRow, endRow);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<Long> getPoliciesCountByIqamaId(String iqamaId)
+			throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<Long> returnValue = PolicyServiceUtil
+					.getPoliciesCountByIqamaId(iqamaId);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getUpcomingPolicyRenewals(
+			String iqamaId) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> returnValue = PolicyServiceUtil
+					.getUpcomingPolicyRenewals(iqamaId);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
+			String iqamaId) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<java.util.HashMap<String, Object>>> returnValue = PolicyServiceUtil
+					.getPolicySummary(iqamaId);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+			String policyNo) throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.policy.Policy> returnValue = PolicyServiceUtil
+					.getPolicyByPolicyNo(policyNo);
+
+			return returnValue;
+		} catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(PolicyServiceSoap.class);
+
 }

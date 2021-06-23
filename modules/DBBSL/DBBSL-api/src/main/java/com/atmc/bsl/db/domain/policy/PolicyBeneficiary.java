@@ -15,8 +15,7 @@ package com.atmc.bsl.db.domain.policy;
 /**
  * @author Ghada Shawkat
  */
-public class PolicyBeneficiary
-{
+public class PolicyBeneficiary {
 	private String policyNo;
 
 	private String benfName;
@@ -24,9 +23,9 @@ public class PolicyBeneficiary
 	private String benfPct;
 
 	private String benfRel;
-	
+
 	private String benfRelEn;
-	
+
 	private String benfRelAr;
 
 	private long benfId;
@@ -38,151 +37,126 @@ public class PolicyBeneficiary
 	/**
 	 * @return the policyNo
 	 */
-	public String getPolicyNo()
-	{
+	public String getPolicyNo() {
 		return policyNo;
 	}
 
 	/**
-	 * @param policyNo
-	 *            the policyNo to set
+	 * @param policyNo the policyNo to set
 	 */
-	public void setPolicyNo(String policyNo)
-	{
+	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
 
 	/**
 	 * @return the benfName
 	 */
-	public String getBenfName()
-	{
+	public String getBenfName() {
 		return benfName;
 	}
 
 	/**
-	 * @param benfName
-	 *            the benfName to set
+	 * @param benfName the benfName to set
 	 */
-	public void setBenfName(String benfName)
-	{
+	public void setBenfName(String benfName) {
 		this.benfName = benfName;
 	}
 
 	/**
 	 * @return the benfPct
 	 */
-	public String getBenfPct()
-	{
+	public String getBenfPct() {
 		return benfPct;
 	}
 
 	/**
-	 * @param benfPct
-	 *            the benfPct to set
+	 * @param benfPct the benfPct to set
 	 */
-	public void setBenfPct(String benfPct)
-	{
+	public void setBenfPct(String benfPct) {
 		this.benfPct = benfPct;
 	}
 
 	/**
 	 * @return the benfRel
 	 */
-	public String getBenfRel()
-	{
+	public String getBenfRel() {
 		return benfRel;
 	}
 
 	/**
-	 * @param benfRel
-	 *            the benfRel to set
+	 * @param benfRel the benfRel to set
 	 */
-	public void setBenfRel(String benfRel)
-	{
+	public void setBenfRel(String benfRel) {
 		this.benfRel = benfRel;
 	}
 
 	/**
 	 * @return the benfId
 	 */
-	public long getBenfId()
-	{
+	public long getBenfId() {
 		return benfId;
 	}
 
 	/**
-	 * @param benfId
-	 *            the benfId to set
+	 * @param benfId the benfId to set
 	 */
-	public void setBenfId(long benfId)
-	{
+	public void setBenfId(long benfId) {
 		this.benfId = benfId;
 	}
 
 	/**
 	 * @return the benfAge
 	 */
-	public String getBenfAge()
-	{
+	public String getBenfAge() {
 		return benfAge;
 	}
 
 	/**
-	 * @param benfAge
-	 *            the benfAge to set
+	 * @param benfAge the benfAge to set
 	 */
-	public void setBenfAge(String benfAge)
-	{
+	public void setBenfAge(String benfAge) {
 		this.benfAge = benfAge;
 	}
 
 	/**
 	 * @return the benfType
 	 */
-	public String getBenfType()
-	{
+	public String getBenfType() {
 		return benfType;
 	}
 
 	/**
-	 * @param benfType
-	 *            the benfType to set
+	 * @param benfType the benfType to set
 	 */
-	public void setBenfType(String benfType)
-	{
+	public void setBenfType(String benfType) {
 		this.benfType = benfType;
 	}
 
 	/**
 	 * @return the benfRelEn
 	 */
-	public String getBenfRelEn()
-	{
+	public String getBenfRelEn() {
 		return benfRelEn;
 	}
 
 	/**
 	 * @param benfRelEn the benfRelEn to set
 	 */
-	public void setBenfRelEn(String benfRelEn)
-	{
+	public void setBenfRelEn(String benfRelEn) {
 		this.benfRelEn = benfRelEn;
 	}
 
 	/**
 	 * @return the benfRelAr
 	 */
-	public String getBenfRelAr()
-	{
+	public String getBenfRelAr() {
 		return benfRelAr;
 	}
 
 	/**
 	 * @param benfRelAr the benfRelAr to set
 	 */
-	public void setBenfRelAr(String benfRelAr)
-	{
+	public void setBenfRelAr(String benfRelAr) {
 		this.benfRelAr = benfRelAr;
 	}
 

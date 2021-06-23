@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.UserMgmtServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * based on the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see UserMgmtService
@@ -35,8 +35,23 @@ public class UserMgmtServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.UserMgmtServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.UserMgmtServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
+			long userId, String password, String reminderQueryQuestion, String reminderQueryAnswer) {
+
+		return getService().changeFirstTimeLoginPassword(userId, password, reminderQueryQuestion, reminderQueryAnswer);
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> createUser(long companyId,
+			String login, String password, String englishName, String arabicName, String language, String mobile,
+			String email, String reminderQueryQuestion, String reminderQueryAnswer) {
+
+		return getService().createUser(companyId, login, password, englishName, arabicName, language, mobile, email,
+				reminderQueryQuestion, reminderQueryAnswer);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -51,14 +66,12 @@ public class UserMgmtServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<UserMgmtService, UserMgmtService>
-		_serviceTracker;
+	private static ServiceTracker<UserMgmtService, UserMgmtService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(UserMgmtService.class);
 
-		ServiceTracker<UserMgmtService, UserMgmtService> serviceTracker =
-			new ServiceTracker<UserMgmtService, UserMgmtService>(
+		ServiceTracker<UserMgmtService, UserMgmtService> serviceTracker = new ServiceTracker<UserMgmtService, UserMgmtService>(
 				bundle.getBundleContext(), UserMgmtService.class, null);
 
 		serviceTracker.open();

@@ -24,97 +24,80 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class CustomerVehicleDetailsLocalServiceWrapper
-	implements CustomerVehicleDetailsLocalService,
-			   ServiceWrapper<CustomerVehicleDetailsLocalService> {
+		implements CustomerVehicleDetailsLocalService, ServiceWrapper<CustomerVehicleDetailsLocalService> {
 
 	public CustomerVehicleDetailsLocalServiceWrapper(
-		CustomerVehicleDetailsLocalService customerVehicleDetailsLocalService) {
+			CustomerVehicleDetailsLocalService customerVehicleDetailsLocalService) {
 
-		_customerVehicleDetailsLocalService =
-			customerVehicleDetailsLocalService;
+		_customerVehicleDetailsLocalService = customerVehicleDetailsLocalService;
 	}
 
 	@Override
-	public CarInfo getAlienCarInfoBySequence(
-		ServiceRequest svcRequest, int sequenceNumber, long ownerIqamaNumber) {
+	public com.ejada.atmc.acl.ws.domain.yakeen.CarInfo getAlienCarInfoBySequence(
+			com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest svcRequest, int sequenceNumber, long ownerIqamaNumber) {
 
-		return _customerVehicleDetailsLocalService.getAlienCarInfoBySequence(
-			svcRequest, sequenceNumber, ownerIqamaNumber);
+		return _customerVehicleDetailsLocalService.getAlienCarInfoBySequence(svcRequest, sequenceNumber,
+				ownerIqamaNumber);
 	}
 
 	@Override
-	public AlienInfo getAlienInfoByIqama(
-		ServiceRequest svcRequest, String iqamaNumber, String sponsorId) {
+	public com.ejada.atmc.acl.ws.domain.yakeen.AlienInfo getAlienInfoByIqama(
+			com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest svcRequest, String iqamaNumber, String sponsorId) {
 
-		return _customerVehicleDetailsLocalService.getAlienInfoByIqama(
-			svcRequest, iqamaNumber, sponsorId);
+		return _customerVehicleDetailsLocalService.getAlienInfoByIqama(svcRequest, iqamaNumber, sponsorId);
 	}
 
 	@Override
-	public BasicCarInfo getCarInfoByCustom(
-		ServiceRequest svcRequest, String customCardNumber, short modelYear) {
+	public com.ejada.atmc.acl.ws.domain.yakeen.BasicCarInfo getCarInfoByCustom(
+			com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest svcRequest, String customCardNumber, short modelYear) {
 
-		return _customerVehicleDetailsLocalService.getCarInfoByCustom(
-			svcRequest, customCardNumber, modelYear);
+		return _customerVehicleDetailsLocalService.getCarInfoByCustom(svcRequest, customCardNumber, modelYear);
 	}
 
 	@Override
-	public CarInfo getCitizenCarInfoBySequence(
-		ServiceRequest svcRequest, int sequenceNumber, long ownerNin) {
+	public com.ejada.atmc.acl.ws.domain.yakeen.CarInfo getCitizenCarInfoBySequence(
+			com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest svcRequest, int sequenceNumber, long ownerNin) {
 
-		return _customerVehicleDetailsLocalService.getCitizenCarInfoBySequence(
-			svcRequest, sequenceNumber, ownerNin);
+		return _customerVehicleDetailsLocalService.getCitizenCarInfoBySequence(svcRequest, sequenceNumber, ownerNin);
 	}
 
 	@Override
-	public CitizenInfo getCitizenInfo(
-		ServiceRequest svcRequest, String dateOfBirthH, String nin) {
+	public com.ejada.atmc.acl.ws.domain.yakeen.CitizenInfo getCitizenInfo(
+			com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest svcRequest, String dateOfBirthH, String nin) {
 
-		return _customerVehicleDetailsLocalService.getCitizenInfo(
-			svcRequest, dateOfBirthH, nin);
+		return _customerVehicleDetailsLocalService.getCitizenInfo(svcRequest, dateOfBirthH, nin);
 	}
 
 	@Override
 	public com.atmc.bsl.db.domain.quotation.Quotation getCustomerVehicleDetails(
-			com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
-			java.util.Locale locale)
-		throws com.atmc.bsl.db.exception.NajmException,
-			   com.atmc.bsl.db.exception.YaqeenException {
+			com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang, java.util.Locale locale)
+			throws com.atmc.bsl.db.exception.NajmException, com.atmc.bsl.db.exception.YaqeenException {
 
-		return _customerVehicleDetailsLocalService.getCustomerVehicleDetails(
-			quot, addLang, locale);
+		return _customerVehicleDetailsLocalService.getCustomerVehicleDetails(quot, addLang, locale);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation
-			getCustomerVehicleDetailsMob(
-				com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
-				java.util.Locale locale)
-		throws com.atmc.bsl.db.exception.NajmException,
-			   com.atmc.bsl.db.exception.YaqeenException {
+	public com.atmc.bsl.db.domain.quotation.Quotation getCustomerVehicleDetailsMob(
+			com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang, java.util.Locale locale)
+			throws com.atmc.bsl.db.exception.NajmException, com.atmc.bsl.db.exception.YaqeenException {
 
-		return _customerVehicleDetailsLocalService.getCustomerVehicleDetailsMob(
-			quot, addLang, locale);
+		return _customerVehicleDetailsLocalService.getCustomerVehicleDetailsMob(quot, addLang, locale);
 	}
 
 	@Override
-	public void getDriverVehicleDetails(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+	public void getDriverVehicleDetails(com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
-		throws com.atmc.bsl.db.exception.YaqeenException {
+			throws com.atmc.bsl.db.exception.YaqeenException {
 
-		_customerVehicleDetailsLocalService.getDriverVehicleDetails(
-			driver, request, isRelative);
+		_customerVehicleDetailsLocalService.getDriverVehicleDetails(driver, request, isRelative);
 	}
 
 	@Override
-	public void getDriverVehicleDetailsMob(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+	public void getDriverVehicleDetailsMob(com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
-		throws com.atmc.bsl.db.exception.YaqeenException {
+			throws com.atmc.bsl.db.exception.YaqeenException {
 
-		_customerVehicleDetailsLocalService.getDriverVehicleDetailsMob(
-			driver, request, isRelative);
+		_customerVehicleDetailsLocalService.getDriverVehicleDetailsMob(driver, request, isRelative);
 	}
 
 	/**
@@ -133,14 +116,11 @@ public class CustomerVehicleDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(
-		CustomerVehicleDetailsLocalService customerVehicleDetailsLocalService) {
+	public void setWrappedService(CustomerVehicleDetailsLocalService customerVehicleDetailsLocalService) {
 
-		_customerVehicleDetailsLocalService =
-			customerVehicleDetailsLocalService;
+		_customerVehicleDetailsLocalService = customerVehicleDetailsLocalService;
 	}
 
-	private CustomerVehicleDetailsLocalService
-		_customerVehicleDetailsLocalService;
+	private CustomerVehicleDetailsLocalService _customerVehicleDetailsLocalService;
 
 }

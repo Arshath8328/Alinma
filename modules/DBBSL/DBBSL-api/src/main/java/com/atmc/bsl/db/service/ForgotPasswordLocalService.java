@@ -20,7 +20,6 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Transactional;
-import com.liferay.portal.kernel.util.*;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -35,20 +34,21 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(
-	isolation = Isolation.PORTAL,
-	rollbackFor = {PortalException.class, SystemException.class}
-)
+@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
 public interface ForgotPasswordLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ForgotPasswordLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the forgot password local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link ForgotPasswordLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.ForgotPasswordLocalServiceImpl</code> and
+	 * rerun ServiceBuilder to automatically copy the method declarations to this
+	 * interface. Consume the forgot password local service via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
+	 * ForgotPasswordLocalServiceUtil} if injection and service tracking are not
+	 * available.
 	 */
-	public void checkReminderQueries(
-			String emailAddress, String answer, String captchaText)
-		throws Exception;
+	public void checkReminderQueries(String emailAddress, String answer, String captchaText) throws Exception;
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -57,7 +57,6 @@ public interface ForgotPasswordLocalService extends BaseLocalService {
 	 */
 	public String getOSGiServiceIdentifier();
 
-	public User validateUser(String emailAddress, String captchaText)
-		throws Exception;
+	public User validateUser(String emailAddress, String captchaText) throws Exception;
 
 }

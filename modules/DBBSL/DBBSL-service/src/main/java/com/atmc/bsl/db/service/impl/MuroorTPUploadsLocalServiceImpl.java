@@ -24,25 +24,28 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the muroor tp uploads local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see MuroorTPUploadsLocalServiceBaseImpl
  */
-@Component(
-	property = "model.class.name=com.atmc.bsl.db.model.MuroorTPUploads",
-	service = AopService.class
-)
-public class MuroorTPUploadsLocalServiceImpl
-	extends MuroorTPUploadsLocalServiceBaseImpl {
+@Component(property = "model.class.name=com.atmc.bsl.db.model.MuroorTPUploads", service = AopService.class)
+public class MuroorTPUploadsLocalServiceImpl extends MuroorTPUploadsLocalServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Use <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalService</code> via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalServiceUtil</code>.
+	 * Never reference this class directly. Use
+	 * <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalService</code> via
+	 * injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use
+	 * <code>com.atmc.bsl.db.service.MuroorTPUploadsLocalServiceUtil</code>.
 	 */
 }

@@ -23,8 +23,7 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see OTPService
  * @generated
  */
-public class OTPServiceWrapper
-	implements OTPService, ServiceWrapper<OTPService> {
+public class OTPServiceWrapper implements OTPService, ServiceWrapper<OTPService> {
 
 	public OTPServiceWrapper(OTPService otpService) {
 		_otpService = otpService;
@@ -41,22 +40,20 @@ public class OTPServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
-		String language, String mobileNumber, String chkVal) {
+	public com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(String language, String mobileNumber, String chkVal) {
 
 		return _otpService.resendOTP(language, mobileNumber, chkVal);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
-		String language, String otpSecret, String mobileNumber, String chkVal) {
+	public com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(String language, String otpSecret, String mobileNumber,
+			String chkVal) {
 
 		return _otpService.sendOTP(language, otpSecret, mobileNumber, chkVal);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
-		String otpSecret, String otp) {
+	public com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(String otpSecret, String otp) {
 
 		return _otpService.validateOTP(otpSecret, otp);
 	}

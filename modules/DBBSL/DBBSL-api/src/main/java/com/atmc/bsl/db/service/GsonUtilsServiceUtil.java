@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.GsonUtilsServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be
- * accessed remotely.
+ * based on the propagated JAAS credentials because this service can be accessed
+ * remotely.
  *
  * @author Brian Wing Shun Chan
  * @see GsonUtilsService
@@ -35,7 +35,9 @@ public class GsonUtilsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.GsonUtilsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to
+	 * <code>com.atmc.bsl.db.service.impl.GsonUtilsServiceImpl</code> and rerun
+	 * ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -51,14 +53,12 @@ public class GsonUtilsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<GsonUtilsService, GsonUtilsService>
-		_serviceTracker;
+	private static ServiceTracker<GsonUtilsService, GsonUtilsService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(GsonUtilsService.class);
 
-		ServiceTracker<GsonUtilsService, GsonUtilsService> serviceTracker =
-			new ServiceTracker<GsonUtilsService, GsonUtilsService>(
+		ServiceTracker<GsonUtilsService, GsonUtilsService> serviceTracker = new ServiceTracker<GsonUtilsService, GsonUtilsService>(
 				bundle.getBundleContext(), GsonUtilsService.class, null);
 
 		serviceTracker.open();

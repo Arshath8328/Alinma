@@ -14,32 +14,31 @@ package com.atmc.bsl.db.domain.quotation;
 /**
  * @author Kareem Kahil
  */
-public class QuotationNajmDetails
-{
+public class QuotationNajmDetails {
 	private long quotationId;
-	
+
 	private String CaseNumber;
-	
+
 	private String AccidentDate;
-	
+
 	private String Liability;
-	
+
 	private String DriverAge;
-	
+
 	private String CarModel;
-	
+
 	private String CarType;
-	
+
 	private String DriverID;
-	
+
 	private String SequenceNumber;
-	
+
 	private String OwnerID;
-	
+
 	private String EstimatedAmount;
-	
+
 	private String DamageParts;
-	
+
 	private String CauseOfAccident;
 
 	public long getQuotationId() {
@@ -145,5 +144,5 @@ public class QuotationNajmDetails
 	public void setCauseOfAccident(String causeOfAccident) {
 		CauseOfAccident = causeOfAccident;
 	}
-	
+
 }

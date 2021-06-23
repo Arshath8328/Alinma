@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperTemplate PUBLIC "-//JasperReports//DTD Template//EN" "http://jasperreports.sourceforge.net/dtds/jaspertemplate.dtd">
+
+<jasperTemplate>
+	<style name="PageTitle" isDefault="false" forecolor="#000066" hAlign="Center" vAlign="Middle" fontName="SansSerif" fontSize="18" isBold="true"/>
+	<style name="Hdr" isDefault="false" forecolor="#000066" hAlign="Left" pattern=""  isBold="true"/>
+	<style name="HdrSML" isDefault="false" style="Hdr" fontSize="8"/>
+	<style name="HdrMED" isDefault="false" style="Hdr" fontSize="10"/>
+	<style name="HdrLRG" isDefault="false" style="Hdr" fontSize="12"/>
+	<style name="HdrXLRG" isDefault="false" style="Hdr" fontSize="14"/>
+	<style name="Hdr1" isDefault="false" style="HdrLRG" forecolor="#000066"/>
+	<style name="Hdr1LftAlgn" isDefault="false" style="Hdr1" hAlign="Left"/>
+	<style name="Hdr1CtrAlgn" isDefault="false" style="Hdr1" hAlign="Center"/>
+	<style name="TblHdr" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#EEEEEE" fill="Solid" hAlign="Left" vAlign="Middle"  fontSize="8" isBold="true">
+		<pen lineWidth="0.5"/>
+		<box topPadding="0" leftPadding="3" bottomPadding="0" rightPadding="0">
+			<pen lineWidth="0.5"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="TblHdrNoBox" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#EEEEEE" fill="Solid" hAlign="Left" vAlign="Middle"  fontSize="8" isBold="true"/>
+	<style name="TblDtls" isDefault="false" forecolor="#000000"  fontSize="8">
+		<box>
+			<pen lineWidth="0.5"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="TblHdrLFT" isDefault="false" style="TblHdr" vAlign="Middle" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="TblHdrLFTPaddSml" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#EEEEEE" fill="Solid" hAlign="Left" vAlign="Middle"  fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" >
+		<box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5">
+			<pen lineWidth="0.5"/>
+			<topPen lineWidth="0.5"/>
+			<leftPen lineWidth="0.5"/>
+			<bottomPen lineWidth="0.5"/>
+			<rightPen lineWidth="0.5"/>
+		</box>
+	</style>
+	<style name="TblDtlsLFTPaddSml" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Left" vAlign="Middle"  isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="5" rightPadding="5" topPadding="5" bottomPadding="5"/>
+	</style>
+	<style name="TblHdrCTR" isDefault="false" style="TblHdr" hAlign="Center" vAlign="Middle" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="TblHdrCTRNoBox" isDefault="false" style="TblHdrNoBox" hAlign="Center" vAlign="Middle" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="TblHdrRHT" isDefault="false" style="TblHdr" hAlign="Right" vAlign="Middle" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="0" rightPadding="3"/>
+	</style>
+	<style name="TblDtlsLFT" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Left" vAlign="Middle"  isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="3"/>
+	</style>
+	<style name="TblDtlsLFTPadd" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Left" vAlign="Middle"  isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="8" rightPadding="8" topPadding="8" bottomPadding="8"/>
+	</style>
+	<style name="TblDtlsRHT" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Right" vAlign="Middle" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="0" rightPadding="3"/>
+	</style>
+	<style name="TblDtlsRHTPadd" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Right" vAlign="Middle" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="8" rightPadding="8" topPadding="8" bottomPadding="8"/>
+	</style>
+	<style name="TblDtlsCTR" isDefault="false" style="TblDtls" forecolor="#000000" hAlign="Center" vAlign="Middle" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="AmountTblDtls" isDefault="false" style="TblDtlsRHT" pattern="#,##0.00" isBlankWhenNull="true">
+		<box leftPadding="0" rightPadding="3"/>
+	</style>
+	<style name="CurrencyTblDtls" isDefault="false" style="TblDtlsCTR"/>
+	<style name="DateTblDtls" isDefault="false" style="TblDtlsCTR"/>
+	<style name="HdrDtls1" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="16" isItalic="false" isUnderline="true" isStrikeThrough="false">
+		<box topPadding="0" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="HdrDtls2" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="15" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="10" bottomPadding="0">
+			<pen lineWidth="0.25" lineStyle="Solid"/>
+			<topPen lineWidth="0.25" lineStyle="Solid"/>
+			<leftPen lineWidth="0.25" lineStyle="Solid"/>
+			<bottomPen lineWidth="0.25" lineStyle="Solid"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="HdrDtls3" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="14" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="20" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="HdrDtls4" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="13" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box topPadding="0" leftPadding="30" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="HdrDtls5" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="13" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="40" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="HdrDtls6" isDefault="false" forecolor="#000000" backcolor="#FFFFFF" markup="styled"  fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box leftPadding="50" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="HdrDtls7" isDefault="false" forecolor="#000000" backcolor="#E0E7EE" markup="styled"  fontSize="11" isBold="false" isItalic="false" isUnderline="true" isStrikeThrough="false">
+		<box leftPadding="60" bottomPadding="0">
+			<pen lineWidth="0.25"/>
+			<topPen lineWidth="0.25"/>
+			<leftPen lineWidth="0.25"/>
+			<bottomPen lineWidth="0.25"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="TblDtlsLFTB" isDefault="false" style="TblDtlsLFT" isBold="true"/>
+	<style name="TblDtlsCTRB" isDefault="false" style="TblDtlsCTR" isBold="true"/>
+	<style name="TblDtlsRHTB" isDefault="false" style="TblDtlsRHT" isBold="true"/>
+	<style name="AmountTblDtlsB" isDefault="false" style="TblDtlsRHT" pattern="#,##0.00" isBlankWhenNull="true" isBold="true">
+		<box leftPadding="0" rightPadding="3"/>
+	</style>
+	<style name="WhiteText" isDefault="false" style="HdrLRG" forecolor="#FFFFFF"/>
+	<style name="TextBackG" isDefault="false" mode="Opaque" forecolor="#000000" backcolor="#eaebe9" fill="Solid" hAlign="Right" vAlign="Middle" fontName="DejaVu Sans Mono" fontSize="8" isBold="true">
+		<pen lineWidth="0.0"/>
+		<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="3">
+			<pen lineWidth="0.0"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+</jasperTemplate>

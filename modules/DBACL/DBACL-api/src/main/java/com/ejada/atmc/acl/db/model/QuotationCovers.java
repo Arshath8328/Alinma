@@ -75,4 +75,12 @@ public interface QuotationCovers extends PersistedModel, QuotationCoversModel {
 
 		};
 
+	public String getCoverNameEn(long productCode);
+
+	public String getCoverNameAr(long productCode);
+
+	public String getCoverDescEn(long productCode);
+
+	public String getCoverDescAr(long productCode);
+
 }
