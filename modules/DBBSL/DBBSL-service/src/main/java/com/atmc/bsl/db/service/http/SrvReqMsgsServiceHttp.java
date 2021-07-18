@@ -24,10 +24,12 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the <code>SrvReqMsgsServiceUtil</code> service
- * utility. The static methods of this class calls the same methods of the
- * service utility. However, the signatures are different because it requires an
- * additional <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the
+ * <code>SrvReqMsgsServiceUtil</code> service
+ * utility. The
+ * static methods of this class calls the same methods of the service utility.
+ * However, the signatures are different because it requires an additional
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -50,25 +52,38 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class SrvReqMsgsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(
-			HttpPrincipal httpPrincipal, String referenceNo) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List
+			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+				getServiceRequestMessageListbyRefNo(
+					HttpPrincipal httpPrincipal, String referenceNo) {
 
 		try {
-			MethodKey methodKey = new MethodKey(SrvReqMsgsServiceUtil.class, "getServiceRequestMessageListbyRefNo",
-					_getServiceRequestMessageListbyRefNoParameterTypes0);
+			MethodKey methodKey = new MethodKey(
+				SrvReqMsgsServiceUtil.class,
+				"getServiceRequestMessageListbyRefNo",
+				_getServiceRequestMessageListbyRefNoParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, referenceNo);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, referenceNo);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.serviceRequest.
+						ServiceRequestMessage>>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -76,12 +91,14 @@ public class SrvReqMsgsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
+		HttpPrincipal httpPrincipal,
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		try {
-			MethodKey methodKey = new MethodKey(SrvReqMsgsServiceUtil.class, "addReplyMessage",
-					_addReplyMessageParameterTypes2);
+			MethodKey methodKey = new MethodKey(
+				SrvReqMsgsServiceUtil.class, "addReplyMessage",
+				_addReplyMessageParameterTypes2);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, msg);
 
@@ -89,12 +106,16 @@ public class SrvReqMsgsServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -102,10 +123,16 @@ public class SrvReqMsgsServiceHttp {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SrvReqMsgsServiceHttp.class);
+	private static Log _log = LogFactoryUtil.getLog(
+		SrvReqMsgsServiceHttp.class);
 
-	private static final Class<?>[] _getServiceRequestMessageListbyRefNoParameterTypes0 = new Class[] { String.class };
-	private static final Class<?>[] _addReplyMessageParameterTypes2 = new Class[] {
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage.class };
+	private static final Class<?>[]
+		_getServiceRequestMessageListbyRefNoParameterTypes0 = new Class[] {
+			String.class
+		};
+	private static final Class<?>[] _addReplyMessageParameterTypes2 =
+		new Class[] {
+			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage.class
+		};
 
 }

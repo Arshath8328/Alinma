@@ -1,0 +1,35 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:WSACLMob:WSACLMob-api")
+	compileOnly project(":modules:DBACL:DBACL-api")
+	//compileOnly group: 'com.liferay', name: 'com.liferay.portal.aop.api', version: "1.0.0"
+	
+	
+	compileInclude group: 'org.apache.wss4j', name: 'wss4j-ws-security-dom', version: '2.2.0'
+	compileInclude group: 'com.beust', name: 'jcommander', version: '1.78'
+	compileInclude group: 'com.ibm.icu', name: 'icu4j', version: '69.1'
+	compileInclude group: 'com.sun.msv', name: 'com.springsource.com.sun.msv.grammar', version: '1.0.6'
+	compileInclude group: 'com.sun.msv', name: 'com.springsource.com.sun.msv.datatype', version: '0.0.0.20060615'
+	compileInclude group: 'werken-xpath', name: 'werken-xpath', version: '0.9.4'
+	//compileInclude group: 'antlr', name: 'antlr', version: '2.7.7'
+	compileInclude group: 'com.sun.xml.bind', name: 'jaxb1-impl', version: '2.1.13'
+}
+
+buildService {
+	apiDir = "../WSACLMob-api/src/main/java"
+}
+
+group = "WSACLMob"
+
+bundle {
+
+	instruction 'Import-Package', '*;version="0";resolution:=optional' // Specify an individual instruction
+	
+}
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}

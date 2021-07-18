@@ -1,0 +1,4 @@
+Bundle-Name: ps-policy-portlet
+Bundle-SymbolicName: ps.policy.portlet
+Bundle-Version: 1.0.0
+Export-Package: ps.policy.portlet.constants

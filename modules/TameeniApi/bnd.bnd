@@ -1,0 +1,4 @@
+Bundle-Name: TameeniApi
+Bundle-SymbolicName: com.ejada.atmc.tameeeniapi
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration

@@ -23,9 +23,11 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see ContentEngineService
  * @generated
  */
-public class ContentEngineServiceWrapper implements ContentEngineService, ServiceWrapper<ContentEngineService> {
+public class ContentEngineServiceWrapper
+	implements ContentEngineService, ServiceWrapper<ContentEngineService> {
 
-	public ContentEngineServiceWrapper(ContentEngineService contentEngineService) {
+	public ContentEngineServiceWrapper(
+		ContentEngineService contentEngineService) {
 
 		_contentEngineService = contentEngineService;
 	}

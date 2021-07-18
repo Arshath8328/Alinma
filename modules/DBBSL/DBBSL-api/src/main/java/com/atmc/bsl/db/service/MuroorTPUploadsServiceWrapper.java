@@ -23,9 +23,11 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see MuroorTPUploadsService
  * @generated
  */
-public class MuroorTPUploadsServiceWrapper implements MuroorTPUploadsService, ServiceWrapper<MuroorTPUploadsService> {
+public class MuroorTPUploadsServiceWrapper
+	implements MuroorTPUploadsService, ServiceWrapper<MuroorTPUploadsService> {
 
-	public MuroorTPUploadsServiceWrapper(MuroorTPUploadsService muroorTPUploadsService) {
+	public MuroorTPUploadsServiceWrapper(
+		MuroorTPUploadsService muroorTPUploadsService) {
 
 		_muroorTPUploadsService = muroorTPUploadsService;
 	}
@@ -46,7 +48,8 @@ public class MuroorTPUploadsServiceWrapper implements MuroorTPUploadsService, Se
 	}
 
 	@Override
-	public void setWrappedService(MuroorTPUploadsService muroorTPUploadsService) {
+	public void setWrappedService(
+		MuroorTPUploadsService muroorTPUploadsService) {
 
 		_muroorTPUploadsService = muroorTPUploadsService;
 	}

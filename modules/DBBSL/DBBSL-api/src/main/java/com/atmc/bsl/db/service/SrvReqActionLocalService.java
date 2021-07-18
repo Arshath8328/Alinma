@@ -15,6 +15,7 @@
 package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;
@@ -37,19 +38,16 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface SrvReqActionLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and
-	 * rerun ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the srv req action local service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * SrvReqActionLocalServiceUtil} if injection and service tracking are not
-	 * available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the srv req action local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link SrvReqActionLocalServiceUtil} if injection and service tracking are not available.
 	 */
 	public String addNewServiceRequestAction(ServiceRequestAction action);
 
@@ -61,6 +59,7 @@ public interface SrvReqActionLocalService extends BaseLocalService {
 	public String getOSGiServiceIdentifier();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequestAction> getServiceRequestActionListbyRefNo(String refNo);
+	public List<ServiceRequestAction> getServiceRequestActionListbyRefNo(
+		String refNo);
 
 }

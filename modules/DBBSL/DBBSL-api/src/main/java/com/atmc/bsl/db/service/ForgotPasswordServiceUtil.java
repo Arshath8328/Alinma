@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.ForgotPasswordServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see ForgotPasswordService
@@ -35,14 +35,14 @@ public class ForgotPasswordServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.ForgotPasswordServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ForgotPasswordServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(String emailAddress, String answer,
-			String captchaText) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+		checkReminderQueries(
+			String emailAddress, String answer, String captchaText) {
 
-		return getService().checkReminderQueries(emailAddress, answer, captchaText);
+		return getService().checkReminderQueries(
+			emailAddress, answer, captchaText);
 	}
 
 	/**
@@ -54,7 +54,8 @@ public class ForgotPasswordServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> validateUser(
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.liferay.portal.kernel.model.User> validateUser(
 			String emailAddress, String captchaText) {
 
 		return getService().validateUser(emailAddress, captchaText);
@@ -64,13 +65,18 @@ public class ForgotPasswordServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<ForgotPasswordService, ForgotPasswordService> _serviceTracker;
+	private static ServiceTracker<ForgotPasswordService, ForgotPasswordService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(ForgotPasswordService.class);
 
-		ServiceTracker<ForgotPasswordService, ForgotPasswordService> serviceTracker = new ServiceTracker<ForgotPasswordService, ForgotPasswordService>(
-				bundle.getBundleContext(), ForgotPasswordService.class, null);
+		ServiceTracker<ForgotPasswordService, ForgotPasswordService>
+			serviceTracker =
+				new ServiceTracker
+					<ForgotPasswordService, ForgotPasswordService>(
+						bundle.getBundleContext(), ForgotPasswordService.class,
+						null);
 
 		serviceTracker.open();
 

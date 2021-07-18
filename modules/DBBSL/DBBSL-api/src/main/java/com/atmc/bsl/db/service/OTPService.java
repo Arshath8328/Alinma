@@ -15,6 +15,7 @@
 package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.ServiceOutput;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
@@ -26,9 +27,9 @@ import com.liferay.portal.kernel.transaction.Transactional;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the remote service interface for OTP. Methods of this service are
- * expected to have security checks based on the propagated JAAS credentials
- * because this service can be accessed remotely.
+ * Provides the remote service interface for OTP. Methods of this
+ * service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see OTPServiceUtil
@@ -37,18 +38,16 @@ import org.osgi.annotation.versioning.ProviderType;
 @AccessControlled
 @JSONWebService
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface OTPService extends BaseService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and rerun
-	 * ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the otp remote service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link OTPServiceUtil}
-	 * if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the otp remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link OTPServiceUtil} if injection and service tracking are not available.
 	 */
 
 	/**
@@ -58,9 +57,11 @@ public interface OTPService extends BaseService {
 	 */
 	public String getOSGiServiceIdentifier();
 
-	public ServiceOutput<String> resendOTP(String language, String mobileNumber, String chkVal);
+	public ServiceOutput<String> resendOTP(
+		String language, String mobileNumber, String chkVal);
 
-	public ServiceOutput<String> sendOTP(String language, String otpSecret, String mobileNumber, String chkVal);
+	public ServiceOutput<String> sendOTP(
+		String language, String otpSecret, String mobileNumber, String chkVal);
 
 	public ServiceOutput<String> validateOTP(String otpSecret, String otp);
 

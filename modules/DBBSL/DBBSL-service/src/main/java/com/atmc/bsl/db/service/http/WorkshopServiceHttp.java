@@ -24,10 +24,12 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the <code>WorkshopServiceUtil</code> service
- * utility. The static methods of this class calls the same methods of the
- * service utility. However, the signatures are different because it requires an
- * additional <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the
+ * <code>WorkshopServiceUtil</code> service
+ * utility. The
+ * static methods of this class calls the same methods of the service utility.
+ * However, the signatures are different because it requires an additional
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -50,29 +52,37 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class WorkshopServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(HttpPrincipal httpPrincipal,
-			String customerName, String customerMobile, String manufacture, String plateNo, int workshopId,
-			String claimRefNo, String status, String date, String serviceType, String desc, String vehMakeEn,
-			String vehMakeAr, String vehModelEn, String vehModelAr, String customerIqamaId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+		HttpPrincipal httpPrincipal, String customerName, String customerMobile,
+		String manufacture, String plateNo, int workshopId, String claimRefNo,
+		String status, String date, String serviceType, String desc,
+		String vehMakeEn, String vehMakeAr, String vehModelEn,
+		String vehModelAr, String customerIqamaId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "checkInVehicle",
-					_checkInVehicleParameterTypes0);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "checkInVehicle",
+				_checkInVehicleParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, customerName, customerMobile, manufacture,
-					plateNo, workshopId, claimRefNo, status, date, serviceType, desc, vehMakeEn, vehMakeAr, vehModelEn,
-					vehModelAr, customerIqamaId);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, customerName, customerMobile, manufacture, plateNo,
+				workshopId, claimRefNo, status, date, serviceType, desc,
+				vehMakeEn, vehMakeAr, vehModelEn, vehModelAr, customerIqamaId);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -80,25 +90,36 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByStatus(
-			HttpPrincipal httpPrincipal, String status, int workShopId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+			getcheckedInVehicleByStatus(
+				HttpPrincipal httpPrincipal, String status, int workShopId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "getcheckedInVehicleByStatus",
-					_getcheckedInVehicleByStatusParameterTypes1);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "getcheckedInVehicleByStatus",
+				_getcheckedInVehicleByStatusParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, status, workShopId);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, status, workShopId);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
+						returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -106,12 +127,14 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleById(
-			HttpPrincipal httpPrincipal, int id) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+			getcheckedInVehicleById(HttpPrincipal httpPrincipal, int id) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "getcheckedInVehicleById",
-					_getcheckedInVehicleByIdParameterTypes2);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "getcheckedInVehicleById",
+				_getcheckedInVehicleByIdParameterTypes2);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, id);
 
@@ -119,12 +142,17 @@ public class WorkshopServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -132,25 +160,32 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(HttpPrincipal httpPrincipal, int id,
-			String status) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+		updateVehicleStatus(
+			HttpPrincipal httpPrincipal, int id, String status) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "updateVehicleStatus",
-					_updateVehicleStatusParameterTypes3);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "updateVehicleStatus",
+				_updateVehicleStatusParameterTypes3);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, id, status);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, id, status);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -158,12 +193,15 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByIqmaId(
-			HttpPrincipal httpPrincipal, String iqamaId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+			getcheckedInVehicleByIqmaId(
+				HttpPrincipal httpPrincipal, String iqamaId) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "getcheckedInVehicleByIqmaId",
-					_getcheckedInVehicleByIqmaIdParameterTypes4);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "getcheckedInVehicleByIqmaId",
+				_getcheckedInVehicleByIqmaIdParameterTypes4);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, iqamaId);
 
@@ -171,12 +209,19 @@ public class WorkshopServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
+						returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -184,12 +229,14 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>> getWorkShopList(
-			HttpPrincipal httpPrincipal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+			getWorkShopList(HttpPrincipal httpPrincipal) {
 
 		try {
-			MethodKey methodKey = new MethodKey(WorkshopServiceUtil.class, "getWorkShopList",
-					_getWorkShopListParameterTypes5);
+			MethodKey methodKey = new MethodKey(
+				WorkshopServiceUtil.class, "getWorkShopList",
+				_getWorkShopListParameterTypes5);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey);
 
@@ -197,12 +244,18 @@ public class WorkshopServiceHttp {
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>)
+					returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -212,14 +265,26 @@ public class WorkshopServiceHttp {
 
 	private static Log _log = LogFactoryUtil.getLog(WorkshopServiceHttp.class);
 
-	private static final Class<?>[] _checkInVehicleParameterTypes0 = new Class[] { String.class, String.class,
-			String.class, String.class, int.class, String.class, String.class, String.class, String.class, String.class,
-			String.class, String.class, String.class, String.class, String.class };
-	private static final Class<?>[] _getcheckedInVehicleByStatusParameterTypes1 = new Class[] { String.class,
-			int.class };
-	private static final Class<?>[] _getcheckedInVehicleByIdParameterTypes2 = new Class[] { int.class };
-	private static final Class<?>[] _updateVehicleStatusParameterTypes3 = new Class[] { int.class, String.class };
-	private static final Class<?>[] _getcheckedInVehicleByIqmaIdParameterTypes4 = new Class[] { String.class };
-	private static final Class<?>[] _getWorkShopListParameterTypes5 = new Class[] {};
+	private static final Class<?>[] _checkInVehicleParameterTypes0 =
+		new Class[] {
+			String.class, String.class, String.class, String.class, int.class,
+			String.class, String.class, String.class, String.class,
+			String.class, String.class, String.class, String.class,
+			String.class, String.class
+		};
+	private static final Class<?>[]
+		_getcheckedInVehicleByStatusParameterTypes1 = new Class[] {
+			String.class, int.class
+		};
+	private static final Class<?>[] _getcheckedInVehicleByIdParameterTypes2 =
+		new Class[] {int.class};
+	private static final Class<?>[] _updateVehicleStatusParameterTypes3 =
+		new Class[] {int.class, String.class};
+	private static final Class<?>[]
+		_getcheckedInVehicleByIqmaIdParameterTypes4 = new Class[] {
+			String.class
+		};
+	private static final Class<?>[] _getWorkShopListParameterTypes5 =
+		new Class[] {};
 
 }

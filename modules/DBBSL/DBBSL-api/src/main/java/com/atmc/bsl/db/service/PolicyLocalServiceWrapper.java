@@ -23,22 +23,25 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see PolicyLocalService
  * @generated
  */
-public class PolicyLocalServiceWrapper implements PolicyLocalService, ServiceWrapper<PolicyLocalService> {
+public class PolicyLocalServiceWrapper
+	implements PolicyLocalService, ServiceWrapper<PolicyLocalService> {
 
 	public PolicyLocalServiceWrapper(PolicyLocalService policyLocalService) {
 		_policyLocalService = policyLocalService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(String policyNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(
+			String policyNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.findPolicyByPolicyNo(policyNo);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(String policyNo, String vehId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(
+			String policyNo, String vehId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getCustomVeh(policyNo, vehId);
 	}
@@ -54,57 +57,66 @@ public class PolicyLocalServiceWrapper implements PolicyLocalService, ServiceWra
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy> getPoliciesByIqamaId(String iqamaId, int start, int end)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+			getPoliciesByIqamaId(String iqamaId, int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getPoliciesByIqamaId(iqamaId, start, end);
 	}
 
 	@Override
-	public long getPoliciesCountByIqamaId(String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+	public long getPoliciesCountByIqamaId(String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getPoliciesCountByIqamaId(iqamaId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(String policyNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(
+			String policyNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getPolicyByPolicyNo(policyNo);
 	}
 
 	@Override
-	public java.util.List<java.util.HashMap<String, Object>> getPolicySummary(String iqamaId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<java.util.HashMap<String, Object>> getPolicySummary(
+			String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getPolicySummary(iqamaId);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy> getTopPolicies(String iqamaId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.atmc.bsl.db.domain.policy.Policy> getTopPolicies(
+			String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getTopPolicies(iqamaId);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy> getUpcomingPolicyRenewals(String iqamaId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+			getUpcomingPolicyRenewals(String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getUpcomingPolicyRenewals(iqamaId);
 	}
 
 	@Override
-	public Long getUpcomingRenewalsCount(String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+	public Long getUpcomingRenewalsCount(String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _policyLocalService.getUpcomingRenewalsCount(iqamaId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(String plateNo, String plateL1, String plateL2,
-			String plateL3, String language) {
+	public com.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(
+		String plateNo, String plateL1, String plateL2, String plateL3,
+		String language) {
 
-		return _policyLocalService.getVehiclePolicyData(plateNo, plateL1, plateL2, plateL3, language);
+		return _policyLocalService.getVehiclePolicyData(
+			plateNo, plateL1, plateL2, plateL3, language);
 	}
 
 	@Override

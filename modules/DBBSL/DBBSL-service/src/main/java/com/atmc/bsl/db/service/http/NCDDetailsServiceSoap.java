@@ -16,10 +16,10 @@ package com.atmc.bsl.db.service.http;
 
 /**
  * Provides the SOAP utility for the
- * <code>com.atmc.bsl.db.service.NCDDetailsServiceUtil</code> service utility.
- * The static methods of this class call the same methods of the service
- * utility. However, the signatures are different because it is difficult for
- * SOAP to support certain types.
+ * <code>com.atmc.bsl.db.service.NCDDetailsServiceUtil</code> service
+ * utility. The static methods of this class call the same methods of the
+ * service utility. However, the signatures are different because it is
+ * difficult for SOAP to support certain types.
  *
  * <p>
  * The benefits of using the SOAP utility is that it is cross platform

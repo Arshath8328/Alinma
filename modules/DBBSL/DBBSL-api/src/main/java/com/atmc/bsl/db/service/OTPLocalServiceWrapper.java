@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see OTPLocalService
  * @generated
  */
-public class OTPLocalServiceWrapper implements OTPLocalService, ServiceWrapper<OTPLocalService> {
+public class OTPLocalServiceWrapper
+	implements OTPLocalService, ServiceWrapper<OTPLocalService> {
 
 	public OTPLocalServiceWrapper(OTPLocalService otpLocalService) {
 		_otpLocalService = otpLocalService;
@@ -50,13 +51,15 @@ public class OTPLocalServiceWrapper implements OTPLocalService, ServiceWrapper<O
 	}
 
 	@Override
-	public boolean sendOTP(java.util.Locale locale, String otpSecret, String mobileNumber) {
+	public boolean sendOTP(
+		java.util.Locale locale, String otpSecret, String mobileNumber) {
 
 		return _otpLocalService.sendOTP(locale, otpSecret, mobileNumber);
 	}
 
 	@Override
-	public boolean sendOTPToEmail(java.util.Locale locale, String otpSecret, String emailAddress) {
+	public boolean sendOTPToEmail(
+		java.util.Locale locale, String otpSecret, String emailAddress) {
 
 		return _otpLocalService.sendOTPToEmail(locale, otpSecret, emailAddress);
 	}

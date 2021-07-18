@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.SettingsServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SettingsService
@@ -35,14 +35,14 @@ public class SettingsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SettingsServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SettingsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(String companyId, String screenName,
-			String currentPassword, String password1, String password2) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+		String companyId, String screenName, String currentPassword,
+		String password1, String password2) {
 
-		return getService().changePassword(companyId, screenName, currentPassword, password1, password2);
+		return getService().changePassword(
+			companyId, screenName, currentPassword, password1, password2);
 	}
 
 	/**
@@ -54,14 +54,16 @@ public class SettingsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(String companyId, String screenName,
-			String Email) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+			String companyId, String screenName, String Email)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateEmail(companyId, screenName, Email);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(String companyId, String screenName,
-			String phoneNo) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+			String companyId, String screenName, String phoneNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateMobile(companyId, screenName, phoneNo);
 	}
@@ -70,12 +72,14 @@ public class SettingsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<SettingsService, SettingsService> _serviceTracker;
+	private static ServiceTracker<SettingsService, SettingsService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SettingsService.class);
 
-		ServiceTracker<SettingsService, SettingsService> serviceTracker = new ServiceTracker<SettingsService, SettingsService>(
+		ServiceTracker<SettingsService, SettingsService> serviceTracker =
+			new ServiceTracker<SettingsService, SettingsService>(
 				bundle.getBundleContext(), SettingsService.class, null);
 
 		serviceTracker.open();

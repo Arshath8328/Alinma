@@ -19,30 +19,6 @@ import com.atmc.bsl.db.domain.quotation.QuotationDriver;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 import com.atmc.bsl.db.service.base.CustomerVehicleDetailsLocalServiceBaseImpl;
-
-import com.liferay.portal.aop.AopService;
-
-import org.osgi.service.component.annotations.Component;
-import java.io.StringReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParserFactory;
-import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXSource;
-
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
 import com.ejada.atmc.acl.db.exception.NoSuchAtmcYakeenMakeModelException;
 import com.ejada.atmc.acl.db.exception.NoSuchYakeenDataSaveException;
 import com.ejada.atmc.acl.db.model.AtmcYakeenMakeModel;
@@ -60,11 +36,32 @@ import com.ejada.atmc.acl.ws.domain.yakeen.CitizenInfo;
 import com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest;
 import com.ejada.atmc.acl.ws.service.NajmLocalServiceUtil;
 import com.ejada.atmc.acl.ws.service.YakeenLocalServiceUtil;
-import com.atmc.bsl.db.service.base.CustomerVehicleDetailsLocalServiceBaseImpl;
+import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
+
+import java.io.StringReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
+import javax.xml.transform.sax.SAXSource;
+
+import org.osgi.service.component.annotations.Component;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * The implementation of the customer vehicle details local service.

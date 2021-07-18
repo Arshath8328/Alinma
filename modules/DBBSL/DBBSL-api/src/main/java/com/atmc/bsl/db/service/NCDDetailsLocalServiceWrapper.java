@@ -23,9 +23,11 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see NCDDetailsLocalService
  * @generated
  */
-public class NCDDetailsLocalServiceWrapper implements NCDDetailsLocalService, ServiceWrapper<NCDDetailsLocalService> {
+public class NCDDetailsLocalServiceWrapper
+	implements NCDDetailsLocalService, ServiceWrapper<NCDDetailsLocalService> {
 
-	public NCDDetailsLocalServiceWrapper(NCDDetailsLocalService ncdDetailsLocalService) {
+	public NCDDetailsLocalServiceWrapper(
+		NCDDetailsLocalService ncdDetailsLocalService) {
 
 		_ncdDetailsLocalService = ncdDetailsLocalService;
 	}
@@ -46,7 +48,8 @@ public class NCDDetailsLocalServiceWrapper implements NCDDetailsLocalService, Se
 	}
 
 	@Override
-	public void setWrappedService(NCDDetailsLocalService ncdDetailsLocalService) {
+	public void setWrappedService(
+		NCDDetailsLocalService ncdDetailsLocalService) {
 
 		_ncdDetailsLocalService = ncdDetailsLocalService;
 	}

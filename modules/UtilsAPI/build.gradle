@@ -6,6 +6,8 @@ dependencies {
 	compileInclude group: 'net.sf.jasperreports', name: 'jasperreports-fonts', version: '6.0.0'
 	compileInclude group: 'org.apache.tika', name: 'tika-core', version: '0.6'
     compileInclude group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+    compileInclude group: 'antlr', name: 'antlr', version: '2.7.7'
+    
 	compileInclude fileTree(dir: 'libs', include: '*.jar')
 	
 	compileOnly project(":modules:DBACL:DBACL-api")
@@ -17,6 +19,6 @@ configurations {
 
 bundle {
 
-	instruction 'Import-Package', '*;version="0";resolution:=optional,com.ejada.atmc.bsl.db.domain.policy;version="0",com.ejada.atmc.bsl.db.domain.quotation;version="0"' // Specify an individual instruction
+	instruction 'Import-Package', '*;version="0";resolution:=optional' // Specify an individual instruction
 	
 }

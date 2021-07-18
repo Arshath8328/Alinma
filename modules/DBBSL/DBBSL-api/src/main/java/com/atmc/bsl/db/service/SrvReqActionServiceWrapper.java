@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqActionService
  * @generated
  */
-public class SrvReqActionServiceWrapper implements ServiceWrapper<SrvReqActionService>, SrvReqActionService {
+public class SrvReqActionServiceWrapper
+	implements ServiceWrapper<SrvReqActionService>, SrvReqActionService {
 
 	public SrvReqActionServiceWrapper(SrvReqActionService srvReqActionService) {
 		_srvReqActionService = srvReqActionService;

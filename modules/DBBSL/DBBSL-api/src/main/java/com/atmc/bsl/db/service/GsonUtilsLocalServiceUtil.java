@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for GsonUtils. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.GsonUtilsLocalServiceImpl</code> and is an
- * access point for service operations in application layer code running on the
- * local server. Methods of this service will not have security checks based on
- * the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.GsonUtilsLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see GsonUtilsLocalService
@@ -35,9 +35,7 @@ public class GsonUtilsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.GsonUtilsLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.GsonUtilsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static Object fromGson(String gsonString, Class c) {
 		return getService().fromGson(gsonString, c);
@@ -64,13 +62,18 @@ public class GsonUtilsLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<GsonUtilsLocalService, GsonUtilsLocalService> _serviceTracker;
+	private static ServiceTracker<GsonUtilsLocalService, GsonUtilsLocalService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(GsonUtilsLocalService.class);
 
-		ServiceTracker<GsonUtilsLocalService, GsonUtilsLocalService> serviceTracker = new ServiceTracker<GsonUtilsLocalService, GsonUtilsLocalService>(
-				bundle.getBundleContext(), GsonUtilsLocalService.class, null);
+		ServiceTracker<GsonUtilsLocalService, GsonUtilsLocalService>
+			serviceTracker =
+				new ServiceTracker
+					<GsonUtilsLocalService, GsonUtilsLocalService>(
+						bundle.getBundleContext(), GsonUtilsLocalService.class,
+						null);
 
 		serviceTracker.open();
 

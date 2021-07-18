@@ -24,9 +24,11 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class MuroorTPUploadsLocalServiceWrapper
-		implements MuroorTPUploadsLocalService, ServiceWrapper<MuroorTPUploadsLocalService> {
+	implements MuroorTPUploadsLocalService,
+			   ServiceWrapper<MuroorTPUploadsLocalService> {
 
-	public MuroorTPUploadsLocalServiceWrapper(MuroorTPUploadsLocalService muroorTPUploadsLocalService) {
+	public MuroorTPUploadsLocalServiceWrapper(
+		MuroorTPUploadsLocalService muroorTPUploadsLocalService) {
 
 		_muroorTPUploadsLocalService = muroorTPUploadsLocalService;
 	}
@@ -47,7 +49,8 @@ public class MuroorTPUploadsLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(MuroorTPUploadsLocalService muroorTPUploadsLocalService) {
+	public void setWrappedService(
+		MuroorTPUploadsLocalService muroorTPUploadsLocalService) {
 
 		_muroorTPUploadsLocalService = muroorTPUploadsLocalService;
 	}

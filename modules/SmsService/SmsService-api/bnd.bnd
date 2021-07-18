@@ -1,0 +1,10 @@
+Bundle-Name: SmsService-api
+Bundle-SymbolicName: sb.SmsService.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	sb.SmsService.exception,\
+	sb.SmsService.model,\
+	sb.SmsService.service,\
+	sb.SmsService.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../SmsService-service/service.xml

@@ -1,0 +1,8 @@
+Bundle-Name: RestACL-api
+Bundle-SymbolicName: sb.RestACL.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.atmc.acl.rest.service,\
+	com.ejada.atmc.acl.rest.domain
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../RestACL-service/service.xml

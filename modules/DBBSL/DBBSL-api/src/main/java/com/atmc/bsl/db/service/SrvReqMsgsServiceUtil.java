@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqMsgsService
@@ -35,12 +35,10 @@ public class SrvReqMsgsServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		return getService().addReplyMessage(msg);
 	}
@@ -54,8 +52,10 @@ public class SrvReqMsgsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(
-			String referenceNo) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List
+			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+				getServiceRequestMessageListbyRefNo(String referenceNo) {
 
 		return getService().getServiceRequestMessageListbyRefNo(referenceNo);
 	}
@@ -64,12 +64,14 @@ public class SrvReqMsgsServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<SrvReqMsgsService, SrvReqMsgsService> _serviceTracker;
+	private static ServiceTracker<SrvReqMsgsService, SrvReqMsgsService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SrvReqMsgsService.class);
 
-		ServiceTracker<SrvReqMsgsService, SrvReqMsgsService> serviceTracker = new ServiceTracker<SrvReqMsgsService, SrvReqMsgsService>(
+		ServiceTracker<SrvReqMsgsService, SrvReqMsgsService> serviceTracker =
+			new ServiceTracker<SrvReqMsgsService, SrvReqMsgsService>(
 				bundle.getBundleContext(), SrvReqMsgsService.class, null);
 
 		serviceTracker.open();

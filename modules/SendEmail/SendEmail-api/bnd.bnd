@@ -1,0 +1,6 @@
+Bundle-Name: SendEmail-api
+Bundle-SymbolicName: sb.SendEmail.api
+Bundle-Version: 1.0.0
+Export-Package: com.ejada.email.service
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../SendEmail-service/service.xml

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder package-path="com.atmc.acl.rest">
+	<namespace>REST</namespace>
+	<entity local-service="true" name="Firebase" remote-service="true" ></entity>
+</service-builder>

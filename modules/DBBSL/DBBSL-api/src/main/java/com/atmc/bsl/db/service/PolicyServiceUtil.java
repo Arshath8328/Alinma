@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for Policy. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.PolicyServiceImpl</code> and is an access
- * point for service operations in application layer code running on a remote
- * server. Methods of this service are expected to have security checks based on
- * the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * <code>com.atmc.bsl.db.service.impl.PolicyServiceImpl</code> and is an
+ * access point for service operations in application layer code running on a
+ * remote server. Methods of this service are expected to have security checks
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see PolicyService
@@ -35,9 +35,7 @@ public class PolicyServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.PolicyServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.PolicyServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -49,32 +47,41 @@ public class PolicyServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getPoliciesByIqamaId(
-			String iqamaId, int startRow, int endRow) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+				getPoliciesByIqamaId(String iqamaId, int startRow, int endRow)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesByIqamaId(iqamaId, startRow, endRow);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long> getPoliciesCountByIqamaId(String iqamaId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+			getPoliciesCountByIqamaId(String iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesCountByIqamaId(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
-			String policyNo) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+				String policyNo)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPolicyByPolicyNo(policyNo);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
-			String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
+				String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPolicySummary(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.policy.Policy>> getUpcomingPolicyRenewals(
-			String iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+				getUpcomingPolicyRenewals(String iqamaId)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getUpcomingPolicyRenewals(iqamaId);
 	}
@@ -88,7 +95,8 @@ public class PolicyServiceUtil {
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(PolicyService.class);
 
-		ServiceTracker<PolicyService, PolicyService> serviceTracker = new ServiceTracker<PolicyService, PolicyService>(
+		ServiceTracker<PolicyService, PolicyService> serviceTracker =
+			new ServiceTracker<PolicyService, PolicyService>(
 				bundle.getBundleContext(), PolicyService.class, null);
 
 		serviceTracker.open();

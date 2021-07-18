@@ -40,35 +40,41 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface NotificationsLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.NotificationsLocalServiceImpl</code> and
-	 * rerun ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the notifications local service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * NotificationsLocalServiceUtil} if injection and service tracking are not
-	 * available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.NotificationsLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the notifications local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link NotificationsLocalServiceUtil} if injection and service tracking are not available.
 	 */
-	public void addNotification(long userId, String msgKey, String[] params, String notificationType, long companyId);
+	public void addNotification(
+		long userId, String msgKey, String[] params, String notificationType,
+		long companyId);
 
-	public void deleteAllNotifications(long[] userNotificationEventIds) throws PortalException;
+	public void deleteAllNotifications(long[] userNotificationEventIds)
+		throws PortalException;
 
-	public void deleteUserNotificationEvent(long userNotificationEventId) throws PortalException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<UserNotificationEvent> getAllNotifications(long userId, boolean actionRequired) throws PortalException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public long getAllNotificationsCount(long userId, boolean actionRequired) throws PortalException;
+	public void deleteUserNotificationEvent(long userNotificationEventId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<UserNotificationEvent> getNotifications(long userId, boolean actionRequired, String mode, int start,
-			int end) throws PortalException;
+	public List<UserNotificationEvent> getAllNotifications(
+			long userId, boolean actionRequired)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public long getAllNotificationsCount(long userId, boolean actionRequired)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<UserNotificationEvent> getNotifications(
+			long userId, boolean actionRequired, String mode, int start,
+			int end)
+		throws PortalException;
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -82,16 +88,23 @@ public interface NotificationsLocalService extends BaseLocalService {
 
 	public void markAllNotificationsAsRead(long userId) throws PortalException;
 
-	public void markNotificationAsRead(long userNotificationEventId) throws PortalException;
+	public void markNotificationAsRead(long userNotificationEventId)
+		throws PortalException;
 
-	public void markNotificationAsUnread(long userNotificationEventId) throws PortalException;
+	public void markNotificationAsUnread(long userNotificationEventId)
+		throws PortalException;
 
-	public void markNotificationsAsRead(long[] userNotificationEventIds) throws PortalException;
+	public void markNotificationsAsRead(long[] userNotificationEventIds)
+		throws PortalException;
 
-	public void markNotificationsAsUnread(long[] userNotificationEventIds) throws PortalException;
+	public void markNotificationsAsUnread(long[] userNotificationEventIds)
+		throws PortalException;
 
-	public void notifyUser(Locale locale, String notificationType, String mailTo, String mobileNo, String[] mailParams,
-			String[] smsParams, List<File> attachedFiles, List<String> filesName, String[] portalNotificationParams,
-			long userId, long companyId) throws PortalException;
+	public void notifyUser(
+			Locale locale, String notificationType, String mailTo,
+			String mobileNo, String[] mailParams, String[] smsParams,
+			List<File> attachedFiles, List<String> filesName,
+			String[] portalNotificationParams, long userId, long companyId)
+		throws PortalException;
 
 }

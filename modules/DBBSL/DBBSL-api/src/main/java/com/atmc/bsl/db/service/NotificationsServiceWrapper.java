@@ -23,22 +23,26 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see NotificationsService
  * @generated
  */
-public class NotificationsServiceWrapper implements NotificationsService, ServiceWrapper<NotificationsService> {
+public class NotificationsServiceWrapper
+	implements NotificationsService, ServiceWrapper<NotificationsService> {
 
-	public NotificationsServiceWrapper(NotificationsService notificationsService) {
+	public NotificationsServiceWrapper(
+		NotificationsService notificationsService) {
 
 		_notificationsService = notificationsService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>> getNotifications(
-			long userId) {
+	public com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
+			getNotifications(long userId) {
 
 		return _notificationsService.getNotifications(userId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(long userId) {
+	public com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(
+		long userId) {
 
 		return _notificationsService.getNotificationsCount(userId);
 	}
@@ -54,7 +58,8 @@ public class NotificationsServiceWrapper implements NotificationsService, Servic
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> markAllNotificationsAsRead(long userId) {
+	public com.atmc.bsl.db.domain.ServiceOutput<String>
+		markAllNotificationsAsRead(long userId) {
 
 		return _notificationsService.markAllNotificationsAsRead(userId);
 	}

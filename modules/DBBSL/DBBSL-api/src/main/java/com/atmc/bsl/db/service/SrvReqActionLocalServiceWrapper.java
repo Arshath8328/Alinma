@@ -24,15 +24,18 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class SrvReqActionLocalServiceWrapper
-		implements ServiceWrapper<SrvReqActionLocalService>, SrvReqActionLocalService {
+	implements ServiceWrapper<SrvReqActionLocalService>,
+			   SrvReqActionLocalService {
 
-	public SrvReqActionLocalServiceWrapper(SrvReqActionLocalService srvReqActionLocalService) {
+	public SrvReqActionLocalServiceWrapper(
+		SrvReqActionLocalService srvReqActionLocalService) {
 
 		_srvReqActionLocalService = srvReqActionLocalService;
 	}
 
 	@Override
-	public String addNewServiceRequestAction(com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
+	public String addNewServiceRequestAction(
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
 
 		return _srvReqActionLocalService.addNewServiceRequestAction(action);
 	}
@@ -48,10 +51,12 @@ public class SrvReqActionLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction> getServiceRequestActionListbyRefNo(
-			String refNo) {
+	public java.util.List
+		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
+			getServiceRequestActionListbyRefNo(String refNo) {
 
-		return _srvReqActionLocalService.getServiceRequestActionListbyRefNo(refNo);
+		return _srvReqActionLocalService.getServiceRequestActionListbyRefNo(
+			refNo);
 	}
 
 	@Override
@@ -60,7 +65,8 @@ public class SrvReqActionLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(SrvReqActionLocalService srvReqActionLocalService) {
+	public void setWrappedService(
+		SrvReqActionLocalService srvReqActionLocalService) {
 
 		_srvReqActionLocalService = srvReqActionLocalService;
 	}

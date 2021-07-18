@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for Quotation. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and is an
- * access point for service operations in application layer code running on the
- * local server. Methods of this service will not have security checks based on
- * the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see QuotationLocalService
@@ -35,16 +35,17 @@ public class QuotationLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static String acceptQuotation(long quotationId, String userName, java.util.Date date, String reason) {
+	public static String acceptQuotation(
+		long quotationId, String userName, java.util.Date date, String reason) {
 
-		return getService().acceptQuotation(quotationId, userName, date, reason);
+		return getService().acceptQuotation(
+			quotationId, userName, date, reason);
 	}
 
-	public static com.ejada.atmc.acl.db.model.PolicyHDR checkActivePolicy(String iqamaId, String vehId) {
+	public static com.ejada.atmc.acl.db.model.PolicyHDR checkActivePolicy(
+		String iqamaId, String vehId) {
 
 		return getService().checkActivePolicy(iqamaId, vehId);
 	}
@@ -57,22 +58,28 @@ public class QuotationLocalServiceUtil {
 		return getService().countQuotationSurveyVideo(quoteID);
 	}
 
-	public static com.ejada.atmc.acl.db.model.QuotationAdminUploads downloadAdminFiles(int fileId) {
+	public static com.ejada.atmc.acl.db.model.QuotationAdminUploads
+		downloadAdminFiles(int fileId) {
 
 		return getService().downloadAdminFiles(fileId);
 	}
 
-	public static com.ejada.atmc.acl.db.model.CustUploads downloadCustFiles(long fileId) {
+	public static com.ejada.atmc.acl.db.model.CustUploads downloadCustFiles(
+		long fileId) {
 
 		return getService().downloadCustFiles(fileId);
 	}
 
-	public static java.io.File downloadPolicyReport(String quoteId, String policyNo, String lang) throws Exception {
+	public static java.io.File downloadPolicyReport(
+			String quoteId, String policyNo, String lang)
+		throws Exception {
 
 		return getService().downloadPolicyReport(quoteId, policyNo, lang);
 	}
 
-	public static java.io.File downloadQuotDetsReport(String quoteId, String lang) throws Exception {
+	public static java.io.File downloadQuotDetsReport(
+			String quoteId, String lang)
+		throws Exception {
 
 		return getService().downloadQuotDetsReport(quoteId, lang);
 	}
@@ -110,7 +117,7 @@ public class QuotationLocalServiceUtil {
 	}
 
 	public static String findPolicyNajmStatus(String policyNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().findPolicyNajmStatus(policyNo);
 	}
@@ -119,74 +126,92 @@ public class QuotationLocalServiceUtil {
 		return getService().findQuotationSurveyFile(id);
 	}
 
-	public static java.util.List<com.ejada.atmc.acl.db.model.QuotationSurvey> findQuotationSurveyVideo(String quoteID) {
+	public static java.util.List<com.ejada.atmc.acl.db.model.QuotationSurvey>
+		findQuotationSurveyVideo(String quoteID) {
 
 		return getService().findQuotationSurveyVideo(quoteID);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> geEngineSizes() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> geEngineSizes() {
 
 		return getService().geEngineSizes();
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation getAdminQuotationByQuotationId(long quotationId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.quotation.Quotation
+			getAdminQuotationByQuotationId(long quotationId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getAdminQuotationByQuotationId(quotationId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getAdminQuotations(int start, int end)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getAdminQuotations(int start, int end)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getAdminQuotations(start, end);
 	}
 
-	public static int getAdminQuotationsCount() throws com.liferay.portal.kernel.exception.PortalException {
+	public static int getAdminQuotationsCount()
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getAdminQuotationsCount();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getAllPendingQuotations(
-			java.util.Date expiryDate, String quoteStatus, boolean smsFlag)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getAllPendingQuotations(
+				java.util.Date expiryDate, String quoteStatus, boolean smsFlag)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return getService().getAllPendingQuotations(expiryDate, quoteStatus, smsFlag);
+		return getService().getAllPendingQuotations(
+			expiryDate, quoteStatus, smsFlag);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCities() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCities() {
 
 		return getService().getCities();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCountries() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCountries() {
 
 		return getService().getCountries();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover> getCoverList(String productCode) {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.quotation.QuotationCover> getCoverList(
+			String productCode) {
 
 		return getService().getCoverList(productCode);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover> getCustomCovers(
+	public static java.util.List
+		<com.atmc.bsl.db.domain.quotation.QuotationCover> getCustomCovers(
 			java.util.List<com.ejada.atmc.acl.db.model.ProductCovers> pCovers) {
 
 		return getService().getCustomCovers(pCovers);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.QuotationCustUploads getCustomQuotationCustUploads(
-			String quotationId) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.quotation.QuotationCustUploads
+			getCustomQuotationCustUploads(String quotationId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getCustomQuotationCustUploads(quotationId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getCustomQuotations(
-			java.util.List<com.ejada.atmc.acl.db.model.Quotations> quotationsList, boolean isTameeni) {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+		getCustomQuotations(
+			java.util.List<com.ejada.atmc.acl.db.model.Quotations>
+				quotationsList,
+			boolean isTameeni) {
 
 		return getService().getCustomQuotations(quotationsList, isTameeni);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getDeductibleValues() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getDeductibleValues() {
 
 		return getService().getDeductibleValues();
 	}
@@ -199,35 +224,43 @@ public class QuotationLocalServiceUtil {
 		return getService().getDriverNationalityEn(driverNa);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getEducationList() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getEducationList() {
 
 		return getService().getEducationList();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getExpiredQuotsByDate(
-			java.util.Date expiryDate, String[] status) throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getExpiredQuotsByDate(java.util.Date expiryDate, String[] status)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getExpiredQuotsByDate(expiryDate, status);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails> getInsuranceCompanies() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>
+			getInsuranceCompanies() {
 
 		return getService().getInsuranceCompanies();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails> getInsuranceCompany(
-			String premiaCode) {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>
+			getInsuranceCompany(String premiaCode) {
 
 		return getService().getInsuranceCompany(premiaCode);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getLicenseTypes() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getLicenseTypes() {
 
 		return getService().getLicenseTypes();
 	}
 
 	public static String getNajmStatusByPolicyNo(String policyNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getNajmStatusByPolicyNo(policyNo);
 	}
@@ -241,24 +274,28 @@ public class QuotationLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getParkingLocations() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getParkingLocations() {
 
 		return getService().getParkingLocations();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getPendingPaymentSurveyQuotations(
-			long iqamaId) {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+		getPendingPaymentSurveyQuotations(long iqamaId) {
 
 		return getService().getPendingPaymentSurveyQuotations(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getPendingQuotations(long iqamaId) {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+		getPendingQuotations(long iqamaId) {
 
 		return getService().getPendingQuotations(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation getPolicyQuot(com.atmc.bsl.db.domain.policy.Policy policy)
-			throws com.atmc.bsl.db.exception.YaqeenException {
+	public static com.atmc.bsl.db.domain.quotation.Quotation getPolicyQuot(
+			com.atmc.bsl.db.domain.policy.Policy policy)
+		throws com.atmc.bsl.db.exception.YaqeenException {
 
 		return getService().getPolicyQuot(policy);
 	}
@@ -271,85 +308,100 @@ public class QuotationLocalServiceUtil {
 		return getService().getProductDescEn(productCode);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getPurposeOfVehicle() {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getPurposeOfVehicle() {
 
 		return getService().getPurposeOfVehicle();
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation getQuotationByQuotationId(long quotationId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.quotation.Quotation
+			getQuotationByQuotationId(long quotationId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getQuotationByQuotationId(quotationId);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation getQuotationByReferenceNo(String referenceNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.quotation.Quotation
+			getQuotationByReferenceNo(String referenceNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getQuotationByReferenceNo(referenceNo);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation getQuotationDetails(
-			com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public static com.atmc.bsl.db.domain.quotation.Quotation
+		getQuotationDetails(com.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return getService().getQuotationDetails(quot);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getQuotations(String status, long iqamaId,
-			boolean andSearch, int start, int end) throws com.liferay.portal.kernel.exception.SystemException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getQuotations(
+				String status, long iqamaId, boolean andSearch, int start,
+				int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
 
-		return getService().getQuotations(status, iqamaId, andSearch, start, end);
+		return getService().getQuotations(
+			status, iqamaId, andSearch, start, end);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getQuotationsByIqamaId(long iqamaId)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getQuotationsByIqamaId(long iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getQuotationsByIqamaId(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation> getQuotationsByIqamaIdAndStatus(
-			long iqamaId) throws com.liferay.portal.kernel.exception.PortalException {
+	public static java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+			getQuotationsByIqamaIdAndStatus(long iqamaId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getQuotationsByIqamaIdAndStatus(iqamaId);
 	}
 
-	public static Long getQuotationsCount(String status, long iqamaId, boolean andSearch)
-			throws com.liferay.portal.kernel.exception.SystemException {
+	public static Long getQuotationsCount(
+			String status, long iqamaId, boolean andSearch)
+		throws com.liferay.portal.kernel.exception.SystemException {
 
 		return getService().getQuotationsCount(status, iqamaId, andSearch);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails getQuotationTameeniExtras(
-			long quotationId) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails
+			getQuotationTameeniExtras(long quotationId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getQuotationTameeniExtras(quotationId);
 	}
 
 	public static java.util.Map<String, Object> getQuoteDetailsReportParams(
-			javax.servlet.http.HttpServletRequest httpReq, com.atmc.bsl.db.domain.quotation.Quotation quot) {
+		javax.servlet.http.HttpServletRequest httpReq,
+		com.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return getService().getQuoteDetailsReportParams(httpReq, quot);
 	}
 
-	public static java.util.Map<String, Object> getQuoteDetailsReportParams(String lang,
-			com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public static java.util.Map<String, Object> getQuoteDetailsReportParams(
+		String lang, com.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return getService().getQuoteDetailsReportParams(lang, quot);
 	}
 
-	public static java.util.List<com.ejada.atmc.acl.db.model.Quotations> getQuotsByQuoteStatus(String quoteStatus) {
+	public static java.util.List<com.ejada.atmc.acl.db.model.Quotations>
+		getQuotsByQuoteStatus(String quoteStatus) {
 
 		return getService().getQuotsByQuoteStatus(quoteStatus);
 	}
 
 	public static com.atmc.bsl.db.domain.quotation.Quotation getTariffDets(
 			com.atmc.bsl.db.domain.quotation.Quotation quot, boolean isRenewal)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getTariffDets(quot, isRenewal);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.quotation.QuotationDriver> getUnderAgeDriversList(
-			long quotationId) {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.quotation.QuotationDriver>
+			getUnderAgeDriversList(long quotationId) {
 
 		return getService().getUnderAgeDriversList(quotationId);
 	}
@@ -365,109 +417,133 @@ public class QuotationLocalServiceUtil {
 		return getService().getVehicleIdDescEn(vichelIdype);
 	}
 
-	public static void issuePolicy(com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public static void issuePolicy(
+		com.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		getService().issuePolicy(quot);
 	}
 
-	public static void notifyUser(javax.servlet.http.HttpServletRequest httpRequest,
-			com.atmc.bsl.db.domain.quotation.Quotation quot, java.util.Locale local,
-			com.liferay.portal.kernel.model.User user) {
+	public static void notifyUser(
+		javax.servlet.http.HttpServletRequest httpRequest,
+		com.atmc.bsl.db.domain.quotation.Quotation quot, java.util.Locale local,
+		com.liferay.portal.kernel.model.User user) {
 
 		getService().notifyUser(httpRequest, quot, local, user);
 	}
 
-	public static String olpInitiatePmnt(String olpAlias, double amount, String currency, String merchantLandingURL,
-			String merchantFailureURL) {
+	public static String olpInitiatePmnt(
+		String olpAlias, double amount, String currency,
+		String merchantLandingURL, String merchantFailureURL) {
 
-		return getService().olpInitiatePmnt(olpAlias, amount, currency, merchantLandingURL, merchantFailureURL);
+		return getService().olpInitiatePmnt(
+			olpAlias, amount, currency, merchantLandingURL, merchantFailureURL);
 	}
 
-	public static com.ejada.atmc.acl.ws.domain.payFort.PurchaseResponse payFortPurchase(double amount, String currency,
-			String customerEmail, String language, String merchantReference, String tokenName, String paymentOption,
-			String cardSecurityCode, String clientIpAddress, String returnUrl) {
+	public static com.ejada.atmc.acl.ws.domain.payFort.PurchaseResponse
+		payFortPurchase(
+			double amount, String currency, String customerEmail,
+			String language, String merchantReference, String tokenName,
+			String paymentOption, String cardSecurityCode,
+			String clientIpAddress, String returnUrl) {
 
-		return getService().payFortPurchase(amount, currency, customerEmail, language, merchantReference, tokenName,
-				paymentOption, cardSecurityCode, clientIpAddress, returnUrl);
+		return getService().payFortPurchase(
+			amount, currency, customerEmail, language, merchantReference,
+			tokenName, paymentOption, cardSecurityCode, clientIpAddress,
+			returnUrl);
 	}
 
-	public static void rejectQuotation(long quotationId, String userName, java.util.Date date, String reason,
-			String status) {
+	public static void rejectQuotation(
+		long quotationId, String userName, java.util.Date date, String reason,
+		String status) {
 
-		getService().rejectQuotation(quotationId, userName, date, reason, status);
+		getService().rejectQuotation(
+			quotationId, userName, date, reason, status);
 	}
 
 	public static void removeAdminFiles(int fileId) {
 		getService().removeAdminFiles(fileId);
 	}
 
-	public static void renewAddressInquiry(com.atmc.bsl.db.domain.quotation.Quotation quot, java.util.Locale locale)
-			throws com.atmc.bsl.db.exception.YaqeenException {
+	public static void renewAddressInquiry(
+			com.atmc.bsl.db.domain.quotation.Quotation quot,
+			java.util.Locale locale)
+		throws com.atmc.bsl.db.exception.YaqeenException {
 
 		getService().renewAddressInquiry(quot, locale);
 	}
 
-	public static void renewNcdInquiry(com.atmc.bsl.db.domain.quotation.Quotation quot)
-			throws com.atmc.bsl.db.exception.NajmException {
+	public static void renewNcdInquiry(
+			com.atmc.bsl.db.domain.quotation.Quotation quot)
+		throws com.atmc.bsl.db.exception.NajmException {
 
 		getService().renewNcdInquiry(quot);
 	}
 
-	public static void renewTariffInquiry(com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public static void renewTariffInquiry(
+		com.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		getService().renewTariffInquiry(quot);
 	}
 
 	public static com.atmc.bsl.db.domain.quotation.Quotation reviewQuotation(
-			com.atmc.bsl.db.domain.quotation.Quotation quot, boolean isUserSignedIn, String lang)
-			throws com.liferay.portal.kernel.exception.PortalException {
+			com.atmc.bsl.db.domain.quotation.Quotation quot,
+			boolean isUserSignedIn, String lang)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().reviewQuotation(quot, isUserSignedIn, lang);
 	}
 
-	public static void saveAdminFiles(long quotationId, java.io.File adminFile, String fileName) {
+	public static void saveAdminFiles(
+		long quotationId, java.io.File adminFile, String fileName) {
 
 		getService().saveAdminFiles(quotationId, adminFile, fileName);
 	}
 
 	public static void saveNajmCaseDetails(
-			java.util.ArrayList<com.atmc.bsl.db.domain.quotation.QuotationNajmDetails> najmDetailsList,
-			long quotationId) {
+		java.util.ArrayList
+			<com.atmc.bsl.db.domain.quotation.QuotationNajmDetails>
+				najmDetailsList,
+		long quotationId) {
 
 		getService().saveNajmCaseDetails(najmDetailsList, quotationId);
 	}
 
-	public static void saveQuoteUserAddress(com.atmc.bsl.db.domain.quotation.QuotationUserAddress custUserNatAddr,
-			long quotationId, long insuredId, boolean isNatAddress) {
+	public static void saveQuoteUserAddress(
+		com.atmc.bsl.db.domain.quotation.QuotationUserAddress custUserNatAddr,
+		long quotationId, long insuredId, boolean isNatAddress) {
 
-		getService().saveQuoteUserAddress(custUserNatAddr, quotationId, insuredId, isNatAddress);
+		getService().saveQuoteUserAddress(
+			custUserNatAddr, quotationId, insuredId, isNatAddress);
 	}
 
-	public static boolean saveQuotSurvey(String quotationId, byte[] surveyVideo, String name, java.util.Date date) {
+	public static boolean saveQuotSurvey(
+		String quotationId, byte[] surveyVideo, String name,
+		java.util.Date date) {
 
-		return getService().saveQuotSurvey(quotationId, surveyVideo, name, date);
+		return getService().saveQuotSurvey(
+			quotationId, surveyVideo, name, date);
 	}
 
 	public static com.atmc.bsl.db.domain.quotation.Quotation submitQuotation(
-			com.atmc.bsl.db.domain.quotation.Quotation customQuot, String userId) {
+		com.atmc.bsl.db.domain.quotation.Quotation customQuot, String userId) {
 
 		return getService().submitQuotation(customQuot, userId);
 	}
 
 	public static void updateQuotationTameeniExtras(
-			com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails details) {
+		com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails details) {
 
 		getService().updateQuotationTameeniExtras(details);
 	}
 
 	public static void updateQuoteFlag(long quotId, boolean smsFlag)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		getService().updateQuoteFlag(quotId, smsFlag);
 	}
 
 	public static void updateQuoteStatus(long quotId, String status)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		getService().updateQuoteStatus(quotId, status);
 	}
@@ -476,8 +552,10 @@ public class QuotationLocalServiceUtil {
 		return getService().validatePolicyData(policyNo);
 	}
 
-	public static void vehicleImagesUpload(long quotationId,
-			java.util.List<com.atmc.bsl.db.domain.quotation.QuotationVehicleImage> vehicleImagesList) {
+	public static void vehicleImagesUpload(
+		long quotationId,
+		java.util.List<com.atmc.bsl.db.domain.quotation.QuotationVehicleImage>
+			vehicleImagesList) {
 
 		getService().vehicleImagesUpload(quotationId, vehicleImagesList);
 	}
@@ -486,13 +564,18 @@ public class QuotationLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<QuotationLocalService, QuotationLocalService> _serviceTracker;
+	private static ServiceTracker<QuotationLocalService, QuotationLocalService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(QuotationLocalService.class);
 
-		ServiceTracker<QuotationLocalService, QuotationLocalService> serviceTracker = new ServiceTracker<QuotationLocalService, QuotationLocalService>(
-				bundle.getBundleContext(), QuotationLocalService.class, null);
+		ServiceTracker<QuotationLocalService, QuotationLocalService>
+			serviceTracker =
+				new ServiceTracker
+					<QuotationLocalService, QuotationLocalService>(
+						bundle.getBundleContext(), QuotationLocalService.class,
+						null);
 
 		serviceTracker.open();
 

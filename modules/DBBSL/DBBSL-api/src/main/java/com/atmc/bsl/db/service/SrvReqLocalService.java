@@ -15,6 +15,7 @@
 package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;
@@ -27,32 +28,33 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the local service interface for SrvReq. Methods of this service will
- * not have security checks based on the propagated JAAS credentials because
- * this service can only be accessed from within the same VM.
+ * Provides the local service interface for SrvReq. Methods of this
+ * service will not have security checks based on the propagated JAAS
+ * credentials because this service can only be accessed from within the same
+ * VM.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqLocalServiceUtil
  * @generated
  */
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface SrvReqLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the srv req local service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * SrvReqLocalServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the srv req local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link SrvReqLocalServiceUtil} if injection and service tracking are not available.
 	 */
-	public String addNewServiceRequest(ServiceRequest srvRequest, String creator);
+	public String addNewServiceRequest(
+		ServiceRequest srvRequest, String creator);
 
-	public int countSrvReqListByRoleStatusCustID(String[] status, String role, String customerID,
-			boolean escalationFlag);
+	public int countSrvReqListByRoleStatusCustID(
+		String[] status, String role, String customerID,
+		boolean escalationFlag);
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -65,21 +67,24 @@ public interface SrvReqLocalService extends BaseLocalService {
 	public ServiceRequest getServiceRequestbyRefNo(String refNo);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequest> getServiceRequestsListByEscalationFlag(String userRole, String closedStatus,
-			boolean isAdmin);
+	public List<ServiceRequest> getServiceRequestsListByEscalationFlag(
+		String userRole, String closedStatus, boolean isAdmin);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequest> getServiceRequestsListByStatus(String[] status, String role);
+	public List<ServiceRequest> getServiceRequestsListByStatus(
+		String[] status, String role);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<ServiceRequest> getServiceRequestsListbyUserID(String userID);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequest> getSrvReqListByRoleStatusCustID(String[] status, String role, String customerID,
-			boolean escalationFlag, int from, int to, String orderBy, String orderDir);
+	public List<ServiceRequest> getSrvReqListByRoleStatusCustID(
+		String[] status, String role, String customerID, boolean escalationFlag,
+		int from, int to, String orderBy, String orderDir);
 
 	public int updateServiceRequest(ServiceRequest srvRequest);
 
-	public int updateServiceRequestAssignedRole(String refNo, String role, String status);
+	public int updateServiceRequestAssignedRole(
+		String refNo, String role, String status);
 
 }

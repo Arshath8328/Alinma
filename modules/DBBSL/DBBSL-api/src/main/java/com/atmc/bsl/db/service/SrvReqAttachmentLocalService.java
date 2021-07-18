@@ -15,7 +15,9 @@
 package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
+
 import com.ejada.atmc.acl.db.model.ServiceRequestAttachments;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;
@@ -40,21 +42,19 @@ import org.osgi.annotation.versioning.ProviderType;
  * @generated
  */
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface SrvReqAttachmentLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqAttachmentLocalServiceImpl</code>
-	 * and rerun ServiceBuilder to automatically copy the method declarations to
-	 * this interface. Consume the srv req attachment local service via injection or
-	 * a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * SrvReqAttachmentLocalServiceUtil} if injection and service tracking are not
-	 * available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqAttachmentLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the srv req attachment local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link SrvReqAttachmentLocalServiceUtil} if injection and service tracking are not available.
 	 */
-	public String addNewServiceRequestAttachment(ServiceRequestAttachment attachment);
+	public String addNewServiceRequestAttachment(
+		ServiceRequestAttachment attachment);
 
 	public int deleteAttachmentFile(String fileID);
 
@@ -68,11 +68,14 @@ public interface SrvReqAttachmentLocalService extends BaseLocalService {
 	public String getOSGiServiceIdentifier();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequestAttachment> getServiceRequestAttachmentListbyActionId(String actionId);
+	public List<ServiceRequestAttachment>
+		getServiceRequestAttachmentListbyActionId(String actionId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ServiceRequestAttachment> getServiceRequestAttachmentListbyRefNo(String refNo);
+	public List<ServiceRequestAttachment>
+		getServiceRequestAttachmentListbyRefNo(String refNo);
 
-	public String saveServiceRequestFiles(String refNo, File file, String fileName, String actionId);
+	public String saveServiceRequestFiles(
+		String refNo, File file, String fileName, String actionId);
 
 }

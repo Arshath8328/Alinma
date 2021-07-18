@@ -23,25 +23,32 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SettingsLocalService
  * @generated
  */
-public class SettingsLocalServiceWrapper implements ServiceWrapper<SettingsLocalService>, SettingsLocalService {
+public class SettingsLocalServiceWrapper
+	implements ServiceWrapper<SettingsLocalService>, SettingsLocalService {
 
-	public SettingsLocalServiceWrapper(SettingsLocalService settingsLocalService) {
+	public SettingsLocalServiceWrapper(
+		SettingsLocalService settingsLocalService) {
 
 		_settingsLocalService = settingsLocalService;
 	}
 
 	@Override
-	public void changePassword(com.liferay.portal.kernel.model.User user, String currentPassword, String password1,
-			String password2) throws com.liferay.portal.kernel.exception.PortalException {
+	public void changePassword(
+			com.liferay.portal.kernel.model.User user, String currentPassword,
+			String password1, String password2)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		_settingsLocalService.changePassword(user, currentPassword, password1, password2);
+		_settingsLocalService.changePassword(
+			user, currentPassword, password1, password2);
 	}
 
 	@Override
-	public void changePasswordFn(long companyId, String screenName, String currentPassword, String password1,
-			String password2) {
+	public void changePasswordFn(
+		long companyId, String screenName, String currentPassword,
+		String password1, String password2) {
 
-		_settingsLocalService.changePasswordFn(companyId, screenName, currentPassword, password1, password2);
+		_settingsLocalService.changePasswordFn(
+			companyId, screenName, currentPassword, password1, password2);
 	}
 
 	/**
@@ -55,31 +62,37 @@ public class SettingsLocalServiceWrapper implements ServiceWrapper<SettingsLocal
 	}
 
 	@Override
-	public boolean updateEmail(com.liferay.portal.kernel.model.User user, String userEmail)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public boolean updateEmail(
+			com.liferay.portal.kernel.model.User user, String userEmail)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _settingsLocalService.updateEmail(user, userEmail);
 	}
 
 	@Override
-	public boolean updateEmailFn(long companyId, String screenName, String Email)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public boolean updateEmailFn(
+			long companyId, String screenName, String Email)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _settingsLocalService.updateEmailFn(companyId, screenName, Email);
+		return _settingsLocalService.updateEmailFn(
+			companyId, screenName, Email);
 	}
 
 	@Override
-	public boolean updateMobile(com.liferay.portal.kernel.model.User user, String phone)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public boolean updateMobile(
+			com.liferay.portal.kernel.model.User user, String phone)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _settingsLocalService.updateMobile(user, phone);
 	}
 
 	@Override
-	public boolean updateMobileFn(long companyId, String screenName, String phoneNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public boolean updateMobileFn(
+			long companyId, String screenName, String phoneNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _settingsLocalService.updateMobileFn(companyId, screenName, phoneNo);
+		return _settingsLocalService.updateMobileFn(
+			companyId, screenName, phoneNo);
 	}
 
 	@Override

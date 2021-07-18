@@ -23,27 +23,33 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see UserMgmtService
  * @generated
  */
-public class UserMgmtServiceWrapper implements ServiceWrapper<UserMgmtService>, UserMgmtService {
+public class UserMgmtServiceWrapper
+	implements ServiceWrapper<UserMgmtService>, UserMgmtService {
 
 	public UserMgmtServiceWrapper(UserMgmtService userMgmtService) {
 		_userMgmtService = userMgmtService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
-			long userId, String password, String reminderQueryQuestion, String reminderQueryAnswer) {
+	public com.atmc.bsl.db.domain.ServiceOutput
+		<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
+			long userId, String password, String reminderQueryQuestion,
+			String reminderQueryAnswer) {
 
-		return _userMgmtService.changeFirstTimeLoginPassword(userId, password, reminderQueryQuestion,
-				reminderQueryAnswer);
+		return _userMgmtService.changeFirstTimeLoginPassword(
+			userId, password, reminderQueryQuestion, reminderQueryAnswer);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> createUser(long companyId,
-			String login, String password, String englishName, String arabicName, String language, String mobile,
-			String email, String reminderQueryQuestion, String reminderQueryAnswer) {
+	public com.atmc.bsl.db.domain.ServiceOutput
+		<com.liferay.portal.kernel.model.User> createUser(
+			long companyId, String login, String password, String englishName,
+			String arabicName, String language, String mobile, String email,
+			String reminderQueryQuestion, String reminderQueryAnswer) {
 
-		return _userMgmtService.createUser(companyId, login, password, englishName, arabicName, language, mobile, email,
-				reminderQueryQuestion, reminderQueryAnswer);
+		return _userMgmtService.createUser(
+			companyId, login, password, englishName, arabicName, language,
+			mobile, email, reminderQueryQuestion, reminderQueryAnswer);
 	}
 
 	/**

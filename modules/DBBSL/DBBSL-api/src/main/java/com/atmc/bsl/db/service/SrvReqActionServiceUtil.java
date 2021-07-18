@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.SrvReqActionServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqActionService
@@ -35,9 +35,7 @@ public class SrvReqActionServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqActionServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqActionServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -53,13 +51,16 @@ public class SrvReqActionServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<SrvReqActionService, SrvReqActionService> _serviceTracker;
+	private static ServiceTracker<SrvReqActionService, SrvReqActionService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SrvReqActionService.class);
 
-		ServiceTracker<SrvReqActionService, SrvReqActionService> serviceTracker = new ServiceTracker<SrvReqActionService, SrvReqActionService>(
-				bundle.getBundleContext(), SrvReqActionService.class, null);
+		ServiceTracker<SrvReqActionService, SrvReqActionService>
+			serviceTracker =
+				new ServiceTracker<SrvReqActionService, SrvReqActionService>(
+					bundle.getBundleContext(), SrvReqActionService.class, null);
 
 		serviceTracker.open();
 

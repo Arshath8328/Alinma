@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for NCDDetails. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.NCDDetailsLocalServiceImpl</code> and is
- * an access point for service operations in application layer code running on
- * the local server. Methods of this service will not have security checks based
- * on the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.NCDDetailsLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see NCDDetailsLocalService
@@ -35,9 +35,7 @@ public class NCDDetailsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.NCDDetailsLocalServiceImpl</code> and
-	 * rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.NCDDetailsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -53,13 +51,18 @@ public class NCDDetailsLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<NCDDetailsLocalService, NCDDetailsLocalService> _serviceTracker;
+	private static ServiceTracker
+		<NCDDetailsLocalService, NCDDetailsLocalService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(NCDDetailsLocalService.class);
 
-		ServiceTracker<NCDDetailsLocalService, NCDDetailsLocalService> serviceTracker = new ServiceTracker<NCDDetailsLocalService, NCDDetailsLocalService>(
-				bundle.getBundleContext(), NCDDetailsLocalService.class, null);
+		ServiceTracker<NCDDetailsLocalService, NCDDetailsLocalService>
+			serviceTracker =
+				new ServiceTracker
+					<NCDDetailsLocalService, NCDDetailsLocalService>(
+						bundle.getBundleContext(), NCDDetailsLocalService.class,
+						null);
 
 		serviceTracker.open();
 

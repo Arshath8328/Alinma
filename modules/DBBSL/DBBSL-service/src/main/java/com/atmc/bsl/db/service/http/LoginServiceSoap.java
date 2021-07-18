@@ -22,7 +22,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>LoginServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>LoginServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -52,73 +53,90 @@ import java.rmi.RemoteException;
 @Deprecated
 public class LoginServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>> getReminderQueryQuestions()
+	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+			getReminderQueryQuestions()
+		throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+				returnValue = LoginServiceUtil.getReminderQueryQuestions();
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.AuthUser> validateUser(
+				String idIqama, String email)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>> returnValue = LoginServiceUtil
-					.getReminderQueryQuestions();
+			com.atmc.bsl.db.domain.ServiceOutput
+				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+					LoginServiceUtil.validateUser(idIqama, email);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> validateUser(String idIqama,
-			String email) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
+				String login, String password)
+			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> returnValue = LoginServiceUtil
-					.validateUser(idIqama, email);
+			com.atmc.bsl.db.domain.ServiceOutput
+				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+					LoginServiceUtil.authenticateUser(login, password);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> authenticateUser(String login,
-			String password) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.AuthUser> login(
+				String login, String password, String rememberMe)
+			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> returnValue = LoginServiceUtil
-					.authenticateUser(login, password);
+			com.atmc.bsl.db.domain.ServiceOutput
+				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+					LoginServiceUtil.login(login, password, rememberMe);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> login(String login,
-			String password, String rememberMe) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout()
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser> returnValue = LoginServiceUtil
-					.login(login, password, rememberMe);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				LoginServiceUtil.logout();
 
 			return returnValue;
-		} catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
 		}
-	}
-
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout() throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = LoginServiceUtil.logout();
-
-			return returnValue;
-		} catch (Exception exception) {
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());

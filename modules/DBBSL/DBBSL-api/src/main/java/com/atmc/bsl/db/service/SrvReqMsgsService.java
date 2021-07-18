@@ -16,6 +16,7 @@ package com.atmc.bsl.db.service;
 
 import com.atmc.bsl.db.domain.ServiceOutput;
 import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
@@ -30,9 +31,9 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the remote service interface for SrvReqMsgs. Methods of this service
- * are expected to have security checks based on the propagated JAAS credentials
- * because this service can be accessed remotely.
+ * Provides the remote service interface for SrvReqMsgs. Methods of this
+ * service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqMsgsServiceUtil
@@ -41,18 +42,16 @@ import org.osgi.annotation.versioning.ProviderType;
 @AccessControlled
 @JSONWebService
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface SrvReqMsgsService extends BaseService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and rerun
-	 * ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the srv req msgs remote service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * SrvReqMsgsServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the srv req msgs remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link SrvReqMsgsServiceUtil} if injection and service tracking are not available.
 	 */
 	@JSONWebService(method = "POST", value = "add-reply-message")
 	public ServiceOutput<String> addReplyMessage(ServiceRequestMessage msg);
@@ -65,6 +64,7 @@ public interface SrvReqMsgsService extends BaseService {
 	public String getOSGiServiceIdentifier();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<List<ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(String referenceNo);
+	public ServiceOutput<List<ServiceRequestMessage>>
+		getServiceRequestMessageListbyRefNo(String referenceNo);
 
 }

@@ -22,7 +22,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>OTPServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>OTPServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -52,44 +53,53 @@ import java.rmi.RemoteException;
 @Deprecated
 public class OTPServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(String language, String otpSecret,
-			String mobileNumber, String chkVal) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+			String language, String otpSecret, String mobileNumber,
+			String chkVal)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = OTPServiceUtil.sendOTP(language, otpSecret,
-					mobileNumber, chkVal);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				OTPServiceUtil.sendOTP(
+					language, otpSecret, mobileNumber, chkVal);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(String language, String mobileNumber,
-			String chkVal) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+			String language, String mobileNumber, String chkVal)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = OTPServiceUtil.resendOTP(language, mobileNumber,
-					chkVal);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				OTPServiceUtil.resendOTP(language, mobileNumber, chkVal);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(String otpSecret, String otp)
-			throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+			String otpSecret, String otp)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = OTPServiceUtil.validateOTP(otpSecret, otp);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				OTPServiceUtil.validateOTP(otpSecret, otp);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());

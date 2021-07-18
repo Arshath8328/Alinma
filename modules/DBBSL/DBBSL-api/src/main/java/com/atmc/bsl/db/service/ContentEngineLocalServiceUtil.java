@@ -35,9 +35,7 @@ public class ContentEngineLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.ContentEngineLocalServiceImpl</code> and
-	 * rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ContentEngineLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -46,7 +44,8 @@ public class ContentEngineLocalServiceUtil {
 	 * @param themeDisplay
 	 * @return
 	 */
-	public static java.util.List<String> getHomeNews(com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay) {
+	public static java.util.List<String> getHomeNews(
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay) {
 
 		return getService().getHomeNews(themeDisplay);
 	}
@@ -68,9 +67,11 @@ public class ContentEngineLocalServiceUtil {
 	 * @return
 	 */
 	public static java.util.Vector<java.util.Set<String>> getVacancies(
-			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay, String locationSearch, String departmentSearch) {
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
+		String locationSearch, String departmentSearch) {
 
-		return getService().getVacancies(themeDisplay, locationSearch, departmentSearch);
+		return getService().getVacancies(
+			themeDisplay, locationSearch, departmentSearch);
 	}
 
 	/**
@@ -78,8 +79,9 @@ public class ContentEngineLocalServiceUtil {
 	 *
 	 * @return the vacancy title
 	 */
-	public static String getVacanyTitleByArticleId(com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
-			String articleId) {
+	public static String getVacanyTitleByArticleId(
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
+		String articleId) {
 
 		return getService().getVacanyTitleByArticleId(themeDisplay, articleId);
 	}
@@ -88,13 +90,19 @@ public class ContentEngineLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<ContentEngineLocalService, ContentEngineLocalService> _serviceTracker;
+	private static ServiceTracker
+		<ContentEngineLocalService, ContentEngineLocalService> _serviceTracker;
 
 	static {
-		Bundle bundle = FrameworkUtil.getBundle(ContentEngineLocalService.class);
+		Bundle bundle = FrameworkUtil.getBundle(
+			ContentEngineLocalService.class);
 
-		ServiceTracker<ContentEngineLocalService, ContentEngineLocalService> serviceTracker = new ServiceTracker<ContentEngineLocalService, ContentEngineLocalService>(
-				bundle.getBundleContext(), ContentEngineLocalService.class, null);
+		ServiceTracker<ContentEngineLocalService, ContentEngineLocalService>
+			serviceTracker =
+				new ServiceTracker
+					<ContentEngineLocalService, ContentEngineLocalService>(
+						bundle.getBundleContext(),
+						ContentEngineLocalService.class, null);
 
 		serviceTracker.open();
 

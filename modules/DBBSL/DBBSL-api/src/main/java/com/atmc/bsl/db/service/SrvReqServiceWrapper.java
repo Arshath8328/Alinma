@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqService
  * @generated
  */
-public class SrvReqServiceWrapper implements ServiceWrapper<SrvReqService>, SrvReqService {
+public class SrvReqServiceWrapper
+	implements ServiceWrapper<SrvReqService>, SrvReqService {
 
 	public SrvReqServiceWrapper(SrvReqService srvReqService) {
 		_srvReqService = srvReqService;
@@ -31,7 +32,8 @@ public class SrvReqServiceWrapper implements ServiceWrapper<SrvReqService>, SrvR
 
 	@Override
 	public com.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest, String lang) {
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+		String lang) {
 
 		return _srvReqService.addNewServiceRequest(srvRequest, lang);
 	}
@@ -47,8 +49,11 @@ public class SrvReqServiceWrapper implements ServiceWrapper<SrvReqService>, SrvR
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>> getServiceRequestsListByIdStatus(
-			String iqamaId, String[] status) throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+				getServiceRequestsListByIdStatus(
+					String iqamaId, String[] status)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _srvReqService.getServiceRequestsListByIdStatus(iqamaId, status);
 	}
@@ -59,7 +64,9 @@ public class SrvReqServiceWrapper implements ServiceWrapper<SrvReqService>, SrvR
 	}
 
 	@Override
-	public void sendSMS(java.util.Locale locale, String mobileNumber, String refNo, String msgKey) {
+	public void sendSMS(
+		java.util.Locale locale, String mobileNumber, String refNo,
+		String msgKey) {
 
 		_srvReqService.sendSMS(locale, mobileNumber, refNo, msgKey);
 	}

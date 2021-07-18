@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for SrvReqAction. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and is
- * an access point for service operations in application layer code running on
- * the local server. Methods of this service will not have security checks based
- * on the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqActionLocalService
@@ -35,11 +35,10 @@ public class SrvReqActionLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and
-	 * rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static String addNewServiceRequestAction(com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
+	public static String addNewServiceRequestAction(
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
 
 		return getService().addNewServiceRequestAction(action);
 	}
@@ -53,8 +52,9 @@ public class SrvReqActionLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction> getServiceRequestActionListbyRefNo(
-			String refNo) {
+	public static java.util.List
+		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
+			getServiceRequestActionListbyRefNo(String refNo) {
 
 		return getService().getServiceRequestActionListbyRefNo(refNo);
 	}
@@ -63,13 +63,18 @@ public class SrvReqActionLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<SrvReqActionLocalService, SrvReqActionLocalService> _serviceTracker;
+	private static ServiceTracker
+		<SrvReqActionLocalService, SrvReqActionLocalService> _serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SrvReqActionLocalService.class);
 
-		ServiceTracker<SrvReqActionLocalService, SrvReqActionLocalService> serviceTracker = new ServiceTracker<SrvReqActionLocalService, SrvReqActionLocalService>(
-				bundle.getBundleContext(), SrvReqActionLocalService.class, null);
+		ServiceTracker<SrvReqActionLocalService, SrvReqActionLocalService>
+			serviceTracker =
+				new ServiceTracker
+					<SrvReqActionLocalService, SrvReqActionLocalService>(
+						bundle.getBundleContext(),
+						SrvReqActionLocalService.class, null);
 
 		serviceTracker.open();
 

@@ -23,47 +23,60 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see UserMgmtLocalService
  * @generated
  */
-public class UserMgmtLocalServiceWrapper implements ServiceWrapper<UserMgmtLocalService>, UserMgmtLocalService {
+public class UserMgmtLocalServiceWrapper
+	implements ServiceWrapper<UserMgmtLocalService>, UserMgmtLocalService {
 
-	public UserMgmtLocalServiceWrapper(UserMgmtLocalService userMgmtLocalService) {
+	public UserMgmtLocalServiceWrapper(
+		UserMgmtLocalService userMgmtLocalService) {
 
 		_userMgmtLocalService = userMgmtLocalService;
 	}
 
 	@Override
-	public com.liferay.portal.kernel.model.User changeFirstTimeLoginPassword(long userId, String password,
-			String reminderQueryQuestion, String reminderQueryAnswer)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.liferay.portal.kernel.model.User changeFirstTimeLoginPassword(
+			long userId, String password, String reminderQueryQuestion,
+			String reminderQueryAnswer)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _userMgmtLocalService.changeFirstTimeLoginPassword(userId, password, reminderQueryQuestion,
-				reminderQueryAnswer);
+		return _userMgmtLocalService.changeFirstTimeLoginPassword(
+			userId, password, reminderQueryQuestion, reminderQueryAnswer);
 	}
 
 	@Override
-	public boolean createOrg(String orgCRNumber, String orgName, String orgArabicName,
-			com.liferay.portal.kernel.service.ServiceContext context) {
+	public boolean createOrg(
+		String orgCRNumber, String orgName, String orgArabicName,
+		com.liferay.portal.kernel.service.ServiceContext context) {
 
-		return _userMgmtLocalService.createOrg(orgCRNumber, orgName, orgArabicName, context);
+		return _userMgmtLocalService.createOrg(
+			orgCRNumber, orgName, orgArabicName, context);
 	}
 
 	@Override
-	public com.liferay.portal.kernel.model.User createUser(long companyId, String login, String password,
-			String englishName, String arabicName, java.util.Locale language, String mobile, String email,
+	public com.liferay.portal.kernel.model.User createUser(
+			long companyId, String login, String password, String englishName,
+			String arabicName, java.util.Locale language, String mobile,
+			String email,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _userMgmtLocalService.createUser(companyId, login, password, englishName, arabicName, language, mobile,
-				email, serviceContext);
+		return _userMgmtLocalService.createUser(
+			companyId, login, password, englishName, arabicName, language,
+			mobile, email, serviceContext);
 	}
 
 	@Override
-	public com.liferay.portal.kernel.model.User createUser(long companyId, String login, String password,
-			String englishName, String arabicName, java.util.Locale language, String mobile, String email,
-			com.liferay.portal.kernel.service.ServiceContext serviceContext, String reminderQueryQuestion,
-			String reminderQueryAnswer) throws com.liferay.portal.kernel.exception.PortalException {
+	public com.liferay.portal.kernel.model.User createUser(
+			long companyId, String login, String password, String englishName,
+			String arabicName, java.util.Locale language, String mobile,
+			String email,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext,
+			String reminderQueryQuestion, String reminderQueryAnswer)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _userMgmtLocalService.createUser(companyId, login, password, englishName, arabicName, language, mobile,
-				email, serviceContext, reminderQueryQuestion, reminderQueryAnswer);
+		return _userMgmtLocalService.createUser(
+			companyId, login, password, englishName, arabicName, language,
+			mobile, email, serviceContext, reminderQueryQuestion,
+			reminderQueryAnswer);
 	}
 
 	@Override
@@ -82,7 +95,8 @@ public class UserMgmtLocalServiceWrapper implements ServiceWrapper<UserMgmtLocal
 	}
 
 	@Override
-	public void synchronizeOrgs(com.liferay.portal.kernel.service.ServiceContext context) {
+	public void synchronizeOrgs(
+		com.liferay.portal.kernel.service.ServiceContext context) {
 
 		_userMgmtLocalService.synchronizeOrgs(context);
 	}

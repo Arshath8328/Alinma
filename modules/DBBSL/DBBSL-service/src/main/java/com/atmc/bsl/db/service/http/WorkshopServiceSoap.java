@@ -22,7 +22,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>WorkshopServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>WorkshopServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -52,93 +53,124 @@ import java.rmi.RemoteException;
 @Deprecated
 public class WorkshopServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(String customerName,
-			String customerMobile, String manufacture, String plateNo, int workshopId, String claimRefNo, String status,
-			String date, String serviceType, String desc, String vehMakeEn, String vehMakeAr, String vehModelEn,
-			String vehModelAr, String customerIqamaId) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+			String customerName, String customerMobile, String manufacture,
+			String plateNo, int workshopId, String claimRefNo, String status,
+			String date, String serviceType, String desc, String vehMakeEn,
+			String vehMakeAr, String vehModelEn, String vehModelAr,
+			String customerIqamaId)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = WorkshopServiceUtil.checkInVehicle(customerName,
-					customerMobile, manufacture, plateNo, workshopId, claimRefNo, status, date, serviceType, desc,
-					vehMakeEn, vehMakeAr, vehModelEn, vehModelAr, customerIqamaId);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				WorkshopServiceUtil.checkInVehicle(
+					customerName, customerMobile, manufacture, plateNo,
+					workshopId, claimRefNo, status, date, serviceType, desc,
+					vehMakeEn, vehMakeAr, vehModelEn, vehModelAr,
+					customerIqamaId);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByStatus(
-			String status, int workShopId) throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> returnValue = WorkshopServiceUtil
-					.getcheckedInVehicleByStatus(status, workShopId);
-
-			return returnValue;
-		} catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
-		}
-	}
-
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleById(
-			int id) throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> returnValue = WorkshopServiceUtil
-					.getcheckedInVehicleById(id);
-
-			return returnValue;
-		} catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
-		}
-	}
-
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(int id, String status)
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+				getcheckedInVehicleByStatus(String status, int workShopId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = WorkshopServiceUtil.updateVehicleStatus(id,
-					status);
+			com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+						returnValue =
+							WorkshopServiceUtil.getcheckedInVehicleByStatus(
+								status, workShopId);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByIqmaId(
-			String iqamaId) throws RemoteException {
-
-		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> returnValue = WorkshopServiceUtil
-					.getcheckedInVehicleByIqmaId(iqamaId);
-
-			return returnValue;
-		} catch (Exception exception) {
-			_log.error(exception, exception);
-
-			throw new RemoteException(exception.getMessage());
-		}
-	}
-
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>> getWorkShopList()
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+				getcheckedInVehicleById(int id)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>> returnValue = WorkshopServiceUtil
-					.getWorkShopList();
+			com.atmc.bsl.db.domain.ServiceOutput
+				<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> returnValue =
+					WorkshopServiceUtil.getcheckedInVehicleById(id);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+			updateVehicleStatus(int id, String status)
+		throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				WorkshopServiceUtil.updateVehicleStatus(id, status);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+				getcheckedInVehicleByIqmaId(String iqamaId)
+			throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+						returnValue =
+							WorkshopServiceUtil.getcheckedInVehicleByIqmaId(
+								iqamaId);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+				getWorkShopList()
+			throws RemoteException {
+
+		try {
+			com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+					returnValue = WorkshopServiceUtil.getWorkShopList();
+
+			return returnValue;
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());

@@ -10,14 +10,10 @@ dependencies {
 	compileOnly project(":modules:WSACL:WSACL-service")
 
 
-	compileOnly project(":modules:WSACL_mob:WSACL_mob-api")
-	compileOnly project(":modules:WSACL_mob:WSACL_mob-service")
+	compileOnly project(":modules:WSACLMob:WSACLMob-api")
+	compileOnly project(":modules:WSACLMob:WSACLMob-service")
 
 	compileOnly project(":modules:UtilsAPI")
-
-	compileInclude group: 'com.liferay.portal', name: 'com.liferay.portal.impl', version: '2.14.0'
-//Thanks for using https://jar-download.com
-	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.6.0"
 
 	compileInclude group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
 //	compileOnly group: "com.liferay", name: "com.liferay.journal.api", version: "2.2.1"
@@ -31,3 +27,9 @@ buildService {
 }
 
 group = "DBBSL"
+
+bundle {
+
+	instruction 'Import-Package', '*;version="0";resolution:=optional' // Specify an individual instruction
+	
+}

@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.WorkshopServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see WorkshopService
@@ -35,33 +35,38 @@ public class WorkshopServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.WorkshopServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.WorkshopServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(String customerName,
-			String customerMobile, String manufacture, String plateNo, int workshopId, String claimRefNo, String status,
-			String date, String serviceType, String desc, String vehMakeEn, String vehMakeAr, String vehModelEn,
-			String vehModelAr, String customerIqamaId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+		String customerName, String customerMobile, String manufacture,
+		String plateNo, int workshopId, String claimRefNo, String status,
+		String date, String serviceType, String desc, String vehMakeEn,
+		String vehMakeAr, String vehModelEn, String vehModelAr,
+		String customerIqamaId) {
 
-		return getService().checkInVehicle(customerName, customerMobile, manufacture, plateNo, workshopId, claimRefNo,
-				status, date, serviceType, desc, vehMakeEn, vehMakeAr, vehModelEn, vehModelAr, customerIqamaId);
+		return getService().checkInVehicle(
+			customerName, customerMobile, manufacture, plateNo, workshopId,
+			claimRefNo, status, date, serviceType, desc, vehMakeEn, vehMakeAr,
+			vehModelEn, vehModelAr, customerIqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleById(
-			int id) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+			getcheckedInVehicleById(int id) {
 
 		return getService().getcheckedInVehicleById(id);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByIqmaId(
-			String iqamaId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+			getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return getService().getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>> getcheckedInVehicleByStatus(
-			String status, int workShopId) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+			getcheckedInVehicleByStatus(String status, int workShopId) {
 
 		return getService().getcheckedInVehicleByStatus(status, workShopId);
 	}
@@ -75,12 +80,15 @@ public class WorkshopServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>> getWorkShopList() {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+			getWorkShopList() {
 
 		return getService().getWorkShopList();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(int id, String status) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+		updateVehicleStatus(int id, String status) {
 
 		return getService().updateVehicleStatus(id, status);
 	}
@@ -89,12 +97,14 @@ public class WorkshopServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<WorkshopService, WorkshopService> _serviceTracker;
+	private static ServiceTracker<WorkshopService, WorkshopService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(WorkshopService.class);
 
-		ServiceTracker<WorkshopService, WorkshopService> serviceTracker = new ServiceTracker<WorkshopService, WorkshopService>(
+		ServiceTracker<WorkshopService, WorkshopService> serviceTracker =
+			new ServiceTracker<WorkshopService, WorkshopService>(
 				bundle.getBundleContext(), WorkshopService.class, null);
 
 		serviceTracker.open();

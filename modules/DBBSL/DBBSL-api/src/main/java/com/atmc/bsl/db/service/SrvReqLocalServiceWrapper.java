@@ -23,24 +23,28 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqLocalService
  * @generated
  */
-public class SrvReqLocalServiceWrapper implements ServiceWrapper<SrvReqLocalService>, SrvReqLocalService {
+public class SrvReqLocalServiceWrapper
+	implements ServiceWrapper<SrvReqLocalService>, SrvReqLocalService {
 
 	public SrvReqLocalServiceWrapper(SrvReqLocalService srvReqLocalService) {
 		_srvReqLocalService = srvReqLocalService;
 	}
 
 	@Override
-	public String addNewServiceRequest(com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
-			String creator) {
+	public String addNewServiceRequest(
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+		String creator) {
 
 		return _srvReqLocalService.addNewServiceRequest(srvRequest, creator);
 	}
 
 	@Override
-	public int countSrvReqListByRoleStatusCustID(String[] status, String role, String customerID,
-			boolean escalationFlag) {
+	public int countSrvReqListByRoleStatusCustID(
+		String[] status, String role, String customerID,
+		boolean escalationFlag) {
 
-		return _srvReqLocalService.countSrvReqListByRoleStatusCustID(status, role, customerID, escalationFlag);
+		return _srvReqLocalService.countSrvReqListByRoleStatusCustID(
+			status, role, customerID, escalationFlag);
 	}
 
 	/**
@@ -54,51 +58,60 @@ public class SrvReqLocalServiceWrapper implements ServiceWrapper<SrvReqLocalServ
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.serviceRequest.ServiceRequest getServiceRequestbyRefNo(String refNo) {
+	public com.atmc.bsl.db.domain.serviceRequest.ServiceRequest
+		getServiceRequestbyRefNo(String refNo) {
 
 		return _srvReqLocalService.getServiceRequestbyRefNo(refNo);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest> getServiceRequestsListByEscalationFlag(
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		getServiceRequestsListByEscalationFlag(
 			String userRole, String closedStatus, boolean isAdmin) {
 
-		return _srvReqLocalService.getServiceRequestsListByEscalationFlag(userRole, closedStatus, isAdmin);
+		return _srvReqLocalService.getServiceRequestsListByEscalationFlag(
+			userRole, closedStatus, isAdmin);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest> getServiceRequestsListByStatus(
-			String[] status, String role) {
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		getServiceRequestsListByStatus(String[] status, String role) {
 
 		return _srvReqLocalService.getServiceRequestsListByStatus(status, role);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest> getServiceRequestsListbyUserID(
-			String userID) {
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		getServiceRequestsListbyUserID(String userID) {
 
 		return _srvReqLocalService.getServiceRequestsListbyUserID(userID);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest> getSrvReqListByRoleStatusCustID(
-			String[] status, String role, String customerID, boolean escalationFlag, int from, int to, String orderBy,
+	public java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		getSrvReqListByRoleStatusCustID(
+			String[] status, String role, String customerID,
+			boolean escalationFlag, int from, int to, String orderBy,
 			String orderDir) {
 
-		return _srvReqLocalService.getSrvReqListByRoleStatusCustID(status, role, customerID, escalationFlag, from, to,
-				orderBy, orderDir);
+		return _srvReqLocalService.getSrvReqListByRoleStatusCustID(
+			status, role, customerID, escalationFlag, from, to, orderBy,
+			orderDir);
 	}
 
 	@Override
-	public int updateServiceRequest(com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest) {
+	public int updateServiceRequest(
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest) {
 
 		return _srvReqLocalService.updateServiceRequest(srvRequest);
 	}
 
 	@Override
-	public int updateServiceRequestAssignedRole(String refNo, String role, String status) {
+	public int updateServiceRequestAssignedRole(
+		String refNo, String role, String status) {
 
-		return _srvReqLocalService.updateServiceRequestAssignedRole(refNo, role, status);
+		return _srvReqLocalService.updateServiceRequestAssignedRole(
+			refNo, role, status);
 	}
 
 	@Override

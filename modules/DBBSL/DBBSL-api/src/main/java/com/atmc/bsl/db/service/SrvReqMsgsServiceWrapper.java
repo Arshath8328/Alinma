@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SrvReqMsgsService
  * @generated
  */
-public class SrvReqMsgsServiceWrapper implements ServiceWrapper<SrvReqMsgsService>, SrvReqMsgsService {
+public class SrvReqMsgsServiceWrapper
+	implements ServiceWrapper<SrvReqMsgsService>, SrvReqMsgsService {
 
 	public SrvReqMsgsServiceWrapper(SrvReqMsgsService srvReqMsgsService) {
 		_srvReqMsgsService = srvReqMsgsService;
@@ -31,7 +32,7 @@ public class SrvReqMsgsServiceWrapper implements ServiceWrapper<SrvReqMsgsServic
 
 	@Override
 	public com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		return _srvReqMsgsService.addReplyMessage(msg);
 	}
@@ -47,10 +48,13 @@ public class SrvReqMsgsServiceWrapper implements ServiceWrapper<SrvReqMsgsServic
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(
-			String referenceNo) {
+	public com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List
+			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+				getServiceRequestMessageListbyRefNo(String referenceNo) {
 
-		return _srvReqMsgsService.getServiceRequestMessageListbyRefNo(referenceNo);
+		return _srvReqMsgsService.getServiceRequestMessageListbyRefNo(
+			referenceNo);
 	}
 
 	@Override

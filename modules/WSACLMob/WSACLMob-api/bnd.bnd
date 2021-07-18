@@ -1,0 +1,10 @@
+Bundle-Name: WSACLMob-api
+Bundle-SymbolicName: sb.WSACLMob.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.atmc.mob.acl.ws.domain,\
+	com.atmc.mob.acl.ws.domain.ods,\
+	com.atmc.mob.acl.ws.domain.yakeen,\
+	com.atmc.mob.acl.ws.service
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../WSACLMob-service/service.xml

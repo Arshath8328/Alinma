@@ -1,0 +1,26 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:SendEmail:SendEmail-api")
+
+	compileOnly group: "com.sun.mail", name: "javax.mail", version: "1.6.2"
+}
+
+buildService {
+	apiDir = "../SendEmail-api/src/main/java"
+}
+
+group = "SendEmail"
+
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+bundle {
+
+	instruction 'Import-Package', '*;version="0";resolution:=optional' // Specify an individual instruction
+	
+}

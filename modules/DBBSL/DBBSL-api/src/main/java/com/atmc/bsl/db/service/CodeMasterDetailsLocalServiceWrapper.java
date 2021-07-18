@@ -24,37 +24,44 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class CodeMasterDetailsLocalServiceWrapper
-		implements CodeMasterDetailsLocalService, ServiceWrapper<CodeMasterDetailsLocalService> {
+	implements CodeMasterDetailsLocalService,
+			   ServiceWrapper<CodeMasterDetailsLocalService> {
 
-	public CodeMasterDetailsLocalServiceWrapper(CodeMasterDetailsLocalService codeMasterDetailsLocalService) {
+	public CodeMasterDetailsLocalServiceWrapper(
+		CodeMasterDetailsLocalService codeMasterDetailsLocalService) {
 
 		_codeMasterDetailsLocalService = codeMasterDetailsLocalService;
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> findByCodeCodeFreez(String code,
-			String codeFreezYN) throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
+	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			findByCodeCodeFreez(String code, String codeFreezYN)
+		throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
-		return _codeMasterDetailsLocalService.findByCodeCodeFreez(code, codeFreezYN);
+		return _codeMasterDetailsLocalService.findByCodeCodeFreez(
+			code, codeFreezYN);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> findCodeMasterDesc(String code,
-			String locale) throws com.liferay.portal.kernel.exception.PortalException {
+	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			findCodeMasterDesc(String code, String locale)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _codeMasterDetailsLocalService.findCodeMasterDesc(code, locale);
 	}
 
 	@Override
 	public String getCodeMasterDesc(String code, String codeSub, String locale)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return _codeMasterDetailsLocalService.getCodeMasterDesc(code, codeSub, locale);
+		return _codeMasterDetailsLocalService.getCodeMasterDesc(
+			code, codeSub, locale);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCustomCodes(String code)
-			throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
+	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+			getCustomCodes(String code)
+		throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
 		return _codeMasterDetailsLocalService.getCustomCodes(code);
 	}
@@ -75,7 +82,8 @@ public class CodeMasterDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(CodeMasterDetailsLocalService codeMasterDetailsLocalService) {
+	public void setWrappedService(
+		CodeMasterDetailsLocalService codeMasterDetailsLocalService) {
 
 		_codeMasterDetailsLocalService = codeMasterDetailsLocalService;
 	}

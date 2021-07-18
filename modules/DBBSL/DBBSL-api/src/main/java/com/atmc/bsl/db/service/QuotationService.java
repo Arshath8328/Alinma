@@ -23,9 +23,11 @@ import com.atmc.bsl.db.domain.quotation.Quotation;
 import com.atmc.bsl.db.domain.quotation.QuotationCover;
 import com.atmc.bsl.db.domain.quotation.QuotationDriver;
 import com.atmc.bsl.db.domain.quotation.QuotationUserAddress;
+
 import com.ejada.atmc.acl.db.domain.tariff.TariffInput;
 import com.ejada.atmc.acl.db.domain.tariff.TariffOutput;
 import com.ejada.atmc.acl.db.model.CodeMasterMap;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
@@ -43,9 +45,9 @@ import java.util.List;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the remote service interface for Quotation. Methods of this service
- * are expected to have security checks based on the propagated JAAS credentials
- * because this service can be accessed remotely.
+ * Provides the remote service interface for Quotation. Methods of this
+ * service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see QuotationServiceUtil
@@ -54,34 +56,38 @@ import org.osgi.annotation.versioning.ProviderType;
 @AccessControlled
 @JSONWebService
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface QuotationService extends BaseService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.QuotationServiceImpl</code> and rerun
-	 * ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the quotation remote service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * QuotationServiceUtil} if injection and service tracking are not available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.QuotationServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the quotation remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link QuotationServiceUtil} if injection and service tracking are not available.
 	 */
-	public ServiceOutput<QuotationDriver> addDriver(QuotationDriver driver, QuotationUserAddress driverNatAddress,
-			QuotationUserAddress driverOffNatAddress);
+	public ServiceOutput<QuotationDriver> addDriver(
+		QuotationDriver driver, QuotationUserAddress driverNatAddress,
+		QuotationUserAddress driverOffNatAddress);
 
-	public ServiceOutput<Boolean> clearQuoteFile(String fileName, String insuredId);
+	public ServiceOutput<Boolean> clearQuoteFile(
+		String fileName, String insuredId);
 
 	public ServiceOutput<Integer> countQuotationSurveyVideo(String quoteID);
 
-	public ServiceOutput<String> downloadPolicyFile(String quoteId, String policyNo, String lang)
-			throws PortalException;
+	public ServiceOutput<String> downloadPolicyFile(
+			String quoteId, String policyNo, String lang)
+		throws PortalException;
 
-	public ServiceOutput<String> downloadQuotDetsFile(String quoteId, String lang) throws PortalException;
+	public ServiceOutput<String> downloadQuotDetsFile(
+			String quoteId, String lang)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<CodeMasterMap> getBySourceTypeSourceCode(String sourceType, String sourceCode)
-			throws PortalException;
+	public ServiceOutput<CodeMasterMap> getBySourceTypeSourceCode(
+			String sourceType, String sourceCode)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ServiceOutput<List<CodeMasterDetails>> getCities();
@@ -130,25 +136,31 @@ public interface QuotationService extends BaseService {
 	public ServiceOutput<Quotation> getQuotationDetails(String quotId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<TariffOutput> getTariffData(TariffInput tariffInput) throws PortalException;
+	public ServiceOutput<TariffOutput> getTariffData(TariffInput tariffInput)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public ServiceOutput<Quotation> getTariffDetails(Quotation quot, List<QuotationDriver> drivers)
-			throws PortalException;
+	public ServiceOutput<Quotation> getTariffDetails(
+			Quotation quot, List<QuotationDriver> drivers)
+		throws PortalException;
 
 	@JSONWebService(method = "POST", value = "personal-info")
-	public ServiceOutput<Quotation> personalInfo(Quotation quot, boolean isUserSignedIn);
+	public ServiceOutput<Quotation> personalInfo(
+		Quotation quot, boolean isUserSignedIn);
 
 	public ServiceOutput<Double> quickQuoteInquiry(Quotation quot);
 
 	@JSONWebService(method = "POST", value = "renew-policy")
-	public ServiceOutput<Quotation> renewPolicy(Policy policy, PolicyVehicle pVeh);
+	public ServiceOutput<Quotation> renewPolicy(
+		Policy policy, PolicyVehicle pVeh);
 
 	public ServiceOutput<Quotation> tokenizationResult(String status);
 
 	@JSONWebService(method = "POST", value = "upload-quote-file")
-	public ServiceOutput<Boolean> uploadQuoteFile(File attachFile, String fileName, String insuredId);
+	public ServiceOutput<Boolean> uploadQuoteFile(
+		File attachFile, String fileName, String insuredId);
 
-	public ServiceOutput<Boolean> uploadVideo(String baseArray, String fileName, String quotationId, Date videoDate);
+	public ServiceOutput<Boolean> uploadVideo(
+		String baseArray, String fileName, String quotationId, Date videoDate);
 
 }

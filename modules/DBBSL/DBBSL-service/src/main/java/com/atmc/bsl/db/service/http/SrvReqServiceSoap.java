@@ -23,7 +23,8 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>SrvReqServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>SrvReqServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -53,54 +54,74 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SrvReqServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>> getServiceRequestsListByIdStatus(
-			String iqamaId, String[] status) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+				getServiceRequestsListByIdStatus(
+					String iqamaId, String[] status)
+			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>> returnValue = SrvReqServiceUtil
-					.getServiceRequestsListByIdStatus(iqamaId, status);
+			com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+						returnValue =
+							SrvReqServiceUtil.getServiceRequestsListByIdStatus(
+								iqamaId, status);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest, String lang) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+			addNewServiceRequest(
+				com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+				String lang)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = SrvReqServiceUtil
-					.addNewServiceRequest(srvRequest, lang);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				SrvReqServiceUtil.addNewServiceRequest(srvRequest, lang);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static boolean sendEmail(String mailTo, String emailMsg, String msgTitle) throws RemoteException {
+	public static boolean sendEmail(
+			String mailTo, String emailMsg, String msgTitle)
+		throws RemoteException {
 
 		try {
-			boolean returnValue = SrvReqServiceUtil.sendEmail(mailTo, emailMsg, msgTitle);
+			boolean returnValue = SrvReqServiceUtil.sendEmail(
+				mailTo, emailMsg, msgTitle);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static void sendSMS(String locale, String mobileNumber, String refNo, String msgKey) throws RemoteException {
+	public static void sendSMS(
+			String locale, String mobileNumber, String refNo, String msgKey)
+		throws RemoteException {
 
 		try {
-			SrvReqServiceUtil.sendSMS(LocaleUtil.fromLanguageId(locale), mobileNumber, refNo, msgKey);
-		} catch (Exception exception) {
+			SrvReqServiceUtil.sendSMS(
+				LocaleUtil.fromLanguageId(locale), mobileNumber, refNo, msgKey);
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());

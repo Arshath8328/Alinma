@@ -23,15 +23,17 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see LoginLocalService
  * @generated
  */
-public class LoginLocalServiceWrapper implements LoginLocalService, ServiceWrapper<LoginLocalService> {
+public class LoginLocalServiceWrapper
+	implements LoginLocalService, ServiceWrapper<LoginLocalService> {
 
 	public LoginLocalServiceWrapper(LoginLocalService loginLocalService) {
 		_loginLocalService = loginLocalService;
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser authenticateUser(String login, String password)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.AuthUser authenticateUser(
+			String login, String password)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _loginLocalService.authenticateUser(login, password);
 	}
@@ -48,13 +50,15 @@ public class LoginLocalServiceWrapper implements LoginLocalService, ServiceWrapp
 
 	@Override
 	public java.util.Set<String> getReminderQueryQuestions()
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _loginLocalService.getReminderQueryQuestions();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser login(String login, String password, String rememberMe) throws Exception {
+	public com.atmc.bsl.db.domain.AuthUser login(
+			String login, String password, String rememberMe)
+		throws Exception {
 
 		return _loginLocalService.login(login, password, rememberMe);
 	}
@@ -65,8 +69,9 @@ public class LoginLocalServiceWrapper implements LoginLocalService, ServiceWrapp
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser validateUser(String idIqama, String email)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public com.atmc.bsl.db.domain.AuthUser validateUser(
+			String idIqama, String email)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _loginLocalService.validateUser(idIqama, email);
 	}

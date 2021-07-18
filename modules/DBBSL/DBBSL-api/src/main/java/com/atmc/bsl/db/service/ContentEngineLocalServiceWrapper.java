@@ -24,9 +24,11 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class ContentEngineLocalServiceWrapper
-		implements ContentEngineLocalService, ServiceWrapper<ContentEngineLocalService> {
+	implements ContentEngineLocalService,
+			   ServiceWrapper<ContentEngineLocalService> {
 
-	public ContentEngineLocalServiceWrapper(ContentEngineLocalService contentEngineLocalService) {
+	public ContentEngineLocalServiceWrapper(
+		ContentEngineLocalService contentEngineLocalService) {
 
 		_contentEngineLocalService = contentEngineLocalService;
 	}
@@ -38,7 +40,8 @@ public class ContentEngineLocalServiceWrapper
 	 * @return
 	 */
 	@Override
-	public java.util.List<String> getHomeNews(com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay) {
+	public java.util.List<String> getHomeNews(
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay) {
 
 		return _contentEngineLocalService.getHomeNews(themeDisplay);
 	}
@@ -62,9 +65,11 @@ public class ContentEngineLocalServiceWrapper
 	 */
 	@Override
 	public java.util.Vector<java.util.Set<String>> getVacancies(
-			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay, String locationSearch, String departmentSearch) {
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
+		String locationSearch, String departmentSearch) {
 
-		return _contentEngineLocalService.getVacancies(themeDisplay, locationSearch, departmentSearch);
+		return _contentEngineLocalService.getVacancies(
+			themeDisplay, locationSearch, departmentSearch);
 	}
 
 	/**
@@ -73,10 +78,12 @@ public class ContentEngineLocalServiceWrapper
 	 * @return the vacancy title
 	 */
 	@Override
-	public String getVacanyTitleByArticleId(com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
-			String articleId) {
+	public String getVacanyTitleByArticleId(
+		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay,
+		String articleId) {
 
-		return _contentEngineLocalService.getVacanyTitleByArticleId(themeDisplay, articleId);
+		return _contentEngineLocalService.getVacanyTitleByArticleId(
+			themeDisplay, articleId);
 	}
 
 	@Override
@@ -85,7 +92,8 @@ public class ContentEngineLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(ContentEngineLocalService contentEngineLocalService) {
+	public void setWrappedService(
+		ContentEngineLocalService contentEngineLocalService) {
 
 		_contentEngineLocalService = contentEngineLocalService;
 	}

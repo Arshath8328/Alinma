@@ -27,6 +27,7 @@ import com.atmc.bsl.db.domain.quotation.QuotationUserAddress;
 import com.atmc.bsl.db.domain.quotation.QuotationVehicleImage;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
+
 import com.ejada.atmc.acl.db.model.CustUploads;
 import com.ejada.atmc.acl.db.model.PolicyHDR;
 import com.ejada.atmc.acl.db.model.ProductCovers;
@@ -34,6 +35,7 @@ import com.ejada.atmc.acl.db.model.QuotationAdminUploads;
 import com.ejada.atmc.acl.db.model.QuotationSurvey;
 import com.ejada.atmc.acl.db.model.Quotations;
 import com.ejada.atmc.acl.ws.domain.payFort.PurchaseResponse;
+
 import com.liferay.portal.kernel.exception.ModelListenerException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -56,30 +58,29 @@ import javax.servlet.http.HttpServletRequest;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
- * Provides the local service interface for Quotation. Methods of this service
- * will not have security checks based on the propagated JAAS credentials
- * because this service can only be accessed from within the same VM.
+ * Provides the local service interface for Quotation. Methods of this
+ * service will not have security checks based on the propagated JAAS
+ * credentials because this service can only be accessed from within the same
+ * VM.
  *
  * @author Brian Wing Shun Chan
  * @see QuotationLocalServiceUtil
  * @generated
  */
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor = { PortalException.class, SystemException.class })
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface QuotationLocalService extends BaseLocalService {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to automatically copy the method declarations to this
-	 * interface. Consume the quotation local service via injection or a
-	 * <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link
-	 * QuotationLocalServiceUtil} if injection and service tracking are not
-	 * available.
+	 * Never modify this interface directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.QuotationLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the quotation local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link QuotationLocalServiceUtil} if injection and service tracking are not available.
 	 */
-	public String acceptQuotation(long quotationId, String userName, Date date, String reason);
+	public String acceptQuotation(
+		long quotationId, String userName, Date date, String reason);
 
 	public PolicyHDR checkActivePolicy(String iqamaId, String vehId);
 
@@ -91,9 +92,12 @@ public interface QuotationLocalService extends BaseLocalService {
 
 	public CustUploads downloadCustFiles(long fileId);
 
-	public File downloadPolicyReport(String quoteId, String policyNo, String lang) throws Exception;
+	public File downloadPolicyReport(
+			String quoteId, String policyNo, String lang)
+		throws Exception;
 
-	public File downloadQuotDetsReport(String quoteId, String lang) throws Exception;
+	public File downloadQuotDetsReport(String quoteId, String lang)
+		throws Exception;
 
 	public byte[] findCustuploadsChassisNo(long id);
 
@@ -120,17 +124,20 @@ public interface QuotationLocalService extends BaseLocalService {
 	public List<CodeMasterDetails> geEngineSizes();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Quotation getAdminQuotationByQuotationId(long quotationId) throws PortalException;
+	public Quotation getAdminQuotationByQuotationId(long quotationId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getAdminQuotations(int start, int end) throws PortalException;
+	public List<Quotation> getAdminQuotations(int start, int end)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getAdminQuotationsCount() throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getAllPendingQuotations(Date expiryDate, String quoteStatus, boolean smsFlag)
-			throws PortalException;
+	public List<Quotation> getAllPendingQuotations(
+			Date expiryDate, String quoteStatus, boolean smsFlag)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<CodeMasterDetails> getCities();
@@ -145,10 +152,13 @@ public interface QuotationLocalService extends BaseLocalService {
 	public List<QuotationCover> getCustomCovers(List<ProductCovers> pCovers);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public QuotationCustUploads getCustomQuotationCustUploads(String quotationId) throws PortalException;
+	public QuotationCustUploads getCustomQuotationCustUploads(
+			String quotationId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getCustomQuotations(List<Quotations> quotationsList, boolean isTameeni);
+	public List<Quotation> getCustomQuotations(
+		List<Quotations> quotationsList, boolean isTameeni);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<CodeMasterDetails> getDeductibleValues();
@@ -163,7 +173,9 @@ public interface QuotationLocalService extends BaseLocalService {
 	public List<CodeMasterDetails> getEducationList();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getExpiredQuotsByDate(Date expiryDate, String[] status) throws PortalException;
+	public List<Quotation> getExpiredQuotsByDate(
+			Date expiryDate, String[] status)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<CustomerMapDetails> getInsuranceCompanies();
@@ -175,7 +187,8 @@ public interface QuotationLocalService extends BaseLocalService {
 	public List<CodeMasterDetails> getLicenseTypes();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public String getNajmStatusByPolicyNo(String policyNo) throws PortalException;
+	public String getNajmStatusByPolicyNo(String policyNo)
+		throws PortalException;
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -206,41 +219,53 @@ public interface QuotationLocalService extends BaseLocalService {
 	public List<CodeMasterDetails> getPurposeOfVehicle();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Quotation getQuotationByQuotationId(long quotationId) throws PortalException;
+	public Quotation getQuotationByQuotationId(long quotationId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Quotation getQuotationByReferenceNo(String referenceNo) throws PortalException;
+	public Quotation getQuotationByReferenceNo(String referenceNo)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Quotation getQuotationDetails(Quotation quot);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getQuotations(String status, long iqamaId, boolean andSearch, int start, int end)
-			throws SystemException;
+	public List<Quotation> getQuotations(
+			String status, long iqamaId, boolean andSearch, int start, int end)
+		throws SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getQuotationsByIqamaId(long iqamaId) throws PortalException;
+	public List<Quotation> getQuotationsByIqamaId(long iqamaId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Quotation> getQuotationsByIqamaIdAndStatus(long iqamaId) throws PortalException;
+	public List<Quotation> getQuotationsByIqamaIdAndStatus(long iqamaId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Long getQuotationsCount(String status, long iqamaId, boolean andSearch) throws SystemException;
+	public Long getQuotationsCount(
+			String status, long iqamaId, boolean andSearch)
+		throws SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public QuotationTameeniExtraDetails getQuotationTameeniExtras(long quotationId) throws PortalException;
+	public QuotationTameeniExtraDetails getQuotationTameeniExtras(
+			long quotationId)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Map<String, Object> getQuoteDetailsReportParams(HttpServletRequest httpReq, Quotation quot);
+	public Map<String, Object> getQuoteDetailsReportParams(
+		HttpServletRequest httpReq, Quotation quot);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Map<String, Object> getQuoteDetailsReportParams(String lang, Quotation quot);
+	public Map<String, Object> getQuoteDetailsReportParams(
+		String lang, Quotation quot);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Quotations> getQuotsByQuoteStatus(String quoteStatus);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public Quotation getTariffDets(Quotation quot, boolean isRenewal) throws PortalException;
+	public Quotation getTariffDets(Quotation quot, boolean isRenewal)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<QuotationDriver> getUnderAgeDriversList(long quotationId);
@@ -254,52 +279,79 @@ public interface QuotationLocalService extends BaseLocalService {
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public String getVehicleIdDescEn(String vichelIdype);
 
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = { PortalException.class,
-			SystemException.class, ModelListenerException.class })
+	@Transactional(
+		propagation = Propagation.REQUIRED, readOnly = false,
+		rollbackFor = {
+			PortalException.class, SystemException.class,
+			ModelListenerException.class
+		}
+	)
 	public void issuePolicy(Quotation quot);
 
-	public void notifyUser(HttpServletRequest httpRequest, Quotation quot, Locale local, User user);
+	public void notifyUser(
+		HttpServletRequest httpRequest, Quotation quot, Locale local,
+		User user);
 
-	public String olpInitiatePmnt(String olpAlias, double amount, String currency, String merchantLandingURL,
-			String merchantFailureURL);
+	public String olpInitiatePmnt(
+		String olpAlias, double amount, String currency,
+		String merchantLandingURL, String merchantFailureURL);
 
-	public PurchaseResponse payFortPurchase(double amount, String currency, String customerEmail, String language,
-			String merchantReference, String tokenName, String paymentOption, String cardSecurityCode,
-			String clientIpAddress, String returnUrl);
+	public PurchaseResponse payFortPurchase(
+		double amount, String currency, String customerEmail, String language,
+		String merchantReference, String tokenName, String paymentOption,
+		String cardSecurityCode, String clientIpAddress, String returnUrl);
 
-	public void rejectQuotation(long quotationId, String userName, Date date, String reason, String status);
+	public void rejectQuotation(
+		long quotationId, String userName, Date date, String reason,
+		String status);
 
 	public void removeAdminFiles(int fileId);
 
-	public void renewAddressInquiry(Quotation quot, Locale locale) throws YaqeenException;
+	public void renewAddressInquiry(Quotation quot, Locale locale)
+		throws YaqeenException;
 
 	public void renewNcdInquiry(Quotation quot) throws NajmException;
 
 	public void renewTariffInquiry(Quotation quot);
 
-	public Quotation reviewQuotation(Quotation quot, boolean isUserSignedIn, String lang) throws PortalException;
+	public Quotation reviewQuotation(
+			Quotation quot, boolean isUserSignedIn, String lang)
+		throws PortalException;
 
-	public void saveAdminFiles(long quotationId, File adminFile, String fileName);
+	public void saveAdminFiles(
+		long quotationId, File adminFile, String fileName);
 
-	public void saveNajmCaseDetails(ArrayList<QuotationNajmDetails> najmDetailsList, long quotationId);
+	public void saveNajmCaseDetails(
+		ArrayList<QuotationNajmDetails> najmDetailsList, long quotationId);
 
-	public void saveQuoteUserAddress(QuotationUserAddress custUserNatAddr, long quotationId, long insuredId,
-			boolean isNatAddress);
+	public void saveQuoteUserAddress(
+		QuotationUserAddress custUserNatAddr, long quotationId, long insuredId,
+		boolean isNatAddress);
 
-	public boolean saveQuotSurvey(String quotationId, byte[] surveyVideo, String name, Date date);
+	public boolean saveQuotSurvey(
+		String quotationId, byte[] surveyVideo, String name, Date date);
 
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = { PortalException.class,
-			SystemException.class, ModelListenerException.class })
+	@Transactional(
+		propagation = Propagation.REQUIRED, readOnly = false,
+		rollbackFor = {
+			PortalException.class, SystemException.class,
+			ModelListenerException.class
+		}
+	)
 	public Quotation submitQuotation(Quotation customQuot, String userId);
 
-	public void updateQuotationTameeniExtras(QuotationTameeniExtraDetails details);
+	public void updateQuotationTameeniExtras(
+		QuotationTameeniExtraDetails details);
 
-	public void updateQuoteFlag(long quotId, boolean smsFlag) throws PortalException;
+	public void updateQuoteFlag(long quotId, boolean smsFlag)
+		throws PortalException;
 
-	public void updateQuoteStatus(long quotId, String status) throws PortalException;
+	public void updateQuoteStatus(long quotId, String status)
+		throws PortalException;
 
 	public boolean validatePolicyData(String policyNo);
 
-	public void vehicleImagesUpload(long quotationId, List<QuotationVehicleImage> vehicleImagesList);
+	public void vehicleImagesUpload(
+		long quotationId, List<QuotationVehicleImage> vehicleImagesList);
 
 }

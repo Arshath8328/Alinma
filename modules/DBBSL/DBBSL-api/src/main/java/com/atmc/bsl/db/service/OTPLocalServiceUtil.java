@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for OTP. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.OTPLocalServiceImpl</code> and is an
- * access point for service operations in application layer code running on the
- * local server. Methods of this service will not have security checks based on
- * the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.OTPLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see OTPLocalService
@@ -35,9 +35,7 @@ public class OTPLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.OTPLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.OTPLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static String generateOTP(String otpSecret) {
 		return getService().generateOTP(otpSecret);
@@ -56,12 +54,14 @@ public class OTPLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static boolean sendOTP(java.util.Locale locale, String otpSecret, String mobileNumber) {
+	public static boolean sendOTP(
+		java.util.Locale locale, String otpSecret, String mobileNumber) {
 
 		return getService().sendOTP(locale, otpSecret, mobileNumber);
 	}
 
-	public static boolean sendOTPToEmail(java.util.Locale locale, String otpSecret, String emailAddress) {
+	public static boolean sendOTPToEmail(
+		java.util.Locale locale, String otpSecret, String emailAddress) {
 
 		return getService().sendOTPToEmail(locale, otpSecret, emailAddress);
 	}
@@ -74,12 +74,14 @@ public class OTPLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<OTPLocalService, OTPLocalService> _serviceTracker;
+	private static ServiceTracker<OTPLocalService, OTPLocalService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(OTPLocalService.class);
 
-		ServiceTracker<OTPLocalService, OTPLocalService> serviceTracker = new ServiceTracker<OTPLocalService, OTPLocalService>(
+		ServiceTracker<OTPLocalService, OTPLocalService> serviceTracker =
+			new ServiceTracker<OTPLocalService, OTPLocalService>(
 				bundle.getBundleContext(), OTPLocalService.class, null);
 
 		serviceTracker.open();

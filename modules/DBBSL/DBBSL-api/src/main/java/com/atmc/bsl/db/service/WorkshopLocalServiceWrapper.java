@@ -23,40 +23,49 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see WorkshopLocalService
  * @generated
  */
-public class WorkshopLocalServiceWrapper implements ServiceWrapper<WorkshopLocalService>, WorkshopLocalService {
+public class WorkshopLocalServiceWrapper
+	implements ServiceWrapper<WorkshopLocalService>, WorkshopLocalService {
 
-	public WorkshopLocalServiceWrapper(WorkshopLocalService workshopLocalService) {
+	public WorkshopLocalServiceWrapper(
+		WorkshopLocalService workshopLocalService) {
 
 		_workshopLocalService = workshopLocalService;
 	}
 
 	@Override
-	public void checkInVehicle(String customerName, String customerMobile, String manufacture, String plateNo,
-			int workshopId, String claimRefNo, String status, String date, String serviceType, String desc,
-			String vehMakeEn, String vehMakeAr, String vehModelEn, String vehModelAr, String customerIqamaId) {
+	public void checkInVehicle(
+		String customerName, String customerMobile, String manufacture,
+		String plateNo, int workshopId, String claimRefNo, String status,
+		String date, String serviceType, String desc, String vehMakeEn,
+		String vehMakeAr, String vehModelEn, String vehModelAr,
+		String customerIqamaId) {
 
-		_workshopLocalService.checkInVehicle(customerName, customerMobile, manufacture, plateNo, workshopId, claimRefNo,
-				status, date, serviceType, desc, vehMakeEn, vehMakeAr, vehModelEn, vehModelAr, customerIqamaId);
+		_workshopLocalService.checkInVehicle(
+			customerName, customerMobile, manufacture, plateNo, workshopId,
+			claimRefNo, status, date, serviceType, desc, vehMakeEn, vehMakeAr,
+			vehModelEn, vehModelAr, customerIqamaId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.workshop.WorkshopVehicles getcheckedInVehicleById(int id) {
+	public com.atmc.bsl.db.domain.workshop.WorkshopVehicles
+		getcheckedInVehicleById(int id) {
 
 		return _workshopLocalService.getcheckedInVehicleById(id);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleByIqmaId(
-			String iqamaId) {
+	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+		getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return _workshopLocalService.getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> getcheckedInVehicleByStatus(String status,
-			int workShopId) {
+	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+		getcheckedInVehicleByStatus(String status, int workShopId) {
 
-		return _workshopLocalService.getcheckedInVehicleByStatus(status, workShopId);
+		return _workshopLocalService.getcheckedInVehicleByStatus(
+			status, workShopId);
 	}
 
 	/**

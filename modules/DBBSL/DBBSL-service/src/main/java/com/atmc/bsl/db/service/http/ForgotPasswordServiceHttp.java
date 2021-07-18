@@ -24,10 +24,12 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 
 /**
- * Provides the HTTP utility for the <code>ForgotPasswordServiceUtil</code>
- * service utility. The static methods of this class calls the same methods of
- * the service utility. However, the signatures are different because it
- * requires an additional <code>HttpPrincipal</code> parameter.
+ * Provides the HTTP utility for the
+ * <code>ForgotPasswordServiceUtil</code> service
+ * utility. The
+ * static methods of this class calls the same methods of the service utility.
+ * However, the signatures are different because it requires an additional
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -50,25 +52,34 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class ForgotPasswordServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User> validateUser(
-			HttpPrincipal httpPrincipal, String emailAddress, String captchaText) {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<com.liferay.portal.kernel.model.User> validateUser(
+			HttpPrincipal httpPrincipal, String emailAddress,
+			String captchaText) {
 
 		try {
-			MethodKey methodKey = new MethodKey(ForgotPasswordServiceUtil.class, "validateUser",
-					_validateUserParameterTypes0);
+			MethodKey methodKey = new MethodKey(
+				ForgotPasswordServiceUtil.class, "validateUser",
+				_validateUserParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, emailAddress, captchaText);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, emailAddress, captchaText);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<com.liferay.portal.kernel.model.User>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput
+				<com.liferay.portal.kernel.model.User>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -76,25 +87,33 @@ public class ForgotPasswordServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(HttpPrincipal httpPrincipal,
-			String emailAddress, String answer, String captchaText) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+		checkReminderQueries(
+			HttpPrincipal httpPrincipal, String emailAddress, String answer,
+			String captchaText) {
 
 		try {
-			MethodKey methodKey = new MethodKey(ForgotPasswordServiceUtil.class, "checkReminderQueries",
-					_checkReminderQueriesParameterTypes1);
+			MethodKey methodKey = new MethodKey(
+				ForgotPasswordServiceUtil.class, "checkReminderQueries",
+				_checkReminderQueriesParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, emailAddress, answer, captchaText);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, emailAddress, answer, captchaText);
 
 			Object returnObj = null;
 
 			try {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
-			} catch (Exception exception) {
-				throw new com.liferay.portal.kernel.exception.SystemException(exception);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>) returnObj;
-		} catch (com.liferay.portal.kernel.exception.SystemException systemException) {
+			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
 
 			_log.error(systemException, systemException);
 
@@ -102,10 +121,13 @@ public class ForgotPasswordServiceHttp {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ForgotPasswordServiceHttp.class);
+	private static Log _log = LogFactoryUtil.getLog(
+		ForgotPasswordServiceHttp.class);
 
-	private static final Class<?>[] _validateUserParameterTypes0 = new Class[] { String.class, String.class };
-	private static final Class<?>[] _checkReminderQueriesParameterTypes1 = new Class[] { String.class, String.class,
-			String.class };
+	private static final Class<?>[] _validateUserParameterTypes0 = new Class[] {
+		String.class, String.class
+	};
+	private static final Class<?>[] _checkReminderQueriesParameterTypes1 =
+		new Class[] {String.class, String.class, String.class};
 
 }

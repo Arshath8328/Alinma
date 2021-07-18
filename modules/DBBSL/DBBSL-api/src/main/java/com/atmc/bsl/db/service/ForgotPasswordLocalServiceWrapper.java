@@ -24,17 +24,22 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @generated
  */
 public class ForgotPasswordLocalServiceWrapper
-		implements ForgotPasswordLocalService, ServiceWrapper<ForgotPasswordLocalService> {
+	implements ForgotPasswordLocalService,
+			   ServiceWrapper<ForgotPasswordLocalService> {
 
-	public ForgotPasswordLocalServiceWrapper(ForgotPasswordLocalService forgotPasswordLocalService) {
+	public ForgotPasswordLocalServiceWrapper(
+		ForgotPasswordLocalService forgotPasswordLocalService) {
 
 		_forgotPasswordLocalService = forgotPasswordLocalService;
 	}
 
 	@Override
-	public void checkReminderQueries(String emailAddress, String answer, String captchaText) throws Exception {
+	public void checkReminderQueries(
+			String emailAddress, String answer, String captchaText)
+		throws Exception {
 
-		_forgotPasswordLocalService.checkReminderQueries(emailAddress, answer, captchaText);
+		_forgotPasswordLocalService.checkReminderQueries(
+			emailAddress, answer, captchaText);
 	}
 
 	/**
@@ -48,9 +53,12 @@ public class ForgotPasswordLocalServiceWrapper
 	}
 
 	@Override
-	public com.liferay.portal.kernel.model.User validateUser(String emailAddress, String captchaText) throws Exception {
+	public com.liferay.portal.kernel.model.User validateUser(
+			String emailAddress, String captchaText)
+		throws Exception {
 
-		return _forgotPasswordLocalService.validateUser(emailAddress, captchaText);
+		return _forgotPasswordLocalService.validateUser(
+			emailAddress, captchaText);
 	}
 
 	@Override
@@ -59,7 +67,8 @@ public class ForgotPasswordLocalServiceWrapper
 	}
 
 	@Override
-	public void setWrappedService(ForgotPasswordLocalService forgotPasswordLocalService) {
+	public void setWrappedService(
+		ForgotPasswordLocalService forgotPasswordLocalService) {
 
 		_forgotPasswordLocalService = forgotPasswordLocalService;
 	}

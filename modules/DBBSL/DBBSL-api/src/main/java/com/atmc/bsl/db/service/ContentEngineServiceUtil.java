@@ -23,8 +23,8 @@ import org.osgi.util.tracker.ServiceTracker;
  * <code>com.atmc.bsl.db.service.impl.ContentEngineServiceImpl</code> and is an
  * access point for service operations in application layer code running on a
  * remote server. Methods of this service are expected to have security checks
- * based on the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see ContentEngineService
@@ -35,9 +35,7 @@ public class ContentEngineServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.ContentEngineServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ContentEngineServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -53,13 +51,17 @@ public class ContentEngineServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<ContentEngineService, ContentEngineService> _serviceTracker;
+	private static ServiceTracker<ContentEngineService, ContentEngineService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(ContentEngineService.class);
 
-		ServiceTracker<ContentEngineService, ContentEngineService> serviceTracker = new ServiceTracker<ContentEngineService, ContentEngineService>(
-				bundle.getBundleContext(), ContentEngineService.class, null);
+		ServiceTracker<ContentEngineService, ContentEngineService>
+			serviceTracker =
+				new ServiceTracker<ContentEngineService, ContentEngineService>(
+					bundle.getBundleContext(), ContentEngineService.class,
+					null);
 
 		serviceTracker.open();
 

@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for UserMgmt. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.UserMgmtLocalServiceImpl</code> and is an
- * access point for service operations in application layer code running on the
- * local server. Methods of this service will not have security checks based on
- * the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.UserMgmtLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see UserMgmtLocalService
@@ -35,39 +35,50 @@ public class UserMgmtLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.UserMgmtLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.UserMgmtLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.liferay.portal.kernel.model.User changeFirstTimeLoginPassword(long userId, String password,
-			String reminderQueryQuestion, String reminderQueryAnswer)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.liferay.portal.kernel.model.User
+			changeFirstTimeLoginPassword(
+				long userId, String password, String reminderQueryQuestion,
+				String reminderQueryAnswer)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return getService().changeFirstTimeLoginPassword(userId, password, reminderQueryQuestion, reminderQueryAnswer);
+		return getService().changeFirstTimeLoginPassword(
+			userId, password, reminderQueryQuestion, reminderQueryAnswer);
 	}
 
-	public static boolean createOrg(String orgCRNumber, String orgName, String orgArabicName,
-			com.liferay.portal.kernel.service.ServiceContext context) {
+	public static boolean createOrg(
+		String orgCRNumber, String orgName, String orgArabicName,
+		com.liferay.portal.kernel.service.ServiceContext context) {
 
-		return getService().createOrg(orgCRNumber, orgName, orgArabicName, context);
+		return getService().createOrg(
+			orgCRNumber, orgName, orgArabicName, context);
 	}
 
-	public static com.liferay.portal.kernel.model.User createUser(long companyId, String login, String password,
-			String englishName, String arabicName, java.util.Locale language, String mobile, String email,
+	public static com.liferay.portal.kernel.model.User createUser(
+			long companyId, String login, String password, String englishName,
+			String arabicName, java.util.Locale language, String mobile,
+			String email,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
-			throws com.liferay.portal.kernel.exception.PortalException {
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return getService().createUser(companyId, login, password, englishName, arabicName, language, mobile, email,
-				serviceContext);
+		return getService().createUser(
+			companyId, login, password, englishName, arabicName, language,
+			mobile, email, serviceContext);
 	}
 
-	public static com.liferay.portal.kernel.model.User createUser(long companyId, String login, String password,
-			String englishName, String arabicName, java.util.Locale language, String mobile, String email,
-			com.liferay.portal.kernel.service.ServiceContext serviceContext, String reminderQueryQuestion,
-			String reminderQueryAnswer) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.liferay.portal.kernel.model.User createUser(
+			long companyId, String login, String password, String englishName,
+			String arabicName, java.util.Locale language, String mobile,
+			String email,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext,
+			String reminderQueryQuestion, String reminderQueryAnswer)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		return getService().createUser(companyId, login, password, englishName, arabicName, language, mobile, email,
-				serviceContext, reminderQueryQuestion, reminderQueryAnswer);
+		return getService().createUser(
+			companyId, login, password, englishName, arabicName, language,
+			mobile, email, serviceContext, reminderQueryQuestion,
+			reminderQueryAnswer);
 	}
 
 	public static long getAdminId() {
@@ -83,7 +94,8 @@ public class UserMgmtLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static void synchronizeOrgs(com.liferay.portal.kernel.service.ServiceContext context) {
+	public static void synchronizeOrgs(
+		com.liferay.portal.kernel.service.ServiceContext context) {
 
 		getService().synchronizeOrgs(context);
 	}
@@ -92,13 +104,17 @@ public class UserMgmtLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<UserMgmtLocalService, UserMgmtLocalService> _serviceTracker;
+	private static ServiceTracker<UserMgmtLocalService, UserMgmtLocalService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(UserMgmtLocalService.class);
 
-		ServiceTracker<UserMgmtLocalService, UserMgmtLocalService> serviceTracker = new ServiceTracker<UserMgmtLocalService, UserMgmtLocalService>(
-				bundle.getBundleContext(), UserMgmtLocalService.class, null);
+		ServiceTracker<UserMgmtLocalService, UserMgmtLocalService>
+			serviceTracker =
+				new ServiceTracker<UserMgmtLocalService, UserMgmtLocalService>(
+					bundle.getBundleContext(), UserMgmtLocalService.class,
+					null);
 
 		serviceTracker.open();
 

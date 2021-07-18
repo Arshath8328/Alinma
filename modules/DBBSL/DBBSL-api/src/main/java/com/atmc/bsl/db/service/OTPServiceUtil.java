@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for OTP. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and is an access
- * point for service operations in application layer code running on a remote
- * server. Methods of this service are expected to have security checks based on
- * the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and is an
+ * access point for service operations in application layer code running on a
+ * remote server. Methods of this service are expected to have security checks
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see OTPService
@@ -35,9 +35,7 @@ public class OTPServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.OTPServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**
@@ -49,19 +47,20 @@ public class OTPServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(String language, String mobileNumber,
-			String chkVal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+		String language, String mobileNumber, String chkVal) {
 
 		return getService().resendOTP(language, mobileNumber, chkVal);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(String language, String otpSecret,
-			String mobileNumber, String chkVal) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+		String language, String otpSecret, String mobileNumber, String chkVal) {
 
 		return getService().sendOTP(language, otpSecret, mobileNumber, chkVal);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(String otpSecret, String otp) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+		String otpSecret, String otp) {
 
 		return getService().validateOTP(otpSecret, otp);
 	}
@@ -75,7 +74,8 @@ public class OTPServiceUtil {
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(OTPService.class);
 
-		ServiceTracker<OTPService, OTPService> serviceTracker = new ServiceTracker<OTPService, OTPService>(
+		ServiceTracker<OTPService, OTPService> serviceTracker =
+			new ServiceTracker<OTPService, OTPService>(
 				bundle.getBundleContext(), OTPService.class, null);
 
 		serviceTracker.open();

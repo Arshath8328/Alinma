@@ -1,0 +1,28 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:RestACL:RestACL-api")
+	
+		
+	compile group: 'org.springframework', name: 'spring-aop', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-beans', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-expression', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-web', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.1.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-webmvc-portlet', version: '4.1.9.RELEASE'
+}
+
+buildService {
+	apiDir = "../RestACL-api/src/main/java"
+}
+
+group = "RestACL"
+
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}

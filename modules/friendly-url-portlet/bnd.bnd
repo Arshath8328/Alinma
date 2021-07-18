@@ -1,0 +1,4 @@
+Bundle-Name: friendly-url-portlet
+Bundle-SymbolicName: friendly.url.portlet
+Bundle-Version: 1.0.0
+Export-Package: friendly.url.portlet.constants

@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the local service utility for Settings. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and is an
- * access point for service operations in application layer code running on the
- * local server. Methods of this service will not have security checks based on
- * the propagated JAAS credentials because this service can only be accessed
- * from within the same VM.
+ * <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and
+ * is an access point for service operations in application layer code running
+ * on the local server. Methods of this service will not have security checks
+ * based on the propagated JAAS credentials because this service can only be
+ * accessed from within the same VM.
  *
  * @author Brian Wing Shun Chan
  * @see SettingsLocalService
@@ -35,20 +35,23 @@ public class SettingsLocalServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SettingsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static void changePassword(com.liferay.portal.kernel.model.User user, String currentPassword,
-			String password1, String password2) throws com.liferay.portal.kernel.exception.PortalException {
+	public static void changePassword(
+			com.liferay.portal.kernel.model.User user, String currentPassword,
+			String password1, String password2)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
-		getService().changePassword(user, currentPassword, password1, password2);
+		getService().changePassword(
+			user, currentPassword, password1, password2);
 	}
 
-	public static void changePasswordFn(long companyId, String screenName, String currentPassword, String password1,
-			String password2) {
+	public static void changePasswordFn(
+		long companyId, String screenName, String currentPassword,
+		String password1, String password2) {
 
-		getService().changePasswordFn(companyId, screenName, currentPassword, password1, password2);
+		getService().changePasswordFn(
+			companyId, screenName, currentPassword, password1, password2);
 	}
 
 	/**
@@ -60,26 +63,30 @@ public class SettingsLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static boolean updateEmail(com.liferay.portal.kernel.model.User user, String userEmail)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static boolean updateEmail(
+			com.liferay.portal.kernel.model.User user, String userEmail)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateEmail(user, userEmail);
 	}
 
-	public static boolean updateEmailFn(long companyId, String screenName, String Email)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static boolean updateEmailFn(
+			long companyId, String screenName, String Email)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateEmailFn(companyId, screenName, Email);
 	}
 
-	public static boolean updateMobile(com.liferay.portal.kernel.model.User user, String phone)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static boolean updateMobile(
+			com.liferay.portal.kernel.model.User user, String phone)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateMobile(user, phone);
 	}
 
-	public static boolean updateMobileFn(long companyId, String screenName, String phoneNo)
-			throws com.liferay.portal.kernel.exception.PortalException {
+	public static boolean updateMobileFn(
+			long companyId, String screenName, String phoneNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateMobileFn(companyId, screenName, phoneNo);
 	}
@@ -88,13 +95,17 @@ public class SettingsLocalServiceUtil {
 		return _serviceTracker.getService();
 	}
 
-	private static ServiceTracker<SettingsLocalService, SettingsLocalService> _serviceTracker;
+	private static ServiceTracker<SettingsLocalService, SettingsLocalService>
+		_serviceTracker;
 
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SettingsLocalService.class);
 
-		ServiceTracker<SettingsLocalService, SettingsLocalService> serviceTracker = new ServiceTracker<SettingsLocalService, SettingsLocalService>(
-				bundle.getBundleContext(), SettingsLocalService.class, null);
+		ServiceTracker<SettingsLocalService, SettingsLocalService>
+			serviceTracker =
+				new ServiceTracker<SettingsLocalService, SettingsLocalService>(
+					bundle.getBundleContext(), SettingsLocalService.class,
+					null);
 
 		serviceTracker.open();
 

@@ -22,7 +22,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>SrvReqMsgsServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>SrvReqMsgsServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -52,15 +53,24 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SrvReqMsgsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(
-			String referenceNo) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List
+			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+					getServiceRequestMessageListbyRefNo(String referenceNo)
+				throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>> returnValue = SrvReqMsgsServiceUtil
-					.getServiceRequestMessageListbyRefNo(referenceNo);
+			com.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List
+					<com.atmc.bsl.db.domain.serviceRequest.
+						ServiceRequestMessage>> returnValue =
+							SrvReqMsgsServiceUtil.
+								getServiceRequestMessageListbyRefNo(
+									referenceNo);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
@@ -68,19 +78,23 @@ public class SrvReqMsgsServiceSoap {
 	}
 
 	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) throws RemoteException {
+			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = SrvReqMsgsServiceUtil.addReplyMessage(msg);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				SrvReqMsgsServiceUtil.addReplyMessage(msg);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(SrvReqMsgsServiceSoap.class);
+	private static Log _log = LogFactoryUtil.getLog(
+		SrvReqMsgsServiceSoap.class);
 
 }

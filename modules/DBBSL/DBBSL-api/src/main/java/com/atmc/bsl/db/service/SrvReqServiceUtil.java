@@ -20,11 +20,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for SrvReq. This utility wraps
- * <code>com.atmc.bsl.db.service.impl.SrvReqServiceImpl</code> and is an access
- * point for service operations in application layer code running on a remote
- * server. Methods of this service are expected to have security checks based on
- * the propagated JAAS credentials because this service can be accessed
- * remotely.
+ * <code>com.atmc.bsl.db.service.impl.SrvReqServiceImpl</code> and is an
+ * access point for service operations in application layer code running on a
+ * remote server. Methods of this service are expected to have security checks
+ * based on the propagated JAAS credentials because this service can be
+ * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SrvReqService
@@ -35,12 +35,12 @@ public class SrvReqServiceUtil {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to
-	 * <code>com.atmc.bsl.db.service.impl.SrvReqServiceImpl</code> and rerun
-	 * ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest, String lang) {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+		addNewServiceRequest(
+			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+			String lang) {
 
 		return getService().addNewServiceRequest(srvRequest, lang);
 	}
@@ -54,18 +54,24 @@ public class SrvReqServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>> getServiceRequestsListByIdStatus(
-			String iqamaId, String[] status) throws com.liferay.portal.kernel.exception.PortalException {
+	public static com.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+				getServiceRequestsListByIdStatus(
+					String iqamaId, String[] status)
+			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getServiceRequestsListByIdStatus(iqamaId, status);
 	}
 
-	public static boolean sendEmail(String mailTo, String emailMsg, String msgTitle) {
+	public static boolean sendEmail(
+		String mailTo, String emailMsg, String msgTitle) {
 
 		return getService().sendEmail(mailTo, emailMsg, msgTitle);
 	}
 
-	public static void sendSMS(java.util.Locale locale, String mobileNumber, String refNo, String msgKey) {
+	public static void sendSMS(
+		java.util.Locale locale, String mobileNumber, String refNo,
+		String msgKey) {
 
 		getService().sendSMS(locale, mobileNumber, refNo, msgKey);
 	}
@@ -79,7 +85,8 @@ public class SrvReqServiceUtil {
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SrvReqService.class);
 
-		ServiceTracker<SrvReqService, SrvReqService> serviceTracker = new ServiceTracker<SrvReqService, SrvReqService>(
+		ServiceTracker<SrvReqService, SrvReqService> serviceTracker =
+			new ServiceTracker<SrvReqService, SrvReqService>(
 				bundle.getBundleContext(), SrvReqService.class, null);
 
 		serviceTracker.open();

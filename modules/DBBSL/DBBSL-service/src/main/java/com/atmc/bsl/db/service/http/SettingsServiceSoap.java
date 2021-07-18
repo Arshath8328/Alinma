@@ -22,7 +22,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.rmi.RemoteException;
 
 /**
- * Provides the SOAP utility for the <code>SettingsServiceUtil</code> service
+ * Provides the SOAP utility for the
+ * <code>SettingsServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -52,45 +53,55 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SettingsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(String companyId, String screenName,
-			String Email) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+			String companyId, String screenName, String Email)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = SettingsServiceUtil.updateEmail(companyId,
-					screenName, Email);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				SettingsServiceUtil.updateEmail(companyId, screenName, Email);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(String companyId, String screenName,
-			String phoneNo) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+			String companyId, String screenName, String phoneNo)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = SettingsServiceUtil.updateMobile(companyId,
-					screenName, phoneNo);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				SettingsServiceUtil.updateMobile(
+					companyId, screenName, phoneNo);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(String companyId, String screenName,
-			String currentPassword, String password1, String password2) throws RemoteException {
+	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+			String companyId, String screenName, String currentPassword,
+			String password1, String password2)
+		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue = SettingsServiceUtil.changePassword(companyId,
-					screenName, currentPassword, password1, password2);
+			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+				SettingsServiceUtil.changePassword(
+					companyId, screenName, currentPassword, password1,
+					password2);
 
 			return returnValue;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			_log.error(exception, exception);
 
 			throw new RemoteException(exception.getMessage());
