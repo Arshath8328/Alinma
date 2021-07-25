@@ -14,8 +14,8 @@
 
 
 
-	<div class="row">
-	<div> 
+	<div class="row" style="position:relative">
+	<div style="width:100%"> 
 		<nav id="atmc-menu" class="navbar navbar-default navbar-inverse" role="navigation"> 
 			<div class="container-fluid"> 
 				<div class="navbar-header"> 

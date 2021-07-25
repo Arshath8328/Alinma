@@ -25,8 +25,8 @@
 		String redirect = ParamUtil.getString(request, "redirect");
 		%>
 	
-		<portlet:actionURL name="/login/login" var="loginURL">
-			<portlet:param name="mvcRenderCommandName" value="/login/login" />
+		<portlet:actionURL name="/login" var="loginURL">
+			<portlet:param name="mvcRenderCommandName" value="/login" />
 		</portlet:actionURL>
 		
 		<aui:form action="<%= loginURL %>" autocomplete='off' cssClass="sign-in-form" method="post" name="loginForm">
@@ -48,7 +48,7 @@
 				<aui:button cssClass="btn-lg" type="submit" value="sign-in" />
 			</aui:button-row>
 			<portlet:renderURL var="forgotPasswordURL">
-				<portlet:param name="mvcRenderCommandName" value="/login/forgot_password" />
+				<portlet:param name="mvcRenderCommandName" value="/forgot_password" />
 			</portlet:renderURL>
 			<a href="<%= forgotPasswordURL %>">Forgot password</a>
 		</aui:form>

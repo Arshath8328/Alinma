@@ -30,8 +30,8 @@ if (reminderAttempts == null) {
 }
 %>
 
-<portlet:actionURL name="/forgot_password" var="forgotPasswordURL">
-	<portlet:param name="mvcRenderCommandName" value="/forgot_password" />
+<portlet:actionURL name="/login/forgot_password" var="forgotPasswordURL">
+	<portlet:param name="mvcRenderCommandName" value="/login/forgot_password" />
 </portlet:actionURL>
 
 <div class="row">

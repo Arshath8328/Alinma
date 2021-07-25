@@ -1,3 +1,4 @@
+Bundle-Activator: com.ejada.atmc.web.props.ArabicEnglishBundleActivator
 Bundle-Name: common-web
 Bundle-SymbolicName: common.web
 Bundle-Version: 1.0.0
@@ -20,4 +21,5 @@ Export-Package: \
 	com.ejada.atmc.web.search,\
 	com.ejada.atmc.web.util,\
 	common.web.constants,\
-	common.web.portlet
+	common.web.portlet,\
+	com.ejada.atmc.web.props

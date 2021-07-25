@@ -1,12 +1,17 @@
-<%@ include file="/init.jsp" %>
-
-<portlet:renderURL var="loginURL">
-	<portlet:param name="mvcRenderCommandName" value="/login" />
-</portlet:renderURL>
-<portlet:renderURL var="registerURL">
-	<portlet:param name="mvcRenderCommandName" value="/register" />
-</portlet:renderURL>
-		
+<%@page import="com.liferay.login.web.constants.LoginPortletKeys"%>
+<%@ include file="init.jsp" %>
+<% 
+	String loginActive = (isLogin)?"active":"";
+	String registerActive = (isLogin)?"":"active";
+	System.out.println("otp_unauth_user.jsp");
+%>
+<liferay-portlet:renderURL portletName="<%=LoginPortletKeys.LOGIN%>" var="loginURL">
+	<portlet:param name="mvcRenderCommandName" value="/login/login" />
+</liferay-portlet:renderURL>					
+<liferay-portlet:renderURL portletName="<%=LoginPortletKeys.LOGIN%>" var="registerURL">
+	<portlet:param name="mvcRenderCommandName" value="/login/register" />
+</liferay-portlet:renderURL>
+			
 <div class="row bg-white">
 	<div class="hidden-xs col-sm-4 col-md-4 col-lg-4 no-pad">
 		<img src="/o/atmc-theme/images/login_bg.png" class="img-responsive" /> 
@@ -19,19 +24,19 @@
 		</div>
 		<div class="tab" role="tabpanel">
 			<ul class="nav nav-tabs"> 
-				<li>
+				<li class="<%=loginActive%>">
 					<a href="<%=loginURL%>" ><liferay-ui:message key="login"/></a>
 				</li>
-				<li class="active">
+				<li class="<%=registerActive%>">
 					<a href="<%=registerURL%>" ><liferay-ui:message key="register"/></a>
 				</li>						 
 			</ul>
 			<div class="tab-content tabs">
 				<div role="tabpanel" class="tab-pane fade in active">
-					<liferay-util:include page="/otp/view.jsp" servletContext="<%= application %>" />	
+					<%@ include file="/otp_form.jsp" %>
 				</div>
-			</div>
-		</div>
+			</div>		
+		</div>		
 	</div>
 </div>
 <script>
@@ -40,4 +45,4 @@ $(document).ready(function(){
 		$('button.close', window.parent.document).click().click();
 	});
 });
-</script>
+</script> 

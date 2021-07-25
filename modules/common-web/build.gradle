@@ -3,7 +3,7 @@ dependencies {
 	compileInclude group: 'org.apache.tika', name: 'tika-core', version: '0.6'
 	
 	compile project(":modules:DBACL:DBACL-api")
-//	compile project(":modules:DBBSL:DBBSL-api")
+	compile project(":modules:DBBSL:DBBSL-api")
 	
 	compileInclude group: 'org.owasp.encoder', name: 'encoder', version: '1.2.3'
 	compileInclude group: 'org.owasp.encoder', name: 'encoder-jsp', version: '1.2.3'

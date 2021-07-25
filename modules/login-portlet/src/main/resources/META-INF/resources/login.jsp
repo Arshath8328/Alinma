@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.Validator"%>
 <%@page import="com.atmc.login.constants.LoginPortletKeys"%>
 <%@page import="com.liferay.petra.string.StringPool"%>
 <%@page import="com.liferay.portal.kernel.exception.UserScreenNameException"%>
@@ -21,9 +22,17 @@
 		<%
 
 		String login = StringPool.BLANK;
-		JournalArticle jouranl = JournalArticleLocalServiceUtil.getArticleByUrlTitle(themeDisplay.getScopeGroupId(),"information-security");
-		JournalArticleDisplay jouranldisplay = JournalArticleLocalServiceUtil.getArticleDisplay(themeDisplay.getScopeGroupId(), jouranl.getArticleId() ,"view",themeDisplay.getLanguageId(),themeDisplay);
-		String content = jouranldisplay.getContent(); 
+		JournalArticle jouranl = null;
+		try{
+			jouranl = JournalArticleLocalServiceUtil.getArticleByUrlTitle(themeDisplay.getScopeGroupId(),"information-security");
+		} catch(Exception e) {
+			
+		}
+		JournalArticleDisplay jouranldisplay = null;
+		if(Validator.isNotNull(jouranl)){
+			jouranldisplay = JournalArticleLocalServiceUtil.getArticleDisplay(themeDisplay.getScopeGroupId(), jouranl.getArticleId() ,"view",themeDisplay.getLanguageId(),themeDisplay);
+			String content = jouranldisplay.getContent(); 
+		}
 		//String login = (String)SessionErrors.get(renderRequest, "login");
 
 //		if (Validator.isNull(login)) {
@@ -138,10 +147,10 @@
 		<div id="myModal" class="modal">
  		 <div class="modal-content">
     <span class="closeBtn">&times;</span>
-   <div class="journal-article-preview"><%= jouranldisplay.getContent() %></div>
+   <div class="journal-article-preview"><%= Validator.isNotNull(jouranldisplay) ? jouranldisplay.getContent() : ""%></div>
 </div>
 </div>
-	</div>
+</div>
 </div>
 
 
