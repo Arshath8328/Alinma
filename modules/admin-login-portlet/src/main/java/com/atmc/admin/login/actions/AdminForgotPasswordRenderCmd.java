@@ -30,11 +30,11 @@ public class AdminForgotPasswordRenderCmd implements MVCRenderCommand {
 		Company company = themeDisplay.getCompany();
 
 		if (!company.isSendPassword() && !company.isSendPasswordResetLink()) {
-			return "/adminLogin/view.jsp";
+			return "/view.jsp";
 		}
 
 		renderResponse.setTitle(themeDisplay.translate("forgot-password"));
 
-		return "/adminLogin/forgot_password.jsp";
+		return "/forgot_password.jsp";
 	}
 }

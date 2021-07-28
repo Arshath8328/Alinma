@@ -1,9 +1,9 @@
 package com.ejada.personal.info.portlet;
 
 import com.ejada.personal.info.constants.PersonalInfoBarPortletKeys;
-//import com.ejada.atmc.web.common.UserInfo;
-//import com.ejada.atmc.web.constants.PersonalInfoBarPortletKeys;
-//import com.ejada.atmc.web.util.SessionUtil;
+//import com.atmc.web.common.UserInfo;
+//import com.atmc.web.constants.PersonalInfoBarPortletKeys;
+//import com.atmc.web.util.SessionUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;

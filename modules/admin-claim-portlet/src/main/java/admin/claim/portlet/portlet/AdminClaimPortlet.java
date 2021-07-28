@@ -4,9 +4,9 @@ import com.atmc.bsl.db.domain.claim.Claim;
 import com.atmc.bsl.db.domain.claim.MuroorODUploads;
 import com.atmc.bsl.db.domain.claim.MuroorTPUploads;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
+import com.atmc.web.constants.ClaimIntimationPortletKeys;
+import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.db.model.CLMNajmUploads;
-import com.ejada.atmc.web.constants.ClaimIntimationPortletKeys;
-import com.ejada.atmc.web.util.FileUtil;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.petra.io.StreamUtil;
 import com.liferay.portal.kernel.captcha.CaptchaException;
@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
 import java.io.File;
@@ -70,12 +71,10 @@ public class AdminClaimPortlet extends MVCPortlet {
 
 		List<Claim> claims = null;
 
-		String myview = renderRequest.getParameter("myview");
+		String myview = ParamUtil.getString(renderRequest,"myview");
 		String view = "/" + (myview == null ? "view" : myview) + ".jsp";
 		_log.info(view);
 		if (view.equals("/view.jsp")) {
-//				claims =// ClaimLocalServiceUtil.getAllClaims();
-//				//_log.info("claims list"+claims);
 			renderRequest.setAttribute("claimsList", claims);
 		} else if (view.equals("/details.jsp")) {
 			claimDetails(renderRequest, renderResponse);

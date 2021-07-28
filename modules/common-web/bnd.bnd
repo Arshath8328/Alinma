@@ -1,4 +1,4 @@
-Bundle-Activator: com.ejada.atmc.web.props.ArabicEnglishBundleActivator
+Bundle-Activator: com.atmc.web.props.ArabicEnglishBundleActivator
 Bundle-Name: common-web
 Bundle-SymbolicName: common.web
 Bundle-Version: 1.0.0
@@ -10,16 +10,16 @@ Export-Package: \
 	com.ejada.atmc.acl.db.model,\
 	com.ejada.atmc.acl.db.service,\
 	com.ejada.atmc.acl.db.service.persistence,\
-	com.ejada.atmc.filters,\
-	com.ejada.atmc.scheduler,\
-	com.ejada.atmc.web.actions,\
-	com.ejada.atmc.web.actions.login,\
-	com.ejada.atmc.web.cache,\
-	com.ejada.atmc.web.common,\
-	com.ejada.atmc.web.constants,\
-	com.ejada.atmc.web.notifications,\
-	com.ejada.atmc.web.search,\
-	com.ejada.atmc.web.util,\
+	com.atmc.filters,\
+	com.atmc.scheduler,\
+	com.atmc.web.actions,\
+	com.atmc.web.actions.login,\
+	com.atmc.web.cache,\
+	com.atmc.web.common,\
+	com.atmc.web.constants,\
+	com.atmc.web.notifications,\
+	com.atmc.web.search,\
+	com.atmc.web.util,\
 	common.web.constants,\
 	common.web.portlet,\
-	com.ejada.atmc.web.props
+	com.atmc.web.props

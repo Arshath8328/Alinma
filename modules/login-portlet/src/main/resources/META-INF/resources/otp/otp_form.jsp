@@ -1,5 +1,5 @@
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
-<%@page import="com.ejada.atmc.web.constants.OTPPortletKeys"%>
+<%@page import="com.atmc.web.constants.OTPPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil" %>
 
 <%

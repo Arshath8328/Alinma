@@ -1,9 +1,9 @@
 package com.atmc.login.actions;
 
 import com.atmc.bsl.db.service.UserMgmtLocalServiceUtil;
-import com.ejada.atmc.web.common.UserInfo;
-import com.ejada.atmc.web.constants.FirstLoginChangePwdPortletKeys;
-import com.ejada.atmc.web.util.SessionUtil;
+import com.atmc.web.common.UserInfo;
+import com.atmc.web.constants.FirstLoginChangePwdPortletKeys;
+import com.atmc.web.util.SessionUtil;
 import com.liferay.portal.kernel.exception.EmailAddressException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.UserEmailAddressException;

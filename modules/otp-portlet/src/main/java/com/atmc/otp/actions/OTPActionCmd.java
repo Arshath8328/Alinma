@@ -6,10 +6,9 @@ package com.atmc.otp.actions;
 
 import com.atmc.bsl.db.service.OTPLocalServiceUtil;
 import com.atmc.otp.constants.OtpPortletKeys;
-import com.ejada.atmc.web.common.UserInfo;
-import com.ejada.atmc.web.constants.LoginPortletKeys;
-import com.ejada.atmc.web.constants.OTPPortletKeys;
-import com.ejada.atmc.web.util.SessionUtil;
+import com.atmc.web.common.UserInfo;
+import com.atmc.web.constants.OTPPortletKeys;
+import com.atmc.web.util.SessionUtil;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -25,14 +24,13 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
-
+import com.liferay.portal.util.PropsUtil;
 import java.io.IOException;
-
+import java.util.Locale;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletSession;
 import javax.servlet.http.HttpServletRequest;
-
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -50,14 +48,10 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 
 	@Override
 	protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
-		// Auto-generated method stub
-
-		_log.info("OTP Action amd");
-
 		String cmd = ParamUtil.getString(actionRequest, OTPPortletKeys.CMD);
 
 		if (cmd.equals(OTPPortletKeys.CMD_SEND))
-			sendOTP(actionRequest, actionResponse);
+			sendOTP(actionRequest);
 		else if (cmd.equals(OTPPortletKeys.CMD_RESEND))
 			resendOTP(actionRequest, actionResponse);
 		else if (cmd.equals(OTPPortletKeys.CMD_VALIDATE))
@@ -65,51 +59,54 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 
 	}
 
-	protected void sendOTP(ActionRequest actionRequest, ActionResponse actionResponse) {
+	protected void sendOTP(ActionRequest actionRequest) {
 		_log.info("sending OTP");
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		actionRequest.getPortletSession().setAttribute("otpSent", false);
+
+		boolean isProduction = Validator.isNotNull(PropsUtil.get("production.environment"));
+		String userEmail = themeDisplay.getUser().getEmailAddress();
+		Locale currentLocale = themeDisplay.getLocale();
 
 		UserInfo userInfo = SessionUtil.getUserInfo(actionRequest);
 		if (userInfo.getOtpSecret() == null)
 			userInfo.setOtpSecret(OTPLocalServiceUtil.generateSecret());
 
+		String userOtpSecret = userInfo.getOtpSecret();
 		String sendTo = ParamUtil.getString(actionRequest, OTPPortletKeys.SEND_TO);
+		String mobile = getMobileNumber(actionRequest);
+		String email = StringPool.NULL;
+		boolean otpSent = true;
+		boolean otpSentEmail = true;
+
+		try {
+			User userExist = UserLocalServiceUtil.getUserByScreenName(themeDisplay.getCompanyId(), ParamUtil.getString(actionRequest, "login", StringPool.NULL));
+			if (Validator.isNotNull(userExist)) {
+				email = userExist.getEmailAddress();
+			}
+		} catch (PortalException e) {
+			_log.error(e.getMessage(), e);
+		}
+
 		if (sendTo != null && sendTo.equals(OTPPortletKeys.SEND_TO_EMAIL)) {
-			if (themeDisplay.isSignedIn()) {
-				_log.info("sending OTP to email " + themeDisplay.getUser().getEmailAddress());
-				boolean otpSent = OTPLocalServiceUtil.sendOTPToEmail(themeDisplay.getLocale(), userInfo.getOtpSecret(), themeDisplay.getUser().getEmailAddress());
-				if (!otpSent)
-					SessionErrors.add(actionRequest, "otpsenderror");
+			if (themeDisplay.isSignedIn() && isProduction) {
+				_log.info("sending OTP to email " + userEmail);
+				otpSent = OTPLocalServiceUtil.sendOTPToEmail(currentLocale, userOtpSecret, userEmail);
 			} else {
 				_log.error("User is not signed in. OTP wont be sebt to EMAIL");
 				SessionErrors.add(actionRequest, "otpsenderror");
 			}
-
+		} else if (mobile != null && isProduction) {
+			_log.info("sending OTP to mobile " + mobile);
+			otpSent = OTPLocalServiceUtil.sendOTP(currentLocale, userOtpSecret, mobile);
+			otpSentEmail = OTPLocalServiceUtil.sendOTPToEmail(currentLocale, userOtpSecret, email);
 		} else {
-			String mobile = getMobileNumber(actionRequest);
-			String email = StringPool.NULL;
-			try {
-				User userExist = UserLocalServiceUtil.getUserByScreenName(themeDisplay.getCompanyId(), ParamUtil.getString(actionRequest, "login", StringPool.NULL));
-				if (Validator.isNotNull(userExist)) {
-					email = userExist.getEmailAddress();
-				}
-			} catch (PortalException e) {
-				_log.error(e.getMessage(), e);
-			}
-			if (mobile != null) {
-				_log.info("sending OTP to mobile " + mobile);
-
-				boolean otpSent = OTPLocalServiceUtil.sendOTP(themeDisplay.getLocale(), userInfo.getOtpSecret(), mobile);
-				boolean otpSentEmail = OTPLocalServiceUtil.sendOTPToEmail(themeDisplay.getLocale(), userInfo.getOtpSecret(), email);
-				if (!otpSent || !otpSentEmail)
-					SessionErrors.add(actionRequest, "otpsenderror");
-			} else {
-				_log.error("User has no registered mobile");
-				SessionErrors.add(actionRequest, "otpsenderror");
-			}
-
+			_log.error("User has no registered mobile");
+			SessionErrors.add(actionRequest, "otpsenderror");
 		}
+
+		if (!otpSent || !otpSentEmail)
+			SessionErrors.add(actionRequest, "otpsenderror");
 
 	}
 
@@ -119,6 +116,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 		HttpServletRequest httpRequest = PortalUtil.getOriginalServletRequest(PortalUtil.getHttpServletRequest(actionRequest));
 		actionRequest.getPortletSession().removeAttribute("requestmobile");
 		UserInfo userInfo = SessionUtil.getUserInfo(actionRequest);
+
 		// try to get mobile number from request
 		if (!(ParamUtil.getString(actionRequest, OTPPortletKeys.MOBILE_NUMBER).isEmpty())) {
 			mobile = ParamUtil.getString(actionRequest, OTPPortletKeys.MOBILE_NUMBER);
@@ -144,7 +142,6 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 	private String resendMobileNumber(ActionRequest actionRequest) {
 		String mobile = null;
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
-		HttpServletRequest httpRequest = PortalUtil.getOriginalServletRequest(PortalUtil.getHttpServletRequest(actionRequest));
 		actionRequest.getPortletSession().removeAttribute("requestmobile");
 		UserInfo userInfo = SessionUtil.getUserInfo(actionRequest);
 		PortletSession ps = actionRequest.getPortletSession();
@@ -256,6 +253,6 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 	private static final Log	_log	= LogFactoryUtil.getLog(OTPActionCmd.class);
 
 	@Reference
-	private Portal				_portal;
+	private Portal				portal;
 
 }

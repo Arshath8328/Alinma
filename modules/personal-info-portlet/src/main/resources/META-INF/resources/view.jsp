@@ -1,7 +1,7 @@
 <%@page import="com.atmc.login.constants.LoginPortletKeys"%>
 <%@page import="com.ejada.personal.info.constants.PersonalInfoBarPortletKeys"%>
-<%-- <%@page import="com.ejada.atmc.web.util.SessionUtil"%>
-<%@page import="com.ejada.atmc.web.common.UserInfo"%>
+<%-- <%@page import="com.atmc.web.util.SessionUtil"%>
+<%@page import="com.atmc.web.common.UserInfo"%>
  --%>
  <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="com.liferay.portal.kernel.model.Organization"%>

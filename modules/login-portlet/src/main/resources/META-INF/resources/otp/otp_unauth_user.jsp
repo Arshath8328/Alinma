@@ -1,3 +1,4 @@
+<%@page import="com.atmc.login.constants.LoginPortletKeys"%>
 <%@ include file="init.jsp" %>
 <% 
 	String loginActive = (isLogin)?"active":"";

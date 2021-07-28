@@ -3,8 +3,8 @@
  */
 package com.atmc.login.actions;
 
-import com.ejada.atmc.web.constants.LoginPortletKeys;
-import com.ejada.atmc.web.constants.OTPPortletKeys;
+import com.atmc.web.constants.LoginPortletKeys;
+import com.atmc.web.constants.OTPPortletKeys;
 import com.liferay.portal.kernel.exception.CompanyMaxUsersException;
 import com.liferay.portal.kernel.exception.CookieNotSupportedException;
 import com.liferay.portal.kernel.exception.NoSuchUserException;

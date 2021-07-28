@@ -5,7 +5,6 @@ package common.web.constants;
  */
 public class CommonWebPortletKeys {
 
-	public static final String COMMONWEB =
-		"common_web_CommonWebPortlet";
+	public static final String COMMONWEB = "common_web_CommonWebPortlet";
 
 }

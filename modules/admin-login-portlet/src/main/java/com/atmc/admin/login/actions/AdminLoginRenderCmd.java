@@ -25,9 +25,9 @@ public class AdminLoginRenderCmd implements MVCRenderCommand {
 
 		_log.info("login redirect:" + loginredirect);
 		if (loginredirect)
-			return "/adminLogin/view.jsp";
+			return "/view.jsp";
 		else
-			return "/adminLogin/view.jsp";
+			return "/view.jsp";
 	}
 
 }

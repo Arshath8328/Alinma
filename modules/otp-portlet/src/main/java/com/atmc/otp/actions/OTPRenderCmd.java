@@ -1,7 +1,7 @@
 package com.atmc.otp.actions;
 
 import com.atmc.otp.constants.OtpPortletKeys;
-import com.ejada.atmc.web.constants.LoginPortletKeys;
+import com.atmc.web.constants.LoginPortletKeys;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;

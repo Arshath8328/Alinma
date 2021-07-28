@@ -74,7 +74,6 @@ public class OTPLocalServiceImpl extends OTPLocalServiceBaseImpl {
 				try {
 					SMSLocalServiceUtil.sendSms(smsMsg, mobileNumber);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				otpSent = true;

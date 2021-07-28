@@ -1,7 +1,8 @@
+<%@page import="com.atmc.otp.constants.OtpPortletKeys"%>
 <%@ include file="init.jsp" %>
 <%
 	System.out.println("otp_auth_user.jsp");
-	String redirect = ParamUtil.getString(request, OTPPortletKeys.REDIRECT_URL);
+	String redirect = ParamUtil.getString(request, OtpPortletKeys.REDIRECT_URL);
 	String redirectJsMethod = ParamUtil.getString(request, OTPPortletKeys.REDIRECT_JS_METHOD);
 	String mobile = ParamUtil.getString(request, OTPPortletKeys.MOBILE_NUMBER);
 	if(mobile == null || mobile.equals(""))

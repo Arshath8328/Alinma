@@ -1,4 +1,4 @@
-<%@page import="com.ejada.atmc.web.constants.SideMenuPortletsKeys"%>
+<%@page import="com.atmc.web.constants.SideMenuPortletsKeys"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.liferay.portal.kernel.model.Layout"%>
 <%@page import="java.util.List"%>

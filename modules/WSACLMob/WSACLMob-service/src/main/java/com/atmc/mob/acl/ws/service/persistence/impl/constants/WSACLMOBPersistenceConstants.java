@@ -30,7 +30,7 @@ import org.osgi.service.component.annotations.Component;
 public class WSACLMOBPersistenceConstants {
 
 	public static final String BUNDLE_SYMBOLIC_NAME =
-		"com.atmc.mob.acl.ws.service";
+		"sb.WSACLMob.service";
 
 	public static final String ORIGIN_BUNDLE_SYMBOLIC_NAME_FILTER =
 		"(origin.bundle.symbolic.name=" + BUNDLE_SYMBOLIC_NAME + ")";

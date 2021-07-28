@@ -30,7 +30,7 @@ import org.osgi.service.component.annotations.Component;
 public class WSACLPersistenceConstants {
 
 	public static final String BUNDLE_SYMBOLIC_NAME =
-		"com.ejada.atmc.acl.ws.service";
+		"sb.WSACL.service";
 
 	public static final String ORIGIN_BUNDLE_SYMBOLIC_NAME_FILTER =
 		"(origin.bundle.symbolic.name=" + BUNDLE_SYMBOLIC_NAME + ")";

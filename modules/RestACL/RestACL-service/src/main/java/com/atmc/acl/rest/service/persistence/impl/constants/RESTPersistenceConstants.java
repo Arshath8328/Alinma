@@ -30,7 +30,7 @@ import org.osgi.service.component.annotations.Component;
 public class RESTPersistenceConstants {
 
 	public static final String BUNDLE_SYMBOLIC_NAME =
-		"com.atmc.acl.rest.service";
+		"sb.RestACL.service";
 
 	public static final String ORIGIN_BUNDLE_SYMBOLIC_NAME_FILTER =
 		"(origin.bundle.symbolic.name=" + BUNDLE_SYMBOLIC_NAME + ")";

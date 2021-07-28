@@ -29,7 +29,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(immediate = true, service = {})
 public class DBBSLPersistenceConstants {
 
-	public static final String BUNDLE_SYMBOLIC_NAME = "com.atmc.bsl.db.service";
+	public static final String BUNDLE_SYMBOLIC_NAME = "sb.DBBSL.service";
 
 	public static final String ORIGIN_BUNDLE_SYMBOLIC_NAME_FILTER =
 		"(origin.bundle.symbolic.name=" + BUNDLE_SYMBOLIC_NAME + ")";

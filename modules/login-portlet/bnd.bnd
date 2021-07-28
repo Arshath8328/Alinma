@@ -1,5 +1,5 @@
 Bundle-Name: login-portlet
-Bundle-SymbolicName: com.ejada.login
+Bundle-SymbolicName: atmc.login.portlet
 Bundle-Version: 1.0.0
 Export-Package: \
 	com.atmc.login.constants,\

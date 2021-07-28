@@ -2,7 +2,7 @@
 <%@page import="com.atmc.bsl.db.domain.claim.MuroorTPUploads"%>
 <%@page import="com.atmc.bsl.db.domain.claim.MuroorODUploads"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.ejada.atmc.web.constants.ClaimIntimationPortletKeys"%>
+<%@page import="com.atmc.web.constants.ClaimIntimationPortletKeys"%>
 <%@page import="com.atmc.bsl.db.domain.claim.ClaimAdminUpload"%>
 <%@page import="com.atmc.bsl.db.domain.claim.ClaimHistory"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>

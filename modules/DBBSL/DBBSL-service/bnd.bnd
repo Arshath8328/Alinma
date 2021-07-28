@@ -1,5 +1,5 @@
 Bundle-Name: DBBSL-service
-Bundle-SymbolicName: DBBSL.service
+Bundle-SymbolicName: sb.DBBSL.service
 Bundle-Version: 1.0.0
 Liferay-Require-SchemaVersion: 1.0.0
 Liferay-Service: true

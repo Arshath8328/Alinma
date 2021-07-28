@@ -5,11 +5,10 @@ package com.atmc.login.actions;
 
 import com.atmc.bsl.db.service.OTPLocalServiceUtil;
 import com.atmc.login.constants.LoginPortletKeys;
-//import com.ejada.atmc.bsl.db.service.OTPLocalServiceUtil;
-import com.ejada.atmc.web.common.UserInfo;
-import com.ejada.atmc.web.constants.FirstLoginChangePwdPortletKeys;
-import com.ejada.atmc.web.constants.OTPPortletKeys;
-import com.ejada.atmc.web.util.SessionUtil;
+import com.atmc.web.common.UserInfo;
+import com.atmc.web.constants.FirstLoginChangePwdPortletKeys;
+import com.atmc.web.constants.OTPPortletKeys;
+import com.atmc.web.util.SessionUtil;
 import com.liferay.portal.kernel.exception.CompanyMaxUsersException;
 import com.liferay.portal.kernel.exception.CookieNotSupportedException;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
@@ -43,6 +42,7 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -54,6 +54,7 @@ import javax.portlet.ActionResponse;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletSession;
 import javax.portlet.PortletURL;
+import javax.portlet.WindowStateException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -82,33 +83,26 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 			if (cmd.equals(LoginPortletKeys.CMD_LOGIN))
 				login(themeDisplay, actionRequest, actionResponse);
 			else if (cmd.equals(LoginPortletKeys.CMD_AUTH))
-				authenticate(themeDisplay, actionRequest, actionResponse);
+				authenticate(actionRequest, actionResponse);
 		} catch (Exception e) {
 			if (e instanceof AuthException) {
 				Throwable cause = e.getCause();
 				hideDefaultErrorMessage(actionRequest);
 				if (cause instanceof PasswordExpiredException || cause instanceof UserLockoutException) {
-
 					SessionErrors.add(actionRequest, cause.getClass(), cause);
-				} else {
-					if (_log.isInfoEnabled()) {
-						_log.info("Authentication failed");
-					}
-
+				} else if (_log.isInfoEnabled()) {
+					_log.info("Authentication failed");
+				} else
 					SessionErrors.add(actionRequest, e.getClass());
-				}
 			} else if (e instanceof CompanyMaxUsersException || e instanceof CookieNotSupportedException || e instanceof NoSuchUserException || e instanceof PasswordExpiredException
 					|| e instanceof UserEmailAddressException || e instanceof UserIdException || e instanceof UserLockoutException || e instanceof UserPasswordException
 					|| e instanceof UserScreenNameException)
 			{
-
 				hideDefaultErrorMessage(actionRequest);
 				SessionErrors.add(actionRequest, e.getClass(), e);
-
 			} else {
 				_log.error(e, e);
-
-				_portal.sendError(e, actionRequest, actionResponse);
+				portal.sendError(e, actionRequest, actionResponse);
 
 				return;
 			}
@@ -119,8 +113,8 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 
 	protected void login(ThemeDisplay themeDisplay, ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
 
-		HttpServletRequest request = _portal.getOriginalServletRequest(_portal.getHttpServletRequest(actionRequest));
-		HttpServletResponse response = _portal.getHttpServletResponse(actionResponse);
+		HttpServletRequest request = portal.getOriginalServletRequest(portal.getHttpServletRequest(actionRequest));
+		HttpServletResponse response = portal.getHttpServletResponse(actionResponse);
 
 		PortletSession pSession = actionRequest.getPortletSession();
 
@@ -131,27 +125,24 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 		if (!themeDisplay.isSignedIn()) {
 
 			String authType = CompanyConstants.AUTH_TYPE_SN;
-			_authenticatedSessionManager.login(request, response, login, password, rememberMe, authType);
+			authenticatedSessionManager.login(request, response, login, password, rememberMe, authType);
 
 			initUserSession(actionRequest, login);
 		}
-
 		actionResponse.setRenderParameter("loginredirect", "true");
 
 	}
 
-	protected void authenticate(ThemeDisplay themeDisplay, ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
+	protected void authenticate(ActionRequest actionRequest, ActionResponse actionResponse) throws PortalException, WindowStateException, IOException {
 		_log.info("authenticate >>>>>>>>>>>>>>");
-		HttpServletRequest request = _portal.getOriginalServletRequest(_portal.getHttpServletRequest(actionRequest));
-		HttpServletResponse response = _portal.getHttpServletResponse(actionResponse);
+		HttpServletRequest request = portal.getOriginalServletRequest(portal.getHttpServletRequest(actionRequest));
 		String login = ParamUtil.getString(actionRequest, "login");
 		if (login.length() != 10) {
 			_log.error("Invalid Login-Id");
 			return;
 		}
-		String password = actionRequest.getParameter("password");
+		String password = ParamUtil.getString(actionRequest, "password");
 		boolean rememberMe = ParamUtil.getBoolean(actionRequest, "rememberMe");
-		String authType = CompanyConstants.AUTH_TYPE_SN;
 		Company company = PortalUtil.getCompany(request);
 		Map<String, String[]> headerMap = new HashMap<>();
 		Enumeration<String> enu1 = request.getHeaderNames();
@@ -169,20 +160,15 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 		Map<String, Object> resultsMap = new HashMap<>();
 
 		// authenticate user
-		int authResult = Authenticator.FAILURE;
-		authResult = UserLocalServiceUtil.authenticateByScreenName(company.getCompanyId(), login, password, headerMap, parameterMap, resultsMap);
+		int authResult = UserLocalServiceUtil.authenticateByScreenName(company.getCompanyId(), login, password, headerMap, parameterMap, resultsMap);
 
 		User user = (User) resultsMap.get("user");
 
 		if (authResult != Authenticator.SUCCESS) {
 			if (user != null) {
 				user = UserLocalServiceUtil.fetchUser(user.getUserId());
-			}
-
-			if (user != null) {
 				UserLocalServiceUtil.checkLockout(user);
 			}
-
 			throw new AuthException();
 		}
 
@@ -230,7 +216,6 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 			redirectURL.setParameter(ActionRequest.ACTION_NAME, "/login/login");
 			redirectURL.setParameter(LoginPortletKeys.CMD, LoginPortletKeys.CMD_LOGIN);
 		}
-
 		portletURL.setParameter(OTPPortletKeys.REDIRECT_URL, redirectURL.toString());
 
 		actionResponse.sendRedirect(portletURL.toString());
@@ -239,23 +224,16 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 
 	protected void postProcessAuthFailure(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
 
-		LiferayPortletRequest liferayPortletRequest = _portal.getLiferayPortletRequest(actionRequest);
-
+		LiferayPortletRequest liferayPortletRequest = portal.getLiferayPortletRequest(actionRequest);
 		String portletName = liferayPortletRequest.getPortletName();
-
 		Layout layout = (Layout) actionRequest.getAttribute(WebKeys.LAYOUT);
-
 		PortletURL portletURL = PortletURLFactoryUtil.create(actionRequest, portletName, layout, PortletRequest.RENDER_PHASE);
-
 		portletURL.setParameter("saveLastPath", Boolean.FALSE.toString());
 		portletURL.setWindowState(LiferayWindowState.POP_UP);
 
 		String login = ParamUtil.getString(actionRequest, "login");
-
-		if (Validator.isNotNull(login)) {
+		if (Validator.isNotNull(login))
 			SessionErrors.add(actionRequest, "login", login);
-		}
-
 		actionResponse.sendRedirect(portletURL.toString());
 	}
 
@@ -271,15 +249,14 @@ public class LoginActionCmd extends BaseMVCActionCommand {
 		userInfo.setUserId(user.getUserId());
 		userInfo.setOrgMode(false);
 		userInfo.setOtpSecret(OTPLocalServiceUtil.generateSecret());
-
 	}
 
 	private static final Log			_log	= LogFactoryUtil.getLog(LoginActionCmd.class);
 
 	@Reference
-	private AuthenticatedSessionManager	_authenticatedSessionManager;
+	private AuthenticatedSessionManager	authenticatedSessionManager;
 
 	@Reference
-	private Portal						_portal;
+	private Portal						portal;
 
 }

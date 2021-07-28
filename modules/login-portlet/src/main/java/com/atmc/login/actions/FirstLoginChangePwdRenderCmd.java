@@ -15,7 +15,7 @@
 package com.atmc.login.actions;
 
 
-import com.ejada.atmc.web.constants.FirstLoginChangePwdPortletKeys;
+import com.atmc.web.constants.FirstLoginChangePwdPortletKeys;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
