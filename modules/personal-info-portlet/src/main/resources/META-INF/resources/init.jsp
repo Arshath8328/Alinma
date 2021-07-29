@@ -12,7 +12,7 @@
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="com.liferay.portal.kernel.model.Organization"%>
 
-<%@page import="com.ejada.personal.info.constants.PersonalInfoBarPortletKeys"%>
+<%@page import="com.atmc.personal.info.constants.PersonalInfoBarPortletKeys"%>
 <%@page import="javax.portlet.ActionRequest"%>
 <%@page import="javax.portlet.PortletRequest"%>
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>

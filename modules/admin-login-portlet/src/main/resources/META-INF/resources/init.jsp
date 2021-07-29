@@ -73,7 +73,7 @@ page import="com.liferay.portal.kernel.util.TextFormatter" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %>
 <%@page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %>
-<%@page import="com.atmc.admin.login.portlet.constants.AdminLoginPortletKeys"%>
+<%@page import="com.atmc.admin.login.constants.AdminLoginPortletKeys"%>
 <liferay-theme:defineObjects />
 
 <portlet:defineObjects />

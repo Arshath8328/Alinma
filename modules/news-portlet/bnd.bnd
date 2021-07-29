@@ -1,0 +1,4 @@
+Bundle-Name: news-portlet
+Bundle-SymbolicName: news.portlet
+Bundle-Version: 1.0.0
+Export-Package: com.atmc.news.constants

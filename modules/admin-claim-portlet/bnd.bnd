@@ -1,4 +1,4 @@
 Bundle-Name: admin-claim-portlet
 Bundle-SymbolicName: admin.claim.portlet
 Bundle-Version: 1.0.0
-Export-Package: admin.claim.portlet.constants
+Export-Package: com.atmc.admin.claim.constants

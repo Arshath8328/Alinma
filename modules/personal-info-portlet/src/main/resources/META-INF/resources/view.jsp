@@ -1,5 +1,5 @@
 <%@page import="com.atmc.login.constants.LoginPortletKeys"%>
-<%@page import="com.ejada.personal.info.constants.PersonalInfoBarPortletKeys"%>
+<%@page import="com.atmc.personal.info.constants.PersonalInfoBarPortletKeys"%>
 <%-- <%@page import="com.atmc.web.util.SessionUtil"%>
 <%@page import="com.atmc.web.common.UserInfo"%>
  --%>

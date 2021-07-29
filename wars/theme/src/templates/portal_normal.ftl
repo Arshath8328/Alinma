@@ -107,14 +107,14 @@
 		</#if>
 	</section>
 	<#if !request.getParameter("mobileView")??>
-																								<#--<#if !is_signed_in>
-																									<#assign VOID = freeMarkerPortletPreferences.setValue("portletSetupPortletDecoratorId", "barebone") />
-																										<@liferay_portlet["runtime"] 
-																										defaultPreferences="${freeMarkerPortletPreferences}" 
-																										portletName="ATMCFooter"
-																										/>
-																									<#assign VOID = freeMarkerPortletPreferences.reset() />
-																								</#if>-->
+		<#if !is_signed_in>
+			<#assign VOID = freeMarkerPortletPreferences.getPreferences("portletSetupPortletDecoratorId", "barebone") />
+				<@liferay_portlet["runtime"] 
+				defaultPreferences="${freeMarkerPortletPreferences}" 
+				portletName="ATMCFooter"
+				/>
+			<#--<#assign VOID = freeMarkerPortletPreferences.reset() />-->
+		</#if>
 	</#if>
 </div>
 <@liferay_util["include"] page=body_bottom_include />

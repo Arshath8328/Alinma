@@ -1,6 +1,6 @@
 package com.atmc.admin.login.actions;
 
-import com.atmc.admin.login.portlet.constants.AdminLoginPortletKeys;
+import com.atmc.admin.login.constants.AdminLoginPortletKeys;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaException;

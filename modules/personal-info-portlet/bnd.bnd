@@ -1,4 +1,4 @@
 Bundle-Name: personal-info-portlet
 Bundle-SymbolicName: personal.info.portlet
 Bundle-Version: 1.0.0
-Export-Package: com.ejada.personal.info.portlet.constants
+Export-Package: com.atmc.personal.info.portlet.constants

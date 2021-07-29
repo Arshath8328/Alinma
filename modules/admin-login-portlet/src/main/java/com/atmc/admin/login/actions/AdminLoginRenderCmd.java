@@ -1,6 +1,6 @@
 package com.atmc.admin.login.actions;
 
-import com.atmc.admin.login.portlet.constants.AdminLoginPortletKeys;
+import com.atmc.admin.login.constants.AdminLoginPortletKeys;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
