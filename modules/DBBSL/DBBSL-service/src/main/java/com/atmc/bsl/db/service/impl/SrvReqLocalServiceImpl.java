@@ -33,20 +33,21 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the srv req local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are
- * added, rerun ServiceBuilder to copy their definitions into the
- * <code>com.atmc.bsl.db.service.SrvReqLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy
+ * their definitions into the <code>com.atmc.bsl.db.service.SrvReqLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security
- * checks based on the propagated JAAS credentials because this service can only
- * be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS
+ * credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see SrvReqLocalServiceBaseImpl
+ * @see    SrvReqLocalServiceBaseImpl
  */
-@Component(property = "model.class.name=com.atmc.bsl.db.model.SrvReq", service = AopService.class)
+@Component(
+		property = "model.class.name=com.atmc.bsl.db.model.SrvReq",
+		service = AopService.class
+)
 public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 
 	private static final Log _log = LogFactoryUtil.getLog(SrvReqLocalServiceImpl.class);
@@ -54,20 +55,13 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SrvReqLocalServiceUtil} to access the srv req
-	 * local service.
+	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.SrvReqLocalServiceUtil} to
+	 * access the srv req local service.
 	 */
 	@Override
 	public List<ServiceRequest> getServiceRequestsListbyUserID(String userID) {
 		List<ServiceRequestMaster> requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByIqamaId(userID);
-		try {
-			return getCustomServiceRequestList(requestList);
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		return getCustomServiceRequestList(requestList);
 	}
 
 	@Override
@@ -77,7 +71,6 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 			request = ServiceRequestMasterLocalServiceUtil.getServiceRequestMaster(refNo);
 			return getCustomServiceMessage(request);
 		} catch (PortalException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return null;
@@ -86,75 +79,48 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 	@Override
 	public List<ServiceRequest> getServiceRequestsListByStatus(String[] status, String role) {
 		List<ServiceRequestMaster> requestList = null;
-		try {
 
-			if (role.equals("Customer Service")) {
-				requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByReqStatus(status);
-			} else {
-				requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByReqRoleStatus(status, role);
-			}
-			return getCustomServiceRequestList(requestList);
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
-	public List<ServiceRequest> getSrvReqListByRoleStatusCustID(String[] status, String role, String customerID,
-			boolean escalationFlag, int from, int to, String orderBy, String orderDir) {
-		List<Object> requestList = null;
-		try {
-			if (from > 1)
-				from = from + 1;
-			if (orderBy != null && orderBy.equals(""))
-				orderBy = "CREATION_DATE";
-			if (orderDir != null && orderDir.equals(""))
-				orderDir = "ASC";
-			if (role.equals("Customer Service")) {
-				requestList = ServiceRequestMasterLocalServiceUtil.findServiceRequestsByStatusRoleAdmin(null, status,
-						customerID, escalationFlag, from, to, orderBy, orderDir);
-			} else {
-				requestList = ServiceRequestMasterLocalServiceUtil.findServiceRequestsByStatusRoleAdmin(role, status,
-						customerID, escalationFlag, from, to, orderBy, orderDir);
-			}
-			return getAdminCustomServiceRequestList(requestList);
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
-	public int countSrvReqListByRoleStatusCustID(String[] status, String role, String customerID,
-			boolean escalationFlag) {
 		if (role.equals("Customer Service")) {
-			return ServiceRequestMasterLocalServiceUtil.countServiceRequestsByStatusRoleAdmin(null, status, customerID,
-					escalationFlag);
+			requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByReqStatus(status);
 		} else {
-			return ServiceRequestMasterLocalServiceUtil.countServiceRequestsByStatusRoleAdmin(role, status, customerID,
-					escalationFlag);
+			requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByReqRoleStatus(status, role);
+		}
+		return getCustomServiceRequestList(requestList);
+	}
+
+	@Override
+	public List<ServiceRequest> getSrvReqListByRoleStatusCustID(String[] status, String role, String customerID, boolean escalationFlag, int from, int to, String orderBy, String orderDir) {
+		List<Object> requestList = null;
+		if (from > 1)
+			from = from + 1;
+		if (orderBy != null && orderBy.equals(""))
+			orderBy = "CREATION_DATE";
+		if (orderDir != null && orderDir.equals(""))
+			orderDir = "ASC";
+		if (role.equals("Customer Service")) {
+			requestList = ServiceRequestMasterLocalServiceUtil.findServiceRequestsByStatusRoleAdmin(null, status, customerID, escalationFlag, from, to, orderBy, orderDir);
+		} else {
+			requestList = ServiceRequestMasterLocalServiceUtil.findServiceRequestsByStatusRoleAdmin(role, status, customerID, escalationFlag, from, to, orderBy, orderDir);
+		}
+		return getAdminCustomServiceRequestList(requestList);
+	}
+
+	@Override
+	public int countSrvReqListByRoleStatusCustID(String[] status, String role, String customerID, boolean escalationFlag) {
+		if (role.equals("Customer Service")) {
+			return ServiceRequestMasterLocalServiceUtil.countServiceRequestsByStatusRoleAdmin(null, status, customerID, escalationFlag);
+		} else {
+			return ServiceRequestMasterLocalServiceUtil.countServiceRequestsByStatusRoleAdmin(role, status, customerID, escalationFlag);
 		}
 	}
 
 	@Override
-	public List<ServiceRequest> getServiceRequestsListByEscalationFlag(String userRole, String closedStatus,
-			boolean isAdmin) {
-		List<ServiceRequestMaster> requestList = ServiceRequestMasterLocalServiceUtil
-				.findSrvsReqsByEsclationFlag(userRole, closedStatus, isAdmin);
-		try {
-			return getCustomServiceRequestList(requestList);
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+	public List<ServiceRequest> getServiceRequestsListByEscalationFlag(String userRole, String closedStatus, boolean isAdmin) {
+		List<ServiceRequestMaster> requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByEsclationFlag(userRole, closedStatus, isAdmin);
+		return getCustomServiceRequestList(requestList);
 	}
 
-	private List<ServiceRequest> getCustomServiceRequestList(List<ServiceRequestMaster> srvReqList)
-			throws PortalException {
+	private List<ServiceRequest> getCustomServiceRequestList(List<ServiceRequestMaster> srvReqList) {
 		List<ServiceRequest> msgList = new ArrayList<>();
 
 		if (srvReqList != null && !srvReqList.isEmpty()) {
@@ -178,14 +144,13 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 				request.setAssignedTo(message.getASSIGNED_TO());
 				request.setIbanNumber(message.getIBAN_NUMBER());
 				request.setEscalatedFlag(message.isESCALATION_FLAG());
-				request.log();
 				msgList.add(request);
 			}
 		}
 		return msgList;
 	}
 
-	private List<ServiceRequest> getAdminCustomServiceRequestList(List<Object> srvReqList) throws PortalException {
+	private List<ServiceRequest> getAdminCustomServiceRequestList(List<Object> srvReqList) {
 		List<ServiceRequest> msgList = new ArrayList<>();
 
 		if (srvReqList != null && !srvReqList.isEmpty()) {
@@ -210,14 +175,13 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 				request.setAssignedTo(message.getASSIGNED_TO());
 				request.setIbanNumber(message.getIBAN_NUMBER());
 				request.setEscalatedFlag(message.isESCALATION_FLAG());
-				request.log();
 				msgList.add(request);
 			}
 		}
 		return msgList;
 	}
 
-	private ServiceRequest getCustomServiceMessage(ServiceRequestMaster message) throws PortalException {
+	private ServiceRequest getCustomServiceMessage(ServiceRequestMaster message) {
 		ServiceRequest request = new ServiceRequest();
 		if (message != null) {
 			request.setReferenceNo(message.getREFERENCE_NO());
@@ -238,18 +202,15 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 			request.setAssignedTo(message.getASSIGNED_TO());
 			request.setIbanNumber(message.getIBAN_NUMBER());
 			request.setEscalatedFlag(message.isESCALATION_FLAG());
-			request.log();
 		}
 		return request;
 	}
 
 	@Override
 	public String addNewServiceRequest(ServiceRequest srvRequest, String creator) {
-		// TODO Auto-generated method stub
 		try {
 			srvRequest.log();
-			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil
-					.createServiceRequestMaster(String.valueOf(CounterLocalServiceUtil.increment()));
+			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil.createServiceRequestMaster(String.valueOf(CounterLocalServiceUtil.increment()));
 			_log.info(req.toString());
 			req.setSOURCE(srvRequest.getSource());
 			req.setREQUEST_CATEGORY(srvRequest.getRequestCategory());
@@ -271,7 +232,6 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 			ServiceRequestMasterLocalServiceUtil.updateServiceRequestMaster(req);
 			return req.getREFERENCE_NO().toString();
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			return null;
 		}
@@ -279,11 +239,9 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 
 	@Override
 	public int updateServiceRequest(ServiceRequest srvRequest) {
-		// TODO Auto-generated method stub
 		try {
 			srvRequest.log();
-			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil
-					.getServiceRequestMaster(srvRequest.getReferenceNo());
+			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil.getServiceRequestMaster(srvRequest.getReferenceNo());
 			req.setSOURCE(srvRequest.getSource());
 			req.setREQUEST_CATEGORY(srvRequest.getRequestCategory());
 			req.setREQUEST_TYPE(srvRequest.getRequestType());
@@ -311,7 +269,6 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 
 	@Override
 	public int updateServiceRequestAssignedRole(String refNo, String role, String status) {
-		// TODO Auto-generated method stub
 		try {
 			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil.getServiceRequestMaster(refNo);
 			req.setASSIGNED_TO(role);

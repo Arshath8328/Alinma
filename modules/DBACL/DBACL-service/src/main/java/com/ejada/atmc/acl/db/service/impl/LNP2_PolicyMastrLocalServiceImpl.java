@@ -52,42 +52,41 @@ public class LNP2_PolicyMastrLocalServiceImpl extends LNP2_PolicyMastrLocalServi
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.acl.db.service.LNP2_PolicymastrLocalServiceUtil} to access the LNP2_Policymastr local service.
+	 * Never reference this class directly. Always use {@link com.ejada.atmc.acl.db.service.lnp2_policymastrLocalServiceUtil} to access the lnp2_policymastr local service.
 	 */
-	public List<PSPolicy> findAllPSPolicyByIqamaId(String iqamaId) throws PortalException {
+	public List<PSPolicy> findAllPSPolicyByIqamaId(String iqamaId) throws PortalException{
 		return lnp2_PolicyMastrFinder.findPSPolicyByIqamaId(iqamaId);
 	}
-
-	public List<PSPolicyDetail> findPSPolicyDetailsById(String id, String toDate) throws PortalException {
+	
+	public List<PSPolicyDetail> findPSPolicyDetailsById(String id, String toDate) throws PortalException{
 		return lnp2_PolicyMastrFinder.findPSPolicyDetailsById(id, toDate);
 	}
-
-	public List<PSPremiumDetail> findPSPolicyPremiumDetailsById(String id) throws PortalException {
-		return lnp2_PolicyMastrFinder.findPSPolicyPremiumDetailsById(id);
-	}
-
-	public List<PSCoverageDetail> findPSPolicyCoverageDetailsById(String id) throws PortalException {
-		return lnp2_PolicyMastrFinder.findPSPolicyCoverageDetailsById(id);
-	}
-
-	public List<PSFundDetail> findPSPolicyFundDetailsById(String id) throws PortalException {
-		return lnp2_PolicyMastrFinder.findPSPolicyFundDetailsById(id);
-	}
-
-	public List<PSBeneficiaryDetail> findPSPolicyBeneficiaryDetailsById(String id) throws PortalException {
-		return lnp2_PolicyMastrFinder.findPSPolicyBeneficiaryDetailsById(id);
-	}
-
-	public List<SOADetail> findPSPolicyStatementDetailsById(String id, String fromDate, String toDate) throws PortalException {
+	
+//	public List<PSPremiumDetail> findPSPolicyPremiumDetailsById(String id) throws PortalException{
+//		return lnp2_PolicyMastrFinder.findPSPolicyPremiumDetailsById(id);
+//	}
+//	
+//	public List<PSCoverageDetail> findPSPolicyCoverageDetailsById(String id) throws PortalException{
+//		return lnp2_PolicyMastrFinder.findPSPolicyCoverageDetailsById(id);
+//	}
+//	
+//	public List<PSFundDetail> findPSPolicyFundDetailsById(String id) throws PortalException{
+//		return lnp2_PolicyMastrFinder.findPSPolicyFundDetailsById(id);
+//	}
+//	
+//	public List<PSBeneficiaryDetail> findPSPolicyBeneficiaryDetailsById(String id) throws PortalException{
+//		return lnp2_PolicyMastrFinder.findPSPolicyBeneficiaryDetailsById(id);
+//	}
+	
+	public List<SOADetail> findPSPolicyStatementDetailsById(String id,String fromDate, String toDate) throws PortalException{
 		return lnp2_PolicyMastrFinder.findPSPolicyStatementDetailsByIdAndDate(id, fromDate, toDate);
 	}
-
-	public List<PSPolicy> findAllPSPolicy() throws PortalException {
+	
+	public List<PSPolicy> findAllPSPolicy() throws PortalException{
 		return lnp2_PolicyMastrFinder.findAllPSPolicy();
 	}
-
-	public List<PSPolicy> searchPSPolicyByIqamaId(String keyword) throws PortalException {
+	
+	public List<PSPolicy> searchPSPolicyByIqamaId(String keyword) throws PortalException{
 		return lnp2_PolicyMastrFinder.searchAllPSPolicybyIqumaId(keyword);
 	}
 }

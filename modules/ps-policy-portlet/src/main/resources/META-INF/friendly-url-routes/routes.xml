@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE routes PUBLIC "-//Liferay//DTD Friendly URL Routes 7.3.0//EN" "http://www.liferay.com/dtd/liferay-friendly-url-routes_7_3_0.dtd">
+
+<routes>
+	<!-- Policy-details  -->
+	<route>
+		<pattern>/{proposalNo}</pattern>
+		<generated-parameter name="proposalNo">{proposalNo}</generated-parameter>
+		<implicit-parameter name="p_p_id">PSPolicyStaff</implicit-parameter>
+		<implicit-parameter name="mvcPath">/Staff/details.jsp</implicit-parameter>
+		<implicit-parameter name="backURL">/group/staff/ps-policy</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+	</route>
+	
+	<!-- Policy-statement details  -->
+	<route>
+		<pattern>/{proposalNo}/statement</pattern>
+		<generated-parameter name="proposalNo">{proposalNo}</generated-parameter>
+		<!-- check why this isn't working! This is the same scenario as above (Policy-details is working fine)
+		<generated-parameter name="backURL">/group/staff/ps-policy/-/policy/{proposalNo}</generated-parameter> -->
+		<implicit-parameter name="backURL">/group/staff/ps-policy/-/policy/{proposalNo}</implicit-parameter>
+		<implicit-parameter name="p_p_id">PSPolicyStaff</implicit-parameter>
+		<implicit-parameter name="mvcPath">/Staff/statement.jsp</implicit-parameter>
+		<implicit-parameter name="cmd">details</implicit-parameter>
+		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
+		<implicit-parameter name="p_p_state">normal</implicit-parameter>
+	</route>
+</routes>

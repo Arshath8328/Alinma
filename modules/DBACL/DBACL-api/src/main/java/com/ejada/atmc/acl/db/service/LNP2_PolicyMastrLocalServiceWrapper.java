@@ -243,47 +243,12 @@ public class LNP2_PolicyMastrLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List
-		<com.ejada.atmc.acl.db.custom.model.PSBeneficiaryDetail>
-				findPSPolicyBeneficiaryDetailsById(String id)
-			throws com.liferay.portal.kernel.exception.PortalException {
-
-		return _lnp2_PolicyMastrLocalService.findPSPolicyBeneficiaryDetailsById(
-			id);
-	}
-
-	@Override
-	public java.util.List<com.ejada.atmc.acl.db.custom.model.PSCoverageDetail>
-			findPSPolicyCoverageDetailsById(String id)
-		throws com.liferay.portal.kernel.exception.PortalException {
-
-		return _lnp2_PolicyMastrLocalService.findPSPolicyCoverageDetailsById(
-			id);
-	}
-
-	@Override
 	public java.util.List<com.ejada.atmc.acl.db.custom.model.PSPolicyDetail>
 			findPSPolicyDetailsById(String id, String toDate)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _lnp2_PolicyMastrLocalService.findPSPolicyDetailsById(
 			id, toDate);
-	}
-
-	@Override
-	public java.util.List<com.ejada.atmc.acl.db.custom.model.PSFundDetail>
-			findPSPolicyFundDetailsById(String id)
-		throws com.liferay.portal.kernel.exception.PortalException {
-
-		return _lnp2_PolicyMastrLocalService.findPSPolicyFundDetailsById(id);
-	}
-
-	@Override
-	public java.util.List<com.ejada.atmc.acl.db.custom.model.PSPremiumDetail>
-			findPSPolicyPremiumDetailsById(String id)
-		throws com.liferay.portal.kernel.exception.PortalException {
-
-		return _lnp2_PolicyMastrLocalService.findPSPolicyPremiumDetailsById(id);
 	}
 
 	@Override

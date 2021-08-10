@@ -1,4 +1,4 @@
-<%@page import="com.atmc.web.constants.NewsPortletKeys"%>
+<%@page import="com.atmc.news.constants.NewsPortletKeys"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.Locale"%>
@@ -25,7 +25,7 @@
 					String active = "active";
 					for (String newss : newsArticles) {
 				%>
-				<div class="item <%=active%>">
+				<div class="carousel-item <%=active%>">
 					<%=newss%>
 				</div>
 

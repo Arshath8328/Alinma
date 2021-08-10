@@ -18,7 +18,7 @@
 
 	<route>
 		<pattern>/view</pattern>
-		<implicit-parameter name="p_p_id">friendly_url_portlet_FriendlyUrlPortlet_INSTANCE_TBbGaEY8NXqQ</implicit-parameter>
+		<implicit-parameter name="p_p_id">friendly_url_portlet_FriendlyUrlPortlet</implicit-parameter>
 		<implicit-parameter name="mvcRenderCommandName">/demo</implicit-parameter>
 		<implicit-parameter name="p_p_lifecycle">0</implicit-parameter>
 		<implicit-parameter name="p_p_state">normal</implicit-parameter>

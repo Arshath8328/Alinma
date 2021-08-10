@@ -47,7 +47,7 @@ public class ServiceRequest {
 	}
 
 	public void setRequestCategory(String requestCategory) {
-		requestCategory = requestCategory;
+		this.requestCategory = requestCategory;
 	}
 
 	public String getRequestType() {
@@ -55,7 +55,7 @@ public class ServiceRequest {
 	}
 
 	public void setRequestType(String requestType) {
-		requestType = requestType;
+		this.requestType = requestType;
 	}
 
 	public String getProductType() {

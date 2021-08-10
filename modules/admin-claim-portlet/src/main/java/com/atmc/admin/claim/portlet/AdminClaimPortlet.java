@@ -10,6 +10,7 @@ import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.db.model.CLMNajmUploads;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.petra.io.StreamUtil;
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.captcha.CaptchaException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.ByteArrayFileInputStream;
@@ -71,7 +72,7 @@ public class AdminClaimPortlet extends MVCPortlet {
 		List<Claim> claims = null;
 
 		String myview = ParamUtil.getString(renderRequest,"myview");
-		String view = "/" + (myview == null ? "view" : myview) + ".jsp";
+		String view = "/" + (myview.equals(StringPool.BLANK) ? "view" : myview) + ".jsp";
 		_log.info(view);
 		if (view.equals("/view.jsp")) {
 			renderRequest.setAttribute("claimsList", claims);

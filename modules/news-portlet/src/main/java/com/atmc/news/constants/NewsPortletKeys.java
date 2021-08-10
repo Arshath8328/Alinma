@@ -6,6 +6,6 @@ package com.atmc.news.constants;
 public class NewsPortletKeys {
 
 	public static final String NEWS =
-		"news_portlet_NewsPortlet";
+		"ATMnews";
 
 }

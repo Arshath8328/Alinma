@@ -1,0 +1,7 @@
+Bundle-Name: cancel-policy-list-portlet
+Bundle-SymbolicName: cancel.policy.list
+Bundle-Version: 1.0.0
+Export-Package: cancel.policy.list.constants
+Import-Package: \
+	!javax.microedition.io,\
+	*

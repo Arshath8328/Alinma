@@ -14,12 +14,8 @@
 
 package com.ejada.atmc.acl.db.service;
 
-import com.ejada.atmc.acl.db.custom.model.PSBeneficiaryDetail;
-import com.ejada.atmc.acl.db.custom.model.PSCoverageDetail;
-import com.ejada.atmc.acl.db.custom.model.PSFundDetail;
 import com.ejada.atmc.acl.db.custom.model.PSPolicy;
 import com.ejada.atmc.acl.db.custom.model.PSPolicyDetail;
-import com.ejada.atmc.acl.db.custom.model.PSPremiumDetail;
 import com.ejada.atmc.acl.db.custom.model.SOADetail;
 import com.ejada.atmc.acl.db.model.LNP2_PolicyMastr;
 
@@ -206,21 +202,8 @@ public interface LNP2_PolicyMastrLocalService
 	public List<PSPolicy> findAllPSPolicyByIqamaId(String iqamaId)
 		throws PortalException;
 
-	public List<PSBeneficiaryDetail> findPSPolicyBeneficiaryDetailsById(
-			String id)
-		throws PortalException;
-
-	public List<PSCoverageDetail> findPSPolicyCoverageDetailsById(String id)
-		throws PortalException;
-
 	public List<PSPolicyDetail> findPSPolicyDetailsById(
 			String id, String toDate)
-		throws PortalException;
-
-	public List<PSFundDetail> findPSPolicyFundDetailsById(String id)
-		throws PortalException;
-
-	public List<PSPremiumDetail> findPSPolicyPremiumDetailsById(String id)
 		throws PortalException;
 
 	public List<SOADetail> findPSPolicyStatementDetailsById(

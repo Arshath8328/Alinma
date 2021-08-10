@@ -43,37 +43,35 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the srv req remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are
- * added, rerun ServiceBuilder to copy their definitions into the
- * <code>com.atmc.bsl.db.service.SrvReqService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy
+ * their definitions into the <code>com.atmc.bsl.db.service.SrvReqService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have
- * security checks based on the propagated JAAS credentials because this service
- * can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see SrvReqServiceBaseImpl
+ * @see    SrvReqServiceBaseImpl
  */
-@Component(property = { "json.web.service.context.name=dbbsl",
-		"json.web.service.context.path=SrvReq" }, service = AopService.class)
+@Component(
+		property =
+		{ "json.web.service.context.name=dbbsl", "json.web.service.context.path=SrvReq" },
+		service = AopService.class
+)
 public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SrvReqServiceUtil} to access the srv req remote
-	 * service.
+	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.SrvReqServiceUtil} to access the
+	 * srv req remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(SrvReqServiceImpl.class);
 
-	public ServiceOutput<List<ServiceRequest>> getServiceRequestsListByIdStatus(String iqamaId, String[] status)
-			throws PortalException {
+	public ServiceOutput<List<ServiceRequest>> getServiceRequestsListByIdStatus(String iqamaId, String[] status) throws PortalException {
 		ServiceOutput<List<ServiceRequest>> svcOutput = new ServiceOutput<List<ServiceRequest>>();
 		try {
-			List<ServiceRequestMaster> requestList = ServiceRequestMasterLocalServiceUtil
-					.findSrvsReqsByIdStatus(iqamaId, status);
+			List<ServiceRequestMaster> requestList = ServiceRequestMasterLocalServiceUtil.findSrvsReqsByIdStatus(iqamaId, status);
 			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
 			svcOutput.setOutputObject(getCustomServiceRequests(requestList));
 		} catch (Exception e) {
@@ -84,8 +82,7 @@ public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 
 	}
 
-	private List<ServiceRequest> getCustomServiceRequests(List<ServiceRequestMaster> srvReqList)
-			throws PortalException {
+	private List<ServiceRequest> getCustomServiceRequests(List<ServiceRequestMaster> srvReqList) {
 		List<ServiceRequest> msgList = new ArrayList<>();
 
 		if (srvReqList != null && !srvReqList.isEmpty()) {
@@ -109,14 +106,16 @@ public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 				request.setAssignedTo(message.getASSIGNED_TO());
 				request.setIbanNumber(message.getIBAN_NUMBER());
 				request.setEscalatedFlag(message.isESCALATION_FLAG());
-				request.log();
 				msgList.add(request);
 			}
 		}
 		return msgList;
 	}
 
-	@JSONWebService(value = "add-new-service-request", method = "POST")
+	@JSONWebService(
+			value = "add-new-service-request",
+			method = "POST"
+	)
 	public ServiceOutput<String> addNewServiceRequest(ServiceRequest srvRequest, String lang) {
 		// TODO Auto-generated method stub
 		ServiceOutput<String> svcOutput = new ServiceOutput<String>();
@@ -124,8 +123,7 @@ public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 
 		try {
 			srvRequest.log();
-			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil
-					.createServiceRequestMaster(String.valueOf(CounterLocalServiceUtil.increment()));
+			ServiceRequestMaster req = ServiceRequestMasterLocalServiceUtil.createServiceRequestMaster(String.valueOf(CounterLocalServiceUtil.increment()));
 			req.setSOURCE(srvRequest.getSource());
 			req.setREQUEST_CATEGORY(srvRequest.getRequestCategory());
 			req.setREQUEST_TYPE(srvRequest.getRequestType());
@@ -165,17 +163,14 @@ public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 			String mailMessage = "", mailTitle = "";
 			if (refNo != null) {
 				if (srvRequest.getRequestCategory().equals("complaints")) {
-					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_COMPLAINT",
-							new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
+					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_COMPLAINT", new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
 					mailTitle = LanguageUtil.get(locale, "SERVICE_REQUEST_COMPLAINT_TITLE");
 					sendSMS(locale, srvRequest.getMobile(), refNo, "SERVICE_REQUEST_COMPLAINT_SMS");
 				} else if (srvRequest.getRequestCategory().equals("inquiries")) {
-					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_INQUIRY",
-							new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
+					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_INQUIRY", new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
 					mailTitle = LanguageUtil.get(locale, "SERVICE_REQUEST_INQUIRY_TITLE");
 				} else if (srvRequest.getRequestCategory().equals("suggestions")) {
-					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_SUGGESTION",
-							new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
+					mailMessage = LanguageUtil.format(locale, "SERVICE_REQUEST_SUGGESTION", new String[] { srvRequest.getCreatorUserName().split(" ")[0], refNo });
 					mailTitle = LanguageUtil.get(locale, "SERVICE_REQUEST_SUGGESTION_TITLE");
 				}
 				sendEmail(srvRequest.getEmail(), mailMessage, mailTitle);

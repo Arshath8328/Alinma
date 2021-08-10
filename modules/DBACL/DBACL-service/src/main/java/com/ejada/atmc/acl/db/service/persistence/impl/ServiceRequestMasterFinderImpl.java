@@ -232,7 +232,7 @@ public class ServiceRequestMasterFinderImpl extends ServiceRequestMasterFinderBa
 			}
 
 			queryS = queryS + " ORDER BY " + orderBy + " " + orderDir.toUpperCase() + ") q) WHERE   rn BETWEEN ? AND ?";
-			_log.info(" Customer Service Pagination Query : " + queryS);
+			_log.info(" Customer Service Pagination Query ");
 			query = session.createSQLQuery(queryS);
 			query.setCacheable(false);
 			query.addEntity("serviceRequest", ServiceRequestMasterImpl.class);

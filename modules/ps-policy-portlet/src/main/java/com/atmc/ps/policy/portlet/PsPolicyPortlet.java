@@ -41,9 +41,16 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 		immediate = true,
 		property =
-		{ "com.liferay.portlet.display-category=category.sample", "com.liferay.portlet.header-portlet-css=/css/main.css", "com.liferay.portlet.instanceable=true",
-				"javax.portlet.display-name=PsPolicy", "javax.portlet.init-param.template-path=/", "javax.portlet.init-param.view-template=/view.jsp",
-				"javax.portlet.name=" + PsPolicyPortletKeys.PSPolicy, "javax.portlet.resource-bundle=content.Language", "javax.portlet.security-role-ref=power-user,user" },
+		{	"com.liferay.portlet.display-category=category.sample", 
+			"com.liferay.portlet.header-portlet-css=/css/main.css", 
+			"com.liferay.portlet.instanceable=false",
+			"javax.portlet.display-name=PsPolicy", 
+			"javax.portlet.init-param.template-path=/", 
+			"javax.portlet.init-param.view-template=/view.jsp",
+			"javax.portlet.name=" + PsPolicyPortletKeys.PSPolicy, 
+			"javax.portlet.resource-bundle=content.Language", 
+			"javax.portlet.security-role-ref=power-user,user" 
+		},
 		service = Portlet.class
 )
 public class PsPolicyPortlet extends MVCPortlet {
@@ -60,7 +67,6 @@ public class PsPolicyPortlet extends MVCPortlet {
 			englishArabicNamesMap = setArabicText();
 
 			List<PSPolicy> list = LNP2_PolicyMastrLocalServiceUtil.findAllPSPolicyByIqamaId("1082373075");
-			LOG.info(list);
 			renderRequest.setAttribute("PSPolicyList", list);
 			String proposalNo = ParamUtil.getString(renderRequest, "proposalNo");
 			if (!Validator.isBlank(proposalNo)) {
@@ -72,7 +78,6 @@ public class PsPolicyPortlet extends MVCPortlet {
 				psPolicyDetail.setStatus_descr(englishArabicNamesMap.get(psPolicyDetail.getStatus_descr()));
 				psPolicyDetail.setFrequency(englishArabicNamesMap.get(psPolicyDetail.getFrequency()));
 				psPolicyDetail.setProduct_desc(englishArabicNamesMap.get(psPolicyDetail.getProduct_desc().toLowerCase()));
-				LOG.info("PSPolicyDetail: " + psPolicyDetail);
 				renderRequest.getPortletSession().removeAttribute("proposalNo");
 				renderRequest.setAttribute("psPolicyDetail", psPolicyDetail);
 			}
@@ -105,16 +110,12 @@ public class PsPolicyPortlet extends MVCPortlet {
 					}
 				});
 
-				LOG.info("----------------PSStatementDetail: " + soaDetail);
 				renderRequest.setAttribute("psStatementDetail", soaDetail);
 				renderRequest.setAttribute("fromDate", dateFormat.format(date1));
 				renderRequest.setAttribute("toDate", dateFormat.format(date2));
 				LOG.info("render method: " + proposalNo + " fromDate: " + fromDate + " toDate: " + toDate);
 			}
-
-		} catch (PortalException e) {
-			LOG.error(e.getMessage(), e);
-		} catch (ParseException e) {
+		} catch (PortalException | ParseException e) {
 			LOG.error(e.getMessage(), e);
 		}
 		super.render(renderRequest, renderResponse);
@@ -128,8 +129,8 @@ public class PsPolicyPortlet extends MVCPortlet {
 			englishArabicNamesMap = setArabicText();
 
 			String proposalNo = ParamUtil.getString(resourceRequest, "proposalNo");
-			String fromDate = ParamUtil.getString(resourceRequest, "fromDate");
-			String toDate = ParamUtil.getString(resourceRequest, "toDate");
+			String fromDate = ParamUtil.getString(resourceRequest,"fromDate");
+			String toDate = ParamUtil.getString(resourceRequest,"toDate");
 			List<SOADetail> soaDetails = LNP2_PolicyMastrLocalServiceUtil.findPSPolicyStatementDetailsById(proposalNo, fromDate, toDate);
 			SOADetail soaDetail = soaDetails.get(0);
 			soaDetail.setFromDate(fromDate);
@@ -153,7 +154,6 @@ public class PsPolicyPortlet extends MVCPortlet {
 					bd.setRelationship(englishArabicNamesMap.get(bd.getRelationship()));
 				}
 			});
-
 			resourceResponse.setProperty("Content-Disposition", "attachment; filename=\"" + soaDetail.getProposal_no() + ".pdf\"");
 			resourceResponse.setContentType("application/pdf");
 			ReportsUtil.downloadFundPDF(soaDetails, resourceResponse.getPortletOutputStream());
@@ -162,7 +162,7 @@ public class PsPolicyPortlet extends MVCPortlet {
 		}
 	}
 
-	public Map setArabicText() {
+	public Map<String, String> setArabicText() {
 		Map<String, String> map = new HashMap<>();
 		map.put("M", LanguageUtil.get(resourceBundle, "monthly"));
 		map.put("S", LanguageUtil.get(resourceBundle, "single.premium"));
