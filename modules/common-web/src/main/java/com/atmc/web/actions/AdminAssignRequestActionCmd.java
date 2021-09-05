@@ -38,7 +38,8 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component(
 		property =
-		{ "javax.portlet.name=" + AdminCustomerServiceListPortletKeys.ASSIGN, "mvc.command.name=/adminCustomerServiceList/assign_to" },
+		{ "javax.portlet.name=" + AdminCustomerServiceListPortletKeys.ASSIGN,
+				"mvc.command.name=/adminCustomerServiceList/assign_to" },
 		service = MVCActionCommand.class
 )
 public class AdminAssignRequestActionCmd extends BaseMVCActionCommand {

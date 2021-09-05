@@ -3,7 +3,6 @@ Bundle-Name: common-web
 Bundle-SymbolicName: common.web
 Bundle-Version: 1.0.0
 Export-Package: \
-	common.web.constants,\
 	com.ejada.atmc.acl.db.custom.model,\
 	com.ejada.atmc.acl.db.domain.tariff,\
 	com.ejada.atmc.acl.db.exception,\
@@ -20,6 +19,5 @@ Export-Package: \
 	com.atmc.web.notifications,\
 	com.atmc.web.search,\
 	com.atmc.web.util,\
-	common.web.constants,\
 	common.web.portlet,\
 	com.atmc.web.props

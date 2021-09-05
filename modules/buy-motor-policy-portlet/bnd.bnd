@@ -1,0 +1,4 @@
+Bundle-Name: buy-motor-policy-portlet
+Bundle-SymbolicName: buy.motor.policy
+Bundle-Version: 1.0.0
+Export-Package: buy.motor.policy.constants

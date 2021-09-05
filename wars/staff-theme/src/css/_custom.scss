@@ -874,7 +874,7 @@ label, .control-label {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: auto;
     padding: 10px;
     flex-direction: column;
 
@@ -899,6 +899,7 @@ label, .control-label {
         padding: 0 !important;
     }
     .stmt-table {
+    	border-collapse: collapse !important;
         border: 0;
         margin-top: 5px;
         table-layout: fixed;
@@ -1007,6 +1008,7 @@ label, .control-label {
     margin-top: 20px;
 }
 .stmt-table{
+	border-collapse: collapse;
     width: 100%;
 }
 .stmt-table td, .stmt-table th{
@@ -1036,4 +1038,7 @@ label, .control-label {
 }
 .stmt-table td{
 	padding: 4px;
+}
+.col-md-offset-1 {
+    margin-left: 8.33333% !important;
 }

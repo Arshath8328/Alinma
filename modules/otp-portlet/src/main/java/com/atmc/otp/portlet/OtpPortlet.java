@@ -24,15 +24,16 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
-			"com.liferay.portlet.display-category=category.sample",
-			"com.liferay.portlet.header-portlet-css=/css/main.css",
-			"com.liferay.portlet.instanceable=false",
-			"javax.portlet.display-name=ATMC OTP Portlet",
-			"javax.portlet.init-param.template-path=/",
-			"javax.portlet.init-param.view-template=/view.jsp",
-			"javax.portlet.name=" + OtpPortletKeys.OTP,
-			"javax.portlet.resource-bundle=content.Language",
-			"javax.portlet.security-role-ref=guest,power-user,user"
+		"com.liferay.portlet.display-category=category.sample",
+		"com.liferay.portlet.header-portlet-css=/css/main.css",
+		"com.liferay.portlet.instanceable=false",
+		"javax.portlet.display-name=ATMC OTP Portlet",
+		"javax.portlet.init-param.template-path=/",
+		"javax.portlet.init-param.view-template=/view.jsp",
+		"javax.portlet.name=" + OtpPortletKeys.OTP,
+		"javax.portlet.resource-bundle=content.Language",
+		"javax.portlet.security-role-ref=guest,power-user,user",
+		"com.liferay.portlet.add-default-resource=true"
 	},
 	service = Portlet.class
 )

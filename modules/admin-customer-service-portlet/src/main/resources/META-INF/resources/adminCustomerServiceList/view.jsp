@@ -25,181 +25,161 @@
 <%@page import="javax.portlet.PortletURL"%>
 <%@ include file="/adminCustomerServiceList/init.jsp"%>
 
-<liferay-ui:success key="close_success"
-	message="success_update_service_request" />
-<liferay-ui:error key="close_error"
-	message="error_update_service_request" />
+<liferay-ui:success key="close_success" message="success_update_service_request"/>
+<liferay-ui:error key="close_error" message="error_update_service_request" /> 
 
 <%
-	List<ServiceRequest> msgList = (List) request.getAttribute("msgsList");
+	List<ServiceRequest> msgList = (List)request.getAttribute("msgsList");
 	String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
-
+	
+	
+	
 	PortletURL portletURL = renderResponse.createRenderURL();
 
 	portletURL.setParameter("myview", "view");
 	String portletURLString = portletURL.toString();
 	portletURL.setParameter("displayStyle", displayStyle);
-
+	
 	pageContext.setAttribute("portletURL", portletURL);
 	PortletURL iteratorURL = renderResponse.createRenderURL();
 	String currLocale = themeDisplay.getLocale().toString();
 
 	//orderByCol is the column name passed in the request while sorting
-	String orderByCol = ParamUtil.getString(request, "orderByCol");
+	String orderByCol = ParamUtil.getString(request, "orderByCol"); 
 
 	//orderByType is passed in the request while sorting. It can be either asc or desc
 	String orderByType = ParamUtil.getString(request, "orderByType");
 	String sortingOrder = orderByType;
 	//Logic for toggle asc and desc
-	if (orderByType.equals("desc")) {
-		orderByType = "asc";
-	} else {
-		orderByType = "desc";
+	if(orderByType.equals("desc")){
+	  orderByType = "asc";
+	}else{
+	  orderByType = "desc";
 	}
 
-	if (Validator.isNull(orderByType)) {
-		orderByType = "desc";
+	if(Validator.isNull(orderByType)){
+	  orderByType = "desc";
 	}
-
+	
 	ServiceRequestSearch srvReqSearchContainer = new ServiceRequestSearch(renderRequest, portletURL);
-	ServiceRequestSearchTerms displayTerms = (ServiceRequestSearchTerms) srvReqSearchContainer.getDisplayTerms();
+	ServiceRequestSearchTerms displayTerms = (ServiceRequestSearchTerms)srvReqSearchContainer.getDisplayTerms();
+	
 %>
 
 <portlet:renderURL var="historyURL">
-	<portlet:param name="myview" value="closed_requests" />
+	<portlet:param name="myview" value="closed_requests"/>
 </portlet:renderURL>
 <portlet:renderURL var="escalationsURL">
-	<portlet:param name="myview" value="escalated_requests" />
+	<portlet:param name="myview" value="escalated_requests"/>
 </portlet:renderURL>
-<h1 class="text-center" style="margin-top: 0; padding-top: 10px;">
-	<liferay-ui:message key="cust_serv_list" />
-</h1>
+<h1 class="text-center" style="margin-top: 0;padding-top: 10px;"><liferay-ui:message key="cust_serv_list"/></h1>
 <ul class="nav nav-tabs clearfix">
-	<li class="active"><a href="javascript:void(0)" role="tab"
-		data-toggle="tab"><liferay-ui:message key="requests_tab" /></a></li>
-	<li><a href="${escalationsURL}"><liferay-ui:message
-				key="escalation_tab" /></a></li>
-	<li><a href="${historyURL}"><liferay-ui:message
-				key="history_tab" /></a></li>
+	<li class="active"><a href="javascript:void(0)" role="tab" data-toggle="tab"><liferay-ui:message key="requests_tab"/></a></li>
+	<li><a href="${escalationsURL}"><liferay-ui:message key="escalation_tab"/></a></li>
+	<li><a href="${historyURL}"><liferay-ui:message key="history_tab"/></a></li>
 </ul>
 
 <aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
 	<aui:nav-bar-search>
-		<aui:form action="<%=portletURLString%>" name="searchFm">
+		<aui:form action="<%= portletURLString %>" name="searchFm">
 			<liferay-ui:input-search markupView="lexicon" />
 		</aui:form>
 	</aui:nav-bar-search>
 </aui:nav-bar>
 
-<liferay-frontend:management-bar includeCheckBox="<%=false%>"
-	searchContainerId="srvReqSearch">
+<liferay-frontend:management-bar includeCheckBox="<%= false %>" searchContainerId="srvReqSearch">
 	<liferay-frontend:management-bar-filters>
-		<liferay-frontend:management-bar-sort orderByCol="<%=orderByCol%>"
-			orderByType="<%=orderByType%>"
-			orderColumns='<%=new String[] { "Date", "Category" }%>'
-			portletURL="<%=portletURL%>" />
+		<liferay-frontend:management-bar-sort
+			orderByCol="<%= orderByCol %>"
+			orderByType="<%= orderByType %>"
+			orderColumns='<%=new String[]{"Date", "Category"} %>'
+			portletURL="<%= portletURL %>"
+		/>
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
 		<liferay-frontend:management-bar-display-buttons
-			displayViews='<%=new String[] { "list" }%>'
-			portletURL="<%=portletURL%>" selectedDisplayStyle="<%=displayStyle%>" />
+			displayViews='<%= new String[] {"list"} %>'
+			portletURL="<%= portletURL %>"
+			selectedDisplayStyle="<%= displayStyle %>"
+		/>
 	</liferay-frontend:management-bar-buttons>
 
 	<liferay-frontend:management-bar-action-buttons>
-		<liferay-frontend:management-bar-button href="javascript:void(0);"
-			icon="trash" id="deleteRoles" label="delete" />
+		<liferay-frontend:management-bar-button href="javascript:void(0);" icon="trash" id="deleteRoles" label="delete" />
 	</liferay-frontend:management-bar-action-buttons>
 </liferay-frontend:management-bar>
-<%
-	if (isCustomerService) {
-%>
+<%if(isCustomerService){ %>
 <liferay-frontend:add-menu>
-	<liferay-frontend:add-menu-item
-		title='<%=LanguageUtil.get(request, "add_new_request")%>'
-		url="/group/staff/compose_new_service_request" />
+    <liferay-frontend:add-menu-item  title='<%= LanguageUtil.get(request,"add_new_request") %>' url="/group/staff/compose_new_service_request" />
 </liferay-frontend:add-menu>
-<%
-	}
-%>
-<aui:form action="<%=portletURLString%>" cssClass="container-fluid-1280"
-	method="get" name="fm">
-	<liferay-portlet:renderURLParams varImpl="portletURLString" />
-
+<%} %>
+<aui:form action="<%= portletURLString %>" cssClass="container-fluid-1280" method="get" name="fm">
 	<aui:input name="deleteRoleIds" type="hidden" />
 
 	<liferay-portlet:renderURLParams varImpl="portletURL" />
-	<liferay-ui:search-container iteratorURL="<%=iteratorURL%>"
-		id="srvReqSearch" orderByType="<%=orderByType%>"
+		<liferay-ui:search-container  
+		iteratorURL="<%=iteratorURL%>"
+		id="srvReqSearch"  
+		orderByType="<%=orderByType %>"
 		emptyResultsMessage="there-are-no-service-requests"
-		searchContainer="<%=srvReqSearchContainer%>">
-
+		searchContainer="<%= srvReqSearchContainer %>"
+		>
+				
 		<liferay-ui:search-container-results>
-			<%
-				String searchkeywords = displayTerms.getKeywords();
-							String orderCol = "";
-							if (Validator.isNotNull(orderByCol)) {
-								if (orderByCol.equals("Category"))
-									orderCol = "REQUEST_CATEGORY";
-								else
-									orderCol = "CREATION_DATE";
-							}
-							String[] statusList = new String[] { CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_ASSIGNED,
-									CustomerServiceRequestListPortletKeys.REQUEST_STATUS_OPEN };
-							msgList = SrvReqLocalServiceUtil.getSrvReqListByRoleStatusCustID(statusList, (String) request.getAttribute("userRole"), searchkeywords, false, srvReqSearchContainer.getStart(),
-									srvReqSearchContainer.getEnd(), orderCol, orderByType);
-							int count = SrvReqLocalServiceUtil.countSrvReqListByRoleStatusCustID(statusList, (String) request.getAttribute("userRole"), searchkeywords, false);
-							System.out.println("jsp result count : " + count);
-
-							System.out.println(searchkeywords);
-							srvReqSearchContainer.setResults(msgList);
-							srvReqSearchContainer.setTotal(count);
-			%>
-		</liferay-ui:search-container-results>
+		 <%
+			String searchkeywords = displayTerms.getKeywords();
+			String orderCol = "";
+			if(Validator.isNotNull(orderByCol))
+			{
+		        if(orderByCol.equals("Category"))
+		        	orderCol = "REQUEST_CATEGORY";
+		        else
+	        		orderCol = "CREATION_DATE";
+			}
+			String[] statusList = new String[]{CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_ASSIGNED, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_OPEN};
+			msgList = SrvReqLocalServiceUtil.getSrvReqListByRoleStatusCustID(statusList, (String)request.getAttribute("userRole")
+												,searchkeywords, false, srvReqSearchContainer.getStart(), srvReqSearchContainer.getEnd(), orderCol, orderByType);
+		  	int count= SrvReqLocalServiceUtil.countSrvReqListByRoleStatusCustID(statusList, (String)request.getAttribute("userRole"), searchkeywords, false);
+		  	System.out.println("jsp result count : " + count);
+		  	
+		 	System.out.println(searchkeywords);
+		    srvReqSearchContainer.setResults(msgList);
+		  	srvReqSearchContainer.setTotal(count);
+		 
+		 %>
+		 </liferay-ui:search-container-results> 
 
 		<liferay-ui:search-container-row
-			className="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"
-			modelVar="srvReq">
-			<%
-				SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("EEE dd/MM/yyyy");
-							String creationDate = dmyDateFormatter.format(srvReq.getCreationDate());
-							String cssClass = "";
-							if (!srvReq.getRequestStatus().equals(CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW)
-									&& !srvReq.getRequestStatus().equals(CustomerServiceRequestListPortletKeys.REQUEST_STATUS_PENDING)
-									&& srvReq.getAssignedTo().equals(AdminCustomerServiceListPortletKeys.USER_ROLES.CUSTOMER_SERVICE_ROLE.getValue()))
-							{
-								cssClass = "text-success";
-							}
-			%>
-			<liferay-ui:search-container-column-text name="ref" orderable="true">
-				<portlet:renderURL var="detailsURL">
-					<portlet:param name="myview" value="message_details" />
-					<portlet:param name="refNo"
-						value="<%=srvReq.getReferenceNo() + ""%>" />
-				</portlet:renderURL>
-				<a href="${detailsURL}"><%=srvReq.getReferenceNo() + "<br/><span class='glyphicon glyphicon-calendar'></span> " + creationDate%></a>
-			</liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text property="iqamaId"
-				name="policy_from" orderable="true"
-				value="<%=srvReq.getCreatorUserName() + "<br/>" + srvReq.getIqamaId()%>"></liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text name="policy_cat_product"
-				orderable="true"
-				value="<%=LanguageUtil.get(request, "Service_Request_Cat_" + (Validator.isNotNull(srvReq.getRequestCategory()) ? srvReq.getRequestCategory().toLowerCase() :"inquiries")) + ", "
-									+ LanguageUtil.get(request, "Service_Request_Type_" + (Validator.isNotNull(srvReq.getRequestType()) ? srvReq.getRequestType() : "others")) + "<br/><span class='icon "
-									+ LanguageUtil.get(request, "Service_Request_Product_ICON_" + srvReq.getProductType()) + " text-muted'></span> <small class='text-muted'>"
-									+ LanguageUtil.get(request, "Service_Request_Product_" + srvReq.getProductType()) + "</small>"%>"></liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text name="Channel"
-				orderable="true" value="<%=srvReq.getSource()%>"></liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text name="policy_assign_to"
-				orderable="true" value="<%=srvReq.getAssignedTo()%>"></liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-text name="policy_status"
-				orderable="true"
-				value="<%="<span class='" + cssClass + "'>" + LanguageUtil.get(request, "service_request_status_" + srvReq.getRequestStatus()) + "</span>"%>"></liferay-ui:search-container-column-text>
-			<liferay-ui:search-container-column-jsp
-				path="/adminCustomerServiceList/action_buttons.jsp" />
+			className="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest" 
+			modelVar="srvReq"
+		>
+		<%
+			SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("EEE dd/MM/yyyy");
+			String creationDate = dmyDateFormatter.format(srvReq.getCreationDate());
+			String cssClass = "";
+			if (!srvReq.getRequestStatus().equals(CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW) &&
+					!srvReq.getRequestStatus().equals(CustomerServiceRequestListPortletKeys.REQUEST_STATUS_PENDING) && 
+					srvReq.getAssignedTo().equals(AdminCustomerServiceListPortletKeys.USER_ROLES.CUSTOMER_SERVICE_ROLE.getValue())  )
+			{
+				cssClass = "text-success";
+			}
+		%>
+		<liferay-ui:search-container-column-text name="ref" orderable="true" >
+			<portlet:renderURL var="detailsURL">
+				<portlet:param name="myview" value="message_details"/>
+				<portlet:param name="refNo" value="<%=srvReq.getReferenceNo()+""%>"/>
+			</portlet:renderURL>
+			<a href="${detailsURL}"><%=srvReq.getReferenceNo() + "<br/><span class='glyphicon glyphicon-calendar'></span> " + creationDate  %></a>
+		</liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-text property="iqamaId" name="policy_from" orderable="true" value="<%=srvReq.getCreatorUserName() + "<br/>" + srvReq.getIqamaId() %>"></liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-text name="policy_cat_product" orderable="true" value="<%=LanguageUtil.get(request,"Service_Request_Cat_" + srvReq.getRequestCategory().toLowerCase()) +", "+ LanguageUtil.get(request, "Service_Request_Type_" + srvReq.getRequestType()) + "<br/><span class='icon "+LanguageUtil.get(request, "Service_Request_Product_ICON_" + srvReq.getProductType())+" text-muted'></span> <small class='text-muted'>" + LanguageUtil.get(request, "Service_Request_Product_" + srvReq.getProductType()) + "</small>"%>"></liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-text name="Channel" orderable="true" value="<%=srvReq.getSource() %>"></liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-text name="policy_assign_to" orderable="true" value="<%=srvReq.getAssignedTo() %>"></liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-text name="policy_status" orderable="true" value="<%= "<span class='"+cssClass+"'>" + LanguageUtil.get(request,"service_request_status_" + srvReq.getRequestStatus()) + "</span>"%>"></liferay-ui:search-container-column-text>
+		<liferay-ui:search-container-column-jsp path="/adminCustomerServiceList/action_buttons.jsp"/>
 		</liferay-ui:search-container-row>
 
-		<liferay-ui:search-iterator
-			searchContainer="<%=srvReqSearchContainer%>" markupView="lexicon" />
-	</liferay-ui:search-container>
+		<liferay-ui:search-iterator  searchContainer="<%= srvReqSearchContainer %>" markupView="lexicon" />
+		</liferay-ui:search-container>
 </aui:form>

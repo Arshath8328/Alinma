@@ -1,0 +1,4 @@
+Bundle-Name: claim-muroor-portlet
+Bundle-SymbolicName: claim.muroor
+Bundle-Version: 1.0.0
+Export-Package: claim.muroor.constants

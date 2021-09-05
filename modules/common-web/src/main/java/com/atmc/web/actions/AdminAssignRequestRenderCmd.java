@@ -16,7 +16,8 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 		immediate = true,
 		property =
-		{ "javax.portlet.name=" + AdminCustomerServiceListPortletKeys.ASSIGN, "mvc.command.name=/adminCustomerServiceList/assign_to" },
+		{ "javax.portlet.name=" + AdminCustomerServiceListPortletKeys.ASSIGN,
+				"mvc.command.name=/adminCustomerServiceList/assign_to" },
 		service = MVCRenderCommand.class
 )
 public class AdminAssignRequestRenderCmd implements MVCRenderCommand {

@@ -5,7 +5,7 @@ package com.atmc.login.constants;
  */
 public class LoginPortletKeys {
 
-	public static final String LOGIN = "ATMCLogin";
+	public static final String LOGIN = "ATMCLoginPortlet";
 	public static final String CMD = "CMD";
 	public static final String CMD_LOGIN = "CMDLOGIN";
 	public static final String CMD_AUTH = "CMDAUTH";
