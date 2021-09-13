@@ -1,0 +1,4 @@
+Bundle-Name: claim-najm-portlet
+Bundle-SymbolicName: claim.najm
+Bundle-Version: 1.0.0
+Export-Package: claim.najm.constants

@@ -1,0 +1,4 @@
+Bundle-Name: language-switcher-portlet
+Bundle-SymbolicName: language.switcher.portlet
+Bundle-Version: 1.0.0
+Export-Package: language.switcher.portlet.constants

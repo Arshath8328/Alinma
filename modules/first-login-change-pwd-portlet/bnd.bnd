@@ -1,0 +1,4 @@
+Bundle-Name: first-login-change-pwd-portlet
+Bundle-SymbolicName: first.login.change.pwd
+Bundle-Version: 1.0.0
+Export-Package: first.login.change.pwd.constants

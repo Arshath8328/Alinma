@@ -1,0 +1,4 @@
+Bundle-Name: policy-list-portlet
+Bundle-SymbolicName: policy.list.portlet
+Bundle-Version: 1.0.0
+Export-Package: policy.list.portlet.constants

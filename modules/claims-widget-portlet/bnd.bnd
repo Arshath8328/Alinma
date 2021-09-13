@@ -1,0 +1,4 @@
+Bundle-Name: claims-widget-portlet
+Bundle-SymbolicName: claims.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: claims.widget.portlet.constants

@@ -1,0 +1,4 @@
+Bundle-Name: claim-management-portlet
+Bundle-SymbolicName: claim.management
+Bundle-Version: 1.0.0
+Export-Package: claim.management.constants

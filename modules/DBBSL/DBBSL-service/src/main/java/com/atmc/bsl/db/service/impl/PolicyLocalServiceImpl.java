@@ -158,7 +158,7 @@ public class PolicyLocalServiceImpl extends PolicyLocalServiceBaseImpl {
 				policy.setPolicyStatusEn(policyHdr.getStatusDescEn());
 				if (product.equals("13101") || product.equals("13102")) {
 					List<PolicyVEH> policyVehList = policyHdr.getPolicyVEHs();
-					if (policyVehList.size() == 1 && policyVehList != null && !policyVehList.isEmpty()) {
+					if (policyVehList!=null && policyVehList.size() == 1  && !policyVehList.isEmpty()) {
 						for (PolicyVEH pVeh : policyVehList) {
 							// PolicyVEH pVeh = policyVehList.get(0);
 							PolicyVehicle customPVeh = new PolicyVehicle();
