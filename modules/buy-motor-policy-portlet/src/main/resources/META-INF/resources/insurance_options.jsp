@@ -322,9 +322,9 @@ function calculateTotalPrem()
 	var	premVal =0;
 	$("input[name='<portlet:namespace/>coverChk']:checked").each(function(){
 		
-		if($(this).closest("div").find("input[name='<portlet:namespace/>coverPrem']").size()>0)
+		if($(this).closest("div").find("input[name='<portlet:namespace/>coverPrem']").length>0)
 			premVal = $(this).closest("div").find("input[name='<portlet:namespace/>coverPrem']").val().split(";")[1];
-		else if($(this).closest("div").find("select[name='<portlet:namespace/>coverPrem']").size()>0)
+		else if($(this).closest("div").find("select[name='<portlet:namespace/>coverPrem']").length>0)
 		{
 			var coverVals= $(this).closest("div").find("select[name='<portlet:namespace/>coverPrem'] option:selected").val().split(";")
 			premVal = coverVals[1];

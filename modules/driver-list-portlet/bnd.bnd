@@ -1,0 +1,4 @@
+Bundle-Name: driver-list-portlet
+Bundle-SymbolicName: driver.list.portlet
+Bundle-Version: 1.0.0
+Export-Package: driver.list.portlet.constants

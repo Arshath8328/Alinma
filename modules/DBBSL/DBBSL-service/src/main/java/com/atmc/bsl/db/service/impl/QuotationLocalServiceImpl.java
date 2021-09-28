@@ -38,6 +38,7 @@ import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
 import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 import com.atmc.bsl.db.service.UserMgmtLocalServiceUtil;
 import com.atmc.bsl.db.service.base.QuotationLocalServiceBaseImpl;
+import com.ejada.atmc.acl.db.domain.tariff.TariffDriver;
 import com.ejada.atmc.acl.db.domain.tariff.TariffInput;
 import com.ejada.atmc.acl.db.domain.tariff.TariffOutput;
 import com.ejada.atmc.acl.db.exception.NoSuchAtmcYakeenMakeModelException;
@@ -1776,11 +1777,10 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 			SAXParserFactory spf = SAXParserFactory.newInstance();
 			spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 			spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+			spf.setFeature("http://xml.org/sax/features/external-general-entities", false);
 
-			YakeenDataSave citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil
-					.findByVehicleSequence(String.valueOf(quot.getVehicleId()));
-			Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(),
-					new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
+			YakeenDataSave citizenCarInfoLocalData = YakeenDataSaveLocalServiceUtil.findByVehicleSequence(String.valueOf(quot.getVehicleId()));
+			Source xmlSource = new SAXSource(spf.newSAXParser().getXMLReader(), new InputSource(new StringReader(citizenCarInfoLocalData.getServiceOutput())));
 			JAXBContext jc = JAXBContext.newInstance(BasicCarInfo.class, CarInfo.class);
 			Unmarshaller um = jc.createUnmarshaller();
 			savedCarInfo = (CarInfo) um.unmarshal(xmlSource);
@@ -1790,12 +1790,11 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 //				Unmarshaller jaxbMarshaller = jaxbContext.createUnmarshaller();
 //				StringReader st = new StringReader(citizenCarInfoLocalData.getServiceOutput());
 //				 savedCarInfo = (CarInfo) jaxbMarshaller.unmarshal(st);
-			_log.info("savedCarInfo >>>>>>>>>>>>" + savedCarInfo.toString());
+//			_log.info("savedCarInfo >>>>>>>>>>>>" + savedCarInfo.toString());
 		} catch (NoSuchYakeenDataSaveException | JAXBException | ParserConfigurationException | SAXException e) {
 			_log.info("inside catch block make" + quot.getVehicleMake());
 			_log.info("inside catch block make" + quot.getVehicleModel());
-			makemodel = AtmcYakeenMakeModelLocalServiceUtil.findByEskaMakeModelDetails(quot.getVehicleMake(),
-					quot.getVehicleModel());
+			makemodel = AtmcYakeenMakeModelLocalServiceUtil.findByEskaMakeModelDetails(quot.getVehicleMake(), quot.getVehicleModel());
 			_log.info("yakeen make " + makemodel.getYakeenMakeValue());
 			_log.info("yakeen model" + makemodel.getYakeenModelValue());
 			cardetail = Integer.valueOf(makemodel.getYakeenMakeValue());
@@ -1803,7 +1802,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 
 		CompDiscount compDiscount = CompDiscountLocalServiceUtil.fetchCompDiscount(String.valueOf(quot.getInsuredId()));
 		_log.info("getTariffDets fn Start");
-		_log.info("city description >>>>>>>>>>>>>" + quot.getCityDesc());
+//		_log.info("city description >>>>>>>>>>>>>" + quot.getCityDesc());
 		TariffInput tInput = new TariffInput();
 		Calendar currTime = new GregorianCalendar();
 		currTime.setTime(new Date());
@@ -1813,11 +1812,8 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		}
 		tInput.setBodyType(quot.getVehicleBodyType());
 		tInput.setClmFreeYears((int) quot.getNcdYears());
-		tInput.setColor((quot.getVehicleColor() != null && !quot.getVehicleColor().equals(""))
-				? Integer.valueOf(quot.getVehicleColor())
-				: 0);
-		tInput.setEffFromDate(
-				(quot.getPolicyEffDate() != null) ? new java.sql.Date(quot.getPolicyEffDate().getTime()) : null);
+		tInput.setColor((quot.getVehicleColor() != null && !quot.getVehicleColor().equals("")) ? Integer.valueOf(quot.getVehicleColor()) : 0);
+		tInput.setEffFromDate((quot.getPolicyEffDate() != null) ? new java.sql.Date(quot.getPolicyEffDate().getTime()) : null);
 		// tInput.setMake(savedCarInfo.getVehicleMakerCode());
 		if (savedCarInfo != null)
 //			tInput.setMake(savedCarInfo.getVehicleMakerCode());
@@ -1830,8 +1826,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		tInput.setInsuredid(quot.getInsuredId());
 		tInput.setChassisno(quot.getVehicleChassisNo());
 		// tInput.setMaritalStatus(Integer.valueOf(quot.getInsuredMaritalStatus()));
-		CodeMasterMap maritalstatus = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("MARITAL_STATUS",
-				quot.getInsuredMaritalStatus());
+		CodeMasterMap maritalstatus = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode("MARITAL_STATUS", quot.getInsuredMaritalStatus());
 		tInput.setMaritalStatus(Integer.valueOf(maritalstatus.getCoreCode()));
 		if (quot.getVehiclePlateType() != null)
 			tInput.setPurposeVeh(Integer.valueOf(quot.getVehiclePlateType()));
@@ -1840,13 +1835,11 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		else
 			tInput.setRegion("0");
 		tInput.setUniqueIdentifier("12345678");
-		tInput.setRepair((quot.getAgencyRepair() != null && !quot.getAgencyRepair().equals(""))
-				? Integer.valueOf(quot.getAgencyRepair())
-				: 0);
+		tInput.setRepair((quot.getAgencyRepair() != null && !quot.getAgencyRepair().equals("")) ? Integer.valueOf(quot.getAgencyRepair()) : 0);
 		tInput.setVehicleValue((int) quot.getVehicleValue());
 		// Kareem Kahil: Mapping Insured Gender as per SAMA CR design document
 		String insuredGender = quot.getInsuredGender();
-		_log.info("Insured Gender: " + insuredGender);
+//		_log.info("Insured Gender: " + insuredGender);
 		if (insuredGender != null && !insuredGender.equals("")) {
 			if (insuredGender.equalsIgnoreCase(YAKEEN_INSURED_GENDER_MALE))
 				tInput.setGender(INSURED_GENDER_MALE);
@@ -1885,6 +1878,18 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		}
 		List<QuotationDriver> drvList = quot.getQuotationDrivers();
 
+		int i = 0;
+		for (QuotationDriver qd : drvList) {
+			TariffDriver td = new TariffDriver();
+			td.setDriverDateOfBirth(qd.getDriverDob().toGMTString());
+			td.setDriverGender(qd.getDriverGender());
+			td.setSerial(i++);
+			td.setDriverNCDCode(String.valueOf(qd.getNcdYears()));
+			td.setDriverMaritalStatus(qd.getDriverMaritalStatus());
+			td.setDriverID(String.valueOf(qd.getDriverId()));
+			tInput.getTariffDrivers().add(td);
+		}
+		
 		if (drvList != null && !drvList.isEmpty()) {
 			if (drvList.size() == 1) {
 				_log.info("ncd years before my code " + quot.getNcdYears());
@@ -1944,13 +1949,13 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 			double specialDiscountRatesafedrive = 0;
 			double specialDiscountAmountsafeDrive = 0;
 			tOut = TariffLocalServiceUtil.getTariffData(tInput);
-			_log.info("Tariff Input Data : " + tInput);
-			_log.info("after tariff call ");
+			_log.info("toutput >>>>>>>>>>>>>" + tOut.toString());
+//			_log.info("Tariff Input Data : " + tInput);
+//			_log.info("after tariff call ");
 			if (quot.getProductCode().equals(PRODUCT_CODE_TPL)) {
 				_log.info("MTP :::::::" + quot.getProductCode());
 				for (TariffOutput tout : tOut) {
 					if ((tout.getCode() != null) && (tout.getCode().equals("2066"))) {
-						_log.info("toutput >>>>>>>>>>>>>" + tout.toString());
 						premiumAmount = Double.valueOf(tout.getPremiumAmount());
 						_log.info(" PremiumAmount " + tout.getPremiumAmount());
 					}
@@ -1972,8 +1977,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 							_log.info("loadingamount >>>>>>>>>" + loadingamount);
 						}
 					}
-					if ((tout.getCode() != null) && (tout.getCode().equals("107") || tout.getCode().equals("147")
-							|| tout.getCode().equals("148"))) {
+					if ((tout.getCode() != null) && (tout.getCode().equals("107") || tout.getCode().equals("147") || tout.getCode().equals("148"))) {
 						specialDiscountRate = Double.valueOf(tout.getPremiumRate());
 						_log.info("staff discount percentage " + specialDiscountRate);
 						specialDiscountAmount = (premiumAmount * specialDiscountRate);
@@ -1990,7 +1994,9 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 				_log.info("MCC :::::::" + quot.getProductCode());
 				for (TariffOutput tout : tOut) {
 					// _log.info("Tariff Output"+tout.toString());
-					if (tout.getCode().equals("2062") && tout.getExcessAmount().equals(quot.getDeductibleValue())) {
+//					if (tout.getCode().equals("2062") && tout.getExcessAmount().equals(quot.getDeductibleValue())) {
+					if (tout.getCode().equals("2062") || tout.getExcessAmount().equals(quot.getDeductibleValue())) {
+							
 						premiumAmount = (Double.valueOf(tout.getPremiumAmount()));
 						_log.info("premiumAmount >>>>>>>>>>" + tout.getPremiumAmount());
 						/*
@@ -2023,8 +2029,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 						loyaltyDiscount = (premiumAmount * loyaltyDisPremRate);
 						_log.info("loyalty discount amount " + loyaltyDiscount);
 					}
-					if ((tout.getCode() != null) && (tout.getCode().equals("107") || tout.getCode().equals("147")
-							|| tout.getCode().equals("148"))) {
+					if ((tout.getCode() != null) && (tout.getCode().equals("107") || tout.getCode().equals("147") || tout.getCode().equals("148"))) {
 						specialDiscountRate = Double.valueOf(tout.getPremiumRate());
 						_log.info("staff discount percentage " + specialDiscountRate);
 						specialDiscountAmount = (premiumAmount * specialDiscountRate);
@@ -2040,8 +2045,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 				}
 			}
 
-			double totalDiscAmount = loyaltyDiscount + ncdDiscountAmount + specialDiscountAmount
-					+ specialDiscountAmountsafeDrive;
+			double totalDiscAmount = loyaltyDiscount + ncdDiscountAmount + specialDiscountAmount + specialDiscountAmountsafeDrive;
 			double totalPremPayable = premiumAmount + Math.abs(loadingamount) - totalDiscAmount;
 			_log.info("totalDiscAmount >>>" + totalDiscAmount);
 			_log.info("totalPremPayable without tax >>>" + totalPremPayable);
@@ -2050,8 +2054,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 			_log.info("vat amount " + vatAmount);
 			double payableAmount = totalPremPayable + vatAmount;
 			_log.info("total premium payable with tax" + payableAmount);
-			loyaltyDiscountPercentage = ncdPermiumRate + loyaltyDisPremRate + (specialDiscountRate * 100)
-					+ (specialDiscountRatesafedrive * 100);
+			loyaltyDiscountPercentage = ncdPermiumRate + loyaltyDisPremRate + (specialDiscountRate * 100) + (specialDiscountRatesafedrive * 100);
 			_log.info("total loyalty and ncd percentage todays " + loyaltyDiscountPercentage);
 			loyaltyDiscount = loyaltyDiscount + specialDiscountAmount + specialDiscountAmountsafeDrive;
 			quot.setDiscountAmount(ncdDiscountAmount);
@@ -2063,83 +2066,14 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 				quot.setDiscountPrem(ncdPercentage);
 			else
 				quot.setDiscountPrem(0.0);
-			quot.setLoyaltyDiscountPer(
-					loyaltyDisPremRate + (specialDiscountRate * 100) + (specialDiscountRatesafedrive * 100));
+			quot.setLoyaltyDiscountPer(loyaltyDisPremRate + (specialDiscountRate * 100) + (specialDiscountRatesafedrive * 100));
 			quot.setGrossPrem(payableAmount);
 			quot.setLoyaltyDiscount("" + loyaltyDiscount);
 			quot.setNetPrem(premiumAmount);
 			quot.setSaeedService(String.valueOf(decimalFormat.format(specialDiscountAmountsafeDrive)));
 			_log.info("total loyalty discount>>>>>>>>>>>>>>" + quot.getLoyaltyDiscount());
 			quot.setLoadingAmount(Math.abs(loadingamount));
-
-			/*
-			 * if(loyaltyDisPremRate != 0 ) { loyaltyDiscount = loyaltyDisPremRate *
-			 * premiumAmount ; loyaltyDiscountPercentage = loyaltyDisPremRate * 100 ;
-			 * _log.info("Loyalty discount amount "+loyaltyDiscount);
-			 * _log.info("Loyalty discount Percentage "+loyaltyDiscountPercentage); } {
-			 * loyaltyDiscount = 0; } if(ncdPermiumRate != 0 ) { ncdDiscountAmount =
-			 * ncdPermiumRate * premiumAmount ; ncdPercentage = ncdPermiumRate * 100 ;
-			 * _log.info("NCD discount amount "+ncdDiscountAmount);
-			 * _log.info("NCD discount Percentage "+ncdPercentage); } else {
-			 * ncdDiscountAmount = 0; } if(specialDiscountRate != 0 ) {
-			 * specialDiscountAmount = specialDiscountRate * premiumAmount ; double
-			 * spclDiscPercentage = specialDiscountRate * 100 ;
-			 * _log.info("Special discount amount "+specialDiscountAmount);
-			 * _log.info("NCD discount Percentage "+spclDiscPercentage); } else {
-			 * specialDiscountAmount = 0; }
-			 */
-
-			// quot.setPolicyFees(payableAmount);
-
-			// quot.setPolicyFees(vatAmount);
-
-			/*
-			 * quot.setPolicyFees(tOut.getPolicyFees());
-			 * quot.setAgencyRepairOut(tOut.getAgencyRepair());
-			 * quot.setDriverAgeLess21(tOut.getDriverAgeLess21());
-			 * //quot.setTotalCoverPrem(tOut.getNetPrem());
-			 * quot.setDiscountAmount(tOut.getNcdDiscount());
-			 * quot.setGrossPrem(tOut.getBasePremium());
-			 */
-			// quot.setLoyaltyDiscount(loyaltyDiscount);
-			/*
-			 * quot.setNetPrem(tOut.getBasePremium()); quot.setLoyaltyDiscount("" +
-			 * tOut.getLoyalityDiscount()); quot.setDiscountPrem(tOut.getNcdPercentage());
-			 * quot.setLoyaltyDiscountPer(tOut.getLoyalityPercentage());
-			 * quot.setLoadingAmount(tOut.getMotorLoading());
-			 * quot.setPolicyTaxes(tOut.getVatFees());
-			 * quot.setPolicyFees(tOut.getPolicyFees());
-			 * quot.setAgencyRepairOut(tOut.getAgencyRepair());
-			 * quot.setDriverAgeLess21(tOut.getDriverAgeLess21());
-			 * //quot.setTotalCoverPrem(tOut.getNetPrem());
-			 * quot.setDiscountAmount(tOut.getNcdDiscount());
-			 * quot.setGrossPrem(tOut.getBasePremium());
-			 */
-
-			/*
-			 * if(compDiscount != null ) { _log.info("inside discount condition");
-			 * quot.setSaeedService(compDiscount.getSchemeCode()); } else {
-			 * _log.info("inside non discount condition");
-			 * quot.setSaeedService("SCHEME_001");
-			 * 
-			 * }
-			 */
-
-			// quot.setSaeedService(compDiscount != null ? compDiscount.getSchemeCode() :
-			// "SCHEME_001");
-
-			/*
-			 * _log.info("saeed service added "+quot.getSaeedService());
-			 * _log.info(""+tOut.getBasePremium());
-			 * _log.info("LoyalityDiscount  "+tOut.getLoyalityDiscount());
-			 * _log.info("NcdPercentage  "+tOut.getNcdPercentage());
-			 * _log.info("getLoyalityPercentage"+tOut.getLoyalityPercentage());
-			 * _log.info("getMotorLoading"+tOut.getMotorLoading());
-			 * _log.info("getLoyalityDiscount "+tOut.getLoyalityDiscount());
-			 * 
-			 */
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			_log.error(e.getMessage());
 			return null;
 		}

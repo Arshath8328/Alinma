@@ -1,0 +1,4 @@
+Bundle-Name: user-widget-portlet
+Bundle-SymbolicName: user.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: user.widget.portlet.constants

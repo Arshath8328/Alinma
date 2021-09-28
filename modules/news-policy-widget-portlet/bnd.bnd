@@ -1,0 +1,4 @@
+Bundle-Name: new-policy-widget-portlet
+Bundle-SymbolicName: new.policy.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: news.policy.widget.portlet.constants

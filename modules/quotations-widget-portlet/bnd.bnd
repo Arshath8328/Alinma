@@ -1,0 +1,4 @@
+Bundle-Name: quotations-widget-portlet
+Bundle-SymbolicName: quotations.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: quotations.widget.portlet.constants

@@ -1,0 +1,4 @@
+Bundle-Name: quick-quote-portlet
+Bundle-SymbolicName: quick.quote.portlet
+Bundle-Version: 1.0.0
+Export-Package: quick.quote.portlet.constants

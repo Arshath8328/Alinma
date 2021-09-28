@@ -1,0 +1,4 @@
+Bundle-Name: policies-widget-portlet
+Bundle-SymbolicName: policies.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: policies.widget.portlet.constants

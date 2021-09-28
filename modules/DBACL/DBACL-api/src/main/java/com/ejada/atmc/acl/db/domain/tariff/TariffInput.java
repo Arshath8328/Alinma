@@ -13,6 +13,8 @@
 package com.ejada.atmc.acl.db.domain.tariff;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Sarah Taher
@@ -25,7 +27,6 @@ public class TariffInput {
 	private Date 	effFromDate;
 	private String 	schemeCode;
 	private String 	region;
-	private int 	gender;
 	private Date 	driverAge;
 	private int 	make;
 	private int 	MFGYear;
@@ -46,7 +47,9 @@ public class TariffInput {
 	private long 	insuredid;
 	private String  chassisno;
 	private int  MaritalStatus;	
+	private int 	gender;
 	private int  vehicleModel;
+	private List<TariffDriver> tariffDrivers = new ArrayList<>();
 	
 	public int getVehicleModel() {
 		return vehicleModel;
@@ -210,16 +213,19 @@ public class TariffInput {
 	public void setNcdDrv5(int ncdDrv5) {
 		this.ncdDrv5 = ncdDrv5;
 	}
-	@Override
+
+	public List<TariffDriver> getTariffDrivers() {
+		return tariffDrivers;
+	}
+	public void setTariffDrivers(List<TariffDriver> tariffDrivers) {
+		this.tariffDrivers = tariffDrivers;
+	}
+	
 	public String toString() {
-		return "TariffInput [productCode=" + productCode + ", vehicleValue=" + vehicleValue + ", effFromDate="
-				+ effFromDate + ", schemeCode=" + schemeCode + ", region=" + region + ", gender=" + gender
-				+ ", driverAge=" + driverAge + ", make=" + make + ", MFGYear=" + MFGYear + ", bodyType=" + bodyType
-				+ ", color=" + color + ", arabicColor=" + arabicColor + ", purposeVeh=" + purposeVeh + ", repair="
-				+ repair + ", loyalty=" + loyalty + ", uniqueIdentifier=" + uniqueIdentifier + ", clmFreeYears="
-				+ clmFreeYears + ", ncdDrv1=" + ncdDrv1 + ", ncdDrv2=" + ncdDrv2 + ", ncdDrv3=" + ncdDrv3 + ", ncdDrv4="
-				+ ncdDrv4 + ", ncdDrv5=" + ncdDrv5 + ", specialDiscount=" + specialDiscount + ", insuredid=" + insuredid
-				+ ", chassisno=" + chassisno + ", MaritalStatus=" + MaritalStatus + ", vehicleModel=" + vehicleModel
-				+ "]";
+		return "TariffInput [productCode=" + productCode + ", vehicleValue=" + vehicleValue + ", effFromDate=" + effFromDate + ", schemeCode=" + schemeCode + ", region=" + region + ", driverAge="
+				+ driverAge + ", make=" + make + ", MFGYear=" + MFGYear + ", bodyType=" + bodyType + ", color=" + color + ", arabicColor=" + arabicColor + ", purposeVeh=" + purposeVeh + ", repair="
+				+ repair + ", loyalty=" + loyalty + ", uniqueIdentifier=" + uniqueIdentifier + ", clmFreeYears=" + clmFreeYears + ", ncdDrv1=" + ncdDrv1 + ", ncdDrv2=" + ncdDrv2 + ", ncdDrv3="
+				+ ncdDrv3 + ", ncdDrv4=" + ncdDrv4 + ", ncdDrv5=" + ncdDrv5 + ", specialDiscount=" + specialDiscount + ", insuredid=" + insuredid + ", chassisno=" + chassisno + ", MaritalStatus="
+				+ MaritalStatus + ", gender=" + gender + ", vehicleModel=" + vehicleModel + ", tariffDrivers=" + tariffDrivers + "]";
 	}
 }

@@ -1,0 +1,4 @@
+Bundle-Name: service-requests-widget-portlet
+Bundle-SymbolicName: service.requests.widget.portlet
+Bundle-Version: 1.0.0
+Export-Package: service.requests.widget.portlet.constants

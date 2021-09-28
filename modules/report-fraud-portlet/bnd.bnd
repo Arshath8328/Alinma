@@ -1,0 +1,4 @@
+Bundle-Name: report-fraud-portlet
+Bundle-SymbolicName: report.fraud.portlet
+Bundle-Version: 1.0.0
+Export-Package: report.fraud.portlet.constants

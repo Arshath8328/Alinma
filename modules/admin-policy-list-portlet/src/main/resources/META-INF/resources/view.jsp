@@ -4,7 +4,6 @@
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.ejada.atmc.acl.db.service.QuotationsLocalServiceUtil"%>
 <%@page import="com.liferay.portal.kernel.util.PortalUtil"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
@@ -35,61 +34,56 @@
 </style>
 <h1 class="text-center" style="margin-top: 0;padding-top: 10px;"><liferay-ui:message key="manage_policies"/></h1>
 <%
-String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+	String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
 
+	Log _log = LogFactoryUtil.getLog(AdminPolicyListPortlet.class);
+	//PortletURL portletURL = renderResponse.createRenderURL();
+	String orderByCol = ParamUtil.getString(request, "orderByCol");
+	String orderByType = ParamUtil.getString(request, "orderByType");
+	int delta = ParamUtil.getInteger(request, SearchContainer.DEFAULT_DELTA_PARAM);
+	String navigation = ParamUtil.getString(request, "navigation", "status");
+	// create navigation url for status filter
 
-Log _log = LogFactoryUtil.getLog(AdminPolicyListPortlet.class);
-//PortletURL portletURL = renderResponse.createRenderURL();
-String orderByCol = ParamUtil.getString(request, "orderByCol"); 
-String orderByType = ParamUtil.getString(request, "orderByType");
-int delta = ParamUtil.getInteger(request, SearchContainer.DEFAULT_DELTA_PARAM);
-String navigation = ParamUtil.getString(request, "navigation", "status");
-// create navigation url for status filter
+	PortletURL navigationPortletURL = renderResponse.createRenderURL();
 
-PortletURL navigationPortletURL = renderResponse.createRenderURL();
-		
-// add paramter to navigationurl
-if (delta > 0) {
-	navigationPortletURL.setParameter("delta", String.valueOf(delta));
-}
+	// add paramter to navigationurl
+	if (delta > 0) {
+		navigationPortletURL.setParameter("delta", String.valueOf(delta));
+	}
 
-navigationPortletURL.setParameter("orderBycol", orderByCol);
-navigationPortletURL.setParameter("orderByType", orderByType);
+	navigationPortletURL.setParameter("orderBycol", orderByCol);
+	navigationPortletURL.setParameter("orderByType", orderByType);
 
-//create portletURL from navigationURL
-PortletURL portletURL = PortletURLUtil.clone(navigationPortletURL, liferayPortletResponse);
-//add paramter navigation paramter to portletURL
-portletURL.setParameter("navigation", navigation);
+	//create portletURL from navigationURL
+	PortletURL portletURL = PortletURLUtil.clone(navigationPortletURL, liferayPortletResponse);
+	//add paramter navigation paramter to portletURL
+	portletURL.setParameter("navigation", navigation);
 
+	String portletURLString = portletURL.toString();
+	portletURL.setParameter("displayStyle", displayStyle);
+	pageContext.setAttribute("portletURL", portletURL);
+	PortletURL iteratorURL = renderResponse.createRenderURL();
+	String currLocale = themeDisplay.getLocale().toString();
 
+	//orderByCol is the column name passed in the request while sorting
 
-String portletURLString = portletURL.toString();
-portletURL.setParameter("displayStyle", displayStyle);
-pageContext.setAttribute("portletURL", portletURL);
-PortletURL iteratorURL = renderResponse.createRenderURL();
-String currLocale = themeDisplay.getLocale().toString();
+	//orderByType is passed in the request while sorting. It can be either asc or desc
+	String sortingOrder = orderByType;
+	//Logic for toggle asc and desc
+	if (orderByType.equals("desc")) {
+		orderByType = "asc";
+	} else {
+		orderByType = "desc";
+	}
 
-//orderByCol is the column name passed in the request while sorting
+	if (Validator.isNull(orderByType)) {
+		orderByType = "desc";
+	}
 
-//orderByType is passed in the request while sorting. It can be either asc or desc
-String sortingOrder = orderByType;
-//Logic for toggle asc and desc
-if(orderByType.equals("desc")){
-  orderByType = "asc";
-}else{
-  orderByType = "desc";
-}
+	QuotationSearch qoutationSearchContainer = new QuotationSearch(renderRequest, portletURL);
+	QuotationSearchTerms displayTerms = (QuotationSearchTerms) qoutationSearchContainer.getDisplayTerms();
 
-if(Validator.isNull(orderByType)){
-  orderByType = "desc";
-}
-
-QuotationSearch qoutationSearchContainer = new QuotationSearch(renderRequest, portletURL);
-QuotationSearchTerms displayTerms = (QuotationSearchTerms)qoutationSearchContainer.getDisplayTerms();
-
-//System.out.println("All good 1");
-
-
+	//System.out.println("All good 1");
 %>
 <aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
 	<aui:nav-bar-search>
@@ -125,76 +119,45 @@ QuotationSearchTerms displayTerms = (QuotationSearchTerms)qoutationSearchContain
 		<liferay-ui:search-container-results>
 		<%
 		
-		List<Quotation> quotationsList=new ArrayList<Quotation>();//QuotationLocalServiceUtil.getAdminQuotations(qoutationSearchContainer.getStart(), qoutationSearchContainer.getEnd());//
-		
-		//System.out.println("Retrieved Count:" + request.getAttribute("quotationsTotalCount"));
+		List<Quotation> quotationsList=new ArrayList<Quotation>();
 		int quotationsCount = (int)request.getAttribute("quotationsTotalCount");
-		
-		
 		searchContainer.setTotal(quotationsCount);
 		String searchkeywords = displayTerms.getKeywords();
 		boolean conjunctionFlag = false;
-		
-		
-		//System.out.println(navigation);
 		if(searchkeywords!= null && !(searchkeywords.equals("")) && navigation.equals("status"))
-		{
-			//System.out.println("In 1");
+		{//Basic Search
 			if(quotationsList.size()>0)
 				quotationsList.clear();
 	
 			quotationsList=QuotationLocalServiceUtil.getQuotations(null,Long.valueOf(searchkeywords),false,qoutationSearchContainer.getStart(), qoutationSearchContainer.getEnd());
 			Long count = QuotationLocalServiceUtil.getQuotationsCount(null, Long.valueOf(searchkeywords), conjunctionFlag);
 			
-			//System.out.println("Count:" + quotationsList.size());
-			//System.out.println("Count again:" + count);
-			
 			searchContainer.setTotal(count.intValue());
 		}
 		else if (navigation.equals("status")) {
-			//System.out.println("In 2");
 			if(quotationsList.size()>0)
 				quotationsList.clear();
 			quotationsList=QuotationLocalServiceUtil.getAdminQuotations(qoutationSearchContainer.getStart(), qoutationSearchContainer.getEnd());
 		}
 		else{
-			//System.out.println("In 3");
-			
 			if(quotationsList.size()>0)
 				quotationsList.clear();
 			if(!searchkeywords.equals(""))
 				conjunctionFlag = true; 
 			if(searchkeywords.equals(""))
 				searchkeywords="0";
-			//System.out.println(searchkeywords);
 			quotationsList=QuotationLocalServiceUtil.getQuotations(navigation,Long.valueOf(searchkeywords),conjunctionFlag,qoutationSearchContainer.getStart(), qoutationSearchContainer.getEnd());
 			Long count = QuotationLocalServiceUtil.getQuotationsCount(navigation, Long.valueOf(searchkeywords), conjunctionFlag);
-			
-			//System.out.println("Count:" + quotationsList.size());
-			//System.out.println("Count again:" + count);
-			
 			searchContainer.setTotal(count.intValue());
 		}
-		
-		 //_log.debug("//////////////// start Of Server Quot ////////////////////");
-		 //_log.debug("quotationsList:" + quotationsList);
-		 //_log.debug("//////////////// End Of Server Quot ////////////////////");
-		
 		searchContainer.setResults(quotationsList);
 		%>
 		</liferay-ui:search-container-results>
-<% %>
 		<liferay-ui:search-container-row className="com.atmc.bsl.db.domain.quotation.Quotation" keyProperty="quotationId" modelVar="quotation">
 		<%
 			SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("EEE dd/MM/yyyy");
-				//dmyDateFormatter.format(date);
 			try{
-				// _log.debug("/////////////////// start jsp Quotaion test /////////////////////");
-				 //_log.debug("QuotationObj :"+quotation);
 				try{
-				
-					// _log.debug("QuotationId"+quotation.getQuotationId());
-					// _log.debug("ReferenceNo"+quotation.getReferenceNo());
 		%>
 			<liferay-ui:search-container-column-text name="Quotation Number" orderable="true" >
 				<portlet:actionURL var="details" name="quotationDetails">
