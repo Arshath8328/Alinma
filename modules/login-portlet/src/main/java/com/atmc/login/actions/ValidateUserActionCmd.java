@@ -5,31 +5,16 @@ package com.atmc.login.actions;
 
 import com.atmc.web.constants.LoginPortletKeys;
 import com.atmc.web.constants.OTPPortletKeys;
-import com.liferay.portal.kernel.exception.CompanyMaxUsersException;
-import com.liferay.portal.kernel.exception.CookieNotSupportedException;
-import com.liferay.portal.kernel.exception.NoSuchUserException;
-import com.liferay.portal.kernel.exception.PasswordExpiredException;
-import com.liferay.portal.kernel.exception.UserEmailAddressException;
-import com.liferay.portal.kernel.exception.UserIdException;
-import com.liferay.portal.kernel.exception.UserLockoutException;
-import com.liferay.portal.kernel.exception.UserPasswordException;
-import com.liferay.portal.kernel.exception.UserScreenNameException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.model.CompanyConstants;
 import com.liferay.portal.kernel.model.Layout;
-import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
-import com.liferay.portal.kernel.security.auth.AuthException;
-import com.liferay.portal.kernel.security.auth.session.AuthenticatedSessionManager;
-import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import javax.portlet.ActionRequest;
@@ -38,7 +23,6 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.namespace.QName;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -69,10 +53,10 @@ public class ValidateUserActionCmd extends BaseMVCActionCommand {
 		// actionResponse.setEvent(qName, "loginredirect");
 		// actionResponse.setRenderParameter("loginredirect", "true");
 
-		System.out.println("validating user");
+		_log.info("validating user");
 		// actionResponse.setRenderParameter("mvcRenderCommandName", "/auth/otp");
 
-		System.out.println("validateUser");
+		_log.info("validateUser");
 		// response.setRenderParameter("step", "2");
 
 		Layout layout = (Layout) actionRequest.getAttribute(WebKeys.LAYOUT);

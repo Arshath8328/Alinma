@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.ejada.atmc.acl.db.model.QuotationDriverseEndors"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page
@@ -10,14 +12,16 @@
 
 <%
 	SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("dd/MM/yyyy");
-	System.out.println("Inside Details jsp");
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
+	_log.info("Inside Details jsp");
 
 	QuotationDriverseEndors driverDetails = (QuotationDriverseEndors) request.getAttribute("driverDetails");
 
 	String mobileNumber = (String) request.getAttribute("mobileNumber");
 	String insuredEmail = (String) request.getAttribute("insuredEmail");
 
-	System.out.println("driver Details " + driverDetails.toString());
+	_log.info("driver Details " + driverDetails.toString());
 %>
 
 <portlet:renderURL var="rejecturl"

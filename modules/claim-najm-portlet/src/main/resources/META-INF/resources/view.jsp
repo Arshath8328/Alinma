@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.atmc.web.constants.ClaimIntimationPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
@@ -209,7 +211,8 @@
 									<tr>
 										<th class="bg-gray"><liferay-ui:message key="type_damage" /></th>
 										<%
-											System.out.println(odsClaimInt.getDamageflag());
+											Log _log = LogFactoryUtil.getLog(this.getClass());
+											_log.info(odsClaimInt.getDamageflag());
 										%>
 										<td><liferay-ui:message
 												key="<%=LanguageUtil.get(request, "vehicle_type_" + odsClaimInt.getDamageflag())%>" /></td>

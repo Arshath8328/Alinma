@@ -1,6 +1,10 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@ include file="init.jsp" %>
 <%
-	System.out.println("otp_auth_user.jsp");
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
+	_log.info("otp_auth_user.jsp");
 	String redirect = ParamUtil.getString(request, OtpPortletKeys.REDIRECT_URL);
 	String redirectJsMethod = ParamUtil.getString(request, OtpPortletKeys.REDIRECT_JS_METHOD);
 	String mobile = ParamUtil.getString(request, OtpPortletKeys.MOBILE_NUMBER);

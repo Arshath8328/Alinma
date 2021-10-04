@@ -53,7 +53,7 @@ public class WorkshopLocalServiceImpl extends WorkshopLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.WorkshopLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.WorkshopLocalServiceUtil} to access the
 	 * workshop local service.
 	 * 
 	 * 

@@ -54,7 +54,7 @@ public class OTPLocalServiceImpl extends OTPLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.OTPLocalServiceUtil} to access the otp local
+	 * com.atmc.bsl.db.service.OTPLocalServiceUtil} to access the otp local
 	 * service.
 	 * 
 	 * 

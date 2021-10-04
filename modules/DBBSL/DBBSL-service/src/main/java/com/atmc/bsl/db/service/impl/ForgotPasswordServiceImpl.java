@@ -49,7 +49,7 @@ public class ForgotPasswordServiceImpl extends ForgotPasswordServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.ForgotPasswordServiceUtil} to access the forgot
+	 * com.atmc.bsl.db.service.ForgotPasswordServiceUtil} to access the forgot
 	 * password remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(ForgotPasswordServiceImpl.class);

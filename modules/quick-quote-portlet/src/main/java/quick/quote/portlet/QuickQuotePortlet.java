@@ -216,6 +216,7 @@ public class QuickQuotePortlet extends MVCPortlet {
 		try {
 			tOut = TariffLocalServiceUtil.getTariffData(tariffInput);
 			_log.info("after tariff call ");
+			_log.info("TariffOutput for MTP " + tOut.toString());
 			if (tariffInput.getProductCode().equals(TP_PROD_CODE)) {
 				for (TariffOutput tout : tOut) {
 					if ((tout.getCode() != null) && (tout.getCode().equals("2066"))) {
@@ -275,7 +276,7 @@ public class QuickQuotePortlet extends MVCPortlet {
 			_log.info("sgsdgdg" + tariffInput2);
 			ArrayList<TariffOutput> tariffOutput2 = TariffLocalServiceUtil.getTariffData(tariffInput2);
 			_log.info("after tariff call >>>>>>>>>>>>>>" + tariffInput2.getProductCode());
-
+			_log.info("TariffOutput for MCC " + tariffOutput2.toString());
 			if (tariffInput2.getProductCode().equals(OD_PROD_CODE)) {
 				for (TariffOutput tout : tariffOutput2) {
 					if (tout.getCode().equals("2062") && tout.getExcessAmount().equals(dedValue)) {

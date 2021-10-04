@@ -63,7 +63,7 @@ public class NotificationsLocalServiceImpl extends NotificationsLocalServiceBase
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.NotificationsLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.NotificationsLocalServiceUtil} to access the
 	 * notifications local service.
 	 */
 	static Map<String, String[]> map = new HashMap<String, String[]>();

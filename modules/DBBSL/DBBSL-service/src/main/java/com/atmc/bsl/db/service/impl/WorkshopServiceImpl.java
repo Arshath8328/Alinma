@@ -54,7 +54,7 @@ public class WorkshopServiceImpl extends WorkshopServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.WorkshopServiceUtil} to access the workshop
+	 * com.atmc.bsl.db.service.WorkshopServiceUtil} to access the workshop
 	 * remote service.
 	 */
 	public ServiceOutput<String> checkInVehicle(String customerName, String customerMobile, String manufacture,

@@ -100,7 +100,7 @@ public class TariffLocalServiceImpl extends TariffLocalServiceBaseImpl {
 			cs.setString(5, tariffInput.getSchemeCode());
 			cs.setString(6, tariffInput.getRegion());
 			cs.setLong(7, tariffInput.getInsuredid());
-			cs.setInt(8, 5);
+			cs.setInt(8, tariffInput.getClmFreeYears());
 			cs.setDate(9, tariffInput.getDriverAge());
 			cs.setInt(10, tariffInput.getGender());
 			cs.setInt(11, tariffInput.getMaritalStatus());

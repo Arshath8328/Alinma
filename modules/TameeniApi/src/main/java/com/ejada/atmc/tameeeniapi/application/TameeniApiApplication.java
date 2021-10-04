@@ -176,12 +176,12 @@ public class TameeniApiApplication extends Application {
 		HttpEntity<ODVehicleIdUpdateRequest> vehicleIdUpdateRequest = new HttpEntity<ODVehicleIdUpdateRequest>(vehIdUpdateReq, headers);
 
 		ResponseEntity<String> response = restTempl.exchange(vehicleIdUpdateUrl, HttpMethod.POST, vehicleIdUpdateRequest, String.class);
-		//System.out.println(response.getBody().isStatus());
+		//_log.info(response.getBody().isStatus());
 		ObjectMapper mapper = new ObjectMapper();
 		try
 		{
 			VehicleIdUpdateResponse res = mapper.readValue(response.getBody(), VehicleIdUpdateResponse.class);
-			System.out.println(res.isStatus());
+			_log.info(res.isStatus());
 		}
 		catch (JsonParseException e)
 		{
@@ -732,7 +732,7 @@ public class TameeniApiApplication extends Application {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception in Purchase Notifications OD");
+			_log.info("Exception in Purchase Notifications OD");
 			e.printStackTrace();
 			
 			responseString = "{Status:false,errors:[{'field':'','message':'Generic Error'}]}";
@@ -948,7 +948,7 @@ public class TameeniApiApplication extends Application {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception in Draft Policy OD");
+			_log.info("Exception in Draft Policy OD");
 			e.printStackTrace();
 			
 			resp.setStatus(false);

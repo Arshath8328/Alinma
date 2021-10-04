@@ -23,6 +23,8 @@ import com.liferay.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.xml.Document;
@@ -61,10 +63,11 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.ContentEngineLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.ContentEngineLocalServiceUtil} to access the
 	 * content engine local service.
 	 */
 
+	Log _log = LogFactoryUtil.getLog(this.getClass());
 	/**
 	 * Get the latest 3 news in the news folder
 	 * 
@@ -115,7 +118,7 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 						break;
 
 				} catch (Exception e) {
-					System.out.println("Skipping news " + articleId);
+					_log.info("Skipping news " + articleId);
 				}
 			}
 
@@ -177,7 +180,7 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 			List<JournalArticle> articles = JournalArticleLocalServiceUtil.getArticles(themeDisplay.getScopeGroupId(),
 					folderId);// (themeDisplay.getScopeGroupId(),articleName);
 
-			System.out.println("search :" + locationSearch + departmentSearch);
+			_log.info("search :" + locationSearch + departmentSearch);
 			for (JournalArticle journalArticle : articles) {
 				String articleId = journalArticle.getArticleId();
 
@@ -200,12 +203,12 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 						if ((departmentSearch.equals("-1") || departmentSearch.equals(department))
 								&& (locationSearch.equals("-1") || locationSearch.equals(location))) {
 							vacancies.add(content);
-							System.out.println("added");
+							_log.info("added");
 						}
 
 					}
 				} catch (Exception e) {
-					System.out.println("Skipping" + articleId);
+					_log.info("Skipping" + articleId);
 				}
 			}
 
@@ -243,7 +246,6 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 
 		String contentXML = ja.getContentByLocale(langId);
 		String contentFieldValue = null;
-		// System.out.println("Content xml" + contentXML);
 
 		Document document = null;
 		try {

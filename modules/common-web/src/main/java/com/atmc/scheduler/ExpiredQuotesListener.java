@@ -2,9 +2,9 @@ package com.atmc.scheduler;
 
 //package com.atmc.scheduler;
 //
-//import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
-//import com.ejada.atmc.bsl.db.service.NotificationsLocalServiceUtil;
-//import com.ejada.atmc.bsl.db.service.QuotationLocalServiceUtil;
+//import com.atmc.bsl.db.domain.quotation.Quotation;
+//import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
+//import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 //import com.atmc.web.common.NotificationTypes.Type;
 //import com.liferay.portal.kernel.exception.PortalException;
 //import com.liferay.portal.kernel.log.Log;

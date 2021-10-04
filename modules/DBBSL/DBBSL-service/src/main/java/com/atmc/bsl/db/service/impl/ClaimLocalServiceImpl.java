@@ -180,7 +180,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.ClaimLocalServiceUtil} to access the claim
+	 * com.atmc.bsl.db.service.ClaimLocalServiceUtil} to access the claim
 	 * local service.
 	 */
 	public List<Claim> getClaimsByIqamaId(String iqamaId) throws PortalException {
@@ -468,7 +468,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 				String bankCode = iban.substring(4, 6);
 				String accNo = iban.substring(6, iban.length());
 				expFlag = ValidationLocalServiceUtil.IbanValidation(countryCode, bankCode, accNo);
-				System.out.println("expFlag" + expFlag);
+				_log.info("expFlag" + expFlag);
 			}
 			return expFlag;
 		} catch (Exception e) {
@@ -1345,7 +1345,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		byte[] najmSlipFile;
 		try {
 			najmSlipFile = najm.getNajmSlipBlob().getBytes(1, (int) najm.getNajmSlipBlob().length());
-			System.out.println(najmSlipFile);
+			_log.info(najmSlipFile);
 			return najmSlipFile;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -1400,7 +1400,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		List<Object[]> claimsHdrList = ClaimHDRLocalServiceUtil.findClaimsPolicyStatus(iqamaId, status, policyType,
 				null, null);
 		List<Claim> claimsList = getClaimsWithPolicyDStausetails(claimsHdrList);
-		System.out.println(claimsHdrList.size());
+		_log.info(claimsHdrList.size());
 
 		return claimsList;
 	}
@@ -1628,8 +1628,8 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			najmClaimParam.put("claimantPhoneNo", najmClaimReportObj.getClaimantPhoneNo());
 			najmClaimParam.put("iban", najmClaimReportObj.getIban());
 
-			System.out.println(najmClaimReportObjList.get(0).getClaimNo());
-			System.out.println(najmClaimReportObjList.get(0).getPolicyNo());
+			_log.info(najmClaimReportObjList.get(0).getClaimNo());
+			_log.info(najmClaimReportObjList.get(0).getPolicyNo());
 			// response.setProperty("Content-Disposition", "attachment; filename=\"" +
 			// "claimTPL.pdf"+ "\"");
 			try {
@@ -1720,7 +1720,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 				}
 				SimpleDateFormat formate = new SimpleDateFormat("hh:mm a");
 				String accTime = formate.format(accDate);
-				System.out.println(formate.format(accDate));
+				_log.info(formate.format(accDate));
 				odReportObj.setAccidentDate(odsClaimInt.getLossdate().split(" ")[0]);
 				odReportObj.setAccidentTime(accTime.split(" ")[0]);
 				odReportObj.setTimeGroup(accTime.split(" ")[1]);

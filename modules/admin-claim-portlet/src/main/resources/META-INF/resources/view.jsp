@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLUtil"%>
 <%@page import="com.liferay.portal.kernel.search.SearchContextFactory"%>
 <%@page import="com.liferay.portal.kernel.search.SearchContext"%>
@@ -30,6 +32,7 @@
 </h1>
 <%
 	String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+	Log _log = LogFactoryUtil.getLog(this.getClass());
 
 	PortletURL navigationPortletURL = renderResponse.createRenderURL();
 	PortletURL surveyorNavigationPortletURL = renderResponse.createRenderURL();
@@ -62,7 +65,7 @@
 	ClaimSearchCon claimSearch = new ClaimSearchCon(renderRequest, portletURL);
 
 	ClaimSearchTerms displayTerms = (ClaimSearchTerms) claimSearch.getDisplayTerms();
-	System.out.println(displayTerms.getStatus());
+	_log.info(displayTerms.getStatus());
 	String navigationStatus = ParamUtil.getString(request, "navigationStatus", "status");
 	String statsVar = "";
 
@@ -157,12 +160,12 @@
 		<%
 			String searchkeywords = displayTerms.getKeywords();
 					int count = ClaimLocalServiceUtil.findClaimsCountsPolicyStatusAdmin(statsVar, surveyorVar, searchkeywords);
-					System.out.println("Claims Count:" + count);
+					_log.info("Claims Count:" + count);
 					//	pageContext.setAttribute("results",ListUtil.subList(ClaimLocalServiceUtil.getAllClaims(statsVar,surveyorVar,searchkeywords), claimSearch.getStart(), claimSearch.getEnd()));
 					// pageContext.setAttribute("total", count);
 					searchContainer.setResults(ClaimLocalServiceUtil.getAllClaims(statsVar, surveyorVar, searchkeywords, claimSearch.getStart(), claimSearch.getEnd()));
 					searchContainer.setTotal(count);
-					System.out.println(searchkeywords);
+					_log.info(searchkeywords);
 		%>
 	</liferay-ui:search-container-results>
 

@@ -51,7 +51,6 @@ public class LNP2_PolicyMastrServiceImpl extends LNP2_PolicyMastrServiceBaseImpl
 	 */
 	public Object findAllPSPolicyByIqamaId(String iqamaId) {
 		try {
-			System.out.println("helloooooo");
 			return LNP2_PolicyMastrLocalServiceUtil.findAllPSPolicyByIqamaId(iqamaId);
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block

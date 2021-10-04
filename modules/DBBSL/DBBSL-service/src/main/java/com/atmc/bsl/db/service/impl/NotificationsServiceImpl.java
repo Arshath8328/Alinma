@@ -54,7 +54,7 @@ public class NotificationsServiceImpl extends NotificationsServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.NotificationsServiceUtil} to access the
+	 * com.atmc.bsl.db.service.NotificationsServiceUtil} to access the
 	 * notifications remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(NotificationsServiceImpl.class);

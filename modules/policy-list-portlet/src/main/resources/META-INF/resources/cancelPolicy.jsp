@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.ejada.atmc.acl.db.model.AtmcYakeenMakeModel"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="com.ejada.atmc.acl.db.model.PolicyVEH"%>
@@ -28,14 +29,16 @@
 <script type="text/javascript" src="/o/atmc-theme/vendor/jquery_calendars/js/jquery.calendars-ar-EG.js"></script>
 <%@ include file="init.jsp"%>
 <%
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	PolicyHDR policy = (PolicyHDR) request.getAttribute("policyDetails");
 	PolicyVEH policyVeh = (PolicyVEH) request.getAttribute("policyVehDetails");
 	AtmcYakeenMakeModel makeModelDetails =(AtmcYakeenMakeModel) request.getAttribute("makeModelDetails");
 	SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
 	String expDate =  sdf.format(policy.getExpiryDate());
-	System.out.println(expDate);
+	_log.info(expDate);
 	String currentDate =  sdf.format(new Date());
-	System.out.println(currentDate);
+	_log.info(currentDate);
 %>
 
 <portlet:actionURL name="cancelPolicyDets" var="cancelPolicyDets" />

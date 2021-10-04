@@ -63,7 +63,7 @@ public class SrvReqServiceImpl extends SrvReqServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.SrvReqServiceUtil} to access the
+	 * Never reference this class directly. Always use {@link com.atmc.bsl.db.service.SrvReqServiceUtil} to access the
 	 * srv req remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(SrvReqServiceImpl.class);

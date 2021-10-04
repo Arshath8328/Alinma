@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page
 	import="com.ejada.atmc.acl.db.service.CodeMasterMapLocalServiceUtil"%>
 <%@page import="com.ejada.atmc.acl.db.model.CodeMasterMap"%>
@@ -44,7 +46,8 @@
 	String manufactMap = (String) request.getAttribute("manufactMapJson");
 	List<CodeMasterDetails> manufacturerList = (List<CodeMasterDetails>) request
 			.getAttribute("manufacturerList");
-
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	List<CodeMasterDetails> codeMasterList = (List<CodeMasterDetails>) request.getAttribute("bodyListData");
 	String currLocale = themeDisplay.getLocale().toString();
 	List dedVals = (List) request.getAttribute("dedVals");
@@ -213,7 +216,7 @@
 							<%
 								for (int pCount = 0; dedVals != null && pCount < dedVals.size(); pCount++) {
 									CodeMasterDetails dVal = (CodeMasterDetails) dedVals.get(pCount);
-									System.out.println("" + dVal.getCodeDesc());
+									_log.info("" + dVal.getCodeDesc());
 							%>
 							<option value="<%=dVal.getCodeSub()%>"><%=dVal.getCodeDesc()%>
 								SAR

@@ -1,9 +1,13 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.atmc.login.constants.LoginPortletKeys"%>
 <%@ include file="init.jsp" %>
 <% 
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	String loginActive = (isLogin)?"active":"";
 	String registerActive = (isLogin)?"":"active";
-	System.out.println("otp_unauth_user.jsp");
+	_log.info("otp_unauth_user.jsp");
 %>
 <liferay-portlet:renderURL portletName="<%=LoginPortletKeys.LOGIN%>" var="loginURL">
 	<portlet:param name="mvcRenderCommandName" value="/login/login" />

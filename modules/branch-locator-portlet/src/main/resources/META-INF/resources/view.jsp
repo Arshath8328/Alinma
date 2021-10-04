@@ -33,11 +33,11 @@
 	</div>
 </div>
 <div class="row margin-top">
-	<div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 bg-body hidden">
+<!--	<div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 bg-body hidden">
 		<div class="marker branch-details active" data-lat="24.706444" data-lng="46.675778">
 			<h3 class="title"><liferay-ui:message key="all_cities"/></h3>
 		</div>
-	</div>
+	</div> -->
 	<div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 bg-body">
 		<div class="marker branch-details" data-lat="24.706444" data-lng="46.675778">
 			<h3 class="title"><liferay-ui:message key="head_branch"/></h3>

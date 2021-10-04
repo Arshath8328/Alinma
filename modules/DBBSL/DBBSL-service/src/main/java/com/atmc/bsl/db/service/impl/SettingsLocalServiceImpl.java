@@ -51,7 +51,7 @@ public class SettingsLocalServiceImpl extends SettingsLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SettingsLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.SettingsLocalServiceUtil} to access the
 	 * settings local service.
 	 */
 	public boolean updateEmail(User user, String userEmail) throws PortalException {

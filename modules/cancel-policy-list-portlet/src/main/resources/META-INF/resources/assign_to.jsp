@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.google.gson.Gson"%>
@@ -19,8 +21,10 @@
 <%@ include file="/init.jsp" %>
 
 <%
+Log _log = LogFactoryUtil.getLog(this.getClass());
+
 String policyNumber = (String) request.getParameter("policyNumber");
-System.out.println("policyNumber inside assign_to.jsp >>>>>>>>"+policyNumber);
+_log.info("policyNumber inside assign_to.jsp >>>>>>>>"+policyNumber);
 
 
 %>

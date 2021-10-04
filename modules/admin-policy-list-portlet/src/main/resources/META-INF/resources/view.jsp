@@ -83,7 +83,6 @@
 	QuotationSearch qoutationSearchContainer = new QuotationSearch(renderRequest, portletURL);
 	QuotationSearchTerms displayTerms = (QuotationSearchTerms) qoutationSearchContainer.getDisplayTerms();
 
-	//System.out.println("All good 1");
 %>
 <aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
 	<aui:nav-bar-search>

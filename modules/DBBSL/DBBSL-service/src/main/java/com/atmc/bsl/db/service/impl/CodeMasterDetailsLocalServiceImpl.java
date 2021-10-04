@@ -52,7 +52,7 @@ public class CodeMasterDetailsLocalServiceImpl extends CodeMasterDetailsLocalSer
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil} to access
+	 * com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil} to access
 	 * the code master details local service.
 	 */
 

@@ -1,11 +1,13 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="com.ejada.atmc.acl.db.custom.model.PSPolicy"%>
 <%@ include file="/init.jsp" %>
 
 <%@page import="java.util.List"%>
 
 <%
+	Log _log = LogFactoryUtil.getLog(this.getClass());
 	List<PSPolicy> pspolicyList = (List) request.getAttribute("PSPolicyList");
-	System.out.println("pspolicyList: "+pspolicyList);
+	_log.info("pspolicyList: "+pspolicyList);
 %>
 
 <div class="portlet-content">

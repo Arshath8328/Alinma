@@ -7,15 +7,15 @@
 	String buyMotorMsg = ParamUtil.getString(request, "buyMotorMsg");
 	String googleSiteKey =  PropsUtil.get("google.siteKey");
 %>
-<portlet:actionURL name="/register" var="validateUserURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
-	<portlet:param name="mvcRenderCommandName" value="/register" />
+<portlet:actionURL name="/login/register" var="validateUserURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
+	<portlet:param name="mvcRenderCommandName" value="/login/register" />
 	<portlet:param name="<%=LoginPortletKeys.CMD %>" value="<%=LoginPortletKeys.CMD_VALIDATE_USER%>" />
 </portlet:actionURL>
 <portlet:renderURL var="loginURL">
 	<portlet:param name="mvcRenderCommandName" value="/login" />
 </portlet:renderURL>
 <portlet:renderURL var="registerURL">
-	<portlet:param name="mvcRenderCommandName" value="/register" />
+	<portlet:param name="mvcRenderCommandName" value="/login/register" />
 </portlet:renderURL>
 
 <div class="row bg-white">

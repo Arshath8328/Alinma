@@ -3,6 +3,8 @@
  */
 package com.atmc.mob.acl.ws.security;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
 
 import java.io.PrintStream;
@@ -28,7 +30,8 @@ public class NajmWSSecurityHandler extends WSLogHandler
 	// change this to redirect output if desired
 	private static PrintStream out = System.out;
 
-
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -68,7 +71,7 @@ public class NajmWSSecurityHandler extends WSLogHandler
  
                 //Print out the outbound SOAP message to System.out
                 message.writeTo(System.out);
-                System.out.println("");
+                _log.info("");
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -81,7 +84,7 @@ public class NajmWSSecurityHandler extends WSLogHandler
                 //we just print out the SOAP message.
                 SOAPMessage message = smc.getMessage();
                 message.writeTo(System.out);
-                System.out.println("");
+                _log.info("");
  
             } catch (Exception ex) {
                 ex.printStackTrace();

@@ -18,6 +18,8 @@ import com.atmc.acl.rest.service.base.FirebaseLocalServiceBaseImpl;
 import com.ejada.atmc.acl.rest.domain.MessageData;
 import com.ejada.atmc.acl.rest.domain.Notification;
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
 
 import org.osgi.service.component.annotations.Component;
@@ -98,20 +100,20 @@ public class FirebaseLocalServiceImpl extends FirebaseLocalServiceBaseImpl {
 //					logger.info("Android Notification Response : "
 //							+ reader.readLine());
 
-			System.out.println("success");
+			_log.info("success");
 		} else if (status == 401) {
-			System.out.println("401");
+			_log.info("401");
 			// client side error
 //					logger.error("Notification Response : TokenId : "
 //							+ tokenId + " Error occurred :");
 		} else if (status == 501) {
-			System.out.println("501");
+			_log.info("501");
 			// server side error
 //					logger.error("Notification Response : [ errorCode=ServerError ] TokenId : "
 //									+ tokenId);
 
 		} else if (status == 503) {
-			System.out.println("503");
+			_log.info("503");
 
 			// server side error
 
@@ -150,4 +152,6 @@ public class FirebaseLocalServiceImpl extends FirebaseLocalServiceBaseImpl {
 	this.fcmUrl = fcmUrl;
 	}
 
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 }

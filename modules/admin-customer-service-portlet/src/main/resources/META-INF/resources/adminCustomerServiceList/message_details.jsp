@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="com.liferay.portal.kernel.model.User"%>
 <%@page import="com.atmc.web.constants.CustomerServiceRequestListPortletKeys"%>
@@ -30,7 +32,8 @@
 <liferay-ui:error key="delete_error" message="file_delete_error" /> 
 <%
 	String refNo = request.getParameter("refNo");
-	
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	String[] statusList = new String[]{CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_ASSIGNED, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_OPEN};
 	List<ServiceRequest> serviceRequests = SrvReqLocalServiceUtil.getServiceRequestsListByStatus(statusList, userRole);
 	
@@ -74,7 +77,7 @@
 	}else{
 		isMatch = loggedInUser.getRoles().stream().anyMatch(role -> role.getName().equals(serviceRequest.getAssignedTo()));
 	}
-	System.out.println("isMatch : " + isMatch);
+	_log.info("isMatch : " + isMatch);
 %>
 <portlet:renderURL var="internalMsgURL" >
 	<portlet:param name="refNo" value="<%=msg.getReferenceNo() %>"/>

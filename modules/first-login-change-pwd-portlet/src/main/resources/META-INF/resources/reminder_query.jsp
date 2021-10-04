@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.model.ModelHintsConstants"%>
+<%@page import="first.login.change.pwd.constants.FirstLoginChangePwdPortletKeys"%>
 <%@ include file="/init.jsp" %>   
 
 <div class="row">

@@ -52,9 +52,9 @@ public class SMSLocalServiceImpl extends SMSLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Use <code>com.ejada.atmc.bsl.db.service.SMSLocalService</code> via injection or
+	 * Never reference this class directly. Use <code>com.atmc.bsl.db.service.SMSLocalService</code> via injection or
 	 * a <code>org.osgi.util.tracker.ServiceTracker</code> or use
-	 * <code>com.ejada.atmc.bsl.db.service.SMSLocalServiceUtil</code>.
+	 * <code>com.atmc.bsl.db.service.SMSLocalServiceUtil</code>.
 	 */
 
 	private static final Log	logger		= LogFactoryUtil.getLog(SMSLocalServiceImpl.class);
@@ -81,7 +81,6 @@ public class SMSLocalServiceImpl extends SMSLocalServiceBaseImpl {
 			cs.executeQuery();
 
 			logger.info("Stored Procedure " + PROC_NAME + " called successfully");
-			// System.out.println("Data returned from storedProcedure : " +
 			// cs.getObject(4));
 
 		} catch (Exception e) {

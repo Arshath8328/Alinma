@@ -53,7 +53,7 @@ public class OTPServiceImpl extends OTPServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.OTPServiceUtil} to access the otp remote
+	 * com.atmc.bsl.db.service.OTPServiceUtil} to access the otp remote
 	 * service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(OTPServiceImpl.class);

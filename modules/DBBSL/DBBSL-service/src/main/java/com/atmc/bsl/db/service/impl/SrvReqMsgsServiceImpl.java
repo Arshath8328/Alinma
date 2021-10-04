@@ -55,7 +55,7 @@ public class SrvReqMsgsServiceImpl extends SrvReqMsgsServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SrvReqMsgsServiceUtil} to access the srv req
+	 * com.atmc.bsl.db.service.SrvReqMsgsServiceUtil} to access the srv req
 	 * msgs remote service.
 	 */
 	public ServiceOutput<List<ServiceRequestMessage>> getServiceRequestMessageListbyRefNo(String referenceNo) {

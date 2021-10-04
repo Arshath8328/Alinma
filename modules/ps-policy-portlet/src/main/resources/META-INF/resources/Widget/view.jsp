@@ -31,12 +31,10 @@
 					String pageName="/ps-policy";
 					long policiesPlid = 0L;
 					String policiesPortletId = PsPolicyPortletKeys.PSPolicy;
-					/* System.out.println("current page name ---------------------- "+ themeDisplay.getLayout().getName()); */
 					Layout policiesPortletLayout = LayoutLocalServiceUtil.getFriendlyURLLayout(themeDisplay.getScopeGroupId(), true, pageName);
 					LayoutTypePortlet policiesLayoutTypePortlet = LayoutTypePortletFactoryUtil.create(policiesPortletLayout);
 					policiesPortletId = policiesLayoutTypePortlet.getPortletIds().get(0);
 					policiesPlid = policiesPortletLayout.getPlid();
-					/* System.out.println("Pliid==>"+policiesPlid); */
 					
 					PortletURL payUrl = PortletURLFactoryUtil.create(request, policiesPortletId, policiesPlid, PortletRequest.ACTION_PHASE);
 					payUrl.setWindowState(WindowState.NORMAL);
@@ -44,7 +42,6 @@
 					payUrl.setParameter("mvcPath", "/details.jsp");
 					payUrl.setParameter("proposalNo", String.valueOf(psPolicy.getProposal_no()));
 					payUrl.setParameter("backURL", themeDisplay.getURLCurrent());
-					/* System.out.println("pay url==> "+ payUrl); */
 					
 					String policyDtlsPortletNamespace = PortalUtil.getPortletNamespace(policiesPortletId);
 				%>

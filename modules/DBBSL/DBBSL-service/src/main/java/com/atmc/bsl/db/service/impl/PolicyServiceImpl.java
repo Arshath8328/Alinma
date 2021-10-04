@@ -51,7 +51,7 @@ public class PolicyServiceImpl extends PolicyServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.PolicyServiceUtil} to access the policy remote
+	 * com.atmc.bsl.db.service.PolicyServiceUtil} to access the policy remote
 	 * service.
 	 */
 	public ServiceOutput<List<Policy>> getPoliciesByIqamaId(String iqamaId, int startRow, int endRow)

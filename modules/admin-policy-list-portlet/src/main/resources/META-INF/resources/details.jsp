@@ -559,12 +559,12 @@ if(uploads!=null)
 					String videoName = null;
 					try
 					{
-						System.out.println("Checking if we have video. Quote Status:" + quotation.getQuoteStatus());
+						_log.info("Checking if we have video. Quote Status:" + quotation.getQuoteStatus());
 						if(quotation.getQuoteStatus().equals(BuyMotorPolicyPortletKeys.QUOTATION_STATUS_PENDING_SURVEY_APPROVE))
 						{
 							surveyVideoList = QuotationLocalServiceUtil.findQuotationSurveyVideo(quotation.getReferenceNo());
 							if(surveyVideoList != null && surveyVideoList.size() > 0 )
-							{	System.out.println("We have video to display");
+							{	_log.info("We have video to display");
 								surveyID = surveyVideoList.get(0).getSurveyId();
 								videoName = surveyVideoList.get(0).getSurveyVideoFileName();
 							}

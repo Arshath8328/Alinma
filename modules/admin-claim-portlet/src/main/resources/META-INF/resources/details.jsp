@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.ejada.atmc.acl.db.model.CLMNajmUploads"%>
 <%@page import="com.atmc.bsl.db.domain.claim.MuroorTPUploads"%>
 <%@page import="com.atmc.bsl.db.domain.claim.MuroorODUploads"%>
@@ -27,6 +29,7 @@
 <h1 class="text-center" style="margin-top: 0;padding-top: 10px;"><liferay-ui:message key="Claim_details"/></h1>
 <%
 
+Log _log = LogFactoryUtil.getLog(this.getClass());
 
 
 Claim claim = (Claim) request.getAttribute("claim");
@@ -473,7 +476,7 @@ if(!isFiles){
 
 <h4 class="text-primary"><liferay-ui:message key="upload_attachs"/></h4>
 <%
-System.out.println(claim.getClaimAdminUpload());
+_log.info(claim.getClaimAdminUpload());
 if(claim.getClaimAdminUpload()!=null){
 	List <ClaimAdminUpload> adminUploadFile=claim.getClaimAdminUpload();
 	for (int i=0;i<adminUploadFile.size();i++){
@@ -549,7 +552,7 @@ if(claim.getClaimAdminUpload()!=null){
 <div class="tab-pane fade" role="tabpane2" id="tab-2">
 <div class="panel-group cover-type-group" id="accordion">
 <% 
-System.out.println(claim.getClaimNo()+claim.getClaimHistory());
+_log.info(claim.getClaimNo()+claim.getClaimHistory());
 if(claim.getClaimHistory()!=null){
 	List <ClaimHistory> claimHistory=claim.getClaimHistory();
 	for (int i=0;i<claimHistory.size();i++){

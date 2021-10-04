@@ -55,7 +55,7 @@ public class SrvReqLocalServiceImpl extends SrvReqLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link com.ejada.atmc.bsl.db.service.SrvReqLocalServiceUtil} to
+	 * Never reference this class directly. Always use {@link com.atmc.bsl.db.service.SrvReqLocalServiceUtil} to
 	 * access the srv req local service.
 	 */
 	@Override

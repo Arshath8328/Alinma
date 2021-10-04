@@ -16,8 +16,9 @@ package com.ejada.email.service.impl;
 
 import com.ejada.email.resources.MySmtpSender;
 import com.ejada.email.service.base.myEntityServiceBaseImpl;
-
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -43,8 +44,10 @@ import org.osgi.service.component.annotations.Component;
 )
 public class myEntityServiceImpl extends myEntityServiceBaseImpl {
 
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	public void printStmnt() {
-		System.out.println("in email service printStatment function !!!!!!!!!!");
+		_log.info("in email service printStatment function !!!!!!!!!!");
 
 		MySmtpSender sender = new MySmtpSender();
 

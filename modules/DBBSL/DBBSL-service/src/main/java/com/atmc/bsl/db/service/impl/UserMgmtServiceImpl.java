@@ -58,7 +58,7 @@ public class UserMgmtServiceImpl extends UserMgmtServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.UserMgmtServiceUtil} to access the user mgmt
+	 * com.atmc.bsl.db.service.UserMgmtServiceUtil} to access the user mgmt
 	 * remote service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(UserMgmtServiceImpl.class);

@@ -70,7 +70,7 @@ import java.util.List;
 public class PolicyLocalServiceImpl extends PolicyLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS: Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.PolicyLocalServiceUtil} to access the policy
+	 * com.atmc.bsl.db.service.PolicyLocalServiceUtil} to access the policy
 	 * local service.
 	 */
 	private static final Log _log = LogFactoryUtil.getLog(PolicyLocalServiceImpl.class);

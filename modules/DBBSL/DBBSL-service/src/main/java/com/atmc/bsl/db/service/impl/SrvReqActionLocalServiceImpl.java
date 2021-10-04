@@ -50,7 +50,7 @@ public class SrvReqActionLocalServiceImpl extends SrvReqActionLocalServiceBaseIm
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SrvReqActionLocalServiceUtil} to access the srv
+	 * com.atmc.bsl.db.service.SrvReqActionLocalServiceUtil} to access the srv
 	 * req action local service.
 	 */
 	public List<ServiceRequestAction> getServiceRequestActionListbyRefNo(String refNo) {

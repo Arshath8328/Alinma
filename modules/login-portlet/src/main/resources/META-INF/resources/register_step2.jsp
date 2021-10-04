@@ -4,7 +4,7 @@
 	<portlet:param name="mvcRenderCommandName" value="/login" />
 </portlet:renderURL>
 <portlet:renderURL var="registerURL">
-	<portlet:param name="mvcRenderCommandName" value="/register" />
+	<portlet:param name="mvcRenderCommandName" value="/login/register" />
 </portlet:renderURL>
 		
 <div class="row bg-white">

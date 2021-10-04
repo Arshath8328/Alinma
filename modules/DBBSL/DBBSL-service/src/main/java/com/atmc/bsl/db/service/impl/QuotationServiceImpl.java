@@ -96,7 +96,7 @@ public class QuotationServiceImpl extends QuotationServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.QuotationServiceUtil} to access the quotation
+	 * com.atmc.bsl.db.service.QuotationServiceUtil} to access the quotation
 	 * remote service.
 	 */
 	public static final String YAKEEN_INSURED_GENDER_MALE = "M";

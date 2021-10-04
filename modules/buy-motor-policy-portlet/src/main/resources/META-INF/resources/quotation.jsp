@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.atmc.bsl.db.service.QuotationLocalServiceUtil"%>
 <%@page import="com.atmc.web.util.FileUtil"%>
 <%@page import="com.liferay.portal.kernel.util.Validator"%>
@@ -73,14 +75,15 @@ if(saveImagesresourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 	portletReturnUrl.setPortletMode(PortletMode.VIEW);
 	portletReturnUrl.setParameter(ActionRequest.ACTION_NAME, "tokenizationResult");
 
-	
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	boolean isMCCQuoteNull = false;
 	Quotation quot = (Quotation)request.getAttribute("quote");
 	Quotation  quotDet = (Quotation)request.getAttribute("quot");
 	if(Validator.isNull(quot)) {
 		isMCCQuoteNull = true;
 		quot=quotDet;
-		System.out.println("Quot - MCC was null therefore assigned with Quote-MTP values");
+		_log.info("Quot - MCC was null therefore assigned with Quote-MTP values");
 	}
 	boolean payPolicy = (request.getAttribute("payPolicy")!=null)?((Boolean)request.getAttribute("payPolicy")):false;
 	Gson gson = new Gson();
@@ -94,14 +97,14 @@ if(saveImagesresourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 	Gson gsontp = new Gson();
 	String quotDetTp = gsontp.toJson(quotDet);
 	quotDetTp = quotDetTp.replaceAll("\"", "'");
-	System.out.println("  ----------------------  Quotation Details  ------------------- ");
-	System.out.println(quotDets);
-	System.out.println(" -------------------------- End Quotation Details ---------------------- ");
+	_log.info("  ----------------------  Quotation Details  ------------------- ");
+	_log.info(quotDets);
+	_log.info(" -------------------------- End Quotation Details ---------------------- ");
 	quotDets = quotDets.replaceAll("\"", "'");
 	quotDets = quotDets.replaceAll("\\r\\n", "");
-	System.out.println("  ----------------------  Quotation Details After Fix  ------------------- ");
-	System.out.println(quotDets);
-	System.out.println(" -------------------------- End Quotation Details After Fix---------------------- ");
+	_log.info("  ----------------------  Quotation Details After Fix  ------------------- ");
+	_log.info(quotDets);
+	_log.info(" -------------------------- End Quotation Details After Fix---------------------- ");
 	
 	String downloadUrlVal = null;
 	if(Validator.isNotNull(quot) && quot.getNetPrem() != 0)
@@ -112,7 +115,7 @@ if(saveImagesresourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 	downloadUrlVal = downloadQuotUrl.toString(); 
 	if(downloadUrlVal.indexOf("&p_p_lifecycle=1") != -1)
 		downloadUrlVal = downloadUrlVal.substring(0, downloadUrlVal.lastIndexOf("&p_p_lifecycle=1"));
-	System.out.println("------------------ Quotation Download URL = " + downloadUrlVal+" ----------------------");
+	_log.info("------------------ Quotation Download URL = " + downloadUrlVal+" ----------------------");
 	}
 	/* if(!isUserSignedIn)
 	{
@@ -121,7 +124,7 @@ if(saveImagesresourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 	String downloadUrlValTp = downloadQuotUrlTp.toString(); 
 	if(downloadUrlValTp.indexOf("&p_p_lifecycle=1") != -1)
 		downloadUrlValTp = downloadUrlValTp.substring(0, downloadUrlValTp.lastIndexOf("&p_p_lifecycle=1"));
-	System.out.println("------------------ Quotation Download URL = " + downloadUrlValTp+" ----------------------");
+	_log.info("------------------ Quotation Download URL = " + downloadUrlValTp+" ----------------------");
 	} */
 	PortletURL resourceURL =  PortletURLFactoryUtil.create(request, PortalUtil.getPortletId(request), themeDisplay.getPlid(), PortletRequest.RESOURCE_PHASE);
 	resourceURL.setParameter("resourceType", "saveAddress");
@@ -142,7 +145,7 @@ if(saveImagesresourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 	String merchantIdentifier = PropsUtil.get("com.ejada.atmc.payfort.merchantIdentifier");
 	String accessCode = PropsUtil.get("com.ejada.atmc.payfort.accessCode");
 	
-	System.out.println("Payfort Config:" + requestPhrase + "-" + merchantIdentifier + "-" + accessCode);
+	_log.info("Payfort Config:" + requestPhrase + "-" + merchantIdentifier + "-" + accessCode);
 	
 %>
 <portlet:actionURL name="results" var="results">
@@ -364,7 +367,7 @@ if(!isMCCQuoteNull && quot!=null && !(currentYear - vehMfgYr >=11) && quot.getNe
 							<tbody>
 <%
 	/* double premAmount = quot.getNetPrem() + quot.getAgencyRepairOut() + quot.getDriverAgeLess21() + quot.getLoadingAmount();
-System.out.println( "NetPrem() >>>>>"+quot.getNetPrem()+"LoadingAmount >>>>>" +quot.getLoadingAmount()+ "premAmountTp "+premAmount ); */ 
+_log.info( "NetPrem() >>>>>"+quot.getNetPrem()+"LoadingAmount >>>>>" +quot.getLoadingAmount()+ "premAmountTp "+premAmount ); */ 
 %>							
 								<tr>
 									<th width="40%" class="bg-gray"><liferay-ui:message key="quote_no"/></th>
@@ -426,7 +429,7 @@ System.out.println( "NetPrem() >>>>>"+quot.getNetPrem()+"LoadingAmount >>>>>" +q
 							<tbody>
 <%
 /* double premAmountTp = quotDet.getNetPrem() + quotDet.getAgencyRepairOut() + quotDet.getDriverAgeLess21() + quotDet.getLoadingAmount();
-System.out.println( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>" +quotDet.getLoadingAmount()+ "premAmountTp "+premAmountTp );  */
+_log.info( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>" +quotDet.getLoadingAmount()+ "premAmountTp "+premAmountTp );  */
 %>								
 									<tr>
 									<th width="40%" class="bg-gray"><liferay-ui:message key="quote_no"/></th>
@@ -498,7 +501,7 @@ else
 <%
 	double premAmountTp = quotDet.getNetPrem() + quotDet.getAgencyRepairOut() + quotDet.getDriverAgeLess21() + quotDet.getLoadingAmount();
 
-System.out.println( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>" +quotDet.getLoadingAmount()+ "premAmountTp "+premAmountTp );
+_log.info( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>" +quotDet.getLoadingAmount()+ "premAmountTp "+premAmountTp );
 
 %>								
 									<tr>
@@ -574,7 +577,7 @@ System.out.println( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>"
 							<tbody>
 <%
 	/* double premAmount = quot.getNetPrem() + quot.getAgencyRepairOut() + quot.getDriverAgeLess21() + quot.getLoadingAmount();
-	System.out.println( "NetPrem() >>>>>"+quot.getNetPrem()+"LoadingAmount >>>>>" +quot.getLoadingAmount()+ "premAmountTp "+premAmount );
+	_log.info( "NetPrem() >>>>>"+quot.getNetPrem()+"LoadingAmount >>>>>" +quot.getLoadingAmount()+ "premAmountTp "+premAmount );
  */
 %>							
 								<tr>
@@ -659,7 +662,7 @@ System.out.println( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>"
 					String downloadUrlValTp = downloadQuotUrlTp.toString();
 					if(downloadUrlValTp.indexOf("&p_p_lifecycle=1") != -1)
 						downloadUrlValTp = downloadUrlValTp.substring(0, downloadUrlValTp.lastIndexOf("&p_p_lifecycle=1"));
-					System.out.println("------------------ Quotation Download URL = " + downloadUrlValTp+" ----------------------");
+					_log.info("------------------ Quotation Download URL = " + downloadUrlValTp+" ----------------------");
 				%>
 				<div class="col-lg-2 text-right">
 					<div class="btn btn-link text-white" onclick="self.print();"><i class="material-icons md-36">&#xE8AD;</i></div>
@@ -918,8 +921,8 @@ System.out.println( "NetPrem() >>>>>"+quotDet.getNetPrem()+"LoadingAmount >>>>>"
 %>			
 					 <!-- <div class="saveImagesForm" id = "saveImagesForm" style="display: block"> --> 
 					  <%
-					  System.out.println("car images >>>>>>>>>>>>>>>1"+quot.isRenew());
-					  System.out.println("car images >>>>>>>>>>>>>>>2222"+!quot.isRenew());
+					  _log.info("car images >>>>>>>>>>>>>>>1"+quot.isRenew());
+					  _log.info("car images >>>>>>>>>>>>>>>2222"+!quot.isRenew());
 	if((quot.getVehicleIdType() == Long.valueOf(BuyMotorPolicyPortletKeys.VEHICLE_ISTIMARA_CARD) || quot.getVehicleIdType() == Long.valueOf(BuyMotorPolicyPortletKeys.VEHICLE_TRANSFER_OWNERSHIP_CARD)) && quot.getProductCode().equals(BuyMotorPolicyPortletKeys.PRODUCT_CODE_COMPREHENSIVE) || quot.getProductCode() == "OD" && !quot.isRenew())
 	{
 %>	

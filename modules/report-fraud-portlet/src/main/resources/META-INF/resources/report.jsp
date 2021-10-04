@@ -351,6 +351,7 @@ $(document).ready(function(){
 </script>
 <aui:script use="liferay-util-window,liferay-portlet-url">
 var frmValidator;
+
 $("#submitBtn").on('click', function(){
 	if (frmValidator)
 		frmValidator.resetAllFields();
@@ -385,7 +386,7 @@ $("#submitBtn").on('click', function(){
         }		
 	}
 	
-	AUI().use('aui-form-validator',
+	AUI().use('aui-base', 'io','aui-form-validator',
     function(A) {
     	 A.mix(A.config.FormValidator.RULES,{
     		 ksaMobile:function(val, fieldNode, ruleValue){

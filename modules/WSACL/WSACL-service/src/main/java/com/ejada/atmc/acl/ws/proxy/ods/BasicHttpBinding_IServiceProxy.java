@@ -1,10 +1,12 @@
 package com.ejada.atmc.acl.ws.proxy.ods;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import java.net.URL;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
 import javax.xml.ws.BindingProvider;
@@ -15,7 +17,8 @@ import javax.xml.ws.soap.SOAPBinding;
 public class BasicHttpBinding_IServiceProxy {
 
 	protected Descriptor _descriptor;
-
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	public class Descriptor {
 		private com.ejada.atmc.acl.ws.proxy.ods.Service		_service		= null;
 		private com.ejada.atmc.acl.ws.proxy.ods.IService	_proxy			= null;
@@ -40,7 +43,7 @@ public class BasicHttpBinding_IServiceProxy {
 				_service = (com.ejada.atmc.acl.ws.proxy.ods.Service) ctx.lookup("java:comp/env/service/Service");
 			} catch (NamingException e) {
 				if ("true".equalsIgnoreCase(System.getProperty("DEBUG_PROXY"))) {
-					System.out.println("JNDI lookup failure: javax.naming.NamingException: " + e.getMessage());
+					_log.info("JNDI lookup failure: javax.naming.NamingException: " + e.getMessage());
 					e.printStackTrace(System.out);
 				}
 			}

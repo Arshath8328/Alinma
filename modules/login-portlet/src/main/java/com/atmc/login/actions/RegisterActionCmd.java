@@ -77,8 +77,10 @@ public class RegisterActionCmd extends BaseMVCActionCommand {
 
 		String idIqama = ParamUtil.getString(actionRequest, "idiqama");
 		String email = ParamUtil.getString(actionRequest, "emailAddress");
-
-		if (Pattern.compile(idIqama).matcher("^[0-9]+$").find() && idIqama.length()==10){
+		_log.info("idIqama "+idIqama
+				+"Pattern.compile(idIqama).matcher(\"^[0-9]+$\").find() "+ 
+				Pattern.compile(idIqama).matcher("\\d+").find() +" idIqama.length() : "+ idIqama.length());
+		if (idIqama.matches("^[0-9]+$") && idIqama.length()==10){
 			Customer customer = CustomerLocalServiceUtil.fetchCustomer(idIqama);
 
 			Company company = PortalUtil.getCompany(actionRequest);

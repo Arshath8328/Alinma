@@ -53,7 +53,7 @@ public class LoginServiceImpl extends LoginServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.LoginServiceUtil} to access the login remote
+	 * com.atmc.bsl.db.service.LoginServiceUtil} to access the login remote
 	 * service.
 	 */
 

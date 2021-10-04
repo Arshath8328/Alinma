@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.atmc.bsl.db.service.SrvReqLocalServiceUtil"%>
 <%@page import="com.atmc.web.constants.CustomerServiceRequestListPortletKeys"%>
 <%@page import="java.util.Locale"%>
@@ -27,6 +29,7 @@
 <%
 	List<ServiceRequest> msgList = (List)request.getAttribute("msgsList");
 	String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+	Log _log = LogFactoryUtil.getLog(this.getClass());
 	
 	
 	
@@ -133,9 +136,9 @@
 			msgList = SrvReqLocalServiceUtil.getSrvReqListByRoleStatusCustID(statusList, (String)request.getAttribute("userRole")
 												,searchkeywords, false, srvReqSearchContainer.getStart(), srvReqSearchContainer.getEnd(), orderCol, orderByType);
 		  	int count= SrvReqLocalServiceUtil.countSrvReqListByRoleStatusCustID(statusList, (String)request.getAttribute("userRole"), searchkeywords, false);
-		  	System.out.println("jsp result count : " + count);
+		  	_log.info("jsp result count : " + count);
 		  	
-		 	System.out.println(searchkeywords);
+		 	_log.info(searchkeywords);
 		    srvReqSearchContainer.setResults(msgList);
 		  	srvReqSearchContainer.setTotal(count);
 		 

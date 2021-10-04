@@ -2,7 +2,7 @@ package com.atmc.scheduler;
 
 //package com.atmc.scheduler;
 //
-//import com.ejada.atmc.bsl.db.service.UserMgmtLocalServiceUtil;
+//import com.atmc.bsl.db.service.UserMgmtLocalServiceUtil;
 //import com.liferay.portal.kernel.log.Log;
 //import com.liferay.portal.kernel.log.LogFactoryUtil;
 //import com.liferay.portal.kernel.messaging.BaseSchedulerEntryMessageListener;

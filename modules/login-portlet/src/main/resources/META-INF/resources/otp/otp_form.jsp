@@ -1,15 +1,19 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="com.atmc.web.constants.OTPPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil" %>
 
 <%
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	String redirect = ParamUtil.getString(request, OTPPortletKeys.REDIRECT_URL);
 	String redirectJsMethod = ParamUtil.getString(request, OTPPortletKeys.REDIRECT_JS_METHOD);
 	String mobile = ParamUtil.getString(request, OTPPortletKeys.MOBILE_NUMBER);
 	String sendTo = ParamUtil.getString(request, OTPPortletKeys.SEND_TO);
 	String screenName = ParamUtil.getString(request, "login");
 	boolean isOTPSent = ParamUtil.getBoolean(request, "otpSent");
-	System.out.println("otp_form_jsp_1");
+	_log.info("otp_form_jsp_1");
 %>
 <portlet:actionURL name="/auth/otp"  var="validateOTPURL">
 	<portlet:param name="mvcRenderCommandName" value="/auth/otp" />

@@ -6,14 +6,11 @@
 
 <%
 	PSPolicyDetail psPolicyDetail = (PSPolicyDetail) request.getAttribute("psPolicyDetail");
-	/* System.out.println("psPolicyDetail: "+psPolicyDetail); */
 	String redirect = ParamUtil.getString(request, "backURL");
 	SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 	Date date1 = new SimpleDateFormat("dd/MMM/yyyy").parse(psPolicyDetail.getInception_date());
 	String fromDate = dateFormat.format(date1);
 	String toDate = dateFormat.format(new Date());
-	/* System.out.println("from Date : " + fromDate);
-	System.out.println("to Date : " + toDate); */
 %>
 
 <portlet:renderURL var="fundStatementInfo">

@@ -22,6 +22,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import java.lang.reflect.Type;
 import java.util.Date;
@@ -47,11 +49,13 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(property = "model.class.name=com.atmc.bsl.db.model.GsonUtils", service = AopService.class)
 public class GsonUtilsLocalServiceImpl extends GsonUtilsLocalServiceBaseImpl {
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.GsonUtilsLocalServiceUtil} to access the gson
+	 * com.atmc.bsl.db.service.GsonUtilsLocalServiceUtil} to access the gson
 	 * utils local service.
 	 */
 	public Object fromGson(String gsonString, Class c) {
@@ -87,7 +91,7 @@ public class GsonUtilsLocalServiceImpl extends GsonUtilsLocalServiceBaseImpl {
 				} else
 					return null;
 			} catch (Exception e) {
-				System.out.println("Failed to parse Date due to: " + e.getMessage());
+				_log.error("Failed to parse Date due to: " + e.getMessage());
 				return null;
 			}
 		}

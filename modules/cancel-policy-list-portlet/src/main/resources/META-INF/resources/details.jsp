@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.sql.Blob"%>
@@ -6,8 +8,9 @@
 <%@ include file="init.jsp" %>
 
 <%
+Log _log = LogFactoryUtil.getLog(this.getClass());
 SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("EEE dd/MM/yyyy");
-System.out.println("Inside Details jsp");
+_log.info("Inside Details jsp");
 PolicyCancelation policydetails  =  (PolicyCancelation)request.getAttribute("policyDetails");
 
 %>

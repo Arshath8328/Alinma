@@ -73,7 +73,7 @@ public class PersonalInfoBarPortlet extends MVCPortlet {
 	
 	public void selectOrg(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException
 	{
-		System.out.println("selectOrg called");
+		_log.info("selectOrg called");
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		if (themeDisplay.isSignedIn())
@@ -82,7 +82,7 @@ public class PersonalInfoBarPortlet extends MVCPortlet {
 			String orgName = ParamUtil.getString(actionRequest, "orgName");
 			long orgId = ParamUtil.getLong(actionRequest, "orgId");
 			
-			System.out.println("orgCRNumber:" + orgCRNumber);
+			_log.info("orgCRNumber:" + orgCRNumber);
 //			UserInfo userInfo = SessionUtil.getUserInfo(actionRequest);
 //			userInfo.setSelectedOrgCRNumber(orgCRNumber);
 //			userInfo.setSelectedOrgName(orgName);
@@ -96,7 +96,7 @@ public class PersonalInfoBarPortlet extends MVCPortlet {
 	
 	public void selectOwn(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException
 	{
-		System.out.println("selectOwn called");
+		_log.info("selectOwn called");
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		if (themeDisplay.isSignedIn())
@@ -112,7 +112,7 @@ public class PersonalInfoBarPortlet extends MVCPortlet {
 	
 	public void viewProfile(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException
 	{
-		System.out.println("viewProfile called");
+		_log.info("viewProfile called");
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		if (themeDisplay.isSignedIn())

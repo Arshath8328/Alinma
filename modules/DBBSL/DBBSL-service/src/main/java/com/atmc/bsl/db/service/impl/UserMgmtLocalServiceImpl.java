@@ -76,7 +76,7 @@ public class UserMgmtLocalServiceImpl extends UserMgmtLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.UserMgmtLocalServiceUtil} to access the user
+	 * com.atmc.bsl.db.service.UserMgmtLocalServiceUtil} to access the user
 	 * mgmt local service.
 	 */
 

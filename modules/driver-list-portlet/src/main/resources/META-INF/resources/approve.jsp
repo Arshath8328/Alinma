@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.atmc.web.constants.MenuPortletKeys"%>
@@ -22,7 +24,9 @@
 
 <%
 String policyNumber = (String) request.getParameter("policyNumber");
-System.out.println("policyNumber inside assign_to.jsp >>>>>>>>"+policyNumber);
+Log _log = LogFactoryUtil.getLog(this.getClass());
+
+_log.info("policyNumber inside assign_to.jsp >>>>>>>>"+policyNumber);
 %>
 
 <liferay-ui:error key="close_error" message="error_update_service_request" />  

@@ -119,7 +119,7 @@ public class CustomerVehicleDetailsLocalServiceImpl extends CustomerVehicleDetai
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.CustomerVehicleDetailsLocalServiceUtil} to
+	 * com.atmc.bsl.db.service.CustomerVehicleDetailsLocalServiceUtil} to
 	 * access the customer vehicle details local service.
 	 */
 	public AlienInfo getAlienInfoByIqama(ServiceRequest svcRequest, String iqamaNumber, String sponsorId) {

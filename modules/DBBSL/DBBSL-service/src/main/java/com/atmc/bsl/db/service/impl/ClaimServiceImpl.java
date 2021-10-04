@@ -69,7 +69,7 @@ public class ClaimServiceImpl extends ClaimServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.ClaimServiceUtil} to access the claim remote
+	 * com.atmc.bsl.db.service.ClaimServiceUtil} to access the claim remote
 	 * service.
 	 */
 	private static final String NAJM_CITY = "NAJM_CITY";
@@ -135,14 +135,12 @@ public class ClaimServiceImpl extends ClaimServiceBaseImpl {
 			byte[] najmSlipFileByArr = ClaimLocalServiceUtil.findNajmSlipFile(Integer.valueOf(fileId));
 			String najmSlipFile = Base64.encode(najmSlipFileByArr);
 //			for(byte bayte:najmSlipFile){
-//				//System.out.println(bayte);
 //			}
 			svcOutput.setOutputCode(ReturnCodes.SUCCESS);
 			svcOutput.setOutputObject(najmSlipFile);
 		} catch (Exception e) {
 			svcOutput.setOutputCode(ReturnCodes.FAIL);
 		}
-		// System.out.println(svcOutput.getOutputObject().length);
 		return svcOutput;
 
 	}

@@ -47,7 +47,7 @@ public class SettingsServiceImpl extends SettingsServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SettingsServiceUtil} to access the settings
+	 * com.atmc.bsl.db.service.SettingsServiceUtil} to access the settings
 	 * remote service.
 	 */
 	public ServiceOutput<String> updateEmail(String companyId, String screenName, String Email) throws PortalException {

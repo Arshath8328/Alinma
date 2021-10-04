@@ -1,17 +1,21 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ include file="init.jsp" %>
 
 <%
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	String manufactName = (String) request.getAttribute("MANUFACT_NAME");
 	String manufactYear = (String) request.getAttribute("MANUFACT_YEAR");
 	int year = Integer.valueOf(manufactYear);
-	System.out.println("MANUFACT_YEAR >>>>>>>>>>>>>>"+ year);
+	_log.info("MANUFACT_YEAR >>>>>>>>>>>>>>"+ year);
 	String ODBasePerm = (String) request.getAttribute("OD_BASE_PERM");
 	String TPBasePerm = (String) request.getAttribute("TP_BASE_PERM");
-	System.out.println("ODBasePerm   >>>>>>>>>>>>"+ ODBasePerm);
-	System.out.println("TPBasePerm >>>>>>>>>>>>>>"+ TPBasePerm);
+	_log.info("ODBasePerm   >>>>>>>>>>>>"+ ODBasePerm);
+	_log.info("TPBasePerm >>>>>>>>>>>>>>"+ TPBasePerm);
 %>
 
 <portlet:renderURL var="startQuickQuote">

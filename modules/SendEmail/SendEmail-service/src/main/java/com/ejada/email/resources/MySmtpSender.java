@@ -1,12 +1,18 @@
 package com.ejada.email.resources;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.sun.mail.smtp.SMTPTransport;
+
 import java.util.Date;
 import java.util.Properties;
-import javax.mail.*;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import com.sun.mail.smtp.SMTPTransport;
 
 /**
  * The smtp mail sender !!! if you faced certificate truststore errors on WAS
@@ -27,7 +33,8 @@ public class MySmtpSender {
 	private String mailFrom;
 	private String transportProtocol;
 	final private String xMailer = "STC - ejada - voting system";
-
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+	
 	/**
 	 * Sends an SMTP mail
 	 * 
@@ -76,7 +83,7 @@ public class MySmtpSender {
 					.getTransport(transportProtocol);
 			t.connect(smtpHost, smtpUser, smtpPassword);
 			t.sendMessage(msg, msg.getAllRecipients());
-			System.out.println("Response: " + t.getLastServerResponse());
+			_log.info("Response: " + t.getLastServerResponse());
 			t.close();
 			
 			return true;

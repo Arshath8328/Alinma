@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.util.PortalUtil"%>
 <%@page import="javax.portlet.ActionRequest"%>
 <%@page import="javax.portlet.PortletMode"%>
@@ -40,15 +42,17 @@
 	}
 	else
 	{
+		Log _log = LogFactoryUtil.getLog(this.getClass());
+
 		String pageName="/policies";
 		long policiesPlid = 0L;
 		String policiesPortletId = PolicyListPortletKeys.POLICYLIST;
-		System.out.println("current page name ---------------------- "+themeDisplay.getLayout().getName());
+		_log.info("current page name ---------------------- "+themeDisplay.getLayout().getName());
 		Layout policiesPortletLayout = LayoutLocalServiceUtil.getFriendlyURLLayout(themeDisplay.getScopeGroupId(), true, pageName);
 		LayoutTypePortlet policiesLayoutTypePortlet = LayoutTypePortletFactoryUtil.create(policiesPortletLayout);
 		policiesPortletId = policiesLayoutTypePortlet.getPortletIds().get(0);
 		policiesPlid = policiesPortletLayout.getPlid();
-		System.out.println("Pliid==>"+policiesPlid);
+		_log.info("Pliid==>"+policiesPlid);
 		
 		
 		PortletURL payUrl = PortletURLFactoryUtil.create(request, policiesPortletId, policiesPlid, PortletRequest.ACTION_PHASE);

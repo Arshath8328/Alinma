@@ -57,7 +57,7 @@ public class CodeMasterDetailsServiceImpl extends CodeMasterDetailsServiceBaseIm
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.CodeMasterDetailsServiceUtil} to access the
+	 * com.atmc.bsl.db.service.CodeMasterDetailsServiceUtil} to access the
 	 * code master details remote service.
 	 */
 

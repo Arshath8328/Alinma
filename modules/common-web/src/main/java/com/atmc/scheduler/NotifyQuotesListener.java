@@ -15,8 +15,8 @@ package com.atmc.scheduler;
 //import org.osgi.service.component.annotations.Reference;
 //
 //import com.ejada.atmc.acl.db.model.Quotations;
-//import com.ejada.atmc.bsl.db.service.NotificationsLocalServiceUtil;
-//import com.ejada.atmc.bsl.db.service.QuotationLocalServiceUtil;
+//import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
+//import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 //import com.atmc.web.common.NotificationTypes.Type;
 //import com.liferay.portal.kernel.exception.PortalException;
 //import com.liferay.portal.kernel.log.Log;
@@ -62,29 +62,29 @@ package com.atmc.scheduler;
 ////		try {
 ////			String sDate0="11/10/2020";  
 ////			Date date0 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate0);
-////			System.out.println(sDate0+"\t"+date0);
+////			_log.info(sDate0+"\t"+date0);
 ////			
 ////			long difference0 = new Date().getTime() - date0.getTime();
 ////		    long daysBetween0 = (difference0 / (1000*60*60*24));
-////		    System.out.println("daysBetween0 : " + daysBetween0);
+////		    _log.info("daysBetween0 : " + daysBetween0);
 ////		    
 ////		    
 ////		    String sDate15="27/10/2020";  
 ////			Date date15 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate15);
-////			System.out.println(sDate15+"\t"+date15);
+////			_log.info(sDate15+"\t"+date15);
 ////			
 ////			long difference15 = new Date().getTime() - date15.getTime();
 ////		    long daysBetween15 = (difference15 / (1000*60*60*24));
-////		    System.out.println("daysBetween15 : " + daysBetween15);
+////		    _log.info("daysBetween15 : " + daysBetween15);
 ////		    
 ////		    
 ////		    String sDate30="11/11/2020";  
 ////			Date date30 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate30);
-////			System.out.println(sDate30+"\t"+date30);
+////			_log.info(sDate30+"\t"+date30);
 ////			
 ////			long difference30 = new Date().getTime() - date30.getTime();
 ////		    long daysBetween30 = (difference30 / (1000*60*60*24));
-////		    System.out.println("daysBetween30 : " + daysBetween30);
+////		    _log.info("daysBetween30 : " + daysBetween30);
 ////		    
 ////		} catch (ParseException e1) {
 ////			_log.error(e1.getMessage(),e1);

@@ -99,7 +99,7 @@ public class LoginLocalServiceImpl extends LoginLocalServiceBaseImpl {
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.LoginLocalServiceUtil} to access the login
+	 * com.atmc.bsl.db.service.LoginLocalServiceUtil} to access the login
 	 * local service.
 	 */
 

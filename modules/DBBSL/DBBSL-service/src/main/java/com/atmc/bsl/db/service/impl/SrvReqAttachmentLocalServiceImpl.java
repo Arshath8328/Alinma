@@ -57,7 +57,7 @@ public class SrvReqAttachmentLocalServiceImpl extends SrvReqAttachmentLocalServi
 	 * NOTE FOR DEVELOPERS:
 	 *
 	 * Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.SrvReqAttachmentLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.SrvReqAttachmentLocalServiceUtil} to access the
 	 * srv req attachment local service.
 	 */
 	public List<ServiceRequestAttachment> getServiceRequestAttachmentListbyRefNo(String refNo) {
@@ -138,7 +138,7 @@ public class SrvReqAttachmentLocalServiceImpl extends SrvReqAttachmentLocalServi
 		ServiceRequestAttachments file;
 		try {
 			file = ServiceRequestAttachmentsUtil.findByPrimaryKey(Long.valueOf(fileID));
-			System.out.println(file.getFILE_ID());
+			_log.info("file-id : " + file.getFILE_ID());
 			return file;
 		} catch (NoSuchServiceRequestAttachmentsException e) {
 			_log.error(e.getMessage());
@@ -155,7 +155,6 @@ public class SrvReqAttachmentLocalServiceImpl extends SrvReqAttachmentLocalServi
 		ServiceRequestAttachments file;
 		try {
 //			file = ServiceRequestAttachmentsUtil.remove(Long.valueOf(fileID));
-//			System.out.println(file.getFILE_ID());
 			ServiceRequestAttachmentsLocalServiceUtil.deleteServiceRequestAttachments(Long.valueOf(fileID));
 			return 1;
 		} catch (NoSuchServiceRequestAttachmentsException e) {

@@ -111,7 +111,6 @@ public class OLPPaymentLocalServiceImpl extends OLPPaymentLocalServiceBaseImpl {
 			//
 			// SOAPMessage signedRequest = WSSigner.sign(soapRequest);
 			// SOAPMessage soapResponse = dispatch.invoke(signedRequest);
-			// System.out.println("response:" + soapResponse);
 			//
 			//
 			//

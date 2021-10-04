@@ -53,6 +53,7 @@ import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspFactory;
 
 import org.osgi.service.component.annotations.Component;
 import org.owasp.encoder.Encode;
@@ -80,7 +81,7 @@ public class AdminCustomerServiceListPortlet extends MVCPortlet {
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 		// Auto-generated method stub
-		String myview = (renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view";
+		String myview = (renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view2";
 		try {
 			User user = ((ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY)).getUser();
 			String userRole = getUserRole(user);
@@ -88,7 +89,6 @@ public class AdminCustomerServiceListPortlet extends MVCPortlet {
 
 			if (!isCustomerService && myview.equals("compose_message"))
 				myview = "view";
-
 			renderRequest.setAttribute("userRole", userRole);
 			renderRequest.setAttribute("isCustomerService", isCustomerService);
 			renderRequest.setAttribute("iqamaId", user.getScreenName());

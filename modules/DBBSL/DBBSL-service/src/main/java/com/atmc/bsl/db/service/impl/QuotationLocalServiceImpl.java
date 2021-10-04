@@ -231,7 +231,7 @@ import org.xml.sax.SAXException;
 public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS: Never reference this class directly. Always use {@link
-	 * com.ejada.atmc.bsl.db.service.QuotationLocalServiceUtil} to access the
+	 * com.atmc.bsl.db.service.QuotationLocalServiceUtil} to access the
 	 * quotation local service.
 	 */
 	final static private String PURPOSE_OF_VEHICLE_CODE = "MOT_VEHI_USE";
@@ -1326,8 +1326,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 			try {
 				seq = QuotationsSeqLocalServiceUtil.findByKey("SEQ_" + year);
 			} catch (NoSuchQuotationsSeqException e) {
-				_log.error(e.getMessage());
-				System.out.println(e.getMessage());
+				_log.error(e.getMessage(), e);
 			}
 
 			if (seq != null) {
@@ -1629,11 +1628,10 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		QuotationAdminUploads file;
 		try {
 			file = QuotationAdminUploadsUtil.findByPrimaryKey(fileId);
-			System.out.println(file.getId());
+			_log.info("file-id : "+ file.getId());
 			return file;
 		} catch (NoSuchQuotationAdminUploadsException e) {
-			_log.error(e.getMessage());
-			e.printStackTrace();
+			_log.error(e.getMessage(), e);
 			return null;
 		}
 
@@ -1672,7 +1670,6 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 				QuotationAdminUploadsUtil.findByQuotationId(customQuotation.getQuotationId()));
 		customQuotation.setAdminFilesUplods(quotationAdminUploads);
 		// try {
-		// System.out.println("customer"+);
 		//// QuotationCustUploads quotationCustUploads=
 		// getCustomQuotationCustUploads(CustUploadsLocalServiceUtil.findByQuotationId(quot.getQuotationId()+""));
 		//// quot.setCustFilesUplods(quotationCustUploads);

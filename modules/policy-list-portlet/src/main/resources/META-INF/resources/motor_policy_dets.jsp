@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
@@ -402,14 +404,16 @@
 	String pageName="/buy_motor_policy";
 	long buyMotorPlid = 0L;
 	String motorPortletId = BuyMotorPolicyPortletKeys.BUYMOTORPOLICY;
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	try
 	{
-		System.out.println("current page name ---------------------- "+themeDisplay.getLayout().getName());
+		_log.info("current page name ---------------------- "+themeDisplay.getLayout().getName());
 		Layout motorPortletLayout = LayoutLocalServiceUtil.getFriendlyURLLayout(themeDisplay.getScopeGroupId(), false, pageName);
 		LayoutTypePortlet buyMotorLayoutTypePortlet = LayoutTypePortletFactoryUtil.create(motorPortletLayout);
 		motorPortletId = buyMotorLayoutTypePortlet.getPortletIds().get(0);
 		buyMotorPlid = motorPortletLayout.getPlid();
-		System.out.println("Pliid==>"+buyMotorPlid);
+		_log.info("Pliid==>"+buyMotorPlid);
 	}
 	catch (Exception e) {
 		e.printStackTrace();

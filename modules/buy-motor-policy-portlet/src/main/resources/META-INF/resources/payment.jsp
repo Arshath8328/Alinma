@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
 <%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
@@ -44,6 +46,8 @@
 	String paymentErrorMsg = null;
 	boolean mobileSessionError = false;
 	
+	Log _log = LogFactoryUtil.getLog(this.getClass());
+
 	if(paymentFail)
 	{
 		paymentErrorCode = (String)request.getAttribute("purchaseErrorCode");
@@ -60,26 +64,26 @@
 	if(request.getAttribute("MOBILE_SESSION_ERROR")!=null)
 		mobileSessionError = (boolean)request.getAttribute("MOBILE_SESSION_ERROR");
 	
-	System.out.println("mobileSessionError:" + mobileSessionError);
+	_log.info("mobileSessionError:" + mobileSessionError);
 	
 	boolean payPolicy = (request.getAttribute("payPolicy")!=null)?((Boolean)request.getAttribute("payPolicy")):false;
 	Gson gson = new Gson();
 	String quotDets = gson.toJson(quot);
-	System.out.println("  ----------------------  Quotation Details  ------------------- ");
-	System.out.println(quotDets);
-	System.out.println(" -------------------------- End Quotation Details ---------------------- ");
+	_log.info("  ----------------------  Quotation Details  ------------------- ");
+	_log.info(quotDets);
+	_log.info(" -------------------------- End Quotation Details ---------------------- ");
 	quotDets = quotDets.replaceAll("\"", "'");
 	quotDets = quotDets.replaceAll("\\r\\n", "");
-	System.out.println("  ----------------------  Quotation Details After Fix  ------------------- ");
-	System.out.println(quotDets);
-	System.out.println(" -------------------------- End Quotation Details After Fix---------------------- ");
+	_log.info("  ----------------------  Quotation Details After Fix  ------------------- ");
+	_log.info(quotDets);
+	_log.info(" -------------------------- End Quotation Details After Fix---------------------- ");
 	
 	PortletURL downloadQuotUrl =  PortletURLFactoryUtil.create(request, PortalUtil.getPortletId(request), themeDisplay.getPlid(), PortletRequest.RESOURCE_PHASE);
 	downloadQuotUrl.setParameter("quotId", ""+quot.getQuotationId());
 	String downloadUrlVal = downloadQuotUrl.toString(); 
 	if(downloadUrlVal.indexOf("&p_p_lifecycle=1") != -1)
 		downloadUrlVal = downloadUrlVal.substring(0, downloadUrlVal.lastIndexOf("&p_p_lifecycle=1"));
-	System.out.println("------------------ Quotation Download URL = " + downloadUrlVal+" ----------------------");
+	_log.info("------------------ Quotation Download URL = " + downloadUrlVal+" ----------------------");
 	
 	PortletURL resourceURL =  PortletURLFactoryUtil.create(request, PortalUtil.getPortletId(request), themeDisplay.getPlid(), PortletRequest.RESOURCE_PHASE);
 	resourceURL.setParameter("resourceType", "saveAddress");
@@ -98,7 +102,7 @@
 	String merchantIdentifier = PropsUtil.get("com.ejada.atmc.payfort.merchantIdentifier");
 	String accessCode = PropsUtil.get("com.ejada.atmc.payfort.accessCode");
 	
-	System.out.println("Payfort Config:" + requestPhrase + "-" + merchantIdentifier + "-" + accessCode);
+	_log.info("Payfort Config:" + requestPhrase + "-" + merchantIdentifier + "-" + accessCode);
 %>
 <portlet:actionURL name="results" var="results">
 	<portlet:param name="myview" value="results" />
