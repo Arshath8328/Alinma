@@ -1,0 +1,4 @@
+Bundle-Name: vacancies-portlet
+Bundle-SymbolicName: vacancies.portlet
+Bundle-Version: 1.0.0
+Export-Package: vacancies.portlet.constants

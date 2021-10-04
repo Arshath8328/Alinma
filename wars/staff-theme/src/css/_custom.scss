@@ -341,17 +341,41 @@ body {
 	.product-menu .sidebar-header {
 		padding-bottom: 23px !important;
 		padding-top: 23px !important;
+		background-color: #522d24 !important;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	.control-menu-level-1 {
-		height: 79px;
+		height: 72px;
 	}
 }
+.control-menu-level-1 {
+	background-color: #365d9e;
+    background-image: -webkit-linear-gradient(left,#365d9e,#44a5aa);
+    background-image: linear-gradient(to right,#365d9e,#44a5aa);
+} 
+.applications-menu-bg.applications-menu-border-top.applications-menu-content {
+    text-align: left;
+    line-height: 2;
+    margin-top: unset;
+    padding-top: 18px;
+    font-size: 1rem;
+    }
+div#productMenuSidebar > div.sidebar-body{
+	top: 0 !important;
+	background-color: #522d24 !important;
+}
+.panel-title {
+	background-color: #522d24 !important;
+}
 
-
-
+.product-menu .list-group-heading.panel-header:not(.collapsed) {
+	background-color: transparent !important;
+}
+.product-menu .collapsing .list-group-item, .product-menu .show .list-group-item {
+    background-color: transparent !important;
+}
 /* .control-menu-level-1 {
 	background-color: #522D24 !important;
 	background-image: -moz-linear-gradient(left,#522D24,#946046) !important;

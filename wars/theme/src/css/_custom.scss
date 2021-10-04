@@ -131,6 +131,7 @@ body {
 }
 
 [class*='col-'] {
+	float:left;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -1240,6 +1241,12 @@ div#p_p_id_ATMCOTP_ {
     width: 30px;
     color: #333;
     font-size: 37px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.60);
+    opacity: 0.5;
+    text-decoration: none;
+    position: absolute;
+    left: 0;
 }
 
 .links-carousel .carousel-control.right {
@@ -1248,6 +1255,12 @@ div#p_p_id_ATMCOTP_ {
     width: 30px;
     color: #333;
     font-size: 37px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.60);
+    opacity: 0.5;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
 }
 
 .links-carousel .carousel-indicators {
@@ -1297,6 +1310,12 @@ div#p_p_id_ATMCOTP_ {
     font-size: 37px;
     background: #FFF;
     color: #000;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.60);
+    opacity: 0.5;
+    text-decoration: none;
+    position: absolute;
+    left: 0;
 }
 
 .products-carousel .carousel-control.right {
@@ -1306,6 +1325,12 @@ div#p_p_id_ATMCOTP_ {
     font-size: 37px;
     background: #FFF;
     color: #000;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.60);
+    opacity: 0.5;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
 }
 
 #portlet_ATMCSideMenu .portlet-content {
@@ -2035,5 +2060,34 @@ input.radio-group-option:checked+label {
 }
 .collapse:not(.show) {
     /* display: none; */
-    display: inherit !important;
+    display: none !important;
+}
+div#bs-example-navbar-collapse-1 {
+    display: block !important;
+}
+/*Liferay Control panel modal*/
+.applications-menu-bg.applications-menu-border-top.applications-menu-content {
+    text-align: left !important;
+    line-height: 2 !important;
+    margin-top: unset !important;
+    padding-top: 18px !important;
+    font-size: 1rem !important;
+       /* padding-top: 18px;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+    padding-bottom: 20px; */}
+    
+.portlet-journal-content .journal-content-article img, .portlet-journal-content .journal-content-article .cke_widget_image {
+    max-width: 100%;
+}
+/* Site-Navigation/ language switcher portlet */
+.btn.btn-monospaced.btn-secondary.dropdown-toggle  {
+    display: inline-flex !important;
+    margin: 0px !important;
+    padding: 0 !important;
+    width: 100%;
+    height: max-content !important;
+} 
+#p_p_id_com_liferay_site_navigation_language_web_portlet_SiteNavigationLanguagePortlet_ {
+	vertical-align: middle !important;
 }

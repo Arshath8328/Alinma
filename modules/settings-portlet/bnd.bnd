@@ -1,0 +1,4 @@
+Bundle-Name: settings-portlet
+Bundle-SymbolicName: settings.portlet
+Bundle-Version: 1.0.0
+Export-Package: settings.portlet.constants
