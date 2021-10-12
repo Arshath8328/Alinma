@@ -27,6 +27,8 @@ import com.ejada.atmc.acl.db.service.persistence.CLMWORKFLOWPersistence;
 import com.ejada.atmc.acl.db.service.persistence.ClaimAdminUploadsPersistence;
 import com.ejada.atmc.acl.db.service.persistence.ClaimHDRFinder;
 import com.ejada.atmc.acl.db.service.persistence.ClaimHDRPersistence;
+import com.ejada.atmc.acl.db.service.persistence.ClaimIntimationMtrFinder;
+import com.ejada.atmc.acl.db.service.persistence.ClaimIntimationMtrPersistence;
 import com.ejada.atmc.acl.db.service.persistence.ClaimODSearchPersistence;
 import com.ejada.atmc.acl.db.service.persistence.ClaimTPSearchPersistence;
 import com.ejada.atmc.acl.db.service.persistence.CodeMasterFinder;
@@ -191,6 +193,12 @@ public abstract class QuotationExtraTameeniInfoServiceBaseImpl
 
 	@Reference
 	protected ClaimHDRFinder claimHDRFinder;
+
+	@Reference
+	protected ClaimIntimationMtrPersistence claimIntimationMtrPersistence;
+
+	@Reference
+	protected ClaimIntimationMtrFinder claimIntimationMtrFinder;
 
 	@Reference
 	protected ClaimODSearchPersistence claimODSearchPersistence;

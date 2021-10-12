@@ -2,6 +2,7 @@ package com.atmc.web.util;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.util.PropsUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,10 +13,13 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.tika.Tika;
+import org.apache.tika.config.TikaConfig;
+import org.apache.tika.exception.TikaException;
+import org.xml.sax.SAXException;
 
 public class FileUtil {
-	public static Tika					tika					= new Tika();
-
+	public  static Tika					tika;
+	
 	private static final Log			_log					= LogFactoryUtil.getLog(FileUtil.class);
 
 	public static final List<String>	MAKES_LIST				= Arrays.asList("114", "91", "147", "43", "83", "95", "11", "14", "16", "17", "22", "23", "16", "27", "32", "29", "30", "8", "68",
@@ -24,16 +28,18 @@ public class FileUtil {
 
 	public static final double			MINIMUM_ALLOWED_SIZE	= 5;
 
-	public static final Set<String>		ACCEPTED_FILE_TYPES		= new HashSet<>(Arrays.asList("image/jpeg",																										// jpg,
-																																																				// jpeg
-			"image/png",																																														// png
-			"application/vnd.openxmlformats-officedocument.wordprocessingml.document",																															// docs
-			"application/msword",																																												// doc
-			"application/pdf"));																																												// pdf
+	public static final Set<String>		ACCEPTED_FILE_TYPES		= new HashSet<>(Arrays.asList("image/jpeg",																												// jpg,
+																																																						// jpeg
+			"image/png",																																																// png
+			"application/vnd.openxmlformats-officedocument.wordprocessingml.document",																																	// docs
+			"application/msword",																																														// doc
+			"application/pdf"));																																														// pdf
 
 	public static boolean isAcceptedFileType(File file, Set<String> acceptedTypes) {
+		System.getProperties().remove("tika.config");
+		_log.info("System.getproperty() : "+System.getProperty("tika.config") +" & system.getenv() "+System.getenv("TIKA_CONFIG"));
+		tika = new Tika();
 		boolean isAcceptableType = false;
-
 		try {
 			String fileType = tika.detect(file);
 
@@ -81,14 +87,17 @@ public class FileUtil {
 		boolean isValid;
 		String fileName = file.getName();
 		if (fileName.split("[.]").length > 2 || fileName.length() > 255) {
+			_log.error("Multiple Extension");
 			return false;
 		}
 
 		file.setReadOnly();
 		file.setExecutable(false);
 
-		if ((double) file.length() / (1024) < minimumAllowedSize)
+		if ((double) file.length() / (1024) < minimumAllowedSize) {
+			_log.error("file-size too small : "+(double) file.length() / (1024));
 			return false;
+		}
 		isValid = isAcceptedFileType(file, acceptedTypes);
 		return isValid;
 	}

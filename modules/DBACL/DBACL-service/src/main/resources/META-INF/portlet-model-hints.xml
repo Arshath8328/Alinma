@@ -78,6 +78,30 @@
 		<field name="tpIban" type="String" />
 		<field name="prodCode" type="String" />
 	</model>
+	<model name="com.ejada.atmc.acl.db.model.ClaimIntimationMtr">
+		<field name="claimIntimationMotorId" type="long" />
+		<field name="intimationReferenceNo" type="String" />
+		<field name="claimantType" type="String" />
+		<field name="policyNo" type="String" />
+		<field name="vehiclePlateNo" type="String" />
+		<field name="sequenceNo" type="long" />
+		<field name="chassisNo" type="String" />
+		<field name="mobileNo" type="String" />
+		<field name="causeOfLoss" type="String" />
+		<field name="dateOfLoss" type="Date" />
+		<field name="accidentCity" type="String" />
+		<field name="descOfAccident" type="String" />
+		<field name="srcOfAccidentReport" type="String" />
+		<field name="accidentReportNo" type="String" />
+		<field name="vehicleMake" type="String" />
+		<field name="vehicleModel" type="String" />
+		<field name="driverName" type="String" />
+		<field name="driverNationality" type="String" />
+		<field name="driverNationalId" type="long" />
+		<field name="driverBirthDate" type="Date" />
+		<field name="driverGender" type="String" />
+		<field name="attachmentReference" type="String" />
+	</model>
 	<model name="com.ejada.atmc.acl.db.model.ClaimODSearch">
 		<field name="policyNo" type="String" />
 		<field name="reportNo" type="String" />

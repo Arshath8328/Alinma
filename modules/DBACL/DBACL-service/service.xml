@@ -1507,6 +1507,40 @@
 		</finder>
 	</entity>
 
+	<entity name="ClaimIntimationMtr" local-service="true" remote-service="true" data-source="extDS" table="CLAIM_INTIMATION_MTR"
+		cache-enabled="false">
+
+		<!-- PK fields -->
+		<column name="claimIntimationMotorId" primary="true" type="long" db-name="cim_sys_id" />
+
+		<!-- Other fields -->
+		<column name="intimationReferenceNo" type="String" db-name="intimation_ref" />
+		<column name="claimantType" type="String" db-name="claimant_type" />
+		<column name="policyNo" type="String" db-name="Policy_No" />
+		<column name="vehiclePlateNo" type="String" db-name="Vehicle_Plate_No" />
+		<column name="sequenceNo" type="long" db-name="Sequence_No" />
+		<column name="chassisNo" type="String" db-name="Chassis_No" />
+		<column name="mobileNo" type="String" db-name="Mobile_No" />
+		<column name="causeOfLoss" type="String" db-name="Cause_of_loss" />
+		<column name="dateOfLoss" type="Date" db-name="Date_of_Loss" />
+		<column name="accidentCity" type="String" db-name="Accident_City" />
+		<column name="descOfAccident" type="String" db-name="Desc_of_Accident" />
+		<column name="srcOfAccidentReport" type="String" db-name="src_accident_report" />
+		<column name="accidentReportNo" type="String" db-name="Accident_Report_No" />
+		<column name="vehicleMake" type="String" db-name="Vehicle_Make" />
+		<column name="vehicleModel" type="String" db-name="vehicle_model" />
+		<column name="driverName" type="String" db-name="Driver_Name" />
+		<column name="driverNationality" type="String" db-name="Driver_Nationality" />
+		<column name="driverNationalId" type="long" db-name="Driver_National_ID" />
+		<column name="driverBirthDate" type="Date" db-name="Driver_Birth_Date" />
+		<column name="driverGender" type="String" db-name="Driver_Gender" />
+		<column name="attachmentReference" type="String" db-name="attachment_reference" />
+
+		<finder name="intimationReferenceNo" return-type="ClaimIntimationMtr">
+			<finder-column name="intimationReferenceNo" />
+		</finder>
+
+	</entity>
 	<exceptions>
 		<exception>NoSuchNajmCaseNo</exception>
 		<exception>NoSuchNajmVehicleNo</exception>

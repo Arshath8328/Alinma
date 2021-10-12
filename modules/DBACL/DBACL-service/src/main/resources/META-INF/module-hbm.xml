@@ -6,6 +6,7 @@
 	<import class="com.ejada.atmc.acl.db.model.BeneficiaryDetails" />
 	<import class="com.ejada.atmc.acl.db.model.ClaimAdminUploads" />
 	<import class="com.ejada.atmc.acl.db.model.ClaimHDR" />
+	<import class="com.ejada.atmc.acl.db.model.ClaimIntimationMtr" />
 	<import class="com.ejada.atmc.acl.db.model.ClaimODSearch" />
 	<import class="com.ejada.atmc.acl.db.model.ClaimTPSearch" />
 	<import class="com.ejada.atmc.acl.db.model.CLMNajm" />
@@ -146,6 +147,32 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ODS_TP_NATIONALITY" name="tpNationality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ODS_TP_IBAN" name="tpIban" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ODS_PROD_CODE" name="prodCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.ejada.atmc.acl.db.model.impl.ClaimIntimationMtrImpl" table="CLAIM_INTIMATION_MTR">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="cim_sys_id" name="claimIntimationMotorId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="intimation_ref" name="intimationReferenceNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="claimant_type" name="claimantType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Policy_No" name="policyNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Vehicle_Plate_No" name="vehiclePlateNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Sequence_No" name="sequenceNo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Chassis_No" name="chassisNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Mobile_No" name="mobileNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Cause_of_loss" name="causeOfLoss" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Date_of_Loss" name="dateOfLoss" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Accident_City" name="accidentCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Desc_of_Accident" name="descOfAccident" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="src_accident_report" name="srcOfAccidentReport" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Accident_Report_No" name="accidentReportNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Vehicle_Make" name="vehicleMake" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="vehicle_model" name="vehicleModel" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Name" name="driverName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Nationality" name="driverNationality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_National_ID" name="driverNationalId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Birth_Date" name="driverBirthDate" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Gender" name="driverGender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="attachment_reference" name="attachmentReference" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="com.ejada.atmc.acl.db.model.impl.ClaimODSearchImpl" table="ODS_CLAIM_OD_SEARCH">
 		<composite-id class="com.ejada.atmc.acl.db.service.persistence.ClaimODSearchPK" name="primaryKey">
