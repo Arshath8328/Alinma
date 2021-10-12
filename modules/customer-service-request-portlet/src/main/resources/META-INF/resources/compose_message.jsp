@@ -314,7 +314,7 @@ function callback(){
 function submitForm()
 {
 		
-	AUI().use('aui-io-request', function(A){
+	AUI().use('aui-base', 'io','aui-io-request', function(A){
 		
         A.io.request('<%=resourceURL.toString()%>', {
                method: 'post',
@@ -343,7 +343,7 @@ function submitForm()
 function successFn()
 {
 	document.getElementById("submitCustomerRequest").disabled=false;
-	AUI().use('aui-modal', function(A) {
+	AUI().use('aui-base', 'io','aui-modal', function(A) {
 			var dialog = new A.Modal({
 				title: "",
 				cssClass: "compose-dialog",
