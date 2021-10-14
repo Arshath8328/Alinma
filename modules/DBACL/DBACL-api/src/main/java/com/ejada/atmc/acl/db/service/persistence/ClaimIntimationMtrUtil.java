@@ -127,61 +127,176 @@ public class ClaimIntimationMtrUtil {
 	}
 
 	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or throws a <code>NoSuchClaimIntimationMtrException</code> if it could not be found.
+	 * Returns all the claim intimation mtrs where intimationReferenceNo = &#63;.
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @return the matching claim intimation mtr
-	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 * @return the matching claim intimation mtrs
 	 */
-	public static ClaimIntimationMtr findByintimationReferenceNo(
-			String intimationReferenceNo)
-		throws com.ejada.atmc.acl.db.exception.
-			NoSuchClaimIntimationMtrException {
+	public static List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo) {
 
 		return getPersistence().findByintimationReferenceNo(
 			intimationReferenceNo);
 	}
 
 	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 * Returns a range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @return the matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
 	 */
-	public static ClaimIntimationMtr fetchByintimationReferenceNo(
-		String intimationReferenceNo) {
+	public static List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end) {
 
-		return getPersistence().fetchByintimationReferenceNo(
-			intimationReferenceNo);
+		return getPersistence().findByintimationReferenceNo(
+			intimationReferenceNo, start, end);
 	}
 
 	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 * Returns an ordered range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
 	 *
 	 * @param intimationReferenceNo the intimation reference no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().findByintimationReferenceNo(
+			intimationReferenceNo, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @param useFinderCache whether to use the finder cache
-	 * @return the matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 * @return the ordered range of matching claim intimation mtrs
 	 */
-	public static ClaimIntimationMtr fetchByintimationReferenceNo(
-		String intimationReferenceNo, boolean useFinderCache) {
+	public static List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
 
-		return getPersistence().fetchByintimationReferenceNo(
-			intimationReferenceNo, useFinderCache);
+		return getPersistence().findByintimationReferenceNo(
+			intimationReferenceNo, start, end, orderByComparator,
+			useFinderCache);
 	}
 
 	/**
-	 * Removes the claim intimation mtr where intimationReferenceNo = &#63; from the database.
+	 * Returns the first claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @return the claim intimation mtr that was removed
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
 	 */
-	public static ClaimIntimationMtr removeByintimationReferenceNo(
-			String intimationReferenceNo)
+	public static ClaimIntimationMtr findByintimationReferenceNo_First(
+			String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
 		throws com.ejada.atmc.acl.db.exception.
 			NoSuchClaimIntimationMtrException {
 
-		return getPersistence().removeByintimationReferenceNo(
-			intimationReferenceNo);
+		return getPersistence().findByintimationReferenceNo_First(
+			intimationReferenceNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchByintimationReferenceNo_First(
+		String intimationReferenceNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchByintimationReferenceNo_First(
+			intimationReferenceNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr findByintimationReferenceNo_Last(
+			String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findByintimationReferenceNo_Last(
+			intimationReferenceNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchByintimationReferenceNo_Last(
+		String intimationReferenceNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchByintimationReferenceNo_Last(
+			intimationReferenceNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	public static ClaimIntimationMtr[] findByintimationReferenceNo_PrevAndNext(
+			long claimIntimationMotorId, String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findByintimationReferenceNo_PrevAndNext(
+			claimIntimationMotorId, intimationReferenceNo, orderByComparator);
+	}
+
+	/**
+	 * Removes all the claim intimation mtrs where intimationReferenceNo = &#63; from the database.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 */
+	public static void removeByintimationReferenceNo(
+		String intimationReferenceNo) {
+
+		getPersistence().removeByintimationReferenceNo(intimationReferenceNo);
 	}
 
 	/**
@@ -195,6 +310,361 @@ public class ClaimIntimationMtrUtil {
 
 		return getPersistence().countByintimationReferenceNo(
 			intimationReferenceNo);
+	}
+
+	/**
+	 * Returns all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @return the matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBymobileNo(String mobileNo) {
+		return getPersistence().findBymobileNo(mobileNo);
+	}
+
+	/**
+	 * Returns a range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end) {
+
+		return getPersistence().findBymobileNo(mobileNo, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().findBymobileNo(
+			mobileNo, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
+
+		return getPersistence().findBymobileNo(
+			mobileNo, start, end, orderByComparator, useFinderCache);
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr findBymobileNo_First(
+			String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBymobileNo_First(
+			mobileNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchBymobileNo_First(
+		String mobileNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchBymobileNo_First(
+			mobileNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr findBymobileNo_Last(
+			String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBymobileNo_Last(
+			mobileNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchBymobileNo_Last(
+		String mobileNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchBymobileNo_Last(
+			mobileNo, orderByComparator);
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	public static ClaimIntimationMtr[] findBymobileNo_PrevAndNext(
+			long claimIntimationMotorId, String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBymobileNo_PrevAndNext(
+			claimIntimationMotorId, mobileNo, orderByComparator);
+	}
+
+	/**
+	 * Removes all the claim intimation mtrs where mobileNo = &#63; from the database.
+	 *
+	 * @param mobileNo the mobile no
+	 */
+	public static void removeBymobileNo(String mobileNo) {
+		getPersistence().removeBymobileNo(mobileNo);
+	}
+
+	/**
+	 * Returns the number of claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @return the number of matching claim intimation mtrs
+	 */
+	public static int countBymobileNo(String mobileNo) {
+		return getPersistence().countBymobileNo(mobileNo);
+	}
+
+	/**
+	 * Returns all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @return the matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId) {
+
+		return getPersistence().findBydriverNationalId(driverNationalId);
+	}
+
+	/**
+	 * Returns a range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end) {
+
+		return getPersistence().findBydriverNationalId(
+			driverNationalId, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().findBydriverNationalId(
+			driverNationalId, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	public static List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
+
+		return getPersistence().findBydriverNationalId(
+			driverNationalId, start, end, orderByComparator, useFinderCache);
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr findBydriverNationalId_First(
+			long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBydriverNationalId_First(
+			driverNationalId, orderByComparator);
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchBydriverNationalId_First(
+		long driverNationalId,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchBydriverNationalId_First(
+			driverNationalId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr findBydriverNationalId_Last(
+			long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBydriverNationalId_Last(
+			driverNationalId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	public static ClaimIntimationMtr fetchBydriverNationalId_Last(
+		long driverNationalId,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return getPersistence().fetchBydriverNationalId_Last(
+			driverNationalId, orderByComparator);
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	public static ClaimIntimationMtr[] findBydriverNationalId_PrevAndNext(
+			long claimIntimationMotorId, long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws com.ejada.atmc.acl.db.exception.
+			NoSuchClaimIntimationMtrException {
+
+		return getPersistence().findBydriverNationalId_PrevAndNext(
+			claimIntimationMotorId, driverNationalId, orderByComparator);
+	}
+
+	/**
+	 * Removes all the claim intimation mtrs where driverNationalId = &#63; from the database.
+	 *
+	 * @param driverNationalId the driver national ID
+	 */
+	public static void removeBydriverNationalId(long driverNationalId) {
+		getPersistence().removeBydriverNationalId(driverNationalId);
+	}
+
+	/**
+	 * Returns the number of claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @return the number of matching claim intimation mtrs
+	 */
+	public static int countBydriverNationalId(long driverNationalId) {
+		return getPersistence().countBydriverNationalId(driverNationalId);
 	}
 
 	/**

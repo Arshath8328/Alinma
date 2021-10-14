@@ -1,3 +1,4 @@
+<%@page import="com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.liferay.portal.kernel.dao.search.DisplayTerms"%>
 <%@page import="com.ejada.atmc.acl.db.model.ClaimIntimationMtr"%>
@@ -58,9 +59,48 @@
 		<liferay-ui:search-container-row
 			className="com.ejada.atmc.acl.db.model.ClaimIntimationMtr" keyProperty="claimIntimationMotorId"
 			modelVar="claimIntimation" >
-
+			<%
+				List<ClaimIntimationMtrDTO> claimDTOSFromView = ClaimIntimationMtrLocalServiceUtil.findClaimIntimationListFromView(claimIntimation.getIntimationReferenceNo());
+			%>
 			<liferay-ui:search-container-column-text name="CIM No" property="claimIntimationMotorId" />
-			<liferay-ui:search-container-column-text name="Refrence Number" property="intimationReferenceNo" />
+			
+			<liferay-ui:search-container-column-text name="Refrence Number">
+				<div class="panel panel-default">
+		            <div class="panel-heading" id="heading<%= claimIntimation.getClaimIntimationMotorId()%>" role="tab">
+		               <a aria-controls="collapse<%= claimIntimation.getClaimIntimationMotorId()%>" aria-expanded="false" class="collapsed" 
+		                data-toggle="collapse" href="#collapse<%= claimIntimation.getClaimIntimationMotorId()%>" role="button" target="_blank"><%=claimIntimation.getIntimationReferenceNo() %></a></h4>
+		            </div>
+		            <div aria-expanded="false" aria-labelledby="heading<%= claimIntimation.getClaimIntimationMotorId()%>" class="panel-collapse collapse" id="collapse<%= claimIntimation.getClaimIntimationMotorId()%>" role="tabpanel" style="height: 0px;">
+		               <div class="panel-body">
+		               <% if(claimDTOSFromView!=null && !claimDTOSFromView.isEmpty()) {%>
+		              		 <table class="inner-table">
+		              		 	<thead>
+		              		 	<tr>
+			              		 	<th>Claim Number</th>
+			              		 	<th>Policy Number</th>
+			              		 	<th>Claim Status</th>
+			              		 	<th>Created By</th>
+			              		 	<th>Creation Date</th>
+		              		 	</tr>
+		              		 	</thead>
+		               		<%for(ClaimIntimationMtrDTO claimDTO : claimDTOSFromView) {
+		              		 %>
+		              		 	<tbody>
+		              		 	<tr>
+				               		<td><%=claimDTO.getClaimNumber() %></td>
+				               		<td><%=claimDTO.getPolicyNumber() %></td>
+				               		<td><%=claimDTO.getClaimStatus() %></td>
+				               		<td><%=claimDTO.getCreatedBy()%></td>
+				               		<td><%=claimDTO.getCreationDate() %></td>
+		              		 	</tr>
+		               		<%}%>
+		              		 	</tbody>
+		              		 </table>
+		               <%	} %>   
+		               </div>
+		            </div>
+		         </div> 
+              </liferay-ui:search-container-column-text>
 			<liferay-ui:search-container-column-text name="Claimant Type" property="claimantType" />
 			<liferay-ui:search-container-column-text name="Policy No" property="policyNo" />
 			<liferay-ui:search-container-column-text name="Vehicle Plate No" property="vehiclePlateNo" />
@@ -81,7 +121,6 @@
 		</liferay-ui:search-container-row>
 		<liferay-ui:search-iterator searchContainer="<%=searchContainer%>" />
 	</liferay-ui:search-container>
-
 </aui:form>
 
 </div>

@@ -1536,10 +1536,16 @@
 		<column name="driverGender" type="String" db-name="Driver_Gender" />
 		<column name="attachmentReference" type="String" db-name="attachment_reference" />
 
-		<finder name="intimationReferenceNo" return-type="ClaimIntimationMtr">
+		<finder name="intimationReferenceNo" return-type="Collection">
 			<finder-column name="intimationReferenceNo" />
 		</finder>
-
+		<finder name="mobileNo" return-type="Collection">
+			<finder-column name="mobileNo" />
+		</finder>
+		<finder name="driverNationalId" return-type="Collection">
+			<finder-column name="driverNationalId" />
+		</finder>
+		
 	</entity>
 	<exceptions>
 		<exception>NoSuchNajmCaseNo</exception>

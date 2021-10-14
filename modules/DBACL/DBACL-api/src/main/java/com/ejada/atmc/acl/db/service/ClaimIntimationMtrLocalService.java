@@ -14,6 +14,7 @@
 
 package com.ejada.atmc.acl.db.service;
 
+import com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO;
 import com.ejada.atmc.acl.db.model.ClaimIntimationMtr;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -200,7 +201,16 @@ public interface ClaimIntimationMtrLocalService
 	public ClaimIntimationMtr fetchClaimIntimationMtr(
 		long claimIntimationMotorId);
 
+	public List<ClaimIntimationMtr> findClaimIntimationList(
+		int findByCategory, String findByValue);
+
 	public List<ClaimIntimationMtr> findClaimIntimationList(String keyword);
+
+	public List<ClaimIntimationMtrDTO> findClaimIntimationList(
+		String findByCategory, String findByValue);
+
+	public List<ClaimIntimationMtrDTO> findClaimIntimationListFromView(
+		String referenceNo);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

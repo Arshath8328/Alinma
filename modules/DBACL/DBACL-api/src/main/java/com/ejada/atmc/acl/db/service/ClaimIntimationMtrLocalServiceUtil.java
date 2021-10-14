@@ -215,9 +215,31 @@ public class ClaimIntimationMtrLocalServiceUtil {
 	}
 
 	public static java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
+		findClaimIntimationList(int findByCategory, String findByValue) {
+
+		return getService().findClaimIntimationList(
+			findByCategory, findByValue);
+	}
+
+	public static java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
 		findClaimIntimationList(String keyword) {
 
 		return getService().findClaimIntimationList(keyword);
+	}
+
+	public static java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationList(String findByCategory, String findByValue) {
+
+		return getService().findClaimIntimationList(
+			findByCategory, findByValue);
+	}
+
+	public static java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationListFromView(String referenceNo) {
+
+		return getService().findClaimIntimationListFromView(referenceNo);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery

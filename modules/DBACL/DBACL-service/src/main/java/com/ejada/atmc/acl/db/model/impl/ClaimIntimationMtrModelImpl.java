@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.model.ModelWrapper;
 import com.liferay.portal.kernel.model.impl.BaseModelImpl;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 
 import java.io.Serializable;
@@ -136,14 +137,26 @@ public class ClaimIntimationMtrModelImpl
 	 * @deprecated As of Athanasius (7.3.x), replaced by {@link #getColumnBitmask(String)
 	 */
 	@Deprecated
-	public static final long INTIMATIONREFERENCENO_COLUMN_BITMASK = 1L;
+	public static final long DRIVERNATIONALID_COLUMN_BITMASK = 1L;
+
+	/**
+	 * @deprecated As of Athanasius (7.3.x), replaced by {@link #getColumnBitmask(String)
+	 */
+	@Deprecated
+	public static final long INTIMATIONREFERENCENO_COLUMN_BITMASK = 2L;
+
+	/**
+	 * @deprecated As of Athanasius (7.3.x), replaced by {@link #getColumnBitmask(String)
+	 */
+	@Deprecated
+	public static final long MOBILENO_COLUMN_BITMASK = 4L;
 
 	/**
 	 * @deprecated As of Athanasius (7.3.x), replaced by {@link
 	 *		#getColumnBitmask(String)
 	 */
 	@Deprecated
-	public static final long CLAIMINTIMATIONMOTORID_COLUMN_BITMASK = 2L;
+	public static final long CLAIMINTIMATIONMOTORID_COLUMN_BITMASK = 8L;
 
 	/**
 	 * @deprecated As of Athanasius (7.3.x), with no direct replacement
@@ -652,6 +665,15 @@ public class ClaimIntimationMtrModelImpl
 		_mobileNo = mobileNo;
 	}
 
+	/**
+	 * @deprecated As of Athanasius (7.3.x), replaced by {@link
+	 *             #getColumnOriginalValue(String)}
+	 */
+	@Deprecated
+	public String getOriginalMobileNo() {
+		return getColumnOriginalValue("Mobile_No");
+	}
+
 	@JSON
 	@Override
 	public String getCauseOfLoss() {
@@ -860,6 +882,16 @@ public class ClaimIntimationMtrModelImpl
 		}
 
 		_driverNationalId = driverNationalId;
+	}
+
+	/**
+	 * @deprecated As of Athanasius (7.3.x), replaced by {@link
+	 *             #getColumnOriginalValue(String)}
+	 */
+	@Deprecated
+	public long getOriginalDriverNationalId() {
+		return GetterUtil.getLong(
+			this.<Long>getColumnOriginalValue("Driver_National_ID"));
 	}
 
 	@JSON

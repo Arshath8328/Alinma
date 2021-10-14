@@ -14,8 +14,13 @@
 	List<CodeMasterDetails> causeOfLossList = (List<CodeMasterDetails>)request.getAttribute("causeOfLossList");
 	List<CodeMasterDetails>  natureOfLossList = (List<CodeMasterDetails>)request.getAttribute("natureOfLossList");
 	List<CodeMasterDetails>  cityList = (List<CodeMasterDetails>)request.getAttribute("cityList");
+	List<CodeMasterDetails>  vehicleModelList = (List<CodeMasterDetails>)request.getAttribute("vehicleModelList");
+	List<CodeMasterDetails>  nationalityList = (List<CodeMasterDetails>)request.getAttribute("nationalityList");
+
 	String lang = themeDisplay.getLocale().toString();
 	Map<String, String> manufactMap = (Map<String,String>) request.getAttribute("manufactMap");
+	Map<String, String> vehicleModelMap = (Map<String,String>) request.getAttribute("vehicleModelMap");
+	
 	String currLocale = themeDisplay.getLocale().toString();
 %>
 <style>
@@ -53,9 +58,9 @@ label.control-label {
 							<div class="radio-group">
 								<input id="<portlet:namespace/>claimType_1" class="radio-group-option" checked="true" label="" name="<portlet:namespace/>claimType" type="radio" value="V" />
 								<label id="<portlet:namespace/>lblVehicle" class="radio-group-label" for="_ATMCClaimIntimation_claimType_1"><i class="material-icons md-48">&#xE531;</i> <liferay-ui:message key="claims_vehicle"/></label>
-								<input id="<portlet:namespace/>claimType_2" class="radio-group-option" checked="false" label="" name="<portlet:namespace/>claimType" type="radio" value="P" >
+								<%--><input id="<portlet:namespace/>claimType_2" class="radio-group-option" checked="false" label="" name="<portlet:namespace/>claimType" type="radio" value="P" >
 								</input>
-							  	<label id="<portlet:namespace/>lblProperty" class="radio-group-label" for="_ATMCClaimIntimation_claimType_2"><i class="material-icons md-48">&#xE0AF;</i> <liferay-ui:message key="claims_property"/></label>
+							   	<label id="<portlet:namespace/>lblProperty" class="radio-group-label" for="_ATMCClaimIntimation_claimType_2"><i class="material-icons md-48">&#xE0AF;</i> <liferay-ui:message key="claims_property"/></label> --%>
 							</div>
 						</div>
 						<div class="row">
@@ -63,8 +68,8 @@ label.control-label {
 								<div class="form-group has-feedback">
 									<label class="control-label">Claimant Type</label>
 									<select class="form-control" name="<portlet:namespace/>claimantType" label="">
-										<option value="policy_owner">Policy Owner</option>
-										<option value="thirdParty">Third Party</option>
+										<option value="<%=ClaimIntimationPortletKeys.CLAIMANT_TYPE_POLICY_OWNER %>">Policy Owner</option>
+										<option value="<%= ClaimIntimationPortletKeys.CLAIMANT_TYPE_THIRD_PARTY %>">Third Party</option>
 									</select>
 								</div>
 							</div>
@@ -86,12 +91,9 @@ label.control-label {
 										<label id="<portlet:namespace/>lblPlateNumber" class="btn btn-default active control-label">
 											<input checked="true" label="" name="<portlet:namespace/>vehicleIdentType" type="radio" value="<%=ClaimIntimationPortletKeys.VEHICLE_IDENT_TYPE_PLATE_NUMBER %>" /><liferay-ui:message key="claims_plate_number"/>
 										</label>
-										<%--  <label id="<portlet:namespace/>lblCustomNumber" class="btn btn-default control-label">
-											<input checked="false" label="" name="<portlet:namespace/>vehicleIdentType" type="radio" value="<%=ClaimIntimationPortletKeys.VEHICLE_IDENT_TYPE_CUSTOM %>" /><liferay-ui:message key="claims_custom_number"/>
-										</label> --%>
 									</div>
 								</div>
-								<div class="form-group" style="margin-top: 34px">
+								<div class="form-group" style="margin-top: 3.31rem;">
 									<input class="form-control" showRequiredLabel="false" name="<portlet:namespace/>plateNumber" id="<portlet:namespace/>plateNumber" label="" placeholder="<%=LanguageUtil.get(request,"claims_enter_plate_number") %>" oninput="this.value = this.value.replace(/[^0-9.]/g, '')">
 									</input>															
 								</div>
@@ -105,54 +107,54 @@ label.control-label {
 										for (int i=1; i <= 3; i++)
 										{
 											String selectName = "plateL" + i;
-									%>
-									<div class="col-md-4">
-										<c:choose>
-											<c:when test="<%= lang.equals("en_US") %>">
-												<select class="form-control" name="<portlet:namespace/><%=selectName %>" label="">
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_A") %>"><%=LanguageUtil.get(request,"plate_letter_A") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_B") %>"><%=LanguageUtil.get(request,"plate_letter_B") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_D") %>"><%=LanguageUtil.get(request,"plate_letter_D") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_E") %>"><%=LanguageUtil.get(request,"plate_letter_E") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_G") %>"><%=LanguageUtil.get(request,"plate_letter_G") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_H") %>"><%=LanguageUtil.get(request,"plate_letter_H") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_J") %>"><%=LanguageUtil.get(request,"plate_letter_J") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_K") %>"><%=LanguageUtil.get(request,"plate_letter_K") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_L") %>"><%=LanguageUtil.get(request,"plate_letter_L") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_N") %>"><%=LanguageUtil.get(request,"plate_letter_N") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_R") %>"><%=LanguageUtil.get(request,"plate_letter_R") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_S") %>"><%=LanguageUtil.get(request,"plate_letter_S") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_T") %>"><%=LanguageUtil.get(request,"plate_letter_T") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_U") %>"><%=LanguageUtil.get(request,"plate_letter_U") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_V") %>"><%=LanguageUtil.get(request,"plate_letter_V") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_X") %>"><%=LanguageUtil.get(request,"plate_letter_X") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_Z") %>"><%=LanguageUtil.get(request,"plate_letter_Z") %></option>
-												</select>
-											</c:when>
-											<c:otherwise>
-												<select class="form-control" name="<portlet:namespace/><%=selectName %>" label="">
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_A") %>"><%=LanguageUtil.get(request,"plate_letter_A") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_B") %>"><%=LanguageUtil.get(request,"plate_letter_B") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_J") %>"><%=LanguageUtil.get(request,"plate_letter_J") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_D") %>"><%=LanguageUtil.get(request,"plate_letter_D") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_R") %>"><%=LanguageUtil.get(request,"plate_letter_R") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_S") %>"><%=LanguageUtil.get(request,"plate_letter_S") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_X") %>"><%=LanguageUtil.get(request,"plate_letter_X") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_T") %>"><%=LanguageUtil.get(request,"plate_letter_T") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_E") %>"><%=LanguageUtil.get(request,"plate_letter_E") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_G") %>"><%=LanguageUtil.get(request,"plate_letter_G") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_K") %>"><%=LanguageUtil.get(request,"plate_letter_K") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_L") %>"><%=LanguageUtil.get(request,"plate_letter_L") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_Z") %>"><%=LanguageUtil.get(request,"plate_letter_Z") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_N") %>"><%=LanguageUtil.get(request,"plate_letter_N") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_H") %>"><%=LanguageUtil.get(request,"plate_letter_H") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_U") %>"><%=LanguageUtil.get(request,"plate_letter_U") %></option>
-													<option  value="<%=LanguageUtil.get(request,"plate_letter_V") %>"><%=LanguageUtil.get(request,"plate_letter_V") %></option>
-												</select>
-											</c:otherwise>
-										</c:choose>
-									</div>
-									<% 
+											%>
+											<div class="col-md-4">
+												<c:choose>
+													<c:when test="<%= lang.equals("en_US") %>">
+														<select class="form-control" name="<portlet:namespace/><%=selectName %>" label="">
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_A") %>"><%=LanguageUtil.get(request,"plate_letter_A") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_B") %>"><%=LanguageUtil.get(request,"plate_letter_B") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_D") %>"><%=LanguageUtil.get(request,"plate_letter_D") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_E") %>"><%=LanguageUtil.get(request,"plate_letter_E") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_G") %>"><%=LanguageUtil.get(request,"plate_letter_G") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_H") %>"><%=LanguageUtil.get(request,"plate_letter_H") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_J") %>"><%=LanguageUtil.get(request,"plate_letter_J") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_K") %>"><%=LanguageUtil.get(request,"plate_letter_K") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_L") %>"><%=LanguageUtil.get(request,"plate_letter_L") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_N") %>"><%=LanguageUtil.get(request,"plate_letter_N") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_R") %>"><%=LanguageUtil.get(request,"plate_letter_R") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_S") %>"><%=LanguageUtil.get(request,"plate_letter_S") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_T") %>"><%=LanguageUtil.get(request,"plate_letter_T") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_U") %>"><%=LanguageUtil.get(request,"plate_letter_U") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_V") %>"><%=LanguageUtil.get(request,"plate_letter_V") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_X") %>"><%=LanguageUtil.get(request,"plate_letter_X") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_Z") %>"><%=LanguageUtil.get(request,"plate_letter_Z") %></option>
+														</select>
+													</c:when>
+													<c:otherwise>
+														<select class="form-control" name="<portlet:namespace/><%=selectName %>" label="">
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_A") %>"><%=LanguageUtil.get(request,"plate_letter_A") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_B") %>"><%=LanguageUtil.get(request,"plate_letter_B") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_J") %>"><%=LanguageUtil.get(request,"plate_letter_J") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_D") %>"><%=LanguageUtil.get(request,"plate_letter_D") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_R") %>"><%=LanguageUtil.get(request,"plate_letter_R") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_S") %>"><%=LanguageUtil.get(request,"plate_letter_S") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_X") %>"><%=LanguageUtil.get(request,"plate_letter_X") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_T") %>"><%=LanguageUtil.get(request,"plate_letter_T") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_E") %>"><%=LanguageUtil.get(request,"plate_letter_E") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_G") %>"><%=LanguageUtil.get(request,"plate_letter_G") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_K") %>"><%=LanguageUtil.get(request,"plate_letter_K") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_L") %>"><%=LanguageUtil.get(request,"plate_letter_L") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_Z") %>"><%=LanguageUtil.get(request,"plate_letter_Z") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_N") %>"><%=LanguageUtil.get(request,"plate_letter_N") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_H") %>"><%=LanguageUtil.get(request,"plate_letter_H") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_U") %>"><%=LanguageUtil.get(request,"plate_letter_U") %></option>
+															<option  value="<%=LanguageUtil.get(request,"plate_letter_V") %>"><%=LanguageUtil.get(request,"plate_letter_V") %></option>
+														</select>
+													</c:otherwise>
+												</c:choose>
+											</div>
+											<% 
 										}
 									%>
 									</div>
@@ -171,11 +173,6 @@ label.control-label {
 								<div class="form-group has-feedback">
 									<label class="control-label">Chassis Number</label>
 									<input id="<portlet:namespace/>chassisNumber"  name="<portlet:namespace/>chassisNumber" class="form-control" type="text" placeholder="Chassis Number" label="">
-<%-- 										<validator name="<portlet:namespace/>custom" errorMessage='<%= LanguageUtil.get(request, "invalid_chassis_number") %>'>
-	 										function (val, fieldNode, ruleValue) {
-												return (val.length <= 20);
-											}
-	 									</validator> --%>
  									</input>
 								</div>
 							</div>
@@ -185,14 +182,6 @@ label.control-label {
 								<div class="form-group has-feedback">
 									<label class="control-label">Mobile Number</label>
 									<input label="" id="<portlet:namespace/>mobileNumber"  name="<portlet:namespace/>mobileNumber" class="form-control" type="text" placeholder="Mobile Number">
-<%-- 										<validator name="<portlet:namespace/>custom" errorMessage='<%=LanguageUtil.get(request,"invalid_mobile") %>' > 
-											function (val, fieldNode, ruleValue) {
-												var isMobileValid = true;
-												if(val.length != 10 || !val.startsWith('05'))
-													isMobileValid = false;
-												return isMobileValid;
-											}
-										</validator> --%>
 									</input>
 								</div>
 							</div>
@@ -283,15 +272,9 @@ label.control-label {
 									<label class="control-label">Source Of Accident Report</label>
 									<select class="form-control" name="<portlet:namespace/>sourceOfAccidentReport" label="">
 										<option value="-1"><liferay-ui:message key="please_select_option"/></option>
-										<option value="NAJM">NAJM</option>
-										<option value="MUROOR">MUROOR</option>
-										<option value="CIVIL DEFENCE">CIVIL DEFENCE</option>
-										
-									<%-- 	<validator name="<portlet:namespace/>custom" errorMessage='<%=LanguageUtil.get(request,"claims_select_source_of_accident_report") %>' >
-											function (val, fieldNode, ruleValue) {
-												return (val != '-1');
-											}
-										</validator> --%>
+										<option value="<%= ClaimIntimationPortletKeys.SOURCE_OF_ACCIDENT_REPORT_NAJM %>">NAJM</option>
+										<option value="<%= ClaimIntimationPortletKeys.SOURCE_OF_ACCIDENT_REPORT_MUROOR %>">MUROOR</option>
+										<option value="<%= ClaimIntimationPortletKeys.SOURCE_OF_ACCIDENT_REPORT_CIVIL_DEFENCE %>">CIVIL DEFENCE</option>
 									</select>
 								</div>
 							</div>
@@ -323,16 +306,33 @@ label.control-label {
 											<option value="pqr">pqr</option>
 										<%} 
 									%>
-									<%-- <validator name="<portlet:namespace/>custom" errorMessage='<%=LanguageUtil.get(request,"claims_select_accident_city") %>' >
-										function (val, fieldNode, ruleValue) {
-											return (val != '-1');
-										}
-									</validator> --%>
 								</select>
                         	</div>
                         </div>
 						
-						
+						<div class="row">
+                        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      			<label class="control-label">Vehicle Model</label>
+                        		<select class="form-control" name="<portlet:namespace/>vehicleModel" label="">
+									<option value="-1"><liferay-ui:message key="please_select_option"/></option>
+									<%
+										if(vehicleModelList != null){
+											for (CodeMasterDetails vehicleModel : vehicleModelList) {
+												String vehicleModelName = (lang.equals("en_US"))?vehicleModel.getCodeDesc():vehicleModel.getCodeDescAr();
+												%>
+												<option value="<%=vehicleModel.getCodeSub() %>"><%=vehicleModelName%></option>
+												<%
+											}
+										} else {
+										%>
+											<option value="abc">abc</option>
+											<option value="xyz">xyz</option>
+											<option value="pqr">pqr</option>
+										<%} 
+									%>
+								</select>
+                        	</div>
+                        </div>
                         <div class="row">
                         	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         		<div class="form-group has-feedback">
@@ -344,8 +344,24 @@ label.control-label {
                         	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         		<div class="form-group has-feedback">
 									<label class="control-label">Driver Nationality</label>
-                        			<input label="" id="<portlet:namespace/>driverNationality" name="<portlet:namespace/>driverNationality" class="form-control" type="text" >
-                        			</input>
+                        			<select class="form-control" name="<portlet:namespace/>driverNationality" label="">
+										<option value="-1"><liferay-ui:message key="please_select_option"/></option>
+										<%
+											if(vehicleModelList != null){
+												for (CodeMasterDetails nationality : nationalityList) {
+													String nationaName = (lang.equals("en_US"))?nationality.getCodeDesc():nationality.getCodeDescAr();
+													%>
+													<option value="<%=nationality.getCodeSub() %>"><%=nationaName%></option>
+													<%
+												}
+											} else {
+											%>
+												<option value="abc">abc</option>
+												<option value="xyz">xyz</option>
+												<option value="pqr">pqr</option>
+											<%} 
+										%>
+									</select>
                         		</div>
                         	</div>
                         </div>
@@ -563,6 +579,10 @@ function validateFormAndSubmit()
 		    	required: true
 		    },
 		    <portlet:namespace/>vehicleMake: {
+		    	required: true, 
+	            custDropDown: true
+		    },
+		     <portlet:namespace/>vehicleModel: {
 		    	required: true, 
 	            custDropDown: true
 		    },

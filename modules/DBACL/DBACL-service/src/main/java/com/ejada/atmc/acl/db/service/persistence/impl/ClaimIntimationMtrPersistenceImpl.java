@@ -39,13 +39,11 @@ import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.SetUtil;
-import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.Serializable;
 
 import java.lang.reflect.InvocationHandler;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -95,96 +93,136 @@ public class ClaimIntimationMtrPersistenceImpl
 	private FinderPath _finderPathWithPaginationFindAll;
 	private FinderPath _finderPathWithoutPaginationFindAll;
 	private FinderPath _finderPathCountAll;
-	private FinderPath _finderPathFetchByintimationReferenceNo;
+	private FinderPath _finderPathWithPaginationFindByintimationReferenceNo;
+	private FinderPath _finderPathWithoutPaginationFindByintimationReferenceNo;
 	private FinderPath _finderPathCountByintimationReferenceNo;
 
 	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or throws a <code>NoSuchClaimIntimationMtrException</code> if it could not be found.
+	 * Returns all the claim intimation mtrs where intimationReferenceNo = &#63;.
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @return the matching claim intimation mtr
-	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 * @return the matching claim intimation mtrs
 	 */
 	@Override
-	public ClaimIntimationMtr findByintimationReferenceNo(
-			String intimationReferenceNo)
-		throws NoSuchClaimIntimationMtrException {
-
-		ClaimIntimationMtr claimIntimationMtr = fetchByintimationReferenceNo(
-			intimationReferenceNo);
-
-		if (claimIntimationMtr == null) {
-			StringBundler sb = new StringBundler(4);
-
-			sb.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-			sb.append("intimationReferenceNo=");
-			sb.append(intimationReferenceNo);
-
-			sb.append("}");
-
-			if (_log.isDebugEnabled()) {
-				_log.debug(sb.toString());
-			}
-
-			throw new NoSuchClaimIntimationMtrException(sb.toString());
-		}
-
-		return claimIntimationMtr;
-	}
-
-	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
-	 *
-	 * @param intimationReferenceNo the intimation reference no
-	 * @return the matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
-	 */
-	@Override
-	public ClaimIntimationMtr fetchByintimationReferenceNo(
+	public List<ClaimIntimationMtr> findByintimationReferenceNo(
 		String intimationReferenceNo) {
 
-		return fetchByintimationReferenceNo(intimationReferenceNo, true);
+		return findByintimationReferenceNo(
+			intimationReferenceNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns the claim intimation mtr where intimationReferenceNo = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 * Returns a range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @param useFinderCache whether to use the finder cache
-	 * @return the matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
 	 */
 	@Override
-	public ClaimIntimationMtr fetchByintimationReferenceNo(
-		String intimationReferenceNo, boolean useFinderCache) {
+	public List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end) {
+
+		return findByintimationReferenceNo(
+			intimationReferenceNo, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return findByintimationReferenceNo(
+			intimationReferenceNo, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where intimationReferenceNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findByintimationReferenceNo(
+		String intimationReferenceNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
 
 		intimationReferenceNo = Objects.toString(intimationReferenceNo, "");
 
+		FinderPath finderPath = null;
 		Object[] finderArgs = null;
 
-		if (useFinderCache) {
-			finderArgs = new Object[] {intimationReferenceNo};
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+			(orderByComparator == null)) {
+
+			if (useFinderCache) {
+				finderPath =
+					_finderPathWithoutPaginationFindByintimationReferenceNo;
+				finderArgs = new Object[] {intimationReferenceNo};
+			}
+		}
+		else if (useFinderCache) {
+			finderPath = _finderPathWithPaginationFindByintimationReferenceNo;
+			finderArgs = new Object[] {
+				intimationReferenceNo, start, end, orderByComparator
+			};
 		}
 
-		Object result = null;
+		List<ClaimIntimationMtr> list = null;
 
 		if (useFinderCache) {
-			result = dummyFinderCache.getResult(
-				_finderPathFetchByintimationReferenceNo, finderArgs, this);
-		}
+			list = (List<ClaimIntimationMtr>)dummyFinderCache.getResult(
+				finderPath, finderArgs, this);
 
-		if (result instanceof ClaimIntimationMtr) {
-			ClaimIntimationMtr claimIntimationMtr = (ClaimIntimationMtr)result;
+			if ((list != null) && !list.isEmpty()) {
+				for (ClaimIntimationMtr claimIntimationMtr : list) {
+					if (!intimationReferenceNo.equals(
+							claimIntimationMtr.getIntimationReferenceNo())) {
 
-			if (!Objects.equals(
-					intimationReferenceNo,
-					claimIntimationMtr.getIntimationReferenceNo())) {
+						list = null;
 
-				result = null;
+						break;
+					}
+				}
 			}
 		}
 
-		if (result == null) {
-			StringBundler sb = new StringBundler(3);
+		if (list == null) {
+			StringBundler sb = null;
+
+			if (orderByComparator != null) {
+				sb = new StringBundler(
+					3 + (orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				sb = new StringBundler(3);
+			}
 
 			sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
 
@@ -199,6 +237,14 @@ public class ClaimIntimationMtrPersistenceImpl
 
 				sb.append(
 					_FINDER_COLUMN_INTIMATIONREFERENCENO_INTIMATIONREFERENCENO_2);
+			}
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(
+					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
+			}
+			else {
+				sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
 			}
 
 			String sql = sb.toString();
@@ -216,38 +262,13 @@ public class ClaimIntimationMtrPersistenceImpl
 					queryPos.add(intimationReferenceNo);
 				}
 
-				List<ClaimIntimationMtr> list = query.list();
+				list = (List<ClaimIntimationMtr>)QueryUtil.list(
+					query, getDialect(), start, end);
 
-				if (list.isEmpty()) {
-					if (useFinderCache) {
-						dummyFinderCache.putResult(
-							_finderPathFetchByintimationReferenceNo, finderArgs,
-							list);
-					}
-				}
-				else {
-					if (list.size() > 1) {
-						Collections.sort(list, Collections.reverseOrder());
+				cacheResult(list);
 
-						if (_log.isWarnEnabled()) {
-							if (!useFinderCache) {
-								finderArgs = new Object[] {
-									intimationReferenceNo
-								};
-							}
-
-							_log.warn(
-								"ClaimIntimationMtrPersistenceImpl.fetchByintimationReferenceNo(String, boolean) with parameters (" +
-									StringUtil.merge(finderArgs) +
-										") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
-						}
-					}
-
-					ClaimIntimationMtr claimIntimationMtr = list.get(0);
-
-					result = claimIntimationMtr;
-
-					cacheResult(claimIntimationMtr);
+				if (useFinderCache) {
+					dummyFinderCache.putResult(finderPath, finderArgs, list);
 				}
 			}
 			catch (Exception exception) {
@@ -258,29 +279,312 @@ public class ClaimIntimationMtrPersistenceImpl
 			}
 		}
 
-		if (result instanceof List<?>) {
+		return list;
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findByintimationReferenceNo_First(
+			String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr =
+			fetchByintimationReferenceNo_First(
+				intimationReferenceNo, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("intimationReferenceNo=");
+		sb.append(intimationReferenceNo);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchByintimationReferenceNo_First(
+		String intimationReferenceNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		List<ClaimIntimationMtr> list = findByintimationReferenceNo(
+			intimationReferenceNo, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findByintimationReferenceNo_Last(
+			String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr =
+			fetchByintimationReferenceNo_Last(
+				intimationReferenceNo, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("intimationReferenceNo=");
+		sb.append(intimationReferenceNo);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchByintimationReferenceNo_Last(
+		String intimationReferenceNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		int count = countByintimationReferenceNo(intimationReferenceNo);
+
+		if (count == 0) {
 			return null;
 		}
+
+		List<ClaimIntimationMtr> list = findByintimationReferenceNo(
+			intimationReferenceNo, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where intimationReferenceNo = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param intimationReferenceNo the intimation reference no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr[] findByintimationReferenceNo_PrevAndNext(
+			long claimIntimationMotorId, String intimationReferenceNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		intimationReferenceNo = Objects.toString(intimationReferenceNo, "");
+
+		ClaimIntimationMtr claimIntimationMtr = findByPrimaryKey(
+			claimIntimationMotorId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			ClaimIntimationMtr[] array = new ClaimIntimationMtrImpl[3];
+
+			array[0] = getByintimationReferenceNo_PrevAndNext(
+				session, claimIntimationMtr, intimationReferenceNo,
+				orderByComparator, true);
+
+			array[1] = claimIntimationMtr;
+
+			array[2] = getByintimationReferenceNo_PrevAndNext(
+				session, claimIntimationMtr, intimationReferenceNo,
+				orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception exception) {
+			throw processException(exception);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected ClaimIntimationMtr getByintimationReferenceNo_PrevAndNext(
+		Session session, ClaimIntimationMtr claimIntimationMtr,
+		String intimationReferenceNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean previous) {
+
+		StringBundler sb = null;
+
+		if (orderByComparator != null) {
+			sb = new StringBundler(
+				4 + (orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
 		else {
-			return (ClaimIntimationMtr)result;
+			sb = new StringBundler(3);
+		}
+
+		sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
+
+		boolean bindIntimationReferenceNo = false;
+
+		if (intimationReferenceNo.isEmpty()) {
+			sb.append(
+				_FINDER_COLUMN_INTIMATIONREFERENCENO_INTIMATIONREFERENCENO_3);
+		}
+		else {
+			bindIntimationReferenceNo = true;
+
+			sb.append(
+				_FINDER_COLUMN_INTIMATIONREFERENCENO_INTIMATIONREFERENCENO_2);
+		}
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields =
+				orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				sb.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			sb.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						sb.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC);
+					}
+					else {
+						sb.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = sb.toString();
+
+		Query query = session.createQuery(sql);
+
+		query.setFirstResult(0);
+		query.setMaxResults(2);
+
+		QueryPos queryPos = QueryPos.getInstance(query);
+
+		if (bindIntimationReferenceNo) {
+			queryPos.add(intimationReferenceNo);
+		}
+
+		if (orderByComparator != null) {
+			for (Object orderByConditionValue :
+					orderByComparator.getOrderByConditionValues(
+						claimIntimationMtr)) {
+
+				queryPos.add(orderByConditionValue);
+			}
+		}
+
+		List<ClaimIntimationMtr> list = query.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
 		}
 	}
 
 	/**
-	 * Removes the claim intimation mtr where intimationReferenceNo = &#63; from the database.
+	 * Removes all the claim intimation mtrs where intimationReferenceNo = &#63; from the database.
 	 *
 	 * @param intimationReferenceNo the intimation reference no
-	 * @return the claim intimation mtr that was removed
 	 */
 	@Override
-	public ClaimIntimationMtr removeByintimationReferenceNo(
-			String intimationReferenceNo)
-		throws NoSuchClaimIntimationMtrException {
+	public void removeByintimationReferenceNo(String intimationReferenceNo) {
+		for (ClaimIntimationMtr claimIntimationMtr :
+				findByintimationReferenceNo(
+					intimationReferenceNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+					null)) {
 
-		ClaimIntimationMtr claimIntimationMtr = findByintimationReferenceNo(
-			intimationReferenceNo);
-
-		return remove(claimIntimationMtr);
+			remove(claimIntimationMtr);
+		}
 	}
 
 	/**
@@ -356,6 +660,1065 @@ public class ClaimIntimationMtrPersistenceImpl
 		_FINDER_COLUMN_INTIMATIONREFERENCENO_INTIMATIONREFERENCENO_3 =
 			"(claimIntimationMtr.intimationReferenceNo IS NULL OR claimIntimationMtr.intimationReferenceNo = '')";
 
+	private FinderPath _finderPathWithPaginationFindBymobileNo;
+	private FinderPath _finderPathWithoutPaginationFindBymobileNo;
+	private FinderPath _finderPathCountBymobileNo;
+
+	/**
+	 * Returns all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @return the matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBymobileNo(String mobileNo) {
+		return findBymobileNo(
+			mobileNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end) {
+
+		return findBymobileNo(mobileNo, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return findBymobileNo(mobileNo, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param mobileNo the mobile no
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBymobileNo(
+		String mobileNo, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
+
+		mobileNo = Objects.toString(mobileNo, "");
+
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+			(orderByComparator == null)) {
+
+			if (useFinderCache) {
+				finderPath = _finderPathWithoutPaginationFindBymobileNo;
+				finderArgs = new Object[] {mobileNo};
+			}
+		}
+		else if (useFinderCache) {
+			finderPath = _finderPathWithPaginationFindBymobileNo;
+			finderArgs = new Object[] {mobileNo, start, end, orderByComparator};
+		}
+
+		List<ClaimIntimationMtr> list = null;
+
+		if (useFinderCache) {
+			list = (List<ClaimIntimationMtr>)dummyFinderCache.getResult(
+				finderPath, finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ClaimIntimationMtr claimIntimationMtr : list) {
+					if (!mobileNo.equals(claimIntimationMtr.getMobileNo())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler sb = null;
+
+			if (orderByComparator != null) {
+				sb = new StringBundler(
+					3 + (orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				sb = new StringBundler(3);
+			}
+
+			sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
+
+			boolean bindMobileNo = false;
+
+			if (mobileNo.isEmpty()) {
+				sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_3);
+			}
+			else {
+				bindMobileNo = true;
+
+				sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_2);
+			}
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(
+					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
+			}
+			else {
+				sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				if (bindMobileNo) {
+					queryPos.add(mobileNo);
+				}
+
+				list = (List<ClaimIntimationMtr>)QueryUtil.list(
+					query, getDialect(), start, end);
+
+				cacheResult(list);
+
+				if (useFinderCache) {
+					dummyFinderCache.putResult(finderPath, finderArgs, list);
+				}
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findBymobileNo_First(
+			String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr = fetchBymobileNo_First(
+			mobileNo, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("mobileNo=");
+		sb.append(mobileNo);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchBymobileNo_First(
+		String mobileNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		List<ClaimIntimationMtr> list = findBymobileNo(
+			mobileNo, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findBymobileNo_Last(
+			String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr = fetchBymobileNo_Last(
+			mobileNo, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("mobileNo=");
+		sb.append(mobileNo);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchBymobileNo_Last(
+		String mobileNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		int count = countBymobileNo(mobileNo);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<ClaimIntimationMtr> list = findBymobileNo(
+			mobileNo, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where mobileNo = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param mobileNo the mobile no
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr[] findBymobileNo_PrevAndNext(
+			long claimIntimationMotorId, String mobileNo,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		mobileNo = Objects.toString(mobileNo, "");
+
+		ClaimIntimationMtr claimIntimationMtr = findByPrimaryKey(
+			claimIntimationMotorId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			ClaimIntimationMtr[] array = new ClaimIntimationMtrImpl[3];
+
+			array[0] = getBymobileNo_PrevAndNext(
+				session, claimIntimationMtr, mobileNo, orderByComparator, true);
+
+			array[1] = claimIntimationMtr;
+
+			array[2] = getBymobileNo_PrevAndNext(
+				session, claimIntimationMtr, mobileNo, orderByComparator,
+				false);
+
+			return array;
+		}
+		catch (Exception exception) {
+			throw processException(exception);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected ClaimIntimationMtr getBymobileNo_PrevAndNext(
+		Session session, ClaimIntimationMtr claimIntimationMtr, String mobileNo,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean previous) {
+
+		StringBundler sb = null;
+
+		if (orderByComparator != null) {
+			sb = new StringBundler(
+				4 + (orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			sb = new StringBundler(3);
+		}
+
+		sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
+
+		boolean bindMobileNo = false;
+
+		if (mobileNo.isEmpty()) {
+			sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_3);
+		}
+		else {
+			bindMobileNo = true;
+
+			sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_2);
+		}
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields =
+				orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				sb.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			sb.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						sb.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC);
+					}
+					else {
+						sb.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = sb.toString();
+
+		Query query = session.createQuery(sql);
+
+		query.setFirstResult(0);
+		query.setMaxResults(2);
+
+		QueryPos queryPos = QueryPos.getInstance(query);
+
+		if (bindMobileNo) {
+			queryPos.add(mobileNo);
+		}
+
+		if (orderByComparator != null) {
+			for (Object orderByConditionValue :
+					orderByComparator.getOrderByConditionValues(
+						claimIntimationMtr)) {
+
+				queryPos.add(orderByConditionValue);
+			}
+		}
+
+		List<ClaimIntimationMtr> list = query.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the claim intimation mtrs where mobileNo = &#63; from the database.
+	 *
+	 * @param mobileNo the mobile no
+	 */
+	@Override
+	public void removeBymobileNo(String mobileNo) {
+		for (ClaimIntimationMtr claimIntimationMtr :
+				findBymobileNo(
+					mobileNo, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+
+			remove(claimIntimationMtr);
+		}
+	}
+
+	/**
+	 * Returns the number of claim intimation mtrs where mobileNo = &#63;.
+	 *
+	 * @param mobileNo the mobile no
+	 * @return the number of matching claim intimation mtrs
+	 */
+	@Override
+	public int countBymobileNo(String mobileNo) {
+		mobileNo = Objects.toString(mobileNo, "");
+
+		FinderPath finderPath = _finderPathCountBymobileNo;
+
+		Object[] finderArgs = new Object[] {mobileNo};
+
+		Long count = (Long)dummyFinderCache.getResult(
+			finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler sb = new StringBundler(2);
+
+			sb.append(_SQL_COUNT_CLAIMINTIMATIONMTR_WHERE);
+
+			boolean bindMobileNo = false;
+
+			if (mobileNo.isEmpty()) {
+				sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_3);
+			}
+			else {
+				bindMobileNo = true;
+
+				sb.append(_FINDER_COLUMN_MOBILENO_MOBILENO_2);
+			}
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				if (bindMobileNo) {
+					queryPos.add(mobileNo);
+				}
+
+				count = (Long)query.uniqueResult();
+
+				dummyFinderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_MOBILENO_MOBILENO_2 =
+		"claimIntimationMtr.mobileNo = ?";
+
+	private static final String _FINDER_COLUMN_MOBILENO_MOBILENO_3 =
+		"(claimIntimationMtr.mobileNo IS NULL OR claimIntimationMtr.mobileNo = '')";
+
+	private FinderPath _finderPathWithPaginationFindBydriverNationalId;
+	private FinderPath _finderPathWithoutPaginationFindBydriverNationalId;
+	private FinderPath _finderPathCountBydriverNationalId;
+
+	/**
+	 * Returns all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @return the matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId) {
+
+		return findBydriverNationalId(
+			driverNationalId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @return the range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end) {
+
+		return findBydriverNationalId(driverNationalId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		return findBydriverNationalId(
+			driverNationalId, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ClaimIntimationMtrModelImpl</code>.
+	 * </p>
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param start the lower bound of the range of claim intimation mtrs
+	 * @param end the upper bound of the range of claim intimation mtrs (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching claim intimation mtrs
+	 */
+	@Override
+	public List<ClaimIntimationMtr> findBydriverNationalId(
+		long driverNationalId, int start, int end,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean useFinderCache) {
+
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+			(orderByComparator == null)) {
+
+			if (useFinderCache) {
+				finderPath = _finderPathWithoutPaginationFindBydriverNationalId;
+				finderArgs = new Object[] {driverNationalId};
+			}
+		}
+		else if (useFinderCache) {
+			finderPath = _finderPathWithPaginationFindBydriverNationalId;
+			finderArgs = new Object[] {
+				driverNationalId, start, end, orderByComparator
+			};
+		}
+
+		List<ClaimIntimationMtr> list = null;
+
+		if (useFinderCache) {
+			list = (List<ClaimIntimationMtr>)dummyFinderCache.getResult(
+				finderPath, finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ClaimIntimationMtr claimIntimationMtr : list) {
+					if (driverNationalId !=
+							claimIntimationMtr.getDriverNationalId()) {
+
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler sb = null;
+
+			if (orderByComparator != null) {
+				sb = new StringBundler(
+					3 + (orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				sb = new StringBundler(3);
+			}
+
+			sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
+
+			sb.append(_FINDER_COLUMN_DRIVERNATIONALID_DRIVERNATIONALID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(
+					sb, _ORDER_BY_ENTITY_ALIAS, orderByComparator);
+			}
+			else {
+				sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				queryPos.add(driverNationalId);
+
+				list = (List<ClaimIntimationMtr>)QueryUtil.list(
+					query, getDialect(), start, end);
+
+				cacheResult(list);
+
+				if (useFinderCache) {
+					dummyFinderCache.putResult(finderPath, finderArgs, list);
+				}
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findBydriverNationalId_First(
+			long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr = fetchBydriverNationalId_First(
+			driverNationalId, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("driverNationalId=");
+		sb.append(driverNationalId);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the first claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchBydriverNationalId_First(
+		long driverNationalId,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		List<ClaimIntimationMtr> list = findBydriverNationalId(
+			driverNationalId, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr findBydriverNationalId_Last(
+			long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr = fetchBydriverNationalId_Last(
+			driverNationalId, orderByComparator);
+
+		if (claimIntimationMtr != null) {
+			return claimIntimationMtr;
+		}
+
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		sb.append("driverNationalId=");
+		sb.append(driverNationalId);
+
+		sb.append("}");
+
+		throw new NoSuchClaimIntimationMtrException(sb.toString());
+	}
+
+	/**
+	 * Returns the last claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching claim intimation mtr, or <code>null</code> if a matching claim intimation mtr could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr fetchBydriverNationalId_Last(
+		long driverNationalId,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator) {
+
+		int count = countBydriverNationalId(driverNationalId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<ClaimIntimationMtr> list = findBydriverNationalId(
+			driverNationalId, count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the claim intimation mtrs before and after the current claim intimation mtr in the ordered set where driverNationalId = &#63;.
+	 *
+	 * @param claimIntimationMotorId the primary key of the current claim intimation mtr
+	 * @param driverNationalId the driver national ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next claim intimation mtr
+	 * @throws NoSuchClaimIntimationMtrException if a claim intimation mtr with the primary key could not be found
+	 */
+	@Override
+	public ClaimIntimationMtr[] findBydriverNationalId_PrevAndNext(
+			long claimIntimationMotorId, long driverNationalId,
+			OrderByComparator<ClaimIntimationMtr> orderByComparator)
+		throws NoSuchClaimIntimationMtrException {
+
+		ClaimIntimationMtr claimIntimationMtr = findByPrimaryKey(
+			claimIntimationMotorId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			ClaimIntimationMtr[] array = new ClaimIntimationMtrImpl[3];
+
+			array[0] = getBydriverNationalId_PrevAndNext(
+				session, claimIntimationMtr, driverNationalId,
+				orderByComparator, true);
+
+			array[1] = claimIntimationMtr;
+
+			array[2] = getBydriverNationalId_PrevAndNext(
+				session, claimIntimationMtr, driverNationalId,
+				orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception exception) {
+			throw processException(exception);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected ClaimIntimationMtr getBydriverNationalId_PrevAndNext(
+		Session session, ClaimIntimationMtr claimIntimationMtr,
+		long driverNationalId,
+		OrderByComparator<ClaimIntimationMtr> orderByComparator,
+		boolean previous) {
+
+		StringBundler sb = null;
+
+		if (orderByComparator != null) {
+			sb = new StringBundler(
+				4 + (orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			sb = new StringBundler(3);
+		}
+
+		sb.append(_SQL_SELECT_CLAIMINTIMATIONMTR_WHERE);
+
+		sb.append(_FINDER_COLUMN_DRIVERNATIONALID_DRIVERNATIONALID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields =
+				orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				sb.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(WHERE_GREATER_THAN);
+					}
+					else {
+						sb.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			sb.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				sb.append(_ORDER_BY_ENTITY_ALIAS);
+				sb.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						sb.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						sb.append(ORDER_BY_ASC);
+					}
+					else {
+						sb.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			sb.append(ClaimIntimationMtrModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = sb.toString();
+
+		Query query = session.createQuery(sql);
+
+		query.setFirstResult(0);
+		query.setMaxResults(2);
+
+		QueryPos queryPos = QueryPos.getInstance(query);
+
+		queryPos.add(driverNationalId);
+
+		if (orderByComparator != null) {
+			for (Object orderByConditionValue :
+					orderByComparator.getOrderByConditionValues(
+						claimIntimationMtr)) {
+
+				queryPos.add(orderByConditionValue);
+			}
+		}
+
+		List<ClaimIntimationMtr> list = query.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the claim intimation mtrs where driverNationalId = &#63; from the database.
+	 *
+	 * @param driverNationalId the driver national ID
+	 */
+	@Override
+	public void removeBydriverNationalId(long driverNationalId) {
+		for (ClaimIntimationMtr claimIntimationMtr :
+				findBydriverNationalId(
+					driverNationalId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+					null)) {
+
+			remove(claimIntimationMtr);
+		}
+	}
+
+	/**
+	 * Returns the number of claim intimation mtrs where driverNationalId = &#63;.
+	 *
+	 * @param driverNationalId the driver national ID
+	 * @return the number of matching claim intimation mtrs
+	 */
+	@Override
+	public int countBydriverNationalId(long driverNationalId) {
+		FinderPath finderPath = _finderPathCountBydriverNationalId;
+
+		Object[] finderArgs = new Object[] {driverNationalId};
+
+		Long count = (Long)dummyFinderCache.getResult(
+			finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler sb = new StringBundler(2);
+
+			sb.append(_SQL_COUNT_CLAIMINTIMATIONMTR_WHERE);
+
+			sb.append(_FINDER_COLUMN_DRIVERNATIONALID_DRIVERNATIONALID_2);
+
+			String sql = sb.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query query = session.createQuery(sql);
+
+				QueryPos queryPos = QueryPos.getInstance(query);
+
+				queryPos.add(driverNationalId);
+
+				count = (Long)query.uniqueResult();
+
+				dummyFinderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception exception) {
+				throw processException(exception);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String
+		_FINDER_COLUMN_DRIVERNATIONALID_DRIVERNATIONALID_2 =
+			"claimIntimationMtr.driverNationalId = ?";
+
 	public ClaimIntimationMtrPersistenceImpl() {
 		Map<String, String> dbColumnNames = new HashMap<String, String>();
 
@@ -399,11 +1762,6 @@ public class ClaimIntimationMtrPersistenceImpl
 	public void cacheResult(ClaimIntimationMtr claimIntimationMtr) {
 		dummyEntityCache.putResult(
 			ClaimIntimationMtrImpl.class, claimIntimationMtr.getPrimaryKey(),
-			claimIntimationMtr);
-
-		dummyFinderCache.putResult(
-			_finderPathFetchByintimationReferenceNo,
-			new Object[] {claimIntimationMtr.getIntimationReferenceNo()},
 			claimIntimationMtr);
 	}
 
@@ -471,21 +1829,6 @@ public class ClaimIntimationMtrPersistenceImpl
 			dummyEntityCache.removeResult(
 				ClaimIntimationMtrImpl.class, primaryKey);
 		}
-	}
-
-	protected void cacheUniqueFindersCache(
-		ClaimIntimationMtrModelImpl claimIntimationMtrModelImpl) {
-
-		Object[] args = new Object[] {
-			claimIntimationMtrModelImpl.getIntimationReferenceNo()
-		};
-
-		dummyFinderCache.putResult(
-			_finderPathCountByintimationReferenceNo, args, Long.valueOf(1),
-			false);
-		dummyFinderCache.putResult(
-			_finderPathFetchByintimationReferenceNo, args,
-			claimIntimationMtrModelImpl, false);
 	}
 
 	/**
@@ -642,8 +1985,6 @@ public class ClaimIntimationMtrPersistenceImpl
 		dummyEntityCache.putResult(
 			ClaimIntimationMtrImpl.class, claimIntimationMtrModelImpl, false,
 			true);
-
-		cacheUniqueFindersCache(claimIntimationMtrModelImpl);
 
 		if (isNew) {
 			claimIntimationMtr.setNew(false);
@@ -936,16 +2277,64 @@ public class ClaimIntimationMtrPersistenceImpl
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll",
 			new String[0], new String[0], false);
 
-		_finderPathFetchByintimationReferenceNo = _createFinderPath(
-			FINDER_CLASS_NAME_ENTITY, "fetchByintimationReferenceNo",
-			new String[] {String.class.getName()},
-			new String[] {"intimation_ref"}, true);
+		_finderPathWithPaginationFindByintimationReferenceNo =
+			_createFinderPath(
+				FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+				"findByintimationReferenceNo",
+				new String[] {
+					String.class.getName(), Integer.class.getName(),
+					Integer.class.getName(), OrderByComparator.class.getName()
+				},
+				new String[] {"intimation_ref"}, true);
+
+		_finderPathWithoutPaginationFindByintimationReferenceNo =
+			_createFinderPath(
+				FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+				"findByintimationReferenceNo",
+				new String[] {String.class.getName()},
+				new String[] {"intimation_ref"}, true);
 
 		_finderPathCountByintimationReferenceNo = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
 			"countByintimationReferenceNo",
 			new String[] {String.class.getName()},
 			new String[] {"intimation_ref"}, false);
+
+		_finderPathWithPaginationFindBymobileNo = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBymobileNo",
+			new String[] {
+				String.class.getName(), Integer.class.getName(),
+				Integer.class.getName(), OrderByComparator.class.getName()
+			},
+			new String[] {"Mobile_No"}, true);
+
+		_finderPathWithoutPaginationFindBymobileNo = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBymobileNo",
+			new String[] {String.class.getName()}, new String[] {"Mobile_No"},
+			true);
+
+		_finderPathCountBymobileNo = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBymobileNo",
+			new String[] {String.class.getName()}, new String[] {"Mobile_No"},
+			false);
+
+		_finderPathWithPaginationFindBydriverNationalId = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBydriverNationalId",
+			new String[] {
+				Long.class.getName(), Integer.class.getName(),
+				Integer.class.getName(), OrderByComparator.class.getName()
+			},
+			new String[] {"Driver_National_ID"}, true);
+
+		_finderPathWithoutPaginationFindBydriverNationalId = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBydriverNationalId",
+			new String[] {Long.class.getName()},
+			new String[] {"Driver_National_ID"}, true);
+
+		_finderPathCountBydriverNationalId = _createFinderPath(
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countBydriverNationalId", new String[] {Long.class.getName()},
+			new String[] {"Driver_National_ID"}, false);
 	}
 
 	@Deactivate

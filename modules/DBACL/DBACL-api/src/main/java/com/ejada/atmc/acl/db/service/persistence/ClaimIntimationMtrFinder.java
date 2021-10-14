@@ -28,4 +28,12 @@ public interface ClaimIntimationMtrFinder {
 	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
 		findClaimIntimationList(String keyword);
 
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationList(String findByCategory, String findByValue);
+
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationListFromView(String referenceNo);
+
 }

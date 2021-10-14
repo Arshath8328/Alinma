@@ -23,8 +23,6 @@
 
 	Log _log = LogFactoryUtil.getLog(this.getClass());
 %>
-
-			
 	<div class="row margin-top">
 		<div class="col-md-10 col-md-offset-1">
 			<h3 class="text-primary"><liferay-ui:message key="claims_report_claim"/></h3>
@@ -39,16 +37,23 @@
 				<div class="row">
 					<div class="col-sm-12 col-xs-12 col-md-offset-1 col-md-10 col-lg-10 col-lg-offset-1">
 						<div class="row">
-							<h5>You have initiated a claim. Please followup on the status of your claim using this intimation reference number : </h5>
-							<h4><b><%= claimIntimationMtr.getIntimationReferenceNo() %></b></h4>
+							<h6>You have initiated a claim. Please followup on the status of your claim using this intimation reference number : </h6>
+							<h5><b><%= claimIntimationMtr.getIntimationReferenceNo() %></b></h5>
 						</div>
 						<br/>
 						<br/>
 						<br/>
 						<div class="row">
-							<h5>This is your claim-id : </h5><br/>
-							<h4><b><%= claimIntimationMtr.getClaimIntimationMotorId() %></b></h4>
+							<h6>This is your claim-id : </h6><br/>
+							<h5><b><%= claimIntimationMtr.getClaimIntimationMotorId() %></b></h5>
 						</div>
+						<br/>
+						<br/>
+						<br/>
+						<div class="row">
+							<h6>Please contact customer service : </h6><br/>
+							<h5><b>8001240211</b></h5>
+						</div>						
 					</div>
 				</div>
 			</div>

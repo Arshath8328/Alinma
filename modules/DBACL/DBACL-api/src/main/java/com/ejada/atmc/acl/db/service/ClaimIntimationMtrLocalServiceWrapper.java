@@ -229,9 +229,35 @@ public class ClaimIntimationMtrLocalServiceWrapper
 
 	@Override
 	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
+		findClaimIntimationList(int findByCategory, String findByValue) {
+
+		return _claimIntimationMtrLocalService.findClaimIntimationList(
+			findByCategory, findByValue);
+	}
+
+	@Override
+	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
 		findClaimIntimationList(String keyword) {
 
 		return _claimIntimationMtrLocalService.findClaimIntimationList(keyword);
+	}
+
+	@Override
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationList(String findByCategory, String findByValue) {
+
+		return _claimIntimationMtrLocalService.findClaimIntimationList(
+			findByCategory, findByValue);
+	}
+
+	@Override
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationListFromView(String referenceNo) {
+
+		return _claimIntimationMtrLocalService.findClaimIntimationListFromView(
+			referenceNo);
 	}
 
 	@Override

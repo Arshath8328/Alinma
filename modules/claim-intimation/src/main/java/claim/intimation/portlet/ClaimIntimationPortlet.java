@@ -36,12 +36,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -50,6 +52,7 @@ import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.servlet.http.Part;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -76,36 +79,61 @@ import claim.intimation.constants.ClaimIntimationPortletKeys;
 	service = Portlet.class
 )
 public class ClaimIntimationPortlet extends MVCPortlet {
-	private static final String	CODE_FREEZ_YN	= "N";
-	private static final String	BODY_CODE		= "MOT_BODY_TYP";
 
+	@Reference
+	private DLAppService		_dlAppService;
+
+	@Reference
+	private Portal				_portal;
+
+	private static final Log	_log	= LogFactoryUtil.getLog(ClaimIntimationPortlet.class);
+	
+	private static final String	CODE_FREEZ_YN	= "N";
+	private static boolean isDataSet;
+	Map<String, String> manufactMap = new HashMap<>();
+	List<CodeMasterDetails> vehicleModelList = new ArrayList<>();
+	List<CodeMasterDetails> codeMaterList  = new ArrayList<>();
+	List<CodeMasterDetails> natureOfLossList;
+	List<CodeMasterDetails> cityList;
+	List<CodeMasterDetails> nationalityList;
+
+	static {
+		_log.info("claim Intimation Portlet initial isDataSet : false");
+		isDataSet = false;
+	}
+	
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 		try {
-			String myview = (renderRequest.getAttribute("myview") != null) ? (String) renderRequest.getAttribute("myview")
-					: (renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view2";
-			List<CodeMasterDetails> codeMaterList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez("MOT_VEH_MAKE", CODE_FREEZ_YN);
-			_log.info("codeMaterList  >>>>>>>" + codeMaterList.size());
-			ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-			String currLocale = themeDisplay.getLocale().toString();
-			Map<String, String> manufactMap = new HashMap<>();
-			for (CodeMasterDetails codeMasterDtls : codeMaterList) {
-				if (currLocale.equals("en_US")) {
-					codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\"", ""));
-					codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\'", ""));
-					manufactMap.put(codeMasterDtls.getCodeDesc(), codeMasterDtls.getCodeSub());
-				} else {
-					codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\"", ""));
-					codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\'", ""));
-					manufactMap.put(codeMasterDtls.getCodeDescAr(), codeMasterDtls.getCodeSub());
-				}
+			String myview = (renderRequest.getAttribute("myview") != null) ? (String) renderRequest.getAttribute("myview") : 
+							(renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view2";
+			if (!isDataSet) {
+				codeMaterList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez("MOT_VEH_MAKE", CODE_FREEZ_YN);
+				vehicleModelList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez("MOT_VEH_MOD", CODE_FREEZ_YN);
+				natureOfLossList = CodeMasterDetailsLocalServiceUtil.getCustomCodes(ClaimIntimationPortletKeys.CODE_NAT_OF_LOSS);
+				cityList = CodeMasterDetailsLocalServiceUtil.getCustomCodes(ClaimIntimationPortletKeys.CITY);
+				nationalityList = CodeMasterDetailsLocalServiceUtil.getCustomCodes(ClaimIntimationPortletKeys.NATIONALITY);
+				ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
+				String currLocale = themeDisplay.getLocale().toString();
 
+				for (CodeMasterDetails codeMasterDtls : codeMaterList) {
+					if (currLocale.equals("en_US")) {
+						codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\"", ""));
+						codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\'", ""));
+						manufactMap.put(codeMasterDtls.getCodeDesc(), codeMasterDtls.getCodeSub());
+					} else {
+						codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\"", ""));
+						codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\'", ""));
+						manufactMap.put(codeMasterDtls.getCodeDescAr(), codeMasterDtls.getCodeSub());
+					}
+				}
+				isDataSet = true;
 			}
 			renderRequest.setAttribute("manufactMap", manufactMap);
-			List<CodeMasterDetails> natureOfLossList = CodeMasterDetailsLocalServiceUtil.getCustomCodes(ClaimIntimationPortletKeys.CODE_NAT_OF_LOSS);
-			List<CodeMasterDetails> cityList = CodeMasterDetailsLocalServiceUtil.getCustomCodes(ClaimIntimationPortletKeys.CITY);
 			renderRequest.setAttribute("cityList", cityList);
 			renderRequest.setAttribute("natureOfLossList", natureOfLossList);
+			renderRequest.setAttribute("vehicleModelList", vehicleModelList);
+			renderRequest.setAttribute("nationalityList", nationalityList);
 
 			ClaimIntimationMtr claimIntimationMtr = (ClaimIntimationMtr) renderRequest.getPortletSession().getAttribute("intimateClaimInitiated");
 			if (Validator.isNotNull(claimIntimationMtr)) {
@@ -117,7 +145,6 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 
 			String view = "/" + myview + ".jsp";
 			PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher(view);
-
 			dispatcher.forward(renderRequest, renderResponse);
 		} catch (PortalException e) {
 			_log.error(e.getMessage(), e);
@@ -149,8 +176,17 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 		Date driverDateOfBirthG = ParamUtil.getDate(request, "dateOfBirthG", new SimpleDateFormat("yyyy-mm-dd"));
 		String driverGender = ParamUtil.getString(request, "driverGender");
 
-//		UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(request);
-//		File[] claimIntimationAttachments = uploadPortletRequest.getFiles("claimIntimationAttachments");
+		List<String> filesToBeUploaded = new ArrayList<>();
+	    List<Part> fileParts;
+		try {
+			fileParts = new ArrayList<>(request.getParts());
+			for (Part filePart : fileParts) {
+				String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+				filesToBeUploaded.add(fileName);
+			}
+		} catch (PortletException e1) {
+			e1.printStackTrace();
+		}
 
 		ClaimIntimationMtr claimIntimationMtr = ClaimIntimationMtrLocalServiceUtil.intimateClaim(claimantType, policyNumber, vehicleIdentNumber, plateL1, plateL2, plateL3, sequenceNumber,
 				chassisNumber, mobileNumber, causeOfLoss, dateOfLossOrAccident, accidentCity, accidentDescription, sourceOfAccidentReport, accidentReportNumber, vehicleMake, vehicleModel, driverName,
@@ -180,7 +216,7 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 					}
 					long uploadedFolderId = 0L;
 					try {
-						uploadedFolderId = this.uploadFileEntity(serviceContext, uploadRequest, userId, claimIntimationMtr.getIntimationReferenceNo());
+						uploadedFolderId = this.uploadFileEntity(serviceContext, uploadRequest, userId, claimIntimationMtr.getIntimationReferenceNo(), filesToBeUploaded);
 					} catch (SystemException | PortalException e) {
 						e.printStackTrace();
 					}
@@ -203,16 +239,24 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 							OutputStream outStream = new FileOutputStream(targetFile);
 							outStream.write(buffer);
 							outStream.close();
+							emailAttachmentNames.add(fileEntry.getFileName());
 							emailAttachments.add(targetFile);
 						}
 					} catch (PortalException e) {
+						
 						e.printStackTrace();
 					}
 					_log.info("EmailAttachments size : " + emailAttachments.size());
 					String mailSubject = "Claim Intimation Successful!";
 					String mailMessage = "You have successfully intimated a claim. Please find your claim by intimation number " + claimIntimationMtr.getIntimationReferenceNo();
 					mailMessage += "Here is the details you filled while intimating your claim: \n";
-					mailMessage += "claimantType : " + claimantType + "\nsequenceNumber : " + sequenceNumber + "\npolicyNumber : " + policyNumber;
+					mailMessage +="claimantType  : " + claimantType + "		  policyNumber  : " + policyNumber +
+							"		  vehicleIdentNumber  : " +vehicleIdentNumber + "		  plateL1  : " + plateL1+ "		  plateL2  : " +plateL2 + "		  plateL3  : " + plateL3
+					+ "		 sequenceNumber : " + sequenceNumber+ "		  chassisNumber  : " + chassisNumber+ "		  mobileNumber  : " + mobileNumber+
+					"		  causeOfLoss  : " + causeOfLoss+ "		 dateOfLossOrAccident: " +dateOfLossOrAccident + "		  accidentCity  : " + accidentCity+ 
+					"		  accidentDescription  : " + accidentDescription+ "		  sourceOfAccidentReport  : " +sourceOfAccidentReport + "		  accidentReportNumber  : " +accidentReportNumber +
+					"		  vehicleMake  : " +vehicleMake + "		  vehicleModel  : " + vehicleModel+ "		  driverName  : " + driverName+ "		  driverNationality  : " +driverNationality 
+					+ "		 driverNationalId: " + driverNationalId+ "	driverDateOfBirthG: " + driverDateOfBirthG+ "		  driverGender  " +driverGender;
 //					SMSLocalServiceUtil.sendSms(mailMessage, mobile);
 
 					SendEmailServiceUtil.sendEmail("vidit@aimdek.in", mailSubject, mailMessage, emailAttachmentNames, emailAttachments);
@@ -223,7 +267,7 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 		}
 	}
 
-	private long uploadFileEntity(ServiceContext serviceContext, UploadPortletRequest request, long userId, String claimIntimationReferenceNo) throws PortalException, SystemException {
+	private long uploadFileEntity(ServiceContext serviceContext, UploadPortletRequest request, long userId, String claimIntimationReferenceNo, List<String> filesToBeUploaded) throws PortalException, SystemException {
 		String filename = "";
 		String description = "Claim Intimation Files for " + claimIntimationReferenceNo;
 
@@ -237,29 +281,18 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 			_log.info("Folder Created In the Portal : " + claimIntimationReferenceNo);
 			File[] claimIntimationAttachments = request.getFiles("claimIntimationAttachments");
 
-			for (File file : claimIntimationAttachments) {
-				filename = file.getName();
+			for (int i=0; i<claimIntimationAttachments.length; i++) {
+				File file = claimIntimationAttachments[i];
+				filename = filesToBeUploaded.get(i);
 				String mimeType = MimeTypesUtil.getContentType(file);
 
 				FileEntry entry = DLAppLocalServiceUtil.addFileEntry(serviceContext.getUserId(), repositoryId, folderId, filename, mimeType, filename, description, "", file, serviceContext);
 				_log.info("File " + entry.getFileName() + " uploaded to " + f.getName());
 			}
 			return folderId;
-		} catch (PortalException e) {
-			_log.error("An exception occured uploading file: " + e.getMessage());
-			throw e;
-		} catch (SystemException e) {
+		} catch (PortalException | SystemException e) {
 			_log.error("An exception occured uploading file: " + e.getMessage());
 			throw e;
 		}
 	}
-
-	@Reference
-	private DLAppService		_dlAppService;
-
-	@Reference
-	private Portal				_portal;
-
-	private static final Log	_log	= LogFactoryUtil.getLog(ClaimIntimationPortlet.class);
-
 }

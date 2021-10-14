@@ -14,15 +14,18 @@
 
 package com.ejada.atmc.acl.db.service.impl;
 
+import com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO;
 import com.ejada.atmc.acl.db.model.ClaimIntimationMtr;
 import com.ejada.atmc.acl.db.service.ClaimIntimationMtrLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.base.ClaimIntimationMtrLocalServiceBaseImpl;
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -118,5 +121,41 @@ public class ClaimIntimationMtrLocalServiceImpl extends ClaimIntimationMtrLocalS
 
 	public List<ClaimIntimationMtr> findClaimIntimationList(String keyword){
 		return claimIntimationMtrFinder.findClaimIntimationList(keyword);
+	}
+	
+	public List<ClaimIntimationMtrDTO> findClaimIntimationList(String findByCategory, String findByValue){
+		return claimIntimationMtrFinder.findClaimIntimationList(findByCategory, findByValue);
+	}
+	
+	public List<ClaimIntimationMtrDTO> findClaimIntimationListFromView(String referenceNo){
+		return claimIntimationMtrFinder.findClaimIntimationListFromView(referenceNo);
+	}
+	
+	public List<ClaimIntimationMtr> findClaimIntimationList(int findByCategory, String findByValue){
+		List<ClaimIntimationMtr> claimsList = new ArrayList<>();
+		switch(findByCategory) {
+			case 1:
+				ClaimIntimationMtr claim;
+				try {
+					claim = ClaimIntimationMtrLocalServiceUtil.getClaimIntimationMtr(Long.parseLong(findByValue));
+					claimsList.add(claim);
+				} catch (NumberFormatException | PortalException e) {
+					_log.error(e.getMessage(), e);
+				}
+				break;
+			case 2:
+				claimsList = claimIntimationMtrPersistence.findByintimationReferenceNo(findByValue);
+				break;
+			case 3:
+				claimsList = claimIntimationMtrPersistence.findBymobileNo(findByValue);
+				break;
+			case 4:
+				claimsList = claimIntimationMtrPersistence.findBydriverNationalId(Long.parseLong(findByValue));
+				break;
+			default:
+				break;
+			
+		}
+		return claimsList;
 	}
 }
