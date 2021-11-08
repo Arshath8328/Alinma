@@ -64,7 +64,8 @@ margin:3% auto;  border-collapse: collapse !important;
 		<div class="col-md-10 col-md-offset-1">
 			<div class="portlet-content">
 				<div class="row">
-					<div
+					<h4><liferay-ui:message key="claim.status.portlet.find.claim"/></h4>
+					<%-- <div
 						class="col-sm-12 col-xs-12 col-md-offset-1 col-md-10 col-lg-10 col-lg-offset-1" style="margin:auto; text-align:center">
 						<div class="radio-group" style="width: fit-content; display: inline-block;">
 							<input id="<portlet:namespace/>findByCategory1"
@@ -96,7 +97,7 @@ margin:3% auto;  border-collapse: collapse !important;
 								for="_ATMCClaimStatusTracker_findByCategory4"> National
 								Id</label>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 				<div class="row"  style="margin-left: 36%">
 					<input type="text" name="<portlet:namespace/>findByValue"
@@ -105,24 +106,23 @@ margin:3% auto;  border-collapse: collapse !important;
 				</div>
 				<%
 					if (claimsList != null && !claimsList.isEmpty()) { %>
-					<table border="1px solid black" id="claims-table">
+						<table border="1px solid black" id="claims-table">
 							<tr>
 								<th>Claim Intimation Reference Number</th>
-								<th>Claim Id</th>
+								<th>Claim Number</th>
 								<th>Claim Status</th>
 							</tr>
-					<%	for (ClaimIntimationMtrDTO claim : claimsList) {
-				%>
+						<%	for (ClaimIntimationMtrDTO claim : claimsList) {
+							%>
 							<tr>
 								<td><%=claim.getClaimIntimationMtr().getIntimationReferenceNo()%></td>
-								<td><%=claim.getClaimIntimationMtr().getClaimIntimationMotorId()%></td>
+								<td><%=claim.getClaimNumber()!=null ? claim.getClaimNumber() : ""%></td>
 								<td><%=claim.getClaimStatus()%></td>
 							</tr>
-				
-				<%
+							<%
+						}
 					}
-					}
-				%>
+					%>
 					</table>
 			</div>
 		</div>

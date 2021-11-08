@@ -42,16 +42,8 @@
 						</div>
 						<br/>
 						<br/>
-						<br/>
 						<div class="row">
-							<h6>This is your claim-id : </h6><br/>
-							<h5><b><%= claimIntimationMtr.getClaimIntimationMotorId() %></b></h5>
-						</div>
-						<br/>
-						<br/>
-						<br/>
-						<div class="row">
-							<h6>Please contact customer service : </h6><br/>
+							<h6>Please contact customer service : </h6>
 							<h5><b>8001240211</b></h5>
 						</div>						
 					</div>

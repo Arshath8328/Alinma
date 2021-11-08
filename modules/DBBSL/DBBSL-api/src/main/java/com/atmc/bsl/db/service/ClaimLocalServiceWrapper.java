@@ -258,6 +258,23 @@ public class ClaimLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+			getNajmClaimByCustomId(String caseNo, String customId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _claimLocalService.getNajmClaimByCustomId(caseNo, customId);
+	}
+
+	@Override
+	public java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+			getNajmClaimByNajmPlateNumber(String caseNo, String najmPlateNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _claimLocalService.getNajmClaimByNajmPlateNumber(
+			caseNo, najmPlateNo);
+	}
+
+	@Override
 	public com.atmc.bsl.db.domain.claim.NajmClaimIntimation
 			getNajmClaimIntimationByCustomId(
 				String caseNo, String vehicleCustomId, String language)

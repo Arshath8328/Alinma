@@ -1744,6 +1744,10 @@ public class ClaimIntimationMtrPersistenceImpl
 		dbColumnNames.put("driverBirthDate", "Driver_Birth_Date");
 		dbColumnNames.put("driverGender", "Driver_Gender");
 		dbColumnNames.put("attachmentReference", "attachment_reference");
+		dbColumnNames.put("claimStatus", "claim_status");
+		dbColumnNames.put("ibanNumber", "iban_no");
+		dbColumnNames.put("bankName", "bank_name");
+		dbColumnNames.put("emailId", "EMAIL_ID");
 
 		setDBColumnNames(dbColumnNames);
 
@@ -2409,7 +2413,8 @@ public class ClaimIntimationMtrPersistenceImpl
 			"srcOfAccidentReport", "accidentReportNo", "vehicleMake",
 			"vehicleModel", "driverName", "driverNationality",
 			"driverNationalId", "driverBirthDate", "driverGender",
-			"attachmentReference"
+			"attachmentReference", "claimStatus", "ibanNumber", "bankName",
+			"emailId"
 		});
 
 	private FinderPath _createFinderPath(

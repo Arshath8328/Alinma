@@ -1535,7 +1535,11 @@
 		<column name="driverBirthDate" type="Date" db-name="Driver_Birth_Date" />
 		<column name="driverGender" type="String" db-name="Driver_Gender" />
 		<column name="attachmentReference" type="String" db-name="attachment_reference" />
-
+		<column name="claimStatus" type="int" db-name="claim_status" />
+		<column name="ibanNumber" type="String" db-name="iban_no" />
+		<column name="bankName" type="String" db-name="bank_name" />
+		<column name="emailId" type="String" db-name="EMAIL_ID" />
+		
 		<finder name="intimationReferenceNo" return-type="Collection">
 			<finder-column name="intimationReferenceNo" />
 		</finder>
@@ -1545,8 +1549,8 @@
 		<finder name="driverNationalId" return-type="Collection">
 			<finder-column name="driverNationalId" />
 		</finder>
-		
 	</entity>
+	
 	<exceptions>
 		<exception>NoSuchNajmCaseNo</exception>
 		<exception>NoSuchNajmVehicleNo</exception>

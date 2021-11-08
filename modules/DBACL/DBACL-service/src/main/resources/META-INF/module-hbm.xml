@@ -173,6 +173,10 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Birth_Date" name="driverBirthDate" type="org.hibernate.type.TimestampType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="Driver_Gender" name="driverGender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="attachment_reference" name="attachmentReference" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="claim_status" name="claimStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="iban_no" name="ibanNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="bank_name" name="bankName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="EMAIL_ID" name="emailId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="com.ejada.atmc.acl.db.model.impl.ClaimODSearchImpl" table="ODS_CLAIM_OD_SEARCH">
 		<composite-id class="com.ejada.atmc.acl.db.service.persistence.ClaimODSearchPK" name="primaryKey">

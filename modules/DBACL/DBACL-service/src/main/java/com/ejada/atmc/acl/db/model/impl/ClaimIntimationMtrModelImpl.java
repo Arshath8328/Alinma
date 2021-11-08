@@ -84,7 +84,9 @@ public class ClaimIntimationMtrModelImpl
 		{"Driver_National_ID", Types.BIGINT},
 		{"Driver_Birth_Date", Types.TIMESTAMP},
 		{"Driver_Gender", Types.VARCHAR},
-		{"attachment_reference", Types.VARCHAR}
+		{"attachment_reference", Types.VARCHAR},
+		{"claim_status", Types.INTEGER}, {"iban_no", Types.VARCHAR},
+		{"bank_name", Types.VARCHAR}, {"EMAIL_ID", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -113,10 +115,14 @@ public class ClaimIntimationMtrModelImpl
 		TABLE_COLUMNS_MAP.put("Driver_Birth_Date", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("Driver_Gender", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("attachment_reference", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("claim_status", Types.INTEGER);
+		TABLE_COLUMNS_MAP.put("iban_no", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("bank_name", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("EMAIL_ID", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table CLAIM_INTIMATION_MTR (cim_sys_id LONG not null primary key,intimation_ref VARCHAR(75) null,claimant_type VARCHAR(75) null,Policy_No VARCHAR(75) null,Vehicle_Plate_No VARCHAR(75) null,Sequence_No LONG,Chassis_No VARCHAR(75) null,Mobile_No VARCHAR(75) null,Cause_of_loss VARCHAR(75) null,Date_of_Loss DATE null,Accident_City VARCHAR(75) null,Desc_of_Accident VARCHAR(75) null,src_accident_report VARCHAR(75) null,Accident_Report_No VARCHAR(75) null,Vehicle_Make VARCHAR(75) null,vehicle_model VARCHAR(75) null,Driver_Name VARCHAR(75) null,Driver_Nationality VARCHAR(75) null,Driver_National_ID LONG,Driver_Birth_Date DATE null,Driver_Gender VARCHAR(75) null,attachment_reference VARCHAR(75) null)";
+		"create table CLAIM_INTIMATION_MTR (cim_sys_id LONG not null primary key,intimation_ref VARCHAR(75) null,claimant_type VARCHAR(75) null,Policy_No VARCHAR(75) null,Vehicle_Plate_No VARCHAR(75) null,Sequence_No LONG,Chassis_No VARCHAR(75) null,Mobile_No VARCHAR(75) null,Cause_of_loss VARCHAR(75) null,Date_of_Loss DATE null,Accident_City VARCHAR(75) null,Desc_of_Accident VARCHAR(75) null,src_accident_report VARCHAR(75) null,Accident_Report_No VARCHAR(75) null,Vehicle_Make VARCHAR(75) null,vehicle_model VARCHAR(75) null,Driver_Name VARCHAR(75) null,Driver_Nationality VARCHAR(75) null,Driver_National_ID LONG,Driver_Birth_Date DATE null,Driver_Gender VARCHAR(75) null,attachment_reference VARCHAR(75) null,claim_status INTEGER,iban_no VARCHAR(75) null,bank_name VARCHAR(75) null,EMAIL_ID VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table CLAIM_INTIMATION_MTR";
@@ -209,6 +215,10 @@ public class ClaimIntimationMtrModelImpl
 		model.setDriverBirthDate(soapModel.getDriverBirthDate());
 		model.setDriverGender(soapModel.getDriverGender());
 		model.setAttachmentReference(soapModel.getAttachmentReference());
+		model.setClaimStatus(soapModel.getClaimStatus());
+		model.setIbanNumber(soapModel.getIbanNumber());
+		model.setBankName(soapModel.getBankName());
+		model.setEmailId(soapModel.getEmailId());
 
 		return model;
 	}
@@ -499,6 +509,29 @@ public class ClaimIntimationMtrModelImpl
 			"attachmentReference",
 			(BiConsumer<ClaimIntimationMtr, String>)
 				ClaimIntimationMtr::setAttachmentReference);
+		attributeGetterFunctions.put(
+			"claimStatus", ClaimIntimationMtr::getClaimStatus);
+		attributeSetterBiConsumers.put(
+			"claimStatus",
+			(BiConsumer<ClaimIntimationMtr, Integer>)
+				ClaimIntimationMtr::setClaimStatus);
+		attributeGetterFunctions.put(
+			"ibanNumber", ClaimIntimationMtr::getIbanNumber);
+		attributeSetterBiConsumers.put(
+			"ibanNumber",
+			(BiConsumer<ClaimIntimationMtr, String>)
+				ClaimIntimationMtr::setIbanNumber);
+		attributeGetterFunctions.put(
+			"bankName", ClaimIntimationMtr::getBankName);
+		attributeSetterBiConsumers.put(
+			"bankName",
+			(BiConsumer<ClaimIntimationMtr, String>)
+				ClaimIntimationMtr::setBankName);
+		attributeGetterFunctions.put("emailId", ClaimIntimationMtr::getEmailId);
+		attributeSetterBiConsumers.put(
+			"emailId",
+			(BiConsumer<ClaimIntimationMtr, String>)
+				ClaimIntimationMtr::setEmailId);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -949,6 +982,81 @@ public class ClaimIntimationMtrModelImpl
 		_attachmentReference = attachmentReference;
 	}
 
+	@JSON
+	@Override
+	public int getClaimStatus() {
+		return _claimStatus;
+	}
+
+	@Override
+	public void setClaimStatus(int claimStatus) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_claimStatus = claimStatus;
+	}
+
+	@JSON
+	@Override
+	public String getIbanNumber() {
+		if (_ibanNumber == null) {
+			return "";
+		}
+		else {
+			return _ibanNumber;
+		}
+	}
+
+	@Override
+	public void setIbanNumber(String ibanNumber) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_ibanNumber = ibanNumber;
+	}
+
+	@JSON
+	@Override
+	public String getBankName() {
+		if (_bankName == null) {
+			return "";
+		}
+		else {
+			return _bankName;
+		}
+	}
+
+	@Override
+	public void setBankName(String bankName) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_bankName = bankName;
+	}
+
+	@JSON
+	@Override
+	public String getEmailId() {
+		if (_emailId == null) {
+			return "";
+		}
+		else {
+			return _emailId;
+		}
+	}
+
+	@Override
+	public void setEmailId(String emailId) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_emailId = emailId;
+	}
+
 	public long getColumnBitmask() {
 		if (_columnBitmask > 0) {
 			return _columnBitmask;
@@ -1028,6 +1136,10 @@ public class ClaimIntimationMtrModelImpl
 		claimIntimationMtrImpl.setDriverBirthDate(getDriverBirthDate());
 		claimIntimationMtrImpl.setDriverGender(getDriverGender());
 		claimIntimationMtrImpl.setAttachmentReference(getAttachmentReference());
+		claimIntimationMtrImpl.setClaimStatus(getClaimStatus());
+		claimIntimationMtrImpl.setIbanNumber(getIbanNumber());
+		claimIntimationMtrImpl.setBankName(getBankName());
+		claimIntimationMtrImpl.setEmailId(getEmailId());
 
 		claimIntimationMtrImpl.resetOriginalValues();
 
@@ -1281,6 +1393,32 @@ public class ClaimIntimationMtrModelImpl
 			claimIntimationMtrCacheModel.attachmentReference = null;
 		}
 
+		claimIntimationMtrCacheModel.claimStatus = getClaimStatus();
+
+		claimIntimationMtrCacheModel.ibanNumber = getIbanNumber();
+
+		String ibanNumber = claimIntimationMtrCacheModel.ibanNumber;
+
+		if ((ibanNumber != null) && (ibanNumber.length() == 0)) {
+			claimIntimationMtrCacheModel.ibanNumber = null;
+		}
+
+		claimIntimationMtrCacheModel.bankName = getBankName();
+
+		String bankName = claimIntimationMtrCacheModel.bankName;
+
+		if ((bankName != null) && (bankName.length() == 0)) {
+			claimIntimationMtrCacheModel.bankName = null;
+		}
+
+		claimIntimationMtrCacheModel.emailId = getEmailId();
+
+		String emailId = claimIntimationMtrCacheModel.emailId;
+
+		if ((emailId != null) && (emailId.length() == 0)) {
+			claimIntimationMtrCacheModel.emailId = null;
+		}
+
 		return claimIntimationMtrCacheModel;
 	}
 
@@ -1376,6 +1514,10 @@ public class ClaimIntimationMtrModelImpl
 	private Date _driverBirthDate;
 	private String _driverGender;
 	private String _attachmentReference;
+	private int _claimStatus;
+	private String _ibanNumber;
+	private String _bankName;
+	private String _emailId;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);
@@ -1428,6 +1570,10 @@ public class ClaimIntimationMtrModelImpl
 		_columnOriginalValues.put("Driver_Birth_Date", _driverBirthDate);
 		_columnOriginalValues.put("Driver_Gender", _driverGender);
 		_columnOriginalValues.put("attachment_reference", _attachmentReference);
+		_columnOriginalValues.put("claim_status", _claimStatus);
+		_columnOriginalValues.put("iban_no", _ibanNumber);
+		_columnOriginalValues.put("bank_name", _bankName);
+		_columnOriginalValues.put("EMAIL_ID", _emailId);
 	}
 
 	private static final Map<String, String> _attributeNames;
@@ -1457,6 +1603,10 @@ public class ClaimIntimationMtrModelImpl
 		attributeNames.put("Driver_Birth_Date", "driverBirthDate");
 		attributeNames.put("Driver_Gender", "driverGender");
 		attributeNames.put("attachment_reference", "attachmentReference");
+		attributeNames.put("claim_status", "claimStatus");
+		attributeNames.put("iban_no", "ibanNumber");
+		attributeNames.put("bank_name", "bankName");
+		attributeNames.put("EMAIL_ID", "emailId");
 
 		_attributeNames = Collections.unmodifiableMap(attributeNames);
 	}
@@ -1515,6 +1665,14 @@ public class ClaimIntimationMtrModelImpl
 		columnBitmasks.put("Driver_Gender", 1048576L);
 
 		columnBitmasks.put("attachment_reference", 2097152L);
+
+		columnBitmasks.put("claim_status", 4194304L);
+
+		columnBitmasks.put("iban_no", 8388608L);
+
+		columnBitmasks.put("bank_name", 16777216L);
+
+		columnBitmasks.put("EMAIL_ID", 33554432L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

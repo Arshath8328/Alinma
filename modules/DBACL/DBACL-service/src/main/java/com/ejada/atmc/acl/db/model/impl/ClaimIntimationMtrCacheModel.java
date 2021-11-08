@@ -65,7 +65,7 @@ public class ClaimIntimationMtrCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(45);
+		StringBundler sb = new StringBundler(53);
 
 		sb.append("{claimIntimationMotorId=");
 		sb.append(claimIntimationMotorId);
@@ -111,6 +111,14 @@ public class ClaimIntimationMtrCacheModel
 		sb.append(driverGender);
 		sb.append(", attachmentReference=");
 		sb.append(attachmentReference);
+		sb.append(", claimStatus=");
+		sb.append(claimStatus);
+		sb.append(", ibanNumber=");
+		sb.append(ibanNumber);
+		sb.append(", bankName=");
+		sb.append(bankName);
+		sb.append(", emailId=");
+		sb.append(emailId);
 		sb.append("}");
 
 		return sb.toString();
@@ -263,6 +271,29 @@ public class ClaimIntimationMtrCacheModel
 			claimIntimationMtrImpl.setAttachmentReference(attachmentReference);
 		}
 
+		claimIntimationMtrImpl.setClaimStatus(claimStatus);
+
+		if (ibanNumber == null) {
+			claimIntimationMtrImpl.setIbanNumber("");
+		}
+		else {
+			claimIntimationMtrImpl.setIbanNumber(ibanNumber);
+		}
+
+		if (bankName == null) {
+			claimIntimationMtrImpl.setBankName("");
+		}
+		else {
+			claimIntimationMtrImpl.setBankName(bankName);
+		}
+
+		if (emailId == null) {
+			claimIntimationMtrImpl.setEmailId("");
+		}
+		else {
+			claimIntimationMtrImpl.setEmailId(emailId);
+		}
+
 		claimIntimationMtrImpl.resetOriginalValues();
 
 		return claimIntimationMtrImpl;
@@ -294,6 +325,11 @@ public class ClaimIntimationMtrCacheModel
 		driverBirthDate = objectInput.readLong();
 		driverGender = objectInput.readUTF();
 		attachmentReference = objectInput.readUTF();
+
+		claimStatus = objectInput.readInt();
+		ibanNumber = objectInput.readUTF();
+		bankName = objectInput.readUTF();
+		emailId = objectInput.readUTF();
 	}
 
 	@Override
@@ -425,6 +461,29 @@ public class ClaimIntimationMtrCacheModel
 		else {
 			objectOutput.writeUTF(attachmentReference);
 		}
+
+		objectOutput.writeInt(claimStatus);
+
+		if (ibanNumber == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(ibanNumber);
+		}
+
+		if (bankName == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(bankName);
+		}
+
+		if (emailId == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(emailId);
+		}
 	}
 
 	public long claimIntimationMotorId;
@@ -449,5 +508,9 @@ public class ClaimIntimationMtrCacheModel
 	public long driverBirthDate;
 	public String driverGender;
 	public String attachmentReference;
+	public int claimStatus;
+	public String ibanNumber;
+	public String bankName;
+	public String emailId;
 
 }

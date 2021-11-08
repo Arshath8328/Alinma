@@ -101,6 +101,10 @@
 		<field name="driverBirthDate" type="Date" />
 		<field name="driverGender" type="String" />
 		<field name="attachmentReference" type="String" />
+		<field name="claimStatus" type="int" />
+		<field name="ibanNumber" type="String" />
+		<field name="bankName" type="String" />
+		<field name="emailId" type="String" />
 	</model>
 	<model name="com.ejada.atmc.acl.db.model.ClaimODSearch">
 		<field name="policyNo" type="String" />

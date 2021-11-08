@@ -127,61 +127,61 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the claim local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are
- * added, rerun ServiceBuilder to copy their definitions into the
- * <code>com.atmc.bsl.db.service.ClaimLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy
+ * their definitions into the <code>com.atmc.bsl.db.service.ClaimLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security
- * checks based on the propagated JAAS credentials because this service can only
- * be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS
+ * credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see ClaimLocalServiceBaseImpl
+ * @see    ClaimLocalServiceBaseImpl
  */
-@Component(property = "model.class.name=com.atmc.bsl.db.model.Claim", service = AopService.class)
+@Component(
+		property = "model.class.name=com.atmc.bsl.db.model.Claim",
+		service = AopService.class
+)
 public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
-	private static final String CUSTOMER_CATG_CUSTOMER = "024";
-	private static final String CUSTOMER_TYPE_CUSTOMER = "CUSTOMER";
-	private static final String ATMC_ENGLISH_NAME = "18";
-	private static final String STATUS_SUBMITTED = "SUBMITTED";
-	private static final String USERNAME_CUSTOMER = "CUSTOMER";
-	private static final String CLAIM_INTIMATION_SOURCE = "01";
-	private static final String PRODUCT_CODE_TPL = "13102";
-	private static final String PRODUCT_CODE_COMPREHENSIVE = "13101";
-	private static final String NAJM_INS_COMPANY = "NAJM_INS_CO";
+	private static final String	CUSTOMER_CATG_CUSTOMER			= "024";
+	private static final String	CUSTOMER_TYPE_CUSTOMER			= "CUSTOMER";
+	private static final String	ATMC_ENGLISH_NAME				= "18";
+	private static final String	STATUS_SUBMITTED				= "SUBMITTED";
+	private static final String	USERNAME_CUSTOMER				= "CUSTOMER";
+	private static final String	CLAIM_INTIMATION_SOURCE			= "01";
+	private static final String	PRODUCT_CODE_TPL				= "13102";
+	private static final String	PRODUCT_CODE_COMPREHENSIVE		= "13101";
+	private static final String	NAJM_INS_COMPANY				= "NAJM_INS_CO";
 
-	private static final String VEHICLE_IDENT_TYPE_CUSTOM = "2";
-	private static final String VEHICLE_IDENT_TYPE_PLATE_NUMBER = "1";
-	private static final String REPORT_MODE_NAJM = "03";
-	private static final String REPORT_MODE_MUROOR = "01";
-	private static final String TRX_TPL = "TP";
-	private static final String TRX_COMPREHENSIVE = "OD";
-	private static final String CODE_CAUSE_LOSS = "CAUSE_LOSS";
-	private static final String CODE_NAT_OF_LOSS = "NAT_OF_LOSS";
-	private static final String PRODUCT_TPL = "13102";
-	private static final String PRODUCT_COMPREHENSIVE = "13101";
-	private static final String CLAIM_INTIMATION_OBJ = "claimIntimation";
-	private static final String NAJM_CLAIM_INTIMATION_OBJ = "najmclaimIntimation";
-	private static final String CLAIM_TYPE_VEHICLE = "V";
-	private static final String CLAIM_TYPE_PROPERTY = "P";
+	private static final String	VEHICLE_IDENT_TYPE_CUSTOM		= "2";
+	private static final String	VEHICLE_IDENT_TYPE_PLATE_NUMBER	= "1";
+	private static final String	REPORT_MODE_NAJM				= "03";
+	private static final String	REPORT_MODE_MUROOR				= "01";
+	private static final String	TRX_TPL							= "TP";
+	private static final String	TRX_COMPREHENSIVE				= "OD";
+	private static final String	CODE_CAUSE_LOSS					= "CAUSE_LOSS";
+	private static final String	CODE_NAT_OF_LOSS				= "NAT_OF_LOSS";
+	private static final String	PRODUCT_TPL						= "13102";
+	private static final String	PRODUCT_COMPREHENSIVE			= "13101";
+	private static final String	CLAIM_INTIMATION_OBJ			= "claimIntimation";
+	private static final String	NAJM_CLAIM_INTIMATION_OBJ		= "najmclaimIntimation";
+	private static final String	CLAIM_TYPE_VEHICLE				= "V";
+	private static final String	CLAIM_TYPE_PROPERTY				= "P";
 
-	private static final String NAJM_CITY = "NAJM_CITY";
-	private static final String VEHICLE_MODEL_CODE = "MOT_VEH_MOD";
-	private static final String CODE_FREEZ_YN = "N";
-	private static final String STATUS_CLOSED = "Closed";
-	private static final Log _log = LogFactoryUtil.getLog(ClaimLocalServiceImpl.class);
-	private static final String SUCCESS_CODE = "S";
-	private static final String CITY_CODE = "CITY";
+	private static final String	NAJM_CITY						= "NAJM_CITY";
+	private static final String	VEHICLE_MODEL_CODE				= "MOT_VEH_MOD";
+	private static final String	CODE_FREEZ_YN					= "N";
+	private static final String	STATUS_CLOSED					= "Closed";
+	private static final Log	_log							= LogFactoryUtil.getLog(ClaimLocalServiceImpl.class);
+	private static final String	SUCCESS_CODE					= "S";
+	private static final String	CITY_CODE						= "CITY";
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link
-	 * com.atmc.bsl.db.service.ClaimLocalServiceUtil} to access the claim
-	 * local service.
+	 * Never reference this class directly. Always use {@link com.atmc.bsl.db.service.ClaimLocalServiceUtil} to access the
+	 * claim local service.
 	 */
 	public List<Claim> getClaimsByIqamaId(String iqamaId) throws PortalException {
 		_log.info("getClaimsByIqamaId for ID:" + iqamaId);
@@ -190,19 +190,22 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return claimsList;
 	}
 
-	// public NajmClaim getNajmClaimByNajmPlateNumber(String caseNo,String
-	// najmPlateNo) throws PortalException
-//	{
-//		CLMNajm claimNajm = CLMNajmUtil.findByCASE_PLATE(caseNo, najmPlateNo);
-//		NajmClaim claimsList = getCustomNajmClaim(claimNajm);
-//		return claimsList;
-//	}
-//	public NajmClaim getNajmClaimByCustomId(String caseNo,String customId) throws PortalException
-//	{
-//		CLMNajm claimNajm = CLMNajmUtil.findByCASE_CUSTOM(caseNo, customId);
-//		NajmClaim claimsList = getCustomNajmClaim(claimNajm);
-//		return claimsList;
-//	}
+	public List<NajmClaim> getNajmClaimByNajmPlateNumber(String caseNo, String najmPlateNo) throws PortalException {
+		CLMNajm claimNajm = CLMNajmUtil.findByCASE_PLATE(caseNo, najmPlateNo);
+		List<CLMNajm> claimNajmList = new ArrayList<>();
+		claimNajmList.add(claimNajm);
+		List<NajmClaim> claimsList = getCustomNajmClaim(claimNajmList);
+		return claimsList;
+	}
+
+	public List<NajmClaim> getNajmClaimByCustomId(String caseNo, String customId) throws PortalException {
+		CLMNajm claimNajm = CLMNajmUtil.findByCASE_CUSTOM(caseNo, customId);
+		List<CLMNajm> claimNajmList = new ArrayList<>();
+		claimNajmList.add(claimNajm);
+		List<NajmClaim> claimsList = getCustomNajmClaim(claimNajmList);
+		return claimsList;
+	}
+
 	public List<NajmClaim> getNajmClaimByCaseNo(String caseNo) {
 		List<CLMNajm> claimNajm = CLMNajmUtil.findBycaseNo(caseNo);
 		List<NajmClaim> claimsList = getCustomNajmClaim(claimNajm);
@@ -216,10 +219,8 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return claimsList;
 	}
 
-	public List<Claim> getAllClaims(String status, String surveyor, String refNo, int from, int to)
-			throws PortalException {
-		List<Object[]> claimsHdrList = ClaimHDRLocalServiceUtil.findClaimsPolicyStatusAdmin(status, surveyor, refNo,
-				from, to);
+	public List<Claim> getAllClaims(String status, String surveyor, String refNo, int from, int to) throws PortalException {
+		List<Object[]> claimsHdrList = ClaimHDRLocalServiceUtil.findClaimsPolicyStatusAdmin(status, surveyor, refNo, from, to);
 		List<Claim> claimsList = getClaimsWithPolicyDStausetails(claimsHdrList);
 		List<Claim> claimsAdList = getAdminCustomClaimsSummary(claimsList);
 		return claimsAdList;
@@ -243,30 +244,22 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 		if (claimsHdrList != null && !claimsHdrList.isEmpty()) {
 			for (ClaimHDR claimHdr : claimsHdrList) {
-
 				claimList.add(getCustomClaim(claimHdr));
 			}
-
 		}
 		return claimList;
 	}
 
 	private List<Claim> getAdminCustomClaimsSummary(List<Claim> customClaim) throws PortalException {
-
 		for (Claim claim : customClaim) {
-
-			List<ClaimHistory> claimHistory = getCustomClaimHistory(
-					CLMSTATUSHISTORYUtil.findByRefNo(claim.getClaimNo()));
+			List<ClaimHistory> claimHistory = getCustomClaimHistory(CLMSTATUSHISTORYUtil.findByRefNo(claim.getClaimNo()));
 			claim.setClaimHistory(claimHistory);
 		}
-
 		return customClaim;
-
 	}
 
 	private Claim getCustomClaim(ClaimHDR claimHdr) {
 		Claim claim = new Claim();
-
 		claim.setClaimNo(claimHdr.getClaimNo());
 		claim.setIqamaId(claimHdr.getIqamaId());
 		claim.setPolicyNo(claimHdr.getPolicyNo());
@@ -314,44 +307,31 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		claim.setProductDescEn(claimHdr.getProductDescEn());
 
 		return claim;
+	}
+
+	private List<Claim> getClaimsWithPolicyDetails(List<ClaimHDR> claimsList) throws PortalException {
+		List<Claim> claimList = new ArrayList<>();
+
+		if (claimsList != null && !claimsList.isEmpty()) {
+			for (ClaimHDR claimHdr : claimsList) {
+				Claim claim = getCustomClaim(claimHdr);
+				claim.setProduct(claimHdr.getProdCode());
+				claim.setProductDescAr(claimHdr.getProductDescAr());
+				claim.setProductDescEn(claimHdr.getProductDescEn());
+				claimList.add(claim);
+			}
+		}
+		return claimList;
 
 	}
 
-	// private List<Claim> getClaimsWithPolicyDetails(List<ClaimHDR> claimsList)
-	// throws PortalException
-//	{
-//		List<Claim> claimList = new ArrayList<>();
-//
-//		if(claimsList != null && !claimsList.isEmpty())
-//		{
-//			for(ClaimHDR claimHdr : claimsList)
-//			{
-//
-//
-//
-//				Claim claim = getCustomClaim(claimHdr);
-//				claim.setProduct(claimHdr.getProdCode());
-//				claim.setProductDescAr(claimHdr.getProductDescAr());
-//				claim.setProductDescEn(claimHdr.getProductDescEn());
-//
-//				claimList.add(claim);
-//
-//			}
-//
-//		}
-//		return claimList;
-//
-//	}
 	private Claim getClaimsWithClaimNO(ClaimHDR claimHdr) throws PortalException {
-
 		Claim claim = getCustomClaim(claimHdr);
 		try {
-			if ((claimHdr.getEnPlateNo() != null || claimHdr.getEnPlateNo().equals(""))
-					&& (claimHdr.getEnPlateL1() != null || claimHdr.getEnPlateL1().equals(""))
-					&& (claimHdr.getEnPlateL2() != null || claimHdr.getEnPlateL2().equals(""))
-					&& (claimHdr.getEnPlateL3() != null || claimHdr.getEnPlateL3().equals(""))) {
-				PolicyVEH vehicle = PolicyVEHLocalServiceUtil.findByEnPlateNo(Long.valueOf(claimHdr.getEnPlateNo()),
-						claimHdr.getEnPlateL1(), claimHdr.getEnPlateL2(), claimHdr.getEnPlateL3()).get(0);
+			if ((claimHdr.getEnPlateNo() != null || claimHdr.getEnPlateNo().equals("")) && (claimHdr.getEnPlateL1() != null || claimHdr.getEnPlateL1().equals(""))
+					&& (claimHdr.getEnPlateL2() != null || claimHdr.getEnPlateL2().equals("")) && (claimHdr.getEnPlateL3() != null || claimHdr.getEnPlateL3().equals("")))
+			{
+				PolicyVEH vehicle = PolicyVEHLocalServiceUtil.findByEnPlateNo(Long.valueOf(claimHdr.getEnPlateNo()), claimHdr.getEnPlateL1(), claimHdr.getEnPlateL2(), claimHdr.getEnPlateL3()).get(0);
 				claim.setVehMakeEn(vehicle.getMakeDescEn());
 				claim.setVehMakeAr(vehicle.getMakeDescAr());
 				claim.setVehModelAr(vehicle.getModelDescAr());
@@ -361,17 +341,13 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 				return null;
 			}
 		} catch (NoSuchPolicyVEHException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
-		;
 		return claim;
-
 	}
 
 	private List<NajmClaim> getCustomNajmClaim(List<CLMNajm> clmNajmList) {
@@ -411,10 +387,8 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	public String getCityDescEn(String cityCode) {
 		CodeMasterMap codeMasterMap = null;
 		try {
-
 			codeMasterMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(NAJM_CITY, cityCode);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "";
 		}
@@ -424,10 +398,8 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	public String getCityDescAr(String cityCode) {
 		CodeMasterMap codeMasterMap = null;
 		try {
-
 			codeMasterMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(NAJM_CITY, cityCode);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "";
 		}
@@ -440,7 +412,6 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 			codeMasterMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(NAJM_CITY, cityCode);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "";
 		}
@@ -451,12 +422,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		CodeMasterMap codeMasterMap = null;
 		try {
 			codeMasterMap = CodeMasterMapLocalServiceUtil.findBySourceTypeSourceCode(NAJM_INS_COMPANY, insCompany);
-
 		} catch (Exception e) {
-			// TODO: handle exception]
 			return "";
 		}
-
 		return (codeMasterMap != null) ? codeMasterMap.getSourceDesc() : "";
 	}
 
@@ -472,7 +440,6 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			}
 			return expFlag;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return expFlag;
@@ -491,13 +458,11 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			addWorkflowStatus(odsCIResponse.getClaimintimationno());
 		}
 		return odsCIResponse;
-
 	}
 
-	public void saveNajmSubmitedDoc(String caseNo, String cipiId, File najmSlipFile, String najmSlipFileName,
-			File damageEstQuotFile, String damageEstQuotFileName, File bankIbanFile, String bankIbanFileName,
-			File ownerIdFile, String ownerIdFileName, String claimRefNo) {
-
+	public void saveNajmSubmitedDoc(String caseNo, String cipiId, File najmSlipFile, String najmSlipFileName, File damageEstQuotFile, String damageEstQuotFileName, File bankIbanFile,
+			String bankIbanFileName, File ownerIdFile, String ownerIdFileName, String claimRefNo)
+	{
 		ByteArrayFileInputStream najmSlipInputStream = null;
 		ByteArrayFileInputStream damageEstQuotInputStream = null;
 		ByteArrayFileInputStream bankIbanInputStream = null;
@@ -542,13 +507,10 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SerialException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public PolicyHDR getNajmOtherPartyPolicy(String najmCaseNo) {
@@ -558,7 +520,6 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			CLMNajm clmNajm = CLMNajmLocalServiceUtil.findByCaseNoEnglishName(najmCaseNo, englishName);
 			return PolicyHDRLocalServiceUtil.getPolicyHDR(clmNajm.getPolNo());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -572,26 +533,23 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			else
 				return (plateNumbersEnAr[1]).trim();
 		} else
-			_log.error("getNajmPlateNumber: ERROR Invalid Format for given vehicle plate number:"
-					+ najmViewVehiclePlateNumber);
+			_log.error("getNajmPlateNumber: ERROR Invalid Format for given vehicle plate number:" + najmViewVehiclePlateNumber);
 
 		return "";
 	}
 
-	private NajmClaimIntimation getNajmCaseTwoParties(List<NajmClaim> clmNajmList, String vehiclePlateNumber,
-			String vehicleCustomId, String language) throws PortalException {
+	private NajmClaimIntimation getNajmCaseTwoParties(List<NajmClaim> clmNajmList, String vehiclePlateNumber, String vehicleCustomId, String language) throws PortalException {
 		NajmClaimIntimation najmClaimIntimation = new NajmClaimIntimation();
 		for (NajmClaim najmClaim : clmNajmList) {
 			if (vehicleCustomId != null && najmClaim.getCustomId().equals(vehicleCustomId)
-					|| (vehiclePlateNumber != null
-							&& getNajmPlateNumber(najmClaim.getPlateNo(), language).equals(vehiclePlateNumber))) {
+					|| (vehiclePlateNumber != null && getNajmPlateNumber(najmClaim.getPlateNo(), language).equals(vehiclePlateNumber)))
+			{
 				_log.info("getNajmCaseTwoParties:MATCH found for claimant");
 				najmClaimIntimation.setClaimant(najmClaim);
 				if (najmClaim.getEnglishName().equals(ATMC_ENGLISH_NAME)) {
 					_log.info("getNajmCaseTwoParties:claimant is ATMC");
 					najmClaimIntimation.setClaimantATMC(true);
-					najmClaimIntimation.setClaimantPolicyType(
-							PolicyHDRLocalServiceUtil.getPolicyHDR(najmClaim.getPolNo()).getProduct());
+					najmClaimIntimation.setClaimantPolicyType(PolicyHDRLocalServiceUtil.getPolicyHDR(najmClaim.getPolNo()).getProduct());
 				} else {
 					_log.info("getNajmCaseTwoParties:claimant is NONATMC");
 					najmClaimIntimation.setClaimantATMC(false);
@@ -603,19 +561,15 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		if (najmClaimIntimation.getClaimant() == null)
 			throw new NoSuchNajmVehicleNoException();
 
-		if (!najmClaimIntimation.isClaimantATMC() || (najmClaimIntimation.isClaimantATMC()
-				&& najmClaimIntimation.getClaimantPolicyType().equals(PRODUCT_CODE_TPL))) {
+		if (!najmClaimIntimation.isClaimantATMC() || (najmClaimIntimation.isClaimantATMC() && najmClaimIntimation.getClaimantPolicyType().equals(PRODUCT_CODE_TPL))) {
 			for (NajmClaim najmClaim : clmNajmList) {
-				if (vehicleCustomId != null && !(najmClaim.getCustomId()).equals(vehicleCustomId)
-						&& najmClaim.getEnglishName().equals(ATMC_ENGLISH_NAME)
-						|| vehiclePlateNumber != null
-								&& !(getNajmPlateNumber(najmClaim.getPlateNo(), language)).equals(vehiclePlateNumber)
-								&& najmClaim.getEnglishName().equals(ATMC_ENGLISH_NAME)) {
+				if (vehicleCustomId != null && !(najmClaim.getCustomId()).equals(vehicleCustomId) && najmClaim.getEnglishName().equals(ATMC_ENGLISH_NAME)
+						|| vehiclePlateNumber != null && !(getNajmPlateNumber(najmClaim.getPlateNo(), language)).equals(vehiclePlateNumber) && najmClaim.getEnglishName().equals(ATMC_ENGLISH_NAME))
+				{
 					_log.info("getNajmCaseTwoParties:MATCH found for other ATMC party");
 					najmClaimIntimation.setOtherParty(najmClaim);
 					najmClaimIntimation.setOtherPartyATMC(true);
-					najmClaimIntimation.setOtherPartyPolicyType(
-							PolicyHDRLocalServiceUtil.getPolicyHDR(najmClaim.getPolNo()).getProduct());
+					najmClaimIntimation.setOtherPartyPolicyType(PolicyHDRLocalServiceUtil.getPolicyHDR(najmClaim.getPolNo()).getProduct());
 					break;
 				}
 
@@ -629,8 +583,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return najmClaimIntimation;
 	}
 
-	public NajmClaimIntimation getNajmClaimIntimationByCustomId(String caseNo, String vehicleCustomId, String language)
-			throws PortalException {
+	public NajmClaimIntimation getNajmClaimIntimationByCustomId(String caseNo, String vehicleCustomId, String language) throws PortalException {
 
 		List<NajmClaim> clmNajmList = getNajmClaimByCaseNo(caseNo);
 
@@ -642,8 +595,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return getNajmCaseTwoParties(clmNajmList, null, vehicleCustomId, language);
 	}
 
-	public NajmClaimIntimation getNajmClaimIntimationByPlateNumber(String caseNo, String plateNumber, String language)
-			throws PortalException {
+	public NajmClaimIntimation getNajmClaimIntimationByPlateNumber(String caseNo, String plateNumber, String language) throws PortalException {
 		List<NajmClaim> clmNajmList = getNajmClaimByCaseNo(caseNo);
 		if (clmNajmList == null || clmNajmList.isEmpty()) {
 			_log.error("getNajmClaimIntimationByPlateNumber: case no " + caseNo + " is not found in CLMNAJM View");
@@ -687,28 +639,25 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 //
 //	}
 
-	public PolicyHDR getVehiclePolicy(String vehicleSeqCustom)
-			throws NoSuchPolicyVEHException, NoSuchPolicyHDRException {
+	public PolicyHDR getVehiclePolicy(String vehicleSeqCustom) throws NoSuchPolicyVEHException, NoSuchPolicyHDRException {
 		return getVehiclePolicy(vehicleSeqCustom, null, null, null, null, null, null, null, null);
 	}
 
-	public PolicyHDR getVehiclePolicy(String plateNo, String plateL1, String plateL2, String plateL3, String language)
-			throws NoSuchPolicyVEHException, NoSuchPolicyHDRException {
+	public PolicyHDR getVehiclePolicy(String plateNo, String plateL1, String plateL2, String plateL3, String language) throws NoSuchPolicyVEHException, NoSuchPolicyHDRException {
 		if (language.equals("en_US") || language.equals("en"))
 			return getVehiclePolicy(null, plateNo, plateL1, plateL2, plateL3, null, null, null, null);
 		else
 			return getVehiclePolicy(null, null, null, null, null, plateNo, plateL1, plateL2, plateL3);
 	}
 
-	private PolicyHDR getVehiclePolicy(String vehicleSeqCustom, String enPlateNo, String enPlateL1, String enPlateL2,
-			String enPlateL3, String arPlateNo, String arPlateL1, String arPlateL2, String arPlateL3)
-			throws NoSuchPolicyVEHException, NoSuchPolicyHDRException {
+	private PolicyHDR getVehiclePolicy(String vehicleSeqCustom, String enPlateNo, String enPlateL1, String enPlateL2, String enPlateL3, String arPlateNo, String arPlateL1, String arPlateL2,
+			String arPlateL3) throws NoSuchPolicyVEHException, NoSuchPolicyHDRException
+	{
 		List<? extends PersistedModel> policyVehicles = null;
 		if (vehicleSeqCustom != null)
 			policyVehicles = PolicyVEHLocalServiceUtil.findByVehicleCustomNo(vehicleSeqCustom);
 		else if (enPlateNo != null && enPlateL1 != null && enPlateL2 != null && enPlateL3 != null)
-			policyVehicles = PolicyVEHLocalServiceUtil.findByEnPlateNo(Long.valueOf(enPlateNo), enPlateL1, enPlateL2,
-					enPlateL3);
+			policyVehicles = PolicyVEHLocalServiceUtil.findByEnPlateNo(Long.valueOf(enPlateNo), enPlateL1, enPlateL2, enPlateL3);
 		else if (arPlateNo != null && arPlateL1 != null && arPlateL2 != null && arPlateL3 != null)
 			policyVehicles = PolicyVEHLocalServiceUtil.findByArPlateNo(arPlateNo, arPlateL1, arPlateL2, arPlateL3);
 
@@ -731,8 +680,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		if (policyNumbers.isEmpty())
 			return null;
 		else {
-			List<PolicyHDR> policyList = PolicyHDRLocalServiceUtil
-					.findMultiPolicies(policyNumbers.toArray(new String[policyNumbers.size()]));
+			List<PolicyHDR> policyList = PolicyHDRLocalServiceUtil.findMultiPolicies(policyNumbers.toArray(new String[policyNumbers.size()]));
 			if (policyList != null && !policyList.isEmpty())
 				return policyList.iterator().next();
 			else
@@ -743,8 +691,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	}
 
 	public List<CustomerMapDetails> getInsuranceCompanies() {
-		List<CustomerMap> custs = CustomerMapLocalServiceUtil.findByCustCatgAndType(CUSTOMER_CATG_CUSTOMER,
-				CUSTOMER_TYPE_CUSTOMER);
+		List<CustomerMap> custs = CustomerMapLocalServiceUtil.findByCustCatgAndType(CUSTOMER_CATG_CUSTOMER, CUSTOMER_TYPE_CUSTOMER);
 		List<CustomerMapDetails> cutsList = new ArrayList<>();
 		if (custs != null)
 			for (CustomerMap cust : custs) {
@@ -770,9 +717,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return claimNajmUploads;
 	}
 
-	public void saveODMuroorDoc(String iqamaId, String clmIntimationNo, File driverLicenseFile,
-			String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File policyCopyFile,
-			String policyCopyFileName) {
+	public void saveODMuroorDoc(String iqamaId, String clmIntimationNo, File driverLicenseFile, String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File policyCopyFile,
+			String policyCopyFileName)
+	{
 		ByteArrayFileInputStream driverLicenseInputStream = null;
 		ByteArrayFileInputStream vehRegistInputStream = null;
 		ByteArrayFileInputStream policyCopyInputStream = null;
@@ -822,11 +769,10 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 	}
 
-	public void saveTPMuroorDoc(String iqamaId, String clmIntimationNo, File driverLicenseFile,
-			String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File frontPhoto,
-			String frontPhotoName, File rarePhoto, String rarePhotoName, File rightSidePhoto, String rightSidePhotoName,
-			File leftSidePhoto, String leftSidePhotoName, File bankIbanFile, String bankIbanFileName, File ownerIdFile,
-			String ownerIdFileName) {
+	public void saveTPMuroorDoc(String iqamaId, String clmIntimationNo, File driverLicenseFile, String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File frontPhoto,
+			String frontPhotoName, File rarePhoto, String rarePhotoName, File rightSidePhoto, String rightSidePhotoName, File leftSidePhoto, String leftSidePhotoName, File bankIbanFile,
+			String bankIbanFileName, File ownerIdFile, String ownerIdFileName)
+	{
 		ByteArrayFileInputStream driverLicenseInputStream = null;
 		ByteArrayFileInputStream vehRegistInputStream = null;
 		ByteArrayFileInputStream frontPhotoIS = null;
@@ -862,8 +808,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		byte[] bankIbanData;
 		byte[] ownerIdData;
 		try {
-			com.ejada.atmc.acl.db.model.MuroorTPUploads tpMuroorUploads = MuroorTPUploadsUtil
-					.create((int) CounterLocalServiceUtil.increment());
+			com.ejada.atmc.acl.db.model.MuroorTPUploads tpMuroorUploads = MuroorTPUploadsUtil.create((int) CounterLocalServiceUtil.increment());
 			tpMuroorUploads.setIqamaId(iqamaId);
 			tpMuroorUploads.setClaimIntimationNo(clmIntimationNo);
 
@@ -944,8 +889,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return claimsWorkflow;
 	}
 
-	private List<ClaimHistory> getCustomClaimHistory(List<CLMSTATUSHISTORY> claimStatusHistoryList)
-			throws PortalException {
+	private List<ClaimHistory> getCustomClaimHistory(List<CLMSTATUSHISTORY> claimStatusHistoryList) throws PortalException {
 		List<ClaimHistory> customClaimHistory = new ArrayList<ClaimHistory>();
 		for (CLMSTATUSHISTORY clmHis : claimStatusHistoryList) {
 			ClaimHistory customClmHistory = new ClaimHistory();
@@ -962,11 +906,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 	private Claim getAdminCustomClaims(Claim customClaim) throws PortalException {
 
-		List<ClaimHistory> claimHistory = getCustomClaimHistory(
-				CLMSTATUSHISTORYUtil.findByRefNo(customClaim.getClaimNo()));
+		List<ClaimHistory> claimHistory = getCustomClaimHistory(CLMSTATUSHISTORYUtil.findByRefNo(customClaim.getClaimNo()));
 		customClaim.setClaimHistory(claimHistory);
-		List<ClaimAdminUpload> claimAdminUploads = getCustomClaimAdminUploads(
-				ClaimAdminUploadsUtil.findByrefNo(customClaim.getClaimNo()));
+		List<ClaimAdminUpload> claimAdminUploads = getCustomClaimAdminUploads(ClaimAdminUploadsUtil.findByrefNo(customClaim.getClaimNo()));
 		customClaim.setClaimAdminUpload(claimAdminUploads);
 
 		return customClaim;
@@ -979,8 +921,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		inputStream = new ByteArrayFileInputStream(adminFile, 1024);
 		byte[] idData;
 		try {
-			ClaimAdminUploads claimAdminUploads = ClaimAdminUploadsUtil
-					.create((int) CounterLocalServiceUtil.increment());
+			ClaimAdminUploads claimAdminUploads = ClaimAdminUploadsUtil.create((int) CounterLocalServiceUtil.increment());
 			claimAdminUploads.setRefNo(refNo);
 			;
 			claimAdminUploads.setFileName(fileName);
@@ -1051,13 +992,11 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		doUpdateWorkflowStatus(claimRefNo, USERNAME_CUSTOMER, STATUS_SUBMITTED, "", true);
 	}
 
-	public void updateWorkflowStatus(String claimRefNo, String username, String newStatus, String reason)
-			throws PortalException {
+	public void updateWorkflowStatus(String claimRefNo, String username, String newStatus, String reason) throws PortalException {
 		doUpdateWorkflowStatus(claimRefNo, username, newStatus, reason, false);
 	}
 
-	private void doUpdateWorkflowStatus(String claimRefNo, String username, String newStatus, String reason,
-			boolean isNew) throws PortalException {
+	private void doUpdateWorkflowStatus(String claimRefNo, String username, String newStatus, String reason, boolean isNew) throws PortalException {
 		CLMSTATUS claimStatus;
 		if (isNew)
 			claimStatus = CLMSTATUSLocalServiceUtil.createCLMSTATUS(claimRefNo);
@@ -1067,8 +1006,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		claimStatus.setClaimStatus(newStatus);
 		CLMSTATUSLocalServiceUtil.updateCLMSTATUS(claimStatus);
 
-		CLMSTATUSHISTORY claimStatusHistory = CLMSTATUSHISTORYLocalServiceUtil
-				.createCLMSTATUSHISTORY((int) counterLocalService.increment());
+		CLMSTATUSHISTORY claimStatusHistory = CLMSTATUSHISTORYLocalServiceUtil.createCLMSTATUSHISTORY((int) counterLocalService.increment());
 		claimStatusHistory.setRefNo(claimRefNo);
 		claimStatusHistory.setReason(reason);
 		claimStatusHistory.setClaimStatus(newStatus);
@@ -1079,8 +1017,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 	}
 
-	private List<ClaimAdminUpload> getCustomClaimAdminUploads(List<ClaimAdminUploads> claimAdminUploadsList)
-			throws PortalException {
+	private List<ClaimAdminUpload> getCustomClaimAdminUploads(List<ClaimAdminUploads> claimAdminUploadsList) throws PortalException {
 		List<ClaimAdminUpload> customClaimAdminUploads = new ArrayList<ClaimAdminUpload>();
 		for (ClaimAdminUploads clmAdminUploads : claimAdminUploadsList) {
 			ClaimAdminUpload customAdminUploads = new ClaimAdminUpload();
@@ -1092,12 +1029,10 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return (customClaimAdminUploads);
 	}
 
-	public String submitClaimFn(String referenceno, String source, String transaction, String policyno,
-			String reportmode, String reportno, String vehidentitype, String vehidentivalue, String lossnature,
-			String losscause, String lossdate, String lossremarks, int faultpercent, String losslocation,
-			String tpdrivername, String tpdob, String tpid, String tpvehidentitype, String tpvehidentivalue,
-			String tpplateno, String tpinsco, String tpmobile, String tpiban, String tpnationality, double amount,
-			String damageflag) throws PortalException {
+	public String submitClaimFn(String referenceno, String source, String transaction, String policyno, String reportmode, String reportno, String vehidentitype, String vehidentivalue,
+			String lossnature, String losscause, String lossdate, String lossremarks, int faultpercent, String losslocation, String tpdrivername, String tpdob, String tpid, String tpvehidentitype,
+			String tpvehidentivalue, String tpplateno, String tpinsco, String tpmobile, String tpiban, String tpnationality, double amount, String damageflag) throws PortalException
+	{
 		ODSClaimIntimation odsClaimInt = new ODSClaimIntimation();
 
 		odsClaimInt.setReferenceno(referenceno);
@@ -1153,9 +1088,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return summary;
 	}
 
-	public ClaimIntimation intimateClaim(String claimType, String vehicleIdentType, String vehicleIdentNumber,
-			String plateL1, String plateL2, String plateL3, String reportMode, String reportNumber, String causeOfLoss,
-			String natureOfLoss, Locale locale) throws Exception {
+	public ClaimIntimation intimateClaim(String claimType, String vehicleIdentType, String vehicleIdentNumber, String plateL1, String plateL2, String plateL3, String reportMode, String reportNumber,
+			String causeOfLoss, String natureOfLoss, Locale locale) throws Exception
+	{
 		ClaimIntimation feClaimIntimation = new ClaimIntimation();
 		ODSClaimIntimation odsClaimIntimation = new ODSClaimIntimation();
 		NajmClaimIntimation najmClaimIntimation = null;
@@ -1185,8 +1120,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 				odsClaimIntimation.setVehidentitype(vehicleIdentType);
 				odsClaimIntimation.setVehidentivalue(vehicleIdentValue);
 
-				PolicyHDR atmcPolicy = getVehiclePolicy(vehicleIdentNumber, plateL1, plateL2, plateL3,
-						locale.toString());
+				PolicyHDR atmcPolicy = getVehiclePolicy(vehicleIdentNumber, plateL1, plateL2, plateL3, locale.toString());
 				odsClaimIntimation.setPolicyno(atmcPolicy.getPolicyNo());
 
 			}
@@ -1199,8 +1133,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 				if (reportMode.equals(REPORT_MODE_NAJM)) {
 					_log.info("ClaimIntimation:REPORT MODE NAJM");
 
-					najmClaimIntimation = getNajmClaimIntimationByCustomId(reportNumber, vehicleIdentNumber,
-							locale.toString());
+					najmClaimIntimation = getNajmClaimIntimationByCustomId(reportNumber, vehicleIdentNumber, locale.toString());
 					najmClaimIntimation.setClaimantVehicleType(VEHICLE_IDENT_TYPE_CUSTOM);
 					najmClaimIntimation.setClaimantVehicleNumber(vehicleIdentNumber);
 
@@ -1234,8 +1167,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 				if (reportMode.equals(REPORT_MODE_NAJM)) {
 
-					najmClaimIntimation = getNajmClaimIntimationByPlateNumber(reportNumber, plateNumberBE,
-							locale.toString());
+					najmClaimIntimation = getNajmClaimIntimationByPlateNumber(reportNumber, plateNumberBE, locale.toString());
 					najmClaimIntimation.setClaimantVehicleType(VEHICLE_IDENT_TYPE_PLATE_NUMBER);
 					najmClaimIntimation.setClaimantVehicleNumber(vehicleIdentValue);
 
@@ -1245,8 +1177,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 					_log.info("ClaimIntimationPortlet:REPORT MODE MUROOR");
 					PolicyHDR claimantPolicy = null;
 					try {
-						claimantPolicy = getVehiclePolicy(vehicleIdentNumber, plateL1, plateL2, plateL3,
-								locale.toString());
+						claimantPolicy = getVehiclePolicy(vehicleIdentNumber, plateL1, plateL2, plateL3, locale.toString());
 						if (claimantPolicy != null)
 							odsClaimIntimation.setPolicyno(claimantPolicy.getPolicyNo());
 
@@ -1282,8 +1213,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			claimIntimation.setTransaction(TRX_TPL);
 		} else {
 			if (najmClaimIntimation.getClaimantPolicyType().equals(PRODUCT_COMPREHENSIVE)) {
-				_log.info(
-						"ClaimIntimationPortlet:NAjm Transaction Type COMPREHENSIVE. Claimant Policy of type COMPREHENSIVE");
+				_log.info("ClaimIntimationPortlet:NAjm Transaction Type COMPREHENSIVE. Claimant Policy of type COMPREHENSIVE");
 				claimIntimation.setTransaction(TRX_COMPREHENSIVE);
 			} else {
 				_log.info("ClaimIntimationPortlet:NAjm Transaction Type TPL. Claimant Policy of type TPL");
@@ -1300,8 +1230,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			claimIntimation.setTransaction(TRX_TPL);
 		} else {
 			if (claimantPolicy.getProduct().equals(PRODUCT_COMPREHENSIVE)) {
-				_log.info(
-						"ClaimIntimationPortlet:Muroor Transaction Type COMPREHENSIVE. Claimant Policy of type COMPREHENSIVE");
+				_log.info("ClaimIntimationPortlet:Muroor Transaction Type COMPREHENSIVE. Claimant Policy of type COMPREHENSIVE");
 				claimIntimation.setTransaction(TRX_COMPREHENSIVE);
 			} else {
 				_log.info("ClaimIntimationPortlet:Muroor Transaction Type TPL. Claimant Policy of type TPL");
@@ -1312,8 +1241,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 	}
 
-	private void setMuroorVehicleIdent(ODSClaimIntimation claimIntimation, String vehicleIdentType,
-			String vehicleIdentValue) {
+	private void setMuroorVehicleIdent(ODSClaimIntimation claimIntimation, String vehicleIdentType, String vehicleIdentValue) {
 		if (claimIntimation.getTransaction().equals(TRX_TPL)) {
 			claimIntimation.setVehidentitype(vehicleIdentType);
 			claimIntimation.setTpvehidentitype(vehicleIdentType);
@@ -1329,8 +1257,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	}
 
 	private void setNajmPolicyNumber(NajmClaimIntimation najmClaimIntimation, ODSClaimIntimation claimIntimation) {
-		if (!najmClaimIntimation.isClaimantATMC()
-				|| (najmClaimIntimation.isClaimantATMC() && najmClaimIntimation.isOtherPartyATMC())) {
+		if (!najmClaimIntimation.isClaimantATMC() || (najmClaimIntimation.isClaimantATMC() && najmClaimIntimation.isOtherPartyATMC())) {
 			_log.info("ClaimIntimationPortlet:Setting Policy Number to Other Party Policy number.");
 			claimIntimation.setPolicyno(najmClaimIntimation.getOtherParty().getPolNo());
 		} else if (najmClaimIntimation.isClaimantATMC() && !najmClaimIntimation.isOtherPartyATMC()) {
@@ -1397,8 +1324,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 	}
 
 	public List<Claim> getClaimsSummaryFiter(String iqamaId, String status, String policyType) throws PortalException {
-		List<Object[]> claimsHdrList = ClaimHDRLocalServiceUtil.findClaimsPolicyStatus(iqamaId, status, policyType,
-				null, null);
+		List<Object[]> claimsHdrList = ClaimHDRLocalServiceUtil.findClaimsPolicyStatus(iqamaId, status, policyType, null, null);
 		List<Claim> claimsList = getClaimsWithPolicyDStausetails(claimsHdrList);
 		_log.info(claimsHdrList.size());
 
@@ -1429,9 +1355,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 
 	}
 
-	public void saveNajmSubmitedFiles(String caseNo, String cipiId, File najmSlipFile, String najmSlipFileName,
-			File damageEstQuotFile, String damageEstQuotFileName, File bankIbanFile, String bankIbanFileName,
-			File ownerIdFile, String ownerIdFileName, String claimRefNo) {
+	public void saveNajmSubmitedFiles(String caseNo, String cipiId, File najmSlipFile, String najmSlipFileName, File damageEstQuotFile, String damageEstQuotFileName, File bankIbanFile,
+			String bankIbanFileName, File ownerIdFile, String ownerIdFileName, String claimRefNo)
+	{
 		ByteArrayFileInputStream najmSlipInputStream = null;
 		ByteArrayFileInputStream damageEstQuotInputStream = null;
 		ByteArrayFileInputStream bankIbanInputStream = null;
@@ -1494,8 +1420,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		}
 	}
 
-	public File downloadClaimReport(ODSClaimIntimation odsClaimInt, String claimintName, String claimintMobile,
-			String claimintEmail, String claimintId, String lang) {
+	public File downloadClaimReport(ODSClaimIntimation odsClaimInt, String claimintName, String claimintMobile, String claimintEmail, String claimintId, String lang) {
 		_log.info("downloadClaimReport start");
 
 		NajmClaimReportObj najmClaimReportObj = new NajmClaimReportObj();
@@ -1506,8 +1431,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 			directory.mkdirs();
 		}
 
-		File qFile = new File(
-				PropsUtil.get("com.ejada.atmc.claim.report.path") + "/claim" + odsClaimInt.getReferenceno() + ".pdf");
+		File qFile = new File(PropsUtil.get("com.ejada.atmc.claim.report.path") + "/claim" + odsClaimInt.getReferenceno() + ".pdf");
 		if (!qFile.exists())
 			try {
 				qFile.createNewFile();
@@ -1773,9 +1697,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return ClaimHDRLocalServiceUtil.findClaimsCountsPolicyStatusAdmin(status, Surveyor, refNo);
 	}
 
-	public void updateNajmSubmitedFiles(String claimNumber, String username, String reason, File najmSlipFile,
-			String najmSlipFileName, File damageEstQuotFile, String damageEstQuotFileName, File bankIbanFile,
-			String bankIbanFileName, File ownerIdFile, String ownerIdFileName) {
+	public void updateNajmSubmitedFiles(String claimNumber, String username, String reason, File najmSlipFile, String najmSlipFileName, File damageEstQuotFile, String damageEstQuotFileName,
+			File bankIbanFile, String bankIbanFileName, File ownerIdFile, String ownerIdFileName)
+	{
 		ByteArrayFileInputStream najmSlipInputStream = null;
 		ByteArrayFileInputStream damageEstQuotInputStream = null;
 		ByteArrayFileInputStream bankIbanInputStream = null;
@@ -1953,8 +1877,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		MuroorTPUploadsRightSidePhotoBlobModel muroor = MuroorTPUploadsLocalServiceUtil.getRightSidePhotoBlobModel(id);
 		byte[] rightSidePhotoFile;
 		try {
-			rightSidePhotoFile = muroor.getRightSidePhotoBlob().getBytes(1,
-					(int) muroor.getRightSidePhotoBlob().length());
+			rightSidePhotoFile = muroor.getRightSidePhotoBlob().getBytes(1, (int) muroor.getRightSidePhotoBlob().length());
 			return rightSidePhotoFile;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -2015,9 +1938,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		}
 	}
 
-	public void updateMuroorODSubmitedFiles(String claimNumber, String username, String reason, File driverLicenseFile,
-			String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File policyCopyFile,
-			String policyCopyFileName) {
+	public void updateMuroorODSubmitedFiles(String claimNumber, String username, String reason, File driverLicenseFile, String driverLicenseFileName, File vehRegistFile, String vehRegistFileName,
+			File policyCopyFile, String policyCopyFileName)
+	{
 		ByteArrayFileInputStream driverLicenseInputStream = null;
 		ByteArrayFileInputStream vehRegistInputStream = null;
 		ByteArrayFileInputStream policyCopyInputStream = null;
@@ -2069,11 +1992,10 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		}
 	}
 
-	public void updateMuroorTPSubmitedFiles(String claimNumber, String username, String reason, File driverLicenseFile,
-			String driverLicenseFileName, File vehRegistFile, String vehRegistFileName, File frontPhoto,
-			String frontPhotoName, File rarePhoto, String rarePhotoName, File rightSidePhoto, String rightSidePhotoName,
-			File leftSidePhoto, String leftSidePhotoName, File bankIbanFile, String bankIbanFileName, File ownerIdFile,
-			String ownerIdFileName) {
+	public void updateMuroorTPSubmitedFiles(String claimNumber, String username, String reason, File driverLicenseFile, String driverLicenseFileName, File vehRegistFile, String vehRegistFileName,
+			File frontPhoto, String frontPhotoName, File rarePhoto, String rarePhotoName, File rightSidePhoto, String rightSidePhotoName, File leftSidePhoto, String leftSidePhotoName,
+			File bankIbanFile, String bankIbanFileName, File ownerIdFile, String ownerIdFileName)
+	{
 		ByteArrayFileInputStream driverLicenseInputStream = null;
 		ByteArrayFileInputStream vehRegistInputStream = null;
 		ByteArrayFileInputStream frontPhotoIS = null;
@@ -2110,8 +2032,7 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		byte[] ownerIdData;
 
 		try {
-			com.ejada.atmc.acl.db.model.MuroorTPUploads tpMuroorUploads = MuroorTPUploadsUtil
-					.findByclaimIntimationNo(claimNumber);
+			com.ejada.atmc.acl.db.model.MuroorTPUploads tpMuroorUploads = MuroorTPUploadsUtil.findByclaimIntimationNo(claimNumber);
 
 			if (driverLicenseFile != null && driverLicenseFileName != null) {
 				tpMuroorUploads.setDriverLicenseName(driverLicenseFileName);

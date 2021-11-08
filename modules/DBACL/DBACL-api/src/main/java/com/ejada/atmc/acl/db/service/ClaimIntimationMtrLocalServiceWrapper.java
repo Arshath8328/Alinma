@@ -254,6 +254,17 @@ public class ClaimIntimationMtrLocalServiceWrapper
 	@Override
 	public java.util.List
 		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationListByAllCategories(
+				java.util.List<String> findByCategories, String findByValue) {
+
+		return _claimIntimationMtrLocalService.
+			findClaimIntimationListByAllCategories(
+				findByCategories, findByValue);
+	}
+
+	@Override
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
 			findClaimIntimationListFromView(String referenceNo) {
 
 		return _claimIntimationMtrLocalService.findClaimIntimationListFromView(
@@ -261,10 +272,34 @@ public class ClaimIntimationMtrLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationsStatus(String findByValue) {
+
+		return _claimIntimationMtrLocalService.findClaimIntimationsStatus(
+			findByValue);
+	}
+
+	@Override
+	public com.ejada.atmc.acl.db.custom.model.ODSPolActiveVehicleDTO
+		findOdsVehicleActiveList(String chassisNo, String policyNo) {
+
+		return _claimIntimationMtrLocalService.findOdsVehicleActiveList(
+			chassisNo, policyNo);
+	}
+
+	@Override
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery
 		getActionableDynamicQuery() {
 
 		return _claimIntimationMtrLocalService.getActionableDynamicQuery();
+	}
+
+	@Override
+	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
+		getAllClaims() {
+
+		return _claimIntimationMtrLocalService.getAllClaims();
 	}
 
 	/**
@@ -344,13 +379,14 @@ public class ClaimIntimationMtrLocalServiceWrapper
 	@Override
 	public com.ejada.atmc.acl.db.model.ClaimIntimationMtr intimateClaim(
 		String claimantType, String policyNumber, String vehicleIdentNumber,
-		String plateL1, String plateL2, String plateL3, long sequenceNumber,
+		String plateL1, String plateL2, String plateL3, String sequenceNumber,
 		String chassisNumber, String mobileNumber, String causeOfLoss,
 		java.util.Date dateOfLossOrAccident, String accidentCity,
 		String accidentDescription, String sourceOfAccidentReport,
 		String accidentReportNumber, String vehicleMake, String vehicleModel,
 		String driverName, String driverNationality, long driverNationalId,
-		java.util.Date driverDateOfBirthG, String driverGender) {
+		java.util.Date driverDateOfBirthG, String driverGender,
+		String ibanNumber, String bankName, String emailId) {
 
 		return _claimIntimationMtrLocalService.intimateClaim(
 			claimantType, policyNumber, vehicleIdentNumber, plateL1, plateL2,
@@ -358,7 +394,7 @@ public class ClaimIntimationMtrLocalServiceWrapper
 			dateOfLossOrAccident, accidentCity, accidentDescription,
 			sourceOfAccidentReport, accidentReportNumber, vehicleMake,
 			vehicleModel, driverName, driverNationality, driverNationalId,
-			driverDateOfBirthG, driverGender);
+			driverDateOfBirthG, driverGender, ibanNumber, bankName, emailId);
 	}
 
 	/**

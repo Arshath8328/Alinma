@@ -64,6 +64,10 @@ public class ClaimIntimationMtrWrapper
 		attributes.put("driverBirthDate", getDriverBirthDate());
 		attributes.put("driverGender", getDriverGender());
 		attributes.put("attachmentReference", getAttachmentReference());
+		attributes.put("claimStatus", getClaimStatus());
+		attributes.put("ibanNumber", getIbanNumber());
+		attributes.put("bankName", getBankName());
+		attributes.put("emailId", getEmailId());
 
 		return attributes;
 	}
@@ -205,6 +209,30 @@ public class ClaimIntimationMtrWrapper
 		if (attachmentReference != null) {
 			setAttachmentReference(attachmentReference);
 		}
+
+		Integer claimStatus = (Integer)attributes.get("claimStatus");
+
+		if (claimStatus != null) {
+			setClaimStatus(claimStatus);
+		}
+
+		String ibanNumber = (String)attributes.get("ibanNumber");
+
+		if (ibanNumber != null) {
+			setIbanNumber(ibanNumber);
+		}
+
+		String bankName = (String)attributes.get("bankName");
+
+		if (bankName != null) {
+			setBankName(bankName);
+		}
+
+		String emailId = (String)attributes.get("emailId");
+
+		if (emailId != null) {
+			setEmailId(emailId);
+		}
 	}
 
 	/**
@@ -235,6 +263,16 @@ public class ClaimIntimationMtrWrapper
 	@Override
 	public String getAttachmentReference() {
 		return model.getAttachmentReference();
+	}
+
+	/**
+	 * Returns the bank name of this claim intimation mtr.
+	 *
+	 * @return the bank name of this claim intimation mtr
+	 */
+	@Override
+	public String getBankName() {
+		return model.getBankName();
 	}
 
 	/**
@@ -275,6 +313,16 @@ public class ClaimIntimationMtrWrapper
 	@Override
 	public long getClaimIntimationMotorId() {
 		return model.getClaimIntimationMotorId();
+	}
+
+	/**
+	 * Returns the claim status of this claim intimation mtr.
+	 *
+	 * @return the claim status of this claim intimation mtr
+	 */
+	@Override
+	public int getClaimStatus() {
+		return model.getClaimStatus();
 	}
 
 	/**
@@ -345,6 +393,26 @@ public class ClaimIntimationMtrWrapper
 	@Override
 	public String getDriverNationality() {
 		return model.getDriverNationality();
+	}
+
+	/**
+	 * Returns the email ID of this claim intimation mtr.
+	 *
+	 * @return the email ID of this claim intimation mtr
+	 */
+	@Override
+	public String getEmailId() {
+		return model.getEmailId();
+	}
+
+	/**
+	 * Returns the iban number of this claim intimation mtr.
+	 *
+	 * @return the iban number of this claim intimation mtr
+	 */
+	@Override
+	public String getIbanNumber() {
+		return model.getIbanNumber();
 	}
 
 	/**
@@ -473,6 +541,16 @@ public class ClaimIntimationMtrWrapper
 	}
 
 	/**
+	 * Sets the bank name of this claim intimation mtr.
+	 *
+	 * @param bankName the bank name of this claim intimation mtr
+	 */
+	@Override
+	public void setBankName(String bankName) {
+		model.setBankName(bankName);
+	}
+
+	/**
 	 * Sets the cause of loss of this claim intimation mtr.
 	 *
 	 * @param causeOfLoss the cause of loss of this claim intimation mtr
@@ -510,6 +588,16 @@ public class ClaimIntimationMtrWrapper
 	@Override
 	public void setClaimIntimationMotorId(long claimIntimationMotorId) {
 		model.setClaimIntimationMotorId(claimIntimationMotorId);
+	}
+
+	/**
+	 * Sets the claim status of this claim intimation mtr.
+	 *
+	 * @param claimStatus the claim status of this claim intimation mtr
+	 */
+	@Override
+	public void setClaimStatus(int claimStatus) {
+		model.setClaimStatus(claimStatus);
 	}
 
 	/**
@@ -580,6 +668,26 @@ public class ClaimIntimationMtrWrapper
 	@Override
 	public void setDriverNationality(String driverNationality) {
 		model.setDriverNationality(driverNationality);
+	}
+
+	/**
+	 * Sets the email ID of this claim intimation mtr.
+	 *
+	 * @param emailId the email ID of this claim intimation mtr
+	 */
+	@Override
+	public void setEmailId(String emailId) {
+		model.setEmailId(emailId);
+	}
+
+	/**
+	 * Sets the iban number of this claim intimation mtr.
+	 *
+	 * @param ibanNumber the iban number of this claim intimation mtr
+	 */
+	@Override
+	public void setIbanNumber(String ibanNumber) {
+		model.setIbanNumber(ibanNumber);
 	}
 
 	/**

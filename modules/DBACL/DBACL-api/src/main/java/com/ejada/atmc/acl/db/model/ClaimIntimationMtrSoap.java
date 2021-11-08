@@ -55,6 +55,10 @@ public class ClaimIntimationMtrSoap implements Serializable {
 		soapModel.setDriverBirthDate(model.getDriverBirthDate());
 		soapModel.setDriverGender(model.getDriverGender());
 		soapModel.setAttachmentReference(model.getAttachmentReference());
+		soapModel.setClaimStatus(model.getClaimStatus());
+		soapModel.setIbanNumber(model.getIbanNumber());
+		soapModel.setBankName(model.getBankName());
+		soapModel.setEmailId(model.getEmailId());
 
 		return soapModel;
 	}
@@ -293,6 +297,38 @@ public class ClaimIntimationMtrSoap implements Serializable {
 		_attachmentReference = attachmentReference;
 	}
 
+	public int getClaimStatus() {
+		return _claimStatus;
+	}
+
+	public void setClaimStatus(int claimStatus) {
+		_claimStatus = claimStatus;
+	}
+
+	public String getIbanNumber() {
+		return _ibanNumber;
+	}
+
+	public void setIbanNumber(String ibanNumber) {
+		_ibanNumber = ibanNumber;
+	}
+
+	public String getBankName() {
+		return _bankName;
+	}
+
+	public void setBankName(String bankName) {
+		_bankName = bankName;
+	}
+
+	public String getEmailId() {
+		return _emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		_emailId = emailId;
+	}
+
 	private long _claimIntimationMotorId;
 	private String _intimationReferenceNo;
 	private String _claimantType;
@@ -315,5 +351,9 @@ public class ClaimIntimationMtrSoap implements Serializable {
 	private Date _driverBirthDate;
 	private String _driverGender;
 	private String _attachmentReference;
+	private int _claimStatus;
+	private String _ibanNumber;
+	private String _bankName;
+	private String _emailId;
 
 }

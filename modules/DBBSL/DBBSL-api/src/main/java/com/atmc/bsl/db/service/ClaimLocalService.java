@@ -171,6 +171,16 @@ public interface ClaimLocalService extends BaseLocalService {
 	public List<NajmClaim> getNajmClaimByCaseNo(String caseNo);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<NajmClaim> getNajmClaimByCustomId(
+			String caseNo, String customId)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<NajmClaim> getNajmClaimByNajmPlateNumber(
+			String caseNo, String najmPlateNo)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public NajmClaimIntimation getNajmClaimIntimationByCustomId(
 			String caseNo, String vehicleCustomId, String language)
 		throws PortalException;

@@ -15,6 +15,7 @@
 package com.ejada.atmc.acl.db.service;
 
 import com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO;
+import com.ejada.atmc.acl.db.custom.model.ODSPolActiveVehicleDTO;
 import com.ejada.atmc.acl.db.model.ClaimIntimationMtr;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
@@ -209,11 +210,23 @@ public interface ClaimIntimationMtrLocalService
 	public List<ClaimIntimationMtrDTO> findClaimIntimationList(
 		String findByCategory, String findByValue);
 
+	public List<ClaimIntimationMtrDTO> findClaimIntimationListByAllCategories(
+		List<String> findByCategories, String findByValue);
+
 	public List<ClaimIntimationMtrDTO> findClaimIntimationListFromView(
 		String referenceNo);
 
+	public List<ClaimIntimationMtrDTO> findClaimIntimationsStatus(
+		String findByValue);
+
+	public ODSPolActiveVehicleDTO findOdsVehicleActiveList(
+		String chassisNo, String policyNo);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<ClaimIntimationMtr> getAllClaims();
 
 	/**
 	 * Returns the claim intimation mtr with the primary key.
@@ -268,13 +281,14 @@ public interface ClaimIntimationMtrLocalService
 
 	public ClaimIntimationMtr intimateClaim(
 		String claimantType, String policyNumber, String vehicleIdentNumber,
-		String plateL1, String plateL2, String plateL3, long sequenceNumber,
+		String plateL1, String plateL2, String plateL3, String sequenceNumber,
 		String chassisNumber, String mobileNumber, String causeOfLoss,
 		Date dateOfLossOrAccident, String accidentCity,
 		String accidentDescription, String sourceOfAccidentReport,
 		String accidentReportNumber, String vehicleMake, String vehicleModel,
 		String driverName, String driverNationality, long driverNationalId,
-		Date driverDateOfBirthG, String driverGender);
+		Date driverDateOfBirthG, String driverGender, String ibanNumber,
+		String bankName, String emailId);
 
 	/**
 	 * Updates the claim intimation mtr in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

@@ -380,4 +380,63 @@ public interface ClaimIntimationMtrModel extends BaseModel<ClaimIntimationMtr> {
 	 */
 	public void setAttachmentReference(String attachmentReference);
 
+	/**
+	 * Returns the claim status of this claim intimation mtr.
+	 *
+	 * @return the claim status of this claim intimation mtr
+	 */
+	public int getClaimStatus();
+
+	/**
+	 * Sets the claim status of this claim intimation mtr.
+	 *
+	 * @param claimStatus the claim status of this claim intimation mtr
+	 */
+	public void setClaimStatus(int claimStatus);
+
+	/**
+	 * Returns the iban number of this claim intimation mtr.
+	 *
+	 * @return the iban number of this claim intimation mtr
+	 */
+	@AutoEscape
+	public String getIbanNumber();
+
+	/**
+	 * Sets the iban number of this claim intimation mtr.
+	 *
+	 * @param ibanNumber the iban number of this claim intimation mtr
+	 */
+	public void setIbanNumber(String ibanNumber);
+
+	/**
+	 * Returns the bank name of this claim intimation mtr.
+	 *
+	 * @return the bank name of this claim intimation mtr
+	 */
+	@AutoEscape
+	public String getBankName();
+
+	/**
+	 * Sets the bank name of this claim intimation mtr.
+	 *
+	 * @param bankName the bank name of this claim intimation mtr
+	 */
+	public void setBankName(String bankName);
+
+	/**
+	 * Returns the email ID of this claim intimation mtr.
+	 *
+	 * @return the email ID of this claim intimation mtr
+	 */
+	@AutoEscape
+	public String getEmailId();
+
+	/**
+	 * Sets the email ID of this claim intimation mtr.
+	 *
+	 * @param emailId the email ID of this claim intimation mtr
+	 */
+	public void setEmailId(String emailId);
+
 }

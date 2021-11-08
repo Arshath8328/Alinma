@@ -102,6 +102,7 @@ public class CodeMasterDetailsLocalServiceImpl extends CodeMasterDetailsLocalSer
 				codeMasterDetails.setCodeSub(codeMasterObj.getCodeSub());
 				codeMasterDetails.setCodeDesc(codeMasterObj.getCodeDesc());
 				codeMasterDetails.setCodeDescAr(codeMasterObj.getCodeDescAr());
+				codeMasterDetails.setCodeSubRef(codeMasterObj.getCodeSubRef());
 				/*
 				 * codeMasterDetails.setCodeSubRef(codeMasterObj.getCodeSubRef());
 				 * codeMasterDetails.setCodeRef(codeMasterObj.getCodeRef());

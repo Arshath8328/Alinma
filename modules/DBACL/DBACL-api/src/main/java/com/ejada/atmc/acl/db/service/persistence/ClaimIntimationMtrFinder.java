@@ -23,6 +23,14 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public interface ClaimIntimationMtrFinder {
 
+	public com.ejada.atmc.acl.db.model.ClaimIntimationMtr fetchLastRecord();
+
+	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
+		getAllClaims();
+
+	public com.ejada.atmc.acl.db.custom.model.ODSPolActiveVehicleDTO
+		findOdsVehicleActiveList(String chassisNo, String policyNo);
+
 	public long getClaimIntimationSequence();
 
 	public java.util.List<com.ejada.atmc.acl.db.model.ClaimIntimationMtr>
@@ -30,10 +38,15 @@ public interface ClaimIntimationMtrFinder {
 
 	public java.util.List
 		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
-			findClaimIntimationList(String findByCategory, String findByValue);
+			findClaimIntimationsByCategory(
+				String findByCategory, String findByValue);
 
 	public java.util.List
 		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
-			findClaimIntimationListFromView(String referenceNo);
+			findClaimIntimationsStatus(String findByValue);
+
+	public java.util.List
+		<com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO>
+			findClaimIntimationListByReferenceNoFromView(String referenceNo);
 
 }

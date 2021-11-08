@@ -15,6 +15,7 @@
 package com.ejada.atmc.acl.db.service.impl;
 
 import com.ejada.atmc.acl.db.custom.model.ClaimIntimationMtrDTO;
+import com.ejada.atmc.acl.db.custom.model.ODSPolActiveVehicleDTO;
 import com.ejada.atmc.acl.db.model.ClaimIntimationMtr;
 import com.ejada.atmc.acl.db.service.ClaimIntimationMtrLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.base.ClaimIntimationMtrLocalServiceBaseImpl;
@@ -52,30 +53,47 @@ import org.osgi.service.component.annotations.Component;
 )
 public class ClaimIntimationMtrLocalServiceImpl extends ClaimIntimationMtrLocalServiceBaseImpl {
 
-	public static Log _log = LogFactoryUtil.getLog(ClaimIntimationMtrLocalServiceImpl.class);
-	private int		counter		= 0000;
+	public static Log		_log	= LogFactoryUtil.getLog(ClaimIntimationMtrLocalServiceImpl.class);
+	private static int		counter	= 1;
 //	final ScheduledExecutorService	scheduler	= Executors.newSingleThreadScheduledExecutor();
 
 	private static String	currentDate;
 
 	static {
-		currentDate = new SimpleDateFormat("MM/dd/yy").format(new Date()).replaceAll("/", "");
-		_log.info("Static Block initialized with currenDate set to " + currentDate);
+		currentDate = new SimpleDateFormat("dd/MM/yy").format(new Date()).replaceAll("/", "");
+		_log.info("Static Block initialized with currenDate set to " + currentDate + " with counter : " + counter);
 	}
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. Use <code>com.ejada.atmc.acl.db.service.ClaimIntimationMtrLocalService</code>
-	 * via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use
-	 * <code>com.ejada.atmc.acl.db.service.ClaimIntimationMtrLocalServiceUtil</code>.
-	 */
-	public ClaimIntimationMtr intimateClaim(String claimantType, String policyNumber, String vehicleIdentNumber, String plateL1, String plateL2, String plateL3, long sequenceNumber,
+
+	private String generateIntimationReferenceNumber(String todaysDate) {
+		StringBuilder sb = new StringBuilder();
+		currentDate = todaysDate;
+		sb.append("ATMC");
+		sb.append(todaysDate);
+		computeCounter();
+		sb.append(counter);
+		return sb.toString();
+	}
+
+	private void computeCounter() {
+		ClaimIntimationMtr claimIntimationMtr = claimIntimationMtrFinder.fetchLastRecord();
+		if (claimIntimationMtr != null) {
+			String intimationReferenceNo = claimIntimationMtr.getIntimationReferenceNo();
+			String lastRecordDate = intimationReferenceNo.substring(4, 10);
+			if (lastRecordDate.equals(currentDate)) {
+				counter = Integer.parseInt(intimationReferenceNo.substring(10, intimationReferenceNo.length())) + 1;
+				_log.info("Counter is reset for currentDate : " + currentDate + " -> counter : " + counter);
+			}
+		}
+	}
+
+	public ClaimIntimationMtr intimateClaim(String claimantType, String policyNumber, String vehicleIdentNumber, String plateL1, String plateL2, String plateL3, String sequenceNumber,
 			String chassisNumber, String mobileNumber, String causeOfLoss, Date dateOfLossOrAccident, String accidentCity, String accidentDescription, String sourceOfAccidentReport,
-			String accidentReportNumber, String vehicleMake, String vehicleModel, String driverName, String driverNationality, long driverNationalId, Date driverDateOfBirthG, String driverGender) {
+			String accidentReportNumber, String vehicleMake, String vehicleModel, String driverName, String driverNationality, long driverNationalId, Date driverDateOfBirthG, String driverGender,
+			String ibanNumber, String bankName, String emailId)
+	{
 //		scheduler.scheduleAtFixedRate(() -> counter++, 0, 1, TimeUnit.DAYS); 
 		long cimId = claimIntimationMtrFinder.getClaimIntimationSequence();
-
-		String todaysDate = new SimpleDateFormat("MM/dd/yy").format(new Date()).replaceAll("/", "");
+		String todaysDate = new SimpleDateFormat("dd/MM/yy").format(new Date()).replaceAll("/", "");
 		String intimationRefNo = generateIntimationReferenceNumber(todaysDate);
 
 		ClaimIntimationMtr claimIntimationMtr = ClaimIntimationMtrLocalServiceUtil.createClaimIntimationMtr(cimId);
@@ -84,7 +102,8 @@ public class ClaimIntimationMtrLocalServiceImpl extends ClaimIntimationMtrLocalS
 		claimIntimationMtr.setClaimantType(claimantType);
 		claimIntimationMtr.setPolicyNo(policyNumber);
 		claimIntimationMtr.setVehiclePlateNo(vehicleIdentNumber + plateL1 + plateL2 + plateL3);
-		claimIntimationMtr.setSequenceNo(sequenceNumber);
+		if (sequenceNumber != null && !sequenceNumber.equals(""))
+			claimIntimationMtr.setSequenceNo(Long.parseLong(sequenceNumber));
 		claimIntimationMtr.setChassisNo(chassisNumber);
 		claimIntimationMtr.setMobileNo(mobileNumber);
 		claimIntimationMtr.setCauseOfLoss(causeOfLoss);
@@ -100,40 +119,60 @@ public class ClaimIntimationMtrLocalServiceImpl extends ClaimIntimationMtrLocalS
 		claimIntimationMtr.setDriverNationalId(driverNationalId);
 		claimIntimationMtr.setDriverBirthDate(driverDateOfBirthG);
 		claimIntimationMtr.setDriverGender(driverGender);
+		claimIntimationMtr.setIbanNumber(ibanNumber);
+		claimIntimationMtr.setBankName(bankName);
+		claimIntimationMtr.setEmailId(emailId);
+
+		// Initial Claim Status : 1 - Intimated Successully
+		claimIntimationMtr.setClaimStatus(1);
 		ClaimIntimationMtrLocalServiceUtil.updateClaimIntimationMtr(claimIntimationMtr);
 		return claimIntimationMtr;
 	}
 
-	private String generateIntimationReferenceNumber(String todaysDate) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("ATMC");
-		sb.append(todaysDate);
-		if (Validator.isNull(currentDate) || !currentDate.equals(todaysDate)) {
-			counter = 0000;
-			currentDate = todaysDate;
-			sb.append(String.format("%04d", counter));
-		} else {
-			counter++;
-			sb.append(String.format("%04d", counter));
-		}
-		return sb.toString();
+	public List<ClaimIntimationMtr> getAllClaims() {
+		return claimIntimationMtrFinder.getAllClaims();
 	}
 
-	public List<ClaimIntimationMtr> findClaimIntimationList(String keyword){
+	public List<ClaimIntimationMtrDTO> findClaimIntimationsStatus(String findByValue) {
+		return claimIntimationMtrFinder.findClaimIntimationsStatus(findByValue);
+	}
+
+	public ODSPolActiveVehicleDTO findOdsVehicleActiveList(String chassisNo, String policyNo) {
+		return claimIntimationMtrFinder.findOdsVehicleActiveList(chassisNo, policyNo);
+	}
+
+	public List<ClaimIntimationMtr> findClaimIntimationList(String keyword) {
 		return claimIntimationMtrFinder.findClaimIntimationList(keyword);
 	}
-	
-	public List<ClaimIntimationMtrDTO> findClaimIntimationList(String findByCategory, String findByValue){
-		return claimIntimationMtrFinder.findClaimIntimationList(findByCategory, findByValue);
+
+	public List<ClaimIntimationMtrDTO> findClaimIntimationList(String findByCategory, String findByValue) {
+		return claimIntimationMtrFinder.findClaimIntimationsByCategory(findByCategory, findByValue);
 	}
-	
-	public List<ClaimIntimationMtrDTO> findClaimIntimationListFromView(String referenceNo){
-		return claimIntimationMtrFinder.findClaimIntimationListFromView(referenceNo);
+
+	public List<ClaimIntimationMtrDTO> findClaimIntimationListByAllCategories(List<String> findByCategories, String findByValue) {
+		List<ClaimIntimationMtrDTO> claimsDTO = new ArrayList<>();
+		for (String findByCategory : findByCategories) {
+			if (findByCategory.equals("Driver_National_ID") || findByCategory.equalsIgnoreCase("Mobile_No")) {
+				try {
+					String findNumberValue = String.valueOf(Long.parseLong(findByValue));
+					claimsDTO.addAll(claimIntimationMtrFinder.findClaimIntimationsByCategory(findByCategory, findNumberValue));
+				} catch (Exception e) {
+					_log.error("Skipping field : " + findByCategory);
+				}
+			} else {
+				claimsDTO.addAll(claimIntimationMtrFinder.findClaimIntimationsByCategory(findByCategory, findByValue));
+			}
+		}
+		return claimsDTO;
 	}
-	
-	public List<ClaimIntimationMtr> findClaimIntimationList(int findByCategory, String findByValue){
+
+	public List<ClaimIntimationMtrDTO> findClaimIntimationListFromView(String referenceNo) {
+		return claimIntimationMtrFinder.findClaimIntimationListByReferenceNoFromView(referenceNo);
+	}
+
+	public List<ClaimIntimationMtr> findClaimIntimationList(int findByCategory, String findByValue) {
 		List<ClaimIntimationMtr> claimsList = new ArrayList<>();
-		switch(findByCategory) {
+		switch (findByCategory) {
 			case 1:
 				ClaimIntimationMtr claim;
 				try {
@@ -154,7 +193,7 @@ public class ClaimIntimationMtrLocalServiceImpl extends ClaimIntimationMtrLocalS
 				break;
 			default:
 				break;
-			
+
 		}
 		return claimsList;
 	}

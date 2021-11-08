@@ -27,7 +27,7 @@ public class CodeMasterDetails {
 	private String codeSub;
 	private String codeDesc;
 	private String codeDescAr;
-
+	private String codeSubRef;
 	/*
 	 * private String codeValue0; private String codeValue1; private String
 	 * codeValue2; private String codeRef; private String codeSubRef; public double
@@ -85,4 +85,12 @@ public class CodeMasterDetails {
 	 * codeRef) { this.codeRef = codeRef; } public String getCodeSubRef() { return
 	 * codeSubRef; } public void setCodeSubRef(String codeSubRef) { this.codeSubRef
 	 * = codeSubRef; }
-	 */}
+	 */
+
+	public String getCodeSubRef() {
+		return codeSubRef;
+	}
+
+	public void setCodeSubRef(String codeSubRef) {
+		this.codeSubRef = codeSubRef;
+	}}

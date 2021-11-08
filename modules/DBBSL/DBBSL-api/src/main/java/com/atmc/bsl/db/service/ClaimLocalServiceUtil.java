@@ -229,6 +229,20 @@ public class ClaimLocalServiceUtil {
 		return getService().getNajmClaimByCaseNo(caseNo);
 	}
 
+	public static java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+			getNajmClaimByCustomId(String caseNo, String customId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return getService().getNajmClaimByCustomId(caseNo, customId);
+	}
+
+	public static java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+			getNajmClaimByNajmPlateNumber(String caseNo, String najmPlateNo)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return getService().getNajmClaimByNajmPlateNumber(caseNo, najmPlateNo);
+	}
+
 	public static com.atmc.bsl.db.domain.claim.NajmClaimIntimation
 			getNajmClaimIntimationByCustomId(
 				String caseNo, String vehicleCustomId, String language)
