@@ -66,39 +66,47 @@ public class QuickQuotePortlet extends MVCPortlet {
 	private static final String		SCHEME_CODE		= "SCHEME_011";
 	private static final String		CODE_FREEZ_YN	= "N";
 
+	List<CodeMasterDetails> codeMaterList;
+	List<CodeMasterDetails> codeMaterDtlsList;
+	List<CodeMasterDetails> dedValues;
+	List<String> manufactList = new ArrayList<>();
+	Map<String, String> manufactMap = new HashMap<>();
+	static boolean isDataSet = false;
+	
 	SimpleDateFormat				dateFormat		= new SimpleDateFormat("dd/MM/yyyy");
 
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 
 		try {
-			List<CodeMasterDetails> codeMaterList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez("MOT_VEH_MAKE", CODE_FREEZ_YN);
-			_log.info("codeMaterList  >>>>>>>" + codeMaterList.size());
-			ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-			String currLocale = themeDisplay.getLocale().toString();
-			List<String> manufactList = new ArrayList<>();
-			Map<String, String> manufactMap = new HashMap<>();
-			for (CodeMasterDetails codeMasterDtls : codeMaterList) {
-				if (currLocale.equals("en_US")) {
-					codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\"", ""));
-					codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\'", ""));
-					manufactList.add(codeMasterDtls.getCodeDesc());
-					manufactMap.put(codeMasterDtls.getCodeDesc(), codeMasterDtls.getCodeSub());
-				} else {
-					codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\"", ""));
-					codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\'", ""));
-					manufactList.add(codeMasterDtls.getCodeDescAr());
-					manufactMap.put(codeMasterDtls.getCodeDescAr(), codeMasterDtls.getCodeSub());
+			if(!isDataSet) {
+				codeMaterList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez("MOT_VEH_MAKE", CODE_FREEZ_YN);
+				_log.info("codeMaterList  >>>>>>>" + codeMaterList.size());
+				ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
+				String currLocale = themeDisplay.getLocale().toString();
+				for (CodeMasterDetails codeMasterDtls : codeMaterList) {
+					if (currLocale.equals("en_US")) {
+						codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\"", ""));
+						codeMasterDtls.setCodeDesc(codeMasterDtls.getCodeDesc().replaceAll("\'", ""));
+						manufactList.add(codeMasterDtls.getCodeDesc());
+						manufactMap.put(codeMasterDtls.getCodeDesc(), codeMasterDtls.getCodeSub());
+					} else {
+						codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\"", ""));
+						codeMasterDtls.setCodeDescAr(codeMasterDtls.getCodeDescAr().replaceAll("\'", ""));
+						manufactList.add(codeMasterDtls.getCodeDescAr());
+						manufactMap.put(codeMasterDtls.getCodeDescAr(), codeMasterDtls.getCodeSub());
+					}
+
 				}
-
+				dedValues = QuotationLocalServiceUtil.getDeductibleValues();
+				codeMaterDtlsList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez(BODY_CODE, CODE_FREEZ_YN);
+				isDataSet = true;
 			}
-
-			List<CodeMasterDetails> codeMaterDtlsList = CodeMasterDetailsLocalServiceUtil.findByCodeCodeFreez(BODY_CODE, CODE_FREEZ_YN);
-
+			
 			String manufactData = GsonUtilsLocalServiceUtil.toGson(manufactList);
 			String manufactJson = GsonUtilsLocalServiceUtil.toGson(manufactMap);
 
-			renderRequest.setAttribute("dedVals", QuotationLocalServiceUtil.getDeductibleValues());
+			renderRequest.setAttribute("dedVals", dedValues);
 			renderRequest.setAttribute("manufactDataJson", manufactData);
 			renderRequest.setAttribute("manufactMapJson", manufactJson);
 			renderRequest.setAttribute("bodyListData", codeMaterDtlsList);

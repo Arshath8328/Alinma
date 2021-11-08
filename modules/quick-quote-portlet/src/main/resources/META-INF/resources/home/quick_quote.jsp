@@ -81,6 +81,14 @@
 				</div>
 			</div>
 			<br />
+				<button class="btn btn-lg btn-primary pull-right"
+						style="width: 176px;margin: 1% auto; color: white" ><a style=" color:white" href="/web/customer/claim_intimation">
+						Intimate Motor Claim</a>
+					</button>
+						<button class="btn btn-lg btn-primary pull-right"
+						style="width: 176px; margin:1% auto; color:white" ><a style=" color:white" href="/web/customer/claim-status-tracker">
+						Check Intimated Claim Status</a>
+					</button>
 		</div>
 		<div class="error_container"></div>
 		<div class="pull-left vcenter inner-wrap"

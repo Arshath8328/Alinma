@@ -9,6 +9,7 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -41,11 +42,19 @@ public class NewsPortlet extends MVCPortlet {
 
 	private static final Log _log = LogFactoryUtil.getLog(NewsPortlet.class);
 
+	static boolean isDataSet = false;
+	ThemeDisplay themeDisplay;
+	List<String> homeNews;
+	
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 
-		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-		renderRequest.setAttribute(NewsPortletKeys.NEWS, ContentEngineLocalServiceUtil.getHomeNews(themeDisplay));
+		if (!isDataSet) {
+			themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
+			homeNews = ContentEngineLocalServiceUtil.getHomeNews(themeDisplay);
+			isDataSet = true;
+		}
+		renderRequest.setAttribute(NewsPortletKeys.NEWS, homeNews);
 		super.doView(renderRequest, renderResponse);
 
 	}
