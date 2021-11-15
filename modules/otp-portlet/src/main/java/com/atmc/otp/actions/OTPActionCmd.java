@@ -93,7 +93,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 				_log.info("sending OTP to email " + userEmail);
 				otpSent = OTPLocalServiceUtil.sendOTPToEmail(currentLocale, userOtpSecret, userEmail);
 			} else {
-				_log.error("User is not signed in. OTP wont be sebt to EMAIL");
+				_log.error("User is not signed in OR env is not Production. OTP wont be sebt to EMAIL");
 				SessionErrors.add(actionRequest, "otpsenderror");
 			}
 		} else if (mobile != null && isProduction) {
@@ -101,7 +101,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 			otpSent = OTPLocalServiceUtil.sendOTP(currentLocale, userOtpSecret, mobile);
 			otpSentEmail = OTPLocalServiceUtil.sendOTPToEmail(currentLocale, userOtpSecret, email);
 		} else {
-			_log.error("User has no registered mobile");
+			_log.error("User has no registered mobile OR env is not Production.");
 			SessionErrors.add(actionRequest, "otpsenderror");
 		}
 
@@ -169,12 +169,14 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 		_log.info("resending OTP");
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		UserInfo userInfo = SessionUtil.getUserInfo(actionRequest);
+		boolean isProduction = Validator.isNotNull(PropsUtil.get("production.environment"));
+
 		userInfo.setOtpSecret(OTPLocalServiceUtil.generateSecret());
 		_log.info("OTP secret:" + userInfo.getOtpSecret());
 
 		String sendTo = ParamUtil.getString(actionRequest, OTPPortletKeys.SEND_TO);
 		if (sendTo != null && sendTo.equals(OTPPortletKeys.SEND_TO_EMAIL)) {
-			if (themeDisplay.isSignedIn()) {
+			if (themeDisplay.isSignedIn() && isProduction) {
 				_log.info("sending OTP to email " + themeDisplay.getUser().getEmailAddress());
 				boolean otpSent = OTPLocalServiceUtil.sendOTPToEmail(themeDisplay.getLocale(), userInfo.getOtpSecret(), themeDisplay.getUser().getEmailAddress());
 				if (!otpSent)
@@ -185,7 +187,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 				}
 
 			} else {
-				_log.error("User is not signed in. OTP wont be sebt to EMAIL");
+				_log.error("User is not signed in OR env is not Production. OTP wont be sebt to EMAIL");
 				SessionErrors.add(actionRequest, "otpsenderror");
 			}
 
@@ -200,7 +202,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 			} catch (PortalException e) {
 				_log.error(e.getMessage(), e);
 			}
-			if (mobile != null) {
+			if (mobile != null && isProduction) {
 				_log.info("Resending OTP to mobile " + mobile);
 
 				boolean otpSent = OTPLocalServiceUtil.sendOTP(themeDisplay.getLocale(), userInfo.getOtpSecret(), mobile);
@@ -212,7 +214,7 @@ public class OTPActionCmd extends BaseMVCActionCommand {
 					actionRequest.getPortletSession().setAttribute("otpSent", true);
 				}
 			} else {
-				_log.info(" user has no registered mobile");
+				_log.info(" user has no registered mobile  OR env is not Production.");
 				SessionErrors.add(actionRequest, "otpsenderror");
 			}
 		}
