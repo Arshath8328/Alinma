@@ -172,7 +172,7 @@ public class ClaimIntimationListPortlet extends MVCPortlet {
 
 			String view = "/claimIntimationList/" + myview + ".jsp";
 			PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher(view);
-			dispatcher.forward(renderRequest, renderResponse);
+			dispatcher.include(renderRequest, renderResponse);
 		} catch (Exception e) {
 			_log.error(e.getMessage(), e);
 		}

@@ -97,7 +97,7 @@ public class AdminPolicyListPortlet extends MVCPortlet {
 		}
 		String view = "/" + (myview == null ? "view" : myview) + ".jsp";
 		PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher(view);
-		dispatcher.forward(renderRequest, renderResponse);
+		dispatcher.include(renderRequest, renderResponse);
 	}
 
 	public void quotationDetails(ActionRequest request, ActionResponse response) {

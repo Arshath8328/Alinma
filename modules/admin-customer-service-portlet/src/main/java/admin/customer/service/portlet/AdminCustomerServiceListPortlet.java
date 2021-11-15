@@ -81,7 +81,7 @@ public class AdminCustomerServiceListPortlet extends MVCPortlet {
 	@Override
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 		// Auto-generated method stub
-		String myview = (renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view2";
+		String myview = (renderRequest.getParameter("myview") != null) ? renderRequest.getParameter("myview") : "view";
 		try {
 			User user = ((ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY)).getUser();
 			String userRole = getUserRole(user);
@@ -120,7 +120,7 @@ public class AdminCustomerServiceListPortlet extends MVCPortlet {
 			_log.error(e.getMessage(), e);
 		}
 		PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher("/adminCustomerServiceList/" + myview + ".jsp");
-		dispatcher.forward(renderRequest, renderResponse);
+		dispatcher.include(renderRequest, renderResponse);
 	}
 
 //	public void srvReqDetails(ActionRequest req, ActionResponse res)

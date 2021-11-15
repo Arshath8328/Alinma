@@ -80,7 +80,7 @@ public class AdminClaimPortlet extends MVCPortlet {
 			claimDetails(renderRequest, renderResponse);
 		}
 		PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher(view);
-		dispatcher.forward(renderRequest, renderResponse);
+		dispatcher.include(renderRequest, renderResponse);
 	}
 
 	public void claimDetails(RenderRequest request, RenderResponse response) {

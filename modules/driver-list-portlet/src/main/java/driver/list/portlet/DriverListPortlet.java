@@ -95,7 +95,7 @@ public class DriverListPortlet extends MVCPortlet {
 		}
 		view = "/" + (myview == null ? "view" : myview) + ".jsp";
 		PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher(view);
-		dispatcher.forward(request, response);
+		dispatcher.include(request, response);
 	}
 
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse) throws IOException {
