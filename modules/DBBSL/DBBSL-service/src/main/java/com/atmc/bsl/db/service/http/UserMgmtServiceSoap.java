@@ -53,7 +53,7 @@ import java.rmi.RemoteException;
 @Deprecated
 public class UserMgmtServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> createUser(
 				long companyId, String login, String password,
 				String englishName, String arabicName, String language,
@@ -62,7 +62,7 @@ public class UserMgmtServiceSoap {
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User> returnValue =
 					UserMgmtServiceUtil.createUser(
 						companyId, login, password, englishName, arabicName,
@@ -78,14 +78,14 @@ public class UserMgmtServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
 				long userId, String password, String reminderQueryQuestion,
 				String reminderQueryAnswer)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User> returnValue =
 					UserMgmtServiceUtil.changeFirstTimeLoginPassword(
 						userId, password, reminderQueryQuestion,

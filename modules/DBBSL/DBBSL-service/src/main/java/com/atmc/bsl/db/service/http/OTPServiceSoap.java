@@ -53,13 +53,13 @@ import java.rmi.RemoteException;
 @Deprecated
 public class OTPServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
 			String language, String otpSecret, String mobileNumber,
 			String chkVal)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				OTPServiceUtil.sendOTP(
 					language, otpSecret, mobileNumber, chkVal);
 
@@ -72,12 +72,12 @@ public class OTPServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
 			String language, String mobileNumber, String chkVal)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				OTPServiceUtil.resendOTP(language, mobileNumber, chkVal);
 
 			return returnValue;
@@ -89,12 +89,12 @@ public class OTPServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
 			String otpSecret, String otp)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				OTPServiceUtil.validateOTP(otpSecret, otp);
 
 			return returnValue;

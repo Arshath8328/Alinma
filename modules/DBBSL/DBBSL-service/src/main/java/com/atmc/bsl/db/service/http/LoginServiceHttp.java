@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class LoginServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
 		getReminderQueryQuestions(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -72,7 +72,7 @@ public class LoginServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>)
 				returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -84,8 +84,8 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> validateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> validateUser(
 			HttpPrincipal httpPrincipal, String idIqama, String email) {
 
 		try {
@@ -106,8 +106,8 @@ public class LoginServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -118,8 +118,8 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> authenticateUser(
 			HttpPrincipal httpPrincipal, String login, String password) {
 
 		try {
@@ -140,8 +140,8 @@ public class LoginServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -152,8 +152,8 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> login(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> login(
 			HttpPrincipal httpPrincipal, String login, String password,
 			String rememberMe) {
 
@@ -174,8 +174,8 @@ public class LoginServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -186,7 +186,7 @@ public class LoginServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> logout(
 		HttpPrincipal httpPrincipal) {
 
 		try {
@@ -205,7 +205,7 @@ public class LoginServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

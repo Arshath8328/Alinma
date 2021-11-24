@@ -53,12 +53,12 @@ import java.rmi.RemoteException;
 @Deprecated
 public class LoginServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
 			getReminderQueryQuestions()
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
 				returnValue = LoginServiceUtil.getReminderQueryQuestions();
 
 			return returnValue;
@@ -70,14 +70,14 @@ public class LoginServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> validateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> validateUser(
 				String idIqama, String email)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser> returnValue =
 					LoginServiceUtil.validateUser(idIqama, email);
 
 			return returnValue;
@@ -89,14 +89,14 @@ public class LoginServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> authenticateUser(
 				String login, String password)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser> returnValue =
 					LoginServiceUtil.authenticateUser(login, password);
 
 			return returnValue;
@@ -108,14 +108,14 @@ public class LoginServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> login(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> login(
 				String login, String password, String rememberMe)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.AuthUser> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.AuthUser> returnValue =
 					LoginServiceUtil.login(login, password, rememberMe);
 
 			return returnValue;
@@ -127,11 +127,11 @@ public class LoginServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout()
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> logout()
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				LoginServiceUtil.logout();
 
 			return returnValue;

@@ -1,6 +1,6 @@
-<%@page import="com.atmc.bsl.db.domain.quotation.CustomerMapDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@ include file="/init.jsp"%>
 <%@taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>

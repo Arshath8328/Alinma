@@ -1,9 +1,5 @@
 package admin.customer.service.portlet;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction;
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.atmc.bsl.db.service.GsonUtilsLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqActionLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqAttachmentLocalServiceUtil;
@@ -14,6 +10,10 @@ import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.db.model.ServiceRequestAttachments;
 import com.ejada.atmc.acl.db.service.SMSLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.SendEmailServiceUtil;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.petra.io.StreamUtil;
 import com.liferay.portal.kernel.captcha.CaptchaException;
@@ -53,7 +53,6 @@ import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.JspFactory;
 
 import org.osgi.service.component.annotations.Component;
 import org.owasp.encoder.Encode;
@@ -92,20 +91,8 @@ public class AdminCustomerServiceListPortlet extends MVCPortlet {
 			renderRequest.setAttribute("userRole", userRole);
 			renderRequest.setAttribute("isCustomerService", isCustomerService);
 			renderRequest.setAttribute("iqamaId", user.getScreenName());
-			if (myview.equals("view")) {
-//				List<ServiceRequest> result = SrvReqLocalServiceUtil.getServiceRequestsListByStatus(
-//						new String[]{CustomerServiceRequestListPortletKeys.REQUEST_STATUS_NEW, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_OPEN},userRole);
-//				renderRequest.setAttribute("msgsList", result);
-//				_log.error("Returned Messages  : " +  result.size());
-			} else if (myview.equals("closed_requests")) {
-//				List<ServiceRequest> result = SrvReqLocalServiceUtil.getServiceRequestsListByStatus(
-//						new String[]{CustomerServiceRequestListPortletKeys.REQUEST_STATUS_CLOSED}, userRole);
-//				renderRequest.setAttribute("msgsList", result);
-			} else if (myview.equals("escalated_requests")) {
-//				List<ServiceRequest> result = SrvReqLocalServiceUtil.getServiceRequestsListByEscalationFlag(userRole, CustomerServiceRequestListPortletKeys.REQUEST_STATUS_CLOSED
-//						, userRole.equals(AdminCustomerServiceListPortletKeys.USER_ROLES.CUSTOMER_SERVICE_ROLE.getValue()));
-//				renderRequest.setAttribute("msgsList", result);
-			} else if (myview.equals("internal_messages")) {
+			
+			if (myview.equals("internal_messages")) {
 				List<ServiceRequestAction> result = SrvReqActionLocalServiceUtil.getServiceRequestActionListbyRefNo(renderRequest.getParameter("refNo"));
 				renderRequest.setAttribute("actionList", result);
 			}

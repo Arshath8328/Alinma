@@ -1,6 +1,6 @@
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicle"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@page import="java.util.List"%>
 <%@ include file="/init.jsp"%>
 <%

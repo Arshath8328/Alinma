@@ -1,6 +1,5 @@
 package quick.quote.portlet;
 
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.atmc.bsl.db.service.GsonUtilsLocalServiceUtil;
 import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
@@ -8,6 +7,7 @@ import com.ejada.atmc.acl.db.domain.tariff.TariffDetails;
 import com.ejada.atmc.acl.db.domain.tariff.TariffInput;
 import com.ejada.atmc.acl.db.domain.tariff.TariffOutput;
 import com.ejada.atmc.acl.db.service.TariffLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

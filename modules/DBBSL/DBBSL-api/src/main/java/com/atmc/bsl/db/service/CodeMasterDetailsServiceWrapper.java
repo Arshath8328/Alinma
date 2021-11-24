@@ -34,8 +34,8 @@ public class CodeMasterDetailsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getByCodeCodeFreez(String code, String codeFreezYN)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -43,16 +43,16 @@ public class CodeMasterDetailsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCodeMasterList(String code, String locale) {
 
 		return _codeMasterDetailsService.getCodeMasterList(code, locale);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCustomCodes(String code) {
 
 		return _codeMasterDetailsService.getCustomCodes(code);
@@ -69,7 +69,7 @@ public class CodeMasterDetailsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
 		getQuickQuoteData(String locale) {
 
 		return _codeMasterDetailsService.getQuickQuoteData(locale);

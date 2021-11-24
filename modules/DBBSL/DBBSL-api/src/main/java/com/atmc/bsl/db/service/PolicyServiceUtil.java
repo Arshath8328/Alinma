@@ -47,30 +47,30 @@ public class PolicyServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getPoliciesByIqamaId(String iqamaId, int startRow, int endRow)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesByIqamaId(iqamaId, startRow, endRow);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 			getPoliciesCountByIqamaId(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPoliciesCountByIqamaId(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
 				String policyNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getPolicyByPolicyNo(policyNo);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
 				String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -78,8 +78,8 @@ public class PolicyServiceUtil {
 		return getService().getPolicySummary(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getUpcomingPolicyRenewals(String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
 

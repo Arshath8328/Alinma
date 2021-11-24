@@ -31,7 +31,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Integer> checkIbanValidation(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer> checkIbanValidation(
 			String ibanParm)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -39,7 +39,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> downloadClaimReport(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> downloadClaimReport(
 		com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt,
 		String claimintName, String claimintMobile, String claimintEmail,
 		String claimintId, String lang) {
@@ -50,7 +50,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -58,7 +58,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findDamageEstQuotFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findDamageEstQuotFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -66,7 +66,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -74,7 +74,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findODDriverLicenseFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findODDriverLicenseFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -82,7 +82,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findODPolicyCopyFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findODPolicyCopyFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -90,7 +90,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findODVehRegistFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findODVehRegistFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -98,7 +98,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -106,7 +106,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPBankIbanFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPBankIbanFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -114,7 +114,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPDriverLicenseFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPDriverLicenseFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -122,7 +122,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPFrontPhotoFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPFrontPhotoFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -130,7 +130,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPLeftSidePhotoFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPLeftSidePhotoFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -138,7 +138,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPOwnerIdFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPOwnerIdFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -146,7 +146,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPRearPhotoFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPRearPhotoFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -154,7 +154,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPRightSidePhotoFile(String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -162,7 +162,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> findTPVehRegistFile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findTPVehRegistFile(
 			String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -170,15 +170,15 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
 		String cityCode) {
 
 		return _claimService.getCityCoreCode(cityCode);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
 				String claimNumber)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -186,7 +186,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.HashMap<String, Object>> getClaimsDtls(String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -194,8 +194,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
 				String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -203,8 +203,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>
 				getClaimsSummaryFiter(
 					String iqamaId, String claimStatus, String policyType)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -214,8 +214,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 				getInsuranceCompanies()
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -223,8 +223,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
 				String refNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -232,8 +232,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
 				String refNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -241,7 +241,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
 			getNajmUploadsFilesName(String refNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -259,15 +259,15 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>>
 			getRoleWorkflow(String workflowRole) {
 
 		return _claimService.getRoleWorkflow(workflowRole);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.model.PolicyHDR> getVehiclePolicy(
 			String plateNo, String plateL1, String plateL2, String plateL3,
 			String language) {
@@ -277,8 +277,8 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
 			String claimType, String vehicleIdentType,
 			String vehicleIdentNumber, String plateL1, String plateL2,
 			String plateL3, String reportMode, String reportNumber,
@@ -291,7 +291,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Boolean> saveODMuroorDoc(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> saveODMuroorDoc(
 			String iqamaId, String clmIntimationNo,
 			java.io.File driverLicenseFile, String driverLicenseFileName,
 			java.io.File vehRegistFile, String vehRegistFileName,
@@ -305,7 +305,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Boolean> saveTPMuroorDoc(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> saveTPMuroorDoc(
 			String iqamaId, String clmIntimationNo,
 			java.io.File driverLicenseFile, String driverLicenseFileName,
 			java.io.File vehRegistFile, String vehRegistFileName,
@@ -347,7 +347,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse> submitClaimByObject(
 				com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -356,7 +356,7 @@ public class ClaimServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadNajmFiles(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadNajmFiles(
 		java.io.File najmSlipFile, String najmSlipFileName,
 		java.io.File damageEstQuotFile, String damageEstQuotFileName,
 		java.io.File bankIbanFile, String bankIbanFileName,

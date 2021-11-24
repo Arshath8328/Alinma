@@ -31,8 +31,8 @@ public class SrvReqMsgsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		return _srvReqMsgsService.addReplyMessage(msg);
 	}
@@ -48,9 +48,9 @@ public class SrvReqMsgsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List
-			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+			<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
 				getServiceRequestMessageListbyRefNo(String referenceNo) {
 
 		return _srvReqMsgsService.getServiceRequestMessageListbyRefNo(

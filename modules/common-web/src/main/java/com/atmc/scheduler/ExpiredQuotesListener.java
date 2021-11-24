@@ -2,7 +2,7 @@ package com.atmc.scheduler;
 
 //package com.atmc.scheduler;
 //
-//import com.atmc.bsl.db.domain.quotation.Quotation;
+//import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
 //import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
 //import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 //import com.atmc.web.common.NotificationTypes.Type;

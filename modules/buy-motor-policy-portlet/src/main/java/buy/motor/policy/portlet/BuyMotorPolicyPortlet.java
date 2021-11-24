@@ -1,13 +1,5 @@
 package buy.motor.policy.portlet;
 
-import com.atmc.bsl.db.domain.policy.Policy;
-import com.atmc.bsl.db.domain.policy.PolicyVehicle;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
-import com.atmc.bsl.db.domain.quotation.Quotation;
-import com.atmc.bsl.db.domain.quotation.QuotationCover;
-import com.atmc.bsl.db.domain.quotation.QuotationDriver;
-import com.atmc.bsl.db.domain.quotation.QuotationDriverLicense;
-import com.atmc.bsl.db.domain.quotation.QuotationUserAddress;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
@@ -44,6 +36,14 @@ import com.ejada.atmc.acl.db.service.persistence.QuotationCoversPK;
 import com.ejada.atmc.acl.ws.domain.ConfirmOLPPayment;
 import com.ejada.atmc.acl.ws.domain.payFort.PurchaseResponse;
 import com.ejada.atmc.acl.ws.service.OLPPaymentLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationCover;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriverLicense;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress;
 import com.ejada.atmc.utils.api.ReportsUtil;
 import com.google.gson.Gson;
 import com.liferay.portal.kernel.exception.PortalException;

@@ -41,21 +41,21 @@ public class OTPServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
 		String language, String mobileNumber, String chkVal) {
 
 		return _otpService.resendOTP(language, mobileNumber, chkVal);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
 		String language, String otpSecret, String mobileNumber, String chkVal) {
 
 		return _otpService.sendOTP(language, otpSecret, mobileNumber, chkVal);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
 		String otpSecret, String otp) {
 
 		return _otpService.validateOTP(otpSecret, otp);

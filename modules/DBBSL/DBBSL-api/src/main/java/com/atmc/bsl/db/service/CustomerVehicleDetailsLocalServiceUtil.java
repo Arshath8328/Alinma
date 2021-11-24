@@ -81,9 +81,9 @@ public class CustomerVehicleDetailsLocalServiceUtil {
 		return getService().getCitizenInfo(svcRequest, dateOfBirthH, nin);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation
+	public static com.ejada.atmc.bsl.db.domain.quotation.Quotation
 			getCustomerVehicleDetails(
-				com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
 				java.util.Locale locale)
 		throws com.atmc.bsl.db.exception.NajmException,
 			   com.atmc.bsl.db.exception.YaqeenException {
@@ -91,9 +91,9 @@ public class CustomerVehicleDetailsLocalServiceUtil {
 		return getService().getCustomerVehicleDetails(quot, addLang, locale);
 	}
 
-	public static com.atmc.bsl.db.domain.quotation.Quotation
+	public static com.ejada.atmc.bsl.db.domain.quotation.Quotation
 			getCustomerVehicleDetailsMob(
-				com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
 				java.util.Locale locale)
 		throws com.atmc.bsl.db.exception.NajmException,
 			   com.atmc.bsl.db.exception.YaqeenException {
@@ -102,7 +102,7 @@ public class CustomerVehicleDetailsLocalServiceUtil {
 	}
 
 	public static void getDriverVehicleDetails(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 
@@ -110,7 +110,7 @@ public class CustomerVehicleDetailsLocalServiceUtil {
 	}
 
 	public static void getDriverVehicleDetailsMob(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 

@@ -37,23 +37,23 @@ public class CodeMasterDetailsServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getByCodeCodeFreez(String code, String codeFreezYN)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getByCodeCodeFreez(code, codeFreezYN);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCodeMasterList(String code, String locale) {
 
 		return getService().getCodeMasterList(code, locale);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCustomCodes(String code) {
 
 		return getService().getCustomCodes(code);
@@ -68,7 +68,7 @@ public class CodeMasterDetailsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
 		getQuickQuoteData(String locale) {
 
 		return getService().getQuickQuoteData(locale);

@@ -12,11 +12,11 @@
  */
 package vacancies.portlet.portlet;
 
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.atmc.bsl.db.service.ContentEngineLocalServiceUtil;
 import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.db.service.SendEmailServiceUtil;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.portal.kernel.captcha.CaptchaException;
 import com.liferay.portal.kernel.exception.PortalException;

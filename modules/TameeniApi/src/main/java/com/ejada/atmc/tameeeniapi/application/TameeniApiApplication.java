@@ -1,10 +1,5 @@
 package com.ejada.atmc.tameeeniapi.application;
 
-import com.atmc.bsl.db.domain.quotation.Quotation;
-import com.atmc.bsl.db.domain.quotation.QuotationDriver;
-import com.atmc.bsl.db.domain.quotation.QuotationNajmDetails;
-import com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails;
-import com.atmc.bsl.db.domain.quotation.QuotationVehicleImage;
 import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 import com.atmc.bsl.db.service.impl.CustomerVehicleDetailsLocalServiceImpl;
 import com.ejada.atmc.acl.db.exception.NoSuchQuotationsException;
@@ -12,6 +7,11 @@ import com.ejada.atmc.acl.db.model.CodeMasterMap;
 import com.ejada.atmc.acl.db.model.Quotations;
 import com.ejada.atmc.acl.db.service.CodeMasterMapLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.QuotationsLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationNajmDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationVehicleImage;
 import com.ejada.atmc.rest.tameeniapi.domain.DraftPolicyRequest;
 import com.ejada.atmc.rest.tameeniapi.domain.DraftPolicyResponse;
 import com.ejada.atmc.rest.tameeniapi.domain.DraftPolicyResponseDetails;

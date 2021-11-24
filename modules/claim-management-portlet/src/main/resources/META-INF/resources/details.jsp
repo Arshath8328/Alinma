@@ -4,11 +4,11 @@
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.claim.MuroorTPUploads"%>
-<%@page import="com.atmc.bsl.db.domain.claim.MuroorODUploads"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads"%>
 <%@page import="java.util.List"%>
 <%@page import="com.atmc.web.constants.ClaimIntimationPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.claim.Claim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.Claim"%>
 <%@ include file="/claimsmgmt/init.jsp"%>
 
 <%

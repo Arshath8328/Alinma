@@ -1,13 +1,13 @@
 package claim.management.portlet;
 
-import com.atmc.bsl.db.domain.claim.Claim;
-import com.atmc.bsl.db.domain.claim.ClaimWorkflow;
-import com.atmc.bsl.db.domain.claim.MuroorODUploads;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
 import com.atmc.web.constants.ClaimIntimationPortletKeys;
 import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation;
-import com.atmc.bsl.db.domain.claim.MuroorTPUploads;
+import com.ejada.atmc.bsl.db.domain.claim.Claim;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

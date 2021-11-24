@@ -18,13 +18,13 @@
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicleCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicleCover"%>
 <%@page import="java.util.List"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicleDriver"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicleDriver"%>
 <%@page import="java.text.NumberFormat"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicle"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@ include file="/init.jsp"%>
 <%
 	Policy policy = (Policy) request.getAttribute("policy");

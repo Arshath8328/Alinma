@@ -31,7 +31,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(
+	public com.ejada.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(
 			String policyNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -39,7 +39,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(
+	public com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(
 			String policyNo, String vehId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -57,7 +57,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>
 			getPoliciesByIqamaId(String iqamaId, int start, int end)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -72,7 +72,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(
+	public com.ejada.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(
 			String policyNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -88,7 +88,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy> getTopPolicies(
+	public java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy> getTopPolicies(
 			String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -96,7 +96,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>
 			getUpcomingPolicyRenewals(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -111,7 +111,7 @@ public class PolicyLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(
+	public com.ejada.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(
 		String plateNo, String plateL1, String plateL2, String plateL3,
 		String language) {
 

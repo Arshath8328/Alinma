@@ -1,9 +1,9 @@
 package claim.intimation.portlet;
 
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.ejada.atmc.acl.db.model.ClaimIntimationMtr;
 import com.ejada.atmc.acl.db.service.ClaimIntimationMtrLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLAppService;

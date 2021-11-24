@@ -14,12 +14,12 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.ReturnCodes;
-import com.atmc.bsl.db.domain.ServiceOutput;
-import com.atmc.bsl.db.domain.workshop.WorkshopList;
-import com.atmc.bsl.db.domain.workshop.WorkshopVehicles;
 import com.atmc.bsl.db.service.WorkshopLocalServiceUtil;
 import com.atmc.bsl.db.service.base.WorkshopServiceBaseImpl;
+import com.ejada.atmc.bsl.db.domain.ReturnCodes;
+import com.ejada.atmc.bsl.db.domain.ServiceOutput;
+import com.ejada.atmc.bsl.db.domain.workshop.WorkshopList;
+import com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles;
 import com.liferay.portal.aop.AopService;
 
 import java.text.DateFormat;

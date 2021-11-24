@@ -38,7 +38,7 @@ public class SrvReqLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static String addNewServiceRequest(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
 		String creator) {
 
 		return getService().addNewServiceRequest(srvRequest, creator);
@@ -61,14 +61,14 @@ public class SrvReqLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.serviceRequest.ServiceRequest
+	public static com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest
 		getServiceRequestbyRefNo(String refNo) {
 
 		return getService().getServiceRequestbyRefNo(refNo);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
 			getServiceRequestsListByEscalationFlag(
 				String userRole, String closedStatus, boolean isAdmin) {
 
@@ -77,21 +77,21 @@ public class SrvReqLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
 			getServiceRequestsListByStatus(String[] status, String role) {
 
 		return getService().getServiceRequestsListByStatus(status, role);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
 			getServiceRequestsListbyUserID(String userID) {
 
 		return getService().getServiceRequestsListbyUserID(userID);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>
 			getSrvReqListByRoleStatusCustID(
 				String[] status, String role, String customerID,
 				boolean escalationFlag, int from, int to, String orderBy,
@@ -103,7 +103,7 @@ public class SrvReqLocalServiceUtil {
 	}
 
 	public static int updateServiceRequest(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest) {
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest) {
 
 		return getService().updateServiceRequest(srvRequest);
 	}

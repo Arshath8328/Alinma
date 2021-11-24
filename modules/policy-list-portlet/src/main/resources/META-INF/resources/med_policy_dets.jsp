@@ -1,9 +1,9 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.NumberFormat"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyMember"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyMember"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@ include file="/init.jsp"%>
 <%
 	Policy policy = (Policy) request.getAttribute("policy");

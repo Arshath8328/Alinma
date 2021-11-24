@@ -34,7 +34,7 @@ public class CodeMasterDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 			findByCodeCodeFreez(String code, String codeFreezYN)
 		throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
@@ -43,7 +43,7 @@ public class CodeMasterDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 			findCodeMasterDesc(String code, String locale)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -59,7 +59,7 @@ public class CodeMasterDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 			getCustomCodes(String code)
 		throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 

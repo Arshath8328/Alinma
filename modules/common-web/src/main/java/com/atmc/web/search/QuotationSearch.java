@@ -1,6 +1,6 @@
 package com.atmc.web.search;
 
-import com.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 
 import java.util.ArrayList;

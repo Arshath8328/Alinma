@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class SettingsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
 			HttpPrincipal httpPrincipal, String companyId, String screenName,
 			String Email)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -82,7 +82,7 @@ public class SettingsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -93,7 +93,7 @@ public class SettingsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
 			HttpPrincipal httpPrincipal, String companyId, String screenName,
 			String phoneNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -123,7 +123,7 @@ public class SettingsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -134,7 +134,7 @@ public class SettingsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
 		HttpPrincipal httpPrincipal, String companyId, String screenName,
 		String currentPassword, String password1, String password2) {
 
@@ -157,7 +157,7 @@ public class SettingsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

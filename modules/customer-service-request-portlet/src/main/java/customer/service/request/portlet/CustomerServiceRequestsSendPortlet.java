@@ -1,10 +1,10 @@
 package customer.service.request.portlet;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
 import com.atmc.bsl.db.service.SrvReqLocalServiceUtil;
 import com.atmc.web.constants.CustomerServiceRequestListPortletKeys;
 import com.ejada.atmc.acl.db.service.SMSLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.SendEmailServiceUtil;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;

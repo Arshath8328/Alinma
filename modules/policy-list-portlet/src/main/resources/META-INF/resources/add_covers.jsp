@@ -3,7 +3,7 @@
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationCover"%>
 <%@page import="java.util.List"%>
 <%@ include file="init.jsp"%>
 <%

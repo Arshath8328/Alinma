@@ -37,7 +37,7 @@ public class UserMgmtServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.UserMgmtServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
 			long userId, String password, String reminderQueryQuestion,
 			String reminderQueryAnswer) {
@@ -46,7 +46,7 @@ public class UserMgmtServiceUtil {
 			userId, password, reminderQueryQuestion, reminderQueryAnswer);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> createUser(
 			long companyId, String login, String password, String englishName,
 			String arabicName, String language, String mobile, String email,

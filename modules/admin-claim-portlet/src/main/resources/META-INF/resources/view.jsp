@@ -7,7 +7,7 @@
 <%@page import="com.atmc.web.search.ClaimSearchCon"%>
 <%@page import="com.atmc.web.search.ClaimSearchTerms"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.claim.Claim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.Claim"%>
 <%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
 <%@page import="com.atmc.bsl.db.service.QuotationLocalServiceUtil"%>
 <%@page import="java.util.LinkedHashMap"%>
@@ -15,7 +15,7 @@
 <%@page import="com.atmc.web.search.QuotationSearch"%>
 <%@page import="com.liferay.portal.kernel.util.Validator"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 
@@ -170,7 +170,7 @@
 	</liferay-ui:search-container-results>
 
 	<liferay-ui:search-container-row
-		className="com.atmc.bsl.db.domain.claim.Claim"
+		className="com.ejada.atmc.bsl.db.domain.claim.Claim"
 		keyProperty="claimId" modelVar="claim">
 
 		<%

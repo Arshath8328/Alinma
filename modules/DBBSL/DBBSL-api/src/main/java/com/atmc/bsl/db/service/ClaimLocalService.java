@@ -14,14 +14,6 @@
 
 package com.atmc.bsl.db.service;
 
-import com.atmc.bsl.db.domain.claim.Claim;
-import com.atmc.bsl.db.domain.claim.ClaimIntimation;
-import com.atmc.bsl.db.domain.claim.ClaimWorkflow;
-import com.atmc.bsl.db.domain.claim.MuroorODUploads;
-import com.atmc.bsl.db.domain.claim.NajmClaim;
-import com.atmc.bsl.db.domain.claim.NajmClaimIntimation;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
-
 import com.ejada.atmc.acl.db.exception.NoSuchPolicyHDRException;
 import com.ejada.atmc.acl.db.exception.NoSuchPolicyVEHException;
 import com.ejada.atmc.acl.db.model.CLMNajmUploads;
@@ -29,7 +21,13 @@ import com.ejada.atmc.acl.db.model.ODMuroorUploads;
 import com.ejada.atmc.acl.db.model.PolicyHDR;
 import com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse;
 import com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation;
-
+import com.ejada.atmc.bsl.db.domain.claim.Claim;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaim;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;
@@ -164,7 +162,7 @@ public interface ClaimLocalService extends BaseLocalService {
 		String claimRefNo);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.atmc.bsl.db.domain.claim.MuroorTPUploads getMuroorTPUploadsData(
+	public com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads getMuroorTPUploadsData(
 		String refNo);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

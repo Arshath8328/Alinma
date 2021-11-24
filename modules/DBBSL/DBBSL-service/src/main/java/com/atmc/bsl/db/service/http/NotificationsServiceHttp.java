@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class NotificationsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
 			getNotifications(HttpPrincipal httpPrincipal, long userId) {
 
@@ -73,7 +73,7 @@ public class NotificationsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
 					<com.liferay.portal.kernel.model.UserNotificationEvent>>)
 						returnObj;
@@ -87,7 +87,7 @@ public class NotificationsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 		getNotificationsCount(HttpPrincipal httpPrincipal, long userId) {
 
 		try {
@@ -107,7 +107,7 @@ public class NotificationsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Long>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -118,7 +118,7 @@ public class NotificationsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		markAllNotificationsAsRead(HttpPrincipal httpPrincipal, long userId) {
 
 		try {
@@ -138,7 +138,7 @@ public class NotificationsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

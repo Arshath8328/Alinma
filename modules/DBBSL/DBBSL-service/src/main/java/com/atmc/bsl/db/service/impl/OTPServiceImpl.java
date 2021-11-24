@@ -14,9 +14,9 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.ReturnCodes;
-import com.atmc.bsl.db.domain.ServiceOutput;
 import com.atmc.bsl.db.service.base.OTPServiceBaseImpl;
+import com.ejada.atmc.bsl.db.domain.ReturnCodes;
+import com.ejada.atmc.bsl.db.domain.ServiceOutput;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

@@ -7,7 +7,7 @@
 <%@page import="com.ejada.atmc.acl.db.exception.NoSuchNajmVehicleNoException"%>
 <%@page import="com.ejada.atmc.acl.db.exception.NoSuchNajmOtherPartyException"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@ include file="init.jsp" %>
 <% 

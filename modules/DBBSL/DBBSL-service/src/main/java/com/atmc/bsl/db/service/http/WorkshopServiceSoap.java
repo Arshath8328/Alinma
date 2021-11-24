@@ -53,7 +53,7 @@ import java.rmi.RemoteException;
 @Deprecated
 public class WorkshopServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
 			String customerName, String customerMobile, String manufacture,
 			String plateNo, int workshopId, String claimRefNo, String status,
 			String date, String serviceType, String desc, String vehMakeEn,
@@ -62,7 +62,7 @@ public class WorkshopServiceSoap {
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				WorkshopServiceUtil.checkInVehicle(
 					customerName, customerMobile, manufacture, plateNo,
 					workshopId, claimRefNo, status, date, serviceType, desc,
@@ -78,15 +78,15 @@ public class WorkshopServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 				getcheckedInVehicleByStatus(String status, int workShopId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+					<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 						returnValue =
 							WorkshopServiceUtil.getcheckedInVehicleByStatus(
 								status, workShopId);
@@ -100,14 +100,14 @@ public class WorkshopServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 				getcheckedInVehicleById(int id)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.workshop.WorkshopVehicles> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles> returnValue =
 					WorkshopServiceUtil.getcheckedInVehicleById(id);
 
 			return returnValue;
@@ -119,12 +119,12 @@ public class WorkshopServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			updateVehicleStatus(int id, String status)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				WorkshopServiceUtil.updateVehicleStatus(id, status);
 
 			return returnValue;
@@ -136,15 +136,15 @@ public class WorkshopServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 				getcheckedInVehicleByIqmaId(String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+					<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 						returnValue =
 							WorkshopServiceUtil.getcheckedInVehicleByIqmaId(
 								iqamaId);
@@ -158,14 +158,14 @@ public class WorkshopServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>
 				getWorkShopList()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>
 					returnValue = WorkshopServiceUtil.getWorkShopList();
 
 			return returnValue;

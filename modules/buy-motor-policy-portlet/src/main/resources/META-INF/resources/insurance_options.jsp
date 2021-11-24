@@ -3,11 +3,11 @@
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="com.liferay.portal.kernel.exception.UserEmailAddressException"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationCover"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>

@@ -38,7 +38,7 @@ public class SrvReqAttachmentLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqAttachmentLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static String addNewServiceRequestAttachment(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment
 			attachment) {
 
 		return getService().addNewServiceRequestAttachment(attachment);
@@ -64,14 +64,14 @@ public class SrvReqAttachmentLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
 			getServiceRequestAttachmentListbyActionId(String actionId) {
 
 		return getService().getServiceRequestAttachmentListbyActionId(actionId);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
 			getServiceRequestAttachmentListbyRefNo(String refNo) {
 
 		return getService().getServiceRequestAttachmentListbyRefNo(refNo);

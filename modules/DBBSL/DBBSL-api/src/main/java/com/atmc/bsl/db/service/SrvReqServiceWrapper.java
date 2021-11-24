@@ -31,8 +31,8 @@ public class SrvReqServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> addNewServiceRequest(
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
 		String lang) {
 
 		return _srvReqService.addNewServiceRequest(srvRequest, lang);
@@ -49,8 +49,8 @@ public class SrvReqServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
 				getServiceRequestsListByIdStatus(
 					String iqamaId, String[] status)
 			throws com.liferay.portal.kernel.exception.PortalException {

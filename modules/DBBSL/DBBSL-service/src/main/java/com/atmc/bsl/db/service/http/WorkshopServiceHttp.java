@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class WorkshopServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
 		HttpPrincipal httpPrincipal, String customerName, String customerMobile,
 		String manufacture, String plateNo, int workshopId, String claimRefNo,
 		String status, String date, String serviceType, String desc,
@@ -79,7 +79,7 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -90,8 +90,8 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByStatus(
 				HttpPrincipal httpPrincipal, String status, int workShopId) {
 
@@ -113,9 +113,9 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
+					<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -127,8 +127,8 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 			getcheckedInVehicleById(HttpPrincipal httpPrincipal, int id) {
 
 		try {
@@ -148,8 +148,8 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -160,7 +160,7 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		updateVehicleStatus(
 			HttpPrincipal httpPrincipal, int id, String status) {
 
@@ -182,7 +182,7 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -193,8 +193,8 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByIqmaId(
 				HttpPrincipal httpPrincipal, String iqamaId) {
 
@@ -215,9 +215,9 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
+					<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -229,8 +229,8 @@ public class WorkshopServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>
 			getWorkShopList(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -250,8 +250,8 @@ public class WorkshopServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>)
 					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException

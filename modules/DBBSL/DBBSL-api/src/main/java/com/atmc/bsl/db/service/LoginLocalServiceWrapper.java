@@ -31,7 +31,7 @@ public class LoginLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser authenticateUser(
+	public com.ejada.atmc.bsl.db.domain.AuthUser authenticateUser(
 			String login, String password)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -56,7 +56,7 @@ public class LoginLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser login(
+	public com.ejada.atmc.bsl.db.domain.AuthUser login(
 			String login, String password, String rememberMe)
 		throws Exception {
 
@@ -69,7 +69,7 @@ public class LoginLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.AuthUser validateUser(
+	public com.ejada.atmc.bsl.db.domain.AuthUser validateUser(
 			String idIqama, String email)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

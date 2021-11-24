@@ -1,8 +1,8 @@
 package claims.widget.portlet;
 
-import com.atmc.bsl.db.domain.claim.Claim;
-import com.atmc.bsl.db.domain.claim.ClaimWorkflow;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.claim.Claim;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

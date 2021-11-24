@@ -3,7 +3,7 @@
 <%@page import="com.atmc.web.common.UserInfo"%>
 <%@page import="com.atmc.web.util.SessionUtil"%>
 <%@page import="java.util.List"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@ include file="/init.jsp"%>
 
 <link rel="stylesheet" type="text/css" href="/o/atmc-theme/vendor/jquery_calendars/css/smoothness.calendars.picker.css">

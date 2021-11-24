@@ -19,7 +19,7 @@
 <%@page import="com.atmc.web.search.QuotationSearch"%>
 <%@page import="com.liferay.portal.kernel.util.Validator"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@page import="com.liferay.portal.kernel.service.permission.RolePermissionUtil"%>

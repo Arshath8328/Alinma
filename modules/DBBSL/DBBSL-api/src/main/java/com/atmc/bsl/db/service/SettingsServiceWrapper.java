@@ -31,7 +31,7 @@ public class SettingsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
 		String companyId, String screenName, String currentPassword,
 		String password1, String password2) {
 
@@ -50,7 +50,7 @@ public class SettingsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
 			String companyId, String screenName, String Email)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -58,7 +58,7 @@ public class SettingsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
 			String companyId, String screenName, String phoneNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

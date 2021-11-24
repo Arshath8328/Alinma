@@ -50,21 +50,21 @@ public class WorkshopLocalServiceUtil {
 			vehModelEn, vehModelAr, customerIqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.workshop.WorkshopVehicles
+	public static com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles
 		getcheckedInVehicleById(int id) {
 
 		return getService().getcheckedInVehicleById(id);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 			getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return getService().getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 			getcheckedInVehicleByStatus(String status, int workShopId) {
 
 		return getService().getcheckedInVehicleByStatus(status, workShopId);

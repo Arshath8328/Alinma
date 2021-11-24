@@ -37,7 +37,7 @@ public class SettingsServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SettingsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
 		String companyId, String screenName, String currentPassword,
 		String password1, String password2) {
 
@@ -54,14 +54,14 @@ public class SettingsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
 			String companyId, String screenName, String Email)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().updateEmail(companyId, screenName, Email);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
 			String companyId, String screenName, String phoneNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

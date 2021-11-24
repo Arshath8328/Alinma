@@ -14,12 +14,12 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.ReturnCodes;
-import com.atmc.bsl.db.domain.ServiceOutput;
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.atmc.bsl.db.service.base.SrvReqMsgsServiceBaseImpl;
 import com.ejada.atmc.acl.db.model.ServiceRequestMessages;
 import com.ejada.atmc.acl.db.service.ServiceRequestMessagesLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.ReturnCodes;
+import com.ejada.atmc.bsl.db.domain.ServiceOutput;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;

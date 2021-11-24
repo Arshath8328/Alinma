@@ -14,12 +14,12 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
 import com.atmc.bsl.db.service.base.SrvReqAttachmentLocalServiceBaseImpl;
 import com.ejada.atmc.acl.db.exception.NoSuchServiceRequestAttachmentsException;
 import com.ejada.atmc.acl.db.model.ServiceRequestAttachments;
 import com.ejada.atmc.acl.db.service.ServiceRequestAttachmentsLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.persistence.ServiceRequestAttachmentsUtil;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.petra.io.ByteArrayFileInputStream;
 import com.liferay.portal.aop.AopService;

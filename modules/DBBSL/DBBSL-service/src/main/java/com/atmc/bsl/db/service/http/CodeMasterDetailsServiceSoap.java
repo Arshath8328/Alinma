@@ -53,15 +53,15 @@ import java.rmi.RemoteException;
 @Deprecated
 public class CodeMasterDetailsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getCustomCodes(String code)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							CodeMasterDetailsServiceUtil.getCustomCodes(code);
 
@@ -74,15 +74,15 @@ public class CodeMasterDetailsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getCodeMasterList(String code, String locale)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							CodeMasterDetailsServiceUtil.getCodeMasterList(
 								code, locale);
@@ -96,15 +96,15 @@ public class CodeMasterDetailsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getByCodeCodeFreez(String code, String codeFreezYN)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							CodeMasterDetailsServiceUtil.getByCodeCodeFreez(
 								code, codeFreezYN);
@@ -118,12 +118,12 @@ public class CodeMasterDetailsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
 			getQuickQuoteData(String locale)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
 				returnValue = CodeMasterDetailsServiceUtil.getQuickQuoteData(
 					locale);
 

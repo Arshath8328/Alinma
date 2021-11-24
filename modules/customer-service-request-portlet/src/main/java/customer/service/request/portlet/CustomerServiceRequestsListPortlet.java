@@ -1,10 +1,10 @@
 package customer.service.request.portlet;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.atmc.bsl.db.service.GsonUtilsLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqMsgsLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

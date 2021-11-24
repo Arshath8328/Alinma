@@ -35,7 +35,7 @@ public class SrvReqActionLocalServiceWrapper
 
 	@Override
 	public String addNewServiceRequestAction(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
 
 		return _srvReqActionLocalService.addNewServiceRequestAction(action);
 	}
@@ -52,7 +52,7 @@ public class SrvReqActionLocalServiceWrapper
 
 	@Override
 	public java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
 			getServiceRequestActionListbyRefNo(String refNo) {
 
 		return _srvReqActionLocalService.getServiceRequestActionListbyRefNo(

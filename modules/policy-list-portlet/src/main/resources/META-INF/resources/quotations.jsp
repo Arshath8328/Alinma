@@ -16,10 +16,10 @@
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicle"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>

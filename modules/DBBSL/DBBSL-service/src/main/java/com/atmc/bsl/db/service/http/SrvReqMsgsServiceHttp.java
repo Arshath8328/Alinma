@@ -52,9 +52,9 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class SrvReqMsgsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List
-			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+			<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
 				getServiceRequestMessageListbyRefNo(
 					HttpPrincipal httpPrincipal, String referenceNo) {
 
@@ -77,9 +77,9 @@ public class SrvReqMsgsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.serviceRequest.
+					<com.ejada.atmc.bsl.db.domain.serviceRequest.
 						ServiceRequestMessage>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -91,9 +91,9 @@ public class SrvReqMsgsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
 		HttpPrincipal httpPrincipal,
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -112,7 +112,7 @@ public class SrvReqMsgsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -132,7 +132,7 @@ public class SrvReqMsgsServiceHttp {
 		};
 	private static final Class<?>[] _addReplyMessageParameterTypes2 =
 		new Class[] {
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage.class
+			com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage.class
 		};
 
 }

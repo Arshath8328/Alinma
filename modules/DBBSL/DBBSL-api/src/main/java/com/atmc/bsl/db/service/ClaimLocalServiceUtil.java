@@ -129,7 +129,7 @@ public class ClaimLocalServiceUtil {
 		return getService().findTPVehRegistFile(id);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.Claim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>
 			getAllClaims(
 				String status, String surveyor, String refNo, int from, int to)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -149,21 +149,21 @@ public class ClaimLocalServiceUtil {
 		return getService().getCityDescEn(cityCode);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.Claim getClaimDetails(
+	public static com.ejada.atmc.bsl.db.domain.claim.Claim getClaimDetails(
 			String claimNumber, String policyNumber)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getClaimDetails(claimNumber, policyNumber);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.Claim getClaimDetailsByClaimNO(
+	public static com.ejada.atmc.bsl.db.domain.claim.Claim getClaimDetailsByClaimNO(
 			String claimNumber)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getClaimDetailsByClaimNO(claimNumber);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.Claim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>
 			getClaimsByIqamaId(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -177,14 +177,14 @@ public class ClaimLocalServiceUtil {
 		return getService().getClaimsOutline(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.Claim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>
 			getClaimsSummary(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getClaimsSummary(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.Claim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>
 			getClaimsSummaryFiter(
 				String iqamaId, String status, String policyType)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -193,7 +193,7 @@ public class ClaimLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>
+		<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>
 			getInsuranceCompanies() {
 
 		return getService().getInsuranceCompanies();
@@ -205,7 +205,7 @@ public class ClaimLocalServiceUtil {
 		return getService().getMuroorODFileUploads(claimRefNo);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.MuroorODUploads
+	public static com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads
 		getMuroorODUploadsData(String refNo) {
 
 		return getService().getMuroorODUploadsData(refNo);
@@ -217,33 +217,33 @@ public class ClaimLocalServiceUtil {
 		return getService().getMuroorTPFileUploads(claimRefNo);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.MuroorTPUploads
+	public static com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads
 		getMuroorTPUploadsData(String refNo) {
 
 		return getService().getMuroorTPUploadsData(refNo);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.NajmClaim>
 		getNajmClaimByCaseNo(String caseNo) {
 
 		return getService().getNajmClaimByCaseNo(caseNo);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.NajmClaim>
 			getNajmClaimByCustomId(String caseNo, String customId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getNajmClaimByCustomId(caseNo, customId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.NajmClaim>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.NajmClaim>
 			getNajmClaimByNajmPlateNumber(String caseNo, String najmPlateNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getNajmClaimByNajmPlateNumber(caseNo, najmPlateNo);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.NajmClaimIntimation
+	public static com.ejada.atmc.bsl.db.domain.claim.NajmClaimIntimation
 			getNajmClaimIntimationByCustomId(
 				String caseNo, String vehicleCustomId, String language)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -252,7 +252,7 @@ public class ClaimLocalServiceUtil {
 			caseNo, vehicleCustomId, language);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.NajmClaimIntimation
+	public static com.ejada.atmc.bsl.db.domain.claim.NajmClaimIntimation
 			getNajmClaimIntimationByPlateNumber(
 				String caseNo, String plateNumber, String language)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -288,13 +288,13 @@ public class ClaimLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>
 		getRoleWorkflow(String role) {
 
 		return getService().getRoleWorkflow(role);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>
 		getRoleWorkflowByRoleStatus(String role, String status) {
 
 		return getService().getRoleWorkflowByRoleStatus(role, status);
@@ -318,7 +318,7 @@ public class ClaimLocalServiceUtil {
 			plateNo, plateL1, plateL2, plateL3, language);
 	}
 
-	public static com.atmc.bsl.db.domain.claim.ClaimIntimation intimateClaim(
+	public static com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation intimateClaim(
 			String claimType, String vehicleIdentType,
 			String vehicleIdentNumber, String plateL1, String plateL2,
 			String plateL3, String reportMode, String reportNumber,

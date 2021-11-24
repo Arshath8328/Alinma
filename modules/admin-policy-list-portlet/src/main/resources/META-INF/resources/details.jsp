@@ -2,19 +2,19 @@
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="java.sql.Blob"%>
 <%@page import="com.ejada.atmc.acl.db.model.QuotationSurvey"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationDriver"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationCustUploads"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationCustUploads"%>
 <%@page import="com.atmc.bsl.db.service.QuotationLocalServiceUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationAdminUpload"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationAdminUpload"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationCover"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationHistory"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationHistory"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ include file="/init.jsp" %>
  

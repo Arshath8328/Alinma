@@ -1,9 +1,9 @@
 package quotations.widget.portlet.portlet;
 
-import com.atmc.bsl.db.domain.quotation.Quotation;
 import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 import com.atmc.web.common.UserInfo;
 import com.atmc.web.util.SessionUtil;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

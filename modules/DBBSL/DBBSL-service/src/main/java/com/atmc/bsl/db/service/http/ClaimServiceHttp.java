@@ -105,8 +105,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
 				HttpPrincipal httpPrincipal, String claimNumber)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -135,8 +135,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.Claim>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.Claim>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -147,8 +147,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
 				HttpPrincipal httpPrincipal, String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -176,8 +176,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -188,7 +188,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
 			getNajmUploadsFilesName(HttpPrincipal httpPrincipal, String refNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -216,7 +216,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List<Object[]>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -228,7 +228,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
 			HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -256,7 +256,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -267,7 +267,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findDamageEstQuotFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -295,7 +295,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -306,7 +306,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
 			HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -334,7 +334,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -345,7 +345,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
 			HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -373,7 +373,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -384,7 +384,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.HashMap<String, Object>> getClaimsDtls(
 				HttpPrincipal httpPrincipal, String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -413,7 +413,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.HashMap<String, Object>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -425,8 +425,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
 			HttpPrincipal httpPrincipal, String claimType,
 			String vehicleIdentType, String vehicleIdentNumber, String plateL1,
 			String plateL2, String plateL3, String reportMode,
@@ -453,8 +453,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.ClaimIntimation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -465,8 +465,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>
 				getClaimsSummaryFiter(
 					HttpPrincipal httpPrincipal, String iqamaId,
 					String claimStatus, String policyType)
@@ -497,8 +497,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -509,7 +509,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Integer>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>
 			checkIbanValidation(HttpPrincipal httpPrincipal, String ibanParm)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -538,7 +538,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Integer>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -549,8 +549,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 				getInsuranceCompanies(HttpPrincipal httpPrincipal)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -578,9 +578,9 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>)
+					<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -592,7 +592,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse> submitClaimByObject(
 				HttpPrincipal httpPrincipal,
 				com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt)
@@ -623,7 +623,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -635,7 +635,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadNajmFiles(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadNajmFiles(
 		HttpPrincipal httpPrincipal, java.io.File najmSlipFile,
 		String najmSlipFileName, java.io.File damageEstQuotFile,
 		String damageEstQuotFileName, java.io.File bankIbanFile,
@@ -663,7 +663,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -674,7 +674,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> saveODMuroorDoc(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> saveODMuroorDoc(
 			HttpPrincipal httpPrincipal, String iqamaId, String clmIntimationNo,
 			java.io.File driverLicenseFile, String driverLicenseFileName,
 			java.io.File vehRegistFile, String vehRegistFileName,
@@ -708,7 +708,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -719,7 +719,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> saveTPMuroorDoc(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> saveTPMuroorDoc(
 			HttpPrincipal httpPrincipal, String iqamaId, String clmIntimationNo,
 			java.io.File driverLicenseFile, String driverLicenseFileName,
 			java.io.File vehRegistFile, String vehRegistFileName,
@@ -761,7 +761,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -772,7 +772,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		downloadClaimReport(
 			HttpPrincipal httpPrincipal,
 			com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt,
@@ -798,7 +798,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -809,8 +809,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>>
 			getRoleWorkflow(HttpPrincipal httpPrincipal, String workflowRole) {
 
 		try {
@@ -831,8 +831,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>>)
 					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -844,7 +844,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.model.PolicyHDR> getVehiclePolicy(
 			HttpPrincipal httpPrincipal, String plateNo, String plateL1,
 			String plateL2, String plateL3, String language) {
@@ -867,7 +867,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.model.PolicyHDR>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -879,7 +879,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
 		HttpPrincipal httpPrincipal, String cityCode) {
 
 		try {
@@ -900,7 +900,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -911,7 +911,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODDriverLicenseFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -939,7 +939,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -950,7 +950,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODVehRegistFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -978,7 +978,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -989,7 +989,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODPolicyCopyFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1017,7 +1017,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1028,7 +1028,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPDriverLicenseFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1056,7 +1056,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1067,7 +1067,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPVehRegistFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1095,7 +1095,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1106,7 +1106,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPFrontPhotoFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1134,7 +1134,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1145,7 +1145,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPRearPhotoFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1173,7 +1173,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1184,7 +1184,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPRightSidePhotoFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1212,7 +1212,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1223,7 +1223,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPLeftSidePhotoFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1251,7 +1251,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1262,7 +1262,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPBankIbanFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1290,7 +1290,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1301,7 +1301,7 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPOwnerIdFile(HttpPrincipal httpPrincipal, String fileId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1329,7 +1329,7 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1340,8 +1340,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
 				HttpPrincipal httpPrincipal, String refNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1369,8 +1369,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.MuroorTPUploads>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1381,8 +1381,8 @@ public class ClaimServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
 				HttpPrincipal httpPrincipal, String refNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1410,8 +1410,8 @@ public class ClaimServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.MuroorODUploads>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

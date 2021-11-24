@@ -37,9 +37,9 @@ public class SrvReqServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		addNewServiceRequest(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+			com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
 			String lang) {
 
 		return getService().addNewServiceRequest(srvRequest, lang);
@@ -54,8 +54,8 @@ public class SrvReqServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
 				getServiceRequestsListByIdStatus(
 					String iqamaId, String[] status)
 			throws com.liferay.portal.kernel.exception.PortalException {

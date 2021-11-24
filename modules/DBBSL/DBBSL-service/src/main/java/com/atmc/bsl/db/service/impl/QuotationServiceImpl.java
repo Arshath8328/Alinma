@@ -14,17 +14,6 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.ReturnCodes;
-import com.atmc.bsl.db.domain.ServiceOutput;
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
-import com.atmc.bsl.db.domain.policy.Policy;
-import com.atmc.bsl.db.domain.policy.PolicyVehicle;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
-import com.atmc.bsl.db.domain.quotation.Quotation;
-import com.atmc.bsl.db.domain.quotation.QuotationCover;
-import com.atmc.bsl.db.domain.quotation.QuotationDriver;
-import com.atmc.bsl.db.domain.quotation.QuotationDriverLicense;
-import com.atmc.bsl.db.domain.quotation.QuotationUserAddress;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 import com.atmc.bsl.db.service.CustomerVehicleDetailsLocalServiceUtil;
@@ -37,6 +26,17 @@ import com.ejada.atmc.acl.db.model.CodeMasterMap;
 import com.ejada.atmc.acl.db.model.PolicyHDR;
 import com.ejada.atmc.acl.db.service.CodeMasterMapLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.TariffLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.ReturnCodes;
+import com.ejada.atmc.bsl.db.domain.ServiceOutput;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationCover;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriverLicense;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.ByteArrayFileInputStream;

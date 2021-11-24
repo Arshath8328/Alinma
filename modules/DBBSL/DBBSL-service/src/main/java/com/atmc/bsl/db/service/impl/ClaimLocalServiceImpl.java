@@ -14,18 +14,6 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.claim.Claim;
-import com.atmc.bsl.db.domain.claim.ClaimAdminUpload;
-import com.atmc.bsl.db.domain.claim.ClaimHistory;
-import com.atmc.bsl.db.domain.claim.ClaimIntimation;
-import com.atmc.bsl.db.domain.claim.ClaimODReportObj;
-import com.atmc.bsl.db.domain.claim.ClaimWorkflow;
-import com.atmc.bsl.db.domain.claim.MuroorODUploads;
-import com.atmc.bsl.db.domain.claim.NajmClaim;
-import com.atmc.bsl.db.domain.claim.NajmClaimIntimation;
-import com.atmc.bsl.db.domain.claim.NajmClaimReportObj;
-import com.atmc.bsl.db.domain.policy.Policy;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.atmc.bsl.db.service.PolicyLocalServiceUtil;
 import com.atmc.bsl.db.service.base.ClaimLocalServiceBaseImpl;
@@ -93,6 +81,18 @@ import com.ejada.atmc.acl.db.service.persistence.ODMuroorUploadsUtil;
 import com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse;
 import com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation;
 import com.ejada.atmc.acl.ws.service.OdsLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.claim.Claim;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimAdminUpload;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimHistory;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimODReportObj;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaim;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimReportObj;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
 import com.ejada.atmc.utils.api.ReportsUtil;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.petra.io.ByteArrayFileInputStream;
@@ -1777,9 +1777,9 @@ public class ClaimLocalServiceImpl extends ClaimLocalServiceBaseImpl {
 		return odUploadsData;
 	}
 
-	public com.atmc.bsl.db.domain.claim.MuroorTPUploads getMuroorTPUploadsData(String refNo) {
+	public com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads getMuroorTPUploadsData(String refNo) {
 		Object[] uploadsObj = MuroorTPUploadsLocalServiceUtil.findUploadsData(refNo);
-		com.atmc.bsl.db.domain.claim.MuroorTPUploads tpUploadsData = new com.atmc.bsl.db.domain.claim.MuroorTPUploads();
+		com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads tpUploadsData = new com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads();
 		if (uploadsObj != null) {
 			tpUploadsData.setClaimIntimationNo((uploadsObj[0] != null) ? uploadsObj[0].toString() : null);
 			tpUploadsData.setDriverLicenseName((uploadsObj[1] != null) ? uploadsObj[1].toString() : null);

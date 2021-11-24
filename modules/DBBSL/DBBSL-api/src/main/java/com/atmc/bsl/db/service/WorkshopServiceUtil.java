@@ -37,7 +37,7 @@ public class WorkshopServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.WorkshopServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
 		String customerName, String customerMobile, String manufacture,
 		String plateNo, int workshopId, String claimRefNo, String status,
 		String date, String serviceType, String desc, String vehMakeEn,
@@ -50,22 +50,22 @@ public class WorkshopServiceUtil {
 			vehModelEn, vehModelAr, customerIqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 			getcheckedInVehicleById(int id) {
 
 		return getService().getcheckedInVehicleById(id);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return getService().getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByStatus(String status, int workShopId) {
 
 		return getService().getcheckedInVehicleByStatus(status, workShopId);
@@ -80,14 +80,14 @@ public class WorkshopServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>
 			getWorkShopList() {
 
 		return getService().getWorkShopList();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		updateVehicleStatus(int id, String status) {
 
 		return getService().updateVehicleStatus(id, status);

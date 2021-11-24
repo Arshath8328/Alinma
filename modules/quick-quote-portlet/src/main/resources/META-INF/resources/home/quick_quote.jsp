@@ -11,7 +11,7 @@
 <%@page import="com.google.gson.GsonBuilder"%>
 <%@page import="com.google.gson.JsonArray"%>
 <%@page import="java.util.List"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 
 <%@ include file="init.jsp"%>

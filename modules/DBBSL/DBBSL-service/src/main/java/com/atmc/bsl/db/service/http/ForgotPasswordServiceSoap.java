@@ -53,13 +53,13 @@ import java.rmi.RemoteException;
 @Deprecated
 public class ForgotPasswordServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> validateUser(
 				String emailAddress, String captchaText)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User> returnValue =
 					ForgotPasswordServiceUtil.validateUser(
 						emailAddress, captchaText);
@@ -73,13 +73,13 @@ public class ForgotPasswordServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			checkReminderQueries(
 				String emailAddress, String answer, String captchaText)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ForgotPasswordServiceUtil.checkReminderQueries(
 					emailAddress, answer, captchaText);
 

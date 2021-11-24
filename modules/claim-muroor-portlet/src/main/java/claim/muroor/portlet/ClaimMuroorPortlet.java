@@ -1,10 +1,5 @@
 package claim.muroor.portlet;
 
-import com.atmc.bsl.db.domain.claim.ClaimODReportObj;
-import com.atmc.bsl.db.domain.claim.NajmClaimReportObj;
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
-import com.atmc.bsl.db.domain.policy.Policy;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
@@ -21,6 +16,11 @@ import com.ejada.atmc.acl.db.service.CustomerLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.PolicyVEHLocalServiceUtil;
 import com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse;
 import com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimODReportObj;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimReportObj;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
 import com.ejada.atmc.utils.api.ReportsUtil;
 import com.liferay.petra.io.StreamUtil;
 import com.liferay.portal.kernel.exception.EmailAddressException;

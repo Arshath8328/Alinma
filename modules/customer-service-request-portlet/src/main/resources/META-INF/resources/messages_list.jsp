@@ -1,7 +1,7 @@
 <%@page import="java.util.Locale"%>
 <%@page import="com.liferay.portal.kernel.model.Layout"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.constants.CustomerServiceRequestListPortletKeys"%>
 <%@page import="java.text.SimpleDateFormat"%>

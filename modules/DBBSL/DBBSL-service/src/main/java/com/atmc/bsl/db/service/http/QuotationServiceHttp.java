@@ -52,8 +52,8 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class QuotationServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCountries(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -73,9 +73,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -87,8 +87,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCities(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -108,9 +108,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -122,8 +122,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getParkingLocations(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -143,9 +143,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -157,8 +157,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getEngineSizes(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -178,9 +178,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -192,8 +192,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getDeductibleValues(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -213,9 +213,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -227,8 +227,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getPurposeOfVehicle(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -248,9 +248,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -262,8 +262,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 			getInsuranceCompanies(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -283,9 +283,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>)
+					<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -297,10 +297,10 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> personalInfo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> personalInfo(
 			HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.quotation.Quotation quot,
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
 			boolean isUserSignedIn) {
 
 		try {
@@ -321,8 +321,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -333,8 +333,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>>
 			getPendingQuotations(HttpPrincipal httpPrincipal, String iqamaId) {
 
 		try {
@@ -354,8 +354,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>>)
 					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -367,7 +367,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadQuoteFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadQuoteFile(
 		HttpPrincipal httpPrincipal, java.io.File attachFile, String fileName,
 		String insuredId) {
 
@@ -389,7 +389,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -400,7 +400,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadVideo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadVideo(
 		HttpPrincipal httpPrincipal, String baseArray, String fileName,
 		String quotationId, java.util.Date videoDate) {
 
@@ -422,7 +422,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -433,7 +433,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> clearQuoteFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> clearQuoteFile(
 		HttpPrincipal httpPrincipal, String fileName, String insuredId) {
 
 		try {
@@ -454,7 +454,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -465,7 +465,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.domain.tariff.TariffOutput> getTariffData(
 				HttpPrincipal httpPrincipal,
 				com.ejada.atmc.acl.db.domain.tariff.TariffInput tariffInput)
@@ -496,7 +496,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.domain.tariff.TariffOutput>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -508,7 +508,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.model.CodeMasterMap> getBySourceTypeSourceCode(
 				HttpPrincipal httpPrincipal, String sourceType,
 				String sourceCode)
@@ -539,7 +539,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.model.CodeMasterMap>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -551,8 +551,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>>
 			getCoverList(HttpPrincipal httpPrincipal, String productCode) {
 
 		try {
@@ -573,9 +573,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.QuotationCover>>)
+					<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -587,8 +587,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> tokenizationResult(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> tokenizationResult(
 			HttpPrincipal httpPrincipal, String status) {
 
 		try {
@@ -608,8 +608,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -620,13 +620,13 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.QuotationDriver> addDriver(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver> addDriver(
 			HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
-			com.atmc.bsl.db.domain.quotation.QuotationUserAddress
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress
 				driverNatAddress,
-			com.atmc.bsl.db.domain.quotation.QuotationUserAddress
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress
 				driverOffNatAddress) {
 
 		try {
@@ -647,8 +647,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.QuotationDriver>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -659,8 +659,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getEducationList(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -680,9 +680,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -694,8 +694,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getLicenseTypes(HttpPrincipal httpPrincipal) {
 
 		try {
@@ -715,9 +715,9 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -729,11 +729,11 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> renewPolicy(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> renewPolicy(
 			HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.policy.Policy policy,
-			com.atmc.bsl.db.domain.policy.PolicyVehicle pVeh) {
+			com.ejada.atmc.bsl.db.domain.policy.Policy policy,
+			com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle pVeh) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -753,8 +753,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -765,7 +765,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		getConfigurableValues(
 			HttpPrincipal httpPrincipal, java.util.List<String> keys) {
 
@@ -786,7 +786,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -797,10 +797,10 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Double>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Double>
 		quickQuoteInquiry(
 			HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.quotation.Quotation quot) {
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -819,7 +819,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Double>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Double>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -830,7 +830,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Integer>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>
 		countQuotationSurveyVideo(HttpPrincipal httpPrincipal, String quoteID) {
 
 		try {
@@ -850,7 +850,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Integer>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -861,7 +861,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			downloadQuotDetsFile(
 				HttpPrincipal httpPrincipal, String quoteId, String lang)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -891,7 +891,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -902,7 +902,7 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			downloadPolicyFile(
 				HttpPrincipal httpPrincipal, String quoteId, String policyNo,
 				String lang)
@@ -933,7 +933,7 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -944,8 +944,8 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> getQuotationDetails(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> getQuotationDetails(
 			HttpPrincipal httpPrincipal, String quotId) {
 
 		try {
@@ -965,8 +965,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -977,11 +977,11 @@ public class QuotationServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> getTariffDetails(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> getTariffDetails(
 				HttpPrincipal httpPrincipal,
-				com.atmc.bsl.db.domain.quotation.Quotation quot,
-				java.util.List<com.atmc.bsl.db.domain.quotation.QuotationDriver>
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
+				java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver>
 					drivers)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -1010,8 +1010,8 @@ public class QuotationServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -1038,7 +1038,7 @@ public class QuotationServiceHttp {
 	private static final Class<?>[] _getInsuranceCompaniesParameterTypes6 =
 		new Class[] {};
 	private static final Class<?>[] _personalInfoParameterTypes7 = new Class[] {
-		com.atmc.bsl.db.domain.quotation.Quotation.class, boolean.class
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation.class, boolean.class
 	};
 	private static final Class<?>[] _getPendingQuotationsParameterTypes8 =
 		new Class[] {String.class};
@@ -1058,22 +1058,22 @@ public class QuotationServiceHttp {
 	private static final Class<?>[] _tokenizationResultParameterTypes15 =
 		new Class[] {String.class};
 	private static final Class<?>[] _addDriverParameterTypes16 = new Class[] {
-		com.atmc.bsl.db.domain.quotation.QuotationDriver.class,
-		com.atmc.bsl.db.domain.quotation.QuotationUserAddress.class,
-		com.atmc.bsl.db.domain.quotation.QuotationUserAddress.class
+		com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver.class,
+		com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress.class,
+		com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress.class
 	};
 	private static final Class<?>[] _getEducationListParameterTypes17 =
 		new Class[] {};
 	private static final Class<?>[] _getLicenseTypesParameterTypes18 =
 		new Class[] {};
 	private static final Class<?>[] _renewPolicyParameterTypes19 = new Class[] {
-		com.atmc.bsl.db.domain.policy.Policy.class,
-		com.atmc.bsl.db.domain.policy.PolicyVehicle.class
+		com.ejada.atmc.bsl.db.domain.policy.Policy.class,
+		com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle.class
 	};
 	private static final Class<?>[] _getConfigurableValuesParameterTypes20 =
 		new Class[] {java.util.List.class};
 	private static final Class<?>[] _quickQuoteInquiryParameterTypes21 =
-		new Class[] {com.atmc.bsl.db.domain.quotation.Quotation.class};
+		new Class[] {com.ejada.atmc.bsl.db.domain.quotation.Quotation.class};
 	private static final Class<?>[] _countQuotationSurveyVideoParameterTypes22 =
 		new Class[] {String.class};
 	private static final Class<?>[] _downloadQuotDetsFileParameterTypes23 =
@@ -1084,7 +1084,7 @@ public class QuotationServiceHttp {
 		new Class[] {String.class};
 	private static final Class<?>[] _getTariffDetailsParameterTypes26 =
 		new Class[] {
-			com.atmc.bsl.db.domain.quotation.Quotation.class,
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation.class,
 			java.util.List.class
 		};
 

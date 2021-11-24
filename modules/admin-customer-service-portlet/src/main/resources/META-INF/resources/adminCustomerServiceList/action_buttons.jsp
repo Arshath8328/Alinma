@@ -1,6 +1,6 @@
 <%@page import="admin.customer.service.constants.AdminCustomerServiceListPortletKeys"%>
 <%@page import="com.liferay.petra.string.StringPool"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.atmc.web.constants.CustomerServiceRequestListPortletKeys"%>
 <%@ include file="/adminCustomerServiceList/init.jsp" %>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>

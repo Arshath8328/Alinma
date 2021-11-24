@@ -14,8 +14,6 @@
 
 package com.atmc.bsl.db.service;
 
-import com.atmc.bsl.db.domain.quotation.Quotation;
-import com.atmc.bsl.db.domain.quotation.QuotationDriver;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 
@@ -24,7 +22,8 @@ import com.ejada.atmc.acl.ws.domain.yakeen.BasicCarInfo;
 import com.ejada.atmc.acl.ws.domain.yakeen.CarInfo;
 import com.ejada.atmc.acl.ws.domain.yakeen.CitizenInfo;
 import com.ejada.atmc.acl.ws.domain.yakeen.ServiceRequest;
-
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;

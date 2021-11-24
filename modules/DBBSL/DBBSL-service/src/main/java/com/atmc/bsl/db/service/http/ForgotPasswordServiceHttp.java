@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class ForgotPasswordServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> validateUser(
 			HttpPrincipal httpPrincipal, String emailAddress,
 			String captchaText) {
@@ -75,7 +75,7 @@ public class ForgotPasswordServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -87,7 +87,7 @@ public class ForgotPasswordServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		checkReminderQueries(
 			HttpPrincipal httpPrincipal, String emailAddress, String answer,
 			String captchaText) {
@@ -110,7 +110,7 @@ public class ForgotPasswordServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

@@ -1,12 +1,12 @@
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationDriver"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.service.persistence.PortletUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@ include file="init.jsp"%>
 <%

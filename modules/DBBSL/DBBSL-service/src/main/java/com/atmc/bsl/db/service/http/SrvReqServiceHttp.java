@@ -52,8 +52,8 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class SrvReqServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
 				getServiceRequestsListByIdStatus(
 					HttpPrincipal httpPrincipal, String iqamaId,
 					String[] status)
@@ -84,9 +84,9 @@ public class SrvReqServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>)
+					<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -98,10 +98,10 @@ public class SrvReqServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		addNewServiceRequest(
 			HttpPrincipal httpPrincipal,
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+			com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
 			String lang) {
 
 		try {
@@ -122,7 +122,7 @@ public class SrvReqServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -202,7 +202,7 @@ public class SrvReqServiceHttp {
 		};
 	private static final Class<?>[] _addNewServiceRequestParameterTypes2 =
 		new Class[] {
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequest.class,
+			com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest.class,
 			String.class
 		};
 	private static final Class<?>[] _sendEmailParameterTypes3 = new Class[] {

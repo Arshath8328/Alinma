@@ -52,8 +52,8 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class CodeMasterDetailsServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCustomCodes(HttpPrincipal httpPrincipal, String code) {
 
 		try {
@@ -73,9 +73,9 @@ public class CodeMasterDetailsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -87,8 +87,8 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 			getCodeMasterList(
 				HttpPrincipal httpPrincipal, String code, String locale) {
 
@@ -110,9 +110,9 @@ public class CodeMasterDetailsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -124,8 +124,8 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getByCodeCodeFreez(
 					HttpPrincipal httpPrincipal, String code,
 					String codeFreezYN)
@@ -156,9 +156,9 @@ public class CodeMasterDetailsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>)
 						returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -170,7 +170,7 @@ public class CodeMasterDetailsServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<String>>
 		getQuickQuoteData(HttpPrincipal httpPrincipal, String locale) {
 
 		try {
@@ -190,7 +190,7 @@ public class CodeMasterDetailsServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List<String>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException

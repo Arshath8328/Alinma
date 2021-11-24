@@ -31,7 +31,7 @@ public class LoginServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<com.ejada.atmc.bsl.db.domain.AuthUser>
 		authenticateUser(String login, String password) {
 
 		return _loginService.authenticateUser(login, password);
@@ -48,26 +48,26 @@ public class LoginServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
 		getReminderQueryQuestions() {
 
 		return _loginService.getReminderQueryQuestions();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<com.ejada.atmc.bsl.db.domain.AuthUser>
 		login(String login, String password, String rememberMe) {
 
 		return _loginService.login(login, password, rememberMe);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> logout() {
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> logout() {
 		return _loginService.logout();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<com.atmc.bsl.db.domain.AuthUser>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<com.ejada.atmc.bsl.db.domain.AuthUser>
 		validateUser(String idIqama, String email) {
 
 		return _loginService.validateUser(idIqama, email);

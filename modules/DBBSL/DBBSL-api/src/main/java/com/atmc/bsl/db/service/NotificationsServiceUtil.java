@@ -37,14 +37,14 @@ public class NotificationsServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.NotificationsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
 			getNotifications(long userId) {
 
 		return getService().getNotifications(userId);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 		getNotificationsCount(long userId) {
 
 		return getService().getNotificationsCount(userId);
@@ -59,7 +59,7 @@ public class NotificationsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		markAllNotificationsAsRead(long userId) {
 
 		return getService().markAllNotificationsAsRead(userId);

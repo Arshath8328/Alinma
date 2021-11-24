@@ -53,14 +53,14 @@ import java.rmi.RemoteException;
 @Deprecated
 public class PolicyServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getPoliciesByIqamaId(String iqamaId, int startRow, int endRow)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 					returnValue = PolicyServiceUtil.getPoliciesByIqamaId(
 						iqamaId, startRow, endRow);
 
@@ -73,12 +73,12 @@ public class PolicyServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 			getPoliciesCountByIqamaId(String iqamaId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Long> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Long> returnValue =
 				PolicyServiceUtil.getPoliciesCountByIqamaId(iqamaId);
 
 			return returnValue;
@@ -90,14 +90,14 @@ public class PolicyServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getUpcomingPolicyRenewals(String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 					returnValue = PolicyServiceUtil.getUpcomingPolicyRenewals(
 						iqamaId);
 
@@ -110,13 +110,13 @@ public class PolicyServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
 				String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List<java.util.HashMap<String, Object>>>
 					returnValue = PolicyServiceUtil.getPolicySummary(iqamaId);
 
@@ -129,14 +129,14 @@ public class PolicyServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
 				String policyNo)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.policy.Policy> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.policy.Policy> returnValue =
 					PolicyServiceUtil.getPolicyByPolicyNo(policyNo);
 
 			return returnValue;

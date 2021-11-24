@@ -6,7 +6,7 @@
 <%@page import="com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.claim.NajmClaim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.NajmClaim"%>
 <%@page import="com.liferay.portal.kernel.util.PortalUtil"%>
 <%@page import="com.liferay.portal.kernel.model.User"%>
 <%@ include file="/init.jsp"%>

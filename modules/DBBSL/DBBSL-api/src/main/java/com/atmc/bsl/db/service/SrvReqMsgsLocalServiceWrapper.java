@@ -34,7 +34,7 @@ public class SrvReqMsgsLocalServiceWrapper
 
 	@Override
 	public int addReplyMessage(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		return _srvReqMsgsLocalService.addReplyMessage(msg);
 	}
@@ -51,7 +51,7 @@ public class SrvReqMsgsLocalServiceWrapper
 
 	@Override
 	public java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>
 			getServiceRequestMessageListbyRefNo(String referenceNo) {
 
 		return _srvReqMsgsLocalService.getServiceRequestMessageListbyRefNo(

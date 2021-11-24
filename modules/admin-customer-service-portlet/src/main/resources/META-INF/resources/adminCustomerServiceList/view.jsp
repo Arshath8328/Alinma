@@ -1,3 +1,5 @@
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="admin.customer.service.constants.AdminCustomerServiceListPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.atmc.bsl.db.service.SrvReqLocalServiceUtil"%>
@@ -8,7 +10,6 @@
 	import="com.atmc.web.constants.CustomerServiceRequestListPortletKeys"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.atmc.web.constants.MenuPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearchTerms"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearch"%>
@@ -154,7 +155,7 @@
 		 </liferay-ui:search-container-results> 
 
 		<liferay-ui:search-container-row
-			className="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest" 
+			className="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest" 
 			modelVar="srvReq"
 		>
 		<%

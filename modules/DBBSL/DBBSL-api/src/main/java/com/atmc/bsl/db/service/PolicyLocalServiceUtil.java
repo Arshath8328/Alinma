@@ -37,14 +37,14 @@ public class PolicyLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.PolicyLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(
+	public static com.ejada.atmc.bsl.db.domain.policy.Policy findPolicyByPolicyNo(
 			String policyNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().findPolicyByPolicyNo(policyNo);
 	}
 
-	public static com.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(
+	public static com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle getCustomVeh(
 			String policyNo, String vehId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -60,7 +60,7 @@ public class PolicyLocalServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>
 			getPoliciesByIqamaId(String iqamaId, int start, int end)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -73,7 +73,7 @@ public class PolicyLocalServiceUtil {
 		return getService().getPoliciesCountByIqamaId(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(
+	public static com.ejada.atmc.bsl.db.domain.policy.Policy getPolicyByPolicyNo(
 			String policyNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -87,14 +87,14 @@ public class PolicyLocalServiceUtil {
 		return getService().getPolicySummary(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>
 			getTopPolicies(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return getService().getTopPolicies(iqamaId);
 	}
 
-	public static java.util.List<com.atmc.bsl.db.domain.policy.Policy>
+	public static java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>
 			getUpcomingPolicyRenewals(String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -107,7 +107,7 @@ public class PolicyLocalServiceUtil {
 		return getService().getUpcomingRenewalsCount(iqamaId);
 	}
 
-	public static com.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(
+	public static com.ejada.atmc.bsl.db.domain.policy.Policy getVehiclePolicyData(
 		String plateNo, String plateL1, String plateL2, String plateL3,
 		String language) {
 

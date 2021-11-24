@@ -52,8 +52,8 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class PolicyServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getPoliciesByIqamaId(
 					HttpPrincipal httpPrincipal, String iqamaId, int startRow,
 					int endRow)
@@ -84,8 +84,8 @@ public class PolicyServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>)
 					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -97,7 +97,7 @@ public class PolicyServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 			getPoliciesCountByIqamaId(
 				HttpPrincipal httpPrincipal, String iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -126,7 +126,7 @@ public class PolicyServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<Long>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -137,8 +137,8 @@ public class PolicyServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>
 				getUpcomingPolicyRenewals(
 					HttpPrincipal httpPrincipal, String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -167,8 +167,8 @@ public class PolicyServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.policy.Policy>>)
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.policy.Policy>>)
 					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -180,7 +180,7 @@ public class PolicyServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<java.util.HashMap<String, Object>>> getPolicySummary(
 				HttpPrincipal httpPrincipal, String iqamaId)
 			throws com.liferay.portal.kernel.exception.PortalException {
@@ -209,7 +209,7 @@ public class PolicyServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List<java.util.HashMap<String, Object>>>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -221,8 +221,8 @@ public class PolicyServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.policy.Policy> getPolicyByPolicyNo(
 				HttpPrincipal httpPrincipal, String policyNo)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -251,8 +251,8 @@ public class PolicyServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.policy.Policy>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.policy.Policy>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

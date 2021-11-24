@@ -33,7 +33,7 @@ public class NotificationsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
 			getNotifications(long userId) {
 
@@ -41,7 +41,7 @@ public class NotificationsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<Long> getNotificationsCount(
 		long userId) {
 
 		return _notificationsService.getNotificationsCount(userId);
@@ -58,7 +58,7 @@ public class NotificationsServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		markAllNotificationsAsRead(long userId) {
 
 		return _notificationsService.markAllNotificationsAsRead(userId);

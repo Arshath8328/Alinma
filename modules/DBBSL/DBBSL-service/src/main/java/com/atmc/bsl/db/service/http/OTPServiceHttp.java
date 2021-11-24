@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class OTPServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
 		HttpPrincipal httpPrincipal, String language, String otpSecret,
 		String mobileNumber, String chkVal) {
 
@@ -73,7 +73,7 @@ public class OTPServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -84,7 +84,7 @@ public class OTPServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
 		HttpPrincipal httpPrincipal, String language, String mobileNumber,
 		String chkVal) {
 
@@ -105,7 +105,7 @@ public class OTPServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -116,7 +116,7 @@ public class OTPServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
 		HttpPrincipal httpPrincipal, String otpSecret, String otp) {
 
 		try {
@@ -137,7 +137,7 @@ public class OTPServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput<String>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {

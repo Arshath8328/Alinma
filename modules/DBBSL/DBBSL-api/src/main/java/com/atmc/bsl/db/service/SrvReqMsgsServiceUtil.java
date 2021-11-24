@@ -37,8 +37,8 @@ public class SrvReqMsgsServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqMsgsServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg) {
 
 		return getService().addReplyMessage(msg);
 	}
@@ -52,9 +52,9 @@ public class SrvReqMsgsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List
-			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+			<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
 				getServiceRequestMessageListbyRefNo(String referenceNo) {
 
 		return getService().getServiceRequestMessageListbyRefNo(referenceNo);

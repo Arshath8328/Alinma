@@ -1,11 +1,11 @@
 package admin.customer.service.actions;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction;
 import com.atmc.bsl.db.service.SrvReqActionLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqAttachmentLocalServiceUtil;
 import com.atmc.bsl.db.service.SrvReqLocalServiceUtil;
 import com.atmc.web.constants.AdminCustomerServiceListPortletKeys;
 import com.atmc.web.constants.CustomerServiceRequestListPortletKeys;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction;
 import com.liferay.petra.io.StreamUtil;
 import com.liferay.portal.kernel.io.ByteArrayFileInputStream;
 import com.liferay.portal.kernel.language.LanguageUtil;

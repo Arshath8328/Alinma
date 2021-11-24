@@ -4,19 +4,19 @@
 <%@page import="javax.portlet.WindowState"%>
 <%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
 <%@page import="com.atmc.bsl.db.service.QuotationLocalServiceUtil"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
 <%@page import="java.util.ArrayList"%>
 <%@page
-	import="com.atmc.bsl.db.domain.quotation.QuotationDriverLicense"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationDriver"%>
+	import="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriverLicense"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver"%>
 <%@page import="javax.portlet.PortletRequest"%>
 <%@page import="com.liferay.portal.kernel.util.PortalUtil"%>
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
 <%@page
-	import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+	import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <link rel="stylesheet" type="text/css"
 	href="/o/atmc-theme/vendor/jquery_calendars/css/smoothness.calendars.picker.css">

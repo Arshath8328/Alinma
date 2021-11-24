@@ -47,19 +47,19 @@ public class OTPServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> resendOTP(
 		String language, String mobileNumber, String chkVal) {
 
 		return getService().resendOTP(language, mobileNumber, chkVal);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> sendOTP(
 		String language, String otpSecret, String mobileNumber, String chkVal) {
 
 		return getService().sendOTP(language, otpSecret, mobileNumber, chkVal);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> validateOTP(
 		String otpSecret, String otp) {
 
 		return getService().validateOTP(otpSecret, otp);

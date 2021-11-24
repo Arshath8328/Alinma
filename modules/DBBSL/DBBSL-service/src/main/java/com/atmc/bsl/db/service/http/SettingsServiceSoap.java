@@ -53,12 +53,12 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SettingsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateEmail(
 			String companyId, String screenName, String Email)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				SettingsServiceUtil.updateEmail(companyId, screenName, Email);
 
 			return returnValue;
@@ -70,12 +70,12 @@ public class SettingsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateMobile(
 			String companyId, String screenName, String phoneNo)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				SettingsServiceUtil.updateMobile(
 					companyId, screenName, phoneNo);
 
@@ -88,13 +88,13 @@ public class SettingsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> changePassword(
 			String companyId, String screenName, String currentPassword,
 			String password1, String password2)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				SettingsServiceUtil.changePassword(
 					companyId, screenName, currentPassword, password1,
 					password2);

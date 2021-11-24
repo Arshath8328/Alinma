@@ -14,10 +14,8 @@
 
 package com.atmc.bsl.db.service;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
-
 import com.ejada.atmc.acl.db.model.ServiceRequestAttachments;
-
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.service.BaseLocalService;

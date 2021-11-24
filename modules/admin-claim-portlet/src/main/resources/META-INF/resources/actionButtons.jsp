@@ -1,7 +1,7 @@
 <%@page import="com.liferay.petra.string.StringPool"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.model.Role"%>
-<%@page import="com.atmc.bsl.db.domain.claim.Claim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.Claim"%>
 <%@ include file="/init.jsp" %>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="com.liferay.portal.kernel.security.permission.ActionKeys"%>

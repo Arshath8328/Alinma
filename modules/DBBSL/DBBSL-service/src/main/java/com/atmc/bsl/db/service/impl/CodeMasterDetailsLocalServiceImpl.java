@@ -14,11 +14,11 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.atmc.bsl.db.service.base.CodeMasterDetailsLocalServiceBaseImpl;
 import com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException;
 import com.ejada.atmc.acl.db.model.CodeMaster;
 import com.ejada.atmc.acl.db.service.CodeMasterLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;

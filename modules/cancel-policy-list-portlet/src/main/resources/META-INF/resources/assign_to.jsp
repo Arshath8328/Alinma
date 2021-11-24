@@ -3,7 +3,7 @@
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.google.gson.Gson"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearchTerms"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearch"%>

@@ -1,7 +1,7 @@
 <%@page import="vacancies.portlet.constants.VacanciesPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.orm.Session"%>
 <%@page import="java.io.Console"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.Set"%>

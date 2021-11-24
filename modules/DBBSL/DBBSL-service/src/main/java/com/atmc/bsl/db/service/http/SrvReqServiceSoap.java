@@ -54,16 +54,16 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SrvReqServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
 				getServiceRequestsListByIdStatus(
 					String iqamaId, String[] status)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
+					<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest>>
 						returnValue =
 							SrvReqServiceUtil.getServiceRequestsListByIdStatus(
 								iqamaId, status);
@@ -77,14 +77,14 @@ public class SrvReqServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			addNewServiceRequest(
-				com.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
+				com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest srvRequest,
 				String lang)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				SrvReqServiceUtil.addNewServiceRequest(srvRequest, lang);
 
 			return returnValue;

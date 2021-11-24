@@ -12,7 +12,7 @@
 <%@taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%@page import="java.util.List"%>
-<%@page import="com.atmc.bsl.db.domain.claim.Claim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.Claim"%>
 <%@page import="com.atmc.web.constants.ClaimIntimationPortletKeys"%>
 <%@page import="javax.portlet.ActionRequest"%>
 <%@page import="javax.portlet.PortletRequest"%>

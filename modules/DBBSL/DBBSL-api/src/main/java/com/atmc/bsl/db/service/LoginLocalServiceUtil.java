@@ -37,7 +37,7 @@ public class LoginLocalServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.LoginLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.AuthUser authenticateUser(
+	public static com.ejada.atmc.bsl.db.domain.AuthUser authenticateUser(
 			String login, String password)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -59,7 +59,7 @@ public class LoginLocalServiceUtil {
 		return getService().getReminderQueryQuestions();
 	}
 
-	public static com.atmc.bsl.db.domain.AuthUser login(
+	public static com.ejada.atmc.bsl.db.domain.AuthUser login(
 			String login, String password, String rememberMe)
 		throws Exception {
 
@@ -70,7 +70,7 @@ public class LoginLocalServiceUtil {
 		getService().logout();
 	}
 
-	public static com.atmc.bsl.db.domain.AuthUser validateUser(
+	public static com.ejada.atmc.bsl.db.domain.AuthUser validateUser(
 			String idIqama, String email)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

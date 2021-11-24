@@ -14,17 +14,6 @@
 
 package com.atmc.bsl.db.service;
 
-import com.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
-import com.atmc.bsl.db.domain.policy.Policy;
-import com.atmc.bsl.db.domain.quotation.CustomerMapDetails;
-import com.atmc.bsl.db.domain.quotation.Quotation;
-import com.atmc.bsl.db.domain.quotation.QuotationCover;
-import com.atmc.bsl.db.domain.quotation.QuotationCustUploads;
-import com.atmc.bsl.db.domain.quotation.QuotationDriver;
-import com.atmc.bsl.db.domain.quotation.QuotationNajmDetails;
-import com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails;
-import com.atmc.bsl.db.domain.quotation.QuotationUserAddress;
-import com.atmc.bsl.db.domain.quotation.QuotationVehicleImage;
 import com.atmc.bsl.db.exception.NajmException;
 import com.atmc.bsl.db.exception.YaqeenException;
 
@@ -35,7 +24,17 @@ import com.ejada.atmc.acl.db.model.QuotationAdminUploads;
 import com.ejada.atmc.acl.db.model.QuotationSurvey;
 import com.ejada.atmc.acl.db.model.Quotations;
 import com.ejada.atmc.acl.ws.domain.payFort.PurchaseResponse;
-
+import com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationCover;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationCustUploads;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationNajmDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress;
+import com.ejada.atmc.bsl.db.domain.quotation.QuotationVehicleImage;
 import com.liferay.portal.kernel.exception.ModelListenerException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;

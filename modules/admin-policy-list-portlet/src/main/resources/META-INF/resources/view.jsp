@@ -13,7 +13,7 @@
 <%@page import="com.atmc.web.search.QuotationSearch"%>
 <%@page import="com.liferay.portal.kernel.util.Validator"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 
@@ -152,7 +152,7 @@
 		searchContainer.setResults(quotationsList);
 		%>
 		</liferay-ui:search-container-results>
-		<liferay-ui:search-container-row className="com.atmc.bsl.db.domain.quotation.Quotation" keyProperty="quotationId" modelVar="quotation">
+		<liferay-ui:search-container-row className="com.ejada.atmc.bsl.db.domain.quotation.Quotation" keyProperty="quotationId" modelVar="quotation">
 		<%
 			SimpleDateFormat dmyDateFormatter = new SimpleDateFormat("EEE dd/MM/yyyy");
 			try{

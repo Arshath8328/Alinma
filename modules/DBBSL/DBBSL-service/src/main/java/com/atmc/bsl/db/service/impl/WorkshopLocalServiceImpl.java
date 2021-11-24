@@ -14,10 +14,10 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.workshop.WorkshopVehicles;
 import com.atmc.bsl.db.service.base.WorkshopLocalServiceBaseImpl;
 import com.ejada.atmc.acl.db.model.WorkshopVehicle;
 import com.ejada.atmc.acl.db.service.persistence.WorkshopVehicleUtil;
+import com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.portal.aop.AopService;
 

@@ -82,14 +82,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.Claim> getClaimDetailsByClaimNO(
 				String claimNumber)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.Claim> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.Claim> returnValue =
 					ClaimServiceUtil.getClaimDetailsByClaimNO(claimNumber);
 
 			return returnValue;
@@ -101,14 +101,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>> getClaimsSummary(
 				String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>
 					returnValue = ClaimServiceUtil.getClaimsSummary(iqamaId);
 
 			return returnValue;
@@ -120,12 +120,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
 			getNajmUploadsFilesName(String refNo)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.List<Object[]>>
 				returnValue = ClaimServiceUtil.getNajmUploadsFilesName(refNo);
 
 			return returnValue;
@@ -137,12 +137,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findNajmSlipFile(
 			String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findNajmSlipFile(fileId);
 
 			return returnValue;
@@ -154,12 +154,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findDamageEstQuotFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findDamageEstQuotFile(fileId);
 
 			return returnValue;
@@ -171,12 +171,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findBankIbanFile(
 			String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findBankIbanFile(fileId);
 
 			return returnValue;
@@ -188,12 +188,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> findOwnerIdFile(
 			String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findOwnerIdFile(fileId);
 
 			return returnValue;
@@ -205,12 +205,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.HashMap<String, Object>> getClaimsDtls(String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.HashMap<String, Object>> returnValue =
 					ClaimServiceUtil.getClaimsDtls(iqamaId);
 
@@ -223,8 +223,8 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation> intimateClaim(
 				String claimType, String vehicleIdentType,
 				String vehicleIdentNumber, String plateL1, String plateL2,
 				String plateL3, String reportMode, String reportNumber,
@@ -232,8 +232,8 @@ public class ClaimServiceSoap {
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.ClaimIntimation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.ClaimIntimation> returnValue =
 					ClaimServiceUtil.intimateClaim(
 						claimType, vehicleIdentType, vehicleIdentNumber,
 						plateL1, plateL2, plateL3, reportMode, reportNumber,
@@ -248,15 +248,15 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>
 				getClaimsSummaryFiter(
 					String iqamaId, String claimStatus, String policyType)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.Claim>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.Claim>>
 					returnValue = ClaimServiceUtil.getClaimsSummaryFiter(
 						iqamaId, claimStatus, policyType);
 
@@ -269,12 +269,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Integer>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>
 			checkIbanValidation(String ibanParm)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Integer> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer> returnValue =
 				ClaimServiceUtil.checkIbanValidation(ibanParm);
 
 			return returnValue;
@@ -286,15 +286,15 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 				getInsuranceCompanies()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+					<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 						returnValue = ClaimServiceUtil.getInsuranceCompanies();
 
 			return returnValue;
@@ -306,13 +306,13 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse> submitClaimByObject(
 				com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse> returnValue =
 					ClaimServiceUtil.submitClaimByObject(odsClaimInt);
 
@@ -325,7 +325,7 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			downloadClaimReport(
 				com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation odsClaimInt,
 				String claimintName, String claimintMobile,
@@ -333,7 +333,7 @@ public class ClaimServiceSoap {
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.downloadClaimReport(
 					odsClaimInt, claimintName, claimintMobile, claimintEmail,
 					claimintId, lang);
@@ -347,14 +347,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>>
 				getRoleWorkflow(String workflowRole)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.claim.ClaimWorkflow>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.claim.ClaimWorkflow>>
 					returnValue = ClaimServiceUtil.getRoleWorkflow(
 						workflowRole);
 
@@ -367,14 +367,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.model.PolicyHDR> getVehiclePolicy(
 				String plateNo, String plateL1, String plateL2, String plateL3,
 				String language)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.model.PolicyHDR> returnValue =
 					ClaimServiceUtil.getVehiclePolicy(
 						plateNo, plateL1, plateL2, plateL3, language);
@@ -388,12 +388,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> getCityCoreCode(
 			String cityCode)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.getCityCoreCode(cityCode);
 
 			return returnValue;
@@ -405,12 +405,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODDriverLicenseFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findODDriverLicenseFile(fileId);
 
 			return returnValue;
@@ -422,12 +422,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODVehRegistFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findODVehRegistFile(fileId);
 
 			return returnValue;
@@ -439,12 +439,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findODPolicyCopyFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findODPolicyCopyFile(fileId);
 
 			return returnValue;
@@ -456,12 +456,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPDriverLicenseFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPDriverLicenseFile(fileId);
 
 			return returnValue;
@@ -473,12 +473,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPVehRegistFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPVehRegistFile(fileId);
 
 			return returnValue;
@@ -490,12 +490,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPFrontPhotoFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPFrontPhotoFile(fileId);
 
 			return returnValue;
@@ -507,12 +507,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPRearPhotoFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPRearPhotoFile(fileId);
 
 			return returnValue;
@@ -524,12 +524,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPRightSidePhotoFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPRightSidePhotoFile(fileId);
 
 			return returnValue;
@@ -541,12 +541,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPLeftSidePhotoFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPLeftSidePhotoFile(fileId);
 
 			return returnValue;
@@ -558,12 +558,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPBankIbanFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPBankIbanFile(fileId);
 
 			return returnValue;
@@ -575,12 +575,12 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			findTPOwnerIdFile(String fileId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				ClaimServiceUtil.findTPOwnerIdFile(fileId);
 
 			return returnValue;
@@ -592,14 +592,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads> getMuroorTPUploadsData(
 				String refNo)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.MuroorTPUploads> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads> returnValue =
 					ClaimServiceUtil.getMuroorTPUploadsData(refNo);
 
 			return returnValue;
@@ -611,14 +611,14 @@ public class ClaimServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads> getMuroorODUploadsData(
 				String refNo)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.claim.MuroorODUploads> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads> returnValue =
 					ClaimServiceUtil.getMuroorODUploadsData(refNo);
 
 			return returnValue;

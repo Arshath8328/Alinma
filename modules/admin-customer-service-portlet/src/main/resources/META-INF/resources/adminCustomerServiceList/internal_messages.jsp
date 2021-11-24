@@ -1,9 +1,9 @@
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage"%>
 <%@page import="java.util.Locale"%>
 <%@page import="com.atmc.web.constants.MenuPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearchTerms"%>
 <%@page import="com.atmc.web.search.ServiceRequestSearch"%>

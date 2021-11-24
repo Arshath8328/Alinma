@@ -1,13 +1,13 @@
 package com.atmc.admin.claim.portlet;
 
 import com.atmc.admin.claim.constants.AdminClaimPortletKeys;
-import com.atmc.bsl.db.domain.claim.Claim;
-import com.atmc.bsl.db.domain.claim.MuroorODUploads;
-import com.atmc.bsl.db.domain.claim.MuroorTPUploads;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
 import com.atmc.web.constants.ClaimIntimationPortletKeys;
 import com.atmc.web.util.FileUtil;
 import com.ejada.atmc.acl.db.model.CLMNajmUploads;
+import com.ejada.atmc.bsl.db.domain.claim.Claim;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorODUploads;
+import com.ejada.atmc.bsl.db.domain.claim.MuroorTPUploads;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.petra.io.StreamUtil;
 import com.liferay.petra.string.StringPool;

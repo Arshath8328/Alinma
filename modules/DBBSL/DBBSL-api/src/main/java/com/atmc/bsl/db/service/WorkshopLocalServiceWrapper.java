@@ -47,21 +47,21 @@ public class WorkshopLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.workshop.WorkshopVehicles
+	public com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles
 		getcheckedInVehicleById(int id) {
 
 		return _workshopLocalService.getcheckedInVehicleById(id);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 		getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return _workshopLocalService.getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 		getcheckedInVehicleByStatus(String status, int workShopId) {
 
 		return _workshopLocalService.getcheckedInVehicleByStatus(

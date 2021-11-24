@@ -6,8 +6,6 @@ dependencies {
 	compileOnly project(":modules:DBACL:DBACL-api")
 	compileOnly project(":modules:DBBSL:DBBSL-api")
 	
-	compileInclude group: 'jakarta.servlet.jsp', name: 'jakarta.servlet.jsp-api', version: '2.3.5'
-	compileOnly group: "javax.servlet", name: "javax.servlet-api", version: "3.0.1"
 	compileInclude group: 'org.owasp.encoder', name: 'encoder', version: '1.2.3'
 	compileInclude group: 'org.owasp.encoder', name: 'encoder-jsp', version: '1.2.3'
 	compileInclude group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3'

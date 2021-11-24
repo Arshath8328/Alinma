@@ -31,7 +31,7 @@ public class WorkshopServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> checkInVehicle(
 		String customerName, String customerMobile, String manufacture,
 		String plateNo, int workshopId, String claimRefNo, String status,
 		String date, String serviceType, String desc, String vehMakeEn,
@@ -45,24 +45,24 @@ public class WorkshopServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>
 			getcheckedInVehicleById(int id) {
 
 		return _workshopService.getcheckedInVehicleById(id);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByIqmaId(String iqamaId) {
 
 		return _workshopService.getcheckedInVehicleByIqmaId(iqamaId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopVehicles>>
 			getcheckedInVehicleByStatus(String status, int workShopId) {
 
 		return _workshopService.getcheckedInVehicleByStatus(status, workShopId);
@@ -79,15 +79,15 @@ public class WorkshopServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.workshop.WorkshopList>>
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.workshop.WorkshopList>>
 			getWorkShopList() {
 
 		return _workshopService.getWorkShopList();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> updateVehicleStatus(
 		int id, String status) {
 
 		return _workshopService.updateVehicleStatus(id, status);

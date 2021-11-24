@@ -16,7 +16,7 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.TimeZone"%>
 <%@page import="java.util.Calendar"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@page import="java.util.List"%>
 <%@ include file="/dashboard/init.jsp" %>
 <%

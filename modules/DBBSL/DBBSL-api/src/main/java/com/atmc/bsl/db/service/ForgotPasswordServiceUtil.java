@@ -37,7 +37,7 @@ public class ForgotPasswordServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.ForgotPasswordServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 		checkReminderQueries(
 			String emailAddress, String answer, String captchaText) {
 
@@ -54,7 +54,7 @@ public class ForgotPasswordServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> validateUser(
 			String emailAddress, String captchaText) {
 

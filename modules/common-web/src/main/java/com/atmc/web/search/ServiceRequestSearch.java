@@ -1,6 +1,6 @@
 package com.atmc.web.search;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 
 import java.util.ArrayList;

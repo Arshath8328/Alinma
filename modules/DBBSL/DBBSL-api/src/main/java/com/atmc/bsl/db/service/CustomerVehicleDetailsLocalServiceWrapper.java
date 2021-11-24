@@ -82,8 +82,8 @@ public class CustomerVehicleDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getCustomerVehicleDetails(
-			com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getCustomerVehicleDetails(
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
 			java.util.Locale locale)
 		throws com.atmc.bsl.db.exception.NajmException,
 			   com.atmc.bsl.db.exception.YaqeenException {
@@ -93,9 +93,9 @@ public class CustomerVehicleDetailsLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation
 			getCustomerVehicleDetailsMob(
-				com.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, String addLang,
 				java.util.Locale locale)
 		throws com.atmc.bsl.db.exception.NajmException,
 			   com.atmc.bsl.db.exception.YaqeenException {
@@ -106,7 +106,7 @@ public class CustomerVehicleDetailsLocalServiceWrapper
 
 	@Override
 	public void getDriverVehicleDetails(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 
@@ -116,7 +116,7 @@ public class CustomerVehicleDetailsLocalServiceWrapper
 
 	@Override
 	public void getDriverVehicleDetailsMob(
-			com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+			com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
 			javax.servlet.http.HttpServletRequest request, boolean isRelative)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 

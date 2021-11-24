@@ -12,9 +12,9 @@
 <%@page import="com.liferay.portal.kernel.service.LayoutLocalServiceUtil"%>
 <%@page import="com.atmc.web.constants.PolicyListPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.model.Layout"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicle"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle"%>
 <%@page import="com.liferay.portal.kernel.theme.ThemeDisplay"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@page import="java.util.List"%>
 <%@ include file="/dashboard/init.jsp" %>
 

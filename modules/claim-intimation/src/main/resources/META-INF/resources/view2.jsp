@@ -3,7 +3,7 @@
 <%@page import="javax.portlet.PortletRequest"%>
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>
 <%@page import="claim.intimation.portlet.ClaimIntimationPortlet"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="com.liferay.portal.kernel.util.HtmlUtil"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Iterator"%>
@@ -190,7 +190,7 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 										</label>
 									</div>
 								</div>
-								<div class="form-group" style="margin-top: 2.6rem;">
+								<div class="form-group" style="margin-top: 1.5rem;">
 									<input onkeypress='return validateQty(event);' class="form-control" showRequiredLabel="false" name="<portlet:namespace/>plateNumber" id="<portlet:namespace/>plateNumber" label="" 
 									placeholder="<%=LanguageUtil.get(request,"claims_enter_plate_number") %>">
 									</input>															

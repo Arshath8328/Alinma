@@ -20,7 +20,7 @@
 <%@page
 	import="com.ejada.atmc.acl.db.exception.NoSuchNajmOtherPartyException"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@ include file="/init.jsp"%>
 <liferay-ui:error key="delete_error" message="file_delete_error" />

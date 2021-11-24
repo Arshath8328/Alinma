@@ -37,8 +37,8 @@ public class LoginServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.LoginServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> authenticateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> authenticateUser(
 			String login, String password) {
 
 		return getService().authenticateUser(login, password);
@@ -53,25 +53,25 @@ public class LoginServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<java.util.Set<String>>
 		getReminderQueryQuestions() {
 
 		return getService().getReminderQueryQuestions();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> login(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> login(
 			String login, String password, String rememberMe) {
 
 		return getService().login(login, password, rememberMe);
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> logout() {
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> logout() {
 		return getService().logout();
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.AuthUser> validateUser(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.AuthUser> validateUser(
 			String idIqama, String email) {
 
 		return getService().validateUser(idIqama, email);

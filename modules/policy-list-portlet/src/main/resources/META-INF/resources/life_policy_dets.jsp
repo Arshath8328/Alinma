@@ -1,13 +1,13 @@
 <%@page import="java.util.Date"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyBeneficiary"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyFund"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyVehicleCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyBeneficiary"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyFund"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyVehicleCover"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.NumberFormat"%>
-<%@page import="com.atmc.bsl.db.domain.policy.PolicyPayment"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.PolicyPayment"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="javax.swing.text.DateFormatter"%>
-<%@page import="com.atmc.bsl.db.domain.policy.Policy"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.policy.Policy"%>
 <%@ include file="/init.jsp"%>
 <%
 	Policy policy = (Policy)request.getAttribute("policy");

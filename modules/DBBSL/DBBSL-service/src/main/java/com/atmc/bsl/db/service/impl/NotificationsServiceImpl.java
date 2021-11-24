@@ -14,10 +14,9 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.ReturnCodes;
-import com.atmc.bsl.db.domain.ServiceOutput;
 import com.atmc.bsl.db.service.base.NotificationsServiceBaseImpl;
-
+import com.ejada.atmc.bsl.db.domain.ReturnCodes;
+import com.ejada.atmc.bsl.db.domain.ServiceOutput;
 import com.liferay.portal.aop.AopService;
 
 import org.osgi.service.component.annotations.Component;

@@ -1,7 +1,7 @@
 package service.requests.widget.portlet.portlet;
 
-import com.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
 import com.atmc.bsl.db.service.SrvReqLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

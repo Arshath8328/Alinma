@@ -4,7 +4,7 @@
 <%@page import="com.atmc.web.util.FileUtil"%>
 <%@page import="com.liferay.portal.kernel.util.Validator"%>
 <%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
-<%@page import="com.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails"%>
 <%@page import="java.util.List"%>
 <%@page import="com.liferay.portal.kernel.util.PortalUtil"%>
 <%@page import="com.liferay.portal.kernel.exception.UserEmailAddressException"%>
@@ -20,12 +20,12 @@
 <%@page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationCover"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.QuotationDriver"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationCover"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <link rel="stylesheet" type="text/css" href="/o/atmc-theme/vendor/bootstrap_select/css/bootstrap-select.min.css">
 <script src="/o/atmc-theme/vendor/bootstrap_select/js/bootstrap-select.min.js"></script>
 <%-- <%@ include file="/init.jsp"%> --%>

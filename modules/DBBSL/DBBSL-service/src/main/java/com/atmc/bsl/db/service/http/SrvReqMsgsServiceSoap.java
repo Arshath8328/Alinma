@@ -53,16 +53,16 @@ import java.rmi.RemoteException;
 @Deprecated
 public class SrvReqMsgsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List
-			<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
+			<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage>>
 					getServiceRequestMessageListbyRefNo(String referenceNo)
 				throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.serviceRequest.
+					<com.ejada.atmc.bsl.db.domain.serviceRequest.
 						ServiceRequestMessage>> returnValue =
 							SrvReqMsgsServiceUtil.
 								getServiceRequestMessageListbyRefNo(
@@ -77,12 +77,12 @@ public class SrvReqMsgsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
-			com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg)
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String> addReplyMessage(
+			com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage msg)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				SrvReqMsgsServiceUtil.addReplyMessage(msg);
 
 			return returnValue;

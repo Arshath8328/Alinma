@@ -38,7 +38,7 @@ public class CodeMasterDetailsLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.CodeMasterDetailsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+		<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 				findByCodeCodeFreez(String code, String codeFreezYN)
 			throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 
@@ -46,7 +46,7 @@ public class CodeMasterDetailsLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+		<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 				findCodeMasterDesc(String code, String locale)
 			throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -61,7 +61,7 @@ public class CodeMasterDetailsLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCustomCodes(
+		<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails> getCustomCodes(
 				String code)
 			throws com.ejada.atmc.acl.db.exception.NoSuchCodeMasterException {
 

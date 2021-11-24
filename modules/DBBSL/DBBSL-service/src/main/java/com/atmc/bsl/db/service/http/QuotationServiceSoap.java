@@ -53,15 +53,15 @@ import java.rmi.RemoteException;
 @Deprecated
 public class QuotationServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getCountries()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue = QuotationServiceUtil.getCountries();
 
 			return returnValue;
@@ -73,15 +73,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getCities()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue = QuotationServiceUtil.getCities();
 
 			return returnValue;
@@ -93,15 +93,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getParkingLocations()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							QuotationServiceUtil.getParkingLocations();
 
@@ -114,15 +114,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getEngineSizes()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue = QuotationServiceUtil.getEngineSizes();
 
 			return returnValue;
@@ -134,15 +134,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getDeductibleValues()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							QuotationServiceUtil.getDeductibleValues();
 
@@ -155,15 +155,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getPurposeOfVehicle()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue =
 							QuotationServiceUtil.getPurposeOfVehicle();
 
@@ -176,15 +176,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 				getInsuranceCompanies()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
+					<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>>
 						returnValue =
 							QuotationServiceUtil.getInsuranceCompanies();
 
@@ -197,15 +197,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> personalInfo(
-				com.atmc.bsl.db.domain.quotation.Quotation quot,
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> personalInfo(
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
 				boolean isUserSignedIn)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation> returnValue =
 					QuotationServiceUtil.personalInfo(quot, isUserSignedIn);
 
 			return returnValue;
@@ -217,14 +217,14 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>>
 				getPendingQuotations(String iqamaId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>>
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>>
 					returnValue = QuotationServiceUtil.getPendingQuotations(
 						iqamaId);
 
@@ -237,13 +237,13 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadVideo(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> uploadVideo(
 			String baseArray, String fileName, String quotationId,
 			java.util.Date videoDate)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Boolean> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> returnValue =
 				QuotationServiceUtil.uploadVideo(
 					baseArray, fileName, quotationId, videoDate);
 
@@ -256,12 +256,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Boolean> clearQuoteFile(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> clearQuoteFile(
 			String fileName, String insuredId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Boolean> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Boolean> returnValue =
 				QuotationServiceUtil.clearQuoteFile(fileName, insuredId);
 
 			return returnValue;
@@ -273,13 +273,13 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.domain.tariff.TariffOutput> getTariffData(
 				com.ejada.atmc.acl.db.domain.tariff.TariffInput tariffInput)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.domain.tariff.TariffOutput> returnValue =
 					QuotationServiceUtil.getTariffData(tariffInput);
 
@@ -292,13 +292,13 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.ejada.atmc.acl.db.model.CodeMasterMap> getBySourceTypeSourceCode(
 				String sourceType, String sourceCode)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.ejada.atmc.acl.db.model.CodeMasterMap> returnValue =
 					QuotationServiceUtil.getBySourceTypeSourceCode(
 						sourceType, sourceCode);
@@ -312,15 +312,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>>
 				getCoverList(String productCode)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.quotation.QuotationCover>>
+					<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>>
 						returnValue = QuotationServiceUtil.getCoverList(
 							productCode);
 
@@ -333,14 +333,14 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> tokenizationResult(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> tokenizationResult(
 				String status)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation> returnValue =
 					QuotationServiceUtil.tokenizationResult(status);
 
 			return returnValue;
@@ -352,18 +352,18 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.QuotationDriver> addDriver(
-				com.atmc.bsl.db.domain.quotation.QuotationDriver driver,
-				com.atmc.bsl.db.domain.quotation.QuotationUserAddress
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver> addDriver(
+				com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver driver,
+				com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress
 					driverNatAddress,
-				com.atmc.bsl.db.domain.quotation.QuotationUserAddress
+				com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress
 					driverOffNatAddress)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.QuotationDriver> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver> returnValue =
 					QuotationServiceUtil.addDriver(
 						driver, driverNatAddress, driverOffNatAddress);
 
@@ -376,15 +376,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getEducationList()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue = QuotationServiceUtil.getEducationList();
 
 			return returnValue;
@@ -396,15 +396,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 				getLicenseTypes()
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
-					<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
+					<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>>
 						returnValue = QuotationServiceUtil.getLicenseTypes();
 
 			return returnValue;
@@ -416,15 +416,15 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> renewPolicy(
-				com.atmc.bsl.db.domain.policy.Policy policy,
-				com.atmc.bsl.db.domain.policy.PolicyVehicle pVeh)
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> renewPolicy(
+				com.ejada.atmc.bsl.db.domain.policy.Policy policy,
+				com.ejada.atmc.bsl.db.domain.policy.PolicyVehicle pVeh)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation> returnValue =
 					QuotationServiceUtil.renewPolicy(policy, pVeh);
 
 			return returnValue;
@@ -436,12 +436,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			getConfigurableValues(java.util.List<String> keys)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				QuotationServiceUtil.getConfigurableValues(keys);
 
 			return returnValue;
@@ -453,12 +453,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Double>
-			quickQuoteInquiry(com.atmc.bsl.db.domain.quotation.Quotation quot)
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Double>
+			quickQuoteInquiry(com.ejada.atmc.bsl.db.domain.quotation.Quotation quot)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Double> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Double> returnValue =
 				QuotationServiceUtil.quickQuoteInquiry(quot);
 
 			return returnValue;
@@ -470,12 +470,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Integer>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer>
 			countQuotationSurveyVideo(String quoteID)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Integer> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Integer> returnValue =
 				QuotationServiceUtil.countQuotationSurveyVideo(quoteID);
 
 			return returnValue;
@@ -487,12 +487,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			downloadQuotDetsFile(String quoteId, String lang)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				QuotationServiceUtil.downloadQuotDetsFile(quoteId, lang);
 
 			return returnValue;
@@ -504,12 +504,12 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			downloadPolicyFile(String quoteId, String policyNo, String lang)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				QuotationServiceUtil.downloadPolicyFile(
 					quoteId, policyNo, lang);
 
@@ -522,14 +522,14 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> getQuotationDetails(
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> getQuotationDetails(
 				String quotId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation> returnValue =
 					QuotationServiceUtil.getQuotationDetails(quotId);
 
 			return returnValue;
@@ -541,16 +541,16 @@ public class QuotationServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
-		<com.atmc.bsl.db.domain.quotation.Quotation> getTariffDetails(
-				com.atmc.bsl.db.domain.quotation.Quotation quot,
-				java.util.List<com.atmc.bsl.db.domain.quotation.QuotationDriver>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
+		<com.ejada.atmc.bsl.db.domain.quotation.Quotation> getTariffDetails(
+				com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
+				java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver>
 					drivers)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
-				<com.atmc.bsl.db.domain.quotation.Quotation> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
+				<com.ejada.atmc.bsl.db.domain.quotation.Quotation> returnValue =
 					QuotationServiceUtil.getTariffDetails(quot, drivers);
 
 			return returnValue;

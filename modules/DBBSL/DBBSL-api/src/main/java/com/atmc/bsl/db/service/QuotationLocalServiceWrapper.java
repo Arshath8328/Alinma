@@ -147,14 +147,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		geEngineSizes() {
 
 		return _quotationLocalService.geEngineSizes();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation
 			getAdminQuotationByQuotationId(long quotationId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -163,7 +163,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getAdminQuotations(int start, int end)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -178,7 +178,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getAllPendingQuotations(
 				java.util.Date expiryDate, String quoteStatus, boolean smsFlag)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -188,28 +188,28 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getCities() {
 
 		return _quotationLocalService.getCities();
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getCountries() {
 
 		return _quotationLocalService.getCountries();
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>
 		getCoverList(String productCode) {
 
 		return _quotationLocalService.getCoverList(productCode);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.QuotationCover>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationCover>
 		getCustomCovers(
 			java.util.List<com.ejada.atmc.acl.db.model.ProductCovers> pCovers) {
 
@@ -217,7 +217,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.QuotationCustUploads
+	public com.ejada.atmc.bsl.db.domain.quotation.QuotationCustUploads
 			getCustomQuotationCustUploads(String quotationId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -226,7 +226,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 		getCustomQuotations(
 			java.util.List<com.ejada.atmc.acl.db.model.Quotations>
 				quotationsList,
@@ -237,7 +237,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getDeductibleValues() {
 
 		return _quotationLocalService.getDeductibleValues();
@@ -254,14 +254,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getEducationList() {
 
 		return _quotationLocalService.getEducationList();
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getExpiredQuotsByDate(java.util.Date expiryDate, String[] status)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -269,21 +269,21 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>
 		getInsuranceCompanies() {
 
 		return _quotationLocalService.getInsuranceCompanies();
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.CustomerMapDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.CustomerMapDetails>
 		getInsuranceCompany(String premiaCode) {
 
 		return _quotationLocalService.getInsuranceCompany(premiaCode);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getLicenseTypes() {
 
 		return _quotationLocalService.getLicenseTypes();
@@ -307,14 +307,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getParkingLocations() {
 
 		return _quotationLocalService.getParkingLocations();
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 		getPendingPaymentSurveyQuotations(long iqamaId) {
 
 		return _quotationLocalService.getPendingPaymentSurveyQuotations(
@@ -322,15 +322,15 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 		getPendingQuotations(long iqamaId) {
 
 		return _quotationLocalService.getPendingQuotations(iqamaId);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getPolicyQuot(
-			com.atmc.bsl.db.domain.policy.Policy policy)
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getPolicyQuot(
+			com.ejada.atmc.bsl.db.domain.policy.Policy policy)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 
 		return _quotationLocalService.getPolicyQuot(policy);
@@ -347,14 +347,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.codemaster.CodeMasterDetails>
 		getPurposeOfVehicle() {
 
 		return _quotationLocalService.getPurposeOfVehicle();
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getQuotationByQuotationId(
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getQuotationByQuotationId(
 			long quotationId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -362,7 +362,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getQuotationByReferenceNo(
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getQuotationByReferenceNo(
 			String referenceNo)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -370,14 +370,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getQuotationDetails(
-		com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getQuotationDetails(
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return _quotationLocalService.getQuotationDetails(quot);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getQuotations(
 				String status, long iqamaId, boolean andSearch, int start,
 				int end)
@@ -388,7 +388,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getQuotationsByIqamaId(long iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -396,7 +396,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.Quotation>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.Quotation>
 			getQuotationsByIqamaIdAndStatus(long iqamaId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -413,7 +413,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails
+	public com.ejada.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails
 			getQuotationTameeniExtras(long quotationId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -423,7 +423,7 @@ public class QuotationLocalServiceWrapper
 	@Override
 	public java.util.Map<String, Object> getQuoteDetailsReportParams(
 		javax.servlet.http.HttpServletRequest httpReq,
-		com.atmc.bsl.db.domain.quotation.Quotation quot) {
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return _quotationLocalService.getQuoteDetailsReportParams(
 			httpReq, quot);
@@ -431,7 +431,7 @@ public class QuotationLocalServiceWrapper
 
 	@Override
 	public java.util.Map<String, Object> getQuoteDetailsReportParams(
-		String lang, com.atmc.bsl.db.domain.quotation.Quotation quot) {
+		String lang, com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		return _quotationLocalService.getQuoteDetailsReportParams(lang, quot);
 	}
@@ -444,15 +444,15 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation getTariffDets(
-			com.atmc.bsl.db.domain.quotation.Quotation quot, boolean isRenewal)
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation getTariffDets(
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, boolean isRenewal)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _quotationLocalService.getTariffDets(quot, isRenewal);
 	}
 
 	@Override
-	public java.util.List<com.atmc.bsl.db.domain.quotation.QuotationDriver>
+	public java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationDriver>
 		getUnderAgeDriversList(long quotationId) {
 
 		return _quotationLocalService.getUnderAgeDriversList(quotationId);
@@ -472,14 +472,14 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public void issuePolicy(com.atmc.bsl.db.domain.quotation.Quotation quot) {
+	public void issuePolicy(com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 		_quotationLocalService.issuePolicy(quot);
 	}
 
 	@Override
 	public void notifyUser(
 		javax.servlet.http.HttpServletRequest httpRequest,
-		com.atmc.bsl.db.domain.quotation.Quotation quot, java.util.Locale local,
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation quot, java.util.Locale local,
 		com.liferay.portal.kernel.model.User user) {
 
 		_quotationLocalService.notifyUser(httpRequest, quot, local, user);
@@ -524,7 +524,7 @@ public class QuotationLocalServiceWrapper
 
 	@Override
 	public void renewAddressInquiry(
-			com.atmc.bsl.db.domain.quotation.Quotation quot,
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
 			java.util.Locale locale)
 		throws com.atmc.bsl.db.exception.YaqeenException {
 
@@ -532,7 +532,7 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public void renewNcdInquiry(com.atmc.bsl.db.domain.quotation.Quotation quot)
+	public void renewNcdInquiry(com.ejada.atmc.bsl.db.domain.quotation.Quotation quot)
 		throws com.atmc.bsl.db.exception.NajmException {
 
 		_quotationLocalService.renewNcdInquiry(quot);
@@ -540,14 +540,14 @@ public class QuotationLocalServiceWrapper
 
 	@Override
 	public void renewTariffInquiry(
-		com.atmc.bsl.db.domain.quotation.Quotation quot) {
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation quot) {
 
 		_quotationLocalService.renewTariffInquiry(quot);
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation reviewQuotation(
-			com.atmc.bsl.db.domain.quotation.Quotation quot,
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation reviewQuotation(
+			com.ejada.atmc.bsl.db.domain.quotation.Quotation quot,
 			boolean isUserSignedIn, String lang)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -565,7 +565,7 @@ public class QuotationLocalServiceWrapper
 	@Override
 	public void saveNajmCaseDetails(
 		java.util.ArrayList
-			<com.atmc.bsl.db.domain.quotation.QuotationNajmDetails>
+			<com.ejada.atmc.bsl.db.domain.quotation.QuotationNajmDetails>
 				najmDetailsList,
 		long quotationId) {
 
@@ -575,7 +575,7 @@ public class QuotationLocalServiceWrapper
 
 	@Override
 	public void saveQuoteUserAddress(
-		com.atmc.bsl.db.domain.quotation.QuotationUserAddress custUserNatAddr,
+		com.ejada.atmc.bsl.db.domain.quotation.QuotationUserAddress custUserNatAddr,
 		long quotationId, long insuredId, boolean isNatAddress) {
 
 		_quotationLocalService.saveQuoteUserAddress(
@@ -592,15 +592,15 @@ public class QuotationLocalServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.quotation.Quotation submitQuotation(
-		com.atmc.bsl.db.domain.quotation.Quotation customQuot, String userId) {
+	public com.ejada.atmc.bsl.db.domain.quotation.Quotation submitQuotation(
+		com.ejada.atmc.bsl.db.domain.quotation.Quotation customQuot, String userId) {
 
 		return _quotationLocalService.submitQuotation(customQuot, userId);
 	}
 
 	@Override
 	public void updateQuotationTameeniExtras(
-		com.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails details) {
+		com.ejada.atmc.bsl.db.domain.quotation.QuotationTameeniExtraDetails details) {
 
 		_quotationLocalService.updateQuotationTameeniExtras(details);
 	}
@@ -627,7 +627,7 @@ public class QuotationLocalServiceWrapper
 	@Override
 	public void vehicleImagesUpload(
 		long quotationId,
-		java.util.List<com.atmc.bsl.db.domain.quotation.QuotationVehicleImage>
+		java.util.List<com.ejada.atmc.bsl.db.domain.quotation.QuotationVehicleImage>
 			vehicleImagesList) {
 
 		_quotationLocalService.vehicleImagesUpload(

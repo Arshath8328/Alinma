@@ -14,11 +14,11 @@
 
 package com.atmc.bsl.db.service.impl;
 
-import com.atmc.bsl.db.domain.AuthUser;
 import com.atmc.bsl.db.service.OTPLocalServiceUtil;
 import com.atmc.bsl.db.service.base.LoginLocalServiceBaseImpl;
 import com.ejada.atmc.acl.db.model.Customer;
 import com.ejada.atmc.acl.db.service.CustomerLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.AuthUser;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.aop.AopService;

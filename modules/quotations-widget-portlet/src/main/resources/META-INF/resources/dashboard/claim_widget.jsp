@@ -1,5 +1,5 @@
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
-<%@page import="com.atmc.bsl.db.domain.claim.Claim"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.claim.Claim"%>
 <%@page import="java.util.List"%>
 <%@ include file="/dashboard/init.jsp" %>
 

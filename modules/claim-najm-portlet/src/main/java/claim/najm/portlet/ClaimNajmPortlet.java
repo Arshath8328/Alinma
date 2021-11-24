@@ -1,9 +1,5 @@
 package claim.najm.portlet;
 
-import com.atmc.bsl.db.domain.claim.ClaimODReportObj;
-import com.atmc.bsl.db.domain.claim.NajmClaim;
-import com.atmc.bsl.db.domain.claim.NajmClaimIntimation;
-import com.atmc.bsl.db.domain.claim.NajmClaimReportObj;
 import com.atmc.bsl.db.service.ClaimLocalServiceUtil;
 import com.atmc.bsl.db.service.CodeMasterDetailsLocalServiceUtil;
 import com.atmc.bsl.db.service.PolicyLocalServiceUtil;
@@ -15,7 +11,11 @@ import com.ejada.atmc.acl.db.service.CustomerLocalServiceUtil;
 import com.ejada.atmc.acl.db.service.PolicyVEHLocalServiceUtil;
 import com.ejada.atmc.acl.ws.domain.ods.ODSCIResponse;
 import com.ejada.atmc.acl.ws.domain.ods.ODSClaimIntimation;
-import com.atmc.bsl.db.domain.policy.Policy;
+import com.ejada.atmc.bsl.db.domain.claim.ClaimODReportObj;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaim;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimIntimation;
+import com.ejada.atmc.bsl.db.domain.claim.NajmClaimReportObj;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
 import com.ejada.atmc.utils.api.ReportsUtil;
 import com.atmc.web.util.FileUtil;
 import com.liferay.petra.io.StreamUtil;

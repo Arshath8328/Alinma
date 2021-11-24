@@ -38,7 +38,7 @@ public class SrvReqActionLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.atmc.bsl.db.service.impl.SrvReqActionLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static String addNewServiceRequestAction(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction action) {
 
 		return getService().addNewServiceRequestAction(action);
 	}
@@ -53,7 +53,7 @@ public class SrvReqActionLocalServiceUtil {
 	}
 
 	public static java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAction>
 			getServiceRequestActionListbyRefNo(String refNo) {
 
 		return getService().getServiceRequestActionListbyRefNo(refNo);

@@ -33,7 +33,7 @@ public class ForgotPasswordServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput<String> checkReminderQueries(
 		String emailAddress, String answer, String captchaText) {
 
 		return _forgotPasswordService.checkReminderQueries(
@@ -51,7 +51,7 @@ public class ForgotPasswordServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> validateUser(
 			String emailAddress, String captchaText) {
 

@@ -5,7 +5,7 @@
 <%@page import="javax.portlet.PortletURL"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="com.atmc.web.constants.BuyMotorPolicyPortletKeys"%>
-<%@page import="com.atmc.bsl.db.domain.quotation.Quotation"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.quotation.Quotation"%>
 <%@ include file="/init.jsp"%>
 <%
 	Quotation quot = (Quotation)request.getAttribute("quot");

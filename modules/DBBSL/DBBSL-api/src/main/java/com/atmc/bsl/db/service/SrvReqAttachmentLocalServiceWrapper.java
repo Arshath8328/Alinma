@@ -35,7 +35,7 @@ public class SrvReqAttachmentLocalServiceWrapper
 
 	@Override
 	public String addNewServiceRequestAttachment(
-		com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment
+		com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment
 			attachment) {
 
 		return _srvReqAttachmentLocalService.addNewServiceRequestAttachment(
@@ -66,7 +66,7 @@ public class SrvReqAttachmentLocalServiceWrapper
 
 	@Override
 	public java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
 			getServiceRequestAttachmentListbyActionId(String actionId) {
 
 		return _srvReqAttachmentLocalService.
@@ -75,7 +75,7 @@ public class SrvReqAttachmentLocalServiceWrapper
 
 	@Override
 	public java.util.List
-		<com.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
+		<com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestAttachment>
 			getServiceRequestAttachmentListbyRefNo(String refNo) {
 
 		return _srvReqAttachmentLocalService.

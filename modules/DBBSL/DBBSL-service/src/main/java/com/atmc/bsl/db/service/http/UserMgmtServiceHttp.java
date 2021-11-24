@@ -52,7 +52,7 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class UserMgmtServiceHttp {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> createUser(
 			HttpPrincipal httpPrincipal, long companyId, String login,
 			String password, String englishName, String arabicName,
@@ -79,7 +79,7 @@ public class UserMgmtServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
@@ -91,7 +91,7 @@ public class UserMgmtServiceHttp {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
 			HttpPrincipal httpPrincipal, long userId, String password,
 			String reminderQueryQuestion, String reminderQueryAnswer) {
@@ -115,7 +115,7 @@ public class UserMgmtServiceHttp {
 					exception);
 			}
 
-			return (com.atmc.bsl.db.domain.ServiceOutput
+			return (com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<com.liferay.portal.kernel.model.User>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException

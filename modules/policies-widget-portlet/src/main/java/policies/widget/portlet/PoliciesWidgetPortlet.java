@@ -1,7 +1,7 @@
 package policies.widget.portlet;
 
-import com.atmc.bsl.db.domain.policy.Policy;
 import com.atmc.bsl.db.service.PolicyLocalServiceUtil;
+import com.ejada.atmc.bsl.db.domain.policy.Policy;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

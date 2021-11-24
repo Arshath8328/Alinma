@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.owasp.encoder.Encode;
 
 import com.ejada.atmc.acl.db.model.QuotationAdminUploads;
-import com.atmc.bsl.db.domain.quotation.Quotation;
+import com.ejada.atmc.bsl.db.domain.quotation.Quotation;
 import com.atmc.bsl.db.service.NotificationsLocalServiceUtil;
 import com.atmc.bsl.db.service.QuotationLocalServiceUtil;
 import com.atmc.web.common.NotificationTypes.Type;

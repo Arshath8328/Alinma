@@ -53,13 +53,13 @@ import java.rmi.RemoteException;
 @Deprecated
 public class NotificationsServiceSoap {
 
-	public static com.atmc.bsl.db.domain.ServiceOutput
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<java.util.List<com.liferay.portal.kernel.model.UserNotificationEvent>>
 				getNotifications(long userId)
 			throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput
+			com.ejada.atmc.bsl.db.domain.ServiceOutput
 				<java.util.List
 					<com.liferay.portal.kernel.model.UserNotificationEvent>>
 						returnValue = NotificationsServiceUtil.getNotifications(
@@ -74,12 +74,12 @@ public class NotificationsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<Long>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<Long>
 			getNotificationsCount(long userId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<Long> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<Long> returnValue =
 				NotificationsServiceUtil.getNotificationsCount(userId);
 
 			return returnValue;
@@ -91,12 +91,12 @@ public class NotificationsServiceSoap {
 		}
 	}
 
-	public static com.atmc.bsl.db.domain.ServiceOutput<String>
+	public static com.ejada.atmc.bsl.db.domain.ServiceOutput<String>
 			markAllNotificationsAsRead(long userId)
 		throws RemoteException {
 
 		try {
-			com.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
+			com.ejada.atmc.bsl.db.domain.ServiceOutput<String> returnValue =
 				NotificationsServiceUtil.markAllNotificationsAsRead(userId);
 
 			return returnValue;

@@ -2,8 +2,8 @@
 <%@page import="java.util.Locale"%>
 <%@page import="com.atmc.web.constants.MenuPortletKeys"%>
 <%@page import="com.liferay.portal.kernel.model.Layout"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage"%>
-<%@page import="com.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequestMessage"%>
+<%@page import="com.ejada.atmc.bsl.db.domain.serviceRequest.ServiceRequest"%>
 <%@page import="com.liferay.portal.kernel.language.LanguageUtil"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>

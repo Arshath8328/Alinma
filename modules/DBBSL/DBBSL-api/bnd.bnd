@@ -2,13 +2,13 @@ Bundle-Name: DBBSL-api
 Bundle-SymbolicName: sb.DBBSL.api
 Bundle-Version: 1.0.0
 Export-Package: \
-	com.atmc.bsl.db.domain,\
-	com.atmc.bsl.db.domain.claim,\
-	com.atmc.bsl.db.domain.codemaster,\
-	com.atmc.bsl.db.domain.policy,\
-	com.atmc.bsl.db.domain.quotation,\
-	com.atmc.bsl.db.domain.serviceRequest,\
-	com.atmc.bsl.db.domain.workshop,\
+	com.ejada.atmc.bsl.db.domain,\
+	com.ejada.atmc.bsl.db.domain.claim,\
+	com.ejada.atmc.bsl.db.domain.codemaster,\
+	com.ejada.atmc.bsl.db.domain.policy,\
+	com.ejada.atmc.bsl.db.domain.quotation,\
+	com.ejada.atmc.bsl.db.domain.serviceRequest,\
+	com.ejada.atmc.bsl.db.domain.workshop,\
 	com.atmc.bsl.db.exception,\
 	com.atmc.bsl.db.service,\
 	com.atmc.bsl.db.util

@@ -31,7 +31,7 @@ public class UserMgmtServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> changeFirstTimeLoginPassword(
 			long userId, String password, String reminderQueryQuestion,
 			String reminderQueryAnswer) {
@@ -41,7 +41,7 @@ public class UserMgmtServiceWrapper
 	}
 
 	@Override
-	public com.atmc.bsl.db.domain.ServiceOutput
+	public com.ejada.atmc.bsl.db.domain.ServiceOutput
 		<com.liferay.portal.kernel.model.User> createUser(
 			long companyId, String login, String password, String englishName,
 			String arabicName, String language, String mobile, String email,
