@@ -744,7 +744,7 @@ if(quotation.getQuotationHistory()!=null && quotation.getQuotationHistory().size
 
 	<div class="panel panel-default">
 		<div class="panel-heading" role="tab">
-			<h4 class="panel-title"> 
+			<h4 class="panel-title" style="padding: 0 10px !important; background-color: #fff !important"> 
 				<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" href="<%=isReason ? "#accordion-" + i : "javascript:void(0)" %>" class="accordion-toggle collapsed">
 					Staff User :<%=quoHistory.getStatus() %><br/>
 					<%=quoHistory.getDateTime() %>

@@ -55,9 +55,9 @@
 					</span>
 				</#if>
 			</div>
-			<div class="col-md-6 col-lg-6 col-sm-6 col-xs-7 ">
+			<#--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-7 ">
 				<img class="img-responsive pull-right" width="260" alt="customer" src="/o/atmc-theme/images/logo1.svg">
-			</div> 
+			</div>  -->
 			<#-- <div class="col-sm-6 col-md-6 col-lg-6 text-right">
 				<ul class="list-btns no-pad">
 					

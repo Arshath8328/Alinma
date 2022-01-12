@@ -205,6 +205,174 @@
 </div>
 <portlet:resourceURL var="resourceURL"/>
 
+
+<script>
+	$(document).ready(function(){
+		
+		$("#<portlet:namespace/>sendCopyCB").click();
+		$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+		$("#<portlet:namespace/>suggestionTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+		$("#<portlet:namespace/>complaintTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+		$("#<portlet:namespace/>srvReqCatDD").on("change", function(){
+			var selectedVal = $(this).val();
+			if(selectedVal == "complaints")
+			{
+				$("#<portlet:namespace/>complaintTypesDD").prop("disabled", false).parent().removeAttr("hidden");
+				$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>suggestionTypesDD").prop("disabled", true).parent().attr("hidden","true");
+				$("#<portlet:namespace/>emptyTypesDD").prop("disabled", true).parent().attr("hidden","true");
+			}
+			else if(selectedVal == "inquiries")
+			{
+				$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", false).parent().removeAttr("hidden");
+				$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", false).parent().removeAttr("hidden");
+				$("#<portlet:namespace/>complaintTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>suggestionTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>emptyTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+			}
+			else if(selectedVal == "suggestions")
+			{
+				$("#<portlet:namespace/>suggestionTypesDD").prop("disabled", false).parent().removeAttr("hidden");
+				$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>complaintTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>emptyTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+			}
+			else
+			{
+				$("#<portlet:namespace/>emptyTypesDD").prop("disabled", false).parent().removeAttr("hidden");
+				$("#<portlet:namespace/>complaintTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>suggestionTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+				$("#<portlet:namespace/>inquiryTypesDD").prop("disabled", true).parent().attr("hidden", "true");
+			}
+			$("#srvReqTypeDD [role='alert']").parent().remove();
+			$("#srvReqTypeDD .has-error").removeClass('has-error');
+		});
+	});
+
+
+
+
+function validateCompose()
+{
+	
+	var myFormValidator = eval("Liferay.Form._INSTANCES.<portlet:namespace/>composeForm.formValidator");
+	
+	if($("#<portlet:namespace/>complaintTypesDD").is(":visible")) 
+		myFormValidator.validateField("<portlet:namespace/>complaintTypesDD");
+	else if($("#<portlet:namespace/>inquiryTypesDD").is(":visible")) 
+		myFormValidator.validateField("<portlet:namespace/>inquiryTypesDD");
+	else if($("#<portlet:namespace/>suggestionTypesDD").is(":visible")) 
+		myFormValidator.validateField("<portlet:namespace/>suggestionTypesDD");
+	
+	myFormValidator.validateField("<portlet:namespace/>srvReqCatDD");
+	myFormValidator.validateField("<portlet:namespace/>msgTxt");
+	
+	if(!<%=signedIn%>)
+	{
+		myFormValidator.validateField("<portlet:namespace/>custName");
+		myFormValidator.validateField("<portlet:namespace/>iqamaID");
+		myFormValidator.validateField("<portlet:namespace/>custEmail");
+		myFormValidator.validateField("<portlet:namespace/>custMobile");
+	}
+	
+	var elementExists = $(".g-recaptcha").length;
+    if(elementExists>0){
+    	$( "#temp" ).remove();
+		var captchaValue = grecaptcha.getResponse();
+		if(captchaValue.length == 0) {
+			$("#callback-blankCatcha").append('<label id="temp"	style="color: #c60f13 !important; line-height: normal; font-size: 14px !important;">Captcha	is required.</label>');
+			$("#callback-blankCatcha").show();
+			return false;
+		}
+     }
+
+	if (!myFormValidator.hasErrors()) {
+		document.getElementById("submitCustomerRequest").disabled=true
+		submitForm();
+	}
+}
+
+function callback(){
+	$("#callback-blankCatcha").hide();
+	$( "#temp" ).hide();
+    return true; 
+}
+
+function submitForm()
+{
+		
+	AUI().use('aui-base', 'io','aui-io-request', function(A){
+		
+        A.io.request('<%=resourceURL.toString()%>', {
+               method: 'post',
+               dataType: 'json',
+               form: {
+                   id: '<portlet:namespace/>composeForm'
+               },
+               on: {
+                    success: function(data)
+                    {
+                    	var res = this.get('responseData');
+                    	if(res == 'success') successFn();
+                    	else if(res == 'error') {
+                    		window.location = '/group/customer/compose_new_service_request';
+                    	}
+                    	else if(res == 'XSS_ERROR') {
+                    		window.location = '/web/customer/error';
+                    	}
+                    	
+                    }
+               }
+            });
+    });
+}
+
+function successFn()
+{
+	document.getElementById("submitCustomerRequest").disabled=false;
+	AUI().use('aui-base', 'io','aui-modal', function(A) {
+			var dialog = new A.Modal({
+				title: "",
+				cssClass: "compose-dialog",
+				bodyContent: AUI().one('#aui_popup_body').html(),
+				headerContent: '<h4><liferay-ui:message key="cust_serv" /></h4>',
+				centered: true,
+				modal: true,
+				height: 230,
+				render: '#aui_popup_content'
+			});
+			dialog.addToolbar(
+			      [
+			        {
+			          label: 'Done',
+			          cssClass: 'btn-primary',
+			          on: {
+			            click: function() {
+			            	dialog.hide();
+			            }
+			          }
+			        }
+			      ]
+			    );
+			dialog.on('visibleChange', function(event) {
+				if (!event.newVal) {
+					if(<%=signedIn%>)
+					{
+						window.location = '/group/customer/customer_service';
+					}
+					else
+					{
+						$('input, textarea').val('');
+						$('#<portlet:namespace/>complaintTypesDD').val('-1');
+						$('#<portlet:namespace/>productID').val('-1');
+					}
+				}
+			});
+		});	
+}
+
+</script>
+<%-- 
 <script>
 	$(document).ready(function(){
 		
@@ -278,7 +446,7 @@ function validateCompose()
 function submitForm()
 {
 		
-	AUI().use('aui-io-request', function(A){
+	AUI().use('aui-base', 'io','aui-io-request', function(A){
 		
         A.io.request('<%=resourceURL.toString()%>', {
                method: 'post',
@@ -303,7 +471,7 @@ function submitForm()
 function successFn()
 {
 	document.getElementById("submitCustomerRequest").disabled=false;
-	AUI().use('aui-modal', function(A) {
+	AUI().use('aui-modal','aui-base', 'io','aui-io-request', function(A) {
 			var dialog = new A.Modal({
 				title: "",
 				bodyContent: AUI().one('#aui_popup_body').html(),
@@ -346,4 +514,4 @@ function successFn()
 }
 
 
-</aui:script>
+</aui:script> --%>

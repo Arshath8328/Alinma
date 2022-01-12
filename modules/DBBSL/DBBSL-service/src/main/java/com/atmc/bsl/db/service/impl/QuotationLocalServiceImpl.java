@@ -1812,12 +1812,17 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 		tInput.setColor((quot.getVehicleColor() != null && !quot.getVehicleColor().equals("")) ? Integer.valueOf(quot.getVehicleColor()) : 0);
 		tInput.setEffFromDate((quot.getPolicyEffDate() != null) ? new java.sql.Date(quot.getPolicyEffDate().getTime()) : null);
 		// tInput.setMake(savedCarInfo.getVehicleMakerCode());
-		if (savedCarInfo != null)
-//			tInput.setMake(savedCarInfo.getVehicleMakerCode());
-			tInput.setMake(Integer.parseInt(quot.getVehicleMake()));
-		else
-			tInput.setMake(cardetail);
+		
+			//		if (savedCarInfo != null)
+			////			tInput.setMake(savedCarInfo.getVehicleMakerCode());
+			//			tInput.setMake(Integer.parseInt(quot.getVehicleMake()));
+			//		else
+			//			tInput.setMake(cardetail);
+		//Set only ESKA values
+		tInput.setMake(Integer.parseInt(quot.getVehicleMake()));
 		tInput.setVehicleModel(Integer.parseInt(quot.getVehicleModel()));
+		
+		
 		tInput.setMFGYear((int) quot.getVehicleMfgYear());
 		tInput.setProductCode(quot.getProductCode());
 		tInput.setInsuredid(quot.getInsuredId());
@@ -1992,7 +1997,8 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 				for (TariffOutput tout : tOut) {
 					// _log.info("Tariff Output"+tout.toString());
 //					if (tout.getCode().equals("2062") && tout.getExcessAmount().equals(quot.getDeductibleValue())) {
-					if (tout.getCode().equals("2062") || tout.getExcessAmount().equals(quot.getDeductibleValue())) {
+					if ((tout.getCode()!=null && tout.getCode().equals("2062")) || 
+							(tout.getExcessAmount()!=null && tout.getExcessAmount().equals(quot.getDeductibleValue()))) {
 							
 						premiumAmount = (Double.valueOf(tout.getPremiumAmount()));
 						_log.info("premiumAmount >>>>>>>>>>" + tout.getPremiumAmount());
@@ -3227,7 +3233,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 
 			for (AddressInfo addressInfo : citizenAddrInfo) {
 				for (CodeMasterDetails cd : citiyList) {
-					if (addressInfo.getCity().equalsIgnoreCase(cd.getCodeDesc())) {
+					if (addressInfo.getCity()!=null && addressInfo.getCity().equalsIgnoreCase(cd.getCodeDesc())) {
 						_log.info("codemaster city >>" + addressInfo.getCity() + "yakeen city >>>>>>>"
 								+ cd.getCodeDesc());
 						cityCode = cd.getCodeSub();
@@ -3271,7 +3277,7 @@ public class QuotationLocalServiceImpl extends QuotationLocalServiceBaseImpl {
 					"" + quot.getInsuredId(), dobG, "E");
 			for (AddressInfo addressInfo : citizenAddrInfo) {
 				for (CodeMasterDetails cd : citiyList) {
-					if (addressInfo.getCity().equalsIgnoreCase(cd.getCodeDesc())) {
+					if (addressInfo.getCity()!=null && addressInfo.getCity().equalsIgnoreCase(cd.getCodeDesc())) {
 						_log.info("codemaster city >>" + addressInfo.getCity() + "yakeen city >>>>>>>"
 								+ cd.getCodeDesc());
 						cityCode = cd.getCodeSub();

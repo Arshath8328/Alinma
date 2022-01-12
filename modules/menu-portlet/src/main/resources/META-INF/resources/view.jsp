@@ -27,7 +27,7 @@
 					</button>					 
 				</div>				 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
-					<ul class="nav navbar-nav" style="margin-bottom: 40px;"> 		
+					<ul class="nav navbar-nav"> 		
 <%
 				for (Layout l :  menuLayouts)
 				{

@@ -9,6 +9,82 @@
 <%@ include file="init.jsp" %>
 <%@taglib prefix="e" uri="https://www.owasp.org/index.php/OWASP_Java_Encoder_Project" %>
 
+<style>
+.bg-primary.pad-10.clearfix {
+    background-color: rgb(51, 122, 183) !important;
+    color: white;
+}
+.media-left.media-middle {
+    line-height: 2rem;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* padding-top: 100px; /* Location of the box */ */
+    left: 0;
+    top: 0;
+    width: auto; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    /* padding: 20px; */
+    border: 1px solid #888;
+    width: 800px;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-height: 650px;
+    overflow: auto;
+}
+.modal-body {
+	overflow: unset;
+}
+
+/* The Close Button */
+.closeBtn {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
 <%
 Locale loc = themeDisplay.getLocale();
 JournalArticle jouranl = JournalArticleLocalServiceUtil.getArticleByUrlTitle(themeDisplay.getScopeGroupId(),"Whistleblowing-Policy");
@@ -300,14 +376,30 @@ JournalArticleDisplay jouranldisplay = JournalArticleLocalServiceUtil.getArticle
 		</div>
 		<div>
 		<input id="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" required name="terms"> 
-		<liferay-ui:message key="i_acknowledge" /> <a style="cursor: pointer; text-decoration: underline" onclick="myFunction()" id="myBtn"><liferay-ui:message key="Whistleblowing-Policy" /></a>
+		<liferay-ui:message key="i_acknowledge" /> 
+		<a style="cursor: pointer; text-decoration: underline; color: #337ab7 !important" data-toggle="modal" data-target="#myModal" id="myBtn">
+			<liferay-ui:message key="Whistleblowing-Policy" />
+		</a>
 	</div>
-	<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="closeBtn">&times;</span>
-   <div class="journal-article-preview"><%= jouranldisplay.getContent() %></div>
-</div>
-</div>
+<%--  	<div id="myModal" class="modal">
+ 			<div class="modal-content">
+    			<span class="closeBtn">&times;</span>
+   				<div class="journal-article-preview"><%= jouranldisplay.getContent() %></div>
+			</div>
+		</div> --%>
+		<div class="modal fade" id="myModal" tabindex="-1" style="z-index: 3000; margin-left:21%" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+		  <div class="modal-dialog" style="margin-top: 0;" role="document">
+		    <div class="modal-content">
+		      <div class="modal-body">
+		      	<button type="button" id="closeModal" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		        <div class="journal-article-preview"><%= jouranldisplay.getContent() %></div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
 </div>
 
 </form>
@@ -347,7 +439,12 @@ $(document).ready(function(){
 		    return true;
 		  }
 
-	
+	$(document).click(function(ev){
+		var target=$(ev.target);
+		if(!target.closest('#myModal').length)
+			$("#closeModal").click();
+	});
+
 </script>
 <aui:script use="liferay-util-window,liferay-portlet-url">
 var frmValidator;
@@ -494,22 +591,14 @@ $("#submitBtn").on('click', function(){
 
 var modal = document.getElementById('myModal');
 var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("closeBtn")[0];
 btn.onclick = function() {
     modal.style.display = "block";
-}
-span.onclick = function() {
-    modal.style.display = "none";
 }
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
-
-
-
 
 function agreeTerms(){
 	if($('#termsAndCons').is(":checked")){
@@ -520,51 +609,3 @@ function agreeTerms(){
 	}
 }
 </aui:script>
-
-
-
-
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    /* padding-top: 100px; /* Location of the box */ */
-    left: 0;
-    top: 0;
-    width: auto; /* Full width */
-    height: auto; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    /* padding: 20px; */
-    border: 1px solid #888;
-    width: 800px;
-    padding-left: 24px;
-    padding-right: 24px;
-}
-
-/* The Close Button */
-.closeBtn {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.closeBtn:hover,
-.closeBtn:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-</style>

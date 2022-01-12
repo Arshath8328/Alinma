@@ -15,7 +15,7 @@ import org.apache.commons.codec.binary.Base32;
 public class TOTPUtils {
 	private static final int SECRET_SIZE = 10;
 
-	private static final int PASS_CODE_LENGTH = 4;
+	private static final int PASS_CODE_LENGTH = 6;
 
 	private static final int INTERVAL = 30;
 

@@ -514,7 +514,7 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 			} catch (PortalException e) {
 				_log.error(e.getMessage(), e);
 			}
-			if (Boolean.parseBoolean(PropsUtil.get("production.env")) && !users.isEmpty()) {
+			if (!users.isEmpty()) {
 //				for(User user : users) {
 				for (int j = 0; j < 1; j++) {
 //					String mailTo = user.getEmailAddress();
@@ -583,7 +583,6 @@ public class ClaimIntimationPortlet extends MVCPortlet {
 								+ driverName + "\nDriver Nationality  : " + nationalityPair.get(driverNationality) + "\nDriver NationalId: " + driverNationalId
 								+ "\nDriver Date Of BirthG: " + driverDateOfBirthG + "\nDriver Gender  " + genderMap.get(driverGender);
 //					SMSLocalServiceUtil.sendSms(mailMessage, mobile);
-
 						SendEmailServiceUtil.sendEmail("vidit@aimdek.in", mailSubject, mailMessage, emailAttachmentNames, emailAttachments);
 					} else {
 						_log.error("Error in uploadedFolderId : " + -1);

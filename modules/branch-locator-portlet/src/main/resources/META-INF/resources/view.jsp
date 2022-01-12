@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="/o/atmc-theme/js/google_maps.js"></script>
 	</div>
 </div>
-<div class="row">
+<div class="row" style="display: none">
 	<div class="col-md-12 hidden">
 		<div class="bg-brown pad-10 clearfix">
 			<div class="col-md-12">

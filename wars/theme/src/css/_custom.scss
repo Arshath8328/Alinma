@@ -126,7 +126,7 @@ body {
 }
 
 .row {
-    /*margin-right: -5px;*/
+    margin-right: -5px;
     margin-left: -5px;
 }
 
@@ -137,10 +137,11 @@ body {
 }
 
 #headerTopBar {
+	overflow: unset !important;
     min-height: 31px;
     background-color: #522D24;
     color: #fff;
-    
+    display: inline-block !important;
 }
 // change in #headerTopBar
 // removed line-height: 31px;
@@ -389,7 +390,10 @@ h3,
     border-right: 1px solid #f3f3f3;
     height: 40px;
 }
-
+.form-control {
+    opacity: 0.8 !important;
+    font-size: 14px !important;
+}
 .form-control:focus {
     outline: 0;
     -webkit-box-shadow: none;
@@ -428,8 +432,8 @@ label {
 }
 
 .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
     line-height: 20px;
 }
 
@@ -729,7 +733,11 @@ ul.list-btns li {
         vertical-align: middle !important;
     }
 }
-
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
 .new-vehicle {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url('/o/atmc-theme/images/dashbord_image.png');
     background-size: 100% 100%;
@@ -737,7 +745,9 @@ ul.list-btns li {
 }
 
 .list-group-item {
+    padding: 10px 15px !important;
     border: 1px solid #EFEFEF;
+    border-top-width: 1px !important;
 }
 
 
@@ -818,7 +828,7 @@ ul.list-btns li {
 }
 
 .banner-section h2 {
-    font-size: 26px;
+    font-size: 26px !important;
 }
 
 .bg-danger {
@@ -954,6 +964,7 @@ fieldset[disabled] .form-control {
 }
 .breadcrumb {
     margin-bottom: 0;
+    padding: 8px 15px !important;
     background-color: #FFF;
 }
 #portlet_com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet .portlet-content {
@@ -1170,7 +1181,12 @@ div#p_p_id_ATMCOTP_ {
     border-bottom: none;
     background-color: #FEF9F9;
 }
-
+.nav-tabs {
+    border-bottom: 1px solid #d8d8d8;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(216, 216, 216);
+}
 .tab .nav-tabs li {
     margin: 0;
 }
@@ -1400,6 +1416,36 @@ div#p_p_id_ATMCOTP_ {
     /* symbol for "collapsed" panels */
     content: "\e259";    /* adjust as needed, taken from bootstrap.css */
 }
+
+ #accordion h4{
+  	font-size: 18px;
+  }
+ #accordion .panel-body{
+		border-top: 1px solid #ddd;
+	}
+   #accordion .collapse.show {
+	   visibility: visible;
+	   display: block;
+   }
+  #accordion .collapsing {
+	   position: relative;
+	   height: 0;
+	   overflow: hidden;
+	   -webkit-transition-property: height, visibility;
+	   transition-property: height, visibility;
+	   -webkit-transition-duration: 0.35s;
+	   transition-duration: 0.35s;
+	   -webkit-transition-timing-function: ease;
+	   transition-timing-function: ease;
+   }
+  #accordion .collapsing.width {
+	   -webkit-transition-property: width, visibility;
+	   transition-property: width, visibility;
+	   width: 0;
+	   height: auto;
+   }
+   
+   
 .panel-group .panel-title > a, .panel-group .panel-title > span {
     padding: 15px;
 }
@@ -1841,7 +1887,19 @@ input.radio-group-option:checked+label {
 
 
 //new changes
-
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.closeBtn {
+	float: right
+}
+.text-primary {
+    color: #337ab7 !important;
+}
+h4, .h4 {
+    font-size: 18px;
+}
 .form-input-validation .form-control{
 	height: 38px;
 }
@@ -1968,6 +2026,7 @@ input.radio-group-option:checked+label {
     border: 2px solid black;
 }
 .fund-stmt .cell-border-2{
+	height: auto;
     border-left:2px solid black;
 }
 .fund-stmt .txt-align-center{
@@ -2014,6 +2073,7 @@ input.radio-group-option:checked+label {
     margin-top: 20px;
 }
 .stmt-table{
+	border-collapse: collapse;
     width: 100%;
 }
 .stmt-table td, .stmt-table th{
@@ -2036,6 +2096,7 @@ input.radio-group-option:checked+label {
     width: 60%;
 }
 .acct-stmt .fundStmt-table-head{
+	height: auto;
     font-size: 11px;
 }
 .fund-stmt .acct-stmt .stmt-table td{
@@ -2051,12 +2112,16 @@ input.radio-group-option:checked+label {
 /*    display:flex; */
 }
 #atmc-menu{
-    height: -12px;
+    height: max-content !important;
     padding-left: -11%;
     padding-right: 6%;
     padding: 0px;
     height: 45px;
     margin-top: -7ox;
+}
+#atmc-menu .dropdown > .dropdown-menu { 
+	width: max-content;
+	font-size: 14px !important;
 }
 .collapse:not(.show) {
     /* display: none; */
@@ -2090,4 +2155,63 @@ div#bs-example-navbar-collapse-1 {
 } 
 #p_p_id_com_liferay_site_navigation_language_web_portlet_SiteNavigationLanguagePortlet_ {
 	vertical-align: middle !important;
+}
+.control-menu-level-1 {
+	background-color: #365d9e;
+    background-image: -webkit-linear-gradient(left,#365d9e,#44a5aa);
+    background-image: linear-gradient(to right,#365d9e,#44a5aa);
+} 
+div#productMenuSidebar > div.sidebar-body{
+	top: 0 !important;
+	background-color: #522d24 !important;
+}
+
+.panel-title {
+	background-color: #522d24 !important;
+}
+
+.product-menu .list-group-heading.panel-header:not(.collapsed) {
+	background-color: transparent !important;
+}
+.product-menu .collapsing .list-group-item, .product-menu .show .list-group-item {
+    background-color: transparent !important;
+}
+
+.product-menu .panel-body {
+	background-color: #F2EEED !important;
+}
+.product-menu a.list-group-heading, .product-menu button.list-group-heading, .product-menu .list-group-heading[data-toggle="collapse"] {
+	color: #522D24 !important;
+}
+.product-menu a {
+	color: #522D24 !important;
+}
+
+.media-left.media-middle{
+	margin-right: 10px;
+}
+a {
+    color: #337ab7;
+}
+a:hover, a:focus {
+    color: #23527c;
+}
+h2, .h2 {
+    font-size: 30px !important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.container {
+	padding: 0;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+p {
+	margin: 0 0 10px;
 }

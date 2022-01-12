@@ -69,7 +69,7 @@ public class RegisterActionCmd extends BaseMVCActionCommand {
 				changePassword(actionRequest, actionResponse);			
 
 	}
-	
+
 	protected void validateUser(ActionRequest actionRequest, ActionResponse actionResponse) throws WindowStateException, IOException, PortalException {
 
 		_log.info("RegisterActionCmd:validateUser");

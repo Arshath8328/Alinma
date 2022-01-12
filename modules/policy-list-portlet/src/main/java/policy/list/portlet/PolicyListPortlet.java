@@ -114,6 +114,7 @@ public class PolicyListPortlet extends MVCPortlet {
 			try {
 				policy = PolicyLocalServiceUtil.getPolicyByPolicyNo(policyNo);
 				req.setAttribute("policy", policy);
+							_log.info("req.setAttribute(\"policy\","+ req.getAttribute("policyDetails") +")");
 			} catch (PortalException e) {
 				_log.error(e.getMessage(), e);
 			}
@@ -124,8 +125,10 @@ public class PolicyListPortlet extends MVCPortlet {
 			pVeh = (PolicyVehicle) req.getPortletSession().getAttribute("vehicleDetails", PortletSession.APPLICATION_SCOPE);
 
 			req.setAttribute("policy", policy);
+			_log.info("req.setAttribute(\"policy\","+ req.getAttribute("policyDetails") +")");
 			req.setAttribute("pVeh", pVeh);
-			_log.info("renderRequest pVeh set ::::::::::::: " + pVeh.toString());
+			if(pVeh != null)
+				_log.info("renderRequest pVeh set ::::::::::::: " + pVeh.toString());
 			if (req.getParameter("renewFailure") != null && req.getParameter("renewFailure").equals("true")) {
 				req.setAttribute("errorCode", req.getParameter("errorCode"));
 				req.setAttribute("errorMsg", req.getParameter("errorMsg"));
@@ -145,6 +148,7 @@ public class PolicyListPortlet extends MVCPortlet {
 					policy = (Policy) GsonUtilsLocalServiceUtil.fromGson(policyDetails, Policy.class);
 					Policy policyCustom = PolicyLocalServiceUtil.getPolicyByPolicyNo(policy.getPolicyNo());
 					req.setAttribute("policy", policyCustom);
+								_log.info("req.setAttribute(\"policy\","+ req.getAttribute("policyDetails") +")");
 					if (vehicleDetails != null) {
 						pVeh = (PolicyVehicle) GsonUtilsLocalServiceUtil.fromGson(vehicleDetails, PolicyVehicle.class);
 						PolicyVehicle pVehCustom = PolicyLocalServiceUtil.getCustomVeh(policyCustom.getPolicyNo(), pVeh.getVehId());
@@ -152,6 +156,7 @@ public class PolicyListPortlet extends MVCPortlet {
 						req.setAttribute("pVeh", pVehCustom);
 					}
 				} else {
+								_log.info("req.setAttribute(\"policy\","+ req.getAttribute("policyDetails") +")");
 					req.setAttribute("policy", policy);
 				}
 			} catch (PortalException e) {
@@ -182,11 +187,11 @@ public class PolicyListPortlet extends MVCPortlet {
 			if (myview.contains("policy_dets") || myview.equals("vehicle_list")) {
 				Policy policy = (Policy) renderRequest.getAttribute("policy");
 				renderRequest.setAttribute("policy", policy);
-
+				_log.info("req.setAttribute(\"policy\","+ renderRequest.getAttribute("policyDetails") +")");
 				if (myview.equals("motor_policy_dets")) {
-					_log.info(" policy.getPolicyVehs().size() ::::::::::::: " + policy.getPolicyVehs().size());
 					PolicyVehicle pVeh = null;
-					if (policy.getPolicyVehs() != null && policy.getPolicyVehs().size() > 1) {
+					if (policy!= null && policy.getPolicyVehs() != null && policy.getPolicyVehs().size() > 1) {
+						_log.info(" policy.getPolicyVehs().size() ::::::::::::: " + policy.getPolicyVehs().size());
 						int i = 0;
 						for (PolicyVehicle pv : policy.getPolicyVehs()) {
 							_log.info("vehicle " + i++ + " " + pv.toString());
@@ -194,9 +199,9 @@ public class PolicyListPortlet extends MVCPortlet {
 							}
 						}
 						pVeh = policy.getPolicyVehs().get(0);
-					} else if (policy.getPolicyVehs() != null && policy.getPolicyVehs().size() == 1)
+					} else if (policy!= null && policy.getPolicyVehs() != null && policy.getPolicyVehs().size() == 1)
 						pVeh = policy.getPolicyVehs().get(0);
-					_log.info("renderRequest pVeh set ::::::::::::: " + pVeh.getVehId());
+					_log.info("renderRequest pVeh set ::::::::::::: " + pVeh);
 					renderRequest.setAttribute("pVeh", pVeh);
 				}
 			} else if (myview.equals("quotations")) {

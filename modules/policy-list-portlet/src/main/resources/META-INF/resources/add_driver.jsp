@@ -208,7 +208,7 @@
 									<label class="control-label"><liferay-ui:message
 											key="uploaded_attchements" /></label>
 									<aui:input id="selectedFile" type="file"
-										readonly name="selectedFile"
+										readonly="true" name="selectedFile"
 										class="form-control"
 										placeholder="<%=LanguageUtil.get(request, "sel_file_loc")%>"
 										data-toggle="tooltip" data-placement="bottom"

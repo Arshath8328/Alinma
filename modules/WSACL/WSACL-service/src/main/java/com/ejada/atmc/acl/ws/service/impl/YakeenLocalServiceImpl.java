@@ -395,17 +395,20 @@ public class YakeenLocalServiceImpl extends YakeenLocalServiceBaseImpl {
 	public List<AddressInfo> getAlienAddressInfo(ServiceRequest svcRequest, String iqamaNumber, String dateOfBirth, String addressLanguage) {
 
 		try {
-
+			_log.info("Inside getAlienAddressInfo : .........................................");
 			// marshal request
 			AlienAddressInfoRequest request = InfoMarshaller.marshalAlienAddressInfo(svcRequest, iqamaNumber, dateOfBirth, addressLanguage);
 
 			// call service
 			AlienAddressInfoResult response = getPort().getAlienAddressInfo(request);
+			
+			_log.info("Response Of getAlienAddressInfo : ......................................." + response);	//This line is not getting printed!!! So, the above line throws the error...
 
 			// unmarshall response
 			return AddressInfoUnmarshaller.unmarshalAlienAddressInfo(response);
-		} catch (Exception e) {
-			List<AddressInfo> addressList = new ArrayList<AddressInfo>();
+		} catch (Yakeen4AlinmaTMFault_Exception e) {
+			_log.info("Yakeen4AlinmaTMFault_Exception occurred!");
+			List<AddressInfo> addressList = new ArrayList<>();
 			AddressInfo response = new AddressInfo();
 			handleError(e, response);
 			addressList.add(response);
@@ -416,13 +419,14 @@ public class YakeenLocalServiceImpl extends YakeenLocalServiceBaseImpl {
 	public List<AddressInfo> getCitizenAddressInfo(ServiceRequest svcRequest, String nin, String dateOfBirth, String addressLanguage) {
 
 		try {
-
-			// marshal request
+			_log.info("Inside getCitizenAddressInfo : .........................................");
+			//marshal request
 			CitizenAddressInfoRequest request = InfoMarshaller.marshalCitizenAddressInfo(svcRequest, nin, dateOfBirth, addressLanguage);
-
+			
 			// call service
 			CitizenAddressInfoResult response = getPort().getCitizenAddressInfo(request);
-
+			
+			_log.info("Response Of getCitizenAddressInfo : ......................................." + response);	//This line is not getting printed!!! So, the above line throws the error...
 			// unmarshall response
 			return AddressInfoUnmarshaller.unmarshalCitizenAddressInfo(response);
 		} catch (Exception e) {

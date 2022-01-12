@@ -26,7 +26,7 @@ public class PolicyVehDrvFinderImpl extends PolicyVehDrvFinderBaseImpl implement
 		Session session = null;
 		try {
 			session = openSession();
-			Criterion PolicyNoCrit = RestrictionsFactoryUtil.eq("primaryKey.PolicyNo", PolicyNo);
+			Criterion PolicyNoCrit = RestrictionsFactoryUtil.eq("primaryKey.policyNo", PolicyNo);
 			Criterion vehIdCrit = RestrictionsFactoryUtil.eq("primaryKey.vehId", new Long(vehId));
 
 			DynamicQuery entryQuery = DynamicQueryFactoryUtil.forClass(PolicyVehDrv.class, PolicyVehDrvFinderImpl.class.getClassLoader())

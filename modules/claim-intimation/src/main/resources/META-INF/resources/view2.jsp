@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.PropsUtil"%>
 <%@page import="claim.intimation.constants.ClaimIntimationPortletKeys"%>
 <%@page import="javax.portlet.PortletURL"%>
 <%@page import="javax.portlet.PortletRequest"%>
@@ -38,9 +39,21 @@
 	Map<String, Set<Map<String, String>>> requiredDocumentsListMap = ClaimIntimationPortlet.requiredDocumentsMap;
 	
 	String currLocale = themeDisplay.getLocale().toString();
+	String googleSiteKey =  PropsUtil.get("google.siteKey");
 %>
-<portlet:resourceURL var="captchaURL"/>
 <style>
+.has-error .form-control {
+    border-color: #a94442;}
+    
+    div#_ATMCClaimIntimation_mobileNumberHelper {
+    margin-top: 40px;
+    margin-left: 150px;
+    position: absolute;
+}
+    div#_ATMCClaimIntimation_phoneCodeHelper {
+    position: absolute;
+    margin-top: 40px;
+}
 .required {
     color: #a94442;
 }
@@ -84,6 +97,8 @@ label.control-label {
 }
 </style>
 <portlet:resourceURL var="validateOnPolicyAndChassisURL" id="validateOnPolicyAndChassis"/>
+
+<portlet:resourceURL var="captchaURL"/>
 
 <portlet:actionURL name="intimateClaim"  var="claimIntimationURL">
 </portlet:actionURL>
@@ -161,7 +176,7 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="bank-field" hidden>
 								<div class="form-group">
 									<label class="control-label"><liferay-ui:message key="claim-bank-name"/></label>
-									<select hidden class="form-control" name="<portlet:namespace/>bankName" label="">
+									<select class="form-control" name="<portlet:namespace/>bankName" label="">
 									<option value="-1"><liferay-ui:message key="please_select_option"/></option>
 										<%
 											if(Validator.isNotNull(bankList)){
@@ -272,14 +287,14 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 								<div class="form-group has-feedback">
 									<label class="control-label"><liferay-ui:message key="claim-sequence-no"/></label>
-									<input label="" id="<portlet:namespace/>sequenceNumber"  name="<portlet:namespace/>sequenceNumber" class="form-control" type="text" placeholder="Sequence Number">
+									<input label="" id="<portlet:namespace/>sequenceNumber" onkeypress="return validateSequenceNumber(event)" name="<portlet:namespace/>sequenceNumber" class="form-control" type="text" placeholder="Sequence Number">
 									</input>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 								<div class="form-group has-feedback">
 									<label class="control-label"><liferay-ui:message key="claim-chassis-no"/></label>
-									<input id="<portlet:namespace/>chassisNumber"  name="<portlet:namespace/>chassisNumber" class="form-control" type="text" placeholder="Chassis Number" label="">
+									<input id="<portlet:namespace/>chassisNumber" onkeypress="return validateNumericField(event)"  name="<portlet:namespace/>chassisNumber" class="form-control" type="text" placeholder="Chassis Number" label="">
  									</input>
 								</div>
 							</div>
@@ -300,7 +315,7 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 														<% 
 													}
 												} 	%>						
-										<input label="" onkeypress='return validateMobileNumber(event);'  id="<portlet:namespace/>mobileNumber"  name="<portlet:namespace/>mobileNumber" class="form-control" type="text" placeholder="Mobile Number">
+										<input label=""  id="<portlet:namespace/>mobileNumber"  name="<portlet:namespace/>mobileNumber" class="form-control" type="text" placeholder="Mobile Number">
 									</div>
 								</div>
 							</div>
@@ -453,7 +468,7 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
                         	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         		<div class="form-group has-feedback">
 									<label class="control-label"><liferay-ui:message key="claim-driver-name"/></label>
-                        			<input label="" id="<portlet:namespace/>driverName" name="<portlet:namespace/>driverName" class="form-control" type="text" >
+                        			<input label="" id="<portlet:namespace/>driverName" onkeypress="return validateDriverName(event);" name="<portlet:namespace/>driverName" class="form-control" type="text" >
                         			</input>
                         		</div>
                         	</div>
@@ -485,7 +500,7 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
                         	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         		<div class="form-group has-feedback">
 									<label class="control-label"><liferay-ui:message key="claim-national-id"/></label>
-                        			<input label="" id="<portlet:namespace/>driverNationalId" name="<portlet:namespace/>driverNationalId" class="form-control" type="text" >
+                        			<input label="" id="<portlet:namespace/>driverNationalId" onkeypress="return validateNumericField(event)" name="<portlet:namespace/>driverNationalId" class="form-control" type="text" >
                         			</input>
                         		</div>
                         	</div>
@@ -519,20 +534,27 @@ if (resourceURLVal.indexOf("&p_p_lifecycle=1") != -1)
 						<br/>
 						<div class="row">
 							<label><liferay-ui:message key="claim-upload-file"/></label>
-							<div class="element" style="margin-bottom: 2%;">
+							<div class="element" style="margin-bottom: 2%;width:100%">
 								<input type="file" style="display:inline" name="_ATMCClaimIntimation_claimIntimationAttachments"  id="_ATMCClaimIntimation_claimIntimationAttachments1"/>
 								<i id="tooltip1-info" class="glyphicon glyphicon-info-sign tooltip1"></i>
 							</div>
-							<div id="moreImageUpload"></div>
+							<div id="moreImageUpload" style="width: 100%"></div>
 							<div class="clear"></div>
-							<div id="moreImageUploadLink" style="display:none;margin-bottom: 5%;">
+							<div id="moreImageUploadLink" style="display:none;margin-bottom: 5%">
 								<a href="javascript:void(0)"  id="attachMore" onclick="attachMore()">Attach another file</a>
 							</div>
 						</div>
 						<br/>
 						<div class="row">
-							<liferay-captcha:captcha url="<%=captchaURL%>" />
-						</div>
+							<div class="col-md-12 margin-bottom">
+								<liferay-captcha:captcha url="<%=captchaURL%>" />
+								<span id="callback-blankCatcha" class="captcha_error"></span><br>
+							</div>
+						</div>	
+						<%-- <div class="row">
+							<div class="g-recaptcha required" data-sitekey="<%= googleSiteKey %>"data-callback="callback" ></div>
+							<span id="callback-blankCatcha" class="captcha_error"></span><br>
+						</div>	 --%>
 						<br/>
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -629,7 +651,7 @@ function toggleAddAnotherFileButton(id) {
 function attachMore(){
 	var moreUploadTag = '';
 	moreUploadTag += '<input type="file"id="_ATMCClaimIntimation_claimIntimationAttachments' + upload_number + '"  onchange="toggleAddAnotherFileButton(this.id)" name="_ATMCClaimIntimation_claimIntimationAttachments"/>';
-	$('<dl style="margin-bottom: 2%" id="another_file' + upload_number + '">' + moreUploadTag + '</dl>').fadeIn('slow').appendTo('#moreImageUpload');
+	$('<dl style="margin-bottom: 2%; width:100%" id="another_file' + upload_number + '">' + moreUploadTag + '</dl>').fadeIn('slow').appendTo('#moreImageUpload');
 	upload_number++;
 }
 function del_file(eleId) {
@@ -687,17 +709,30 @@ $(document).ready(function() {
 			}
 		}
 });
-function validateMobileNumber(event){
+function validateNumericField(event){
 	var key = window.event ? event.keyCode : event.which;
-    var mobileNoLength = $("#_ATMCClaimIntimation_phoneCode").val().length + $("#_ATMCClaimIntimation_mobileNumber").val().length;
-    if(mobileNoLength >= 10){
-    	return false;
-    }
-    else if ( key < 48 || key > 57 ) {
+//    var mobileNoLength = $("#_ATMCClaimIntimation_phoneCode").val().length + $("#_ATMCClaimIntimation_mobileNumber").val().length;
+//    if(mobileNoLength >= 10){
+//    	return false;
+//    }
+    if ( key < 48 || key > 57 ) {
         return false;
     }
     else return true;
 }
+function validateSequenceNumber(event){
+	var key = window.event ? event.keyCode : event.which;
+    var seqLength = $("#_ATMCClaimIntimation_sequenceNumber").val().length;
+    if(seqLength >= 9){
+    	return false;
+    }
+    else return true;
+}
+function validateDriverName(event){
+	var key = window.event ? event.keyCode : event.which;
+	  return (/[a-z]/i.test(event.key) || key == 8 || key == 32);
+}
+
 function validateQty(event) {
     var key = window.event ? event.keyCode : event.which;
   
@@ -825,10 +860,14 @@ var rules;
 		    <portlet:namespace/>chassisNumber: {
 	            required: true, 
 	            chassisNumberValid: true
+	        },
+		    <portlet:namespace/>phoneCode: {
+		    	custDropDown: true    
 		    },
 		    <portlet:namespace/>mobileNumber: {
 		    	required: true, 
-				number: true
+				number: true,
+				digits: true
 		    },
 		    <portlet:namespace/>causeOfLoss: {
 	            custDropDown: true

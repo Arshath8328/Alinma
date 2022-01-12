@@ -25,6 +25,9 @@
 	String  jobTitle = (String)request.getAttribute(VacanciesPortletKeys.JOB_TITLE);
 	List<CodeMasterDetails> nationalityList = (List<CodeMasterDetails>)request.getAttribute("nationalityData");
 	String currLocale = themeDisplay.getLocale().toString();
+	if(currLocale.equals("en_US")){
+		nationalityList.remove(0);
+	}
 %>
 <portlet:resourceURL var="captchaURL"/>
 <liferay-ui:error key="errorMessage" message="Please select the Captcha "/>
@@ -70,8 +73,8 @@
 					<div class="form-group has-feedback">
 						<label class="control-label"><liferay-ui:message key="dob_h"/></label> 
 						<aui:input type="text" id="appDOB_H" name="appDOB_H" class="form-control" readonly="readonly" placeholder="12/12/1411" label="" title="">
+							<span class="glyphicon form-control-feedback glyphicon-calendar text-muted"></span>
 						</aui:input>
-						<span class="glyphicon form-control-feedback glyphicon-calendar text-muted"></span>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -185,7 +188,9 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label class="control-label"><liferay-ui:message key="curr_salary"/></label>
-						<aui:input type="text" id="salary" name="salary" class="form-control" placeholder="<%=LanguageUtil.get(request, "enter_curr_salary_sar")%>" label="" title="" />
+						<aui:input type="text" id="salary" name="salary" class="form-control" placeholder="<%=LanguageUtil.get(request, "enter_curr_salary_sar")%>" label="" title="" >
+							<aui:validator name="digits"/>
+						</aui:input>
 					</div>
 				</div>
 			</div>
@@ -222,7 +227,7 @@
 				<div class="col-md-6">
 					<div class="form-group has-feedback">
 						<label class="control-label"><liferay-ui:message key="resume"/></label> 
-						<input id="selectedFile" name="<portlet:namespace/>selectedFile" class="form-control" placeholder='<liferay-ui:message key="sel_file_loc" />' onclick="$('#<portlet:namespace/>idFile').click();">  
+						<input type="file" id="selectedFile" name="<portlet:namespace/>selectedFile" class="form-control" placeholder='<liferay-ui:message key="sel_file_loc" />' onclick="$('#<portlet:namespace/>idFile').click();">  
 						<span class="glyphicon form-control-feedback glyphicon-paperclip text-muted"></span>
 						<aui:input type="file" name="idFile" id="idFile" cssClass="sr-only" label="" title="">
 							<aui:validator name="custom" errorMessage='<liferay-ui:message key="checkFileName"/>'>
@@ -236,7 +241,6 @@
 									}
 							</aui:validator>
 						</aui:input>
-						<liferay-captcha:captcha url="<%=captchaURL%>" />
 					</div>
 				</div>
 			</div>

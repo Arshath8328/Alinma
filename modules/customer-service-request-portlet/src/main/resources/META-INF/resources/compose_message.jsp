@@ -130,6 +130,7 @@
 												<label class="control-label" for="custName"><liferay-ui:message key="name" /></label>												 
 												<aui:input type="text" id="custName" placeholder="enter_your_name" name="custName" cssClass="form-control" label="">
 													<aui:validator name="required"/>
+													<aui:validator name="alpha"/>
 												</aui:input>
 											</div>											 
 										</div>
@@ -263,7 +264,10 @@
 	});
 
 
-
+	function validateName(event){
+		var key = window.event ? event.keyCode : event.which;
+		  return (/[a-z]/i.test(event.key) || key == 8 || key == 32);
+	}
 
 function validateCompose()
 {

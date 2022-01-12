@@ -562,6 +562,36 @@ div#productMenuSidebar > div.sidebar-body{
 	margin-right: -20px;
 }
 
+.nav-tabs {
+    border-bottom: 1px solid #d8d8d8;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(216, 216, 216);
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: rgb(101, 182, 240);
+    background-color: rgb(255, 255, 255);
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(216, 216, 216) transparent;
+    border-image: initial;
+}
+.nav>li>a, .nav>li>span, .nav-heading>a, .nav-heading>span {
+    display: block;
+    padding: 9px 16px;
+    position: relative;
+    word-wrap: break-word;
+}
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.42857;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px 4px 0px 0px;
+}
 .tab .nav-tabs li {
     margin: 0;
 }
@@ -986,6 +1016,7 @@ label, .control-label {
     border: 2px solid black;
 }
 .fund-stmt .cell-border-2{
+	height: auto;
     border-left:2px solid black;
 }
 .fund-stmt .txt-align-center{
@@ -1055,6 +1086,7 @@ label, .control-label {
     width: 60%;
 }
 .acct-stmt .fundStmt-table-head{
+	height: auto;
     font-size: 11px;
 }
 .fund-stmt .acct-stmt .stmt-table td{
@@ -1065,4 +1097,34 @@ label, .control-label {
 }
 .col-md-offset-1 {
     margin-left: 8.33333% !important;
+}
+
+
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.text-primary {
+    color: #3b73b9 !important;
+}
+
+.btn-primary:focus, .btn-primary:hover {
+    background-color: #40a4ec !important;
+    border-color: #40a4ec !important;
+}
+.btn-lg, .btn-group-lg>.btn {
+    padding: 12px 48px !important;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
 }

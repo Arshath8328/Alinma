@@ -46,7 +46,8 @@ import org.osgi.service.component.annotations.Component;
  * @see    SendEmailServiceBaseImpl
  */
 @Component(
-		property = { "json.web.service.context.name=dbacl", "json.web.service.context.path=SendEmail" },
+		property =
+		{ "json.web.service.context.name=dbacl", "json.web.service.context.path=SendEmail" },
 		service = AopService.class
 )
 public class SendEmailServiceImpl extends SendEmailServiceBaseImpl {
@@ -56,41 +57,42 @@ public class SendEmailServiceImpl extends SendEmailServiceBaseImpl {
 	 * Never reference this class directly. Always use {@link com.ejada.atmc.acl.db.service.SendEmailServiceUtil} to access
 	 * the send email remote service.
 	 */
+	private static final boolean IS_PRODUCTION_ENV = Boolean.parseBoolean(PropsUtil.get("production.env") != null ? PropsUtil.get("production.env") : "false");
 
 	public boolean sendEmail(String mailTo, String mailSubject, String mailMessage, List<String> fileName, List<File> attachedFile) {
 		InternetAddress fromAddress = null;
 		InternetAddress toAddress = null;
 
 		_log.info("Inside SendEmailServiceImpl.sendEmail");
+		if (IS_PRODUCTION_ENV) {
+			try {
+				_log.info("fromAddress:" + PropsUtil.get("mailFrom"));
 
-		try {
-			_log.info("fromAddress:" + PropsUtil.get("mailFrom"));
-
-			fromAddress = new InternetAddress(PropsUtil.get("mailFrom"));
-			toAddress = new InternetAddress(mailTo);
-			MailMessage mailMsg = new MailMessage();
-			mailMsg.setFrom(fromAddress);
-			mailMsg.setTo(toAddress);
-			mailMsg.setSubject(mailSubject);
-			mailMsg.setBody(mailMessage);
-			if (attachedFile != null && fileName != null && !attachedFile.isEmpty() && !fileName.isEmpty()) {
-				for (int i = 0; i < attachedFile.size(); i++) {
-					mailMsg.addFileAttachment(attachedFile.get(i), fileName.get(i));
-					_log.info(fileName.get(i) + " attached to Email");
+				fromAddress = new InternetAddress(PropsUtil.get("mailFrom"));
+				toAddress = new InternetAddress(mailTo);
+				MailMessage mailMsg = new MailMessage();
+				mailMsg.setFrom(fromAddress);
+				mailMsg.setTo(toAddress);
+				mailMsg.setSubject(mailSubject);
+				mailMsg.setBody(mailMessage);
+				if (attachedFile != null && fileName != null && !attachedFile.isEmpty() && !fileName.isEmpty()) {
+					for (int i = 0; i < attachedFile.size(); i++) {
+						mailMsg.addFileAttachment(attachedFile.get(i), fileName.get(i));
+						_log.info(fileName.get(i) + " attached to Email");
+					}
 				}
+				_log.info("Sending email...");
+				MailServiceUtil.sendEmail(mailMsg);
+				_log.info("Email sent Successfully");
+			} catch (AddressException e) {
+				_log.error("Failed to send Email", e);
+				return false;
+			} catch (Exception e) {
+				_log.error("Failed to send Email", e);
+				return false;
 			}
-			_log.info("Sending email...");
-			MailServiceUtil.sendEmail(mailMsg);
-			_log.info("Email sent Successfully");
-		} catch (AddressException e) {
-			_log.error("Failed to send Email", e);
-			e.printStackTrace();
-			return false;
-		} catch (Exception e) {
-			_log.error("Failed to send Email", e);
-			e.printStackTrace();
-			return false;
-		}
+		} else
+			_log.info("Not production server!");
 		return true;
 	}
 

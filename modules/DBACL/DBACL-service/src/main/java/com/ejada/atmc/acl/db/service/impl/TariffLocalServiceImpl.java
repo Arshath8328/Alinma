@@ -121,6 +121,8 @@ public class TariffLocalServiceImpl extends TariffLocalServiceBaseImpl {
 			_log.info("======================================================Query successfully executed========================================================");
 
 			ResultSet rset = (ResultSet)cs.getObject(24);
+			_log.info("Resultset in tariff query : " + rset);
+
 			while (rset.next()) {
 				TariffOutput output = new TariffOutput();
 				output.setUniqueIdentifier(rset.getString(1));

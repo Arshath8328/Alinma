@@ -27,7 +27,7 @@ public class PolicyVEHFinderImpl extends PolicyVEHFinderBaseImpl implements Poli
 			session = openSession();
 
 			DynamicQuery entryQuery = DynamicQueryFactoryUtil.forClass(PolicyVEH.class, PolicyVEHFinderImpl.class.getClassLoader())
-					.add(RestrictionsFactoryUtil.eq("primaryKey.PolicyNo", PolicyNo));
+					.add(RestrictionsFactoryUtil.eq("primaryKey.policyNo", PolicyNo));
 
 			List<PolicyVEH> entries = PolicyVEHLocalServiceUtil.dynamicQuery(entryQuery);
 

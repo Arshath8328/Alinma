@@ -69,7 +69,11 @@
 	ServiceRequestSearchTerms displayTerms = (ServiceRequestSearchTerms)srvReqSearchContainer.getDisplayTerms();
 	
 %>
-
+<style>
+.text-primary{
+	color: #3b73b9 !important
+}
+</style>
 <portlet:renderURL var="historyURL">
 	<portlet:param name="myview" value="closed_requests"/>
 </portlet:renderURL>

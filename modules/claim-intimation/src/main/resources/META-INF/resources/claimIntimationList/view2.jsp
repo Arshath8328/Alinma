@@ -18,11 +18,8 @@
 <%@page import="java.util.List"%>
 <style>
 th{
+	text-align: center;
     font-weight: bold !important;
-	font-size: 1.8rem !important;
-}
-td{
-	font-size: 1.5rem;
 }
 .inner-table th {
     font-weight: bold;
@@ -57,6 +54,9 @@ details[open] > summary {
 }
 .inner-table {
 	border-spacing: 0px;
+}
+.table-cell {
+	text-align: center;
 }
 </style>
 <liferay-portlet:renderURL varImpl="iteratorURL">
@@ -163,7 +163,7 @@ details[open] > summary {
             		}
             	%>
 	            <a id="documents<%=String.valueOf(claimIntimation.getClaimIntimationMotorId())%>" 
-	            onclick="downloadDocuments('<%=String.valueOf(claimIntimation.getIntimationReferenceNo())%>')"><img style="width:50%; margin-left: 20%" src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"/></a>
+	            onclick="downloadDocuments('<%=String.valueOf(claimIntimation.getIntimationReferenceNo())%>')"><img style="width:30%" src="https://img.icons8.com/pastel-glyph/64/000000/download--v1.png"/></a>
             </liferay-ui:search-container-column-text>
 			<liferay-ui:search-container-column-text name="Claimant Type" value="<%= ClaimIntimationListPortlet.claimTypeCodeValuePair.get(claimIntimation.getClaimantType()) %>" />
 			<liferay-ui:search-container-column-text name="Policy No" property="policyNo" />
@@ -222,7 +222,9 @@ details[open] > summary {
 					 (lang.equals("en_US")) ? 	ClaimIntimationListPortlet.vehicleMakeMap.get(claimIntimation.getVehicleMake()) 
 					 						:	ClaimIntimationListPortlet.vehicleMakeMapAR.get(claimIntimation.getVehicleMake()) %>"/>
 
-			<liferay-ui:search-container-column-text name="Vehicle Model" value="<%= ClaimIntimationListPortlet.vehicleModelMap.get(claimIntimation.getVehicleModel()) %>" />
+			<liferay-ui:search-container-column-text name="Vehicle Model" > 
+				<%= ClaimIntimationListPortlet.vehicleModelMap.get(claimIntimation.getVehicleModel()) %>
+			</liferay-ui:search-container-column-text>
 			
 			<liferay-ui:search-container-column-text name="Driver Name" property="driverName" />
 			

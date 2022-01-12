@@ -43,13 +43,13 @@
 </style>
 <%
 	String manufactList = (String) request.getAttribute("manufactDataJson");
-	String manufactMap = (String) request.getAttribute("manufactMapJson");
+	String currLocale = themeDisplay.getLocale().toString();
+	String manufactMap = currLocale.equals("en_US") ? (String) request.getAttribute("manufactMapJson") : (String) request.getAttribute("manufactMapArJson")  ;
 	List<CodeMasterDetails> manufacturerList = (List<CodeMasterDetails>) request
 			.getAttribute("manufacturerList");
 	Log _log = LogFactoryUtil.getLog(this.getClass());
 	
 	List<CodeMasterDetails> codeMasterList = (List<CodeMasterDetails>) request.getAttribute("bodyListData");
-	String currLocale = themeDisplay.getLocale().toString();
 	List dedVals = (List) request.getAttribute("dedVals");
 %>
 
@@ -82,12 +82,16 @@
 			</div>
 			<br />
 				<button class="btn btn-lg btn-primary pull-right"
-						style="width: 176px;margin: 1% auto; color: white" ><a style=" color:white" href="/web/customer/claim_intimation">
-						Intimate Motor Claim</a>
+						style="width: 176px;margin: 1%; color: white" >
+						<a style=" color:white" href="/web/customer/claim_intimation">
+							<liferay-ui:message key="home.intimate.motor.claim"/>
+						</a>
 					</button>
 						<button class="btn btn-lg btn-primary pull-right"
-						style="width: 176px; margin:1% auto; color:white" ><a style=" color:white" href="/web/customer/claim-status-tracker">
-						Check Intimated Claim Status</a>
+						style="width: 176px; margin:1%; color:white" >
+						<a style=" color:white" href="/web/customer/claim-status-tracker">
+							<liferay-ui:message key="home.check.claim.status"/>
+						</a>
 					</button>
 		</div>
 		<div class="error_container"></div>

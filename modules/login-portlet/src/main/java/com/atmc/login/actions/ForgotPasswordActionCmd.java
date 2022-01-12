@@ -15,6 +15,7 @@
 package com.atmc.login.actions;
 
 import com.atmc.login.constants.LoginPortletKeys;
+import com.atmc.web.util.LoginUtil;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaException;
@@ -235,9 +236,9 @@ public class ForgotPasswordActionCmd extends BaseMVCActionCommand {
 		String subject = portletPreferences.getValue(emailParam + "Subject_" + languageId, null);
 		String body = portletPreferences.getValue(emailParam + "Body_" + languageId, null);
 
-//		LoginUtil.sendPassword(
-//			actionRequest, emailFromName, emailFromAddress, emailToAddress,
-//			subject, body);
+		LoginUtil.sendPassword(
+			actionRequest, emailFromName, emailFromAddress, emailToAddress,
+			subject, body);
 
 		HttpServletRequest request = _portal.getHttpServletRequest(actionRequest);
 

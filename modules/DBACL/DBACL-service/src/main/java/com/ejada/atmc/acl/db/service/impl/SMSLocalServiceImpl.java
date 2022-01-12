@@ -19,6 +19,7 @@ import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -52,44 +53,46 @@ public class SMSLocalServiceImpl extends SMSLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Use <code>com.atmc.bsl.db.service.SMSLocalService</code> via injection or
-	 * a <code>org.osgi.util.tracker.ServiceTracker</code> or use
-	 * <code>com.atmc.bsl.db.service.SMSLocalServiceUtil</code>.
+	 * Never reference this class directly. Use <code>com.atmc.bsl.db.service.SMSLocalService</code> via injection or a
+	 * <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.atmc.bsl.db.service.SMSLocalServiceUtil</code>.
 	 */
 
-	private static final Log	logger		= LogFactoryUtil.getLog(SMSLocalServiceImpl.class);
-
-	private static final String	PROC_NAME	= "ATMCSMS";
-	private static final String	EVENT_TYPE	= "Evt_Atmc";
+	private static final Log		logger				= LogFactoryUtil.getLog(SMSLocalServiceImpl.class);
+	private static final boolean	IS_PRODUCTION_ENV	= Boolean.parseBoolean(PropsUtil.get("production.env") != null ? PropsUtil.get("production.env") : "false");
+	private static final String		PROC_NAME			= "ATMCSMS";
+	private static final String		EVENT_TYPE			= "Evt_Atmc";
 
 	public void sendSms(String message, String mobile) throws PortalException, SQLException {
+		if (IS_PRODUCTION_ENV) {
+			logger.info("Inside SMSLocalServiceImpl.sendSms for mobile:" + mobile + "...message:" + message);
+			Connection connection = null;
+			try {
 
-		logger.info("Inside SMSLocalServiceImpl.sendSms for mobile:" + mobile + "...message:" + message);
-		Connection connection = null;
-		try {
+				DataSource src = smsPersistence.getDataSource();
+				connection = src.getConnection();
 
-			DataSource src = smsPersistence.getDataSource();
-			connection = src.getConnection();
+				CallableStatement cs = connection.prepareCall("{Call " + PROC_NAME + "(?,?,?)}");
 
-			CallableStatement cs = connection.prepareCall("{Call " + PROC_NAME + "(?,?,?)}");
+				cs.setString(1, EVENT_TYPE); // type
+				cs.setString(2, message); // message
+				cs.setString(3, mobile); // mobile
+				// cs.registerOutParameter(4, java.sql.Types.INTEGER); // procedure return
 
-			cs.setString(1, EVENT_TYPE); // type
-			cs.setString(2, message); // message
-			cs.setString(3, mobile); // mobile
-			// cs.registerOutParameter(4, java.sql.Types.INTEGER); // procedure return
+				cs.executeQuery();
 
-			cs.executeQuery();
+				logger.info("Stored Procedure " + PROC_NAME + " called successfully");
+				// cs.getObject(4));
 
-			logger.info("Stored Procedure " + PROC_NAME + " called successfully");
-			// cs.getObject(4));
-
-		} catch (Exception e) {
-			logger.error("Failed to send SMS", e);
-			e.printStackTrace();
-			throw new PortalException(e);
-		} finally {
-			if (connection != null)
-				connection.close();
+			} catch (Exception e) {
+				logger.error("Failed to send SMS", e);
+				e.printStackTrace();
+				throw new PortalException(e);
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		} else {
+			logger.info("Not production server!");
 		}
 	}
 

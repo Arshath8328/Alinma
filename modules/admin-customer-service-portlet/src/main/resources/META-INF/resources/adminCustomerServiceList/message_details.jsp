@@ -287,7 +287,7 @@
 								}
 							%>
 							<li>
-								<a class="btn btn-primery btn-outline btn-lg btn-xs-block" id="assignBtn" name="assignBtn" role="button" href="javascript:;"><liferay-ui:message key="assign_to" /></a>
+								<a class="btn btn-primery btn-outline btn-lg btn-xs-block" style="color: #65b6f0 !important" id="assignBtn" name="assignBtn" role="button" href="javascript:;"><liferay-ui:message key="assign_to" /></a>
 							</li>
 							<li>
 								

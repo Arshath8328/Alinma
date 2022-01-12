@@ -35,34 +35,34 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the otp local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are
- * added, rerun ServiceBuilder to copy their definitions into the
- * <code>com.atmc.bsl.db.service.OTPLocalService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy
+ * their definitions into the <code>com.atmc.bsl.db.service.OTPLocalService</code> interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security
- * checks based on the propagated JAAS credentials because this service can only
- * be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS
+ * credentials because this service can only be accessed from within the same VM.
  * </p>
  *
  * @author Brian Wing Shun Chan
- * @see OTPLocalServiceBaseImpl
+ * @see    OTPLocalServiceBaseImpl
  */
-@Component(property = "model.class.name=com.atmc.bsl.db.model.OTP", service = AopService.class)
+@Component(
+		property = "model.class.name=com.atmc.bsl.db.model.OTP",
+		service = AopService.class
+)
 public class OTPLocalServiceImpl extends OTPLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use {@link
-	 * com.atmc.bsl.db.service.OTPLocalServiceUtil} to access the otp local
-	 * service.
+	 * Never reference this class directly. Always use {@link com.atmc.bsl.db.service.OTPLocalServiceUtil} to access the otp
+	 * local service.
 	 * 
 	 * 
 	 */
 
-	public static final String SMS_TEMPLATE_KEY = "plz_activation_code";
-	public static final String EMAIL_SUBJECT_KEY = "otp_email_subject";
-	public static final String EMAIL_BODY_KEY = "otp_email_body";
+	public static final String	SMS_TEMPLATE_KEY	= "plz_activation_code";
+	public static final String	EMAIL_SUBJECT_KEY	= "otp_email_subject";
+	public static final String	EMAIL_BODY_KEY		= "otp_email_body";
 
 	public boolean sendOTP(Locale locale, String otpSecret, String mobileNumber) {
 		boolean otpSent = false;
@@ -91,8 +91,7 @@ public class OTPLocalServiceImpl extends OTPLocalServiceBaseImpl {
 		_log.info("Generated OTP:" + otp);
 		if (otp != null) {
 			String emailMsg = LanguageUtil.format(locale, EMAIL_BODY_KEY, otp);
-			otpSent = SendEmailServiceUtil.sendEmail(emailAddress, LanguageUtil.get(locale, EMAIL_SUBJECT_KEY),
-					emailMsg, null, null);
+			otpSent = SendEmailServiceUtil.sendEmail(emailAddress, LanguageUtil.get(locale, EMAIL_SUBJECT_KEY), emailMsg, null, null);
 		}
 
 		return otpSent;

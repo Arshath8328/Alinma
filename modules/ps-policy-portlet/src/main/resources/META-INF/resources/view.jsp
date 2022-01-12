@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="com.ejada.atmc.acl.db.custom.model.PSPolicy"%>
 <%@ include file="/init.jsp" %>

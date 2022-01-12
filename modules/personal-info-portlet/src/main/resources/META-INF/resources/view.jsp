@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.HtmlUtil"%>
 <%@page import="com.atmc.login.constants.LoginPortletKeys"%>
 <%@page import="com.atmc.personal.info.constants.PersonalInfoBarPortletKeys"%>
 <%-- <%@page import="com.atmc.web.util.SessionUtil"%>
@@ -24,13 +25,14 @@
 			    <span class="glyphicon glyphicon-user"></span> <span class="hidden-xs"><%= HtmlUtil.escape(displayName)%></span> <span class="visible-xs-inline"><%= HtmlUtil.escape(displayName.split(" ")[0])%></span>
 			    <span class="glyphicon glyphicon-menu-down"></span>
 			</button>
+
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				<%
 						
 						if (user.getOrganizations().isEmpty()){
 				%>
 							
-							<li><a href="/group/customer/profile">View Profile</a></li>
+							<li class="dropdown-item"><a href="/group/customer/profile">View Profile</a></li>
 				<%
 							
 						}
@@ -120,3 +122,11 @@
 }
 
 </style>
+
+<script>
+$('.dropdown').hover(function() {
+	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+	}, function() {
+	  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+});
+</script>

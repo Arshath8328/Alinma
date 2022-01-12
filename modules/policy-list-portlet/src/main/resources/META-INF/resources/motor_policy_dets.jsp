@@ -391,7 +391,7 @@
 						<button class="btn btn-lg btn-xs-block btn-default" type="button" onclick="window.location='/group/customer/customer_service';"><liferay-ui:message key="service_req"/></button>
 					</li>
 					<li>
-						<button style="pointer-events: none" class="btn btn-primary btn-lg btn-xs-block" type="button" onclick="renewPolicy();" <%=(daysDiff>daysAfterExp||(pStatus.equals("EX")&& !withinExpiryPeriod))?"disabled":"" %>><liferay-ui:message key="renew"/></button>
+						<button class="btn btn-primary btn-lg btn-xs-block" type="button" onclick="renewPolicy();" <%=(daysDiff>daysAfterExp||(pStatus.equals("EX")&& !withinExpiryPeriod))?"disabled":"" %>><liferay-ui:message key="renew"/></button>
 					</li>
 				</ul>
 			</div>

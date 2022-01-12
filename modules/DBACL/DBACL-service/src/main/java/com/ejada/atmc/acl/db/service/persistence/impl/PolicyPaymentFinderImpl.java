@@ -28,7 +28,7 @@ public class PolicyPaymentFinderImpl extends PolicyPaymentFinderBaseImpl impleme
 			session = openSession();
 
 			DynamicQuery entryQuery = DynamicQueryFactoryUtil.forClass(PolicyPayment.class, PolicyPaymentFinderImpl.class.getClassLoader())
-					.add(RestrictionsFactoryUtil.eq("primaryKey.PolicyNo", PolicyNo)).addOrder(OrderFactoryUtil.desc("docDate"));
+					.add(RestrictionsFactoryUtil.eq("primaryKey.policyNo", PolicyNo)).addOrder(OrderFactoryUtil.desc("docDate"));
 
 			List<PolicyPayment> entries = PolicyPaymentLocalServiceUtil.dynamicQuery(entryQuery);
 

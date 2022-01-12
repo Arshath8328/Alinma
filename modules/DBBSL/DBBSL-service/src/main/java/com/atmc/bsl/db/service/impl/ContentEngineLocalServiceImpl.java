@@ -176,12 +176,21 @@ public class ContentEngineLocalServiceImpl extends ContentEngineLocalServiceBase
 		// JournalArticle journalArticle;
 		try {
 
+			OrderByComparator<JournalArticle> comparator = new OrderByComparator<JournalArticle>() {
+				@Override
+				public int compare(JournalArticle arg0, JournalArticle arg1) {
+					return arg1.getModifiedDate().compareTo(arg0.getModifiedDate());
+				}
+			};
+			
 			long folderId = getJournalFolderIdByName("vacancies", themeDisplay.getScopeGroupId());
 			List<JournalArticle> articles = JournalArticleLocalServiceUtil.getArticles(themeDisplay.getScopeGroupId(),
 					folderId);// (themeDisplay.getScopeGroupId(),articleName);
-
+			ArrayList<JournalArticle> vacancyList = new ArrayList<>(articles);
+			vacancyList.sort(comparator);
+			
 			_log.info("search :" + locationSearch + departmentSearch);
-			for (JournalArticle journalArticle : articles) {
+			for (JournalArticle journalArticle : vacancyList) {
 				String articleId = journalArticle.getArticleId();
 
 				// getting the templated (Display) Content

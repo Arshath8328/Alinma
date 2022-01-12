@@ -114,4 +114,10 @@ public class AddressInfo extends ServiceResponse {
 		this.isPrimaryAddress = isPrimaryAddress;
 	}
 
+	@Override
+	public String toString() {
+		return "AddressInfo [additionalNumber=" + additionalNumber + ", buildingNumber=" + buildingNumber + ", city=" + city + ", district=" + district + ", postCode=" + postCode
+				+ ", streetName=" + streetName + ", isPrimaryAddress=" + isPrimaryAddress + "]";
+	}
+
 }

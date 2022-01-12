@@ -12,6 +12,7 @@
  */
 package com.ejada.atmc.bsl.db.domain.policy;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
  * @author Ghada Shawkat
  *
  */
-public class PolicyVehicle {
+public class PolicyVehicle implements Serializable {
 	String policyNo;
 	String vehId;
 	String vehicleDefType;

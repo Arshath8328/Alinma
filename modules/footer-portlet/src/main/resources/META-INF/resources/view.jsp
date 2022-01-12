@@ -112,9 +112,9 @@
 			<a href="/web/customer/report_a_fraud" class="btn btn-default btn-outline hidden-xs">
 				<liferay-ui:message key="report_fraud"/>
 			</a>
-			<button type="button" class="btn btn-default btn-outline btn-xs-block hidden">
+			<!-- <button type="button" class="btn btn-default btn-outline btn-xs-block hidden">
 				<liferay-ui:message key="report_complaint"/>
-			</button>
+			</button> -->
 			
 		</div>
 	</div>

@@ -404,7 +404,8 @@ public class CustomerVehicleDetailsLocalServiceImpl extends CustomerVehicleDetai
 				_log.info("Back from getAlienAddress");
 				long period3 = System.currentTimeMillis() - s3Time;
 				_log.info("getAlienAddressInfo took " + period3 + " ms");
-
+				_log.info("citizenAddrInfo returned from YakeenLocalServiceUtil.getAlienAddressInfo......." + citizenAddrInfo);
+				
 				if (citizenAddrInfo != null && citizenAddrInfo.size() == 1 && citizenAddrInfo.get(0).getErrorCode() != 0
 						&& citizenAddrInfo.get(0).getErrorMessage() != null) {
 					throw new YaqeenException(citizenAddrInfo.get(0).getErrorCode(),
